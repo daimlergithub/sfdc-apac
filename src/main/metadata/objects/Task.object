@@ -538,62 +538,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -1625,62 +1570,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -2723,62 +2613,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -4134,62 +3969,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -5212,62 +4992,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -6566,62 +6291,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -7921,62 +7591,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -9036,62 +8651,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -10163,62 +9723,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>  
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>   
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -11274,62 +10779,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -12472,62 +11922,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -13559,62 +12954,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
@@ -14681,62 +14021,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues> 
-        <picklistValues>
-            <picklist>Activity_OutboundCallSource__c</picklist>
-            <values>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Newspaper%2FMagazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_OutboundSubCallSource__c</picklist>
             <values>
