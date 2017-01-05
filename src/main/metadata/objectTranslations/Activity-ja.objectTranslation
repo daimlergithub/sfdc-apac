@@ -1412,11 +1412,7 @@
     <fields>
         <label><!-- UniqueCampaignMobile --></label>
         <name>UniqueCampaignMobile__c</name>
-    </fields>
-    <fields>
-        <label><!-- Unique Code --></label>
-        <name>UniqueCode__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
