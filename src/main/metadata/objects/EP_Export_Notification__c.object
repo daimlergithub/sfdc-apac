@@ -50,7 +50,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -106,6 +106,7 @@
     </fields>
     <fields>
         <fullName>SFDC_object_id__c</fullName>
+        <description>Stored SFDC Record ID for export</description>
         <externalId>false</externalId>
         <label>SFDC Record ID</label>
         <length>20</length>
@@ -121,7 +122,7 @@
         <picklist>
             <picklistValues>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>In Progress</fullName>
@@ -144,6 +145,7 @@
     </fields>
     <fields>
         <fullName>Type__c</fullName>
+        <description>Store Object Name</description>
         <externalId>false</externalId>
         <label>Type</label>
         <length>100</length>
@@ -153,7 +155,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Updated_By_EP_Transaction__c</fullName>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
         <label>Updated By EP Transaction</label>
         <length>255</length>
@@ -164,6 +166,7 @@
     </fields>
     <fields>
         <fullName>Usecase__c</fullName>
+        <description>Store Usecase</description>
         <externalId>false</externalId>
         <label>Usecase</label>
         <length>100</length>

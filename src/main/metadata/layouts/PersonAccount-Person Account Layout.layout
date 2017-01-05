@@ -11,6 +11,7 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
 	<customButtons>New_Case</customButtons>
+	<customButtons>Create_Retail_Copy_kr</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
