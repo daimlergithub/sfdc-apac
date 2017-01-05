@@ -1600,7 +1600,7 @@
         </picklist>
         <type>Picklist</type>
     </fields>
-    <fields>
+   <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
@@ -1625,8 +1625,45 @@
                 <fullName>Quoted</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
