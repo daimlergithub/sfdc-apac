@@ -121,6 +121,10 @@
         <name>Address_Search</name>
     </customLabels>
     <customLabels>
+        <label>アドレス選択</label>
+        <name>Address_Select</name>
+    </customLabels>
+    <customLabels>
         <label>郵便番号検索時は、郵便番号以外の住所項目は入力しないでください。</label>
         <name>Address_fields_not_null</name>
     </customLabels>
@@ -1388,6 +1392,10 @@
         <name>New_Customer_Acquisition</name>
     </customLabels>
     <customLabels>
+        <label>住所はありません。 まずアドレスを追加してください。</label>
+        <name>No_Address_Message</name>
+    </customLabels>
+    <customLabels>
         <label><!-- No Complaint --></label>
         <name>No_Complaint</name>
     </customLabels>
@@ -1488,6 +1496,10 @@
     <customLabels>
         <label><!-- Please enter the filter name --></label>
         <name>Please_enter_the_filter_name</name>
+    </customLabels>
+    <customLabels>
+        <label>アドレスを選択してください</label>
+        <name>Please_select_Address</name>
     </customLabels>
     <customLabels>
         <label>マスタレコードは一つのみ選択してください。</label>
@@ -1744,6 +1756,10 @@
     <customLabels>
         <label><!-- Search Customer --></label>
         <name>Search_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label>アドレスを選択してください</label>
+        <name>Select_Address_Msg</name>
     </customLabels>
     <customLabels>
         <label><!-- [Select All] --></label>
