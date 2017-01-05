@@ -9239,7 +9239,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.MobilePhone</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
