@@ -24568,11 +24568,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageEncryptionKeys</name>
-    </userPermissions>
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEntitlements</name>
