@@ -64,17 +64,17 @@ public List<Account> accc {set;get;}
        Account_Link__c newals; //= new Account_Link__c();
        if(Accountlinklist.isEmpty()){//SFDCJP-730
        newals = new Account_Link__c();
-       newals.fromRole__c = account.Id ;
-       newals.toRole__c = account.Company__c ;     
+       newals.fromRole__c = account.Id ; 
+       newals.toRole__c = account.Company__c ; 
        newals.RecordTypeId = RDType;
             
        insert newals;
        }
        //SFDCJP-730.Start
        else if(!Accountlinklist.isEmpty()){
-           for(Account_Link__c accountLink : Accountlinklist){
+           for(Account_Link__c accountLink : Accountlinklist){ 
                accountLink.fromRole__c = account.Company__c;
-               accountLink.toRole__c =  account.Id;
+               accountLink.toRole__c =  account.Id; 
                acclink.add(accountLink);
            }
            update acclink;
