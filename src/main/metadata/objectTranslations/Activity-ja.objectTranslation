@@ -917,11 +917,7 @@
     </fields>
    <fields>
         <label><!-- Intention Status --></label>
-        <name>Intention_Status__c</name>
-        <picklistValues>
-            <masterLabel>Contact</masterLabel>
-            <translation>コンタクト</translation>
-        </picklistValues> 
+        <name>Intention_Status__c</name> 
         <picklistValues>
             <masterLabel>Hand Back</masterLabel>
             <translation><!-- Hand Back --></translation>
