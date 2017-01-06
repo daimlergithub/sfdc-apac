@@ -1,6 +1,45 @@
 <messaging:emailTemplate subject="Notify to Dealer" recipientType="User" relatedToType="Case">
-<messaging:plainTextEmailBody >
-Congratulations!
-This is your new Visualforce Email Template.
-</messaging:plainTextEmailBody>
+<messaging:htmlEmailBody > 
+
+   <html>
+   <style type="text/css">
+   </style>
+   <body>
+    <p>Case:{!relatedTo.CaseNumber}.</p>
+    
+    <p> Mercedes Benz {!relatedTo.Case_Dealer__r.Name} shop</p>
+    <p>Manager, Representative </p>
+    
+    <p>Please check　New customer related information distribution notification .</p>
+    
+    <p>I trust you are well.</p>
+    
+    <p>Today {!TODAY()} customer related information(Call-in conversations, survey result, customer information change, etc.) we'd like to distribute to you.</p>
+    
+    <p>Please check and respond as necessary. Please take caution in handling of the information.</p>
+    
+    <apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Case's detail pag</apex:outputLink>
+    
+    <p>*You need to log in to Salesforce to check the Case information. </p>
+    
+   <p> Thank you for your support. </p>
+    
+   <p> If there's anything uncertain about operating with Salesforce,  
+    please contact Salesforce support desk. </p>
+    
+    <p>Mercedes Benz Japan Salesforce Office </p>
+    
+   <p> -----------------------------------------------</p>
+    <p>For operations with Salesforce, system maintenance,</p>
+    <p>please contact the number below.  </p>
+
+   <p> Salesforce support desk</p>
+   <p> Phone：XXX（Operation hours: everyday 10:00-12:00, 13:00-18:00）</p>
+   <p> *Please do not reply directly to this e-mail.</p>
+   <p> -----------------------------------------------</p>
+
+   </body>
+   </html>
+     
+</messaging:htmlEmailBody>
 </messaging:emailTemplate>
