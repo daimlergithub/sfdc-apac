@@ -62,19 +62,19 @@ public List<Account> accc {set;get;}
          List<Account_Link__c> acclink = New List<Account_Link__c>();
        List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Id AND RecordTypeID =: RDType];  //SFDCJP-730
        Account_Link__c newals; //= new Account_Link__c();
-       if(Accountlinklist.isEmpty()){//SFDCJP-730
+       if(Accountlinklist.isEmpty()){//SFDCJP-730 
        newals = new Account_Link__c(); 
        newals.fromRole__c = account.Company__c ;
-       newals.toRole__c = account.ID ; 
+       newals.toRole__c = account.ID  
        newals.RecordTypeId = RDType;
             
        insert newals;
        }
        //SFDCJP-730.Start
        else if(!Accountlinklist.isEmpty()){ 
-           for(Account_Link__c accountLink : Accountlinklist){
+           for(Account_Link__c accountLink : Accountlinklist){ 
                accountLink.fromRole__c = account.Company__c;
-               accountLink.toRole__c =  account.Id; 
+               accountLink.toRole__c =  account.Id;  
                acclink.add(accountLink);
            }
            update acclink;
