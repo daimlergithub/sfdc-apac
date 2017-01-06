@@ -148,15 +148,7 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Activity_Comment__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity Comment</inlineHelpText>
-        <label>Activity Comment</label>
-        <required>false</required>
-        <type>TextArea</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Activity_DataSource__c</fullName>
         <externalId>false</externalId>
@@ -545,30 +537,7 @@
         <label>Activity Date</label>
         <required>false</required>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Activity_InboundCallNumber__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity InboundCallNumber</inlineHelpText>
-        <label>Activity InboundCallNumber</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Activity_InboundExtNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity InboundExtNumber</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Activity_Info__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity Info</inlineHelpText>
-        <label>Activity Info</label>
-        <required>false</required>
-        <type>TextArea</type>
-    </fields> 
+    </fields>  
     <fields>
         <fullName>Activity_Purpose__c</fullName>
         <externalId>false</externalId>
@@ -928,16 +897,7 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Adhoc_eDM_Template_ID__c</fullName>
-        <externalId>false</externalId>
-        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", ""), "")</formula>
-        <label>Adhoc eDM Template ID</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Assignment_Status__c</fullName>
         <description>This field is created for display assignment status automatically.</description>
@@ -947,14 +907,7 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>BlacklistSensitiveWord__c</fullName>
-        <externalId>false</externalId>
-        <label>Blacklist Sensitive Word</label>
-        <required>false</required>
-        <type>TextArea</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Called__c</fullName>
         <description>The Called field contains the called part of the call (also known as “DNIS”).</description>
@@ -1340,16 +1293,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>More_Than_2_OB_Times__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
-        <label>More Than 2 OB Times</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>MTH_Penetration__c</fullName>
         <externalId>false</externalId>
@@ -1654,16 +1598,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Recording_ID__c</fullName>
-        <description>This field could be useless, since we use visualforce page to show the voice record link.
-noted by Lio on 10.28.2013</description>
-        <externalId>false</externalId>
-        <label>Recording ID</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Related_Task_Id__c</fullName>
         <description>Relate Interaction Log and Task.</description>
@@ -1673,14 +1608,7 @@ noted by Lio on 10.28.2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Resource_Required__c</fullName>
-        <externalId>false</externalId>
-        <label>Resource Required</label>
-        <required>false</required>
-        <type>TextArea</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
@@ -1697,17 +1625,7 @@ noted by Lio on 10.28.2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SMSBatchNumber__c</fullName>
-        <description>When create a SMS Batch and run the batch, give batch value to task</description>
-        <externalId>false</externalId>
-        <label>SMS Batch Number</label>
-        <length>9</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>SMSTemplateID__c</fullName>
         <description>Save SMS template ID and give it to SMS reply</description>
