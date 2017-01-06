@@ -22,11 +22,14 @@ public class SendToJPOS{
     public String MyMercedesID{set;get;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    
     public SendToJPOS(ApexPages.StandardController controller) { 
     CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
      addr=new Address__c();
+     ShowHideError=false;
      address=new List<Address__c>();
       Acclist =new Account();
       AssignedDealer=new User();
@@ -44,6 +47,28 @@ public class SendToJPOS{
        
        
        //To Display Mym Id and Assigned dealer name.
+       if(CurrentUsr.contactid ==null || CurrentUsr.contactid!=null)
+       {
+        if( AccId!=null )
+               {
+               listAlk=[Select id,name,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Primary__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where toRole__c =:AccId and Recordtypeid=:alkIndividualRecordTypeId and Primary__c=True];
+          
+               }     
+          System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+          
+            if(listAlk!=null && !listAlk.isempty())
+           {
+           for(Account_Link__c Acclink:listAlk)
+           {
+           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
+            if( (Acclink.Recordtypeid == alkIndividualRecordTypeId) &&  (Acclink.System__c=='My Mercedes') && (Acclink.Primary__c==True) )
+          
+           {
+           MyMercedesID=Acclink.Name;
+           }
+           }
+           }
+       }
        
        if(CurrentUsr.contactid!=null)
              {
@@ -59,22 +84,31 @@ public class SendToJPOS{
               DealeAccId.add(con.AccountId);
               }
               }
+              if(AccId!=null)
+               {
+               Acclist=[Select id,City__c,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_1__c,Company_Name_Native_2__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
+              }
                System.debug('@#@#@#@ DealeAccId #@@#'+DealeAccId);
                System.debug('@#@#@#@ AccId #@@#'+AccId );
                System.debug('@#@#@#@  alkPerson_RecordTypeId#@@#'+alkPerson_RecordTypeId);
                System.debug('@#@#@#@  alkCompany_RecordTypeId#@@#'+alkCompany_RecordTypeId);
-			   if(DealeAccId!=null && AccId!=null)
-			   {
-              listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and (Recordtypeid=:alkCompany_RecordTypeId OR Recordtypeid=:alkPerson_RecordTypeId)];
-               }     
-		  System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+               if(DealeAccId!=null && AccId!=null && Acclist.Recordtypeid==accCompany_RecordTypeId)
+               {
+              listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId ];
+               } 
+                if(DealeAccId!=null && AccId!=null && Acclist.Recordtypeid==accPerson_RecordTypeId)
+               {
+              listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId];
+               } 
+                   
+          System.debug('@#@#@#@ listAlk#@@#'+listAlk);
           
             if(listAlk!=null && !listAlk.isempty())
            {
            for(Account_Link__c Acclink:listAlk)
            {
            AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
-           MyMercedesID=Acclink.System__c;
+             
            }
            }
            if(AssignedDealerUserID!=null)
@@ -126,8 +160,7 @@ public class SendToJPOS{
            {
            for(Account_Link__c Acclink:listAlk)
            {
-           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
-           MyMercedesID=Acclink.System__c;
+           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
            }
            }
            System.debug('$%$$% AssignedDealerUserID$%$%%&&&'+AssignedDealerUserID);
@@ -144,14 +177,17 @@ public class SendToJPOS{
         Public void  SendToJPOS()
          {
             
-           
+          
           
           Usr=new User(); 
            listAlk=new List<Account_Link__c> ();
            
            AccId=ApexPages.currentPage().getParameters().get('id'); 
            CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+           if(AccId!=null)
+           {
            Acclist=[Select id,City__c,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_1__c,Company_Name_Native_2__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
+          }
           if(addId==null)
             {
             System.debug('Selected address records '+addId);
@@ -194,13 +230,15 @@ public class SendToJPOS{
             listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
           
            }
+            
             System.debug('@#@#listAlk#@@#'+listAlk);
            if(listAlk!=null && !listAlk.isempty())
            {
            for(Account_Link__c Acclink:listAlk)
            {
+           
            AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
-           MyMercedesID=Acclink.System__c;
+            
            }
            }
            if(AssignedDealerUserID!=null)
@@ -336,16 +374,23 @@ public class SendToJPOS{
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Zip Code Should not be null'));
                    }    
             }
-            if(((Acclist.Recordtypeid==alkCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId)) && (AssignedDealer.DMS_UserID__c==Null))
+            if(((Acclist.Recordtypeid==accCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId))  )
             {
-            if(AssignedDealer.DMS_UserID__c==null)
+                 if(AssignedDealerUserID==null)
+                   {
+                   ShowHideError=True;
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Retail Sales Consultant in Account Link'));
+                   }
+                  if(AssignedDealer.DMS_UserID__c==null)
                    {
                    ShowHideError=True;
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Assigned Dealer Should not be null'));
                    } 
             }
-            try
+            
+             try
            {
+         
            if (!Test.isRunningTest())
             {
             System.debug('#$##$####$#$#$#'+Usr);
@@ -369,7 +414,7 @@ public class SendToJPOS{
               System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
               if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
-			  String src;
+              String src;
            src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
            System.debug(' ^&^&^&^ Id#$#$#'+response);
              
@@ -384,6 +429,7 @@ public class SendToJPOS{
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
           ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
+          
           
           }
          }
