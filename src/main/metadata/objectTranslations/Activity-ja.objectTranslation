@@ -1193,31 +1193,7 @@
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Intention Status --></label>
-        <name>Intention_Status__c</name>
-        <picklistValues>
-            <masterLabel>Hand Back</masterLabel>
-            <translation><!-- Hand Back --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Quoted</masterLabel>
-            <translation><!-- Quoted --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Retain Payout</masterLabel>
-            <translation><!-- Retain Payout --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Retain Refinance</masterLabel>
-            <translation><!-- Retain Refinance --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Trade In</masterLabel>
-            <translation><!-- Trade In --></translation>
-        </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
