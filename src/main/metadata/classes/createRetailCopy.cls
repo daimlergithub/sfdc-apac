@@ -76,11 +76,11 @@ public List<Account> accc {set;get;}
            for(Account_Link__c accountLink : Accountlinklist){
 
            
-               accountLink.fromRole__c =account.Id;
-               accountLink.toRole__c =account.Company__c  ;
+               accountLink.fromRole__c =account.Company__c;
+               accountLink.toRole__c =account.Id  ;
 
                accountLink.fromRole__c = account.Company__c;
-               accountLink.toRole__c =  account.id;
+               accountLink.toRole__c =  account.Id;
                acclink.add(accountLink);
            }
            update acclink;
