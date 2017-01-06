@@ -913,7 +913,7 @@
         <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
    <fields>
         <label><!-- Intention Status --></label>
@@ -942,8 +942,8 @@
             <masterLabel>Trade In</masterLabel>
             <translation>下取査定</translation>
         </picklistValues> 
-    </fields>
-	<fields>
+    </fields> 
+    <fields> 
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
     </fields>
