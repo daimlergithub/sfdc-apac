@@ -13,14 +13,6 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Submit_Response__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>URL__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
