@@ -271,7 +271,10 @@ public with sharing class VehicleRelationshipHelperJP
           if(!lstAccLink.isEmpty())
             insert lstAccLink;
     }
-    
+    /*Update Portal Apply Status on create/update of the VR for MyMercedes User
+	Japan 2.0 SFDCJP-629
+	Created by Sivaram
+	*/
     public static void updatePortalApplyStatus(List<Vehicle_RelationShip__C> vehRelList, Map<Id,Vehicle_Relationship__c> oldMap){
         try{
             List<Vehicle_Relationship__c> filterVehRelList = new List<Vehicle_Relationship__c>();

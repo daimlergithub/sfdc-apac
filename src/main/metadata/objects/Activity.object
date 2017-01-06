@@ -2040,17 +2040,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>UniqueCode__c</fullName>
-        <description>For Campaign purpose, will be sent together with SMS</description>
-        <externalId>false</externalId>
-        <label>Unique Code</label>
-        <length>8</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>

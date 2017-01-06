@@ -66,7 +66,10 @@ public class UtilAddressTranslation
         addtrmap.put(prolist.Province_EN47__c, prolist.Province_TR47__c);
         return addtrmap;
     }
-	
+	/* Translate companylegalform picklist value to text using custom metadata type 
+	   Japan 2.0 SFDCJP-474
+	   Created by Sivaram.A
+     */ 
 	public static Map<String, String> addtrmaps = new Map<String, String>();
     public static Account_Object__mdt prolists; 
     public static Map<String, String> gettranslatedAccName(string market)
