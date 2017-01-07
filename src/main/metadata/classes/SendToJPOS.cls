@@ -152,7 +152,7 @@ public class SendToJPOS{
            if( AccId !=null && DealerID.Company__c!=null && (Acclist.Recordtypeid==accCompany_RecordTypeId))
            {
             System.debug('@#@# companyb   #@@#');
-            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId  and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
+            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Company__c  and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
            System.debug('^&^listAlk listAlk 78'+listAlk);
            }
            System.debug('@#@#listAlk#@@#'+listAlk);
@@ -270,8 +270,7 @@ public class SendToJPOS{
            {
            for(Account_Link__c Acclink:listAlk)
            {
-           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
-           MyMercedesID=Acclink.System__c;
+           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
            }
            }
            if(AssignedDealerUserID!=null)
@@ -388,10 +387,12 @@ public class SendToJPOS{
                    } 
             }
             
-             try
-           {
-         
-           if (!Test.isRunningTest())
+               // If customer is Person account send account information to EP        
+         if( (Acclist.Recordtypeid==accPerson_RecordTypeId) && (Acclist.Gender__c!=null) && (Acclist.FirstName !=null) && (Acclist.LastName!=null) && (Acclist.FirstName_Native_1__c!=null) && (Acclist.LastName_Native_1__c!=null) && (Acclist.PersonBirthdate!=null) && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && (AddreesSedntoJPOS.City_Native__c!=null) && (AddreesSedntoJPOS.District_Native__c!=null) && (AddreesSedntoJPOS.Province__c!=null) && (AddreesSedntoJPOS.City__c!=null) && (AddreesSedntoJPOS.District__c!=null) && (AddreesSedntoJPOS.ZipCode__c!=null) && (AssignedDealerUserID!=null) && (AssignedDealer.DMS_UserID__c!=null))
+         {
+         try
+         {
+         if (!Test.isRunningTest())
             {
             System.debug('#$##$####$#$#$#'+Usr);
             /*if(Usr.Id!=null )
@@ -430,7 +431,55 @@ public class SendToJPOS{
            System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
           ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
           
+          }
+          }  
+          
+                    
+          // If customer is company send account information to EP
+          if(Acclist.Recordtypeid==accPerson_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Company_Legal_Form_text__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
+         {
+         try
+         {
+         if (!Test.isRunningTest())
+            {
+            System.debug('#$##$####$#$#$#'+Usr);
+            /*if(Usr.Id!=null )
+            {
+            System.debug('#$ NOT NULL ##$#$#$#'+Usr);
+            System.debug('#$ NOT NULL ##$#$#$# AccId'+AccId);
+            System.debug('#$ NOT AddreesSedntoJPOS ##$#$#$#'+AddreesSedntoJPOS.id); 
+            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,Usr.Id);
+            if(response!=null)
+            {
+            ShowHideError=false;
+            }
+            } */
+            if(Usr.id==null || Usr.Id!=null  )
+            {
+            String dId=string.valueof(DealeAccId);
+             System.debug('#$ NOT equals NULL ##$#$#$#'+Usr);
+              System.debug('#$ NOT UserIDNULL ##$#$#$#'+AssignedDealerUserID);
+              System.debug('#$ NOT AccId  ##$#$#$#'+AccId);
+              System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
+              if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
+              {
+              String src;
+           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+           System.debug(' ^&^&^&^ Id#$#$#'+response);
+             
+            ShowHideError=false; 
+            }
+            }
+            }
+            }
+           Catch(Exception e)
+           {
+           ShowHideError=True;
+           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
+           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
           
           }
+           } 
          }
 }
