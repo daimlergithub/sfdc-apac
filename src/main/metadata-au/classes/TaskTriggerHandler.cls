@@ -65,6 +65,7 @@ public class TaskTriggerHandler
         if(trigger.isAfter && trigger.isInsert)
         {
             TaskHelper.au_After_Insert_Update_Events_Task(trigger.new, trigger.isInsert, trigger.isUpdate);
+            TaskHelper.au_before_Insert_Events_Task(Trigger.new,trigger.isinsert);
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
