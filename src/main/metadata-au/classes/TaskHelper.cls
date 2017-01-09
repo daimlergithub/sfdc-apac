@@ -895,57 +895,81 @@ public class TaskHelper {
    */
     public static void au_After_Insert_Update_Events_Task(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
     {
-        set<Id> vehRelation1 =new set<Id>();
-        set<Id> vehRelation2 =new set<Id>(); 
-        List<Vehicle_Relationship__c> vehRelationList1 =new List<Vehicle_Relationship__c>();
-        List<Vehicle_Relationship__c> vehRelationList2 =new List<Vehicle_Relationship__c>(); 
+        set<Id> vRId =new set<Id>();
+        map<id,Task> changeOwnVrMap = new map<id,task>();
+        List<Vehicle_Relationship__c> changeOwnerVrList =new List<Vehicle_Relationship__c>();
+        List<Vehicle_Relationship__c> updateVrList =new List<Vehicle_Relationship__c>(); 
         Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
-        System.debug('test1'+listTaskNew);
         for(Task task : listTaskNew)
         {              
-            if(task.WhatId != null && String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId && task.Status !='Complete'){
-                system.debug('test3');
-                vehRelation1.add(task.WhatId); 
-                vehRelationList1=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation1];
-                for(Vehicle_Relationship__c vrl1:vehRelationList1){
-                    vrl1.ToBeActioned__c =true;
-                }    
-            }
-            else if(task.WhatId != null) 
+            if(task.WhatId != null && String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId)
             {
-                vehRelation2.add(task.WhatId); 
-                vehRelationList2=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vehRelation2];
-                for(Vehicle_Relationship__c vrl2:vehRelationList2)
-                {
-                    vrl2.ToBeActioned__c =false;
-                }
+                vRId.add(task.WhatId);
+                changeOwnVrMap.put(task.WhatId, task);                
             }
-            try {
-                system.debug('test6');
-                update vehRelationList1;
-                update vehRelationList2;
+        }
+        system.debug('vRId>>>' + vRId);
+        system.debug('changeOwnVrMap>>>' + changeOwnVrMap);
+        if(!vRId.isEmpty() && vRId != null)
+        {
+        	changeOwnerVrList=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vRId];
+        }
+        system.debug('changeOwnerVrList>>>' + changeOwnerVrList);
+        for(Vehicle_Relationship__c coVr : changeOwnerVrList)
+        {
+            if(changeOwnVrMap.get(coVr.Id).status != 'Complete')
+            {
+                coVr.ToBeActioned__c = true;
             }
-            catch (DMLException e) {
-                trigger.new[0].addError(e.getDMLMessage(0));
+            else if(changeOwnVrMap.get(coVr.Id).status == 'Complete')
+            {
+                coVr.ToBeActioned__c = false;
             }
+            updateVrList.add(coVr);
+        }
+        system.debug('updateVrList>>>' + updateVrList);
+        try 
+        {
+            if(!updateVrList.isEmpty() && updateVrList != null)
+            {
+            	update updateVrList;
+            }
+        }
+        catch (DMLException e) 
+        {
+            trigger.new[0].addError(e.getDMLMessage(0));
         }
     }
     /*Change OwnerId i.e. AssignedTo in Task */
-    public static void au_before_Insert_Events_Task(list<task> listTaskNew,boolean isInsert){
-        
+    public static void au_before_Insert_Events_Task(list<task> listTaskNew,boolean isInsert)
+    {        
         Id removeAccountRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Remove Account').getRecordTypeId(); 
         Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
         Id assignedToId=[select id from user where name = 'Clare Yan' limit 1].Id;
-        
+        List<task> taskListco = new List<Task>();        
+        List<Task> updateTaskList = new List<Task>();
+        set<id> taskId = new set<id>();
+        for(Task tk : listTaskNew)
+        {
+            if(tk.RecordTypeId == removeAccountRecordId || tk.RecordTypeId == changeOwnerRecordId)
+            {
+                taskId.add(tk.Id);
+            }
+        }
+        taskListco = [select id ,createdById ,OwnerId from task where Id =:taskId];
         System.debug('assigned to'+assignedToId);
-        for(Task tsk : listTaskNew){
+        for(Task tsk : taskListco)
+        {
             String tskCreatedBy=userInfo.getUserType();
-            if( (tsk.RecordTypeId == removeAccountRecordId || tsk.RecordTypeId == changeOwnerRecordId) && tskCreatedBy.contains('Partner')  ){
-                system.debug('before assign');     
+            if(tskCreatedBy.contains('Partner'))
+            {    
                 tsk.OwnerId=assignedToId;
-                system.debug('after assign');
+                updateTaskList.add(tsk);
             } 
         }
-        
+        if(!updateTaskList.isEmpty() && updateTaskList != null)
+        {
+            update updateTaskList;
+        }        
     }  
 }
