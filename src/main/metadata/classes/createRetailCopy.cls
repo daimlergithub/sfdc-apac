@@ -66,8 +66,8 @@ public List<Account> accc {set;get;}
        if(Accountlinklist.isEmpty()){//SFDCJP-730
         newals.Retail_Address_Reference__c =addId ; 
        newals = new Account_Link__c();
-       newals.fromRole__c = account.Company__c ;
-       newals.toRole__c = account.Id ;  
+       newals.fromRole__c = account.Id ;
+       newals.toRole__c = account.Company__c ;  
        newals.RecordTypeId = RDType;
             
        insert newals;
@@ -75,8 +75,8 @@ public List<Account> accc {set;get;}
        //SFDCJP-730.Start
        else if(!Accountlinklist.isEmpty()){
            for(Account_Link__c accountLink : Accountlinklist){           
-               accountLink.fromRole__c =account.Company__c;
-               accountLink.toRole__c =account.Id  ; 
+               accountLink.fromRole__c =account.Id  ;
+               accountLink.toRole__c =account.Company__c; 
                acclink.add(accountLink);
            }
            update acclink;
