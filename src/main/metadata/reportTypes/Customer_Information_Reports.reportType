@@ -73,11 +73,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Contact__c.PersonContact.Languages__c</field>
-            <table>Vehicle_Relationship__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Contact__c.Education__c</field>
             <table>Vehicle_Relationship__c</table>
         </columns>
