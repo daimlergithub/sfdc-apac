@@ -173,7 +173,7 @@ Content of email will be reference the task number and due date.</description>
             <name>PublicCheckBoxToTrue</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Whenever a task is created by dealer user then update public(IsVisibleInSelfService) as true</description>
         <formula>IF( 
    AND(
