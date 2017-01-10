@@ -913,10 +913,10 @@
         <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
   <fields>
-        <label><!-- Intention Status --></label>
+        <label><!-- Intention Status --></label> 
         <name>Intention_Status__c</name>
         <picklistValues>
             <masterLabel>Contact</masterLabel>
@@ -933,7 +933,7 @@
         <picklistValues>
             <masterLabel>Needs Check</masterLabel>
             <translation>ニーズ把握</translation>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <masterLabel>Product Proposal</masterLabel>
             <translation>商品説明提案</translation>
@@ -952,15 +952,14 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade In</masterLabel>
-            <translation>下取査定</translation>
+            <translation>下取査定</translation> 
         </picklistValues>
         <picklistValues>
             <masterLabel>Visited</masterLabel>
             <translation>来店</translation>
         </picklistValues>
-    </fields>
-	
-	<fields>
+    </fields> 
+    <fields>  
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
     </fields>
