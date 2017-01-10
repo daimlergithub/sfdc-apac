@@ -16244,7 +16244,7 @@ Modify Reason:
         <description>Used by Central Complaint Case. Need Clarification</description>
         <externalId>false</externalId>
         <formula>Vehicle_Relationship__r.Vehicle_ID__c</formula>
-        <label>Vehicle ID</label>
+        <label>Vehicle</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

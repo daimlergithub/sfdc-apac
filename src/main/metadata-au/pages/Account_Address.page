@@ -1,7 +1,8 @@
-<apex:page standardController="Account" extensions="Addresscontroller">
+<apex:page standardController="Account" showHeader="false" sidebar="false" extensions="Addresscontroller">
+    <div id="InnternalDiv" style="height:120px;width:100%">
 <apex:form >  
     <apex:pageBlock rendered="{!If(marketdiscriminator == 'AU',true,false)}">  
-        <apex:pageBlockSection columns="2" rendered="{!!Preferred}"> 
+        <apex:pageBlockSection columns="2" rendered="{!!Preferred}" > 
              <apex:outputField value="{!addressList_details.Address_Type__c}"/>
              <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
              <apex:outputField value="{!addressList_details.Company_Name__c}"/>
@@ -32,7 +33,7 @@
              <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
              <apex:outputField value="{!addressList_details.Company_Name__c}"/>
              <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
-             <apex:outputField value="{!addressList_details.city__c}"/>
+             <apex:outputField value="{!addressList_details.City__c}"/>
              <apex:outputField value="{!addressList_details.District__c}"/>
              <apex:outputField value="{!addressList_details.Country__c}"/>
              <apex:outputField value="{!addressList_details.ZipCode__c}"/>
@@ -61,5 +62,6 @@
           background-color: white;
           border-color: White;
           }
-  </style> 
+  </style>
+        </div>
 </apex:page>
