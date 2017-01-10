@@ -93,7 +93,7 @@ public class RetailTaskHelperJP {
                      acclnk.Retail_ZipCode__c= led.Account__r.Primary_Address_Reference__r.ZipCode__c;
                      acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Account__r.Primary_Address_Reference__r.CreatedDate);
                      acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(led.Account__r.Primary_Address_Reference__r.LastModifiedDate);
-                     acclnk.Retail_Province__c = led.Account__r.Primary_Address_Reference__r.Province__c;
+                     //acclnk.Retail_Province__c = led.Account__r.Primary_Address_Reference__r.Province__c;
                      acclnk.Retail_City__c = led.Account__r.Primary_Address_Reference__r.City__c.left(17);
                      acclnk.Retail_Distinct__c = ((led.Account__r.Primary_Address_Reference__r.District__c != null ? led.Account__r.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Account__r.Primary_Address_Reference__r.Block__c != null ? led.Account__r.Primary_Address_Reference__r.Block__c : '' )).left(17);
                     }    
