@@ -40,9 +40,6 @@
         <field>Vehicle_Relationship__c$Contact__c.Country__c</field>
     </columns>
     <columns>
-        <field>Vehicle_Relationship__c$Contact__c.PersonContact.Languages__c</field>
-    </columns>
-    <columns>
         <field>Vehicle_Relationship__c$Contact__c.Education__c</field>
     </columns>
     <columns>

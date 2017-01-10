@@ -185,6 +185,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	 <fields>
+        <fullName>Survey_Taken_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Taken Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Survey_Taking_Status__c</fullName>
         <externalId>false</externalId>

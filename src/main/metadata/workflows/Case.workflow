@@ -150,6 +150,16 @@
         <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
     <alerts>
+        <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
+        <description>Email to Dealer Gatekeeper Case</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Assign_to_Dealer_Gatekeeper_Case</template>
+    </alerts>
+    <alerts>
         <fullName>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</fullName>
         <description>Email to Dealer when Retail Campaign Case is assigned</description>
         <protected>false</protected>
@@ -1305,6 +1315,17 @@
             <timeLength>240</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Email To Dealer GateKeeper</fullName>
+        <actions>
+            <name>Email_to_Dealer_Gatekeeper_Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This flow is used to send email to dealer gatekeper. This is on case object when dealer account associated with the case and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
+        <formula>NOT(ISNULL(Case_Dealer__c))  &amp;&amp;  ISCHANGED(Case_Dealer__c) &amp;&amp;  PRIORVALUE(OwnerId) != OwnerId &amp;&amp; MD__c == &apos;KR&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Case Owner Changed</fullName>
