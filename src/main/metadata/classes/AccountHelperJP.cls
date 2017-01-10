@@ -154,8 +154,8 @@ public class AccountHelperJP
 ** Created By: Sudhir 
 ** Date: 2015-12-22
 **/
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
-    {
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)    
+    {        
         Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -180,10 +180,15 @@ public class AccountHelperJP
             {      
                 if(acc.MD__c == 'JP')
                 {   
-                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
-                    {              
+                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null && (acc.Primary_Address_Reference__c !=oldMap.get(acc.id).Primary_Address_Reference__c))
+                    {   
+                        system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
+                        system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
+                        system.debug('*************Account*********'+acc);
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c);     
+                        
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        if(addtrmap1.containsKey(add.Province__c))
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
