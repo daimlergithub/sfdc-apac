@@ -2,7 +2,7 @@ public class createRetailCopy {
  
 public Account account{get;set;}
 public Account abc {get;set;}
-public Id addId{get;set;}
+public  Id addId{get;set;}
 //public string accId{get;set;}
 public List<Address__c> sample {set;get;}
 public List<Address__c> ress   {set;get;}
@@ -28,10 +28,10 @@ public List<Account> accc {set;get;}
    
         public pageReference getSelected (){ 
     
-           addId =ApexPages.currentPage().getParameters().get('idselected');  
+           addId =ApexPages.currentPage().getParameters().get('idaddress');  
            
            system.debug('+++++++++'+ addId );
-     addId = System.currentPageReference().getParameters().get('Status');
+     //addId = System.currentPageReference().getParameters().get('Status');
      
     
       return null;
@@ -57,42 +57,58 @@ public List<Account> accc {set;get;}
      //public void Save() //Kiran : Changed void to PageReference
      public PageReference Save()
     {
+    
+        
+        ID RAccType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+        
         ID RDType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); 
+        
+        ID RD1Type = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); 
+        
+        system.debug('+++++++++++++++++++++'+addId);
+        
          List<Address__c> button    = New List<Address__c>();
          List<Account_Link__c> acclink = New List<Account_Link__c>();
-       List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Id AND RecordTypeID =: RDType];  //SFDCJP-730
+       List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Company__c AND RecordType.NAME = 'Retail Company'  ];  //SFDCJP-730
+ 
        Account_Link__c newals; //= new Account_Link__c();
        if(Accountlinklist.isEmpty()){//SFDCJP-730
-        newals.Retail_Address_Reference__c =addId ; 
+        if(account.RecordTypeId == RAccType){
        newals = new Account_Link__c();
-       newals.fromRole__c = account.Id ;
-       newals.toRole__c = account.Company__c ;        
+       newals.Retail_Address_Reference__c = addId ; 
+       newals.fromRole__c =  account.Company__c ;
+       newals.toRole__c = account.Id ;  
        newals.RecordTypeId = RDType;
             
        insert newals;
+       } else {
+       
+       newals = new Account_Link__c();
+       newals.Retail_Address_Reference__c =addId ; 
+       newals.fromRole__c =  account.Company__c ;
+       newals.toRole__c = account.Id ;  
+       newals.RecordTypeId = RD1Type;
+       insert newals;
        }
+       } 
        //SFDCJP-730.Start
        else if(!Accountlinklist.isEmpty()){
-           for(Account_Link__c accountLink : Accountlinklist){
-
            
-               accountLink.fromRole__c =account.Id;
-               accountLink.toRole__c =account.Company__c  ;
-
-               accountLink.fromRole__c = account.Id;
-               accountLink.toRole__c =  account.Company__c;
+           for(Account_Link__c accountLink : Accountlinklist){           
+               accountLink.fromRole__c =account.Company__c;
+               accountLink.toRole__c =account.Id; 
                acclink.add(accountLink);
            }
+           
            update acclink;
        }//SFDCJP-730.End
   system.debug('+++++++++++++'+newals);
-
 
         
         sample1  = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId  Limit 1];
         
         system.debug('+++++++++++++++++++++'+sample1);
-        //accc = New list<account>();
+        accc = New list<account>();
         for(Account abc : accc)
         {
         
@@ -131,8 +147,7 @@ public List<Account> accc {set;get;}
                      
        update button;
        
-     }
-       
+     }      
       
        list<Account> accList = [SELECT Primary_Address_Reference__c,(select id from Addresses__r ORDER BY LastModifiedDate desc limit 1 )FROM Account where Id =:account.Company__c]; 
        
