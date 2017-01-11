@@ -54,7 +54,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -185,7 +185,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Survey_Taken_Date__c</fullName>
         <externalId>false</externalId>
         <label>Survey Taken Date</label>
@@ -390,4 +390,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <sharingReasons>
+        <fullName>Survey_Taken_Share__c</fullName>
+        <label>Survey Taken Share</label>
+    </sharingReasons>
 </CustomObject>
