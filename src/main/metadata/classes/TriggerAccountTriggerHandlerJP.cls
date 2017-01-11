@@ -50,8 +50,8 @@ implements TriggerHandlerIf
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
             AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         if(isAfter && isInsert && !System.isFuture())
         {
@@ -65,7 +65,8 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);            
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -84,6 +85,7 @@ implements TriggerHandlerIf
         if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
             System.debug('----->Is update is called');
             AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,serializedObject);
         }
     }
     
@@ -102,8 +104,8 @@ implements TriggerHandlerIf
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
-              AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate
         }
         
         if(isAfter && isInsert && !System.isFuture())
@@ -120,12 +122,11 @@ implements TriggerHandlerIf
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
             
             if(LeadUtil.accountTrigger){
-          LeadUtil.vrTrigger = false;
+			  LeadUtil.vrTrigger = false;
 
-          AccountHelperJP.UpdateVRonAccount (trigger.new);
-                    }
-            
-            
+			  AccountHelperJP.UpdateVRonAccount (trigger.new);
+            }
+
         }
         
         
