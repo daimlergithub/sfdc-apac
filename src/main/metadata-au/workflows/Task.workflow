@@ -27,6 +27,24 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Origin_field_as_Retail</fullName>
+        <field>Origin__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Origin field as Retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Origin_field_as_Wholesale</fullName>
+        <field>Origin__c</field>
+        <literalValue>Wholesale</literalValue>
+        <name>Update Origin field as Wholesale</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Notification_Email_Flag</fullName>
         <field>Notification_Email_Flag__c</field>
@@ -213,6 +231,28 @@ Content of email will be reference the task number and due date.</description>
             <value>Inbound,Outbound</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Origin field As Retail</fullName>
+        <actions>
+            <name>Update_Origin_field_as_Retail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Origin field based on as Retail for General and Marketing tasks</description>
+        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;) &amp;&amp; ($Profile.Name != &apos;Integration API&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Origin field As Wholesale</fullName>
+        <actions>
+            <name>Update_Origin_field_as_Wholesale</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Origin field based on as Wholesale for General and Marketing tasks</description>
+        <formula>NOT(ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;)) &amp;&amp; ($Profile.Name != &apos;Integration API&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update_Comment_With_TimeStamp</fullName>
