@@ -9919,6 +9919,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <fullName>Casa Living</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -12791,6 +12795,10 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
         <externalId>false</externalId>
         <label>Special Mark on Account</label>
         <picklist>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Media</fullName>
                 <default>false</default>
