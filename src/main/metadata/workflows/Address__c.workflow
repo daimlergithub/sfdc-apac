@@ -4,7 +4,7 @@
         <fullName>Populate_Sales_Address_Display_KR</fullName>
         <description>To populate customer address</description>
         <field>Primary_Address_Display__c</field>
-        <formula>Address_Line_1__c + &apos; &apos; +  Address_Line_2__c  + &apos; &apos; +  City__c + &apos; &apos; + TEXT(Province__c) + &apos; &apos; +  District__c</formula>
+        <formula>Address_Line_1__c + &apos; &apos; +  Address_Line_2__c  + &apos; &apos; +  City__c + &apos; &apos; + TEXT(Province__c) + &apos; &apos; +  District__c +&apos; &apos;+ ZipCode__c</formula>
         <name>Populate Sales Address Display KR</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
