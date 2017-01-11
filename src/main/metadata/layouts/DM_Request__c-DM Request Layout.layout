@@ -165,10 +165,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>To_Be_Deleted__c</field>
             </layoutItems>
         </layoutColumns>
