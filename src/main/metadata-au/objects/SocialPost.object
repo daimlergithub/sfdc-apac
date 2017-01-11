@@ -227,12 +227,6 @@
         <fullName>ResponseContextExternalId</fullName>
     </fields>
     <fields>
-        <fullName>ReviewScale</fullName>
-    </fields>
-    <fields>
-        <fullName>ReviewScore</fullName>
-    </fields>
-    <fields>
         <fullName>ReviewedStatus</fullName>
         <picklist>
             <sorted>false</sorted>
