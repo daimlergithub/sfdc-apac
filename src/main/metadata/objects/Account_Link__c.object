@@ -5437,9 +5437,9 @@ alert("{!$Label.AlreadyProcessed}");
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var r = confirm("Are you sure want to send information to Auto Line interface?");
-if(r == true)
+if(r == true) 
 { 
-var resultMsg= 
+var resultMsg=  
 sforce.apex.execute("UtilWebservice","AccountLinkIfnoSendToAL",{RTCustomerId:"{!Account_Link__c.Id__c}",DealerID:"{!Account_Link__c.fromRoleId__c}",CorrelationId:"{!Account_Link__c.CorrelationID__c}"});
 if(resultMsg!=null)
 {
@@ -5474,5 +5474,5 @@ else
 alert("Web service callout failed");
 }
 }</url>
-    </webLinks>
-</CustomObject>
+    </webLinks> 
+</CustomObject> 

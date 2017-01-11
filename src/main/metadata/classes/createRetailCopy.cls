@@ -68,13 +68,13 @@ public List<Account> accc {set;get;}
         system.debug('+++++++++++++++++++++'+addId);
         
          List<Address__c> button    = New List<Address__c>();
-         List<Account_Link__c> acclink = New List<Account_Link__c>();
-       List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Company__c AND RecordType.NAME = 'Retail Company'  ];  //SFDCJP-730
+         List<Account_Link__c> acclink = New List<Account_Link__c>(); 
+       List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Company__c AND RecordType.NAME = 'Retail Company'  ];  //SFDCJP-730 
  
        Account_Link__c newals; //= new Account_Link__c();
        if(Accountlinklist.isEmpty()){//SFDCJP-730
         if(account.RecordTypeId == RAccType){
-       newals = new Account_Link__c();
+       newals = new Account_Link__c(); 
        newals.Retail_Address_Reference__c = addId ; 
        newals.fromRole__c =  account.Company__c ;
        newals.toRole__c = account.Id ;  
