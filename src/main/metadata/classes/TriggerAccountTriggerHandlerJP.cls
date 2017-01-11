@@ -29,7 +29,7 @@ implements TriggerHandlerIf
         }
         if(isAfter && isInsert )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new);
+          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
         if(usr.Profile.Name.contains('Dealer')){
             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
           }
@@ -37,7 +37,7 @@ implements TriggerHandlerIf
         
          if(isAfter && isUpdate )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new);
+          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
           if(LeadUtil.accountTrigger){
           LeadUtil.vrTrigger = false;
 
