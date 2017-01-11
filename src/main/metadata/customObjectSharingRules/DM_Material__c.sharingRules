@@ -35,7 +35,7 @@
         <sharedFrom>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedFrom>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <name>Share with Data Fulfillment user with R/W</name>
     </ownerRules>
 </CustomObjectSharingRules>
