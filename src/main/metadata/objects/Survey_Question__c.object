@@ -56,10 +56,10 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
    <fields>
-        <fullName>Camp_Question__c</fullName>
+        <fullName>Question_Ref__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Camp Question</label>
+        <label>Question Ref</label>
         <referenceTo>Question__c</referenceTo>
         <relationshipLabel>Survey Questions</relationshipLabel>
         <relationshipName>Survey_Questions</relationshipName>
