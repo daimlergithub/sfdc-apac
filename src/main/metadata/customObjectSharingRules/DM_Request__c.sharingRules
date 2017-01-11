@@ -24,7 +24,7 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <name>MBK DM Request Sharing Rule</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

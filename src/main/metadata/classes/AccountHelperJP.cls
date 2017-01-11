@@ -549,7 +549,7 @@ public class AccountHelperJP
     //*created by :Suryavarma
     // sharing account to dealer user
     //SFDCJP(2.0)-578 
- public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts)
+ public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts,Map<Id,Account>OldMap)
     {
         list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
         list<accountshare>aslist=new list<accountshare>();
@@ -558,7 +558,7 @@ public class AccountHelperJP
         Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
         for(account a:aclist)
         {
-            if(a.recordtypeid==rpa)
+            if(a.recordtypeid==rpa && a.recordtypeid!=OldMap.get(a.id).recordtypeId)
             {
               for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
                {
@@ -569,22 +569,23 @@ public class AccountHelperJP
             }
             if(assgroupMap!=null && assgroupMap.containskey(a.name))
             {
-            //  system.debug('assgroupMap'+ assgroupMap);
+            
                 Accountshare acs=new Accountshare();
                 acs.Accountid=a.id;
                 acs.UserOrGroupId = assgroupMap.get(a.name);
                 acs.AccountAccessLevel='read';
                 acs.OpportunityAccessLevel ='read';
+                acs.RowCause = Schema.Accountshare.RowCause.Manual;
                 aslist.add(acs);
             }
         }
-        if(aslist!=null)
-        {
+            if(aslist!=null)
+            {
              insert aslist;
-        }
+            }
     
-    } 
-	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    }
+    /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
