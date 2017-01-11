@@ -90,7 +90,7 @@ public class AccountLinkHelper
             als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
             als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
             als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
-            als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
+           // als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
             als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
             als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
             als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
@@ -477,7 +477,7 @@ public class AccountLinkHelper
             //Checking Null for sales Address 
             if(accountMap.get(acclink.toRole__c).Primary_Address_Reference__c != null){ 
                     acclink.Retail_Address_Type__c = accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Type__c;
-                    acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' );
+                   // acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' );
                     acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
                     acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
                     acclink.Retail_Address_Line_1__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c)!=null?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
