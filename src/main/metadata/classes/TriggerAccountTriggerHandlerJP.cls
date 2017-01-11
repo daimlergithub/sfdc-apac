@@ -65,8 +65,7 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);            
-            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,serializedObject);
+            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new); 
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -85,7 +84,7 @@ implements TriggerHandlerIf
         if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
             System.debug('----->Is update is called');
             AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
-            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,serializedObject);
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
     }
     
