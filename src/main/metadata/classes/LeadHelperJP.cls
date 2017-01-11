@@ -11,15 +11,17 @@
 
 public class LeadHelperJP 
 {
-	
+    
 /**  Updation of “Customer_Lifecycle_Phase__c” on Account related to lead based on CAC Lead Status
 **  Created By: Narasimha  
 **  Date: 2016-1-19
 **/
+     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
+    private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
-    	// Variables Declaration 
+        // Variables Declaration 
         set<id> contactIdsUpd = new set<id>(); 
         set<id> contactIdsIns = new set<id>();
         set<id> DealerIds = new set<id>();
@@ -245,5 +247,100 @@ public class LeadHelperJP
         update leads;
         
     }
+    /*DesCription : Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
+    Created By : Ramana
+    Created Date : 11/11/2016
+    Releage   : P3
+    */
+//Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
+
+    public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate){
+        Set<String> EmailAddress = new Set<String>();
+        Set<Id> LeadId = new Set<Id>();
+        for(Lead__C lead : listNewLeads){
+            LeadId.add(lead.Id);        
+        }
+        List<Lead__C> Leadlist = [Select id,MD__c,ownerid,contact__c,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+        
+        for(Lead__C lead : Leadlist)
+        {
+            if(lead.MD__c == 'JP')
+            {                
+                if(isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.id).Assigned_Dealer__c)){
+                                    
+                    if(lead.Assigned_Dealer__c != NULL && lead.CAC_Lead_Status__c == 'Approved' && lead.Lead_Assignment_Notification_Done__c == false)
+                        {                       
+                        if(lead.RecordTypeId == salesRecordTypeId){                       
+                         EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
+                         system.debug('UFR Mail Sending Invalid111111111------>'+lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);                       
+                        }
+                        if(lead.RecordTypeId == afterSalesRecordTypeId ){ 
+                            EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);                            
+                        }                        
+                    }                                  
+                }
+                if((isinsert || isupdate && lead.Assigned_Dealer__c != LeadOldMap.get(lead.id).Assigned_Dealer__c) && lead.MD__c== 'JP' && lead.Assigned_Dealer__c != null && lead.CAC_Lead_Status__c == 'Approved' && lead.Service_Advisor__c != null && !lead.Person_Assign_Notificaton_Done__c){
+                EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
+                lead.Person_Assign_Notificaton_Done__c = true; 
+                //userIds.add(led.Service_Advisor__c);
+                }
+            }          
+        }
+        List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : EmailAddress];
+            if(userRecords.size()>0){    
+                  system.debug('Users '+ userRecords.size());                 
+                sendMail(userRecords,Leadlist);
+            }          
+    } 
     
+    //SENDING EMAILS TO SALES MANAGERS  
+    public static void sendMail(List<User> userRecords , List<Lead__C> Leadlist){        
+        List<String> userIds = new List<String>();  
+        List<Lead__c> LeadUpdate = new List<Lead__c>();             
+        for(User u : userRecords){        
+            userIds.add(u.email);
+        }
+        Contact con = [Select id from Contact where email!= null limit 1];
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];  
+        List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
+        List<Messaging.SingleEmailMessage > UFRbulkEmails = new  List<Messaging.SingleEmailMessage >();
+        for(Lead__C led : Leadlist){
+            led.Person_Assign_Notificaton_Done__c = True; 
+            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
+                mail.setWhatId(led.id);
+                mail.setTemplateID(e.Id);
+                mail.setTargetObjectId(con.id);                 
+                mail.setToAddresses(userIds);                            
+                mail.setBccSender(false);
+                mail.setUseSignature(false);              
+                mail.setSaveAsActivity(false);     
+                mails.add(mail);
+                LeadUpdate.add(led);
+            }
+        if(mails.size()>0){
+        Savepoint sp = Database.setSavepoint();
+          Messaging.sendEmail(mails);
+          Database.rollback(sp);      
+      for(Messaging.SingleEmailMessage email : mails){
+                Messaging.SingleEmailMessage emailToSend = new Messaging.SingleEmailMessage();
+                emailToSend.setToAddresses(email.getToAddresses()); 
+                emailToSend.setPlainTextBody(email.getPlainTextBody());
+                emailToSend.setHTMLBody(email.getHTMLBody());
+                emailToSend.setSubject(email.getSubject());               
+                UFRbulkEmails.add(emailToSend);                
+            } 
+            if(UFRbulkEmails.size()>0){
+                try{
+                    Messaging.sendEmail(UFRbulkEmails);
+                    if(LeadUpdate.size()> 0){
+                        update LeadUpdate;
+                    }
+                }
+                catch(Exception emailexe){
+                    system.debug('UFR Mail Sending Invalid------>'+emailexe.getMessage());
+                }
+            }
+        }   
+        
+   } 
 }
