@@ -1,0 +1,57 @@
+/***********************************************************************************
+Created By          :    Srinivas Pendli    
+Created Date        :    05.10.2016
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this batch is to send email notification to the Dealer outlet salesmanagers when lead is
+                         approved with business conditions.
+                         Business Conditions :
+                          * It should assign to dealer outlet.
+                          * lead should approved.
+                          * Lead Assignment Notification should false.
+                          * Send notifications to sales Managers based on the lead record type.
+                          * This will execute daily 3 times. 
+JIRA NO             :    SFDCJP-546                                                
+
+MODIFICATION DETAILS:
+
+1. Modified By      :    Srinivas Pendli
+   Modifide Date    :    05.10.2016
+************************************************************************************/
+global class EmailnotificationLeads implements Database.Batchable<sObject>{
+    //START METHOD 
+    global Database.QueryLocator start(Database.BatchableContext BC){
+        return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
+                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c FROM Lead__c where Lead_Assignment_Notification_Done__c =: false
+                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Approved']);            
+    }
+    //EXECUTE METHOD
+    global void execute(Database.BatchableContext BC, List<Lead__c> scope){
+        system.debug('Lead Scope :'+Scope);
+        Set<String> accountIds = new Set<String>();
+        for(Lead__c led : Scope){
+            accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
+        }
+        List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
+        sendMail(userRecords);
+        
+    } 
+    //SENDING EMAILS TO SALES MANAGERS  
+    public void sendMail(List<User> userRecords){        
+        List<Id> userIds = new List<Id>();
+        for(User u : userRecords){
+            userIds.add(u.id);
+        }
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME = : 'Lead assignment to dealer outlet' limit 1];
+        Messaging.MassEmailMessage mail = new Messaging.MassEmailMessage();
+        mail.saveAsActivity = false;
+        mail.setTargetObjectIds(userIds);
+        mail.setTemplateId(e.Id);
+        mail.setUseSignature(false);
+        mail.setSaveAsActivity(false);
+        Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+    }
+    //FINISH METHOD
+    global void finish(Database.BatchableContext BC){
+       
+    }
+}

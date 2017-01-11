@@ -408,6 +408,9 @@
                                                                 <sf:include name="TriggerLeadTriggerHandlerJP"/>
                                                                 <sf:include name="TriggerLeadTriggerHandler"/>
                                                                 <sf:include name="LeadSharingTest"/>
+																<sf:include name="EmailnotificationLeads"/>
+																<sf:include name="EmailnotificationLeadsnotassigned"/>
+																<sf:include name="EmailnotificationLeadsnotupdated"/>
                                                                 <sf:include name="TriggerLeadTest"/>
                                                                 <sf:include name="LeadSharingWrapService"/>
                                                                 <sf:include name="SharingWrapperService"/>
