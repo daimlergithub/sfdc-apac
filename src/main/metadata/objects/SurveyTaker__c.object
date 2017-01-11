@@ -389,7 +389,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <searchResultsAdditionalFields>Lead__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Survey_Taken_Share__c</fullName>
         <label>Survey Taken Share</label>
