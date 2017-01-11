@@ -47,10 +47,6 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>DisplayUrl</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>IsActive</fullName>
         <trackHistory>false</trackHistory>
     </fields>
