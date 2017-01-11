@@ -499,7 +499,7 @@ public class AccountLinkHelper
   /*created by :Surya Varma
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
-      */
+      
      
  
  public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
@@ -599,8 +599,8 @@ public class AccountLinkHelper
             insert sutlist;
             }
     }
- }
-  public static void afterDeleteEvent(List<Account_Link__c>oldlist)
+ }*/
+ /* public static void afterDeleteEvent(List<Account_Link__c>oldlist)
  {
   // list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :oldlist];
      set<id>toroleidlist=new set<id>();
@@ -714,5 +714,5 @@ public class AccountLinkHelper
             insert sutlist;
             }
     }
- }
+ }*/
 }
