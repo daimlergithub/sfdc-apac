@@ -5255,6 +5255,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.Opt_In_Hardcopy__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11261,6 +11266,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Consultant_Overdue_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Consultant_Override_Overdue__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23563,11 +23573,27 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>CreateCustomizeDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>CreateCustomizeReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateDashboardFolders</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>CreatePackaging</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateReportFolders</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -23627,6 +23653,14 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EditMyDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditMyReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EditOppLineItemUnitPrice</name>
     </userPermissions>
     <userPermissions>
@@ -23639,19 +23673,11 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditPublicReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EditPublicTemplates</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReadonlyFields</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -23751,7 +23777,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageDashboards</name>
+        <name>ManageDashbdsInPubFolders</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -23836,6 +23862,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageRemoteAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageReportsInPubFolders</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -23963,6 +23993,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewDataAssessment</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewDataCategories</name>
     </userPermissions>
     <userPermissions>
@@ -23976,6 +24010,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPublicDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPublicReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
