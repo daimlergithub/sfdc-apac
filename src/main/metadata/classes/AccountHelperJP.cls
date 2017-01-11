@@ -154,8 +154,8 @@ public class AccountHelperJP
 ** Created By: Sudhir 
 ** Date: 2015-12-22
 **/
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate)    
-    {
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)    
+    {        
         Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -180,10 +180,15 @@ public class AccountHelperJP
             {      
                 if(acc.MD__c == 'JP' || acc.MD__c == 'KR')
                 {   
-                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
-                    {              
+                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null && (acc.Primary_Address_Reference__c !=oldMap.get(acc.id).Primary_Address_Reference__c))
+                    {   
+                        system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
+                        system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
+                        system.debug('*************Account*********'+acc);
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c);     
+                        
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        if(addtrmap1.containsKey(add.Province__c))
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
                         {
                             province = addtrmap1.get(add.Province__c);
                         }
@@ -544,7 +549,7 @@ public class AccountHelperJP
     //*created by :Suryavarma
     // sharing account to dealer user
     //SFDCJP(2.0)-578 
- public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts)
+ public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts,Map<Id,Account>OldMap)
     {
         list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
         list<accountshare>aslist=new list<accountshare>();
@@ -553,7 +558,7 @@ public class AccountHelperJP
         Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
         for(account a:aclist)
         {
-            if(a.recordtypeid==rpa)
+            if(a.recordtypeid==rpa && a.recordtypeid!=OldMap.get(a.id).recordtypeId)
             {
               for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
                {
@@ -564,22 +569,23 @@ public class AccountHelperJP
             }
             if(assgroupMap!=null && assgroupMap.containskey(a.name))
             {
-            //  system.debug('assgroupMap'+ assgroupMap);
+            
                 Accountshare acs=new Accountshare();
                 acs.Accountid=a.id;
                 acs.UserOrGroupId = assgroupMap.get(a.name);
                 acs.AccountAccessLevel='read';
                 acs.OpportunityAccessLevel ='read';
+                acs.RowCause = Schema.Accountshare.RowCause.Manual;
                 aslist.add(acs);
             }
         }
-        if(aslist!=null)
-        {
+            if(aslist!=null)
+            {
              insert aslist;
-        }
+            }
     
-    } 
-	/*Concatenate full Company Name into Account Name field when Company Account is created/updated.
+    }
+    /*Concatenate full Company Name into Account Name field when Company Account is created/updated.
     sivaram(2.0)SFDCJP-474
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){

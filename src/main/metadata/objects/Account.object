@@ -8845,6 +8845,10 @@ Modify Reason:
                 <fullName>C-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9913,6 +9917,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Casa Living</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -12787,6 +12799,14 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
         <externalId>false</externalId>
         <label>Special Mark on Account</label>
         <picklist>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Media</fullName>
                 <default>false</default>
@@ -19235,6 +19255,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
+				<default>false</default>
+            </values>
+            <values>
+				<fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28414,6 +28442,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Autocar</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29963,6 +29999,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer_ND_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
@@ -30654,7 +30691,7 @@ MD__c = 'JP'
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
         <description>Phone must be in any of the following formats : 
-1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxx 4. xxxx-xxx-xxx</description>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx 5. blank-xxxx-xxxx</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'KR',
@@ -30673,7 +30710,7 @@ REGEX(Mobile__c, "[0-9]{4}-[0-9]{4}")
 )
 )</errorConditionFormula>
         <errorMessage>Mobile must be in any of the following formats : 
-1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx</errorMessage>
+1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx 5. blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
