@@ -2228,7 +2228,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <caseSensitive>true</caseSensitive>
+        <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
         <label>Source ID</label>
         <length>40</length>
