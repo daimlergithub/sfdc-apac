@@ -24568,7 +24568,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
-    </userPermissions> 
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEntitlements</name>

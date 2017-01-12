@@ -54,8 +54,8 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
+    <externalSharingModel>ControlledByParent</externalSharingModel> 
+  <fields>
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>
@@ -142,6 +142,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Survey_Answer_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the related Answer</description>
+        <externalId>false</externalId>
+        <label>Survey Answer Id</label>
+        <referenceTo>SurveyQuestionResponse__c</referenceTo>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Survey__c</fullName>

@@ -278,7 +278,7 @@
                                                                 <sf:exclude name="DM_Request__c"/>
                                                                 <sf:exclude name="SurveyTaker__c"/>
                                                                 <sf:exclude name="SurveyQuestionResponse__c"/>
-                                                                <sf:exclude name="Survey_Question__c"/>
+                                                                <sf:exclude name="Survey_Question__c"/> 
                                                                 <sf:exclude name="Contract_Relation__c"/>
                                                 </sf:typeset>
                                 </deploy>
@@ -408,6 +408,9 @@
                                                                 <sf:include name="TriggerLeadTriggerHandlerJP"/>
                                                                 <sf:include name="TriggerLeadTriggerHandler"/>
                                                                 <sf:include name="LeadSharingTest"/>
+																<sf:include name="EmailnotificationLeads"/>
+																<sf:include name="EmailnotificationLeadsnotassigned"/>
+																<sf:include name="EmailnotificationLeadsnotupdated"/>
                                                                 <sf:include name="TriggerLeadTest"/>
                                                                 <sf:include name="LeadSharingWrapService"/>
                                                                 <sf:include name="SharingWrapperService"/>

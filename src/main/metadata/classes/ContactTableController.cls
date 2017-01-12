@@ -149,6 +149,10 @@ public class ContactTableController
        else if((!(String.isBlank(homePhoneAreaCodePart1)) || (String.isBlank(homePhoneAreaCodePart1))) && (!(String.isBlank(homePhoneAreaCodePart2)) || (String.isBlank(homePhoneAreaCodePart2))) && (!(String.isBlank(homePhoneAreaCodePart3)) || (String.isBlank(homePhoneAreaCodePart3))))
        {
            ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+		   if(ParAcc.Individual_Home_Phone__c.startsWith(' -'))
+			{
+				ParAcc.Individual_Home_Phone__c = ParAcc.Individual_Home_Phone__c.removeStart(' -');
+			}
        }
         else
          {
@@ -162,6 +166,10 @@ public class ContactTableController
       else if((String.isBlank(workPhoneAreaCodePart1) || !(String.isBlank(workPhoneAreaCodePart1))) && (String.isBlank(workPhoneAreaCodePart2) || !(String.isBlank(workPhoneAreaCodePart2))) && (String.isBlank(workPhoneAreaCodePart3) || !(String.isBlank(workPhoneAreaCodePart3))))
       {
                ParAcc.Work_Phone__c= workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+			   if(ParAcc.Work_Phone__c.startsWith(' -'))
+				{
+					ParAcc.Work_Phone__c = ParAcc.Work_Phone__c.removeStart(' -');
+				}
       }
         else
         { 
@@ -174,6 +182,10 @@ public class ContactTableController
       else if((!(String.isBlank(mobilePhoneAreaCodePart1)) || (String.isBlank(mobilePhoneAreaCodePart1))) && (!(String.isBlank(mobilePhoneAreaCodePart2)) || (String.isBlank(mobilePhoneAreaCodePart2))) && (!(String.isBlank(mobilePhoneAreaCodePart3)) || (String.isBlank(mobilePhoneAreaCodePart3))))
       {
                ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
+			   if(ParAcc.Mobile__c.startsWith(' -'))
+				{
+					ParAcc.Mobile__c = ParAcc.Mobile__c.removeStart(' -');
+				}
       }
         else
         { 
