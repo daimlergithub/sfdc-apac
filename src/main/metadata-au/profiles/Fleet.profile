@@ -9990,56 +9990,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>EP_Export_Notification__c.Additional_Info1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Additional_Info2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Additional_Info3__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.MD__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.SFDC_Record_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Export_Notification__c.Usecase__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20875,9 +20825,6 @@
         <layout>Duplicate_Merge_Info__c-Duplicate Merge Info Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -21222,10 +21169,6 @@
         <recordType>Task.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Campaign Task</layout>
-        <recordType>Task.Remove_Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-DM</layout>
         <recordType>Task.Customer_Contact</recordType>
     </layoutAssignments>
@@ -21244,6 +21187,10 @@
     <layoutAssignments>
         <layout>Task-Marketing Task Layout</layout>
         <recordType>Task.Marketing_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Remove Account Layout</layout>
+        <recordType>Task.Remove_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -22798,6 +22745,10 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Account_Link__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Address__c</tab>
         <visibility>DefaultOn</visibility>

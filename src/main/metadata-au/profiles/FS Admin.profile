@@ -5255,6 +5255,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.Opt_In_Hardcopy__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5827,11 +5832,6 @@
         <editable>false</editable>
         <field>Campaign.Next_Run_Date__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign.NumberSent</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11215,6 +11215,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Consultant_Override_Overdue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Consultant_Reassignment_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13701,16 +13706,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Description</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product2.Family</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product2.ProductCode</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17860,11 +17855,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SocialPost.ReviewedStatus</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>SocialPost.Sentiment</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21184,10 +21174,6 @@
         <recordType>Task.Quote</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Campaign Task</layout>
-        <recordType>Task.Remove_Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-DM</layout>
         <recordType>Task.Customer_Contact</recordType>
     </layoutAssignments>
@@ -21206,6 +21192,10 @@
     <layoutAssignments>
         <layout>Task-OB Call</layout>
         <recordType>Task.General_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Remove Account Layout</layout>
+        <recordType>Task.Remove_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -22761,6 +22751,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+        <tab>Account_Link__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Address__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -22944,6 +22938,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>CreateCustomizeReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>CreateTopics</name>
     </userPermissions>
     <userPermissions>
@@ -22957,10 +22955,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditOppLineItemUnitPrice</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
