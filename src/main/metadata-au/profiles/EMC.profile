@@ -21234,16 +21234,16 @@
         <recordType>Task.EMC_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-EMC</layout>
-        <recordType>Task.Remove_Account</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-Marketing Task Layout</layout>
         <recordType>Task.Marketing_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-OB Call</layout>
         <recordType>Task.General_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Remove Account Layout</layout>
+        <recordType>Task.Remove_Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>

@@ -27,7 +27,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Notification_Email_Flag</fullName>
+        <field>Notification_Email_Flag__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Notification Email Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Origin_field_as_Retail</fullName>
         <field>Origin__c</field>
         <literalValue>Dealer</literalValue>
@@ -46,12 +55,12 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Notification_Email_Flag</fullName>
-        <field>Notification_Email_Flag__c</field>
-        <literalValue>1</literalValue>
-        <name>Update Notification Email Flag</name>
+        <fullName>Update_field_with_Dealer_name</fullName>
+        <field>Dealer_Name__c</field>
+        <formula>CreatedBy.Contact.Account.Name</formula>
+        <name>Update field with Dealer name</name>
         <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <rules>
@@ -71,15 +80,6 @@
     </rules>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-		<workflowTimeTriggers>
-        <actions>
-            <name>Update_Notification_Email_Flag</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
-        <timeLength>0</timeLength>
-        <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
         <active>false</active>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -108,7 +108,7 @@
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <!--workflowTimeTriggers>
+        <workflowTimeTriggers>
             <actions>
                 <name>Update_Notification_Email_Flag</name>
                 <type>FieldUpdate</type>
@@ -116,7 +116,7 @@
             <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers-->
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
@@ -193,15 +193,7 @@ Content of email will be reference the task number and due date.</description>
         </actions>
         <active>false</active>
         <description>Whenever a task is created by dealer user then update public(IsVisibleInSelfService) as true</description>
-        <formula>IF( 
-   AND(
-      OR(Owner:User.Profile.Name  = &apos;Dealer CRM Manager&apos;  ,  
-         Owner:User.Profile.Name = &apos;Dealer Divisional Manager&apos;,
-          Owner:User.Profile.Name = &apos;Dealer Consultant&apos;
-        ),  MD__c = &apos;AU&apos;
-      ) ,
-   true, false
-  )</formula>
+        <formula>IF(     AND(       OR(Owner:User.Profile.Name  = &apos;Dealer CRM Manager&apos;  ,            Owner:User.Profile.Name = &apos;Dealer Divisional Manager&apos;,           Owner:User.Profile.Name = &apos;Dealer Consultant&apos;         ),  MD__c = &apos;AU&apos;       ) ,    true, false   )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -232,7 +224,17 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
+        <fullName>Update Dealer name on task object</fullName>
+        <actions>
+            <name>Update_field_with_Dealer_name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;) &amp;&amp; $RecordType.DeveloperName = &apos;Remove_Account&apos;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Origin field As Retail</fullName>
         <actions>
             <name>Update_Origin_field_as_Retail</name>
