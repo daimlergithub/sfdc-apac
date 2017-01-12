@@ -317,15 +317,15 @@
                                 <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Case"/>
-                                                                <!--<sf:include name="Activity"/>-->
-                                                                <sf:include name="Activity"/>
+                                                               
+                                                                <sf:exclude name="Activity"/>
 																<sf:include name="Task"/>
                                                                 <sf:include name="ContentVersion"/>
                                                                 <sf:exclude name="Account"/>
                                                                 <sf:exclude name="PersonAccount"/>
                                                                 <sf:exclude name="Contact"/>
                                                                 <sf:exclude name="Campaign"/>
-                                                                <!-- TODO FALK check this: do not deploy site -->
+                                                               
                                                                 <sf:exclude name="Site"/>
                                                     <sf:exclude name=".*__c"/>
                                                                 <sf:include name="AreaCodeTranslation__mdt"/>
