@@ -289,6 +289,8 @@
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Campaign"/>
                                                                 <sf:include name="CampaignMember"/>
+                                                                <sf:include name="Question__c"/>
+                                                                <sf:include name="Survey_Question__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target>
@@ -310,22 +312,24 @@
                                                                 <sf:exclude name="Account_Link__c"/>
                                                                 <sf:exclude name="SSI__c"/>
                                                                 <sf:exclude name="Retail_Task__c"/>
+                                                                <sf:exclude name="Question__c"/>
+                                                                <sf:exclude name="Survey_Question__c"/>
                                                 </sf:typeset>    
                                 </deploy>
     </target>        
                 <target name="deploy21">
-                                <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
+                                <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations.xml">
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Case"/>
-                                                                <!--<sf:include name="Activity"/>-->
-                                                                <sf:include name="Activity"/>
+                                                               
+                                                                <sf:exclude name="Activity"/>
 																<sf:include name="Task"/>
                                                                 <sf:include name="ContentVersion"/>
                                                                 <sf:exclude name="Account"/>
                                                                 <sf:exclude name="PersonAccount"/>
                                                                 <sf:exclude name="Contact"/>
                                                                 <sf:exclude name="Campaign"/>
-                                                                <!-- TODO FALK check this: do not deploy site -->
+                                                               
                                                                 <sf:exclude name="Site"/>
                                                     <sf:exclude name=".*__c"/>
                                                                 <sf:include name="AreaCodeTranslation__mdt"/>

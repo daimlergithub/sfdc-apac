@@ -18,7 +18,7 @@
                 <apex:column headerValue="Primary">
                 <input type="radio" name="selectRadio" id="radio">
                                   <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS" >
-                                       <apex:param name="idselected" value="{!ad.id}"/>
+                                       <apex:param name="idaddress" value="{!ad.id}"/>
                                   </apex:actionSupport>
                            </input>
                           </apex:column>
