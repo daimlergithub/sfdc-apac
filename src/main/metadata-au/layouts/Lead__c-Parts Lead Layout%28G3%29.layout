@@ -90,20 +90,12 @@
         <label>Request Details</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Preferred_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Preferred_Drop_off_Time__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Preferred_Pickup_Time__c</field>
+                <behavior>Edit</behavior>
+                <field>Preferred_Contact_Method__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Contact_Method__c</field>
+                <field>Parts_Required__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -118,10 +110,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Loan_Car_Date_In__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parts_Required__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
