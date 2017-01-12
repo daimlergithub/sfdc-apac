@@ -168,7 +168,11 @@ public class AccountLinkHelper
     Public static void shareaccountlinksToDealer(List<Account_Link__c> con2conaclinkList ,map<id,Account_Link__c> oldmap,boolean isInsert,boolean isUpdate)
     {
         set<id> accId = new set<id>();
+        set<id> fromRoleAccId = new set<id>();
+        set<id> accLinkId = new set<id>();
+        set<id> userorGroupId = new set<id>();
         List<AccountShare> sharedaccList = new List<AccountShare>();
+        List<Account_Link__Share> sharedaccLinkList = new List<Account_Link__Share>();
         map<id,id> accountgroupMap = new map<id,id>();
         List<Account_Link__Share> con2conshreList = new List<Account_Link__Share>();
         for(Account_Link__c con2aclink : con2conaclinkList)
@@ -177,31 +181,58 @@ public class AccountLinkHelper
                (isInsert || (isUpdate && con2aclink.toRole__c != oldmap.get(con2aclink.Id).toRole__c)))
             {
                 accId.add(con2aclink.toRole__c);
+                accLinkId.add(con2aclink.Id);                
+            }
+            if(con2aclink.fromRole__c != null && con2aclink.RecordTypeId == contact2ContactRT && 
+               (isInsert || (isUpdate && con2aclink.fromRole__c != oldmap.get(con2aclink.Id).fromRole__c)))
+            {
+                fromRoleAccId.add(con2aclink.fromRole__c);
+                accLinkId.add(con2aclink.Id);                
             }
         }
-        if(!accId.isEmpty() && accId != null )
+        if(!accId.isEmpty() && accId != null && !fromRoleAccId.isEmpty() && fromRoleAccId != null)
         {
-        	sharedaccList = [select id ,AccountId, UserorGroupId from AccountShare where AccountId =:accId];
+        	sharedaccList = [select id ,AccountId, UserorGroupId from AccountShare where AccountId =:accId OR AccountId =:fromRoleAccId];
+        }
+        if(!accLinkId.isEmpty() && accLinkId !=null)
+        {
+            sharedaccLinkList = [select id ,ParentId, UserorGroupId from Account_Link__Share where ParentID =:accLinkId];            
         }
         if(!sharedaccList.isEmpty() && sharedaccList != null)
         {
             for(AccountShare acshr : sharedaccList)
             {
-                accountgroupMap.put(acshr.AccountId, acshr.UserorGroupId);
+                userorGroupId.add(acshr.UserOrGroupId);
             }         	   
         }
+        if(!sharedaccLinkList.isEmpty() && sharedaccLinkList != null)
+        {
+            for(Account_Link__Share shreaccLink : sharedaccLinkList)
+            {
+                accountgroupMap.put(shreaccLink.ParentId, shreaccLink.UserOrGroupId);
+            }
+        }
+        system.debug('accountgroupMap>>>..' + accountgroupMap);
+        system.debug('userorGroupId>>>..' + userorGroupId);
+        system.debug('sharedaccList>>>..' + sharedaccList);
+        system.debug('sharedaccLinkList>>>..' + sharedaccLinkList);
         for(Account_Link__c conshr : con2conaclinkList)
         {
             if(conshr.RecordTypeId == contact2ContactRT && conshr.toRole__c != null)
             {
-                if(!accountgroupMap.isEmpty() && accountgroupMap.get(conshr.toRole__c) != null 
-                   && (isInsert || (isUpdate && conshr.toRole__c != oldmap.get(conshr.Id).toRole__c)))
+                if((isInsert || (isUpdate && conshr.toRole__c != oldmap.get(conshr.Id).toRole__c)))
                 {
-                    Account_Link__Share conalinkShare = new Account_Link__Share();
-                    conalinkShare.ParentId = conshr.Id;
-                    conalinkShare.UserOrGroupId = accountgroupMap.get(conshr.toRole__c);
-                    conalinkShare.AccessLevel = 'Read';
-                    con2conshreList.add(conalinkShare);
+                    for(ID userId : userorGroupId)
+                    {
+                        if(!accountgroupMap.isEmpty() && accountgroupMap.get(conshr.id) != userId && conshr.OwnerId != userId)
+                        {
+                            Account_Link__Share conalinkShare = new Account_Link__Share();
+                            conalinkShare.ParentId = conshr.Id;
+                            conalinkShare.UserOrGroupId = userId;
+                            conalinkShare.AccessLevel = 'Read';
+                            con2conshreList.add(conalinkShare);
+                        }
+                    }
                 }
             }
         }
@@ -209,6 +240,7 @@ public class AccountLinkHelper
         {
             insert con2conshreList;
         }
+        system.debug('con2conshreList>>>>' +con2conshreList);
     }
     //Existing AU Functionality ends here.
 }
