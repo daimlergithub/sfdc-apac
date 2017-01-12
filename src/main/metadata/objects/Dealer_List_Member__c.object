@@ -67,11 +67,11 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Campaign_c__c</fullName>
+        <fullName>Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>This field is used to refer the related campaign execution record</description>
         <externalId>false</externalId>
-        <label>Campaign__c</label>
+        <label>Campaign</label>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Dealer List Members</relationshipLabel>
         <relationshipName>Dealer_List_Members</relationshipName>
@@ -334,6 +334,11 @@
         <unique>false</unique>
     </fields>
     <label>Dealer List Member</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Dealer List Member Name</label>
         <type>Text</type>

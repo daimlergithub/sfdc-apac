@@ -457,6 +457,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Campaign_CCC_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Look up to user to identify the CCC Manger to whom all tasks will be assigned in case of OB execution</description>
+        <externalId>false</externalId>
+        <label>Campaign CCC Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Campaigns1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Campaign_Channels__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Channels</label>
@@ -1080,6 +1092,39 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Child_Campaign_Status__c</fullName>
+        <description>This field can be used to track the progress of the execution campaign life cycle</description>
+        <externalId>false</externalId>
+        <label>Campaign Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -1900,6 +1945,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Ready_for_List_Maintenance__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This field is used to reflect if List is ready for the dealer to start the list Maintenance process</description>
@@ -2422,6 +2476,15 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Segmentation_Date__c</fullName>
+        <description>This field is used to capture the start date of segmentation</description>
+        <externalId>false</externalId>
+        <label>Segmentation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Segmentation_Report_ID__c</fullName>
@@ -3632,6 +3695,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -3846,6 +3932,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4788,6 +4897,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -5002,6 +5134,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5916,6 +6071,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -6130,6 +6308,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6896,6 +7097,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -7110,6 +7334,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7864,6 +8111,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -8082,6 +8352,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8852,6 +9145,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -9066,6 +9382,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9827,6 +10166,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -10045,6 +10407,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10819,6 +11204,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -11033,6 +11441,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11975,6 +12406,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -12201,6 +12655,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13167,6 +13644,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -13393,6 +13893,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14343,6 +14866,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -14569,6 +15115,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15502,6 +16071,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -15724,6 +16316,29 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NttDataEpa__Organization</picklist>
+            <values>
+                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ALL</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
