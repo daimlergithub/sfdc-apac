@@ -3936,29 +3936,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -5138,29 +5115,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -6312,29 +6266,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -7338,29 +7269,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -8352,29 +8260,6 @@
             </values>
             <values>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9386,29 +9271,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -10407,29 +10269,6 @@
             </values>
             <values>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11441,29 +11280,6 @@
             </values>
             <values>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12655,29 +12471,6 @@
             </values>
             <values>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13897,29 +13690,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -15119,29 +14889,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participating_Region_Province__c</picklist>
             <values>
                 <fullName>Province1</fullName>
@@ -16316,29 +16063,6 @@
             </values>
             <values>
                 <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>NttDataEpa__Organization</picklist>
-            <values>
-                <fullName>%3Cadd your own mandator names as used by EPA here %28e%2Eg%2E organization identifiers%29%3E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ALL</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
