@@ -1143,7 +1143,7 @@
     <fields>
         <fullName>Dealer_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Dealership/Sales Person</label>
+        <label>Dealer</label>
         <length>200</length>
         <required>false</required>
         <type>Text</type>
@@ -2228,7 +2228,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <fields>
         <fullName>Source_ID__c</fullName>
-        <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
         <label>Source ID</label>
         <length>40</length>
