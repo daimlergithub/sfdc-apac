@@ -196,10 +196,13 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
+					//Code commented by Srinivas Pendli for #SFDCKR-620
+                    /*
                     else if(acc.Primary_Address_Reference__c ==Null)
                     {
                         acc.Primary_Address_Display__c ='';
                     }
+                    */
                     
                 }
             }     
