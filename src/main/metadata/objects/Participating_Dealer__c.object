@@ -98,32 +98,11 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Campaign_Execution_Date__c</fullName>
-        <externalId>false</externalId>
-        <formula>Campaign__r.Execution_Start_Date__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Campaign Execution Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Campaign_Execution_Type__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Campaign__r.Execution_Type__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Execution Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Campaign_Executor__c</fullName>
-        <externalId>false</externalId>
-        <formula>Text(Campaign__r.Campaign_Executer__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Campaign Executor</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -171,17 +150,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Campaign_Sub_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>Text(Campaign__r.Campaign_Sub_Type__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Campaign Sub Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Campaign_Type__c</fullName>
@@ -257,20 +225,6 @@
         <formula>Dealer__r.Dealer_ND_Code__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>ND Code</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Range__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(INCLUDES( Campaign__r.Range__c  , "ALL"), "ALL", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "AU"), "AU", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "NZ"), "NZ", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "JP"), "JP", NULL)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Range</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
