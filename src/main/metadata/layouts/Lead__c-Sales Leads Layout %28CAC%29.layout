@@ -106,6 +106,10 @@
                 <behavior>Edit</behavior>
                 <field>Next_Contact__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Invoice_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
