@@ -300,7 +300,7 @@ public class LeadHelperJP
         for(User u : userRecords){        
             userIds.add(u.email);
         }
-        Contact con = [Select id from Contact where email!= null limit 1];
+        Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
         EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];  
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
         List<Messaging.SingleEmailMessage > UFRbulkEmails = new  List<Messaging.SingleEmailMessage >();
