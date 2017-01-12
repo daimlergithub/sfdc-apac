@@ -6385,6 +6385,775 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
+        <fullName>Retail_Execution_Campaign</fullName>
+        <active>true</active>
+        <label>Retail Execution Campaign</label>
+        <picklistValues>
+            <picklist>Apply_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BP_Category__c</picklist>
+            <values>
+                <fullName>Best innovation in marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Excellence in customer relationship management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optimum market results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The best social media operations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BP_Status__c</picklist>
+            <values>
+                <fullName>Final Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Brand__c</picklist>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarElite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CBU_PbP__c</picklist>
+            <values>
+                <fullName>CBU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBU%26PbP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PbP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Familiarization workshop for dormant customers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idle Hour Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POM%2FAdvertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts Cross Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion on Technical accessories and collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Product Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used-car buy-back%2FTrade-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VEP%28Seasonal Check%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Car_Model__c</picklist>
+            <values>
+                <fullName>A-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E Coupe Sport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Sport Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GenericModel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML 55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S 63 L AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLS AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUCKS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Region__c</picklist>
+            <values>
+                <fullName>EAST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEST</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Sub_Region__c</picklist>
+            <values>
+                <fullName>EAST1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAST2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAST3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEST</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven__c</picklist>
+            <values>
+                <fullName>Campaign Organized by Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Organized by Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Driven</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Campaign on Festivals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Type__c</picklist>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prints relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Execution_Type__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Feedback_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_ATL_BTL__c</picklist>
+            <values>
+                <fullName>Event Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media Plan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_Brand__c</picklist>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB %2B StarElite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_KPI_Type__c</picklist>
+            <values>
+                <fullName>Marketing Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purpose__c</picklist>
+            <values>
+                <fullName>Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segmentation_Base__c</picklist>
+            <values>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ongoing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Y_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Y_Year__c</picklist>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2022</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2023</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2024</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2025</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2026</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2027</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Retail_MB_Best_Practice</fullName>
         <active>true</active>
         <description>Dealer MB Best activities</description>
@@ -7826,6 +8595,775 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Y_Year__c</picklist>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2022</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2023</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2024</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2025</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2026</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2027</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retail_Parent_Campaign</fullName>
+        <active>true</active>
+        <label>Retail Parent Campaign</label>
+        <picklistValues>
+            <picklist>Apply_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BP_Category__c</picklist>
+            <values>
+                <fullName>Best innovation in marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Excellence in customer relationship management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optimum market results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The best social media operations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BP_Status__c</picklist>
+            <values>
+                <fullName>Final Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Brand__c</picklist>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarElite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CBU_PbP__c</picklist>
+            <values>
+                <fullName>CBU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBU%26PbP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PbP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Familiarization workshop for dormant customers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idle Hour Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POM%2FAdvertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts Cross Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion on Technical accessories and collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Product Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used-car buy-back%2FTrade-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VEP%28Seasonal Check%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Car_Model__c</picklist>
+            <values>
+                <fullName>A-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E Coupe Sport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Sport Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GenericModel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML 55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S 63 L AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK55 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLS AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUCKS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Region__c</picklist>
+            <values>
+                <fullName>EAST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEST</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Sub_Region__c</picklist>
+            <values>
+                <fullName>EAST1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAST2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EAST3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NORTH3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOUTH2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEST</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven__c</picklist>
+            <values>
+                <fullName>Campaign Organized by Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Organized by Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Driven</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Campaign on Festivals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Type__c</picklist>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prints relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Execution_Type__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Feedback_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_ATL_BTL__c</picklist>
+            <values>
+                <fullName>Event Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media Plan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_Brand__c</picklist>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB %2B StarElite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>M_KPI_Type__c</picklist>
+            <values>
+                <fullName>Marketing Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purpose__c</picklist>
+            <values>
+                <fullName>Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segmentation_Base__c</picklist>
+            <values>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ongoing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Y_Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Modify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
