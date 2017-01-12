@@ -1900,15 +1900,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Range__c</fullName>
-        <externalId>false</externalId>
-        <label>Range</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
         <fullName>Ready_for_List_Maintenance__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This field is used to reflect if List is ready for the dealer to start the list Maintenance process</description>
