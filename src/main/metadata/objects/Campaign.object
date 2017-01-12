@@ -1945,15 +1945,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Range__c</fullName>
-        <externalId>false</externalId>
-        <label>Range</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
         <fullName>Ready_for_List_Maintenance__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This field is used to reflect if List is ready for the dealer to start the list Maintenance process</description>
@@ -4265,21 +4256,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -5444,17 +5420,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -6599,21 +6564,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -7594,17 +7544,6 @@
             </values>
             <values>
                 <fullName>Lead</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8605,21 +8544,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -9600,21 +9524,6 @@
             </values>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10618,21 +10527,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -11617,17 +11511,6 @@
             </values>
             <values>
                 <fullName>Lead</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12820,21 +12703,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -14016,21 +13884,6 @@
             <values>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15218,21 +15071,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Task_De_dup_by__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -16409,21 +16247,6 @@
             <values>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Task_De_dup_Range__c</picklist>
-            <values>
-                <fullName>By CAC Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>By Campaign Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
