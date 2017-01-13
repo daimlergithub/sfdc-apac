@@ -51,7 +51,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
@@ -2029,7 +2029,7 @@ Modify Reason:
         <searchResultsAdditionalFields>Threshold__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Read</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Format_DM_Material_Name</fullName>
         <active>false</active>
