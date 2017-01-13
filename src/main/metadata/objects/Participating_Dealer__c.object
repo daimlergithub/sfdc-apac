@@ -98,11 +98,33 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Campaign_Execution_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Execution_Start_Date__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Execution Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Campaign_Execution_Type__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Campaign__r.Execution_Type__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Execution Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Executor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Campaign_Executer__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Executor</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -152,6 +174,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Campaign_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Campaign_Sub_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Sub Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Campaign_Type__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Campaign__r.Campaign_Type__c)</formula>
@@ -176,6 +209,37 @@
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Class__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Class__c , "A-Class"), "A-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "B-Class"), "B-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "C-Class"), "C-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CL-Class"), "CL-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "CLK-Class"), "CLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CLS-Class"), "CLS-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "E-Class"), "E-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "G-Class"), "G-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "GL-Class"), "GL-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "GLK-Class"), "GLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "ML-Class"), "ML-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "R-Class"), "R-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "S-Class"), "S-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "SL-Class"), "SL-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "SLK-Class"), "SLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "smart"), "smart", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "AMG"), "AMG", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "Other"), "Other", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CLA-Class"), "CLA-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "GLA-Class"), "GLA-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DMS_Retailer_ID__c</fullName>
         <externalId>false</externalId>
         <formula>Dealer__r.DMS_Retailer_ID__c</formula>
@@ -185,17 +249,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-	    <fields>
-        <fullName>Range__c</fullName>
-        <externalId>false</externalId>
-        <label>Range</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Dealer_Type__c</fullName>
@@ -236,6 +289,20 @@
         <formula>Dealer__r.Dealer_ND_Code__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>ND Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Range__c  , "ALL"), "ALL", NULL)  + BR() + 
+IF(INCLUDES( Campaign__r.Range__c , "AU"), "AU", NULL)  + BR() + 
+IF(INCLUDES( Campaign__r.Range__c , "NZ"), "NZ", NULL)  + BR() + 
+IF(INCLUDES( Campaign__r.Range__c , "JP"), "JP", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Range</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
