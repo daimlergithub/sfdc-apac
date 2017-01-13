@@ -1756,17 +1756,6 @@ OR(MD__c = 'JP',MD__c = 'KR'),
         <errorMessage>Province __c is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>TitleOfHonor_is_Required</fullName>
-        <active>false</active>
-        <description>TitleOfHonor value is "Company", Company Name is mandatory.</description>
-        <errorConditionFormula>IF(
-AND(
-TEXT( TitleOfHonor__c ) = "To Company",
-LEN( Company_Name__c ) = 0), True, False)</errorConditionFormula>
-        <errorDisplayField>TitleOfHonor__c</errorDisplayField>
-        <errorMessage>TitleOfHonor is required.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Town_Native_Kana</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
