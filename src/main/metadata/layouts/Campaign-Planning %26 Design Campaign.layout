@@ -267,7 +267,7 @@
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.END_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <relatedList>Campaign.parentcampaign__c</relatedList>
+        
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
