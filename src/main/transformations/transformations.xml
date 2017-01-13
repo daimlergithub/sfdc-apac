@@ -107,6 +107,11 @@
 	</changetext>
 	 <changetext>
 		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ASSIGNED_DEALER</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
 	</changetext>
