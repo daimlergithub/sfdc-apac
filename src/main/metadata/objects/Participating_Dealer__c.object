@@ -245,6 +245,7 @@
     </fields>
     <fields>
         <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Dealer</label>
         <lookupFilter>
@@ -259,11 +260,9 @@
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Participating Campaigns</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ND_Code__c</fullName>
