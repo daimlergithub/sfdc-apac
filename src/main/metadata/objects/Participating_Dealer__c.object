@@ -79,7 +79,7 @@
     <fields>
         <fullName>Campaign_Description__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign__r.Campaign_Partner__r.Description__c</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Description</label>
         <required>false</required>
@@ -90,17 +90,18 @@
     <fields>
         <fullName>Campaign_End_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign__r.EndDate</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign End Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Campaign_Execution_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Campaign__r.Execution_Start_Date__c)</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Execution Date</label>
         <required>false</required>
@@ -111,7 +112,7 @@
     <fields>
         <fullName>Campaign_Execution_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Campaign__r.Execution_Type__c)</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Execution Type</label>
         <required>false</required>
@@ -133,7 +134,7 @@
     <fields>
         <fullName>Campaign_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign__r.Name</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Name</label>
         <required>false</required>
@@ -166,17 +167,18 @@
     <fields>
         <fullName>Campaign_Start_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign__r.StartDate</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Start Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Campaign_Sub_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Campaign__r.Campaign_Sub_Type__c)</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Sub Type</label>
         <required>false</required>
@@ -187,7 +189,7 @@
     <fields>
         <fullName>Campaign_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Campaign__r.Campaign_Type__c)</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Campaign Type</label>
         <required>false</required>
@@ -222,7 +224,7 @@
     <fields>
         <fullName>DMS_Retailer_ID__c</fullName>
         <externalId>false</externalId>
-        <formula>Dealer__r.DMS_Retailer_ID__c</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>DMS Retailer ID</label>
         <required>false</required>
@@ -233,7 +235,7 @@
     <fields>
         <fullName>Dealer_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>text(Dealer__r.Dealer_Type__c)</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Type</label>
         <required>false</required>
@@ -266,7 +268,7 @@
     <fields>
         <fullName>ND_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Dealer__r.Dealer_ND_Code__c</formula>
+        <formula>""</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>ND Code</label>
         <required>false</required>
