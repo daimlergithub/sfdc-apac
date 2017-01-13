@@ -54,7 +54,7 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Hide_Survey_Name__c</fullName>
         <defaultValue>true</defaultValue>
@@ -222,7 +222,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <webLinks>
         <fullName>Preview</fullName>
         <availability>online</availability>

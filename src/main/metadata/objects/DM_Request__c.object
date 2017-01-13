@@ -51,7 +51,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Actual_DM_Material1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1554,7 +1554,7 @@ Modify Reason:
         <searchResultsAdditionalFields>Status3__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>
