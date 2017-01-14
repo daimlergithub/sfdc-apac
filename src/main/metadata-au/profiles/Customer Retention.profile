@@ -16634,12 +16634,12 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Task__c.Service_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Task__c.Service_Contact_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
