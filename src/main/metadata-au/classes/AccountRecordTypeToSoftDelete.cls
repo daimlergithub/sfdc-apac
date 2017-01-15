@@ -47,7 +47,7 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
         List<Task> taskList = new List<Task>();
         List<Lead__c> leadList = new List<Lead__c>();
         List<Event> eventList = new List<Event>();
-        Datetime lastFiveYears = System.Now();
+        Datetime lastFiveYears = System.Now().addyears(-5);
         datetime lastmodifieddate_lead;
         datetime lastmodifieddate_task_event;
         set<id> accids = new set<id>();
