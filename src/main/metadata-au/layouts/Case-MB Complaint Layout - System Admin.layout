@@ -171,10 +171,6 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Background_Info__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -286,6 +282,10 @@
         <editHeading>true</editHeading>
         <label>Vehicle Owner Details</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Owner__c</field>
