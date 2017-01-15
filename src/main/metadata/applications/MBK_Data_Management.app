@@ -2,6 +2,7 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK Data Management</label>
+	<logo>Logo/MB.png</logo>
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
