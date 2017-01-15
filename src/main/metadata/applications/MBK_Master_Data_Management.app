@@ -2,7 +2,7 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK Master Data Management</label>
-	<logo>Logo/MB.jpg</logo>
+	<logo>Logo/MB_LOGO.png</logo>
     <tab>Tasks</tab>
 	<tab>standard-report</tab>
     <tab>Car_Model__c</tab>
