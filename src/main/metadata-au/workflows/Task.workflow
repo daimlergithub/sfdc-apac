@@ -231,7 +231,7 @@ Content of email will be reference the task number and due date.</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;) &amp;&amp; $RecordType.DeveloperName = &apos;Remove_Account&apos;</formula>
+        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
