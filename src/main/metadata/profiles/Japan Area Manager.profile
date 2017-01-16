@@ -10676,8 +10676,7 @@
         <editable>false</editable>
         <field>EP_Export_Notification__c.Type__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Export_Notification__c.Usecase__c</field>

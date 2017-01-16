@@ -118,6 +118,7 @@
         </defaultShortcut>
     </keyboardShortcuts>
     <label>MBK Call Center</label>
+	<logo>Logo/MB_LOGO.png</logo>
     <listPlacement>
         <location>full</location>
     </listPlacement>
