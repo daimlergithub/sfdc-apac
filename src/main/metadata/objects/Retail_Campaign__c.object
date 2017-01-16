@@ -402,8 +402,8 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Add_Member_ID__c</fullName>
+	<fields>
+        <fullName>Add_Campaign_Member_ID__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Flag to copied on Campaign member for Opro Campaigns</description>
         <externalId>false</externalId>
@@ -687,6 +687,28 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Campaign_Member_Sharing_Rule__c</fullName>
+        <description>Rule which is more an information utilized in Segementation</description>
+        <externalId>false</externalId>
+        <label>Campaign Member Sharing Rule</label>
+        <picklist>
+            <picklistValues>
+                <fullName>One Account One Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Campaign_Name__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Name</label>
@@ -696,9 +718,9 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields>    
     <fields>
-        <fullName>Campaign_Status__c</fullName>
+        <fullName>Child_Campaign_Status__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Status</label>
         <picklist>
@@ -1440,7 +1462,7 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Execution_Date__c</fullName>
+        <fullName>Execution_Start_Date__c</fullName>
         <description>This field is used to capture the start date of the execution campaign</description>
         <externalId>false</externalId>
         <label>Execution Date</label>
@@ -3251,7 +3273,7 @@
         <type>Text</type>
         <unique>true</unique>
     </fields>
-    <label>Record</label>
+    <label>Retail Campaign</label>
     <listViews>
         <fullName>AS_Retail_Campaign</fullName>
         <columns>NAME</columns>
@@ -3476,7 +3498,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Records</pluralLabel>
+    <pluralLabel>Retail Campaigns</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>AS_Retail_Campaign</fullName>
