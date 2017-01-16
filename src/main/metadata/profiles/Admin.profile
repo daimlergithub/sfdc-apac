@@ -21512,11 +21512,7 @@
     <layoutAssignments>
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Campaign-Planning %26 Design Campaign</layout>
-        <recordType>Campaign.Planning_Design_Campaign</recordType>
-    </layoutAssignments>
+    </layoutAssignments> 
     <layoutAssignments>
         <layout>Campaign-S%26M Event Central Campaign</layout>
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
