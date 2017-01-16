@@ -9,36 +9,20 @@
         <name>Address_Code__c</name>
     </fields>
     <fields>
-        <label>住所1</label>
-        <name>Address_Line_1__c</name>
-    </fields>
-    <fields>
-        <label>住所2</label>
-        <name>Address_Line_2__c</name>
-    </fields>
-    <fields>
         <label>住所1（カナ）</label>
         <name>Address_Line_1_Native__c</name>
+    </fields>
+    <fields>
+        <label>住所1</label>
+        <name>Address_Line_1__c</name>
     </fields>
     <fields>
         <label>住所2（カナ）</label>
         <name>Address_Line_2_Native__c</name>
     </fields>
     <fields>
-        <label>字名・丁目（カナ）</label>
-        <name>Block_Native__c</name>
-    </fields>
-    <fields>
-        <label>市区郡町村（カナ）</label>
-        <name>City_Native__c</name>
-    </fields>
-    <fields>
-        <label>大字・通称名（カナ）</label>
-        <name>District_Native__c</name>
-    </fields>
-    <fields>
-        <label>都道府県（カナ）</label>
-        <name>Province_Native__c</name>
+        <label>住所2</label>
+        <name>Address_Line_2__c</name>
     </fields>
     <fields>
         <label>住所区分</label>
@@ -65,8 +49,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>字名・丁目（カナ）</label>
+        <name>Block_Native__c</name>
+    </fields>
+    <fields>
         <label>字名・丁目</label>
         <name>Block__c</name>
+    </fields>
+    <fields>
+        <label>市区郡町村（カナ）</label>
+        <name>City_Native__c</name>
     </fields>
     <fields>
         <label>市区郡町村</label>
@@ -84,8 +76,20 @@
         <label><!-- Country --></label>
         <name>Country__c</name>
         <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Japan</masterLabel>
             <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -100,6 +104,10 @@
     <fields>
         <label><!-- Delivery Point ID --></label>
         <name>Delivery_Point_ID__c</name>
+    </fields>
+    <fields>
+        <label>大字・通称名（カナ）</label>
+        <name>District_Native__c</name>
     </fields>
     <fields>
         <label>大字・通称名</label>
@@ -140,6 +148,10 @@
     <fields>
         <label><!-- Preferred --></label>
         <name>Preferred__c</name>
+    </fields>
+    <fields>
+        <label>都道府県（カナ）</label>
+        <name>Province_Native__c</name>
     </fields>
     <fields>
         <label>都道府県</label>
@@ -377,7 +389,7 @@
             <translation>様</translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
@@ -422,8 +434,24 @@
         <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Address_Line_1_Native_Kana</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Address_Line_1__c is Mandatory --></errorMessage>
+        <name>Address_Line_1_is_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Address_Line_2_Native_Kana</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>住所区分を入力して下さい。</errorMessage>
         <name>Address_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Block_Native_Kana</name>
     </validationRules>
     <validationRules>
         <errorMessage>字名・丁目は必ず12文字以下で入力して下さい。</errorMessage>
@@ -434,12 +462,20 @@
         <name>CheckedState</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>City_Native_Kana</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>市区郡町村は必ず12 文字以下で入力して下さい。</errorMessage>
         <name>City_NoOfDigit</name>
     </validationRules>
     <validationRules>
         <errorMessage>宛名は必ず50文字以下で入力して下さい。</errorMessage>
         <name>CompanyName_NoOfDigits</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Company_Name_Native_Kana</name>
     </validationRules>
     <validationRules>
         <errorMessage>敬称が御中の場合は、会社名を入力して下さい。</errorMessage>
@@ -458,7 +494,27 @@
         <name>Invalid_ZipCode</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- ZIP CODE should be minimum 5 digits and ONLY Numbers. --></errorMessage>
+        <name>MBK_Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ZIPCODE is mandatory --></errorMessage>
+        <name>MBK_ZIP_CODE_is_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Prefecture_Native_Kana</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Province __c is Mandatory --></errorMessage>
+        <name>Province_is_mandatory</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>御中・様を入力して下さい。</errorMessage>
         <name>TitleOfHonor_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Town_Native_Kana</name>
     </validationRules>
 </CustomObjectTranslation>

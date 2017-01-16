@@ -15,7 +15,6 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Segmentation_Date__c</field>
@@ -282,7 +281,6 @@
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
     </relatedLists>
-    
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>

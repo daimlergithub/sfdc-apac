@@ -8,7 +8,10 @@
         <plural>true</plural>
         <value>Contract Relations</value>
     </caseValues>
-
+    <fields>
+        <label><!-- FOS Case Number --></label>
+        <name>Case_Key__c</name>
+    </fields>
     <fields>
         <label><!-- CRM1 Case No. --></label>
         <name>Case_No__c</name>

@@ -1,0 +1,61 @@
+<apex:page standardController="Account" extensions="InsuranceRetailTask" showHeader="false" sidebar="false">
+    <apex:form >
+    <apex:pageBlock id="InsuranceRetailTask" title="Related Dealer view for Insurance">
+           <apex:pageBlockTable id="Instab" value="{!Inslist}" var="ins">
+           
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.ContractNumber__c.Label}">
+                        <apex:outputText value="{!ins.ContractNumber__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                  <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}">
+                        <apex:outputlink style="width:9%; white-space:nowrap;" value="https://daimlerasia--asiadev23.cs5.my.salesforce.com/{!ins.id}">{!ins.Name} 
+                        </apex:outputlink>
+                    </apex:column>
+
+                   
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Contract_Invalid_Flag__c.Label}">
+                        <apex:outputText value="{!ins.Contract_Invalid_Flag__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.StartDate__c.Label}">
+                        <apex:outputText value="{!ins.StartDate__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.EndDate__c.Label}">
+                        
+                        <apex:outputText value="{!ins.EndDate__c}" style="width:9%; white-space:nowrap;"> 
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.ApplicationDate__c.Label}">
+                        
+                        <apex:outputText value="{!ins.ApplicationDate__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Contract_Category__c.Label}">
+                        
+                        <apex:outputText value="{!ins.Contract_Category__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Vehicle__c.Label}">
+                       
+                        <apex:outputText value="{!ins.Related_Vehicle__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.VIN__c.Label}">
+                
+                        <apex:outputText value="{!ins.VIN__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Common_Comments__c.Label}">
+                
+                        <apex:outputText value="{!ins.Common_Comments__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+               </apex:pageBlockTable>           
+          </apex:pageBlock>
+    </apex:form>
+</apex:page>

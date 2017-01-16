@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Campaign Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Campaign Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account information updates --></label>
+        <name>Account_information_updates__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add Campaign Member ID --></label>
+        <name>Add_Campaign_Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add Sales Staff --></label>
+        <name>Add_Sales_Staff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add Service Staff --></label>
+        <name>Add_Service_Staff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Auto-creation of DM requests --></label>
+        <name>Auto_creation_of_DM_requests__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto-creation of leads --></label>
+        <name>Auto_creation_of_leads__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto-creation of tasks --></label>
+        <name>Auto_creation_of_tasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Amount1 --></label>
+        <name>Bonus_Amount1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Amount2 --></label>
+        <name>Bonus_Amount2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus  Month1 --></label>
+        <name>Bonus_Month1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus  Month2 --></label>
+        <name>Bonus_Month2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Execution Type --></label>
+        <name>Campaign_Execution_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign ID --></label>
+        <name>Campaign_ID__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Campaign Member ID --></label>
+        <name>Campaign_Member_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Campaign Members (Campaign) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>Contact_Id__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contract End date(Lease) --></label>
+        <name>Contract_End_date_Lease__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Number --></label>
+        <name>Contract_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Phone 1 --></label>
+        <name>Contract_Phone_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Phone 2 --></label>
+        <name>Contract_Phone_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Responsible Person --></label>
+        <name>Contract_Responsible_Person__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Start date(Lease) --></label>
+        <name>Contract_Start_date_Lease__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Status --></label>
+        <name>Contract_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Campaign Members (Contract) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contractor Company Name --></label>
+        <name>Contractor_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor Individual Name --></label>
+        <name>Contractor_Individual_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cross Point Model --></label>
+        <name>Cross_Point_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Complete Address --></label>
+        <name>Customer_Complete_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Email --></label>
+        <name>Customer_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Interest Rate --></label>
+        <name>Customer_Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Label Name --></label>
+        <name>Customer_Label_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- DM Template --></label>
+        <name>DM_Template__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer ND Code --></label>
+        <name>Dealer_ND_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deferred Payment(loan) --></label>
+        <name>Deferred_Payment_loan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delinquency Flag --></label>
+        <name>Delinquency_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Address --></label>
+        <name>Finance_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Product --></label>
+        <name>Finance_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finance Vehicle --></label>
+        <name>Finance_Vehicle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fine Rate --></label>
+        <name>Fine_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- FirstName --></label>
+        <name>FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Registration Date --></label>
+        <name>First_Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gaurantor2 Name --></label>
+        <name>Gaurantor2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gaurantor3 Name --></label>
+        <name>Gaurantor3_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gaurantor 1 Name --></label>
+        <name>Gaurantor_1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indemnity Amount --></label>
+        <name>Indemnity_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Rate --></label>
+        <name>Interest_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interested  Model --></label>
+        <name>Interested_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- LastName --></label>
+        <name>LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Desired Service --></label>
+        <name>Lead_Desired_Service__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Sub Type --></label>
+        <name>Lead_Sub_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Type --></label>
+        <name>Lead_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease/Loan Flag --></label>
+        <name>Lease_Loan_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- List Maitenence Retail CM Flag --></label>
+        <name>List_Maitenence_Retail_CM_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- MBF Anti Social flag --></label>
+        <name>MBF_Anti_Social_flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- MD --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mileage --></label>
+        <name>Mileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model --></label>
+        <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Payment --></label>
+        <name>Monthly_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Payment amount --></label>
+        <name>Monthly_Payment_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Payment amount with Tax --></label>
+        <name>Monthly_Payment_amount_with_Tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Mercedes Email --></label>
+        <name>My_Mercedes_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Mercedes ID --></label>
+        <name>My_Mercedes_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Inspection Date --></label>
+        <name>Next_Inspection_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Payments --></label>
+        <name>No_of_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Prohibit Flag --></label>
+        <name>Offer_Prohibit_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participate Date --></label>
+        <name>Participate_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment End Date --></label>
+        <name>Payment_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Start Date --></label>
+        <name>Payment_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Suspended Flag --></label>
+        <name>Payment_Suspended_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Dealer --></label>
+        <name>Preferred_Dealer__c</name>
+        <relationshipLabel><!-- Campaign Members (Preferred Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Purchase Timing --></label>
+        <name>Purchase_Timing__c</name>
+    </fields>
+    <fields>
+        <label><!-- RV/Ballon --></label>
+        <name>RV_Ballon__c</name>
+    </fields>
+    <fields>
+        <label><!-- Re-Lease Extension Date --></label>
+        <name>Re_Lease_Extension_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Re-Lease Prohibit Flag --></label>
+        <name>Re_Lease_Prohibit_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recipient changes --></label>
+        <name>Recipient_changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Date --></label>
+        <name>Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Number --></label>
+        <name>Registration_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Residual amount(Lease) --></label>
+        <name>Residual_amount_Lease__c</name>
+    </fields>
+    <fields>
+        <label><!-- RespondedDate --></label>
+        <name>RespondedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Response Email --></label>
+        <name>Response_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Campaign Id --></label>
+        <name>Retail_Campaign_Id__c</name>
+        <relationshipLabel><!-- Campaign Members (Retail Campaign Id) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Retail Task --></label>
+        <name>Retail_Task__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sales Representative --></label>
+        <name>Sales_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sending Date --></label>
+        <name>Sending_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Representative --></label>
+        <name>Service_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shinpan --></label>
+        <name>Shinpan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source of CM Response --></label>
+        <name>Source_of_CM_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Flag to Include --></label>
+        <name>Special_Flag_to_Include__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special flag to Exclude --></label>
+        <name>Special_flag_to_Exclude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Change Date --></label>
+        <name>Status_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Bounced</masterLabel>
+            <translation><!-- Bounced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executed</masterLabel>
+            <translation><!-- Executed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Responded</masterLabel>
+            <translation><!-- Not Responded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready</masterLabel>
+            <translation><!-- Ready --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Removed</masterLabel>
+            <translation><!-- Removed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Responded</masterLabel>
+            <translation><!-- Responded --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Vehicle Price with tax --></label>
+        <name>Total_Vehicle_Price_with_tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Vehicle Price without tax --></label>
+        <name>Total_Vehicle_Price_without_tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- UsVIN --></label>
+        <name>UsVIN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Relationship --></label>
+        <name>Vehicle_Relationship__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vehicle --></label>
+        <name>Vehicle__c</name>
+        <relationshipLabel><!-- Campaign Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Zip Code Finance --></label>
+        <name>Zip_Code_Finance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip_Code__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -4,9 +4,9 @@
         <fullName>Rejected_Duplicate_Log_Sync</fullName>
         <apiVersion>35.0</apiVersion>
         <endpointUrl>WORKFLOW_OUTBOUND_MESSAGE_ENDPOINTURL</endpointUrl>
+        <fields>DUPNumber__c</fields>
         <fields>Duplicate_Account__c</fields>
         <fields>Duplicate_Reason_Code__c</fields>
-		<fields>DUPNumber__c</fields>
         <fields>Id</fields>
         <fields>MD__c</fields>
         <fields>Master_Account__c</fields>

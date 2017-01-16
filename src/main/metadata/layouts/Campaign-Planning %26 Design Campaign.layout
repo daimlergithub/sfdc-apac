@@ -260,7 +260,6 @@
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
     </relatedLists>
-    
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>

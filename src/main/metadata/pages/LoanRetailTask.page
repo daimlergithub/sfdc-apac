@@ -1,0 +1,97 @@
+<apex:page standardController="Account"  extensions="LoanRetailTask" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock id="LoanRetailTask" title="Related Dealer view for Loan">
+           <apex:pageBlockTable id="lon" value="{!Loanlist}" var="loan">
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}">
+                        <apex:outputlink style="width:9%; white-space:nowrap;" value="https://daimlerasia--asiadev23.cs5.my.salesforce.com/{!loan.id}">{!loan.Name} 
+                        </apex:outputlink>
+                    </apex:column>
+
+           
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Bank_Account_Name__c.Label}">
+                        <apex:outputText value="{!loan.Bank_Account_Name__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                   
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Actual_Maturity_Date__c.Label}">
+                        <apex:outputText value="{!loan.Actual_Maturity_Date__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                       </apex:column>
+                   
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Loan_Remaining_Bal_Baloon_Dealer__c.Label}">
+                        <apex:outputText value="{!loan.Loan_Remaining_Bal_Baloon_Dealer__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Common_Comments__c.Label}">
+                        
+                        <apex:outputText value="{!loan.Common_Comments__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Credit_Loan_Company_Name__c.Label}">
+                        
+                        <apex:outputText value="{!loan.Credit_Loan_Company_Name__c}" style="width:9%; white-space:nowrap;"> 
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Parent_Number__c.Label}">
+                        
+                        <apex:outputText value="{!loan.Parent_Number__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.First_Installment_Amount__c.Label}">
+                        
+                        <apex:outputText value="{!loan.First_Installment_Amount__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Loan_Principal__c.Label}">
+                       
+                        <apex:outputText value="{!loan.Loan_Principal__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Parent_Flag__c.Label}">
+                
+                        <apex:outputText value="{!loan.Parent_Flag__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Source_System__c.Label}">
+                
+                        <apex:outputText value="{!loan.Source_System__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Status__c.Label}">
+                
+                        <apex:outputText value="{!loan.Status__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Suspend_Payment__c.Label}">
+                
+                        <apex:outputText value="{!loan.Suspend_Payment__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Split_Payment_Comission_Fee__c.Label}">
+                
+                        <apex:outputText value="{!loan.Split_Payment_Comission_Fee__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Total_Split_Payment__c.Label}">
+                
+                        <apex:outputText value="{!loan.Total_Split_Payment__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Balance_Update_Date__c.Label}">
+                
+                        <apex:outputText value="{!loan.Balance_Update_Date__c }" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+               </apex:pageBlockTable>           
+          </apex:pageBlock>
+    </apex:form>
+</apex:page>

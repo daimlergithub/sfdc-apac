@@ -5,6 +5,11 @@
         <value>サーベイ質問</value>
     </caseValues>
     <fields>
+        <label><!-- Camp Question --></label>
+        <name>Camp_Question__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Choices --></label>
         <name>Choices__c</name>
     </fields>
@@ -22,6 +27,11 @@
         <name>OrderNumber__c</name>
     </fields>
     <fields>
+        <label><!-- Question Ref --></label>
+        <name>Question_Ref__c</name>
+        <relationshipLabel><!-- Survey Questions (Question Ref) --></relationshipLabel>
+    </fields>
+    <fields>
         <label>質問内容</label>
         <name>Question__c</name>
     </fields>
@@ -37,6 +47,11 @@
     <fields>
         <label><!-- Single FreeText Next Question No. --></label>
         <name>Single_FreeText_Next_Question_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Answer Id --></label>
+        <name>Survey_Answer_Id__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
     </fields>
     <fields>
         <label>対象サーベイ</label>

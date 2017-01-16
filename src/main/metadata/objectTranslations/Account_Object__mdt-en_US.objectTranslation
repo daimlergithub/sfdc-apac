@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>company legal form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>company legal form</value>
+    </caseValues>
+    <fields>
+        <label><!-- Cooperative society TL --></label>
+        <name>Cooperative_society_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cooperative society --></label>
+        <name>Cooperative_society__c</name>
+    </fields>
+    <fields>
+        <label><!-- Education insitution TL --></label>
+        <name>Education_insitution_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Education insitution --></label>
+        <name>Education_insitution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Joint venture TL --></label>
+        <name>Joint_venture_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Joint venture --></label>
+        <name>Joint_venture__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limited liability company TL --></label>
+        <name>Limited_liability_company_T__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limited liability company --></label>
+        <name>Limited_liability_company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limited partnership company TL --></label>
+        <name>Limited_partnership_company_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limited partnership company --></label>
+        <name>Limited_partnership_company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical corporation TL --></label>
+        <name>Medical_corporation_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical corporation --></label>
+        <name>Medical_corporation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical enterprise TL --></label>
+        <name>Medical_enterprise_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Medical enterprise --></label>
+        <name>Medical_enterprise__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mutual aid association TL --></label>
+        <name>Mutual_aid_association_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mutual aid association --></label>
+        <name>Mutual_aid_association__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mutual company TL --></label>
+        <name>Mutual_company_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mutual company --></label>
+        <name>Mutual_company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Others TL --></label>
+        <name>Others_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Others --></label>
+        <name>Others__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist Name --></label>
+        <name>Picklist_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Religious corporation TL --></label>
+        <name>Religious_corporation_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Religious corporation --></label>
+        <name>Religious_corporation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social welfare institution TL --></label>
+        <name>Social_welfare_institution_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social welfare institution --></label>
+        <name>Social_welfare_institution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stock company TL --></label>
+        <name>Stock_company_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stock company --></label>
+        <name>Stock_company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unlimited partnership company TL --></label>
+        <name>Unlimited_partnership_company_TL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unlimited partnership company --></label>
+        <name>Unlimited_partnership_company__c</name>
+    </fields>
+    <layouts>
+        <layout>company legal form Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

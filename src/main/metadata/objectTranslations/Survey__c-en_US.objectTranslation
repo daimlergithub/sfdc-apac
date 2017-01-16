@@ -17,6 +17,14 @@
         <name>MD__c</name>
     </fields>
     <fields>
+        <label><!-- Sales Notification --></label>
+        <name>Sales_Notification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Notification --></label>
+        <name>Service_Notification__c</name>
+    </fields>
+    <fields>
         <help><!-- Message to be displayed to the user when the Survey has been submitted --></help>
         <label><!-- Submit Response --></label>
         <name>Submit_Response__c</name>
@@ -50,6 +58,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

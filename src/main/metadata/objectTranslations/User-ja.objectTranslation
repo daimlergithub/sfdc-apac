@@ -203,6 +203,10 @@
             <masterLabel>JP</masterLabel>
             <translation><!-- JP --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>KR</masterLabel>
+            <translation><!-- KR --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>顧客コンタクト情報更新通知受領設定</label>
@@ -362,7 +366,53 @@
             <section>User Provisioning Accounts</section>
         </sections>
     </layouts>
+    <layouts>
+        <layout>User Layout Sysad</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>User Layout for MBJ/MBF</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Managers in the Role Hierarchy --></label>
+            <section>Managers in the Role Hierarchy</section>
+        </sections>
+        <sections>
+            <label><!-- Permission Set Assignments --></label>
+            <section>Permission Set Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Permission Set License Assignments --></label>
+            <section>Permission Set License Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Team --></label>
+            <section>Team</section>
+        </sections>
+        <sections>
+            <label><!-- User Provisioning Accounts --></label>
+            <section>User Provisioning Accounts</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>User Master Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Change_Notification_Settings --></label>
+        <name>Change_Notification_Settings</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_Update_Assignment --></label>
+        <name>Mass_Update_Assignment</name>
+    </webLinks>
 </CustomObjectTranslation>
-    
-	
-	
