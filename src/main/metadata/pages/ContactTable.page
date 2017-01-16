@@ -330,6 +330,9 @@
                    </tr> 
                </table>    
              </apex:pageBlock> 
+                    <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
+                       <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,Block"  />
+                   </apex:outputPanel>
              <apex:pageBlockButtons location="bottom" style="align:left;"  >
                    <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
                    <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,showmsg" />
