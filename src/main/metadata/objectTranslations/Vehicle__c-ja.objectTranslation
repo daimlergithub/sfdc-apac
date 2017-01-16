@@ -1527,8 +1527,80 @@
         <label>燃料種類</label>
         <name>Fuel__c</name>
         <picklistValues>
+            <masterLabel>ANG</masterLabel>
+            <translation><!-- ANG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CNG</masterLabel>
+            <translation><!-- CNG --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>D</masterLabel>
             <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity</masterLabel>
+            <translation>電気</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ethanol</masterLabel>
+            <translation>エタノール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline</masterLabel>
+            <translation>ガソリン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/Electricity</masterLabel>
+            <translation>ガソリン・電気</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/Kerosene</masterLabel>
+            <translation>ガソリン・灯油</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/LPG</masterLabel>
+            <translation>ガソリン・LPG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hydrogen</masterLabel>
+            <translation>圧縮水素</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kerosene</masterLabel>
+            <translation>灯油</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LNG</masterLabel>
+            <translation><!-- LNG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LPG</masterLabel>
+            <translation><!-- LPG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LPG/Electricity</masterLabel>
+            <translation>LPG・電気</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light Oil</masterLabel>
+            <translation>軽油</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light Oil/Electricity</masterLabel>
+            <translation>軽油・電気</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methanol</masterLabel>
+            <translation>メタノール</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>U</masterLabel>
