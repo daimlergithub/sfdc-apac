@@ -26,6 +26,7 @@ public class TriggerRetailTaskTriggerHandler
             RetailTaskHelper.upadteAccountFinancstatusafterInsertUpadte(trigger.new);
             RetailTaskHelper.sharewithServiceDealers(trigger.new);
             RetailTaskHelper.sharewithRelatedDealers(trigger.new);
+            RetailTaskHelper.shareContractsWithDealers(trigger.new);
         }
         //existing au functionality
         if(Trigger.isUpdate && Trigger.isAfter){
@@ -33,6 +34,7 @@ public class TriggerRetailTaskTriggerHandler
             RetailTaskHelper.sentEmailAfterStatusToCurrent(trigger.new,oldmap,newmap,Trigger.isInsert,Trigger.isUpdate);
             RetailTaskHelper.sharewithServiceDealers(trigger.new);
             RetailTaskHelper.sharewithRelatedDealers(trigger.new);
+            RetailTaskHelper.shareContractsWithDealers(trigger.new);
         }
     }
 }

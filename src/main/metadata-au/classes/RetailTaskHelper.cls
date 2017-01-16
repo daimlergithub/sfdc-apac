@@ -3,6 +3,7 @@ public with sharing class RetailTaskHelper
     public static Set<ID> vehicleIds = new Set<ID>();
     public static Set<ID> customerIds = new Set<ID>();
     public static Id servicerecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
+    public static Id contractrecordId = Schema.sObjectType.Retail_task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT)].Id;
     private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
@@ -658,7 +659,7 @@ public with sharing class RetailTaskHelper
         List<sobject> relshareList = new List<sobject>();
         for(Retail_Task__c rtsks : relatedRTList)
         {
-            if(rtsks.Account__c != null && rtsks.Related_Dealer__c != null && rtsks.RecordTypeId != servicerecordId)
+            if(rtsks.Account__c != null && rtsks.Related_Dealer__c != null && rtsks.RecordTypeId != servicerecordId && rtsks.RecordTypeId == contractrecordId)
             {
                 rtIds.add(rtsks.Id);
             }
@@ -720,6 +721,68 @@ public with sharing class RetailTaskHelper
         if(!relshareList.isEmpty() && relshareList != null)
         {
             Database.insert(relshareList);
+        }
+    }
+    
+    public static void shareContractsWithDealers(List<Retail_Task__c> allContractList)
+    {
+        set<id> allaccids = new set<id>();
+        set<id> allconids = new set<id>();
+        set<id> userorGroupId = new set<id>();
+        map<id,id> consharedMap = new map<id,id>();
+        List<AccountShare> accShareList = new List<AccountShare>();
+        List<Retail_Task__Share> conShareList = new List<Retail_Task__Share>();
+        List<Retail_Task__Share> updateConshreList = new List<Retail_Task__Share>();
+        for(Retail_Task__c con : allContractList)
+        {
+            if(con.Account__c != null && con.RecordTypeId != servicerecordId && con.RecordTypeId != contractrecordId)
+            {
+                allaccids.add(con.Account__c);
+                allconids.add(con.Id);
+            }
+        }
+        if(!allaccids.isEmpty() && allaccids != null)
+        {
+            accShareList = [select id ,AccountId, UserorGroupId from AccountShare where AccountId =:allaccids];
+        }
+        if(!allconids.isEmpty() && allconids != null)
+        {
+            conShareList = [select id ,ParentId, UserorGroupId from Retail_Task__Share where ParentID =:allconids]; 
+        }
+        if(!accShareList.isEmpty() && accShareList != null)
+        {
+            for(AccountShare acshre : accShareList)
+            {
+                userorGroupId.add(acshre.UserOrGroupId);
+            }
+        }
+        if(!conShareList.isEmpty() && conShareList != null)
+        {
+            for(Retail_Task__Share sharedcons : conShareList)
+            {
+                consharedMap.put(sharedcons.ParentId, sharedcons.UserOrGroupId);
+            }
+        }
+        for(Retail_Task__c allconshare : allContractList)
+        {
+            if(allconshare.Account__c != null && allconshare.RecordTypeId != servicerecordId && allconshare.RecordTypeId != contractrecordId)
+            {
+                for(ID userId : userorGroupId)
+                {
+                    if(!consharedMap.isEmpty() && consharedMap.get(allconshare.id) != userId && allconshare.OwnerId != userId)
+                    {
+                        Retail_Task__Share allconshr = new Retail_Task__Share();
+                        allconshr.ParentId = allconshare.Id;
+                        allconshr.UserOrGroupId = userId;
+                        allconshr.AccessLevel = 'Read';
+                        updateConshreList.add(allconshr);
+                    }
+                }
+            }                
+        }
+        if(!updateConshreList.isEmpty() && updateConshreList != null)
+        {
+            insert updateConshreList;
         }
     }
 }
