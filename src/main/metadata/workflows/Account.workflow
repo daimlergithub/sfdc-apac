@@ -120,7 +120,7 @@ ISCHANGED( Primary_Phone__c ) || ISCHANGED( Primary_Fax__c ) ||(ISCHANGED(Primar
         <active>true</active>
         <description>Update “Preferred Language and Country field" based on Market Discriminator for KR</description>
         <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Send Assigned Leads to Dealer Everyday</fullName>
