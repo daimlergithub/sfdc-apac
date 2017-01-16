@@ -724,6 +724,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OrderHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1289,6 +1293,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerOrderTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -13736,6 +13744,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.VehicleInterested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Vehicle_Model_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

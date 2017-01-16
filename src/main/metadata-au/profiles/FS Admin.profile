@@ -724,6 +724,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OrderHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1289,6 +1293,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerOrderTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -9990,6 +9998,56 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Additional_Info3__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.SFDC_Record_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Export_Notification__c.Usecase__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13691,6 +13749,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.VehicleInterested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreOrder__c.Vehicle_Model_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20828,6 +20891,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Duplicate_Merge_Info__c-Duplicate Merge Info Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
