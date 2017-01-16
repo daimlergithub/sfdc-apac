@@ -55,7 +55,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Approve_the_List__c</fullName>
         <defaultValue>false</defaultValue>
@@ -197,16 +197,24 @@
     </fields>
     <fields>
         <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Campaign Execution</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Participating Dealers</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -263,6 +271,7 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
     </fields>
     <fields>
         <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Dealer</label>
         <lookupFilter>
@@ -277,11 +286,9 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Participating Campaigns</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ND_Code__c</fullName>
@@ -297,10 +304,7 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
     <fields>
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(INCLUDES( Campaign__r.Range__c  , "ALL"), "ALL", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "AU"), "AU", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "NZ"), "NZ", NULL)  + BR() + 
-IF(INCLUDES( Campaign__r.Range__c , "JP"), "JP", NULL)</formula>
+        <formula>IF(INCLUDES( Campaign__r.Range__c , "None"), "None", NULL)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Range</label>
         <required>false</required>
@@ -373,7 +377,7 @@ IF(INCLUDES( Campaign__r.Range__c , "JP"), "JP", NULL)</formula>
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Campaign_Package_cannot_be_empty</fullName>
         <active>true</active>
