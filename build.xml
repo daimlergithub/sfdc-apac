@@ -82,9 +82,9 @@
                                                                 deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
                 </target>
                 <target name="deploy01">
-                               <!-- <deploy runAllTests="${sfdc.runAllTests}">
+                                <deploy runAllTests="${sfdc.runAllTests}">
                                                  <sf:typeset name="installedPackages"/> 
-                                </deploy>-->
+                                </deploy>
     </target>
                 <target name="deploy05">
                                 <deploy runAllTests="${sfdc.runAllTests}">
