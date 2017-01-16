@@ -2283,30 +2283,18 @@
         <sections>
             <label>コメント</label>
             <section>Comments</section>
-        </sections>
-        <sections>
-            <label>契約者情報</label>
-            <section>Contractor Information</section>
-        </sections>
+        </sections>   
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout (Lease)</layout>
-        <sections>
-            <label>口座情報</label>
-            <section>Bank Account Information</section>
-        </sections>
+        <layout>Retail Task Layout (Lease)</layout> 
         <sections>
             <label>コメント</label>
             <section>Comments</section>
@@ -2314,11 +2302,7 @@
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
-        </sections>
-        <sections>
-            <label>契約者情報</label>
-            <section>Contractor Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
@@ -2326,11 +2310,7 @@
         <sections>
             <label>フラグ情報</label>
             <section>Flags</section>
-        </sections>
-        <sections>
-            <label>保証人情報</label>
-            <section>Guarantor information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>保証/契約の詳細</label>
             <section>Main Information</section>
@@ -2338,11 +2318,7 @@
         <sections>
             <label>支払情報</label>
             <section>Payment Conditions</section>
-        </sections>
-        <sections>
-            <label>残高情報</label>
-            <section>Remaining Balance Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
@@ -2353,11 +2329,7 @@
         <sections>
             <label>口座情報</label>
             <section>Bank Account Information</section>
-        </sections>
-        <sections>
-            <label>コメント</label>
-            <section>Comments</section>
-        </sections>
+        </sections> 
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
@@ -2377,31 +2349,18 @@
         <sections>
             <label>保証人情報</label>
             <section>Guarantor information</section>
-        </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>支払情報</label>
             <section>Payment Conditions</section>
-        </sections>
-        <sections>
-            <label>残高情報</label>
-            <section>Remaining Balance Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout(Contract)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        
+        <layout>Retail Task Layout(Contract)</layout> 
 		 <sections>
             <label>新しい</label>
             <section>New</section>
