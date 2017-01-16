@@ -67,19 +67,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Campaign__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is used to refer the related campaign execution record</description>
-        <externalId>false</externalId>
-        <label>Campaign</label>
-        <referenceTo>Campaign</referenceTo>
-        <relationshipLabel>Dealer List Members</relationshipLabel>
-        <relationshipName>Dealer_List_Members</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign_Member__r.Company_Name__c</formula>
