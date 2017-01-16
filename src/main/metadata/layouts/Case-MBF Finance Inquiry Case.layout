@@ -118,6 +118,7 @@
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
+    <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

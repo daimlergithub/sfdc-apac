@@ -36,6 +36,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>More_Than_2_OB_Times__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Last_OB_Call__c</field>
             </layoutItems>
             <layoutItems>

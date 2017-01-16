@@ -66,10 +66,6 @@
         <name>Description__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
-        <name>MD__c</name>
-    </fields>
-    <fields>
         <label><!-- WMI --></label>
         <name>WMI__c</name>
     </fields>

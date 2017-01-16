@@ -5434,11 +5434,11 @@
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <masterLabel>DSC</masterLabel>
             <translation><!-- DSC --></translation>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <masterLabel>Dealer Outlet</masterLabel>
             <translation>販売店</translation>
         </picklistValues>
@@ -5470,7 +5470,7 @@
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <masterLabel>Letter to Executive</masterLabel>
             <translation>役員宛て書面</translation>
         </picklistValues>
@@ -6937,7 +6937,7 @@
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
             <translation><!-- 24 hours Touring Support --></translation>
-        </picklistValues>
+        </picklistValues>		
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation><!-- Dealers --></translation>
@@ -15540,7 +15540,54 @@
     <fields>
         <label>未対応フラグ(72H)</label>
         <name>X72H_Untouched__c</name>
-    </fields>
+    </fields>	
+    <layouts>
+        <layout>After-Sales Leads Layout for Dealer Users</layout>
+        <sections>
+            <label>アクティビティ日付情報</label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>リード顧客情報</label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label>リード情報</label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label>リード処理情報</label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label>リードリクエスト情報</label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>敗戦情報</label>
+            <section>Lost Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Reference Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
         <sections>
@@ -15672,18 +15719,6 @@
         <sections>
             <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- New Fields --></label>
-            <section>New Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Reference Information --></label>
-            <section>Reference Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
         </sections>
         <sections>
             <label>車両情報</label>
@@ -16030,20 +16065,8 @@
     </layouts>
     <nameFieldLabel>リードID</nameFieldLabel>
     <recordTypes>
-        <label><!-- After-Sales Leads Soft Deleted --></label>
-        <name>After_Sales_Leads_Soft_Deleted</name>
-    </recordTypes>
-    <recordTypes>
         <label><!-- Aftersales Leads --></label>
         <name>Aftersales_Leads</name>
-    </recordTypes>
-    <recordTypes>
-        <label><!-- Dealer Aftersales Leads ReadOnly --></label>
-        <name>Dealer_Aftersales_Leads_ReadOnly</name>
-    </recordTypes>
-    <recordTypes>
-        <label><!-- Dealer Sales leads ReadOnly --></label>
-        <name>Dealer_Sales_leads_ReadOnly</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Retail Sales Leads --></label>
@@ -16102,28 +16125,12 @@
         <name>Contact_Failed_Required_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Dealer Lead Status&quot; can change into &quot;Purchased&quot; only if (&quot;Lead Latest Phase&quot; is &quot;Registration&quot; and Leads record type is &quot;Sales Lead&quot;) or (&quot;Lead Latest Phase&quot; is &quot;Invoiced&quot; and Leads record type if &quot;After-Sales Lead&quot;). --></errorMessage>
-        <name>Dealer_Lead_Status_Manual_Check</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Service Completed, Service Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Aftersales_Lead</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Sales_Lead</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Lost reasons is mandatory when Dealer  lead status is changed to Lost. --></errorMessage>
-        <name>Dealer_lost_Reason_Manadatory</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Finance Product name cannot be changed manually --></errorMessage>
-        <name>Finance_Product_Name_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Finance Quotation No cannot be changed manually --></errorMessage>
-        <name>Finance_Quotation_No_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Finance Quotation No History cannot be changed manually --></errorMessage>
@@ -16144,30 +16151,6 @@
     <validationRules>
         <errorMessage>姓（カナ）は必ず全角で入力して下さい。</errorMessage>
         <name>Last_Name_Native_Single</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- &quot;Invoice Amount&quot; cannot be changed manually. --></errorMessage>
-        <name>Lead_Invoice_Amount_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- &quot;Invoice Amount History&quot; cannot be changed manually. --></errorMessage>
-        <name>Lead_Invoice_Amount_History_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- &quot;Invoice Number History&quot; cannot be changed manually. --></errorMessage>
-        <name>Lead_Invoice_Number_History_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- It cannot be changed Manually --></errorMessage>
-        <name>Lead_Latest_Phase_Manual_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Lead Latest Phase&quot; cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced” --></errorMessage>
-        <name>Lead_Latest_Phase_Manual_Check_AS</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Dealer Lead Status&quot; cannot be changed into “Lost --></errorMessage>
-        <name>Lead_Status_Lost_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Lead status should be &quot;Assigned&quot; once dealer is assigned to the Lead --></errorMessage>
@@ -16206,7 +16189,7 @@
         <name>Order_Placed_Required_Check_Dealer</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lead Status current value is &quot;Purchased&quot; or &quot;Lost&quot; AND record type is &quot;Sales Leads&quot;, &quot;Dealer Lead Status&quot; cannot be changed. --></errorMessage>
+        <errorMessage><!-- Dealer Lead Status cannot be changed --></errorMessage>
         <name>Purchase_Leads_NoChange_Los</name>
     </validationRules>
     <validationRules>
@@ -16248,10 +16231,6 @@
     <webLinks>
         <label><!-- Assign_to_Leads --></label>
         <name>Assign_to_Leads</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- Convert --></label>
-        <name>Convert</name>
     </webLinks>
     <webLinks>
         <label>リードタイプ変更</label>

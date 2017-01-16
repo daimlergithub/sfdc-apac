@@ -11317,29 +11317,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -14861,29 +14838,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -17966,6 +17920,8 @@
             </values>
         </picklistValues>
     </recordTypes>
+    
+    
     <recordTypes>
         <fullName>smart_Best_Practice</fullName>
         <active>true</active>

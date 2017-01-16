@@ -65,7 +65,7 @@
             <field>OptionCode__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>
+        </displayedFields>        
         <displayedFields>
             <field>EngineNumber__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1172,8 +1172,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
+    </fields>    <fields>
         <fullName>Comment__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -1906,7 +1905,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Descriptionâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Descriptionâ€œ</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>100</length>
@@ -1928,7 +1927,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_EngineNumberâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_EngineNumberâ€œ</description>
         <externalId>false</externalId>
         <label>Engine No.</label>
         <length>20</length>
@@ -1950,7 +1949,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isâ€&#157;Vehicle_EuroVINâ€œ</description>
+Attribute in Data Dictionary object Vehicle isâ€Vehicle_EuroVINâ€œ</description>
         <externalId>true</externalId>
         <label>EuroVIN</label>
         <length>18</length>
@@ -1972,7 +1971,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_FinanceExpiryDateâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_FinanceExpiryDateâ€œ</description>
         <externalId>false</externalId>
         <label>FinanceExpiryDate</label>
         <required>false</required>
@@ -2020,7 +2019,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_FirstRegistrationDateâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_FirstRegistrationDateâ€œ</description>
         <externalId>false</externalId>
         <label>FirstRegistrationDate</label>
         <required>false</required>
@@ -2448,7 +2447,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isâ€&#157; LastServiceDateâ€œ</description>
+Attribute in Data Dictionary object Vehicle isâ€ LastServiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>LastServiceDate</label>
         <required>false</required>
@@ -2470,7 +2469,7 @@ Attribute in Data Dictionary object Vehicle isâ€&#157; LastServiceDateâ€œ
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_LatestSalesContractDateâ€œ</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesContractDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Contract Date</label>
         <required>false</required>
@@ -2480,7 +2479,7 @@ Attribute in Data Dictionary object Vehicle isâ€&#157; LastServiceDateâ€œ
     </fields>
     <fields>
         <fullName>Latest_Handover_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_LatestSalesDeliveryDateâ€œ</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesDeliveryDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Handover Date</label>
         <required>false</required>
@@ -2490,7 +2489,7 @@ Attribute in Data Dictionary object Vehicle isâ€&#157; LastServiceDateâ€œ
     </fields>
     <fields>
         <fullName>Latest_Invoice_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_LatestSalesInvoiceDateâ€œ</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesInvoiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Invoice Date</label>
         <required>false</required>
@@ -2500,7 +2499,7 @@ Attribute in Data Dictionary object Vehicle isâ€&#157; LastServiceDateâ€œ
     </fields>
     <fields>
         <fullName>Latest_Sales_Person__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_LatestSalesPersonâ€œ</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€Vehicle_LatestSalesPersonâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Sales Person</label>
         <length>18</length>
@@ -2568,7 +2567,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_ModelYearâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_ModelYearâ€œ</description>
         <externalId>false</externalId>
         <label>Year Of Manufacture</label>
         <picklist>
@@ -4847,7 +4846,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_NextMileageâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_NextMileageâ€œ</description>
         <externalId>false</externalId>
         <label>NextMileage</label>
         <precision>18</precision>
@@ -4870,7 +4869,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;NextServiceDateâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€NextServiceDateâ€œ</description>
         <externalId>false</externalId>
         <label>NextServiceDate</label>
         <required>false</required>
@@ -4890,7 +4889,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_OptionCodeâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_OptionCodeâ€œ</description>
         <externalId>false</externalId>
         <label>OptionCode</label>
         <length>255</length>
@@ -4946,7 +4945,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_ProductionDateâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_ProductionDateâ€œ</description>
         <externalId>false</externalId>
         <label>ProductionDate</label>
         <required>false</required>
@@ -5014,7 +5013,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Recallâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Recallâ€œ</description>
         <externalId>false</externalId>
         <label>Recall</label>
         <trackHistory>false</trackHistory>
@@ -5129,7 +5128,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_SalesTypeâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_SalesTypeâ€œ</description>
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
@@ -5326,7 +5325,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isâ€&#157;Vehicle_Transmissionâ€œ</description>
+Attribute in Data Dictionary object Vehicle isâ€Vehicle_Transmissionâ€œ</description>
         <externalId>false</externalId>
         <label>Transmission</label>
         <picklist>
@@ -5403,7 +5402,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
         <externalId>false</externalId>
@@ -5428,7 +5427,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_UsVINâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_UsVINâ€œ</description>
         <externalId>true</externalId>
         <label>UsVIN</label>
         <length>17</length>
@@ -5450,7 +5449,7 @@ Modify History
 Modify By: Mouse Liu
 Modify Reason: Just change the field type to Picklist with LOV 'Unknown Yes No'
 */
-Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Validâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€Vehicle_Validâ€œ</description>
         <externalId>false</externalId>
         <label>Validity</label>
         <picklist>
@@ -19798,7 +19797,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fuel__c</picklist>
+             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>ANG</fullName>
                 <default>false</default>

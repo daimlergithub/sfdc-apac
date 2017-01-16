@@ -79,7 +79,4 @@
     <fields>
         <fullName>ToAddress</fullName>
     </fields>
-    <fields>
-        <fullName>ValidatedFromAddress</fullName>
-    </fields>
 </CustomObject>

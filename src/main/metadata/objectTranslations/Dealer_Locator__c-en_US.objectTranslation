@@ -97,10 +97,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- City --></label>
-        <name>City__c</name>
-    </fields>
-    <fields>
         <label><!-- Comment --></label>
         <name>Comment__c</name>
     </fields>
@@ -816,12 +812,6 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Revised Dealer Locator Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
+    
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

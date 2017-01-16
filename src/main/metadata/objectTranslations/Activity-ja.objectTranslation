@@ -85,7 +85,7 @@
             <masterLabel>9=CSI Call</masterLabel>
             <translation><!-- 9=CSI Call --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label>タッチポイント</label>
         <name>Activity_DataSource__c</name>
@@ -742,11 +742,11 @@
             <masterLabel>wrong number</masterLabel>
             <translation><!-- wrong number --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Assignment Status --></label>
         <name>Assignment_Status__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Called --></label>
         <name>Called__c</name>
@@ -913,33 +913,53 @@
         <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
-    <fields>
-        <label><!-- Intention Status --></label>
+  <fields>
+        <label><!-- Intention Status --></label> 
         <name>Intention_Status__c</name>
         <picklistValues>
-            <masterLabel>Hand Back</masterLabel>
-            <translation><!-- Hand Back --></translation>
+            <masterLabel>Contact</masterLabel>
+            <translation>コンタクト</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Quoted</masterLabel>
-            <translation><!-- Quoted --></translation>
+            <masterLabel>Finance Proposal</masterLabel>
+            <translation>ファイナンス提案</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Retain Payout</masterLabel>
-            <translation><!-- Retain Payout --></translation>
+            <masterLabel>Insurance Proposal</masterLabel>
+            <translation>自動車保険提案</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Retain Refinance</masterLabel>
-            <translation><!-- Retain Refinance --></translation>
+            <masterLabel>Needs Check</masterLabel>
+            <translation>ニーズ把握</translation>
+        </picklistValues> 
+        <picklistValues>
+            <masterLabel>Product Proposal</masterLabel>
+            <translation>商品説明提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Program Proposal</masterLabel>
+            <translation>サービスプログラム提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple Estimation</masterLabel>
+            <translation>簡易見積</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>試乗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade In</masterLabel>
-            <translation><!-- Trade In --></translation>
+            <translation>下取査定</translation> 
         </picklistValues>
-    </fields>
-    <fields>
+        <picklistValues>
+            <masterLabel>Visited</masterLabel>
+            <translation>来店</translation>
+        </picklistValues>
+    </fields> 
+    <fields>  
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
     </fields>
@@ -950,11 +970,7 @@
     <fields>
         <label><!-- MD --></label>
         <name>MD__c</name>
-    </fields>
-    <fields>
-        <label><!-- Next Steps --></label>
-        <name>Next_Steps__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Notification Email Flag --></label>
         <name>Notification_Email_Flag__c</name>
@@ -1042,6 +1058,21 @@
     <fields>
         <label><!-- Phone number --></label>
         <name>Phone_number__c</name>
+    </fields>
+    <fields>
+        <name>Priority</name>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>優先度</label>
@@ -1142,11 +1173,11 @@
             <masterLabel>Scheduled Call Back</masterLabel>
             <translation><!-- Scheduled Call Back --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Result --></label>
         <name>Result__c</name>
@@ -1158,7 +1189,7 @@
             <masterLabel>Unsolved</masterLabel>
             <translation><!-- Unsolved --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- SMS/MMS Template ID --></label>
         <name>SMSTemplateID__c</name>
@@ -1312,6 +1343,17 @@
         <name>Start_Call_Time__c</name>
     </fields>
     <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>状況</label>
         <name>Status__c</name>
         <picklistValues>
@@ -1354,7 +1396,7 @@
     <fields>
         <label><!-- UniqueCampaignMobile --></label>
         <name>UniqueCampaignMobile__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>

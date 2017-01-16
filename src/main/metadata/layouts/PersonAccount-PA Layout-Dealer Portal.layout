@@ -233,7 +233,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
+		    <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
@@ -817,13 +817,13 @@
         <fields>Lead__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
-        <fields>CREATED_DATE</fields>
+		<fields>CREATED_DATE</fields>
         <fields>Account__c</fields>
         <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
+		<excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Type__c</fields>
         <fields>Case_Class__c</fields>

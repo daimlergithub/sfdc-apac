@@ -446,7 +446,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -469,7 +468,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -508,23 +506,23 @@
         <picklist>
             <picklistValues>
                 <fullName>Open - Not Contacted</fullName>
-                <default>true</default>
                 <converted>false</converted>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Working - Contacted</fullName>
-                <default>false</default>
                 <converted>false</converted>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Closed - Converted</fullName>
-                <default>false</default>
                 <converted>true</converted>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Closed - Not Converted</fullName>
-                <default>false</default>
                 <converted>false</converted>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -548,15 +546,6 @@
             <value>closed</value>
         </filters>
         <label>All Open Leads</label>
-    </listViews>
-    <listViews>
-        <fullName>MBF_Inbound_Outbound_Supervisor_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Inbound &amp; Outbound Supervisor</label>
-        <queue>MBF_Inbound_Outbound_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyUnreadLeads</fullName>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <alerts>
+	<alerts>
         <fullName>Assigned_to_Dealer_Gatekeeper_Lead</fullName>
         <description>Assigned to Dealer Gatekeeper Lead</description>
         <protected>false</protected>
@@ -9,6 +9,36 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Assigned_to_Dealer_Gatekeeper_Lead</template>
+    </alerts>
+	 <alerts>
+        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
+        <description>No modification is made in 10 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
+    </alerts>
+	<alerts>
+        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
+    </alerts>
+	<alerts>
+        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
+        <description>No modification is made in 5 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
     </alerts>
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
@@ -73,36 +103,6 @@
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <alerts>
-        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
-        <description>No modification is made in 10 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
-    </alerts>
-    <alerts>
-        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
-    </alerts>
-    <alerts>
-        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
-        <description>No modification is made in 5 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
-    </alerts>
-    <alerts>
         <fullName>Send_Mail_to_Lead_Owner</fullName>
         <description>Send Mail to Lead Owner</description>
         <protected>false</protected>
@@ -164,6 +164,24 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Assigned_Date_Time_to_Current_Time</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Assigned Date Time to Current Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lost_DateTime_field</fullName>
+        <field>Lead_Lost_Date_Time__c</field>
+        <formula>Now()</formula>
+        <name>Update Lost DateTime field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -171,15 +189,6 @@
         <name>Approve Lead Creation</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Assigned_Date_Time_to_Current_Time</fullName>
-        <field>Assigned_Date_Time__c</field>
-        <formula>now()</formula>
-        <name>Assigned Date Time to Current Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -272,7 +281,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>PopulateAssignedDateTimetoCurrent_Date</fullName>
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
@@ -281,7 +290,7 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Populate_Assigned_Date_Time</fullName>
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
@@ -290,7 +299,7 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Populate_CAC_Lead_Status</fullName>
         <field>CAC_Lead_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -299,7 +308,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Populate_Dealer_Lead_Status</fullName>
         <field>Dealer_Lead_Status__c</field>
         <literalValue>Purchased(Only Non BDC)</literalValue>
@@ -308,7 +317,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Populate_Dealer_Lead_Status_to</fullName>
         <field>Dealer_Lead_Status__c</field>
         <literalValue>On-going</literalValue>
@@ -380,7 +389,7 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Update_Dealer_Lead_Status_to</fullName>
         <field>Dealer_Lead_Status__c</field>
         <literalValue>Order Placed</literalValue>
@@ -425,20 +434,20 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Lead_Assigned_Date_Time_to_Now</fullName>
-        <field>Assigned_Date_Time__c</field>
-        <formula>NOW()</formula>
-        <name>Update Lead Assigned Date Time to Now</name>
+	<fieldUpdates>
+        <fullName>Update_Lead_Lost_Date_Time</fullName>
+        <field>Lead_Lost_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Update Lead Lost Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Lead_Lost_Date_Time</fullName>
-        <field>Lead_Lost_Date_Time__c</field>
-        <formula>now()</formula>
-        <name>Update Lead Lost Date Time</name>
+        <fullName>Update_Lead_Assigned_Date_Time_to_Now</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lead Assigned Date Time to Now</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -466,15 +475,6 @@
         <field>Lost_CAC_Date__c</field>
         <formula>NOW()</formula>
         <name>Update Lost(CAC) Date to Now</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Lost_DateTime_field</fullName>
-        <field>Lead_Lost_Date_Time__c</field>
-        <formula>Now()</formula>
-        <name>Update Lost DateTime field</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -580,6 +580,15 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Service_Completed_Date_To_Today</fullName>
+        <field>Service_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Service Date to Today</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
         <field>Purchased_CAC_Date_Time__c</field>
         <formula>Now()</formula>
@@ -593,15 +602,6 @@ Proxy_Date_Time__c
         <field>Qualified_Date_Time__c</field>
         <formula>NOW()</formula>
         <name>Update Qualified Date Time to Now</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Service_Completed_Date_To_Today</fullName>
-        <field>Service_Date__c</field>
-        <formula>NOW()</formula>
-        <name>Update Service Date to Today</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -728,66 +728,7 @@ Proxy_Date_Time__c
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  Dealer_LMS__c = 'Salesforce', MD__c = 'KR' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
-        <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads,Retail Sales Leads,Sales Leads,Sales Leads Soft Deleted</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Escalated_after_24hrs</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.CreatedDate</offsetFromField>
-            <timeLength>24</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Lead Owner is Changed</fullName>
-        <actions>
-            <name>Send_Mail_to_Lead_Owner</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
-        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED( OwnerId )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Lead_Lost_DateTime New</fullName>
-        <actions>
-            <name>Update_Lost_DateTime_field</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Lost</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Leads fields update</fullName>
-        <actions>
-            <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
+	<rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
         <actions>
             <name>No_modification_is_made_in_10_days_All_Modifications</name>
@@ -821,6 +762,65 @@ Proxy_Date_Time__c
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Lead_Lost_DateTime New</fullName>
+        <actions>
+            <name>Update_Lost_DateTime_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads,Retail Sales Leads,Sales Leads,Sales Leads Soft Deleted</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Escalated_after_24hrs</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Lead Owner is Changed</fullName>
+        <actions>
+            <name>Send_Mail_to_Lead_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
+        <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED( OwnerId )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Leads fields update</fullName>
+        <actions>
+            <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
         <fullName>Populate Assigned Date Time Dealer</fullName>
         <actions>
             <name>Populate_Assigned_Date_Time</name>
@@ -984,27 +984,20 @@ Proxy_Date_Time__c
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Update Dealer Lead Status</fullName>
         <actions>
             <name>Populate_Dealer_Lead_Status</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISNEW()), MD__c = 'JP',    OR(AND(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),  RecordType.Name = 'Sales Leads')    ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') ) )</formula>
+        <formula>AND(NOT(ISNEW()), MD__c = 'JP',
+   OR(AND(ISPICKVAL( Lead_Latest_Phase__c,'Registration' ),  RecordType.Name = 'Sales Leads')
+   ,AND(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced'), RecordType.Name = 'Aftersales Leads') )
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
-        <fullName>Update First Contact Customer Date Time</fullName>
-        <actions>
-            <name>Update_Proxy_Date_Time_to_First_Contact</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR')</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
+	<rules>
         <fullName>Update Lead Lost Date Time</fullName>
         <actions>
             <name>Update_Lead_Lost_Date_Time</name>
@@ -1021,6 +1014,16 @@ Proxy_Date_Time__c
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update First Contact Customer Date Time</fullName>
+        <actions>
+            <name>Update_Proxy_Date_Time_to_First_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1044,7 +1047,7 @@ Modify Reason:
         <formula>AND(ISPICKVAL(CAC_Lead_Status__c , "Qualified"),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Update Lead Status to Order Placed</fullName>
         <actions>
             <name>Update_Dealer_Lead_Status_to</name>
@@ -1122,16 +1125,6 @@ Modify Reason:
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
-        <actions>
-            <name>Update_Purchased_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Service Completed Date</fullName>
         <actions>
             <name>Update_Service_Completed_Date_To_Today</name>
@@ -1148,6 +1141,16 @@ Modify Reason:
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
+        <actions>
+            <name>Update_Purchased_Date_Time_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

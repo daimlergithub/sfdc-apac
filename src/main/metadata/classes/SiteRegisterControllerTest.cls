@@ -3,6 +3,9 @@
  */
 @IsTest public with sharing class SiteRegisterControllerTest {
     @IsTest(SeeAllData=true) static void testRegistration() {
+       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
         SiteRegisterController controller = new SiteRegisterController();
         controller.username = 'test@force.com';
         controller.email = 'test@force.com';

@@ -66,6 +66,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    
     <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>

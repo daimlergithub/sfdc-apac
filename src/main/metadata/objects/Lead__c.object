@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -56,7 +52,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <fieldSets>
+	<fieldSets>
         <fullName>LeadMergeFieldsSet</fullName>
         <description>in vf page</description>
         <displayedFields>
@@ -3070,7 +3066,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
             <picklistValues>
                 <fullName>Service Completed</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
@@ -3406,18 +3402,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CommissionNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Commission No.</label>
-        <length>127</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Company_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3541,20 +3525,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>Correlation_ID__c</fullName>
-        <description>System Field for EP.</description>
-        <externalId>false</externalId>
-        <label>Correlation ID</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <externalId>false</externalId>
@@ -3853,17 +3824,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Comment</label>
-        <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Dealer_Comments__c</fullName>
@@ -9561,13 +9521,13 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-    <fields>
+       <fields>
         <fullName>Lead_Latest_Phase__c</fullName>
         <description>Keep details activities status</description>
         <externalId>false</externalId>
         <label>Lead Latest Phase</label>
         <picklist>
-            <picklistValues>
+		    <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10097,7 +10057,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Lost_CAC_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Lost(CAC) Date Time</label>
@@ -10238,7 +10198,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>MBK_Lead_DataSource__c</fullName>
         <externalId>false</externalId>
         <label>MBK Lead DataSource</label>
@@ -10427,7 +10387,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
-        <visibleLines>5</visibleLines>
+		<visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>MBK_Lost_Situation__c</fullName>
@@ -10447,7 +10407,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Purchased Competitor's Car</fullName>
+                <fullName>Purchased Competitor&apos;s Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11945,114 +11905,6 @@ Modify Reason:
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Preferred_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Drop_off_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Drop-off Time</label>
-        <picklist>
-            <picklistValues>
-                <fullName>8:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11:00 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>11:30 am</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>12:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5:30 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6:00 pm</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Preferred_Negotiation_DateTime__c</fullName>
         <externalId>false</externalId>
         <label>Preferred Negotiation DateTime</label>
@@ -12087,7 +11939,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Preferred_Pickup_Time__c</fullName>
         <externalId>false</externalId>
         <label>Preferred Pickup Time</label>
@@ -12522,7 +12374,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Purchased_VIN__c</fullName>
         <externalId>false</externalId>
         <formula>Purchased_Vehicle__r.UsVIN__c</formula>
@@ -12629,6 +12481,7 @@ Modify Reason:
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
+	
     <fields>
         <fullName>Quotation_Number__c</fullName>
         <description>Update from AL, no manual update</description>
@@ -13481,7 +13334,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Requested_Service_Date1__c</fullName>
         <externalId>false</externalId>
         <label>Service requested date1</label>
@@ -16953,6 +16806,31 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>  
+	<fields>
+        <fullName>CommissionNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Commission No.</label>
+        <length>127</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Correlation_ID__c</fullName>
+        <description>System Field for EP.</description>
+        <externalId>false</externalId>
+        <label>Correlation ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Service_Advisor__c</fullName>
@@ -16976,16 +16854,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Service_Loan_Car__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Service Loan Car</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Service_Program__c</fullName>
@@ -17071,7 +16939,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Status_Category__c</fullName>
         <externalId>false</externalId>
@@ -21433,28 +21301,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Vehicle_Use__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Use</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Business</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Vehicle_Year_Current__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Year - Current</label>
@@ -21959,49 +21805,125 @@ Company_Account__r.Work_Phone__c  ,
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Preferred_Drop_off_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Drop-off Time</label>
+        <picklist>
+            <picklistValues>
+                <fullName>8:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:00 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11:30 am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5:30 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6:00 pm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Service_Loan_Car__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Service Loan Car</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Leads</label>
-    <listViews>
-        <fullName>AMG_DM2016</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>AMGセントラルDM2016</value>
-        </filters>
-        <label>AMGセントラルDM2016</label>
-        <language>ja</language>
-    </listViews>
-    <listViews>
-        <fullName>AMG_DM2016_GTR</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>E&amp;SクラスセントラルDM2016</value>
-        </filters>
-        <label>E・SセントラルDM2016</label>
-        <language>ja</language>
-    </listViews>
     <listViews>
         <fullName>All_MBAFC_Lead</fullName>
         <columns>NAME</columns>
@@ -22245,42 +22167,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MBF_Contract_Administration_CA_Team_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Contract Administration (CA) Team</label>
-        <queue>MBF_Contract_Administration_CA_Team</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBF_Customer_Care_CCC_Team_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Customer Care (CCC) Team</label>
-        <queue>MBF_Customer_Care_CCC_Team</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBF_Inbound_Outbound_Supervisor_Lead1</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Inbound &amp; Outbound Supervisor</label>
-        <queue>MBF_Inbound_Outbound_Supervisor</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBF_Quotation_Team_Queue_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Quotation Team Queue</label>
-        <queue>MBF_Quotation_Team_Queue</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>MBJ_ALL</fullName>
         <columns>NAME</columns>
         <columns>CAC_Lead_Status__c</columns>
@@ -22391,24 +22277,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>S_SL_SLC_T</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセントラルDM2016</value>
-        </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
-        <language>ja</language>
-    </listViews>
-    <listViews>
         <fullName>Supervisor_Lead</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -22499,27 +22367,6 @@ Company_Account__r.Work_Phone__c  ,
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>View3</fullName>
-        <columns>NAME</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>メルセデス・ベンツ体感キャンペーンプラス</value>
-        </filters>
-        <label>カレコ</label>
-        <language>ja</language>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
@@ -22623,7 +22470,7 @@ Company_Account__r.Work_Phone__c  ,
     <pluralLabel>Leads</pluralLabel>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <recordTypes>
+	<recordTypes>
         <fullName>After_Sales_Leads_Soft_Deleted</fullName>
         <active>true</active>
         <label>After-Sales Leads Soft Deleted</label>
@@ -23799,61 +23646,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channel__c</picklist>
-            <values>
-                <fullName>Active Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BDC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Billboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Print</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-External</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-In Dealership</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Repeat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
                 <fullName>Immediate</fullName>
@@ -24170,25 +23962,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special Programme</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>No insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>This outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27254,186 +27027,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBK_Lead_DataSource__c</picklist>
-            <values>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes Me Haneda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_DataSubSource__c</picklist>
-            <values>
-                <fullName>APP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show2012</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online event registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Skynod</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weibo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM-PC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eMB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mymb</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_Desired_Service__c</picklist>
-            <values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lost_Situation__c</picklist>
-            <values>
-                <fullName>Changed car in different company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continued using current car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased Competitor%27s Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purhcased at othe MB stores</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>MB_Vehicle_Interest__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -28099,93 +27692,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
             <values>
                 <fullName>Dealer</fullName>
@@ -28193,93 +27699,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Pickup_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -34417,11 +33836,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Nominated</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+            </picklistValues>
         <picklistValues>
             <picklist>Behavioural_group__c</picklist>
             <values>
@@ -35932,7 +35351,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Purchased(Only Non BDC)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35944,11 +35363,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36080,11 +35499,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38486,14 +37905,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>DSC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
@@ -38511,10 +37922,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38563,6 +37970,18 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39374,7 +38793,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
                 <fullName>Contact</fullName>
@@ -40251,7 +39670,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
                 <fullName>Credit Card</fullName>
@@ -40344,21 +39763,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Negotiation_Place__c</picklist>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Preferred_Test_Drive_Time__c</picklist>
             <values>
                 <fullName>AM</fullName>
@@ -40370,7 +39774,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Price_Range__c</picklist>
+            <picklist>Price_Range__c</picklist>			
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -43341,7 +42745,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Warranty Plus</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>        
         <picklistValues>
             <picklist>Sub_BusinessUnit__c</picklist>
             <values>
@@ -46829,8 +46233,8 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
+    </recordTypes> 
+	<recordTypes>
         <fullName>Dealer_Aftersales_Leads_ReadOnly</fullName>
         <active>true</active>
         <label>Dealer Aftersales Leads ReadOnly</label>
@@ -48359,7 +47763,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Purchased(Only Non BDC)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48371,11 +47775,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48390,61 +47794,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>CA_Lead_Status__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Channel__c</picklist>
-            <values>
-                <fullName>Active Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BDC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Billboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Print</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-External</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-In Dealership</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Repeat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48562,11 +47911,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48729,25 +48078,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special Programme</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>No insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>This outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50936,14 +50266,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>DSC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
@@ -50961,10 +50283,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51013,6 +50331,18 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -52133,186 +51463,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBK_Lead_DataSource__c</picklist>
-            <values>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes Me Haneda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_DataSubSource__c</picklist>
-            <values>
-                <fullName>APP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show2012</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online event registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Skynod</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weibo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM-PC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eMB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mymb</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_Desired_Service__c</picklist>
-            <values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lost_Situation__c</picklist>
-            <values>
-                <fullName>Changed car in different company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continued using current car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased Competitor%27s Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purhcased at othe MB stores</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>MB_Vehicle_Interest__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -52885,7 +52035,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
                 <fullName>Credit Card</fullName>
@@ -52978,195 +52128,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Negotiation_Place__c</picklist>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Pickup_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Preferred_Test_Drive_Time__c</picklist>
             <values>
                 <fullName>AM</fullName>
@@ -53178,7 +52139,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Price_Range__c</picklist>
+            <picklist>Price_Range__c</picklist>			
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -56149,7 +55110,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Warranty Plus</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>        
         <picklistValues>
             <picklist>Sub_BusinessUnit__c</picklist>
             <values>
@@ -59638,7 +58599,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+	<recordTypes>
         <fullName>Dealer_Sales_leads_ReadOnly</fullName>
         <active>true</active>
         <label>Dealer Sales leads ReadOnly</label>
@@ -61167,7 +60128,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <fullName>Purchased(Only Non BDC)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -61179,11 +60140,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61198,61 +60159,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>CA_Lead_Status__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Channel__c</picklist>
-            <values>
-                <fullName>Active Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BDC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Billboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Event%2FSâ%E2%82%AC%E2%84%A2Ship</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Print</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-External</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Referral-In Dealership</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Repeat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61370,11 +60276,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Booking</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Completed</fullName>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -61537,25 +60443,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special Programme</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>No insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>This outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63744,14 +62631,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>DSC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
@@ -63769,10 +62648,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63821,6 +62696,18 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64945,186 +63832,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>MBK_Lead_DataSource__c</picklist>
-            <values>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes Me Haneda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_DataSubSource__c</picklist>
-            <values>
-                <fullName>APP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show2012</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online event registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Skynod</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Weibo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM-PC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eMB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mymb</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lead_Desired_Service__c</picklist>
-            <values>
-                <fullName>Broucher</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>MBK_Lost_Situation__c</picklist>
-            <values>
-                <fullName>Changed car in different company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Continued using current car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased Competitor%27s Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purhcased at othe MB stores</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>MB_Vehicle_Interest__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -65697,7 +64404,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
                 <fullName>Credit Card</fullName>
@@ -65790,195 +64497,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Preferred_Drop_off_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Negotiation_Place__c</picklist>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Pickup_Time__c</picklist>
-            <values>
-                <fullName>1%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>10%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>12%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>3%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>4%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>5%3A30 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6%3A00 pm</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>8%3A30 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A00 am</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>9%3A30 am</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Preferred_Test_Drive_Time__c</picklist>
             <values>
                 <fullName>AM</fullName>
@@ -65990,7 +64508,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Price_Range__c</picklist>
+            <picklist>Price_Range__c</picklist>			
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -68961,7 +67479,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Warranty Plus</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>        
         <picklistValues>
             <picklist>Sub_BusinessUnit__c</picklist>
             <values>
@@ -86716,7 +85234,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Under Credit Assessment</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>        
         <picklistValues>
             <picklist>Contact_Timing__c</picklist>
             <values>
@@ -86735,7 +85253,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
                 <fullName>Authority</fullName>
@@ -89089,7 +87607,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>CCC</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>DSC</fullName>
                 <default>false</default>
             </values>
@@ -89113,7 +87631,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Friends recommend</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
@@ -100481,7 +98999,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>DSC</fullName>
                 <default>false</default>
             </values>
@@ -100501,7 +99019,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
@@ -101076,6 +99594,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
+        
         <picklistValues>
             <picklist>Lead_InfoSourceSub__c</picklist>
             <values>
@@ -101296,7 +99815,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Confirmation</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -101324,7 +99843,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Job Card Issue</fullName>
                 <default>false</default>
             </values>
-            <values>
+			 <values>
                 <fullName>Lost</fullName>
                 <default>false</default>
             </values>
@@ -101352,7 +99871,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Registration</fullName>
                 <default>false</default>
             </values>
@@ -108464,6 +106983,127 @@ MD__c='KR'
         <errorMessage>After assigned dealer, CAC Lead Status can not be Qualified.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Dealer_lost_Reason_Manadatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
+ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lost_Comment__c</errorDisplayField>
+        <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Invoice_Amount_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Amount__c ))),ISCHANGED( Invoice_Amount__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Amount__c</errorDisplayField>
+        <errorMessage>"Invoice Amount" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Dealer_Lead_Status_Manual_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+	AND(
+		ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'),	 NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'),
+	AND(ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
+$Profile.Name != 'IntegrationAPI')
+  )</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>"Dealer Lead Status" can change into "Purchased" only if ("Lead Latest Phase" is "Registration" and Leads record type is "Sales Lead") or ("Lead Latest Phase" is "Invoiced" and Leads record type if "After-Sales Lead").</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Latest_Phase_Manual_Check_AS</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
+	OR(
+	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Job Card Issue'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Aftersales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
+        <errorMessage>Lead Latest Phase" cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced”</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Status_Lost_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
+	OR(
+	ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
+        <errorMessage>Dealer Lead Status" cannot be changed into “Lost</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Latest_Phase_Manual_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
+    OR(
+        ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Confirmed'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Order Placed'),
+   ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
+	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
+	),
+RecordType.Name = 'Sales Leads',
+MD__c ='JP',
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
+        <errorMessage>It cannot be changed Manually</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finance_Product_Name_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Product_Name__c))),ISCHANGED(Finance_Product_Name__c),
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Product_Name__c</errorDisplayField>
+        <errorMessage>Finance Product name cannot be changed manually</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finance_Quotation_No_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_Number__c))),ISCHANGED(Finance_Quotation_Number__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Quotation_Number__c</errorDisplayField>
+        <errorMessage>Finance Quotation No cannot be changed manually</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Invoice_Amount_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Amount_History__c ))),ISCHANGED(  Invoice_Amount_History__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Amount_History__c</errorDisplayField>
+        <errorMessage>"Invoice Amount History" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_Invoice_Number_History_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+NOT
+(ISBLANK(PRIORVALUE(Invoice_Number_History__c ))),ISCHANGED(  Invoice_Number_History__c ),
+ MD__c = 'JP', 
+ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Invoice_Number_History__c</errorDisplayField>
+        <errorMessage>"Invoice Number History" cannot be changed manually.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -108498,19 +107138,19 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Cannnot_Change_Invoice_Number</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Invoice_Number__c ))),ISCHANGED(  Invoice_Number__c  ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>You can't change Invoice Number</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Cannnot_Change_Lead_Contact</fullName>
         <active>true</active>
         <errorConditionFormula>AND(DMS_Sent_Flag__c, ISCHANGED( Contact__c ), MD__c = 'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>You cannot change the Contact if DMS Sent Flag is selected</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Cannnot_Change_Lead_Quotation_Amount</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Quotation_Amount__c ) )),ISCHANGED( Quotation_Amount__c ),  MD__c = 'JP',  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
@@ -108527,7 +107167,7 @@ AND User profile is Call center agent"</description>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>You can't change lead status to "Approval(waiting)" or "Allocated"</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Cannnot_Change_Quotation_No</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK( PRIORVALUE(Quotation_Number__c) )),ISCHANGED( Quotation_Number__c ), MD__c  =  'JP',  $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
@@ -108557,19 +107197,6 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
         <errorMessage>If Dealer Lead Status is Contact Failed For 3 Days(Only Non BDC), Contact Failed For 3 Days Date is required.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Dealer_Lead_Status_Manual_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>OR(
-	AND(
-		ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'),	 NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
-$Profile.Name != 'IntegrationAPI'),
-	AND(ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
-$Profile.Name != 'IntegrationAPI')
-  )</errorConditionFormula>
-        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>"Dealer Lead Status" can change into "Purchased" only if ("Lead Latest Phase" is "Registration" and Leads record type is "Sales Lead") or ("Lead Latest Phase" is "Invoiced" and Leads record type if "After-Sales Lead").</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead</fullName>
         <active>false</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', MD__c = 'KR', 
@@ -108596,32 +107223,6 @@ RecordType.Name == 'Sales Leads'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Dealer_lost_Reason_Manadatory</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
-ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
-MD__c ='JP',
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorDisplayField>Lost_Comment__c</errorDisplayField>
-        <errorMessage>Lost reasons is mandatory when Dealer  lead status is changed to Lost.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Finance_Product_Name_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Product_Name__c))),ISCHANGED(Finance_Product_Name__c),
-$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Finance_Product_Name__c</errorDisplayField>
-        <errorMessage>Finance Product name cannot be changed manually</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Finance_Quotation_No_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_Number__c))),ISCHANGED(Finance_Quotation_Number__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Finance_Quotation_Number__c</errorDisplayField>
-        <errorMessage>Finance Quotation No cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Finance_Quotation_No_History_Check</fullName>
@@ -108663,88 +107264,6 @@ NOT(ISBLANK(FirstName_Native_1__c )))</errorConditionFormula>
 NOT(ISBLANK(LastName_Native_1__c )))</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be Double byte.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Invoice_Amount_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-NOT
-(ISBLANK(PRIORVALUE(Invoice_Amount__c ))),ISCHANGED( Invoice_Amount__c ),
- MD__c = 'JP', 
- $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorDisplayField>Invoice_Amount__c</errorDisplayField>
-        <errorMessage>"Invoice Amount" cannot be changed manually.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Invoice_Amount_History_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-NOT
-(ISBLANK(PRIORVALUE(Invoice_Amount_History__c ))),ISCHANGED(  Invoice_Amount_History__c ),
- MD__c = 'JP', 
- $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorDisplayField>Invoice_Amount_History__c</errorDisplayField>
-        <errorMessage>"Invoice Amount History" cannot be changed manually.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Invoice_Number_History_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(
-NOT
-(ISBLANK(PRIORVALUE(Invoice_Number_History__c ))),ISCHANGED(  Invoice_Number_History__c ),
- MD__c = 'JP', 
- $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorDisplayField>Invoice_Number_History__c</errorDisplayField>
-        <errorMessage>"Invoice Number History" cannot be changed manually.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Latest_Phase_Manual_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c ),
-    OR(
-        ISPICKVAL(Lead_Latest_Phase__c , 'Quotation'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Order Confirmed'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Order Placed'),
-   ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
-	),
-RecordType.Name = 'Sales Leads',
-MD__c ='JP',
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
-        <errorMessage>It cannot be changed Manually</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Latest_Phase_Manual_Check_AS</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISCHANGED(Lead_Latest_Phase__c),
-	OR(
-	ISPICKVAL(Lead_Latest_Phase__c , 'WIP Linkage'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Job Card Issue'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
-	),
-RecordType.Name = 'Aftersales Leads',
-MD__c ='JP',
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
-        <errorMessage>Lead Latest Phase" cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced”</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Status_Lost_Check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
-	OR(
-	ISPICKVAL(Lead_Latest_Phase__c , 'Vehicle Registration'),
-	ISPICKVAL(Lead_Latest_Phase__c , 'Invoiced')
-	),
-RecordType.Name = 'Sales Leads',
-MD__c ='JP',
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>Dealer Lead Status" cannot be changed into “Lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_assignment</fullName>
@@ -108857,7 +107376,7 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP', ISCHANGED(AfterSales_Vehicle__c)
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Quotation_No_History_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE( Quotation_Number_History__c ))),ISCHANGED(Quotation_Number_History__c ), MD__c = 'JP' ,  $Profile.Name  &lt;&gt; 'IntegrationAPI')</errorConditionFormula>
@@ -108932,26 +107451,27 @@ ISNULL(Visited_Showroom_Date__c)
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Visited Showroom, Visited Showroom Date is required.</errorMessage>
     </validationRules>
-    <webLinks>
-        <fullName>Assign_to_Leads</fullName>
+	<webLinks>
+        <fullName>Convert_Lead</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Assign to Leads</masterLabel>
+        <masterLabel>Convert Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var prName = "{!$Profile.Name}"; 
-var market = "{!Lead__c.MD__c}"; 
-if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
-var myWindow = window.open("/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
-} 
-else{ 
-alert("{!$Label.Authorization}"); 
+        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")}
+var relatedId='{!Lead__c.Related_Leads__c}';
+if(relatedId !==''){
+	alert("This Lead is already converted");
+}
+else{
+	var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'});
+	var relatedId1='{!Lead__c.Related_Leads__c}';
+	window.location.href='/'+leadCopy;
 }</url>
     </webLinks>
-    <webLinks>
+	     <webLinks>
         <fullName>Convert</fullName>
         <availability>online</availability>
         <description>Change sales lead to after sales lead and vice versa.</description>
@@ -108984,24 +107504,105 @@ if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
 		location.reload(true);
 }</url>
     </webLinks>
-    <webLinks>
-        <fullName>Convert_Lead</fullName>
+	<webLinks>
+        <fullName>Assign_to_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Convert Leads</masterLabel>
+        <masterLabel>Assign to Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")}
-var relatedId='{!Lead__c.Related_Leads__c}';
-if(relatedId !==''){
-	alert("This Lead is already converted");
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
+if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
+var myWindow = window.open("/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+} 
+else{ 
+alert("{!$Label.Authorization}"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Task</fullName>
+        <availability>online</availability>
+        <description>Creating new task with Lead and Account Auto populated and Record type is General Task.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Task</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+
+var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Task' and developerName ='General_Task'"); 
+var rt = RTs.getArray("records"); 
+window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
+    </webLinks>	
+	 <webLinks>
+        <fullName>Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>PrintPDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+           <fullName>Send_to_Autoline</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to Autoline</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var r = confirm("Are you sure want to send information to Auto Line interface?");
+if(r == true)
+{
+var resultMsg= 
+sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Lead__c.Id}",DealerID:"{!Lead__c.Assigned_DealerId__c}",CorrelationId:"{!Lead__c.Correlation_ID__c}"});
+if(resultMsg!=null)
+{
+alert("Successfully Sent Information to AutoLine");
+function updatelead(){
+//Create a New Account and Set the Fields
+var Lead = new sforce.SObject("Lead__c");
+Lead.Id = "{!Lead__c.Id}";
+Lead.Correlation_ID__c = " ";
+
+//Save it to the Database
+var updateResult = sforce.connection.update([Lead]);
+//If the Update was Successful Refresh the Page
+if(updateResult[0].success === "true"){
+location.reload();
 }
+//Else Show the Error
 else{
-	var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'});
-	var relatedId1='{!Lead__c.Related_Leads__c}';
-	window.location.href='/'+leadCopy;
+alert(updateResult[0].errors.message);
+}
+}
+var correlation = "{!Lead__c.Correlation_ID__c}";
+
+if(correlation != " " || correlation !=null){
+updatelead();
+
+}
+
+}
+else
+{
+alert("Web service callout failed");
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -109041,8 +107642,7 @@ else{
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>{!Lead__c.Name}</url>
-    </webLinks>
-    <webLinks>
+    </webLinks><webLinks>
         <fullName>New_AfterSales_Lead</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -109120,40 +107720,7 @@ else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_I
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
-    </webLinks>
-    <webLinks>
-        <fullName>New_Task</fullName>
-        <availability>online</availability>
-        <description>Creating new task with Lead and Account Auto populated and Record type is General Task.</description>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>New Task</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-
-var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Task' and developerName ='General_Task'"); 
-var rt = RTs.getArray("records"); 
-window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.ContactId__c}&amp;retURL={!Lead__c.Id}&amp;RecordType='+ rt[0].Id</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>page</linkType>
-        <masterLabel>Print PDF</masterLabel>
-        <openType>newWindow</openType>
-        <page>PrintPDF</page>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-    </webLinks>
+    </webLinks>    
     <webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
@@ -109205,55 +107772,6 @@ if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
 }
 else {
 	alert("Only new or qualified lead can select prefer dealer.");
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_to_Autoline</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to Autoline</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var r = confirm("Are you sure want to send information to Auto Line interface?");
-if(r == true)
-{
-var resultMsg= 
-sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Lead__c.Id}",DealerID:"{!Lead__c.Assigned_DealerId__c}",CorrelationId:"{!Lead__c.Correlation_ID__c}"});
-if(resultMsg!=null)
-{
-alert("Successfully Sent Information to AutoLine");
-function updatelead(){
-//Create a New Account and Set the Fields
-var Lead = new sforce.SObject("Lead__c");
-Lead.Id = "{!Lead__c.Id}";
-Lead.Correlation_ID__c = " ";
-
-//Save it to the Database
-var updateResult = sforce.connection.update([Lead]);
-//If the Update was Successful Refresh the Page
-if(updateResult[0].success === "true"){
-location.reload();
-}
-//Else Show the Error
-else{
-alert(updateResult[0].errors.message);
-}
-}
-var correlation = "{!Lead__c.Correlation_ID__c}";
-
-if(correlation != " " || correlation !=null){
-updatelead();
-
-}
-
-}
-else
-{
-alert("Web service callout failed");
-}
 }</url>
     </webLinks>
     <webLinks>
@@ -109314,3 +107832,4 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+

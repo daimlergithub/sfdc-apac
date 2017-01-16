@@ -9,6 +9,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>DeletePhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>EditUserAction</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -45,7 +49,15 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>UpdatePhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>UserActivationAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewPhotoAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -78,7 +90,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>DMS_UserID__c</fullName>
         <externalId>false</externalId>
         <label>DMS User ID</label>
@@ -316,7 +328,7 @@
         <type>MultiselectPicklist</type>
         <visibleLines>10</visibleLines>
     </fields>
-    <fields>
+	<fields>
         <fullName>ManagerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
@@ -345,7 +357,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -370,7 +381,6 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -452,7 +462,6 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -477,7 +486,6 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -526,7 +534,6 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1154,7 +1161,7 @@
         <searchResultsAdditionalFields>CORE.USER_ROLE.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-    <webLinks>
+	<webLinks>
         <fullName>Change_Notification_Settings</fullName>
         <availability>online</availability>
         <displayType>link</displayType>

@@ -213,6 +213,7 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
+            
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

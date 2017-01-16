@@ -9,41 +9,9 @@
         <value>Participating Dealers</value>
     </caseValues>
     <fields>
-        <label><!-- Approve the List? --></label>
-        <name>Approve_the_List__c</name>
-    </fields>
-    <fields>
-        <label><!-- Brand --></label>
-        <name>Brand__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Description --></label>
-        <name>Campaign_Description__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign End Date --></label>
-        <name>Campaign_End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Execution Type --></label>
-        <name>Campaign_Execution_Type__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Name --></label>
-        <name>Campaign_Name__c</name>
-    </fields>
-    <fields>
         <label><!-- Campaign Package --></label>
         <name>Campaign_Package__c</name>
         <relationshipLabel><!-- Participating Dealers --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Campaign Start Date --></label>
-        <name>Campaign_Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Type --></label>
-        <name>Campaign_Type__c</name>
     </fields>
     <fields>
         <label><!-- Campaign --></label>
@@ -51,25 +19,9 @@
         <relationshipLabel><!-- Participating Dealers --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Class --></label>
-        <name>Class__c</name>
-    </fields>
-    <fields>
-        <label><!-- DMS Retailer ID --></label>
-        <name>DMS_Retailer_ID__c</name>
-    </fields>
-    <fields>
-        <label><!-- Dealer Type --></label>
-        <name>Dealer_Type__c</name>
-    </fields>
-    <fields>
         <label><!-- Dealer --></label>
         <name>Dealer__c</name>
         <relationshipLabel><!-- Participating Campaigns --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- ND Code --></label>
-        <name>ND_Code__c</name>
     </fields>
     <fields>
         <label><!-- Session End Date --></label>

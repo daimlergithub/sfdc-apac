@@ -4,6 +4,8 @@
 @IsTest public with sharing class CommunitiesSelfRegControllerTest {
     @IsTest(SeeAllData=true) 
     public static void testCommunitiesSelfRegController() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         CommunitiesSelfRegController controller = new CommunitiesSelfRegController();
         controller.firstName = 'FirstName';
         controller.lastName = 'LastName';

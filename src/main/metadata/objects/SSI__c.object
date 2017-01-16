@@ -91,7 +91,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -187,7 +186,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -460,7 +458,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -493,7 +490,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -517,7 +513,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -541,7 +536,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -602,7 +596,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -634,7 +627,6 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>

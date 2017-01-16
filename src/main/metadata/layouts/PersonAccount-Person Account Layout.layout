@@ -10,8 +10,8 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
+	<customButtons>New_Case</customButtons>
+	<customButtons>Create_Retail_Copy_kr</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -802,7 +802,7 @@
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-    <layoutSections>
+	  <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
@@ -812,7 +812,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <layoutSections>
+	<layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>

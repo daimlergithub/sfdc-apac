@@ -147,9 +147,8 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Activity_DataSource__c</fullName>
         <externalId>false</externalId>
@@ -205,7 +204,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -531,7 +529,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -540,7 +537,7 @@
         <label>Activity Date</label>
         <required>false</required>
         <type>Date</type>
-    </fields>
+    </fields>  
     <fields>
         <fullName>Activity_Purpose__c</fullName>
         <externalId>false</externalId>
@@ -573,7 +570,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -607,7 +603,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -901,9 +896,8 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Assignment_Status__c</fullName>
         <description>This field is created for display assignment status automatically.</description>
@@ -913,7 +907,7 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Called__c</fullName>
         <description>The Called field contains the called part of the call (also known as “DNIS”).</description>
@@ -1021,7 +1015,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1063,8 +1056,18 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -1196,10 +1199,9 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
-    <fields>
+   <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
@@ -1222,6 +1224,42 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Quoted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1247,10 +1285,20 @@
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields> 
+    <fields>
+        <fullName>MTH_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>MTH Penetration</label>
+        <length>20</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -1344,7 +1392,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1354,6 +1401,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Ordered_Against_Factory__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Ordered Against Factory</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Other_Activity__c</fullName>
@@ -1454,8 +1508,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Public__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Public</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>QC_ID__c</fullName>
@@ -1537,9 +1597,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Related_Task_Id__c</fullName>
         <description>Relate Interaction Log and Task.</description>
@@ -1549,7 +1608,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
@@ -1565,9 +1624,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>SMSTemplateID__c</fullName>
         <description>Save SMS template ID and give it to SMS reply</description>
@@ -1765,7 +1823,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1823,7 +1880,6 @@ noted by Lio on 10.28.2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1844,6 +1900,14 @@ noted by Lio on 10.28.2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Details__c</fullName>
+        <description>This is field is required to store  details</description>
+        <externalId>false</externalId>
+        <label>Task Details</label>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Task_RecordType_Name__c</fullName>
@@ -1894,7 +1958,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
@@ -1929,8 +1993,16 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>YTD_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>YTD Penetration</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eDM_Template_ID__c</fullName>
@@ -2512,3 +2584,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
+
+
+

@@ -11,10 +11,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Campaign_Execution_Channels__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -75,9 +71,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <miniLayout>
-        <fields>Campaign_Execution_Channels__c</fields>
-    </miniLayout>
     <relatedLists>
         <fields>CreatedDate</fields>
         <fields>StepStatus</fields>

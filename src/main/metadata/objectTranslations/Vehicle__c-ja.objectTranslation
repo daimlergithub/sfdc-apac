@@ -786,10 +786,6 @@
             <translation><!-- GLK-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLS-Class</masterLabel>
-            <translation><!-- GLS-Class --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation><!-- M-Class --></translation>
         </picklistValues>
@@ -1516,6 +1512,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>最終サービス時走行距離</label>
+        <name>LastServiceMileage__c</name>
+    </fields>
+    <fields>
+        <label>次回車検日</label>
+        <name>MOT_Expired_Date__c</name>
+    </fields>
+    <fields>
         <label>初年度登録日</label>
         <name>FirstRegistrationDate__c</name>
     </fields>
@@ -1848,10 +1852,6 @@
         <name>LastServiceDate__c</name>
     </fields>
     <fields>
-        <label>最終サービス時走行距離</label>
-        <name>LastServiceMileage__c</name>
-    </fields>
-    <fields>
         <label><!-- Latest Contract Date --></label>
         <name>Latest_Contract_Date__c</name>
     </fields>
@@ -1878,10 +1878,6 @@
     <fields>
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
-    </fields>
-    <fields>
-        <label>次回車検日</label>
-        <name>MOT_Expired_Date__c</name>
     </fields>
     <fields>
         <label>年式</label>
@@ -2029,14 +2025,6 @@
         <picklistValues>
             <masterLabel>2016</masterLabel>
             <translation><!-- 2016 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2017</masterLabel>
-            <translation><!-- 2017 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2018</masterLabel>
-            <translation><!-- 2018 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;1980</masterLabel>
@@ -3752,6 +3740,11 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>担当販売店</label>
+        <name>Related_Dealer__c</name>
+        <relationshipLabel><!-- Vehicles (Related Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- NextEmissionsCheckDate --></label>
         <name>NextEmissionsCheckDate__c</name>
     </fields>
@@ -3810,11 +3803,6 @@
     <fields>
         <label>登録番号</label>
         <name>RegistrationNo__c</name>
-    </fields>
-    <fields>
-        <label>担当販売店</label>
-        <name>Related_Dealer__c</name>
-        <relationshipLabel><!-- Vehicles (Related Dealer) --></relationshipLabel>
     </fields>
     <fields>
         <label>保有開始日</label>
@@ -4016,6 +4004,7 @@
     <fields>
         <label>内装色</label>
         <name>Trim__c</name>
+        
     </fields>
     <fields>
         <help><!-- The integration layer (EP) needs this field for defect handling and debugging: --></help>
@@ -4327,10 +4316,6 @@
         <name>Invalid_Start_End_Date</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- The marked fields are required. --></errorMessage>
-        <name>RequiredFields</name>
-    </validationRules>
-    <validationRules>
         <errorMessage>車台番号は半角英数字で入力して下さい。</errorMessage>
         <name>US_VIN_Invalid_Syntax</name>
     </validationRules>
@@ -4339,8 +4324,8 @@
         <name>UsVIN_Read_Only</name>
     </validationRules>
     <webLinks>
-        <label><!-- Change_Contact_Target --></label>
-        <name>Change_Contact_Target</name>
+        <label>車両手放し情報登録</label>
+        <name>TerminateVehicleRelationships</name>
     </webLinks>
     <webLinks>
         <label>MyMercedes送信</label>
@@ -4349,9 +4334,5 @@
     <webLinks>
         <label>SPO登録／申請</label>
         <name>Send_to_SPO</name>
-    </webLinks>
-    <webLinks>
-        <label>車両手放し情報登録</label>
-        <name>TerminateVehicleRelationships</name>
     </webLinks>
 </CustomObjectTranslation>

@@ -9,10 +9,6 @@
         <name>AS_Marketing_Current_Planned_Budget__c</name>
     </fields>
     <fields>
-        <label><!-- Actual Cost --></label>
-        <name>Actual_Cost__c</name>
-    </fields>
-    <fields>
         <label><!-- Actual End Date --></label>
         <name>Actual_End_Date__c</name>
     </fields>
@@ -72,18 +68,6 @@
     <fields>
         <label><!-- Ad Type --></label>
         <name>Ad_Type__c</name>
-    </fields>
-    <fields>
-        <label><!-- Add Campaign Member ID --></label>
-        <name>Add_Member_ID__c</name>
-    </fields>
-    <fields>
-        <label><!-- Add Sales Staff --></label>
-        <name>Add_Sales_Staff__c</name>
-    </fields>
-    <fields>
-        <label><!-- Add Service Staff --></label>
-        <name>Add_Service_Staff__c</name>
     </fields>
     <fields>
         <label><!-- Apply Status --></label>
@@ -187,10 +171,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Budgeted Cost --></label>
-        <name>Budgeted_Cost__c</name>
-    </fields>
-    <fields>
         <label><!-- CBU/PbP --></label>
         <name>CBU_PbP__c</name>
         <picklistValues>
@@ -215,68 +195,8 @@
         <name>Campaign_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Campaign Execution Channels --></label>
-        <name>Campaign_Execution_Channels__c</name>
-        <picklistValues>
-            <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DM Magazine</masterLabel>
-            <translation><!-- DM Magazine --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>OB</masterLabel>
-            <translation><!-- OB --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Survey</masterLabel>
-            <translation><!-- Survey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>eEmail</masterLabel>
-            <translation><!-- eEmail --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Campaign Name --></label>
         <name>Campaign_Name__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Status --></label>
-        <name>Campaign_Status__c</name>
-        <picklistValues>
-            <masterLabel>Completed</masterLabel>
-            <translation><!-- Completed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Execution</masterLabel>
-            <translation><!-- Execution --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Planning</masterLabel>
-            <translation><!-- Planning --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Response collection</masterLabel>
-            <translation><!-- Response collection --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Segmentation</masterLabel>
-            <translation><!-- Segmentation --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Campaign Sub Type --></label>
-        <name>Campaign_Sub_Type__c</name>
-        <picklistValues>
-            <masterLabel>Finance - &gt; Prematurity</masterLabel>
-            <translation><!-- Finance - &gt; Prematurity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sales -&gt; Crosspoint</masterLabel>
-            <translation><!-- Sales -&gt; Crosspoint --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Campaign Type --></label>
@@ -537,105 +457,8 @@
         <name>City__c</name>
     </fields>
     <fields>
-        <label><!-- Class --></label>
-        <name>Class__c</name>
-        <picklistValues>
-            <masterLabel>A-Class</masterLabel>
-            <translation><!-- A-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>AMG</masterLabel>
-            <translation><!-- AMG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>B-Class</masterLabel>
-            <translation><!-- B-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>C-Class</masterLabel>
-            <translation><!-- C-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CL-Class</masterLabel>
-            <translation><!-- CL-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CLA-Class</masterLabel>
-            <translation><!-- CLA-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CLK-Class</masterLabel>
-            <translation><!-- CLK-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CLS-Class</masterLabel>
-            <translation><!-- CLS-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>E-Class</masterLabel>
-            <translation><!-- E-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>G-Class</masterLabel>
-            <translation><!-- G-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GL-Class</masterLabel>
-            <translation><!-- GL-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLA 45 AMG</masterLabel>
-            <translation><!-- GLA 45 AMG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLA-Class</masterLabel>
-            <translation><!-- GLA-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLK-Class</masterLabel>
-            <translation><!-- GLK-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ML-Class</masterLabel>
-            <translation><!-- ML-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>R-Class</masterLabel>
-            <translation><!-- R-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>S-Class</masterLabel>
-            <translation><!-- S-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SL-Class</masterLabel>
-            <translation><!-- SL-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SLK-Class</masterLabel>
-            <translation><!-- SLK-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart</masterLabel>
-            <translation><!-- smart --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Close Date --></label>
-        <name>Close_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Comments --></label>
         <name>Comments__c</name>
-    </fields>
-    <fields>
-        <label><!-- DM Template --></label>
-        <name>DM_Template__c</name>
-        <relationshipLabel><!-- Records --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Dealer Code --></label>
@@ -709,10 +532,6 @@
     <fields>
         <label><!-- Delay Reason --></label>
         <name>Delay_Reason__c</name>
-    </fields>
-    <fields>
-        <label><!-- Description --></label>
-        <name>Description__c</name>
     </fields>
     <fields>
         <label><!-- Driven --></label>
@@ -791,38 +610,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Execution Date --></label>
-        <name>Execution_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Execution End Date --></label>
-        <name>Execution_End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Execution Type --></label>
-        <name>Execution_Type__c</name>
-        <picklistValues>
-            <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>OB Call</masterLabel>
-            <translation><!-- OB Call --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Survey</masterLabel>
-            <translation><!-- Survey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>eMail</masterLabel>
-            <translation><!-- eMail --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Expected Revenue --></label>
-        <name>Expected_Revenue__c</name>
-    </fields>
-    <fields>
         <label><!-- Feedback Comments --></label>
         <name>Feedback_Comments__c</name>
     </fields>
@@ -853,10 +640,6 @@
     <fields>
         <label><!-- Final Best Practice --></label>
         <name>Final_Best_Practice__c</name>
-    </fields>
-    <fields>
-        <label><!-- Final List Approved --></label>
-        <name>Final_List_Approved__c</name>
     </fields>
     <fields>
         <label><!-- Gift Expense --></label>
@@ -1145,10 +928,6 @@
         <name>Q4_Marketing_Budget__c</name>
     </fields>
     <fields>
-        <label><!-- Range --></label>
-        <name>Range__c</name>
-    </fields>
-    <fields>
         <label><!-- Record Type Name --></label>
         <name>Record_Type_Name__c</name>
     </fields>
@@ -1175,33 +954,9 @@
         <relationshipLabel><!-- Records (Relevant Retail Campaign) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Response Date --></label>
-        <name>Response_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Retail Candidate --></label>
         <name>Retail_Candidate__c</name>
         <relationshipLabel><!-- Records (Candidate) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Segmentation Base --></label>
-        <name>Segmentation_Base__c</name>
-        <picklistValues>
-            <masterLabel>Contract</masterLabel>
-            <translation><!-- Contract --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Customer</masterLabel>
-            <translation><!-- Customer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Vehicle</masterLabel>
-            <translation><!-- Vehicle --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Segmentation Date --></label>
-        <name>Segmentation_Date__c</name>
     </fields>
     <fields>
         <label><!-- Show up Rate --></label>
@@ -1224,37 +979,12 @@
         <name>Site__c</name>
     </fields>
     <fields>
-        <label><!-- Start Date --></label>
-        <name>Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Status --></label>
-        <name>Status__c</name>
-        <picklistValues>
-            <masterLabel>Completed</masterLabel>
-            <translation><!-- Completed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Draft</masterLabel>
-            <translation><!-- Draft --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ongoing</masterLabel>
-            <translation><!-- Ongoing --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Sub-Region --></label>
         <name>Sub_Region__c</name>
     </fields>
     <fields>
         <label><!-- Submit Date --></label>
         <name>Submit_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Survey --></label>
-        <name>Survey__c</name>
-        <relationshipLabel><!-- Records (Survey) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Total AS Turnover of Previous Year --></label>
@@ -1265,32 +995,12 @@
         <name>Total_Actual_Expense__c</name>
     </fields>
     <fields>
-        <label><!-- Total Budget --></label>
-        <name>Total_Budget__c</name>
-    </fields>
-    <fields>
         <label><!-- Total CAC Source Campaign Member --></label>
         <name>Total_CAC_Source_Campaign_Member__c</name>
     </fields>
     <fields>
-        <label><!-- Total Contacts --></label>
-        <name>Total_Contacts__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Converted Leads in Hierarchy --></label>
-        <name>Total_Converted_Leads_in_Hierarchy__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Leads --></label>
-        <name>Total_Leads__c</name>
-    </fields>
-    <fields>
         <label><!-- Total Marketing Budget --></label>
         <name>Total_Marketing_Budget__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Responses --></label>
-        <name>Total_Responses__c</name>
     </fields>
     <fields>
         <label><!-- Total Retail Campaign Members --></label>
@@ -1596,28 +1306,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Execution Campaign</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Retail Parent Campaign</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>S&amp;M Event Retail Campaign</layout>
         <sections>
             <label><!-- Custom Links --></label>
@@ -1695,20 +1383,12 @@
         <name>Retail_Event</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Execution Campaign --></label>
-        <name>Retail_Execution_Campaign</name>
-    </recordTypes>
-    <recordTypes>
         <label><!-- Retail MB Best Practice --></label>
         <name>Retail_MB_Best_Practice</name>
     </recordTypes>
     <recordTypes>
         <label><!-- S&amp;M Media Retail Campaign --></label>
         <name>Retail_Media</name>
-    </recordTypes>
-    <recordTypes>
-        <label><!-- Retail Parent Campaign --></label>
-        <name>Retail_Parent_Campaign</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Retail smart Best Practice --></label>

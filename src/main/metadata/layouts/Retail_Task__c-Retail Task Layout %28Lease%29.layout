@@ -89,8 +89,8 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lease_Remaining_Balance_Without_RV__c</field>
-            </layoutItems>
-            <layoutItems>
+			</layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
             </layoutItems>
@@ -115,7 +115,6 @@
                 <field>Contractor_Name__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
