@@ -833,6 +833,18 @@
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1489,6 +1501,22 @@
                 <fullName>Event</fullName>
                 <default>false</default>
             </picklistValues>
+			   <picklistValues>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1943,6 +1971,22 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+	    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Ready_for_List_Maintenance__c</fullName>
@@ -2546,6 +2590,18 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ongoing</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -17080,7 +17136,7 @@
                 <fullName>VEP%28Seasonal Check%29</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+			</picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
             <values>
