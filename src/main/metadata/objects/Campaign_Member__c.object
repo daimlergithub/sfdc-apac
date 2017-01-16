@@ -87,6 +87,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Address_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Address__r.TitleOfHonor__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Address Flag</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -212,7 +223,7 @@
     <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Owner:User.CompanyName</formula>
+        <formula>IF(Address__r.Company_Name__c != null, Address__r.Company_Name__c, '')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Company Name</label>
         <required>false</required>
@@ -279,7 +290,6 @@
         <fullName>Contract_Responsible_Person__c</fullName>
         <externalId>false</externalId>
         <formula>Retail_Task__r.Contractor_Name__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Responsible Person</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -321,7 +331,7 @@
     <fields>
         <fullName>Contractor_Company_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Campaign_Id__r.Owner.Dealer_Company_Name__c</formula>
+        <formula>Retail_Task__r.Company_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Company Name</label>
         <required>false</required>
@@ -332,7 +342,7 @@
     <fields>
         <fullName>Contractor_Individual_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>CreatedBy.Dealer_Outlet_Name__c</formula>
+        <formula>Retail_Task__r.Account__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contractor Individual Name</label>
         <required>false</required>
@@ -364,7 +374,7 @@
     <fields>
         <fullName>Customer_Email__c</fullName>
         <externalId>false</externalId>
-        <formula>Owner:User.Contact.Email</formula>
+        <formula>Contact_Id__r.Email__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Email</label>
         <required>false</required>
@@ -478,7 +488,7 @@
     <fields>
         <fullName>FirstName__c</fullName>
         <externalId>false</externalId>
-        <formula>Owner:User.Contact.LastName</formula>
+        <formula>Contact_Id__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>FirstName</label>
         <required>false</required>
@@ -489,12 +499,12 @@
     <fields>
         <fullName>First_Registration_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>Registration_Date__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>Text(Vehicle__r.FirstRegistrationDate__c)</formula>
         <label>First Registration Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Gaurantor2_Name__c</fullName>
@@ -559,7 +569,7 @@
     <fields>
         <fullName>LastName__c</fullName>
         <externalId>false</externalId>
-        <formula>Owner:User.Contact.LastName</formula>
+        <formula>Contact_Id__r.LastName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>LastName</label>
         <required>false</required>
@@ -690,8 +700,9 @@
     <fields>
         <fullName>My_Mercedes_Email__c</fullName>
         <externalId>false</externalId>
+        <formula>Contact_Id__r.Email3__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>My Mercedes Email</label>
-        <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -711,12 +722,23 @@
     <fields>
         <fullName>Next_Inspection_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>Vehicle_Relationship__r.MOT_Expired_Date__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>Text(Vehicle__r.NextInspectionDate__c)</formula>
         <label>Next Inspection Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_MOT_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Vehicle_Relationship__r.MOT_Expired_Date__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Next MOT Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>No_of_Payments__c</fullName>
@@ -915,7 +937,7 @@
     <fields>
         <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Retail_Task__r.Latest_Sales_Person__c</formula>
+        <formula>Vehicle_Relationship__r.Sales_Consultant__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Representative</label>
         <required>false</required>
@@ -935,7 +957,7 @@
     <fields>
         <fullName>Service_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Vehicle__r.SalesType__c)</formula>
+        <formula>Vehicle_Relationship__r.Service_Advisor__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Representative</label>
         <required>false</required>
