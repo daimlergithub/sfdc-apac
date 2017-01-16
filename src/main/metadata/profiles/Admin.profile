@@ -21481,11 +21481,7 @@
     <layoutAssignments>
         <layout>Campaign-CAC Campaign Layout</layout>
         <recordType>Campaign.CAC_Campaign</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
-        <layout>Campaign-Campaign Execution</layout>
-        <recordType>Campaign.Campaign_Executiono</recordType>
-    </layoutAssignments>
+    </layoutAssignments> 
     <layoutAssignments>
         <layout>Campaign-Campaign Execution Complex layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
