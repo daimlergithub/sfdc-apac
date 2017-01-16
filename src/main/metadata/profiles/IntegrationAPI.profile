@@ -10905,11 +10905,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>EP_Export_Notification__c.Usecase__c</field>
         <readable>true</readable>
     </fieldPermissions>
