@@ -590,10 +590,13 @@
 			<sf:include name="TriggerAccountLinkTriggerHandler"/>
 			<sf:include name="DealerSystemHelper"/>
 			<sf:include name="TriggerDealerSystemTriggerHandler"/>
+			<sf:include name="OrderHelper"/>
+			<sf:include name="TriggerOrderTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerPackageItem"/>
 			<sf:include name="TriggerAccountLink"/>
+			<sf:include name="TriggerOrder"/>
 			<sf:include name="TriggerDealerSystem"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
