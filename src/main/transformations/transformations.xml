@@ -114,12 +114,13 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ACCOUNT_ID</token>
-	</changetext> 
+	</changetext>
+	
 	 <changetext>
 		<filename>objects\Case.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CASE_ACCOUNT_ID</token>
-	</changetext>	
+	</changetext>
 	 <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
