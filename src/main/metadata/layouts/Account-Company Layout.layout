@@ -35,8 +35,7 @@
     <excludeButtons>AccountHierarchy</excludeButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -201,18 +200,18 @@
         <label>Contact Infromation</label>
         <layoutColumns>
             <layoutItems>
-                <height>370</height>
+                <height>200</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
+                <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
-                <height>500</height>
+                <height>200</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>1400</width>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
@@ -238,8 +237,7 @@
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -377,8 +375,7 @@
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
