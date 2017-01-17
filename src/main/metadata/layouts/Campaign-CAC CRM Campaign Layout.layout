@@ -316,10 +316,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
