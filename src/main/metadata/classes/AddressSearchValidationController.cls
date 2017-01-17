@@ -635,8 +635,12 @@ EP/Tolerant for Validation.
             //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
+            //Changes as part of SFDCKR-683
+			if(addressobj.Address_Line_1__c != null && addressobj.Province__c != null)
+			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
+			}
             //} 
         }
         if(Market !='KR'){
