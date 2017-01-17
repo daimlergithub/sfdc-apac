@@ -314,7 +314,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
                         Validation = true;
                     }
-                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    /*if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = true;                      
@@ -333,7 +333,7 @@ public class AddressSearchValidationController{
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
                         Validation = true;                      
-                    }
+                    }*/
                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
                         system.debug('*$*$*$ Entered HOme Null scenario');                  
@@ -414,7 +414,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         Validation = TRUE;
                     } 
-                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                   /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = TRUE;
@@ -433,7 +433,7 @@ public class AddressSearchValidationController{
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
                         Validation = TRUE;
-                    }                   
+                    }  */                 
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
                         if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
@@ -623,7 +623,7 @@ EP/Tolerant for Validation.
             if(addressobj.ZipCode__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
-            }
+            }*/
             if(addressobj.Address_Line_1__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
@@ -631,12 +631,16 @@ EP/Tolerant for Validation.
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-            }*/
+            }
             //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
+            //Changes as part of SFDCKR-683
+			if(addressobj.Address_Line_1__c != null && addressobj.Province__c != null)
+			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
+			}
             //} 
         }
         if(Market !='KR'){
