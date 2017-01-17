@@ -55,6 +55,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Campaign_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign Member</label>
+        <referenceTo>Campaign_member__c</referenceTo>
+        <relationshipLabel>Dealer List Members</relationshipLabel>
+        <relationshipName>Dealer_List_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>This field is used to refer the related campaign execution record</description>
@@ -68,23 +80,11 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Campaign_member__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Campaign member</label>
-        <referenceTo>Campaign_member__c</referenceTo>
-        <relationshipLabel>Dealer List Members</relationshipLabel>
-        <relationshipName>Dealer_List_Members</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>CompanyName__c</fullName>
+        <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>CompanyName</label>
+        <label>Company Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -102,22 +102,22 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>ContractNumber__c</fullName>
+        <fullName>Contract_Number__c</fullName>
         <externalId>false</externalId>
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ContractNumber</label>
+        <label>Contract Number</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>ContractResponsiblePerson__c</fullName>
+        <fullName>Contract_Responsible_Person__c</fullName>
         <externalId>false</externalId>
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ContractResponsiblePerson</label>
+        <label>Contract Responsible Person</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -269,22 +269,22 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>SalesRepresentative__c</fullName>
+        <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>SalesRepresentative</label>
+        <label>Sales Representative</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>ServiceRepresentative__c</fullName>
+        <fullName>Service_Representative__c</fullName>
         <externalId>false</externalId>
         <formula>"true"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ServiceRepresentative</label>
+        <label>Service Representative</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

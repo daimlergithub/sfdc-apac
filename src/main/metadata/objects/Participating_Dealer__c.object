@@ -55,7 +55,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Approve_the_List__c</fullName>
         <defaultValue>false</defaultValue>
@@ -199,16 +199,15 @@
     </fields>
     <fields>
         <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Campaign</label>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Participating Dealers</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -351,7 +350,7 @@
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Campaign_Package_cannot_be_empty</fullName>
         <active>true</active>

@@ -632,7 +632,28 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Campaign_Channels__c</fullName>
+        <fullName>Campaign_Code_Number__c</fullName>
+        <displayFormat>{000000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Campaign Code Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Code__c</fullName>
+        <description>A unique identifier to distinguish the campaign</description>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT(Driven__c),'Joint', Relevant_Central_Campaign__r.Campaign_Code__c &amp; '_' &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; '_' &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_'+RIGHT(Campaign_Code_Number__c , 9), 'Dealer Driven', TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; '_dealerdriven' &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  '_'+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_' &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
+        <label>Campaign Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Execution_Channels__c</fullName>
         <description>This field is used to define whether the campaign will be executed via which channel, whether it will be an outbound email, SMS, outbound call etc</description>
         <externalId>false</externalId>
         <label>Campaign Execution Channels</label>
@@ -667,39 +688,7 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Campaign_Code_Number__c</fullName>
-        <displayFormat>{000000000}</displayFormat>
-        <externalId>false</externalId>
-        <label>Campaign Code Number</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>AutoNumber</type>
-    </fields>
-    <fields>
-        <fullName>Campaign_Code__c</fullName>
-        <description>A unique identifier to distinguish the campaign</description>
-        <externalId>false</externalId>
-        <formula>CASE(TEXT(Driven__c),'Joint', Relevant_Central_Campaign__r.Campaign_Code__c &amp; '_' &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; '_' &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_'+RIGHT(Campaign_Code_Number__c , 9), 'Dealer Driven', TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; '_dealerdriven' &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  '_'+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_' &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
-        <label>Campaign Code</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Campaign_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Campaign Name</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Campaign_Sharing_Rule__c</fullName>
+        <fullName>Campaign_Member_Sharing_Rule__c</fullName>
         <description>Rule which is more an information utilized in Segementation</description>
         <externalId>false</externalId>
         <label>Campaign Member Sharing Rule</label>
@@ -715,6 +704,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Campaign_Sub_Type__c</fullName>
@@ -3533,7 +3533,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -3556,7 +3556,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -4264,7 +4264,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -4287,7 +4287,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -4987,7 +4987,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -5010,7 +5010,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -5710,7 +5710,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -5733,7 +5733,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -6421,7 +6421,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -6444,7 +6444,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -7152,7 +7152,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -7175,7 +7175,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -7863,7 +7863,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -7886,7 +7886,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -8594,7 +8594,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -8617,7 +8617,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -9317,7 +9317,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Channels__c</picklist>
+            <picklist>Campaign_Execution_Channels__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
@@ -9340,7 +9340,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>

@@ -529,6 +529,39 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Campaign_Execution_Channels__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Execution Channels</label>
+        <picklist>
+            <picklistValues>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Campaign_Format__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Format</label>
@@ -571,6 +604,27 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Campaign_Member_Sharing_Rule__c</fullName>
+        <description>Rule which is more an information utilized in Segementation</description>
+        <externalId>false</externalId>
+        <label>Campaign Member Sharing Rule</label>
+        <picklist>
+            <picklistValues>
+                <fullName>One Account One Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Campaign_Objectives__c</fullName>
@@ -654,27 +708,6 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Campaign_Sharing_Rule__c</fullName>
-        <description>Rule which is more an information utilized in Segementation</description>
-        <externalId>false</externalId>
-        <label>Campaign Member Sharing Rule</label>
-        <picklist>
-            <picklistValues>
-                <fullName>One Account One Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Campaign_Sub_Type__c</fullName>
@@ -1026,6 +1059,38 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Child_Campaign_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -2622,7 +2687,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>UseSegmentationCriteria__c</fullName>
+        <fullName>Use_Segmentation_Criteria__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Use Segmentation Criteria</label>
@@ -3097,6 +3162,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -3128,6 +3216,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3174,17 +3273,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3458,6 +3546,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4203,6 +4314,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -4234,6 +4368,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4280,17 +4425,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4564,6 +4698,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5281,6 +5438,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -5308,6 +5488,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5354,17 +5545,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5638,6 +5818,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6379,6 +6582,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -6410,6 +6636,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6456,17 +6693,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6560,6 +6786,29 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7297,6 +7546,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -7324,6 +7596,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7370,17 +7653,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7474,6 +7746,29 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8231,6 +8526,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -8258,6 +8576,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8304,17 +8633,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8408,6 +8726,29 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9165,6 +9506,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -9196,6 +9560,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9242,17 +9617,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9346,6 +9710,29 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10079,6 +10466,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -10110,6 +10520,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10156,17 +10577,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10440,6 +10850,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11213,6 +11646,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -11244,6 +11700,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11290,17 +11757,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11574,6 +12030,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12339,6 +12818,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -12370,6 +12872,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12416,17 +12929,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12700,6 +13202,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13452,6 +13977,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -13483,6 +14031,17 @@
             </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13529,17 +14088,6 @@
             </values>
             <values>
                 <fullName>Visit Dealer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Campaign_Sharing_Rule__c</picklist>
-            <values>
-                <fullName>One Account Multiple Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13809,6 +14357,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
