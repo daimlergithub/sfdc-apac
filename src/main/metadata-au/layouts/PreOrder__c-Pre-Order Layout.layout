@@ -16,12 +16,12 @@
                 <field>Customer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Vehicle_Model_Code__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>VehicleInterested__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Model_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
