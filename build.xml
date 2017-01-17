@@ -509,8 +509,7 @@
                                                                 <sf:exclude name="Case.*"/>
                                                                 <sf:exclude name="PersonAccount.*"/>
                                                                 <sf:exclude name="Lead__c.*"/>
-                                                                <sf:exclude name="Account.*"/>
-																<sf:exclude name="Participating_Dealer__c.*"/>
+                                                                <sf:exclude name="Account.*"/> 
                                                 </sf:typeset>
                                                 <sf:typeset name="groups"/>
                                 </deploy>
