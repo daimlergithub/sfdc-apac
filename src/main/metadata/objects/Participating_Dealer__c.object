@@ -364,6 +364,11 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Participating Dealers</pluralLabel>
+    <recordTypes>
+        <fullName>Participating_Dealer</fullName>
+        <active>false</active>
+        <label>Participating Dealer</label>
+    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Campaign_Package__c</lookupDialogsAdditionalFields>
