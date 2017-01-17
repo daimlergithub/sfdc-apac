@@ -617,7 +617,6 @@
     </quickActionList>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Campaign.NAME</fields>
 <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
