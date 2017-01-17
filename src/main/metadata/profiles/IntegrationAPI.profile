@@ -3055,12 +3055,7 @@
         <editable>true</editable>
         <field>Account.MBK_Occupation__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.MBMailOptInOrigin_c__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.MB_Customer_Info_Remove__c</field>
