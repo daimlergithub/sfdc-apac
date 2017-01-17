@@ -2200,12 +2200,7 @@
         <editable>true</editable>
         <field>Account.Dealer_Parent_Code__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Dealer_Parts_Manager_Email__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Phone_Service__c</field>
