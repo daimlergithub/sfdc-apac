@@ -196,11 +196,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkController</apexClass>
-        <enabled>false</enabled>
+        <enabled>True</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>True</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
@@ -1650,6 +1650,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Child_Campaign_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4078,32 +4083,32 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_Company_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_DMS_Retailer_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_GC_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_ND_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_Outlet_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Car_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4113,7 +4118,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.SAP_Dealer_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22035,6 +22040,10 @@
         <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
+        <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>PersonAccount-3rd Pary Layout</layout>
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
@@ -23476,7 +23485,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyOnlyRelatedList</apexPage>
-        <enabled>false</enabled>
+        <enabled>True</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyViewAreaForDealerUser</apexPage>

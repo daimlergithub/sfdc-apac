@@ -305,7 +305,7 @@ public class AddressSearchValidationController{
         else
         {
             try{
-                if(recordType == System.Label.Company)
+                if(recordType == System.Label.Company && market == System.Label.KR)
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;                   
@@ -319,7 +319,8 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
                          Validation = true;
                     }
-                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)))
+
+                    /*if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 7 digits and ONLY Numbers.')); 
                          Validation = true;                     
@@ -336,8 +337,9 @@ public class AddressSearchValidationController{
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-                    }
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
+                        Validation = true;                      
+                    }*/
                     if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                     {    
                         system.debug('*$*$*$ Entered HOme Null scenario');                  
@@ -391,17 +393,50 @@ public class AddressSearchValidationController{
                     }  
                         if(Validation == False){
                         refreshPage = true;
+						objAccount.id = null;
+                        insert objAccount ;
+                        AddressObj.Customer__c = objAccount.id;
+						if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+						{
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+						}
+                        insert AddressObj;
+                        PageReference pageRef = new PageReference('/'+objAccount.Id);
+                        return PageRef;
+                    }
+                }         
+                
+				else if( recordType == 'Company' && market != System.Label.KR)
+                {
+                    
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    objAccount.RecordTypeId = recordTypeId;
+                    
+                    if(Address_Validated_Flag == false)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if(AddressObj.Address_Type__c == null )
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                        
+                    }
+                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    {
+                        refreshPage = true;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
-                        PageReference pageRef = new PageReference('/'+objAccount.Id);
+                        PageReference pageRef = new PageReference('/'+objAccount.Id); 
                         return PageRef;
-                    }         
+                    }                  
+                    
                 }
+				
                 system.debug('recordType 6:'+recordType);
                 system.debug('recordType 7:'+ System.Label.PersonAccount);
-                if(recordType == System.Label.PersonAccount)
+                if(recordType == System.Label.PersonAccount && market == System.Label.KR)
                 {   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.PersonAccount).getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
@@ -418,7 +453,7 @@ public class AddressSearchValidationController{
                         Validation = TRUE;
                        
                     } 
-                    if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)))
+                   /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 7 digits and ONLY Numbers.')); 
                       Validation = TRUE;                        
@@ -435,60 +470,13 @@ public class AddressSearchValidationController{
                     }
                     if(addressobj.Province__c == null)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
-                     Validation = TRUE;                     
-                    }                   
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
+                        Validation = TRUE;
+                    }  */        
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
-                    if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
-                    {    
-                        system.debug('*$*$*$ Entered HOme Null scenario');                  
-                        objPersonAccount.Individual_Home_Phone__c = '';
-                    }
-                    else if((homePhoneAreaCodePart1 != ' ' || homePhoneAreaCodePart1 == ' ') && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
-                    {       
-                        system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
-                        objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-                    }                    
-                    else
-                    {
-                        system.debug('*$*$*$ Entered BLANK scenario'); 
-                        objPersonAccount.Individual_Home_Phone__c = '';
-                    }
-                    if(workPhoneAreaCodePart1 == ' ' && workPhoneAreaCodePart2 == '' && workPhoneAreaCodePart3 == '')
-                    {                      
-                        objPersonAccount.Work_Phone__c = '';
-                    }
-                    else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
-                    {                         
-                        objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-                    }
-                    else
-                    {
-                        objPersonAccount.Work_Phone__c = '';
-                    }
-                    if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
-                    {              
-                        objPersonAccount.Mobile__c = '';
-                    }
-                    else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
-                    {              
-                        objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-                    }
-                    else
-                    {
-                        objPersonAccount.Mobile__c = '';
-                    }  
-                        refreshPage = true;
-                                                objPersonAccount.Id = null;
-                        insert objPersonAccount ;
-                        AddressObj.Customer__c = objPersonAccount.id;
-                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
-                        insert AddressObj;
-                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
-                        return PageRef;
-                        if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
-                       {    
+						if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
+                        {    
                             system.debug('*$*$*$ Entered HOme Null scenario');                  
                             objPersonAccount.Individual_Home_Phone__c = '';
                         }
@@ -537,21 +525,53 @@ public class AddressSearchValidationController{
                         else
                         {
                             objPersonAccount.Mobile__c = '';
-                        }  
-                        
-                        if(Validation == false){
-                            refreshPage = true;
-                            objPersonAccount.Id = null;
-                            insert objPersonAccount ;
-                            //Add a comment to this line
-                            AddressObj.Customer__c = objPersonAccount.id;
-                            AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
-                            insert AddressObj;
-                            PageReference pageRefe = new PageReference('/'+objPersonAccount.Id);           
-                            return PageRefe;
-                        }
+                        } 
+						if(Validation == false)
+						{
+							refreshPage = true;
+							objPersonAccount.Id = null;
+							insert objPersonAccount ;
+							//Add a comment to this line
+							AddressObj.Customer__c = objPersonAccount.id;
+							if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+							{
+							AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+							}
+							insert AddressObj;
+							PageReference pageRefe = new PageReference('/'+objPersonAccount.Id);           
+							return PageRefe;
+						}
                     }
                 }
+				
+				else if(recordType == 'Person Account' && market != System.Label.KR)
+                {
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    objPersonAccount.RecordTypeId = recordTypeId;
+                    
+                    
+                    if(Address_Validated_Flag == false)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if(AddressObj.Address_Type__c == null )
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                        
+                    }
+                    
+                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    {
+                        refreshPage = true;
+                        insert objPersonAccount ;
+                        AddressObj.Customer__c = objPersonAccount.id;
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                        insert AddressObj;
+                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
+                        return PageRef;
+                    }
+                }
+				
             }
             catch(DMLException e)
             {
@@ -675,24 +695,25 @@ EP/Tolerant for Validation.
             if(addressobj.ZipCode__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
-            }
+            }*/
             if(addressobj.Address_Line_1__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
             }
             if(addressobj.Province__c == null)
             {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
-            }*/
-            if(addressobj.ZipCode__c != null)
-                        {
-                        //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
+            }
+            //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
+            //Changes as part of SFDCKR-683
+			if(addressobj.Address_Line_1__c != null && addressobj.Province__c != null)
+			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
-                 //}
-            } 
+			}
+            //} 
         }
         if(Market !='KR'){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))

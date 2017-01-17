@@ -25,6 +25,7 @@ public class ContactTableController
     public String mobilePhoneAreaCodePart3{get;set;}
     public AreaCodeTranslation__mdt areacodeKR ;
     Public Boolean profilename{get;set;}
+    public boolean editMode1 {get; set;}
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
     /**
   *@Description : Constructor.
@@ -33,10 +34,12 @@ public class ContactTableController
   *@return:This mehtod does not return any value.
 
   */ 
+   Public boolean disableButtons{get;set;}
     
     public  ContactTableController(ApexPages.StandardController stdController)
     {
         editMode = false;
+        editMode1 = false;
         AccId = stdController.getId();
         if(!test.isRunningTest()){  
         stdController.addFields(new List<String> {'Id','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
@@ -45,10 +48,23 @@ public class ContactTableController
              
             } 
         ParAcc = (Account)stdController.getRecord(); 
+        /*
         profilename = FALSE;
         String usrProfileName = [select u.Profile.Name from User u where u.id = :Userinfo.getUserId()].Profile.Name;
         if(usrProfileName.contains('Dealer')){
             profilename = TRUE;
+        }
+        */
+        profile p = [select Name from profile where id =:userinfo.getprofileId()];
+        disableButtons = true;
+        system.debug('p.Name :'+p.Name);
+        if(p.Name.contains('Dealer')){
+            system.debug('Test 123');            
+            disableButtons = false;          
+        }
+        if(disableButtons == true){
+             //editMode = true;
+             editMode1 = true;
         }
      }
      
@@ -68,18 +84,18 @@ public class ContactTableController
               }
               else{
                   String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-');
-				if(resultshomePhoneAreaCode.size() < 3)
+                if(resultshomePhoneAreaCode.size() < 3)
                 {
                   homePhoneAreaCodePart1='';
                   homePhoneAreaCodePart2=resultshomePhoneAreaCode[0];
                   homePhoneAreaCodePart3=resultshomePhoneAreaCode[1]; 
-				}
-				else
-				{
-					homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
-					homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
-					homePhoneAreaCodePart3=resultshomePhoneAreaCode[2];	
-				}
+                }
+                else
+                {
+                    homePhoneAreaCodePart1=resultshomePhoneAreaCode[0];
+                    homePhoneAreaCodePart2=resultshomePhoneAreaCode[1];
+                    homePhoneAreaCodePart3=resultshomePhoneAreaCode[2]; 
+                }
               }              
           }
   
@@ -89,18 +105,18 @@ public class ContactTableController
               }
             else{
                 String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-'); 
-				if(resultsworkPhoneAreaCode.size() < 3)
-                {	
-					workPhoneAreaCodePart1= '';
-					workPhoneAreaCodePart2=resultsworkPhoneAreaCode[0];
-					workPhoneAreaCodePart3=resultsworkPhoneAreaCode[1];
-				}
-				else
-				{
-					workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
-					workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
-					workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
-				}
+                if(resultsworkPhoneAreaCode.size() < 3)
+                {   
+                    workPhoneAreaCodePart1= '';
+                    workPhoneAreaCodePart2=resultsworkPhoneAreaCode[0];
+                    workPhoneAreaCodePart3=resultsworkPhoneAreaCode[1];
+                }
+                else
+                {
+                    workPhoneAreaCodePart1=resultsworkPhoneAreaCode[0];
+                    workPhoneAreaCodePart2=resultsworkPhoneAreaCode[1];
+                    workPhoneAreaCodePart3=resultsworkPhoneAreaCode[2]; 
+                }
             }
           } 
         if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
@@ -127,7 +143,8 @@ public class ContactTableController
     public void EditAccount()    
       {
         editMode = true; 
-        if(ParAcc.MD__c=='KR'){
+        editMode1 = true;
+        if(ParAcc.MD__c == 'KR'){
            PhoneNumberFormat();
          }
       }
@@ -149,10 +166,10 @@ public class ContactTableController
        else if((!(String.isBlank(homePhoneAreaCodePart1)) || (String.isBlank(homePhoneAreaCodePart1))) && (!(String.isBlank(homePhoneAreaCodePart2)) || (String.isBlank(homePhoneAreaCodePart2))) && (!(String.isBlank(homePhoneAreaCodePart3)) || (String.isBlank(homePhoneAreaCodePart3))))
        {
            ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-		   if(ParAcc.Individual_Home_Phone__c.startsWith(' -'))
-			{
-				ParAcc.Individual_Home_Phone__c = ParAcc.Individual_Home_Phone__c.removeStart(' -');
-			}
+           if(ParAcc.Individual_Home_Phone__c.startsWith(' -'))
+            {
+                ParAcc.Individual_Home_Phone__c = ParAcc.Individual_Home_Phone__c.removeStart(' -');
+            }
        }
         else
          {
@@ -166,10 +183,10 @@ public class ContactTableController
       else if((String.isBlank(workPhoneAreaCodePart1) || !(String.isBlank(workPhoneAreaCodePart1))) && (String.isBlank(workPhoneAreaCodePart2) || !(String.isBlank(workPhoneAreaCodePart2))) && (String.isBlank(workPhoneAreaCodePart3) || !(String.isBlank(workPhoneAreaCodePart3))))
       {
                ParAcc.Work_Phone__c= workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-			   if(ParAcc.Work_Phone__c.startsWith(' -'))
-				{
-					ParAcc.Work_Phone__c = ParAcc.Work_Phone__c.removeStart(' -');
-				}
+               if(ParAcc.Work_Phone__c.startsWith(' -'))
+                {
+                    ParAcc.Work_Phone__c = ParAcc.Work_Phone__c.removeStart(' -');
+                }
       }
         else
         { 
@@ -182,10 +199,10 @@ public class ContactTableController
       else if((!(String.isBlank(mobilePhoneAreaCodePart1)) || (String.isBlank(mobilePhoneAreaCodePart1))) && (!(String.isBlank(mobilePhoneAreaCodePart2)) || (String.isBlank(mobilePhoneAreaCodePart2))) && (!(String.isBlank(mobilePhoneAreaCodePart3)) || (String.isBlank(mobilePhoneAreaCodePart3))))
       {
                ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
-			   if(ParAcc.Mobile__c.startsWith(' -'))
-				{
-					ParAcc.Mobile__c = ParAcc.Mobile__c.removeStart(' -');
-				}
+               if(ParAcc.Mobile__c.startsWith(' -'))
+                {
+                    ParAcc.Mobile__c = ParAcc.Mobile__c.removeStart(' -');
+                }
       }
         else
         { 
@@ -305,6 +322,7 @@ public class ContactTableController
     public PageReference CancelUpdate()
      {
         editMode = false; 
+        editMode1 = false;
         PageReference page = new PageReference('/apex/ContactTable?Id='+ParAcc.Id);
         page.setRedirect(true);
         return page;
