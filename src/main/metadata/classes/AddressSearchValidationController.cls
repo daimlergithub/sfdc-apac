@@ -300,7 +300,7 @@ public class AddressSearchValidationController{
         else
         {
             try{
-                if(recordType == System.Label.Company)
+                if(recordType == System.Label.Company && market == System.Label.KR)
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;                   
@@ -387,18 +387,50 @@ public class AddressSearchValidationController{
                     }  
                     if(Validation == False){
                         refreshPage = true;
+						objAccount.id = null;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
+						if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+						{
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+						}
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
                     }
                 }         
                 
+				else if( recordType == 'Company' && market != System.Label.KR)
+                {
+                    
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+                    objAccount.RecordTypeId = recordTypeId;
+                    
+                    if(Address_Validated_Flag == false)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if(AddressObj.Address_Type__c == null )
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                        
+                    }
+                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    {
+                        refreshPage = true;
+                        insert objAccount ;
+                        AddressObj.Customer__c = objAccount.id;
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                        insert AddressObj;
+                        PageReference pageRef = new PageReference('/'+objAccount.Id); 
+                        return PageRef;
+                    }                  
+                    
+                }
+				
                 system.debug('recordType 6:'+recordType);
                 system.debug('recordType 7:'+ System.Label.PersonAccount);
-                if(recordType == System.Label.PersonAccount)
+                if(recordType == System.Label.PersonAccount && market == System.Label.KR)
                 {   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.PersonAccount).getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
@@ -493,13 +525,45 @@ public class AddressSearchValidationController{
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
                             AddressObj.Customer__c = objPersonAccount.id;
+							if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+							{
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+							}
                             insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                             return PageRef;
                         }
                     }
                 }
+				
+				else if(recordType == 'Person Account' && market != System.Label.KR)
+                {
+                    recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+                    objPersonAccount.RecordTypeId = recordTypeId;
+                    
+                    
+                    if(Address_Validated_Flag == false)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
+                    }
+                    if(AddressObj.Address_Type__c == null )
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
+                        
+                    }
+                    
+                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    {
+                        refreshPage = true;
+                        insert objPersonAccount ;
+                        AddressObj.Customer__c = objPersonAccount.id;
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                        insert AddressObj;
+                        PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
+                        return PageRef;
+                    }
+                }
+				
             }
             catch(DMLException e)
             {
