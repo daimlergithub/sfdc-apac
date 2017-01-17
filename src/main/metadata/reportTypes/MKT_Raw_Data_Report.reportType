@@ -245,6 +245,11 @@
             <field>LastModifiedDate</field>
             <table>Account</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Agreement_to_commit_info_processing__c</field>
+            <table>Account</table>
+        </columns>
         <masterLabel>Raw Data Report</masterLabel>
     </sections>
 </ReportType>
