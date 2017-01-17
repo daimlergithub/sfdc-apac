@@ -201,6 +201,10 @@
         <fields>Session_Start_Date__c</fields>
         <fields>Session_End_Date__c</fields>
        </relatedLists>
+<relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <customButtons>Generate_Retail_Campaign</customButtons>
         <excludeButtons>New</excludeButtons>
