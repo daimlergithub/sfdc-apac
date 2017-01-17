@@ -47,7 +47,7 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
         List<Task> taskList = new List<Task>();
         List<Lead__c> leadList = new List<Lead__c>();
         List<Event> eventList = new List<Event>();
-        Datetime lastFiveYears = System.Now().addyears(-5);
+        Datetime lastFiveYears = System.Now().addYears(-5);
         datetime lastmodifieddate_lead;
         datetime lastmodifieddate_task_event;
         set<id> accids = new set<id>();
@@ -77,9 +77,16 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
                 } 
               
             }
+        	system.debug('lastFiveYears>>>' + lastFiveYears);
+        	system.debug('acctList>>>' + acctList);
+            system.debug('taskList>>>' + taskList);
+            system.debug('eventList>>>' + eventList);
+            system.debug('leadList>>>' + leadList);
+            system.debug('lastmodifieddate_lead>>>' + lastmodifieddate_lead);
+            system.debug('lastmodifieddate_task_event>>>' + lastmodifieddate_task_event);
             for(Account acc : acctList)
             {
-                if ((lastmodifieddate_lead != null && lastmodifieddate_lead < lastFiveYears) && (lastmodifieddate_task_event == null || lastmodifieddate_task_event < lastFiveYears ) ) 
+                if (((acc.id == leadList[0].Contact__c || acc.Id == leadList[0].Company_Account__c) && (acc.Id == taskList[0].WhatId) && (acc.Id == eventList[0].WhatId) && lastmodifieddate_lead != null && lastmodifieddate_lead < lastFiveYears) && (lastmodifieddate_task_event == null || lastmodifieddate_task_event < lastFiveYears ) ) 
             
                     {                
                         if (acc.RecordtypeID == PersonAccountRecordTypeId)
@@ -114,7 +121,7 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
                         }
                     }
                 }
-    
+    	system.debug('modifiedacclist>>>>' + modifiedacclist);
         if(!modifiedacclist.isEmpty())
         {
             Update modifiedacclist;
@@ -123,5 +130,6 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
     }
     global void finish(Database.BatchableContext bc)
     {
+        
     } 
 }
