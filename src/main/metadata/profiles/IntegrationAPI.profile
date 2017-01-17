@@ -2204,7 +2204,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Parts_Manager_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
