@@ -20,8 +20,8 @@
                 <field>Vehicle_Model_Code__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>VehicleInterested__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Model_Class__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -106,7 +106,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hg0000000dRyp</masterLabel>
+        <masterLabel>00hq0000000PKBf</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
