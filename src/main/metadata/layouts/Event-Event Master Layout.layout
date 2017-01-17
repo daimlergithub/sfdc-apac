@@ -56,10 +56,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Activity_LeadsData__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Activity_Resolution__c</field>
             </layoutItems>
             <layoutItems>
