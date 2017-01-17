@@ -288,8 +288,7 @@
         <fields>Account.NAME</fields>
         <fields>Campaign_Package__c</fields>
         <fields>Session_Start_Date__c</fields>
-        <fields>Session_End_Date__c</fields>
-        <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
+        <fields>Session_End_Date__c</fields> 
     </relatedLists>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>

@@ -33,11 +33,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Follow_Up_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Activity_Comment__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Activity_Purpose__c</field>

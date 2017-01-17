@@ -523,8 +523,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Campaign.NAME</fields>
-        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+        <fields>Campaign.NAME</fields> 
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
