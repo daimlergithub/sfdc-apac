@@ -11,6 +11,10 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Name__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Subject</field>
             </layoutItems>
@@ -29,10 +33,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>EndDateTime</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -130,7 +130,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hg0000000dRgs</masterLabel>
+        <masterLabel>00hq0000000PID7</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
