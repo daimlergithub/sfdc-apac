@@ -115,8 +115,8 @@
     </relatedContent>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Account.Branch_name__c</fields>
-        <fields>Account.Dealer_Sales_Type__c</fields> 
+        <fields>Branch_name__c</fields>
+        <fields>Dealer_Sales_Type__c</fields> 
 <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
     </relatedLists>
        <relatedLists>
