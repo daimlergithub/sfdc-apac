@@ -300,7 +300,18 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
+    </fields> 	
+    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Range__c , "None"), "None", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Range</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Session_End_Date__c</fullName>
         <externalId>false</externalId>
