@@ -3330,12 +3330,7 @@
         <editable>true</editable>
         <field>Account.Portal_Apply_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Portal_Apply_Flag__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Portal_Apply_Status__c</field>
