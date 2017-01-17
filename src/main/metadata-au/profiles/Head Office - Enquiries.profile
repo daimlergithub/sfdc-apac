@@ -10367,7 +10367,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Event.Dealer_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13504,11 +13504,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.PartnerAccountId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.TotalOpportunityQuantity</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18367,7 +18362,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Task.Dealer_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22803,10 +22798,6 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
-        <tab>Account_Link__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
     <tabVisibilities>
         <tab>Address__c</tab>
         <visibility>DefaultOn</visibility>
