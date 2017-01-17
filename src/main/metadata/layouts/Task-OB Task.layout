@@ -91,15 +91,7 @@
                 <behavior>Readonly</behavior>
                 <field>Activity_DataSubSource__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Activity_OutboundCallSource__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Activity_OutboundSubCallSource__c</field>
-            </layoutItems>
-        </layoutColumns>
+           </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

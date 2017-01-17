@@ -93,11 +93,7 @@
                 <behavior>Edit</behavior>
                 <field>Campaign_Name__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SMSBatchNumber__c</field>
-            </layoutItems>
-            <layoutItems>
+             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
