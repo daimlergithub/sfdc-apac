@@ -32,10 +32,6 @@
             </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Recording_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Result__c</field>
             </layoutItems>
             <layoutItems>
