@@ -336,9 +336,9 @@ global with sharing class VehiclePickerForCaseController {
             system.debug('Vehicle for If' +vehicle);
         }
         else{
-            Case caseAcc = [Select Car_Owner__c from Case where Id =: searchAttributes.get('RecordId')];
+            Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId')];
             system.debug('Case Contact...' +caseAcc);
-            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.Car_Owner__c ORDER BY CreatedDate ASC];
+            caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate ASC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
             
             if (!caseVehicleRelationships.isEmpty()){
@@ -351,7 +351,7 @@ global with sharing class VehiclePickerForCaseController {
             //Search for Self Registered:
             Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
             system.debug('Self Registered Rec Id :' +selfRegisteredRec_TypeId);
-            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.Car_Owner__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.AccountId AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
             
             if (!selfRegisteredVehicles.isEmpty()){
