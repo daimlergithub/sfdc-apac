@@ -155,7 +155,11 @@ public class AccountHelperJP
 ** Date: 2015-12-22
 **/
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)    
+<<<<<<< HEAD
     {        
+=======
+    {
+>>>>>>> asia-kr
         Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -186,7 +190,11 @@ public class AccountHelperJP
                         system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
                         system.debug('*************Account*********'+acc);
                         system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c);     
+<<<<<<< HEAD
                         
+=======
+                                      
+>>>>>>> asia-kr
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
                         {
