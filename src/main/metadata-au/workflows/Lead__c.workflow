@@ -601,6 +601,24 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Retail_Consultant_overdue</fullName>
+        <field>Retail_update_Consultant_overdue__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Retail Consultant overdue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Retail_Dealer_overdue</fullName>
+        <field>Retail_update_Dealer_overdue__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Retail Dealer overdue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Visited_Showroom_Date_Time_to_Now</fullName>
         <field>Visited_Showroom_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -899,6 +917,32 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>true</active>
         <description>When owner of lead is modified, owner is Dealer consultant and  consulatant assignement date is not NULL Then change Field : Consultant Reassignment Date to current Date/time</description>
         <formula>AND( ISCHANGED( OwnerId ) , IF( Owner:User.Profile.Name = 'Dealer Consultant', true,false), NOT(ISNULL( Consultant_Assignment_Date__c )) , MD__c = 'AU' )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead modified after Consultant Overdue</fullName>
+        <actions>
+            <name>Update_Retail_Consultant_overdue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp;
+! ISNULL(Dealer_Due_Date__c) &amp;&amp;
+( LastModifiedDate &gt; Consultant_Due_Date__c) &amp;&amp;
+ RecordType.DeveloperName = 'Sales_Leads'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead modified after Dealer Overdue</fullName>
+        <actions>
+            <name>Update_Retail_Dealer_overdue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp;
+! ISNULL(Dealer_Due_Date__c) &amp;&amp;
+( LastModifiedDate &gt; Dealer_Due_Date__c ) &amp;&amp;
+ RecordType.DeveloperName = 'Sales_Leads'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
