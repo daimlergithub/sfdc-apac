@@ -6125,11 +6125,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-		<field>Campaign.Campaign_Status_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Campaign.Campaign_Sub_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
