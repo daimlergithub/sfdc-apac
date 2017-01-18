@@ -52,8 +52,8 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>false</enableReports>
-    <enableSharing>true</enableSharing>  
-    <enableStreamingApi>true</enableStreamingApi> 
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel> 
   <fields>
         <fullName>Choices__c</fullName>
