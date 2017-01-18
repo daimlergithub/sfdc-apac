@@ -76,6 +76,9 @@
         <field>Account.Vehicle_Relationships2__r$Previous_Model__c</field>
     </columns>
     <columns>
+        <field>Account$Agreement_to_commit_info_processing__c</field>
+    </columns>
+    <columns>
         <field>Account$Personal_Abroad_Agreement__c</field>
     </columns>
     <columns>
