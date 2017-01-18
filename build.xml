@@ -290,7 +290,7 @@
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Campaign"/>
                                                                 <sf:include name="CampaignMember"/>
-                                                                <sf:include name="Question__c"/>
+                                                                <!--<sf:include name="Question__c"/>-->
                                                                 <sf:include name="Survey_Question__c"/>
                                                 </sf:typeset>
                                 </deploy>
