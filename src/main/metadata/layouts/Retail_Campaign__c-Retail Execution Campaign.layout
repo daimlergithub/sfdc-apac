@@ -45,7 +45,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Add_Member_ID__c</field>
+                <field>Add_Campaign_Member_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
