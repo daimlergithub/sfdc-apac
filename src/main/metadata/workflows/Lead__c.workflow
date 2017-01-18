@@ -291,15 +291,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Dealer_Lead_Status_update_from_Dealer</fullName>
-        <field>Dealer_Lead_Status__c</field>
-        <literalValue>On-going</literalValue>
-        <name>Dealer Lead Status update from Dealer</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Dealer_Set_Assigned_Date_Time_Dealer</fullName>
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
