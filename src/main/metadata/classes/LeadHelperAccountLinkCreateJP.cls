@@ -31,6 +31,7 @@ public class LeadHelperAccountLinkCreateJP {
     }
     
     public static void createAccountLinkRecord(set<String> contactId){
+     set<String> actlnkids= new set<String>();
         set<String> dealerId = new set<String>();
         set<String> AcclinkContactId = new set<String>();
         set<String> CompanyId = new set<String>();
@@ -115,7 +116,38 @@ public class LeadHelperAccountLinkCreateJP {
             }
          }  
          if(!accLst.isEmpty()){
-            insert accLst;
+            //insert accLst;
+            
+            Database.SaveResult[] srList = Database.insert(accLst,true);
+            
+            
+            
+           for(Database.SaveResult sr : srList){
+           if (sr.isSuccess()){
+           {
+           actlnkids.add(sr.getid());
+           }
+                  
          }
-    }   
+    }
+    if(! actlnkids.isEmpty() ){
+               LeadHelperAccountLinkGetrecordJP.leadAccountDetails(contactId, actlnkids);
+           }       
+    }
+    }
+    /*Update Retail_Contact__c with the record Id of retail copy of the corresponding Account linked to the Leads record that belongs to the assigned dealer
+     *SFDCJP-994
+     *Sivaram
+     *Japan 2.0
+     */
+    public static void updatingleadAccountDetails(set<String> leadrecId, set<string> accountlnkid){
+  list<lead__c> leadupdate = new list<lead__c>();
+      list<Lead__c> leadlistrecords = [select id, Name from Lead__c WHERE ID IN : leadrecId]; 
+      Account_Link__c acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: accountlnkid AND (RecordType.DeveloperName = 'Retail_Company' OR RecordType.DeveloperName = 'Retail_Person') limit 1];
+      for(Lead__c ld : leadlistrecords ){
+          ld.Retail_Contact__c = acclink.id;
+          leadupdate.add(ld);          
+      }
+      update leadupdate;
+  }
 }

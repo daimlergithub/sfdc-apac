@@ -139,5 +139,45 @@ public with sharing class AddressHelperJP {
         
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
-    
+     public static void updateAccountlinks(map<ID,Address__c> newMap){        
+        set<id> accountId = new set<id>();  
+        list<Account_Link__c> accountList = new list<Account_Link__c>();
+        list<Account_Link__c> accountList1 = new list<Account_Link__c>();
+        for(Address__c add:newMap.values()){
+           accountId.add(add.id);
+        } 
+         string regexForNullValue ='null';
+            string nullValue ='';                            
+            String province;
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            UtilAddressTranslation.gettranslatedvalues('JP');
+            accountList = [select id,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
+                           Retail_Address_Reference__r.District__c,Retail_Address_Reference__r.Block__c,Retail_Address_Reference__r.Address_Line_1__c,
+                            Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Address_Reference__r.Address_Type__c,Retail_Address_Reference__r.City__c,Retail_Address_Reference__r.Address_Line_2__c,
+                            Retail_Address_Reference__r.ZipCode__c,Retail_Address_Reference__r.Province__c,Retail_Address_Reference__r.CreatedDate,Retail_Address_Reference__r.LastModifiedDate,
+                            Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c from Account_Link__c where Retail_Address_Reference__c IN:accountId];
+        if(accountList.size() > 0){
+            for(Account_Link__c acc: accountList){            
+                acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
+                acc.Retail_City__c = acc.Retail_Address_Reference__r.City__c;
+                acc.Retail_Distinct__c = (acc.Retail_Address_Reference__r.District__c != null ? acc.Retail_Address_Reference__r.District__c: '') + ' ' + (acc.Retail_Address_Reference__r.Block__c != null ? acc.Retail_Address_Reference__r.Block__c : '') ;
+                acc.Retail_Address_Line_1__c  = acc.Retail_Address_Reference__r.Address_Line_1__c;
+                acc.Retail_Address_Line_2__c =  acc.Retail_Address_Reference__r.Address_Line_2__c;
+                acc.Retail_ZipCode__c = acc.Retail_Address_Reference__r.ZipCode__c;
+                if(addtrmap1.containsKey(acc.Retail_Address_Reference__r.Province__c) )
+                {
+                    province = addtrmap1.get(acc.Retail_Address_Reference__r.Province__c);
+                }                
+                acc.Retail_Province__c = province+ acc.Retail_Address_Reference__r.City__c + acc.Retail_Address_Reference__r.District__c + acc.Retail_Address_Reference__r.Block__c+ acc.Retail_Address_Reference__r.Address_Line_1__c + ' ' + acc.Retail_Address_Reference__r.Address_Line_2__c ;
+                acc.Retail_Province__c  =acc.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+                acc.Retail_Address_CreatedDate__c = (acc.Retail_Address_Reference__r.CreatedDate).date();
+                acc.Retail_Address_LastModifiedDate__c = (acc.Retail_Address_Reference__r.LastModifiedDate).date();
+                    accountList1.add(acc);
+            }
+        }
+        if(!accountList1.isEmpty()||accountList1!=null)
+            {
+                update accountList1; 
+            }
+    }
 }
