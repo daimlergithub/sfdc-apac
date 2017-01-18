@@ -6980,6 +6980,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>Campaign_Lead__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign_Lead__c.Successful_Call_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11270,6 +11275,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>DM_Request__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DM_Request__c.Sales_Department__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15155,6 +15165,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>Participating_Dealer__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Participating_Dealer__c.Session_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16490,6 +16505,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>Question__c.Choices__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Question__c.Question__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Question__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Recall__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16852,11 +16882,6 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Event_Type__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-	<editable>false</editable>
-        <field>Retail_Campaign__c.Execution_Date__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20085,6 +20110,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Taken_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>SurveyQuestionResponse__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -20140,7 +20175,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+		<field>SurveyTaker__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>SurveyTaker__c.SurveyTakenByVehicle__c</field>
+		<readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Survey_Taken_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23098,6 +23143,9 @@
         <recordType>Question.Record_type_for_community_09ai0000000TOLlAAO_entity_Question</recordType>
     </layoutAssignments>
     <layoutAssignments>
+	<layout>Question__c-Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -23914,6 +23962,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Question</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+		<object>Question__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -24774,7 +24831,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.CAC_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -24789,7 +24846,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -24806,7 +24863,7 @@
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
