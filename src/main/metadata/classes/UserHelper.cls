@@ -836,7 +836,7 @@ public with sharing class UserHelper {
             }
         }
     }
-	public static void createGroup(List<User> newUserList)
+    public static void createGroup(List<User> newUserList)
     {
     system.debug('#$#$#$#$#$#$#$#$# newUserList'+newUserList);
         set<id> userid = new set<id>();
@@ -920,7 +920,7 @@ public with sharing class UserHelper {
             }    
         }
         insert listGroupMember;
-	}
+    }
     public Static void ApexShare(List<User> usrList){   
         system.debug('usrList '+usrList);
         Set<Id> userIds = new Set<Id>();
@@ -945,5 +945,81 @@ public with sharing class UserHelper {
             }      
             UtilShare.DealerGroupCreation(dealerAccountIds,userIds); 
         } 
+    }
+      public Static void UserShareforDealers(list<User> usrList, map<id,User> UserOldMap, boolean isInsert, boolean isUpdate){       
+    // inserting new records
+    if (Trigger.isInsert) { 
+            Set<String> userAcc = new Set<String>();
+            List<UserShare> shares = new List<UserShare>();
+            for(User u : usrList){
+                if(u.Contact.AccountId != Null){
+                    userAcc.add(u.Contact.AccountId);
+                }
+            }   
+        string inVar='Dealer';
+        string tempInput = '%' + inVar + '%';
+        Map<Id,User> userMap = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : userAcc AND Profile.name like  : tempInput ]);        
+            if(userMap.size() > 0){
+                for (User u : usrList){
+                    for(User ur : userMap.Values()){
+                        UserShare userShr = new UserShare();
+                        userShr.UserId = u.id;
+                        userShr.UserOrGroupId = ur.id;
+                        if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
+                            userShr.UserAccessLevel = 'edit';
+                        }
+                        else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
+                            userShr.UserAccessLevel = 'Read';
+                        }
+                            shares.add(userShr);
+                    }
+                }   
+            }
+            // do the DML to create shares
+            if (!shares.isEmpty())
+                insert shares;
+    }                   
+    else if (isUpdate) {    
+            List<UserShare> sharesToCreate = new List<UserShare>();
+            List<ID> shareIdsToDelete = new List<ID>();
+            List<ID> shareIdsToCreate = new List<ID>(); 
+            set<Id> usersToDelete = new set<Id>();
+            for (User Led : usrList) {
+                User oldlead = UserOldMap.get(Led.id);                  
+                    if (Led.Contact.AccountId != Null && Led.Contact.AccountId != oldlead.Contact.AccountId) {
+                        shareIdsToDelete.add(oldlead.Contact.AccountId);  
+                        shareIdsToCreate.add(Led.Contact.AccountId);  
+                    }
+            }
+            string inVar='Dealer';
+            string tempInput = '%' + inVar + '%';
+            Map<Id,User> userMapUpdate = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToCreate AND Profile.name like  : tempInput]);  
+            List<User> TobeDeleted = new List<User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToDelete AND Profile.name like  : tempInput]);
+                for(User ur : TobeDeleted){
+                    usersToDelete.add(ur.Id);
+                }
+            if(userMapUpdate.size() > 0){
+                for (User u : usrList){
+                    for(User ur : userMapUpdate.Values()){
+                        UserShare userShr = new UserShare();
+                        userShr.UserId = u.id;
+                        userShr.UserOrGroupId = ur.id;
+                        if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
+                            userShr.UserAccessLevel = 'edit';
+                        }
+                        else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
+                            userShr.UserAccessLevel = 'Read';
+                        }
+                            sharesToCreate.add(userShr);
+                    }
+                }   
+            }    
+            // do the DML to delete shares
+            if (!TobeDeleted.isEmpty())
+                delete [select id from UserShare where UserOrGroupId IN :usersToDelete];
+            // do the DML to create shares
+            if (!sharesToCreate.isEmpty())
+                insert sharesToCreate;
+        }
     }
 }
