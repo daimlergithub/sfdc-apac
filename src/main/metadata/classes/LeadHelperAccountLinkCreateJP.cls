@@ -131,7 +131,7 @@ public class LeadHelperAccountLinkCreateJP {
          }
     }
     if(! actlnkids.isEmpty() ){
-               LeadHelperAccountLinkGetrecordJP.leadAccountDetails(contactId, actlnkids);
+               LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
            }       
     }
     }
