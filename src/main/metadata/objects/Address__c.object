@@ -1560,7 +1560,7 @@
     </validationRules>
     <validationRules>
         <fullName>Address_Line_1_is_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Address_Line_1__c
 is Mandatory while creating new Address</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'KR',
@@ -1678,7 +1678,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <active>true</active>
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
-OR(MD__c = 'JP',MD__c = 'KR'),
+MD__c = 'JP',
   ISPICKVAL(Province__c,"")
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>

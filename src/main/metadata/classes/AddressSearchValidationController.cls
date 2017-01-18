@@ -390,8 +390,10 @@ public class AddressSearchValidationController{
 						objAccount.id = null;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
-						//Commenting the below line as part of SFDCKR-683
-                           // AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+						if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+						{
+                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+						}
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
@@ -523,8 +525,10 @@ public class AddressSearchValidationController{
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
                             AddressObj.Customer__c = objPersonAccount.id;
-							//Commenting the below line as part of SFDCKR-683
-                           // AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+							if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+							{
+                            AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+							}
                             insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                             return PageRef;
