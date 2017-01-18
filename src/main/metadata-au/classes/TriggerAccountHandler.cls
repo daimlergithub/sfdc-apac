@@ -30,6 +30,7 @@ public class TriggerAccountHandler
              serializedObject=json.serialize(newDL);
              if(obj.profile.Name!='IntegrationAPI' && System.IsBatch() == false && System.isFuture() == false)
 			 AccountHelper.entityNotifyUpdate('INSERT',newDL[0].Id,serializedObject);
+             AccountHelper.shareProspectWithDealers(trigger.new);
 		    
 		}
          if(trigger.isAfter && trigger.isUpdate)
