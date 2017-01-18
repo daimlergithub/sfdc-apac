@@ -601,7 +601,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<layoutSections>
+    <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
@@ -633,7 +633,7 @@
     </quickActionList>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Campaign.NAME</fields>
+        <fields>Campaign__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
