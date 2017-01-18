@@ -317,7 +317,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
 	<fieldUpdates>
         <fullName>PopulateAssignedDateTimetoCurrent_Date</fullName>
         <field>Assigned_Date_Time__c</field>
