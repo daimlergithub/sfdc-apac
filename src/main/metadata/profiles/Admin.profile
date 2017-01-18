@@ -16690,11 +16690,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Campaign__c.Add_Member_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Retail_Campaign__c.Add_Sales_Staff__c</field>
         <readable>false</readable>
     </fieldPermissions>
