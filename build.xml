@@ -83,7 +83,7 @@
                 </target>
                 <target name="deploy01">
                                 <deploy runAllTests="${sfdc.runAllTests}">
-                                                 <sf:typeset name="installedPackages"/> 
+                                                <!-- <sf:typeset name="installedPackages"/> -->
                                 </deploy>
     </target>
                 <target name="deploy05">
@@ -280,8 +280,6 @@
                                                                 <sf:exclude name="SurveyQuestionResponse__c"/>
                                                                 <sf:exclude name="Survey_Question__c"/> 
                                                                 <sf:exclude name="Contract_Relation__c"/>
-																<sf:exclude name="Question__c"/>
-																<sf:exclude name="Participating_Dealer__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target> 
@@ -290,8 +288,9 @@
                                 <deploy runAllTests="${sfdc.runAllTests}">
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Campaign"/>
-																<sf:include name="Participating_Dealer__c"/>
-                                                                <sf:include name="CampaignMember"/> 
+                                                                <sf:include name="CampaignMember"/>
+                                                                <sf:include name="Question__c"/>
+                                                                <sf:include name="Survey_Question__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target>
@@ -512,7 +511,7 @@
                                                                 <sf:exclude name="Case.*"/>
                                                                 <sf:exclude name="PersonAccount.*"/>
                                                                 <sf:exclude name="Lead__c.*"/>
-                                                                <sf:exclude name="Account.*"/> 
+                                                                <sf:exclude name="Account.*"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="groups"/>
                                 </deploy>
@@ -701,9 +700,9 @@
                                                 <sf:include name="TriggerCampaignLeadTest"/>
                                                 <sf:include name="TriggerCampaignCityTriggerHandler"/>
                                                 <sf:include name="UtilCampaignCity"/>
-                                                 <!--<sf:include name="AddressHelperJP"/>-->
+                                                <sf:include name="AddressHelperJP"/>
                                                 <sf:include name="AddressHelperJPTest"/>
-                                                <!--<sf:include name="TriggerAddressTriggerHandlerJP"/>-->
+                                                <sf:include name="TriggerAddressTriggerHandlerJP"/>
                                 </sf:typeset>
                                 <sf:typeset name="triggers">
                                                 <!--<sf:include name="TriggerCampaignCity"/>
@@ -1109,7 +1108,6 @@
                                                                 useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
                 </target>
 </project>
-
 
 
 
