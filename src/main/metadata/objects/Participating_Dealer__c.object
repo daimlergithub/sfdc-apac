@@ -313,6 +313,18 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Participating Dealers</relationshipLabel>
+        <relationshipName>Participating_Dealers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Session_End_Date__c</fullName>
         <externalId>false</externalId>
         <label>Session End Date</label>

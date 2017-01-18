@@ -190,7 +190,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>
+    </fieldUpdates>	
     <fieldUpdates>
         <fullName>CAC_Lead_Status_to_Approved</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -205,6 +205,15 @@
         <field>CAC_Lead_Status__c</field>
         <literalValue>New</literalValue>
         <name>CAC Lead Status to New</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
+        <fullName>CAC_Status_Update_from_Dealer</fullName>
+        <field>CAC_Lead_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>CAC Status Update from Dealer</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -277,6 +286,24 @@
         <field>Dealer_Lead_Status__c</field>
         <literalValue>On-going</literalValue>
         <name>Dealer Lead Status_update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Dealer_Set_Assigned_Date_Time_Dealer</fullName>
+        <field>Assigned_Date_Time__c</field>
+        <formula>now()</formula>
+        <name>Dealer Set Assigned Date Time Dealer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
+        <fullName>Dealer_Lead_Status_update_from_Dealer</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>On-going</literalValue>
+        <name>Dealer Lead Status update from Dealer</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1152,6 +1179,24 @@ Modify Reason:
         <active>true</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>	
+    <rules>
+        <fullName>Update Leads Dealer Status for dealer create</fullName>
+        <actions>
+            <name>CAC_Status_Update_from_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Dealer_Lead_Status_update_from_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Dealer_Set_Assigned_Date_Time_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Contains( $Profile.Name, 'Japan Dealer' )</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Status and Date time of BDC Dealer</fullName>

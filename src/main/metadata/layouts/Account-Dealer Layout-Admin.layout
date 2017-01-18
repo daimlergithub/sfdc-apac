@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Layout xmlns="http://soap.sforce.com/2006/04/metadata">  
+<Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
@@ -747,7 +747,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Campaign.NAME</fields>
+        <fields>Campaign__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>

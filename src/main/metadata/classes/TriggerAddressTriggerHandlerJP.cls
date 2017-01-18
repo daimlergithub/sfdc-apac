@@ -22,6 +22,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if ((Trigger.isAfter && Trigger.isUpdate)){
             
             AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+            AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
         }
         if ((Trigger.isAfter && Trigger.isDelete)){
             
@@ -35,6 +36,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+             AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
         } 
         if(isAfter && isUpdate)
         {

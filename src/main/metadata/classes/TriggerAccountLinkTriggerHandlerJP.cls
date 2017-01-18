@@ -17,6 +17,7 @@ public class TriggerAccountLinkTriggerHandlerJP
         Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
            AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
             AccountLinkHelper.afterInsertEvent(Trigger.new);
+			AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
         }
         if(Trigger.isAfter && Trigger.isDelete){
             
@@ -28,6 +29,7 @@ public class TriggerAccountLinkTriggerHandlerJP
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
             AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
+			AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
         }
         if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert))
         {
