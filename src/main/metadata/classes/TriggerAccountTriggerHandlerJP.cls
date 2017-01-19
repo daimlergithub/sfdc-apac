@@ -29,7 +29,7 @@ implements TriggerHandlerIf
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         if(isAfter && isInsert && !System.isFuture())
         {
@@ -67,7 +67,7 @@ implements TriggerHandlerIf
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,trigger.isUpdate);
+            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         
         if(isAfter && isInsert && !System.isFuture())
