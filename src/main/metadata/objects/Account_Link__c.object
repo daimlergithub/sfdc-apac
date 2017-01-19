@@ -4808,13 +4808,13 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
         <errorMessage>IT Should be KANA Characters</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Retail_Full_Name_Native_Kana</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
-ISBLANK(Retail_Full_Name_Native__c),
-REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+ISBLANK(Retail_Full_Name_Native__c),OR(CONTAINS(Retail_Full_Name_Native__c, ' ') ,
+REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_Full_Name_Native__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>

@@ -16831,7 +16831,7 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Event_Type__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Execution_End_Date__c</field>

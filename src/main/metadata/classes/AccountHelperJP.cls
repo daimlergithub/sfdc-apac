@@ -196,7 +196,7 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
-					//Code commented by Srinivas Pendli for #SFDCKR-620
+                    //Code commented by Srinivas Pendli for #SFDCKR-620
                     /*
                     else if(acc.Primary_Address_Reference__c ==Null)
                     {
@@ -490,7 +490,7 @@ public class AccountHelperJP
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         System.debug('Accountlinklist------>'+Accountlinklist  );
         //Account link iteration
@@ -499,10 +499,11 @@ public class AccountHelperJP
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
                 //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
-                acclnk.Retail_Full_Name__c = ((acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(25); 
+                acclnk.Retail_Full_Name__c = (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName :'') + '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'').left(25); 
                 acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
                 acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
                 acclnk.Retail_FirstName_Native__c = acclnk.toRole__r.FirstName_Native_1__c; 
+                acclnk.Retail_Full_Name_Native__c = ((acclnk.toRole__r.LastName_Native_1__c!=null ? acclnk.toRole__r.LastName_Native_1__c : '')+ ' ' +(acclnk.toRole__r.FirstName_Native_1__c!=null ? acclnk.toRole__r.FirstName_Native_1__c:'')).left(50);
                 acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
                 acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
                 acclnk.Retail_Occupation__c = acclnk.toRole__r.Occupation__c;                
@@ -528,6 +529,7 @@ public class AccountHelperJP
             acclnk.Retail_Website__c = acclnk.toRole__r.website;
             acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
+            acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;
             
             //Checking Null for sales Address 
             if(acclnk.toRole__r.Primary_Address_Reference__c != null){ 
@@ -806,6 +808,7 @@ public class AccountHelperJP
                   else if(led.MD__c == Label.MarketJP){
                       acclnk.Retail_Country__c = 'Japan';
                   }
+                  
                   
                   
                   

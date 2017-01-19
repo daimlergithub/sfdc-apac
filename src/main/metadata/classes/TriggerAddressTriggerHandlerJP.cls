@@ -54,32 +54,34 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
     }
     
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+   public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
-        
+        /*
         if(isAfter && isInsert)
+
         {
             serializedObject=json.serialize(ListAddNew);
             
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+           // AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
         } 
         if(isAfter && isUpdate)
         {
             serializedObject=json.serialize(ListAddNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
+           // AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
         }
         
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
-        
+        */
     }
+
     
     
     

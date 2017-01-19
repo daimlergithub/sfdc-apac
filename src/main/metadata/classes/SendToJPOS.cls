@@ -1,3 +1,18 @@
+/***********************************************************************************
+Created By          :    Venky    
+Created Date        :    15.10.2016
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class sending Account Id,Address Id and DealerId to EP database
+                         Business Conditions :
+                          * In case of MBJ User select Dealer.
+                          *field displayed for Address and Account object must have values.
+                          * Assgigned dealer should be selected from Account_Link sales consulatant.
+                          * On click of Send to jpos button webservice will be called and information will be send to EP data base. 
+                          
+************************************************************************************/
+
+
+
 public class SendToJPOS{
     Public List<Address__c> AddRecords{get;set;}  
     Public static String AccId{get;set;}
@@ -26,6 +41,7 @@ public class SendToJPOS{
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     
+    //Constructor
     public SendToJPOS(ApexPages.StandardController controller) { 
     CurrentUsr=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = : UserInfo.getUserId()];
      addr=new Address__c();
@@ -51,7 +67,7 @@ public class SendToJPOS{
        {
         if( AccId!=null )
                {
-               listAlk=[Select id,name,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Primary__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where toRole__c =:AccId and Recordtypeid=:alkIndividualRecordTypeId and Primary__c=True];
+               listAlk=[Select id,name,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Primary__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c,RecordTypeId from  Account_Link__c where toRole__c =:AccId and Recordtypeid=:alkIndividualRecordTypeId and Primary__c=True];
           
                }     
           System.debug('@#@#@#@ listAlk#@@#'+listAlk);
@@ -70,13 +86,14 @@ public class SendToJPOS{
            }
        }
        
+       //If current Logged in User is Dealer user update Assigned Dealer field value.
        if(CurrentUsr.contactid!=null)
-             {
-              System.debug('@#@#@#@#@#@#@@#'+CurrentUsr.contactid);
+             { 
+             
                Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
-              System.debug('@#usr @#@@#'+usr);
-              contactList=[Select id,AccountId from Contact where id=:usr.ContactId];
-               System.debug('@#@#@#@  contactList#@@#'+contactList);
+              
+              contactList=[Select id,AccountId from Contact where id=:usr.ContactId]; 
+              
               If(contactList!=null)
               {
               for(Contact con:contactList)
@@ -88,10 +105,7 @@ public class SendToJPOS{
                {
                Acclist=[Select id,City__c,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_1__c,Company_Name_Native_2__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
               }
-               System.debug('@#@#@#@ DealeAccId #@@#'+DealeAccId);
-               System.debug('@#@#@#@ AccId #@@#'+AccId );
-               System.debug('@#@#@#@  alkPerson_RecordTypeId#@@#'+alkPerson_RecordTypeId);
-               System.debug('@#@#@#@  alkCompany_RecordTypeId#@@#'+alkCompany_RecordTypeId);
+               
                if(DealeAccId!=null && AccId!=null && Acclist.Recordtypeid==accCompany_RecordTypeId)
                {
               listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId ];
@@ -99,9 +113,7 @@ public class SendToJPOS{
                 if(DealeAccId!=null && AccId!=null && Acclist.Recordtypeid==accPerson_RecordTypeId)
                {
               listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId];
-               } 
-                   
-          System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+               }  
           
             if(listAlk!=null && !listAlk.isempty())
            {
@@ -117,8 +129,10 @@ public class SendToJPOS{
            }
              }
        
-    }
+    } // End of Constructer 
            
+           
+           //Method to get Selected Address record Id.
          public pageReference  getSelected ()
          {    
           addId =ApexPages.currentPage().getParameters().get('idselected');             
@@ -126,36 +140,36 @@ public class SendToJPOS{
         return null; 
        }
         
+        //Method to get Selected Dealer Account  record Id.
           public void  getDealer(){
           Dealeracc=new List<Account>();
           AccId=ApexPages.currentPage().getParameters().get('id'); 
-          // DealerID=ApexPages.currentPage().getParameters().get('DealerID');  
-           accc=[Select id from account where id=:DealerID.Company__c];  
-           System.debug('^&^&^&^&^&^&^&^ accc'+accc);
-           System.debug('^&^&^ DealerID.Company__c '+DealerID.Company__c);
-           System.debug('^&^&^alkPerson_RecordTypeId '+alkPerson_RecordTypeId);
-           System.debug('^&^&^ accCompany_RecordTypeId '+accCompany_RecordTypeId);
+          // DealerID=ApexPages.currentPage().getParameters().get('DealerID'); 
+           
+           accc=[Select id from account where id=:DealerID.Company__c];   
+           
            if(AccId !=null)
            {
             Acclist=[Select id,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_2__c,Company_Name_Native_1__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
-          System.debug('^&^Acclist'+Acclist);
-           }
-            System.debug('^&^AccId'+AccId );
-             System.debug('^&^DealerID.Company__c'+DealerID.Company__c);
-              System.debug('^&^Acclist.Recordtypeid'+Acclist.Recordtypeid);
-               System.debug('^&^ accPerson_RecordTypeId'+accPerson_RecordTypeId);
+          
+           } 
+           
+           
            if(AccId !=null && DealerID.Company__c!=null && (Acclist.Recordtypeid==accPerson_RecordTypeId))  
            {
             listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Company__c and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId];
-             System.debug('^&^listAlk 676767'+listAlk);
+             
            }
+           
            if( AccId !=null && DealerID.Company__c!=null && (Acclist.Recordtypeid==accCompany_RecordTypeId))
            {
-            System.debug('@#@# companyb   #@@#');
+             
             listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Company__c  and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
-           System.debug('^&^listAlk listAlk 78'+listAlk);
+           
            }
-           System.debug('@#@#listAlk#@@#'+listAlk);
+           
+           
+            
            if(listAlk!=null && !listAlk.isempty())
            {
            for(Account_Link__c Acclink:listAlk)
@@ -163,17 +177,16 @@ public class SendToJPOS{
            AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
            }
            }
-           System.debug('$%$$% AssignedDealerUserID$%$%%&&&'+AssignedDealerUserID);
+            
            if(AssignedDealerUserID!=null)
            {
            AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
            }
-          System.debug('$%$$%$$%$%$%%&&&'+AssignedDealer);
-                
-          system.debug('+++ DealerID+'+ DealerID);
-          system.debug('++++ Dealeracc'+ accc);
+        
          
-          }
+          } // Method end for Selecting Dealer Account Id.
+          
+          //Method for sending accountId,AddressId, Dealer ID to EP database.
         Public void  SendToJPOS()
          {
             
@@ -187,73 +200,70 @@ public class SendToJPOS{
            if(AccId!=null)
            {
            Acclist=[Select id,City__c,Gender__c,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c,PersonBirthdate,Company_Name__c,Company_Name_Native_1__c,Company_Name_Native_2__c,Company_Legal_Form__c,Company_Legal_Form_text__c,Legal_Form_Position__c,Recordtypeid from Account where id=:AccId];
-          }
+           }
+           
+           //If Addrees is not selected display error message.
           if(addId==null)
             {
-            System.debug('Selected address records '+addId);
             ShowHideError=True;
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select atleast one Address'));
             }
+            //For MBJ User if user not selected  Dealer Outlet display error message
             if(DealerID.Company__c ==null && CurrentUsr.contactid==null)
             {
-            ShowHideError=True;
-            System.debug('Selected Out dealer'+DealerID.Company__c);
+            ShowHideError=True;             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer Outlet'));
             }
+            
+            //Query to get selected address record Id
            If(addId!=null)
-           {
-           
-           system.debug('#$#$#$#$#$#$#$# addId'+addId);
+           {                     
            AddreesSedntoJPOS= [select id,City__c,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
            }
+           
+           //Query to get Dealer Account RecordId
            Dealeracc=[Select id,Name from Account where id=:DealerID.Company__c];
            for(Account AccDealer:Dealeracc)
            {
            DealeAccId.add(AccDealer.id);
-           }
-           system.debug('+++ Dealeracc+'+ Dealeracc);
-             system.debug('+++ DealeAccId DealeAccId DealeAccId+'+ DealeAccId);
-           system.debug('@#@#@#@@#@#@#@ adreess ID'+ AddreesSedntoJPOS);
+           } 
           
-          
+          // If Account is Person accout, Query to get Acccount_Link records with Retail person
            if(Acclist.Recordtypeid==accPerson_RecordTypeId)
-           {
-           System.debug('@#@# Person#@@#');
-           System.debug('@#@# AccId  #@@#'+AccId );
-           System.debug('@#@# DealerID #@@#'+DealerID );
+           { 
+           
             listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId ];
           
            }
+            // If Account is Company accout, Query to get Acccount_Link records with Retail Company
            if(Acclist.Recordtypeid==accCompany_RecordTypeId)
-           {
-            System.debug('@#@# companyb   #@@#');
+           { 
             listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
           
            }
             
-            System.debug('@#@#listAlk#@@#'+listAlk);
+            // To get Retail sales consulatant Id
            if(listAlk!=null && !listAlk.isempty())
            {
            for(Account_Link__c Acclink:listAlk)
-           {
+           {           
+           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;            
+           }
+           }
            
-           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c;
-            
-           }
-           }
+           // If  Retail sales consulatant is not blank ,query to get user Id.
            if(AssignedDealerUserID!=null)
            {
          AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
            }
-           System.debug('@#@#@#@#@#@#@@#'+AssignedDealerUserID);
-            System.debug('@#@# CurrentUsr#@@#'+CurrentUsr);
+           
+           // If Current user is Dealer user ,get the sales consultant ID.
              if(CurrentUsr.contactid!=null)
-             {
-              System.debug('@#@#@#@#@#@#@@#'+CurrentUsr.contactid);
+             { 
                Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
-              System.debug('@#usr @#@@#'+usr);
+             
               contactList=[Select id,AccountId from Contact where id=:usr.ContactId];
-               System.debug('@#@#@#@  contactList#@@#'+contactList);
+               
               If(contactList!=null)
               {
               for(Contact con:contactList)
@@ -261,24 +271,29 @@ public class SendToJPOS{
               DealeAccId.add(con.AccountId);
               }
               }
-               System.debug('@#@#@#@ DealeAccId #@@#'+DealeAccId);
-               System.debug('@#@#@#@ AccId #@@#'+AccId );
+                
+             if(AccId !=null && DealeAccId!=null)
+            {
               listAlk=[Select id,Retail_Duplicate_Flag__c ,System__c,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealeAccId and toRole__c =:AccId and (Recordtypeid=:alkCompany_RecordTypeId OR Recordtypeid=:alkPerson_RecordTypeId)];
-          System.debug('@#@#@#@ listAlk#@@#'+listAlk);
+            }
           
             if(listAlk!=null && !listAlk.isempty())
            {
-           for(Account_Link__c Acclink:listAlk)
-           {
-           AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
+               for(Account_Link__c Acclink:listAlk)
+               {
+               AssignedDealerUserID=Acclink.Retail_Sales_Consultant__c; 
+               }
            }
-           }
+           
            if(AssignedDealerUserID!=null)
            {
-         AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
+              AssignedDealer=[SELECT Market__c,IsPortalEnabled,DMS_UserID__c,contactid,Id FROM User WHERE Id = :AssignedDealerUserID and DMS_UserID__c!=null];
            }
-             }
-                   crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+          }
+         // Webservice class intitalization.
+         
+         crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+         // Person Account validation check
          if(Acclist.Recordtypeid==accPerson_RecordTypeId)
            {
            ShowHideError=True;
@@ -307,10 +322,9 @@ public class SendToJPOS{
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'PersonBirthdate Should not be null'));
                    }    
            }
-           System.debug('$%$%$%$%$%$ Acclist'+Acclist);
-           System.debug('$%$%$%$%$%$ Acclist.Recordtypeid'+Acclist.Recordtypeid);
-           System.debug('$%$%$%$%$%$ alkCompany_RecordTypeId'+alkCompany_RecordTypeId);
            
+           
+            // Company Account validation check
             if(Acclist.Recordtypeid==accCompany_RecordTypeId)
            {
            ShowHideError=True;
@@ -341,6 +355,7 @@ public class SendToJPOS{
            
            }
            
+            // Address  validation check
            if(((Acclist.Recordtypeid==accCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId)) && (AddreesSedntoJPOS!=Null))
             {
             ShowHideError=True;
@@ -373,6 +388,8 @@ public class SendToJPOS{
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Zip Code Should not be null'));
                    }    
             }
+            
+            // sales consultant and Dms user id validation check.
             if(((Acclist.Recordtypeid==accCompany_RecordTypeId) || (Acclist.Recordtypeid==accPerson_RecordTypeId))  )
             {
                  if(AssignedDealerUserID==null)
@@ -391,95 +408,62 @@ public class SendToJPOS{
          if( (Acclist.Recordtypeid==accPerson_RecordTypeId) && (Acclist.Gender__c!=null) && (Acclist.FirstName !=null) && (Acclist.LastName!=null) && (Acclist.FirstName_Native_1__c!=null) && (Acclist.LastName_Native_1__c!=null) && (Acclist.PersonBirthdate!=null) && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && (AddreesSedntoJPOS.City_Native__c!=null) && (AddreesSedntoJPOS.District_Native__c!=null) && (AddreesSedntoJPOS.Province__c!=null) && (AddreesSedntoJPOS.City__c!=null) && (AddreesSedntoJPOS.District__c!=null) && (AddreesSedntoJPOS.ZipCode__c!=null) && (AssignedDealerUserID!=null) && (AssignedDealer.DMS_UserID__c!=null))
          {
          try
-         {
+        {
          if (!Test.isRunningTest())
             {
-            System.debug('#$##$####$#$#$#'+Usr);
-            /*if(Usr.Id!=null )
-            {
-            System.debug('#$ NOT NULL ##$#$#$#'+Usr);
-            System.debug('#$ NOT NULL ##$#$#$# AccId'+AccId);
-            System.debug('#$ NOT AddreesSedntoJPOS ##$#$#$#'+AddreesSedntoJPOS.id); 
-            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,Usr.Id);
-            if(response!=null)
-            {
-            ShowHideError=false;
-            }
-            } */
+             
             if(Usr.id==null || Usr.Id!=null  )
             {
             String dId=string.valueof(DealeAccId);
-             System.debug('#$ NOT equals NULL ##$#$#$#'+Usr);
-              System.debug('#$ NOT UserIDNULL ##$#$#$#'+AssignedDealerUserID);
-              System.debug('#$ NOT AccId  ##$#$#$#'+AccId);
-              System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
+              
               if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
               String src;
-           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
-           System.debug(' ^&^&^&^ Id#$#$#'+response);
+           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id); 
              
             ShowHideError=false; 
             }
             }
             }
-            }
+           }
            Catch(Exception e)
            {
-           ShowHideError=True;
-           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
-           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
+          
+           ShowHideError=True; 
           ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
           
           }
-          }  
+         }  
           
                     
           // If customer is company send account information to EP
           if(Acclist.Recordtypeid==accCompany_RecordTypeId && Acclist.Company_Name__c!=null && Acclist.Company_Name_Native_2__c!=null && Acclist.Company_Legal_Form__c!=null && Acclist.Company_Legal_Form_text__c!=null && Acclist.Legal_Form_Position__c!=null && (AddreesSedntoJPOS!=Null) && AddreesSedntoJPOS.Province_Native__c!=null && AddreesSedntoJPOS.City_Native__c!=null && AddreesSedntoJPOS.District_Native__c!=null && AddreesSedntoJPOS.Province__c!=null && AddreesSedntoJPOS.City__c!=null && AddreesSedntoJPOS.District__c!=null && AddreesSedntoJPOS.ZipCode__c!=null && AssignedDealerUserID!=null && AssignedDealer.DMS_UserID__c!=null)
          {
-         try
-         {
-         if (!Test.isRunningTest())
-            {
-            System.debug('#$##$####$#$#$#'+Usr);
-            /*if(Usr.Id!=null )
-            {
-            System.debug('#$ NOT NULL ##$#$#$#'+Usr);
-            System.debug('#$ NOT NULL ##$#$#$# AccId'+AccId);
-            System.debug('#$ NOT AddreesSedntoJPOS ##$#$#$#'+AddreesSedntoJPOS.id); 
-            response= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,Usr.Id);
-            if(response!=null)
-            {
-            ShowHideError=false;
-            }
-            } */
-            if(Usr.id==null || Usr.Id!=null  )
-            {
-            String dId=string.valueof(DealeAccId);
-             System.debug('#$ NOT equals NULL ##$#$#$#'+Usr);
-              System.debug('#$ NOT UserIDNULL ##$#$#$#'+AssignedDealerUserID);
-              System.debug('#$ NOT AccId  ##$#$#$#'+AccId);
-              System.debug('#$ NOT UserIDNULL ##DealeAccId#$#$#'+DealeAccId);
-              if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
-              {
-              String src;
-           src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
-           System.debug(' ^&^&^&^ Id#$#$#'+response);
-             
-            ShowHideError=false; 
-            }
-            }
-            }
-            }
-           Catch(Exception e)
-           {
-           ShowHideError=True;
-           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@'+ShowHideError);
-           System.debug('@#@#@#@#@#@#@#@@@#@#@#@#@ exception'+e);
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
-          
-          }
-           } 
-         }
+                 try
+                 {
+                 if (!Test.isRunningTest())
+                    { 
+                    if(Usr.id==null || Usr.Id!=null  )
+                    {
+                    String dId=string.valueof(DealeAccId); 
+                      if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
+                      {
+                      String src;
+                   src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id);
+                   System.debug(' ^&^&^&^ Id#$#$#'+response);
+                     
+                    ShowHideError=false; 
+                    }
+                    }
+                    }
+                    }
+                   Catch(CalloutException e)
+                   {
+                   
+                   ShowHideError=True; 
+                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getStackTraceString()));     
+                  
+                  }          
+          } 
+     }// Method End
 }
