@@ -54,7 +54,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         
     }
     
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+   /* public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
         
@@ -79,7 +79,7 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
            // AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
         
-    }
+    } */
     
     
     
