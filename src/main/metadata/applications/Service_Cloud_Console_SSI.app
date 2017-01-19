@@ -123,7 +123,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/Central_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>SSI__c</tab>
