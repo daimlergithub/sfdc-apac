@@ -280,6 +280,9 @@
                                                                 <sf:exclude name="SurveyQuestionResponse__c"/>
                                                                 <sf:exclude name="Survey_Question__c"/> 
                                                                 <sf:exclude name="Contract_Relation__c"/>
+																<sf:exclude name="Participating_Dealer__c"/>
+																<sf:exclude name="Retail_Campaign__c"/>
+																<sf:exclude name="Dealer_List_Member__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target> 
@@ -318,12 +321,12 @@
                                 </deploy>
     </target>        
                 <target name="deploy21">
-                                <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations.xml">
+                                <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Case"/>
                                                                
-                                                                <sf:exclude name="Activity"/>
-																<sf:include name="Task"/>
+                                                                <!--<sf:exclude name="Activity"/>
+																<sf:include name="Task"/> -->
                                                                 <sf:include name="ContentVersion"/>
                                                                 <sf:exclude name="Account"/>
                                                                 <sf:exclude name="PersonAccount"/>
