@@ -22141,11 +22141,7 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Retail_smart_Best_Practice</recordType>
-    </layoutAssignments>
-	    <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
-        <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
-    </layoutAssignments>
+    </layoutAssignments> 
     <layoutAssignments>
         <layout>Retail_Campaign__c-Retail Parent Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
