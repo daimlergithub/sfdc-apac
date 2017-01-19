@@ -6376,8 +6376,7 @@
         <editable>true</editable>
         <field>Campaign.Next_Run_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>  
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.NumberOfOpportunities</field>
