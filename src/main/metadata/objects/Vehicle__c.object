@@ -7683,6 +7683,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
