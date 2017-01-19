@@ -523,10 +523,6 @@
             <label><!-- Information --></label>
             <section>Information</section>
         </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Vehicle External Link</layout>
