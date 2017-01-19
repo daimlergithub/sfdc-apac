@@ -5759,6 +5759,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>BMW</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>BMW Alpina</fullName>
                 <default>false</default>
