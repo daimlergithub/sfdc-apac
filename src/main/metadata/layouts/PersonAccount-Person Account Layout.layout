@@ -172,6 +172,10 @@
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Recall__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
