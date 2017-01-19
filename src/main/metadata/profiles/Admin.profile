@@ -16809,11 +16809,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Campaign__c.Campaign_Execution_Channels__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Member_Sharing_Rule__c</field>
         <readable>true</readable>
     </fieldPermissions>
