@@ -47,14 +47,18 @@ public String recordTypeId2 { get; set; }
                         
                         system.debug('++++++++++++++++++++'+addId);
                         }
-                    newRec = [Select fromRole__c, toRole__c From Account_Link__c where fromRole__c=:addId AND RecordType.Name IN('Contact2Contact') ];
+                    newRec = [Select fromRole__c, toRole__c ,toRole__r.Recordtype.name ,fromRole__r.Recordtype.name From Account_Link__c where (fromRole__c=:addId OR toRole__c =:addId)  AND RecordType.Name IN('Contact2Contact') ];
                     
                     system.debug('++++++++++++++++++++'+newRec);
                        for( Account_Link__c alc : newRec ){
-                    
+                    if(alc.toRole__r.Recordtype.name == 'Company'){
                         accID.add(alc.toRole__c) ;
                         system.debug('++++++++++++++++++++'+accID);
-                    
+                    }
+                    else if (alc.fromRole__r.Recordtype.name == 'Company'){
+                         accID.add(alc.fromRole__c) ;
+                    system.debug('++++++++++++++++++++'+accID);
+                    }
                    }
                     
                     system.debug('++++++++++++++++++++'+newRec);
@@ -77,14 +81,18 @@ public String recordTypeId2 { get; set; }
                         
                         system.debug('++++++++++++++++++++'+addId);
                         }
-                    newRec = [Select fromRole__c, toRole__c From Account_Link__c where fromRole__c=:addId AND RecordType.Name IN('Contact2Contact') ];
+                    newRec = [Select fromRole__c, toRole__c ,toRole__r.Recordtype.name ,fromRole__r.Recordtype.name From Account_Link__c where (fromRole__c=:addId OR toRole__c =:addId) AND RecordType.Name IN('Contact2Contact') ];
                     
                     system.debug('++++++++++++++++++++'+newRec);
                        for( Account_Link__c alc : newRec ){
-                    
+                    if(alc.toRole__r.Recordtype.name == 'Company'){
                         accID.add(alc.toRole__c) ;
                         system.debug('++++++++++++++++++++'+accID);
-                    
+                    }
+                    else if (alc.fromRole__r.Recordtype.name == 'Company'){
+                         accID.add(alc.fromRole__c) ;
+                    system.debug('++++++++++++++++++++'+accID);
+                    }
                    }
                     
                     system.debug('++++++++++++++++++++'+newRec);

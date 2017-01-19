@@ -51,7 +51,15 @@ public with sharing class SendToMyMercController {
                 }
                 
             }
+            Map<id,string> accountCarmap = new Map<id,string>();
+            Set<id> uniqueids = new Set<id>();
             boolean cb;
+            for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
+             if(accountCarmap.containskey(eachVRelationships.contact__c))
+                 accountCarmap.put(eachVRelationships.contact__c,accountCarmap.get(eachVRelationships.contact__c)+'/'+eachVRelationships.Car_Relation__c);
+             else
+                 accountCarmap.put(eachVRelationships.contact__c,eachVRelationships.Car_Relation__c);
+            }
             
             for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
                 
@@ -75,12 +83,16 @@ public with sharing class SendToMyMercController {
             
             if(eachVRelationships.Retail_Contact__r.RecordtypeId == IndividualCustomerExternaLink && eachVRelationships.Retail_Contact__r.Primary__c == true && eachVRelationships.Retail_Contact__r.toRole__c == eachVRelationships.Contact__c && eachVRelationships.Retail_Contact__r.system__c == 'My Mercedes')
             {
-                    
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,eachVRelationships.Car_Relation__c,eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                   if(!uniqueids.contains(eachVRelationships.Contact__c)) {
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                    uniqueids.add(eachVRelationships.Contact__c);
+                   }
                 }
                 else{
-                    
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,eachVRelationships.Car_Relation__c,eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                    if(!uniqueids.contains(eachVRelationships.Contact__c)) {
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                    uniqueids.add(eachVRelationships.Contact__c);
+                   }
                 }
             }
            
