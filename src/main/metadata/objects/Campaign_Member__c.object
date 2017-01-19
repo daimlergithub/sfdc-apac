@@ -697,7 +697,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>My_Mercedes_Email__c</fullName>
         <externalId>false</externalId>
         <formula>Contact_Id__r.Email3__c</formula>
@@ -908,19 +908,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Campaign_Id__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is used to refer the related retail campaign execution record</description>
-        <externalId>false</externalId>
-        <label>Retail Campaign Id</label>
-        <referenceTo>Campaign</referenceTo>
-        <relationshipLabel>Campaign Members (Retail Campaign Id)</relationshipLabel>
-        <relationshipName>Campaign_Members2</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Retail_Task__c</fullName>
