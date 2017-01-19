@@ -2223,8 +2223,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
->>>>>>> asia-kr
+        <editable>true</editable> 
         <field>Account.Data_Sub_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
