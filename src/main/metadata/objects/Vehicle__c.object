@@ -319,6 +319,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
+			 <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
                 <default>false</default>
@@ -5757,6 +5761,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>BMW</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
