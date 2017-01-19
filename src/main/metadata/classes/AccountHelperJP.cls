@@ -490,7 +490,7 @@ public class AccountHelperJP
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c,
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         System.debug('Accountlinklist------>'+Accountlinklist  );
         //Account link iteration
