@@ -32,8 +32,7 @@
                 <width>20</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents>
-    <excludeButtons>AccountHierarchy</excludeButtons>
+    </customConsoleComponents> 
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
