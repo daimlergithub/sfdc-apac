@@ -6382,17 +6382,7 @@
 	<editable>false</editable>
         <field>Campaign.NumberOfContacts</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.NumberOfConvertedLeads</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.NumberOfLeads</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.NumberOfOpportunities</field>
