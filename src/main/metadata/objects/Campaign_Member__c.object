@@ -910,19 +910,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Retail_Campaign_Id__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is used to refer the related retail campaign execution record</description>
-        <externalId>false</externalId>
-        <label>Retail Campaign Id</label>
-        <referenceTo>Retail_Campaign__c</referenceTo>
-        <relationshipLabel>Campaign Members (Retail Campaign Id)</relationshipLabel>
-        <relationshipName>Campaign_Members2</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Retail_Task__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
