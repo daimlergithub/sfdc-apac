@@ -6407,12 +6407,7 @@
         <editable>false</editable>
         <field>Campaign.NumberOfOpportunities</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.NumberOfResponses</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.NumberOfWonOpportunities</field>
