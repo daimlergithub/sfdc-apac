@@ -30018,9 +30018,9 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-    OR(
-	   NOT(CONTAINS( $Profile.Name, 'MBJ' )), NOT(CONTAINS( $Profile.Name, 'MBF' ))
-	),$Profile.Name != 'Integration API', MD__c ='JP', ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+ OR(
+	NOT(CONTAINS( $Profile.Name, 'Dealer' )), NOT(CONTAINS( $Profile.Name, 'MBF' ))
+	),$Profile.Name != 'IntegrationAPI', MD__c ='JP', ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -30037,7 +30037,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
         <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
-        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
