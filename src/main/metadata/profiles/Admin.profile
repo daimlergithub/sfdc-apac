@@ -16898,11 +16898,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-	<editable>false</editable>
-        <field>Retail_Campaign__c.Execution_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Execution_End_Date__c</field>
         <readable>false</readable>
