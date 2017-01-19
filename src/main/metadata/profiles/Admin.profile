@@ -146,16 +146,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSales</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSalesConsole</application>
         <default>false</default>
         <visible>true</visible>
@@ -16809,11 +16799,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Campaign__c.Campaign_Execution_Channels__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Member_Sharing_Rule__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17850,11 +17835,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Contractor_BirthDate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.Contractor_Company_Esatblished_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
