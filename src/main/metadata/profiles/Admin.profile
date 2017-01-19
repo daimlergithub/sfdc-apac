@@ -16505,17 +16505,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-		<field>Question__c.Choices__c</field>
+		<field>QuestionList__c.Choices__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Question__c.Question__c</field>
+        <field>QuestionList__c.Question__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Question__c.Type__c</field>
+        <field>QuestionList__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23140,7 +23140,7 @@
         <recordType>Question.Record_type_for_community_09ai0000000TOLlAAO_entity_Question</recordType>
     </layoutAssignments>
     <layoutAssignments>
-	<layout>Question__c-Question Layout</layout>
+	<layout>QuestionList__c-Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
@@ -23967,7 +23967,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-		<object>Question__c</object>
+		<object>QuestionList__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
