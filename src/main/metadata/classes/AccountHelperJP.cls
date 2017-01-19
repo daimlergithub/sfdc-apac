@@ -196,10 +196,13 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
+					//Code commented by Srinivas Pendli for #SFDCKR-620
+                    /*
                     else if(acc.Primary_Address_Reference__c ==Null)
                     {
                         acc.Primary_Address_Display__c ='';
                     }
+                    */
                     
                 }
             }     
@@ -529,7 +532,7 @@ public class AccountHelperJP
             //Checking Null for sales Address 
             if(acclnk.toRole__r.Primary_Address_Reference__c != null){ 
                     acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
-                    //acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c !=null ?acclnk.toRole__r.Primary_Address_Reference__r.Province__c: '' );
+                    acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c !=null ?acclnk.toRole__r.Primary_Address_Reference__r.Province__c: '' );
                     acclnk.Retail_City__c = (acclnk.toRole__r.Primary_Address_Reference__r.City__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.City__c:'').left(17);
                     acclnk.Retail_Distinct__c = ((acclnk.toRole__r.Primary_Address_Reference__r.District__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.District__c : '')+(acclnk.toRole__r.Primary_Address_Reference__r.Block__c!= null ?acclnk.toRole__r.Primary_Address_Reference__r.Block__c : '')).left(17);
                     acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
@@ -813,7 +816,7 @@ public class AccountHelperJP
                      acclnk.Retail_ZipCode__c= (led.Primary_Address_Reference__r.ZipCode__c!=null ? led.Primary_Address_Reference__r.ZipCode__c : '');
                      acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Primary_Address_Reference__r.CreatedDate);
                      acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(led.Primary_Address_Reference__r.LastModifiedDate);
-                     //acclnk.Retail_Province__c = (led.Primary_Address_Reference__r.Province__c!= null ? led.Primary_Address_Reference__r.Province__c : '');
+                     acclnk.Retail_Province__c = (led.Primary_Address_Reference__r.Province__c!= null ? led.Primary_Address_Reference__r.Province__c : '');
                      acclnk.Retail_City__c = (led.Primary_Address_Reference__r.City__c != null ? led.Primary_Address_Reference__r.City__c : '').left(17);
                      acclnk.Retail_Distinct__c = ((led.Primary_Address_Reference__r.District__c != null ? led.Primary_Address_Reference__r.District__c : '') + ' ' + (led.Primary_Address_Reference__r.Block__c != null ? led.Primary_Address_Reference__r.Block__c : '' )).left(17);
                    } else {

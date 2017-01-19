@@ -7421,11 +7421,7 @@ Allows up to 240 characters --></help>
         <sections>
             <label>コンタクト情報</label>
             <section>Contact Infromation</section>
-        </sections>
-        <sections>
-            <label><!-- Telematics Related Information --></label>
-            <section>Telematics Related Information</section>
-        </sections>
+        </sections> 
     </layouts>
     <layouts>
         <layout>CompanySoftDeleted</layout>

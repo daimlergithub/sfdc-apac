@@ -117,7 +117,8 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>MBK Call Center</label>
+    <label>MBK Customer Contact Center</label>
+	<logo>Logo/MB_LOGO.png</logo>
     <listPlacement>
         <location>full</location>
     </listPlacement>
