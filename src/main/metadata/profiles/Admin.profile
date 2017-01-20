@@ -18274,7 +18274,7 @@
 
                                 </fieldPermissions>
 
-		</fieldPermissions>
+		
 
     <fieldPermissions>
         <editable>true</editable>
