@@ -23828,7 +23828,7 @@
         <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
 
-    </layoutAssignments> 
+     
 
     <layoutAssignments>
         <layout>Campaign-S%26M Event Central Campaign</layout>
@@ -23853,7 +23853,7 @@
 
                                 </layoutAssignments>
 
-		</layoutAssignments>
+		
 
     <layoutAssignments>
         <layout>Campaign_Member__c-Campaign Member Layout</layout>
@@ -24251,7 +24251,7 @@
         <recordType>Retail_Campaign__c.Retail_smart_Best_Practice</recordType>
     </layoutAssignments>
 
-                    <layoutAssignments>
+                   
 
 	    <layoutAssignments>
 
