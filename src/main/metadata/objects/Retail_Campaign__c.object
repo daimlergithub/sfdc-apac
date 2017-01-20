@@ -13214,6 +13214,26 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
+		    <webLinks>
+        <fullName>Create_Child_Retail_Campaign</fullName>
+        <availability>online</availability>
+        <description>It will create child campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Create Child Retail Campaign</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;Parent={!Retail_Campaign__c.Name}&amp;Parent_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id} </url>
+    </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
         <availability>online</availability>

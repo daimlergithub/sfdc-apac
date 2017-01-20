@@ -605,6 +605,11 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX</token>
 	</changetext>
