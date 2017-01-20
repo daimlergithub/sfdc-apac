@@ -23789,7 +23789,7 @@
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
 
-    </layoutAssignments> 
+    
 
     <layoutAssignments>
         <layout>Campaign-Campaign Execution Complex layout</layout>
