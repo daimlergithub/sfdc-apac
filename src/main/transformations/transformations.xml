@@ -449,11 +449,6 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
 	</changetext> 
-			<changetext>
-		<filename>objects\Case.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_CASE_ACCOUNT_ID</token>
-	</changetext>
 	 <changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
@@ -483,11 +478,6 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
-	</changetext>
-	<changetext>
-		<filename>objects\Account.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
@@ -607,11 +597,6 @@
 		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CAR_MODEL_FIELD_ID</token>
-	</changetext>
-	<changetext>
-		<filename>objects\Retail_Campaign__c.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
@@ -740,10 +725,6 @@
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
 	</changetext>
 	<changetext>
-		<filename>objects\Case.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_Inquiry']/url/text()</xpath>
-		<token tokenonly="true">CASE_INQUIRY_TYPE_RECORDTYPEID</token>
-	</changetext>
 	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
