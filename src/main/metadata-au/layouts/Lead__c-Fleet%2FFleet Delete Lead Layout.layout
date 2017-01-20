@@ -94,7 +94,7 @@
                 <height>200</height>
                 <page>Lead_Address</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>1300</width>
             </layoutItems>
         </layoutColumns>
