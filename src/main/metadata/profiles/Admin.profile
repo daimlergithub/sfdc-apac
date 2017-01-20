@@ -26247,7 +26247,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
 
-                <recordTypeVisibilities>
+               
 
 	<recordTypeVisibilities>
         <default>true</default>
