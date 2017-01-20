@@ -38,7 +38,7 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <name>MBK Survey Taken Sharing Rule</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

@@ -51,7 +51,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Actual_DM_Material1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -748,6 +748,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Sales_Department__c</fullName>
@@ -1554,7 +1567,7 @@ Modify Reason:
         <searchResultsAdditionalFields>Status3__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>

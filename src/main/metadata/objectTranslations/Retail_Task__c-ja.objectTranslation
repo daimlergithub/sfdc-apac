@@ -1433,8 +1433,8 @@
         <label>親契約フラグ</label>
         <name>Parent_Flag__c</name>
     </fields>
-    <fields>
-		<help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help>
+    <fields> 
+	    <help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help> 
         <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
@@ -2283,11 +2283,7 @@
         <sections>
             <label>コメント</label>
             <section>Comments</section>
-        </sections>
-        <sections>
-            <label>契約者情報</label>
-            <section>Contractor Information</section>
-        </sections>
+        </sections>   
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
@@ -2304,21 +2300,13 @@
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
         <sections>
-            <label>口座情報</label>
-            <section>Bank Account Information</section>
-        </sections>
-        <sections>
             <label>コメント</label>
             <section>Comments</section>
         </sections>
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
-        </sections>
-        <sections>
-            <label>契約者情報</label>
-            <section>Contractor Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
@@ -2328,44 +2316,24 @@
             <section>Flags</section>
         </sections>
         <sections>
-            <label>保証人情報</label>
-            <section>Guarantor information</section>
-        </sections>
-        <sections>
             <label>保証/契約の詳細</label>
             <section>Main Information</section>
         </sections>
         <sections>
             <label>支払情報</label>
             <section>Payment Conditions</section>
-        </sections>
-        <sections>
-            <label>残高情報</label>
-            <section>Remaining Balance Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout (Loan)</layout>
-        <sections>
-            <label>口座情報</label>
-            <section>Bank Account Information</section>
-        </sections>
-        <sections>
-            <label>コメント</label>
-            <section>Comments</section>
-        </sections>
+        <layout>Retail Task Layout (Loan)</layout> 
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
-        </sections>
-        <sections>
-            <label>契約者情報</label>
-            <section>Contractor Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
@@ -2373,35 +2341,14 @@
         <sections>
             <label>フラグ情報</label>
             <section>Flags</section>
-        </sections>
-        <sections>
-            <label>保証人情報</label>
-            <section>Guarantor information</section>
-        </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
-        <sections>
-            <label>支払情報</label>
-            <section>Payment Conditions</section>
-        </sections>
-        <sections>
-            <label>残高情報</label>
-            <section>Remaining Balance Information</section>
-        </sections>
+        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout(Contract)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        
+        <layout>Retail Task Layout(Contract)</layout> 
 		 <sections>
             <label>新しい</label>
             <section>New</section>
@@ -2409,18 +2356,10 @@
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
+   </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
+  </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
         <label>Contract</label>

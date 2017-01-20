@@ -1134,10 +1134,6 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label><!-- MOT Information --></label>
-            <section>MOT Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>

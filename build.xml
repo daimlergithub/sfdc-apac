@@ -278,8 +278,12 @@
                                                                 <sf:exclude name="DM_Request__c"/>
                                                                 <sf:exclude name="SurveyTaker__c"/>
                                                                 <sf:exclude name="SurveyQuestionResponse__c"/>
-                                                                <sf:exclude name="Survey_Question__c"/>
+                                                                <sf:exclude name="Survey_Question__c"/> 
+																<sf:exclude name="QuestionList__c"/>
                                                                 <sf:exclude name="Contract_Relation__c"/>
+																<sf:exclude name="Participating_Dealer__c"/>
+																<sf:exclude name="Retail_Campaign__c"/>
+																<sf:exclude name="Dealer_List_Member__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target> 
@@ -289,6 +293,8 @@
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Campaign"/>
                                                                 <sf:include name="CampaignMember"/>
+                                                                <sf:include name="QuestionList__c"/>
+                                                                <sf:include name="Survey_Question__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target>
@@ -310,6 +316,8 @@
                                                                 <sf:exclude name="Account_Link__c"/>
                                                                 <sf:exclude name="SSI__c"/>
                                                                 <sf:exclude name="Retail_Task__c"/>
+                                                                <sf:exclude name="QuestionList__c"/>
+                                                                <sf:exclude name="Survey_Question__c"/>
                                                 </sf:typeset>    
                                 </deploy>
     </target>        
@@ -317,15 +325,15 @@
                                 <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
                                                 <sf:typeset name="objects">
                                                                 <sf:include name="Case"/>
-                                                                <!--<sf:include name="Activity"/>-->
-                                                                <sf:include name="Activity"/>
-																<sf:include name="Task"/>
+                                                               
+                                                                <!--<sf:exclude name="Activity"/>
+																<sf:include name="Task"/> -->
                                                                 <sf:include name="ContentVersion"/>
                                                                 <sf:exclude name="Account"/>
                                                                 <sf:exclude name="PersonAccount"/>
                                                                 <sf:exclude name="Contact"/>
                                                                 <sf:exclude name="Campaign"/>
-                                                                <!-- TODO FALK check this: do not deploy site -->
+                                                               
                                                                 <sf:exclude name="Site"/>
                                                     <sf:exclude name=".*__c"/>
                                                                 <sf:include name="AreaCodeTranslation__mdt"/>
@@ -359,6 +367,7 @@
                                                    <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
                                                    <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
                                                    <sf:include name="LeadDealerAssignmentPage"/>
+												   <sf:include name="AnnouncementsPage"/>
                                                    <!-- Added by Naga Start-->
                                                 </sf:typeset>
                                                 <!--<sf:typeset name="layouts">
@@ -408,6 +417,9 @@
                                                                 <sf:include name="TriggerLeadTriggerHandlerJP"/>
                                                                 <sf:include name="TriggerLeadTriggerHandler"/>
                                                                 <sf:include name="LeadSharingTest"/>
+																<sf:include name="EmailnotificationLeads"/>
+																<sf:include name="EmailnotificationLeadsnotassigned"/>
+																<sf:include name="EmailnotificationLeadsnotupdated"/>
                                                                 <sf:include name="TriggerLeadTest"/>
                                                                 <sf:include name="LeadSharingWrapService"/>
                                                                 <sf:include name="SharingWrapperService"/>
@@ -472,6 +484,8 @@
                                                                 <sf:include name="FS_CaseInlineController"/>
                                                                 <sf:include name="LeadDealerAssignmentProcess"/>
                                                                 <sf:include name="LeadDealerAssignmentProcessTest"/>
+																<sf:include name="AnnouncementController"/>
+																<sf:include name="AnnouncementController_test"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="triggers">
                                                                 <sf:include name="TriggerUtilTestTrigger"/>
@@ -827,6 +841,8 @@
                                                 <sf:include name="BatchAssignTasksTest"/>
                                                 <sf:include name="CampaignHelperTest"/>
                                                 <sf:include name="CampaignHelper"/>
+												<sf:include name="Batch_CreateCampaignTask"/>
+												<sf:include name="Batch_CreateCampaignNotification"/>
                                                 <sf:include name="CampaignPackageHelper"/>
                                                 <sf:include name="CampaignPackageHelperTest"/>
                                                 <sf:include name="TriggerCampaignTriggerHandler"/>
@@ -1099,7 +1115,6 @@
                                                                 useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
                 </target>
 </project>
-
 
 
 

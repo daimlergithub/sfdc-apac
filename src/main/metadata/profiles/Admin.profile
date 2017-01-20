@@ -2082,12 +2082,20 @@
         <field>User.Dealer_Outlet_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
+
    <fieldPermissions>
+
+    <fieldPermissions>
+
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Car_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
+
                 <fieldPermissions>
+
+	<fieldPermissions>
+
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Point_of_Purchase__c</field>
         <readable>true</readable>
@@ -2217,14 +2225,22 @@
         <field>Account.DUPNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
+
    <fieldPermissions>
+
+    <fieldPermissions>
+
         <editable>true</editable>
         <field>Account.Data_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
         <editable>true</editable>
 >>>>>>> asia-kr
+
+        <editable>true</editable> 
+
         <field>Account.Data_Sub_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5959,7 +5975,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>false</editable>
+
+	<editable>false</editable>
+
         <field>Campaign.Add_Campaign_Member_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5974,6 +5994,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
+
+        <editable>true</editable>
+        <field>Campaign.AmountAllOpportunities</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.AmountWonOpportunities</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+
         <editable>true</editable>
         <field>Campaign.Approval_Due_Date__c</field>
         <readable>true</readable>
@@ -6060,7 +6093,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.Campaign_CCC_Manager__c</field>
+
+		<field>Campaign.Campaign_CCC_Manager__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6071,7 +6108,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Campaign_Code__c</field>
+
                                 <readable>true</readable>
+
+		<readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6090,7 +6131,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.Campaign_Member_Sharing_Rule__c</field>
+
+		<field>Campaign.Campaign_Member_Sharing_Rule__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6126,7 +6171,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Car_Model__c</field>
+
                                 <readable>true</readable>
+
+		<readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6165,7 +6214,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.DM_Template__c</field>
+
+		<field>Campaign.DM_Template__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6176,7 +6229,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Description</field>
+
                                 <readable>true</readable>
+
+		<readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6200,7 +6257,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.Execution_End_Date__c</field>
+
+		<field>Campaign.Execution_End_Date__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6245,7 +6306,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.Final_List_Approved__c</field>
+
+		<field>Campaign.Final_List_Approved__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6335,7 +6400,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Campaign.Is_Sync__c</field>
+
+		<field>Campaign.Is_Sync__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6372,6 +6441,7 @@
         <editable>true</editable>
         <field>Campaign.Next_Run_Date__c</field>
         <readable>true</readable>
+
     </fieldPermissions>
                 <fieldPermissions>
         <editable>true</editable>
@@ -6383,6 +6453,9 @@
         <field>Campaign.Other_Media_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+
+    </fieldPermissions>  
+
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.ParentId</field>
@@ -6426,6 +6499,16 @@
     <fieldPermissions>
         <editable>true</editable>
                                 <field>Campaign.Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Ready_for_List_Maintenance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+		<field>Campaign.Range__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6495,7 +6578,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-                                <field>Campaign.Response_Date__c</field>
+		<field>Campaign.Response_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6530,7 +6613,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-                                <field>Campaign.SegWorkingDay__c</field>
+		<field>Campaign.SegWorkingDay__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6555,7 +6638,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-                                <field>Campaign.Set_List_Maintenance_Flag__c</field>
+		<field>Campaign.Set_List_Maintenance_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6576,7 +6659,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Submission_Due_Date__c</field>
-                                <readable>true</readable>
+		<readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6621,7 +6704,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Updated_By_EP_Transactions__c</field>
-                                <readable>true</readable>
+		<readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6655,7 +6738,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-       <field>CampaignMember.Created_By_EP_Transaction__c</field>
+        <field>CampaignMember.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6824,6 +6907,597 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.FirstTimeImported__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Is_Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Last_Successful_Call__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_Account_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_DataSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_DataSubSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_InfoSourceSub__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_InfoSource__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Lead_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Participate_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Participate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_Call_Successful__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_Converted_Leads_Auto_Show__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_Converted_Leads_Non_Auto_Show__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_Generate_Leads_Volume__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_SuccessfulCall__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_Task_Genereated_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.R_isCampaingLead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.RegistrationDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+		<field>Campaign_Lead__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Successful_Call_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Task_Generated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+		<field>Campaign_Member__c.Account_information_updates__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Add_Campaign_Member_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Add_Sales_Staff__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Add_Service_Staff__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Address_Flag__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Auto_creation_of_DM_requests__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Auto_creation_of_leads__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Auto_creation_of_tasks__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Bonus_Amount1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Bonus_Amount2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Bonus_Month1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Bonus_Month2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Campaign_Execution_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Campaign_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Campaign_Member_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Company_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Contact_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Contract_End_date_Lease__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+
+        <editable>true</editable>
+                                <field>Campaign.Response_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Retail_Due_Date__c</field>
+        <readable>true</readable>
+
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Phone_2__c</field>
+        <readable>false</readable>
+
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contract_Responsible_Person__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Contract_Start_date_Lease__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Contract_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Contract__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contractor_Company_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+
+        <editable>true</editable>
+                                <field>Campaign.SegWorkingDay__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.SegWorkingMonth__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Segmentation_Base__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Segmentation_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Segmentation_Report_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+                                <field>Campaign.Set_List_Maintenance_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Share_Campaign_Participation_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.StartDate</field>
+
+        <editable>false</editable>
+        <field>Campaign_Member__c.Contractor_Individual_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Cross_Point_Model__c</field>
+
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Customer_Complete_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+
+        <editable>true</editable>
+        <field>Campaign.Submission_Due_Date__c</field>
+                                <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Survey__c</field>
+        <readable>true</readable>
+
+        <editable>false</editable>
+        <field>Campaign_Member__c.Customer_Email__c</field>
+        <readable>false</readable>
+
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Customer_Interest_Rate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Customer_Label_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.DM_Template__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Dealer_ND_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Deferred_Payment_loan__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Delinquency_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+
+        <field>Campaign.Updated_By_EP_Transactions__c</field>
+                                <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Use_Segmentation_Criteria__c</field>
+
+        <field>Campaign_Member__c.Finance_Product__c</field>
+
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Fine_Rate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.FirstName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.First_Registration_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Gaurantor2_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+
+       <field>CampaignMember.Created_By_EP_Transaction__c</field>
+
+        <field>Campaign_Member__c.Gaurantor3_Name__c</field>
+
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Gaurantor_1_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Indemnity_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Interest_Rate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Interested_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.LastName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Lead_Desired_Service__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Lead_Sub_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Lead_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Lease_Loan_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.List_Maitenence_Retail_CM_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.MBF_Anti_Social_flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Mileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Model__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Monthly_Payment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Monthly_Payment_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Monthly_Payment_amount_with_Tax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.My_Mercedes_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.My_Mercedes_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Next_Inspection_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Next_MOT_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.No_of_Payments__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Offer_Prohibit_Flag__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Participate_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Payment_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Payment_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Payment_Suspended_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Preferred_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Purchase_Timing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.RV_Ballon__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Re_Lease_Extension_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Re_Lease_Prohibit_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Recipient_changes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+
         <editable>true</editable>
         <field>Campaign_Lead__c.FirstTimeImported__c</field>
         <readable>true</readable>
@@ -7326,16 +8000,38 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Re_Lease_Extension_Date__c</field>
+
+        <editable>false</editable>
+        <field>Campaign_Member__c.Registration_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Registration_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Residual_amount_Lease__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
         <field>Campaign_Member__c.Re_Lease_Prohibit_Flag__c</field>
+
+        <field>Campaign_Member__c.RespondedDate__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
         <field>Campaign_Member__c.Recipient_changes__c</field>
+
+        <field>Campaign_Member__c.Response_Email__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7350,11 +8046,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
         <field>Campaign_Member__c.Residual_amount_Lease__c</field>
+
+        <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
         <field>Campaign_Member__c.RespondedDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7372,6 +8073,9 @@
         <editable>true</editable>
         <field>Campaign_Member__c.Retail_Task__c</field>
         <readable>true</readable>
+
+        <field>Campaign_Member__c.Retail_Task__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7387,39 +8091,84 @@
         <editable>false</editable>
         <field>Campaign_Member__c.Service_Representative__c</field>
         <readable>false</readable>
+
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Sales_Representative__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Sending_Date__c</field>
+
         <field>Campaign_Member__c.Shinpan__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Service_Representative__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Shinpan__c</field>
+
         <field>Campaign_Member__c.Source_of_CM_Response__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Source_of_CM_Response__c</field>
+
         <field>Campaign_Member__c.Special_Flag_to_Include__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Special_Flag_to_Include__c</field>
+
         <field>Campaign_Member__c.Special_flag_to_Exclude__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Special_flag_to_Exclude__c</field>
+
         <field>Campaign_Member__c.Status_Change_Date__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Status_Change_Date__c</field>
+
         <field>Campaign_Member__c.Term__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+        <field>Campaign_Member__c.Term__c</field>
+
+        <field>Campaign_Member__c.Total_Vehicle_Price_with_tax__c</field>
+
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+
         <field>Campaign_Member__c.Total_Vehicle_Price_with_tax__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7427,6 +8176,15 @@
         <editable>true</editable>
         <field>Campaign_Member__c.Total_Vehicle_Price_without_tax__c</field>
         <readable>true</readable>
+
+        <field>Campaign_Member__c.Total_Vehicle_Price_without_tax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.UsVIN__c</field>
+        <readable>false</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11220,7 +11978,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>DM_Request__c.Retail_Campaign__c</field>
+
+		<field>DM_Request__c.Retail_Campaign__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11322,6 +12084,121 @@
         <editable>true</editable>
         <field>DM_Stock_Flow__c.Valid__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+	<editable>false</editable>
+        <field>Dealer_List_Member__c.Campaign_Member__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Company_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contact_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contract_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contract_Responsible_Person__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contract__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contractor_Company_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Contractor_Individual_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Customer_Complete_Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Finance_Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.FirstName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.LastName__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.List_Maintenance_CM_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Model__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Participating_Dealer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Reason_for_the_removal__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Removed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Sales_Representative__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Service_Representative__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.VehicleRelationship__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Vehicle__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Zip_Code_Finance__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_List_Member__c.Zip_Code__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
                 <editable>false</editable>
@@ -15109,8 +15986,103 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+	<editable>false</editable>
+        <field>Participating_Dealer__c.Approve_the_List__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Brand__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_End_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Execution_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Execution_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Executor__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
                                 <field>Participating_Dealer__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+	<editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Start_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Sub_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Campaign_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Participating_Dealer__c.Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Class__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.DMS_Retailer_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Dealer_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Participating_Dealer__c.Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.ND_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participating_Dealer__c.Range__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+		<field>Participating_Dealer__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16450,17 +17422,29 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Question__c.Choices__c</field>
+
+		<field>QuestionList__c.Choices__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+
         <field>Question__c.Question__c</field>
+
+        <field>QuestionList__c.Question__c</field>
+
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
         <field>Question__c.Type__c</field>
+
+        <field>QuestionList__c.Type__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16579,9 +17563,15 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>false</editable>
         <field>Retail_Campaign__c.Actual_Cost__c</field>
         <readable>false</readable>
+
+	<editable>true</editable>
+        <field>Retail_Campaign__c.Actual_Cost__c</field>
+        <readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16659,6 +17649,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>false</editable>
         <field>Retail_Campaign__c.Add_Campaign_Member_ID__c</field>
         <readable>false</readable>
@@ -16667,6 +17658,16 @@
         <editable>false</editable>
         <field>Retail_Campaign__c.Add_Sales_Staff__c</field>
         <readable>false</readable>
+
+	<editable>true</editable>
+        <field>Retail_Campaign__c.Add_Campaign_Member_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Add_Sales_Staff__c</field>
+        <readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16714,7 +17715,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Budgeted_Cost__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16734,15 +17739,25 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>false</editable>
         <field>Retail_Campaign__c.Campaign_Member_Sharing_Rule__c</field>
         <readable>false</readable>
+
+	<editable>true</editable>
+        <field>Retail_Campaign__c.Campaign_Member_Sharing_Rule__c</field>
+        <readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Name__c</field>
         <readable>true</readable>
+
                                 </fieldPermissions>
+
+		</fieldPermissions>
+
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Sub_Type__c</field>
@@ -16760,7 +17775,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>Retail_Campaign__c.Child_Campaign_Status__c</field>
+
+		<field>Retail_Campaign__c.Child_Campaign_Status__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16769,7 +17788,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16782,7 +17805,11 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Comments__c</field>
         <readable>true</readable>
+
                                 </fieldPermissions>
+
+		</fieldPermissions>
+
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.DM_Template__c</field>
@@ -16814,7 +17841,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16826,6 +17857,26 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Event_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Execution_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Execution_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Execution_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Expected_Revenue__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16867,11 +17918,19 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Final_Best_Practice__c</field>
         <readable>true</readable>
+
                                 </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Final_List_Approved__c</field>
         <readable>false</readable>
+
+		</fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Final_List_Approved__c</field>
+        <readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17159,9 +18218,15 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>false</editable>
         <field>Retail_Campaign__c.Response_Date__c</field>
         <readable>false</readable>
+
+	<editable>true</editable>
+        <field>Retail_Campaign__c.Response_Date__c</field>
+        <readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17179,7 +18244,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Show_up_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17202,7 +18271,11 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Site__c</field>
         <readable>true</readable>
+
                                 </fieldPermissions>
+
+		</fieldPermissions>
+
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Start_Date__c</field>
@@ -17224,7 +18297,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Survey__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17239,7 +18316,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	<editable>true</editable>
+
         <field>Retail_Campaign__c.Total_Budget__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -17249,7 +18330,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
                 <editable>true</editable>
+
+	 <editable>true</editable>
+
         <field>Retail_Campaign__c.Total_Marketing_Budget__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18648,7 +19733,11 @@
         <field>Retail_Task__c.Retail_LastModifiedDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+
                 <fieldPermissions>
+
+	<fieldPermissions>
+
         <editable>true</editable>
         <field>Retail_Campaign__c.Child_Campaign_Status__c</field>
         <readable>true</readable>
@@ -20055,7 +21144,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+
+		<field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20120,13 +21213,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
                                 <field>SurveyTaker__c.Retail_Campaign__c</field>
+
+		<field>SurveyTaker__c.Retail_Campaign__c</field>
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.SurveyTakenByVehicle__c</field>
+
                                 <readable>true</readable>
+
+		<readable>true</readable>
+
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20187,7 +21288,7 @@
         <editable>true</editable>
         <field>Survey_Question__c.Need_Free_TextBox__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
                 <editable>true</editable>
         <field>Survey_Question__c.Question_Ref__c</field>
@@ -22681,11 +23782,15 @@
     <layoutAssignments>
         <layout>Campaign-CAC Campaign Layout</layout>
         <recordType>Campaign.CAC_Campaign</recordType>
+
     </layoutAssignments>
                 <layoutAssignments>
         <layout>Campaign-Campaign Execution</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
+
+    </layoutAssignments> 
+
     <layoutAssignments>
         <layout>Campaign-Campaign Execution Complex layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex</recordType>
@@ -22716,11 +23821,15 @@
     <layoutAssignments>
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
+
     </layoutAssignments>
                 <layoutAssignments>
         <layout>Campaign-Planning %26 Design Campaign</layout>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
+
+    </layoutAssignments> 
+
     <layoutAssignments>
         <layout>Campaign-S%26M Event Central Campaign</layout>
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
@@ -22741,7 +23850,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign_Lead__c-Campaign Lead Layout</layout>
+
                                 </layoutAssignments>
+
+		</layoutAssignments>
+
     <layoutAssignments>
         <layout>Campaign_Member__c-Campaign Member Layout</layout>
     </layoutAssignments>
@@ -22920,7 +24033,11 @@
         <layout>DM_Stock_Flow__c-DM Stock Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+
                 <layout>Dealer_List_Member__c-Dealer List Member Layout</layout>
+
+	<layout>Dealer_List_Member__c-Dealer List Member Layout</layout>
+
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dealer_Locator__c-Dealer Locator Layout</layout>
@@ -23088,7 +24205,11 @@
         <recordType>Question.Record_type_for_community_09ai0000000TOLlAAO_entity_Question</recordType>
     </layoutAssignments>
     <layoutAssignments>
+
                 <layout>Question__c-Question Layout</layout>
+
+	<layout>QuestionList__c-Question Layout</layout>
+
     </layoutAssignments>
     <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
@@ -23129,7 +24250,11 @@
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Retail_smart_Best_Practice</recordType>
     </layoutAssignments>
+
                     <layoutAssignments>
+
+	    <layoutAssignments>
+
         <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
@@ -23501,7 +24626,11 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+
                                 <object>Campaign_Member__c</object>
+
+		<object>Campaign_Member__c</object>
+
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -23690,7 +24819,11 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+
                                 <object>Dealer_List_Member__c</object>
+
+		<object>Dealer_List_Member__c</object>
+
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -23915,7 +25048,11 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+
                                 <object>Question__c</object>
+
+		<object>QuestionList__c</object>
+
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -24798,12 +25935,20 @@
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+
                 <recordTypeVisibilities>
+
+	<recordTypeVisibilities>
+
         <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+
                 
+
+	
+
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>
@@ -24815,7 +25960,11 @@
         <recordType>Campaign.MB_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+
                 <recordTypeVisibilities>
+
+	<recordTypeVisibilities>
+
         <default>true</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
         <visible>true</visible>
@@ -25078,7 +26227,11 @@
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+
                     <recordTypeVisibilities>
+
+	    <recordTypeVisibilities>
+
         <default>false</default>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
         <visible>true</visible>
@@ -25093,7 +26246,10 @@
         <recordType>Retail_Campaign__c.Retail_Media</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+
                 <recordTypeVisibilities>
+
+	<recordTypeVisibilities>
         <default>true</default>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
         <visible>true</visible>
@@ -26058,8 +27214,12 @@
         <enabled>true</enabled>
         <name>ViewSetup</name>
     </userPermissions>
+
 </Profile>
 
 
 
+
+
+</Profile>
 

@@ -1482,6 +1482,136 @@
         <value>Edit</value>
     </labels>
     <labels>
+        <fullName>Email_LeadDealerAssign1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign1</shortDescription>
+        <value>Mercedes Benz</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign10</shortDescription>
+        <value>*You need to log in to Salesforce
+to check the leads information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign11</shortDescription>
+        <value>For representative, please check with your manager
+since we have shared the leads to your outlet.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign12</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign13</shortDescription>
+        <value>If there&apos;s anything uncertain about operating with Salesforce, 
+please contact Salesforce support desk.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign14</shortDescription>
+        <value>Mercedes Benz Japan Salesforce Office</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign15</shortDescription>
+        <value>For operations with Salesforce, system maintenance,
+please contact the number below.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign16</shortDescription>
+        <value>&lt;&gt;Salesforce support desk</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign17</shortDescription>
+        <value>Phone：XXX（Operation hours: everyday 10:00-12:00, 13:00-18:00）</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign18</shortDescription>
+        <value>*Please do not reply directly to this e-mail.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign2</shortDescription>
+        <value>Shop</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign3</shortDescription>
+        <value>Manager, Representative</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign4</shortDescription>
+        <value>I trust you are well.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign5</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign6</shortDescription>
+        <value>we have shared the lead data in Salesforce, so we send this message to inform you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign7</shortDescription>
+        <value>New leads shared</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign8</shortDescription>
+        <value>leads</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign9</shortDescription>
+        <value>This is a very hot customer information, so for the manager please check the lead from the URL below,assign it to the representative, and follow them as your sales operations.</value>
+    </labels>
+    <labels>
         <fullName>Employee</fullName>
         <language>en_US</language>
         <protected>false</protected>

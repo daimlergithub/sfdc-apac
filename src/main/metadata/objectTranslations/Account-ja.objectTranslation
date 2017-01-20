@@ -4761,6 +4761,10 @@ Allows up to 240 characters --></help>
             <translation>GLA</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLC-Class Coupe</masterLabel>
+            <translation>GLC クーペ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GLE-Class</masterLabel>
             <translation>新型GLE</translation>
         </picklistValues>
@@ -7417,10 +7421,6 @@ Allows up to 240 characters --></help>
         <sections>
             <label>コンタクト情報</label>
             <section>Contact Infromation</section>
-        </sections>
-        <sections>
-            <label><!-- Telematics Related Information --></label>
-            <section>Telematics Related Information</section>
         </sections>
     </layouts>
     <layouts>

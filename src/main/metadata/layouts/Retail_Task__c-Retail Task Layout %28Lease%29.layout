@@ -74,6 +74,23 @@
                 <field>Product_Name__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Voluntary_Insurance_Company__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Remaining Balance Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lease_Remaining_Balance_Without_RV__c</field>
+			</layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
             </layoutItems>

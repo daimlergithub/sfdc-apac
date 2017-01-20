@@ -318,6 +318,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
+			 <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
                 <default>false</default>
@@ -2042,6 +2046,74 @@ Attribute in Data Dictionary object Vehicle is â€Vehicle_FirstRegistrationD
             </picklistValues>
             <picklistValues>
                 <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/LPG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/Kerosene</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LPG/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Oil/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -5765,6 +5837,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>BMW</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>BMW Alpina</fullName>
                 <default>false</default>
@@ -7037,11 +7113,79 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7681,6 +7825,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
@@ -8433,11 +8581,79 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12064,11 +12280,79 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15755,11 +16039,79 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19457,13 +19809,81 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fuel__c</picklist>
+             <picklist>Fuel__c</picklist>
+            <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>

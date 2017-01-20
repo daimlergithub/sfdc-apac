@@ -233,8 +233,10 @@
                          </apex:selectList>    
                          <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                          <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                             javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> 
+                         <apex:outputPanel rendered="{!!editMode}"> 
+                         <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                             <support:clickToDial number="{!ParAcc.Mobile__c}"/>  
+                         </a>
                        </apex:outputPanel>    
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
@@ -253,8 +255,9 @@
                             </apex:selectList>    
                           <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                                 <support:clickToDial number="{!ParAcc.Individual_Home_Phone__c}"/>  
+                             </a>
                    </apex:outputPanel>    
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
@@ -274,8 +277,9 @@
                             </apex:selectList>  
                           <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> 
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                           <support:clickToDial number="{!ParAcc.Work_Phone__c}"/>   
+                        </a> 
                        </apex:outputPanel>     
                            
                        </td> 
@@ -326,8 +330,15 @@
                    </tr> 
                </table>    
              </apex:pageBlock> 
-             <apex:pageBlockButtons location="bottom" style="align:left;"  >
-                   <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
+                    <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
+                       <center>
+                       <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,Block"  />
+                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableKR,myTableJP" />
+              
+                    
+             <!-- <apex:pageBlockButtons location="bottom" style="align:left;"  >-->
+                  <!-- <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
+                   -->
                    <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,showmsg" />
                    <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
@@ -346,8 +357,9 @@
                             </script>
                        </apex:outputText>
                    </apex:outputPanel>
-                   <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableKR,myTableJP" />
-               </apex:pageBlockButtons>            
+                      </center>
+                   </apex:outputPanel>
+                   <!-- </apex:pageBlockButtons>  -->          
             </apex:pageBlock> 
        </apex:outputPanel>       
        <script  type="text/javascript">

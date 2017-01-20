@@ -3038,10 +3038,7 @@
     <fields>
         <label>電話番号（車両）</label>
         <name>Vehicle_Phone_picklist__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
+        
     </fields>
     <fields>
         <label>UCP登録／申請ステータス</label>
@@ -3087,26 +3084,14 @@
     <fields>
         <label>メール（車両）</label>
         <name>vehicle_mail_picklist__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label>FAX（車両）</label>
         <name>vehicle_fax_picklist__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label>住所（車両）</label>
         <name>vehicle_address_picklist__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label>SPO登録／申請ステータス</label>
