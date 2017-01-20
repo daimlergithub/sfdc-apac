@@ -14228,10 +14228,6 @@
             <section>Referal/Referee Information</section>
         </sections>
         <sections>
-            <label><!-- Select Assigne Dealer --></label>
-            <section>Select Assigne Dealer</section>
-        </sections>
-        <sections>
             <label><!-- Source Information --></label>
             <section>Source Information</section>
         </sections>
@@ -14243,32 +14239,16 @@
     <layouts>
         <layout>Sales Leads Layout (Dealer)</layout>
         <sections>
-            <label><!-- Bought Vehicle Information --></label>
-            <section>Bought Vehicle Information</section>
-        </sections>
-        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label><!-- Description Information --></label>
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Interested Vehicle Information --></label>
-            <section>Interested Vehicle Information</section>
-        </sections>
-        <sections>
             <label><!-- Lead Information --></label>
             <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Trade-In Vehicle Information --></label>
-            <section>Trade-In Vehicle Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -14280,10 +14260,6 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label><!-- Dealer Information --></label>

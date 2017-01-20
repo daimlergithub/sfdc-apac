@@ -2216,10 +2216,6 @@
         <name>Dealer_Audit__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Comment --></label>
-        <name>Dealer_Comment__c</name>
-    </fields>
-    <fields>
         <label>リードメモ</label>
         <name>Dealer_Comments__c</name>
     </fields>
