@@ -11817,7 +11817,7 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
         <externalId>false</externalId>
         <label>Vehicle Amount</label>
-        <precision>2</precision>
+        <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>

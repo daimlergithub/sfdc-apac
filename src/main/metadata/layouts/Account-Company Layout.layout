@@ -183,6 +183,15 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax2__c</field>
+            </layoutItems>
+        </layoutColumns>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
