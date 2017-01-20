@@ -2050,6 +2050,74 @@ Attribute in Data Dictionary object Vehicle is ‚ÄùVehicle_FirstRegistrationDate‚
                 <fullName>E</fullName>
                 <default>false</default>
             </picklistValues>
+			            <picklistValues>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/LPG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/Kerosene</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LPG/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Oil/Electricity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
