@@ -26228,7 +26228,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
 
-                    <recordTypeVisibilities>
+                    
 
 	    <recordTypeVisibilities>
 
@@ -27221,5 +27221,5 @@
 
 
 
-</Profile>
+
 
