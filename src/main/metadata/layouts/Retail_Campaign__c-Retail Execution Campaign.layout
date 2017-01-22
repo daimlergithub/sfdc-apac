@@ -13,7 +13,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Parent_Campaign__c</field>
+                <field>Parent_Campaign1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
