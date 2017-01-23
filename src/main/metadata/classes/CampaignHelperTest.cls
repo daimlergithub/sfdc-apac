@@ -172,7 +172,7 @@
         CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
         CampaignHelper.afterInsertEvents(listcampaigns);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
-        try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
+        //try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
