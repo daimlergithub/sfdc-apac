@@ -101,7 +101,7 @@ public with sharing class AccountHelperJPTest
       {
        createTestData(); 
        Test.Starttest(); 
-       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,true);
+       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountMap,true);
        Test.Stoptest();      
      }  
     Public static testmethod void testUpdatePrimaryContactInformationBeforeInsert()
@@ -130,5 +130,4 @@ public with sharing class AccountHelperJPTest
       Test.Stoptest();      
      }
       
-  }    
-  
+  }

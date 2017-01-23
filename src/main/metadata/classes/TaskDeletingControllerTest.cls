@@ -14,7 +14,7 @@ public static void preparedTestData(List<Profile> userProfile)
                                       timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
        insert usr;
     // user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
-	
+    
 }
   static testMethod void testTaskDeletingController()
   {
@@ -40,6 +40,7 @@ public static void preparedTestData(List<Profile> userProfile)
                 }
            
   }  
+
   static testMethod void TestRemoveTask_ElseConditon()
   {
   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();

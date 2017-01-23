@@ -35,9 +35,15 @@ private with sharing class SSITriggerHandlerTest {
             // create new ssi record
             SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
             insert ssi;
-            
+            Map<Id,SSI__c> newMap = new Map<Id,SSI__c>();
+            Map<Id,SSI__c> oldMap = new Map<Id,SSI__c>();
             Test.startTest();
-   
+            SSITriggerHandler ssith = new SSITriggerHandler();
+   			ssith.handleTrigger(true,true,true,true,true);
+            ssith.handleIntegrationTrigger(true,true,true,true,true);
+            SSITriggerHandler.autoGenerate2ndSurveyTasks(newMap, oldMap);
+            SSITriggerHandler.fieldsValidationRule(newMap, oldMap);
+            SSITriggerHandler.fieldUpdates(newMap, oldMap);
             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
           insert updatecustomsettings;
             // create ssi task related to ssi record

@@ -3,10 +3,6 @@
  */
 @IsTest global with sharing class SiteLoginControllerTest {
     @IsTest(SeeAllData=true) global static void testSiteLoginController () {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-insert updatecustomsettings;
-
-    
         // Instantiate a new controller with all parameters in the page
         SiteLoginController controller = new SiteLoginController ();
         controller.username = 'test@salesforce.com';

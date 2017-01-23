@@ -174,7 +174,11 @@ public With Sharing class UtilCaseShareTest
         accList.add(accObj);
         insert accList;
         Id recordTypeVehiObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehiObjId,Brand__c = 'Maybach');
+        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehiObjId,Brand__c = 'Maybach',Recall__c = FALSE,
+                                                EuroVIN__c = '12345678901111111',
+                                                UsVIN__c = '12345678902222222',
+                                                FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
+                                                
         insert vehicleObj;
         Id recordTypeCaseObjId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         caseObj =new Case(RecordTypeId= recordTypeCaseObjId,AccountId=accList.get(0).Id,Vehicle__c = vehicleObj.Id,Support_Dealer_1__c = accObj.Id,Case_Dealer__c =accList.get(1).Id );

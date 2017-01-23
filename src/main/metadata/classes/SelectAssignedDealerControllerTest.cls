@@ -159,11 +159,11 @@ private with sharing class SelectAssignedDealerControllerTest
                 City__c = 'anyang',
                 Dealer_Active__c = true,
                 Dealer_Service_Codes__c = 'Sales',
-                Name = 'Beijing Test'
+                Name = 'Beijing Test',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'
             ), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
-        personAccount = (Account)UtilTestData.createSobject(new Account(), 
+        personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 personAccount.Email__c='test@mbau.com';
                     personAccount.Email2__c = 'testemail2@test.com';

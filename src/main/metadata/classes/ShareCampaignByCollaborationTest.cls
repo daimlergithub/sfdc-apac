@@ -16,13 +16,15 @@ public class ShareCampaignByCollaborationTest {
     
                  @isTest static void testshareToUserInsert()
                  {
-                        PrepareTestData();
-                        Test.startTest();
-                         UtilCampaignShareByCollaboration.shareToUserInsert(listCTNew);       
-                        Test.stopTest();
-                        system.assert(Colla!=null);
-                        system.assert(csList!=null);
-
+                     PrepareTestData();
+                     Test.startTest();
+                     UtilCampaignShareByCollaboration.shareToUserInsert(listCTNew);  
+                     ShareCampaignByCollabTriggerHandler shcamp = new ShareCampaignByCollabTriggerHandler();
+                     shcamp.handleTrigger(true,true,true,true,true);
+					 shcamp.handleIntegrationTrigger(true,true,true,true,true);
+                     Test.stopTest();
+                     system.assert(Colla!=null);
+                     system.assert(csList!=null);
                  }
                  @isTest static void testshareToUserUpdate()
                  {
@@ -80,7 +82,7 @@ public class ShareCampaignByCollaborationTest {
                 insert top;
                      
                     cac = new Campaign(
-                    IsActive = true, 
+                    //IsActive = true, 
                     Name = 'cac', 
                     Status = 'Started', 
                     StartDate = System.today(), 

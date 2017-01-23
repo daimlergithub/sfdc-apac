@@ -30,12 +30,12 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Limited',
                                     ZipCode__c='1004324',
-                                    Salutation='Brother',
-                                    FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
+                                    Salutation='Brother',MBK_Data_Source__c ='Email',Mobile__c ='000-123-4567',
+                                    FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;  
         Account companyAcc= new Account(Dealer_Default_Flag__c=false,
-                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Work_Phone__c = '023482322',
                                 Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                 City__c='Beijing',
                                 Gender__c = 'Male',
@@ -50,7 +50,8 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                 Mobile2__c = '034456232',
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
-                                Primary_Phone__c ='Other2',
+                                Primary_Phone__c ='Other2',MBK_Data_Source__c ='Email',
+                                
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
       
          insert companyAcc;
@@ -146,7 +147,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
            
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111112',
-                                                UsVIN__c = '12345678902222221');
+                                                UsVIN__c = '12345678902222221',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 insert vehicles;         
                      
                     
@@ -215,7 +216,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
          
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111113',
-                                                UsVIN__c = '12345678902222225');
+                                                UsVIN__c = '12345678902222225',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 insert vehicles;         
                      
                     
@@ -282,7 +283,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
        System.runAs(u) { 
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111119',
-                                                UsVIN__c = '12345678902222226');
+                                                UsVIN__c = '12345678902222226',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 insert vehicles;         
                      
                     
@@ -349,7 +350,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
        System.runAs(u) {
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111114',
-                                                UsVIN__c = '12345678902222223');
+                                                UsVIN__c = '12345678902222223',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 insert vehicles;         
                      
                     
@@ -416,7 +417,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
       System.runAs(u) {
        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
-                                                UsVIN__c = '12345678902222222');
+                                                UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 insert vehicles;         
                      
                     
