@@ -54,10 +54,6 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-<<<<<<< HEAD
-    <externalSharingModel>ReadWrite</externalSharingModel> 
-  <fields>
-=======
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Camp_Question__c</fullName>
@@ -87,7 +83,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
->>>>>>> asia-uat
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>
