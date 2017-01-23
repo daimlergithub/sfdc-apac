@@ -2287,14 +2287,18 @@
         <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
-        </sections> 
+        </sections>
+        <sections>
+            <label>保証/契約の詳細</label>
+            <section>Main Information</section>
+        </sections>
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout (Lease)</layout> 
+        <layout>Retail Task Layout (Lease)</layout>
         <sections>
             <label>コメント</label>
             <section>Comments</section>
@@ -2310,7 +2314,7 @@
         <sections>
             <label>フラグ情報</label>
             <section>Flags</section>
-        </sections> 
+        </sections>
         <sections>
             <label>保証/契約の詳細</label>
             <section>Main Information</section>
@@ -2352,18 +2356,10 @@
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
+   </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
+  </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
         <label>Contract</label>

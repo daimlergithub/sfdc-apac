@@ -109,16 +109,16 @@ implements TriggerHandlerIf
         
         if(isAfter && isInsert && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             AccountHelperJP.UpdateVRonAccount (trigger.new);
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            serializedObject=json.serialize(ListAccNew);
+           /* serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
             if(LeadUtil.accountTrigger){
 			  LeadUtil.vrTrigger = false;
@@ -129,11 +129,11 @@ implements TriggerHandlerIf
         }
         
         
-        if(isAfter && isDelete && !System.isFuture())
+       /* if(isAfter && isDelete && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
-        }
+        } */
     }
 }

@@ -123,8 +123,7 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/Central_LOGO.png</logo>
-    <saveUserSessions>true</saveUserSessions>
+   <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>standard-Campaign</tab>
     <tab>Vehicle__c</tab>

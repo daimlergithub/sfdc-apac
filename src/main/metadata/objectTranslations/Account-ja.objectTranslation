@@ -7421,7 +7421,7 @@ Allows up to 240 characters --></help>
         <sections>
             <label>コンタクト情報</label>
             <section>Contact Infromation</section>
-        </sections> 
+        </sections>
     </layouts>
     <layouts>
         <layout>CompanySoftDeleted</layout>

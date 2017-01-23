@@ -833,7 +833,7 @@
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1501,7 +1501,7 @@
                 <fullName>Event</fullName>
                 <default>false</default>
             </picklistValues>
-			   <picklistValues>
+            <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1972,7 +1972,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
         <label>Range</label>
@@ -2592,11 +2592,11 @@
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Draft</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -11357,6 +11357,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -11535,11 +11558,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11547,15 +11570,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>SMS</fullName>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11621,6 +11640,13 @@
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14626,59 +14652,15 @@
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
-                <fullName>Familiarization workshop for dormant customers</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <fullName>Finance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Idle Hour Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maintenance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Customer Acquisition</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POM%2FAdvertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts Cross Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Promotion on Technical accessories and collections</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Product Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used-car buy-back%2FTrade-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VEP%28Seasonal Check%29</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14874,6 +14856,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15142,6 +15147,13 @@
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15457,39 +15469,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Approved</fullName>
+                <fullName>Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approving</fullName>
+                <fullName>Draft</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Started</fullName>
+                <fullName>Ongoing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17136,7 +17124,7 @@
                 <fullName>VEP%28Seasonal Check%29</fullName>
                 <default>false</default>
             </values>
-			</picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
             <values>
@@ -17960,8 +17948,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-    
-    
     <recordTypes>
         <fullName>smart_Best_Practice</fullName>
         <active>true</active>
