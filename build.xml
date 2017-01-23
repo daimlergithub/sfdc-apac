@@ -873,6 +873,8 @@
 												<sf:include name="SurveyHelperJPTest"/>
 												<sf:include name="SurveyTakerHelperJP"/>
 												<sf:include name="SurveyTakerHelperJPTest"/>
+												<sf:include name="TriggerSurveyTakerTriggerHandlerJP"/>
+												<sf:include name="TriggerSurveyTriggerHandlerJP"/>
                                                 <sf:include name="MassApproveToolKitController"/>
                                                 <sf:include name="MassApproveToolKitControllerTest"/>
                                                 <sf:include name="MassApproveRetailCampaignController"/>
