@@ -54,21 +54,35 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel> 
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>Question_Ref__c</fullName>
+        <fullName>Camp_Question__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Question Ref</label>
+        <label>Camp Question</label>
         <referenceTo>Question__c</referenceTo>
-        <relationshipLabel>Survey Questions (Question Ref)</relationshipLabel>
-        <relationshipName>Survey_Questions1</relationshipName>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-  <fields>
+    <fields>
+        <fullName>Campaign_Question_Ref__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Created lookup with Question List Object for Japan CM requirement</description>
+        <externalId>false</externalId>
+        <label>Question Ref</label>
+        <referenceTo>QuestionList__c</referenceTo>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>
@@ -116,6 +130,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Question_Ref__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Question Ref</label>
+        <referenceTo>Question__c</referenceTo>
+        <relationshipLabel>Survey Questions (Question Ref)</relationshipLabel>
+        <relationshipName>Survey_Questions1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Question__c</fullName>
         <externalId>false</externalId>
         <label>Question</label>
@@ -156,7 +183,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Answer_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>This field is used to refer the related Answer</description>
