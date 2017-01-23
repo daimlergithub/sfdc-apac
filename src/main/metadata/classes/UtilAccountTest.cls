@@ -48,8 +48,8 @@ public with sharing class UtilAccountTest
                                     ZipCode__c='1004563',
                                     Allow_Data_Sharing__c='yes',
                                     Preferred_Language__c = 'English',
-                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
-                                    
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',
+                                    MBK_Data_Source__c ='Email',Mobile__c ='000-123-4567',Allow_Data_Sharing_Comment__c='Comments',
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
@@ -68,9 +68,8 @@ public with sharing class UtilAccountTest
                                     ZipCode__c='1004356',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
-                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '098765413',
-                                    
-                                    RecordTypeId=accPerson_RecordTypeId);
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',MBK_Data_Source__c ='Email',
+                                    Mobile__c ='000-123-4567',Allow_Data_Sharing_Comment__c='Comments',RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc2;
         

@@ -21,7 +21,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.Address_Validated_Flag = true;
         JPAcccontroller.objAccount = objAccount1;
         JPAcccontroller.objPersonAccount = personAcc;
-        JPAcccontroller.recordType = 'Company';
+        JPAcccontroller.recordType = '012280000000f0p';
         JPAcccontroller.selectedRecordType = 'Company';
         test.startTest();
         JPAcccontroller.saveAccount();
@@ -41,7 +41,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.Address_Validated_Flag = true;
         //JPAcccontroller.objAccount = objAccount1;
         JPAcccontroller.objPersonAccount = personAcc;
-        JPAcccontroller.recordType = 'Person Account';
+        JPAcccontroller.recordType = '012280000000f14AAA';
         JPAcccontroller.selectedRecordType = 'Person Account';
         test.startTest();
         JPAcccontroller.saveAccount();
@@ -103,7 +103,7 @@ public class AddressSearchValidationControllerTest
     static testmethod void AddressSearchValidationControllerTest5()
     {
         createTestData();
-        addressobj.ZipCode__c = null;
+        addressobj.ZipCode__c = '89898';
         update addressobj;
         
         ApexPages.currentPage().getParameters().put('recordType','Company');
@@ -155,7 +155,9 @@ public class AddressSearchValidationControllerTest
         objAccount.City__c='Test';
         objAccount.ZipCode__c = '1004236';
         objAccount.Email__c='test@mbj.com';
-        objAccount.Mobile__c ='0435488899';
+        objAccount.Mobile__c ='000-000-0000';
+        objAccount.MBK_Data_Source__c ='Email';
+        objAccount.Province__c = 'Province1';
         objAccount.Phone = '08022420181';
         insert objAccount;
         
@@ -177,8 +179,10 @@ public class AddressSearchValidationControllerTest
         personAcc.City__c='Test';
         personAcc.ZipCode__c = '1004287';
         personAcc.Email__c='test@mbj.com';
-        personAcc.Mobile__c ='0435488899';
+        personAcc.Mobile__c = '000-000-0000';
+        personAcc.MBK_Data_Source__c ='Email';
         personAcc.Phone = '08022420181';
+        personAcc.Province__c = 'Province1';
         insert personAcc;
         
         personAcc1 = new Account();
@@ -191,6 +195,9 @@ public class AddressSearchValidationControllerTest
             
         }
         
+        
+              system.debug('+++++++++++++++++'+addressobj);
+        addressobj =new Address__C();
         addressobj =  new Address__C();
         addressobj.Address_Type__c = 'Home';
         addressobj.Address_Line_1__c = 'line 1';
@@ -198,11 +205,86 @@ public class AddressSearchValidationControllerTest
         addressobj.Block__c = 'Block';
         addressobj.Customer__c = objAccount.id;
         addressobj.ZipCode__c = '1040041';
+        addressobj.Province__c ='Fukushima';
         addressobj.TitleOfHonor__c = 'To Person';
         insert addressobj;
         
+        
     }
     
+        
+    static testmethod void AddressSearchValidationControllerTest6()
+    {
+        createTestData();
+        addressobj.city__c = 'test city';
+        addressobj.District__c = 'test district';
+        update addressobj;
+        
+        ApexPages.currentPage().getParameters().put('recordType','company');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+        JPAcccontroller.market = 'KR';
+        JPAcccontroller.Address_Validated_Flag = true;
+        JPAcccontroller.objAccount = objAccount1;
+        JPAcccontroller.objPersonAccount = personAcc;
+        JPAcccontroller.recordType = '012280000000f0p';
+        JPAcccontroller.selectedRecordType = 'Company';
+        JPAcccontroller.RecordType = 'Company';
+        JPAcccontroller.getAddressOptions();
+        
+        JPAcccontroller.market = 'JP';
+        JPAcccontroller.getAddressOptions();
+        JPAcccontroller.validateAddressByZipCode();
+        test.startTest();        
+        JPAcccontroller.saveAccount();
+        
+        JPAcccontroller.selectedRecordType = 'Person Account';
+        JPAcccontroller.RecordType = 'Person Account';
+        JPAcccontroller.objPersonAccount = objAccount;
+        JPAcccontroller.saveAccount();
+        
+        
+        test.stopTest();
+        system.assertNotEquals(null, objAccount.id);
+        
+    }
     
-    
+    static testmethod void AddressSearchValidationControllerTest7()
+    {
+        createTestData();
+        addressobj.city__c = 'test city';
+        addressobj.District__c = 'test district';
+        update addressobj;
+        
+        objAccount1.Individual_Home_Phone__c = '-9999';
+        
+        personAcc.Individual_Home_Phone__c = '-9999';
+        
+        ApexPages.currentPage().getParameters().put('recordType','company');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+        JPAcccontroller.market = 'KR';
+        JPAcccontroller.Address_Validated_Flag = true;
+        JPAcccontroller.objAccount = objAccount1;
+        JPAcccontroller.objPersonAccount = personAcc;
+        JPAcccontroller.recordType = '012280000000f0p';
+        JPAcccontroller.selectedRecordType = 'Company';
+        JPAcccontroller.RecordType = 'Company';
+        test.startTest();        
+        JPAcccontroller.saveAccount();
+        
+        JPAcccontroller.selectedRecordType = 'Person Account';
+        JPAcccontroller.RecordType = 'Person Account';
+        JPAcccontroller.objPersonAccount = objAccount;
+        JPAcccontroller.saveAccount();
+        JPAcccontroller.AddressSearchbyZipCode();
+        //JPAcccontroller.validateAddressByZipCode();
+        //JPAcccontroller.ValidateAddressCode(addressobj);
+        JPAcccontroller.getAreacodeItems();
+        JPAcccontroller.getMobileAreacodeItems();
+        JPAcccontroller.onLineDeduplication();
+        test.stopTest();
+        system.assertNotEquals(null, objAccount.id);
+        
+    }
 }

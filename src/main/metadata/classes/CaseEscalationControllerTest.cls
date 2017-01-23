@@ -65,7 +65,7 @@ public with sharing class CaseEscalationControllerTest {
         c.Occupation__c = 'test Occupation';
         c.Owner_Tele__c = 'test Owner';
         c.Owned_MB_Vehicle_PL__c = '1';
-        c.EU_VIN__c = '123456abc7';
+        c.EU_VIN__c = '123456abc765894273';
         c.US_VIN__c = '123456abc78902222';
         c.Order_No__c = '1';
         c.Vehicle_Class__c = 'test Vehicle';

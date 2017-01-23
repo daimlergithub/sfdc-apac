@@ -22,7 +22,8 @@ public static void preparedTestData()
                                     ZipCode__c='1002435',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
-                                    Dealer_Lead_System__c = 'Salesforce'); 
+                                    Dealer_Lead_System__c = 'Salesforce',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c ='Email',
+                                    Mobile__c ='000-123-4567'); 
                                     insert customer1;
                                     
                      listacc = new List<Account>();

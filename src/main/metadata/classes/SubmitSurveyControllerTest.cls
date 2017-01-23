@@ -49,7 +49,8 @@ Private static String surveyID='surveyID';
                                                               OrderNumber__c=2,Choices__c='a',Redirect_Question_Number__c='3');
         insert question2;
         question3 = new Survey_Question__c(Survey__c=survey.id,Question__c='Test03',Type__c='Single Select--Horizontal',
-                                                              OrderNumber__c=3,Choices__c='a',Redirect_Question_Number__c='4',Need_Free_TextBox__c=true,Single_FreeText_Next_Question_No__c=4);
+                                                              OrderNumber__c=3,Choices__c='a',Redirect_Question_Number__c='4',
+                                                              Need_Free_TextBox__c=true,Single_FreeText_Next_Question_No__c=4);
         insert question3;
         question4 = new Survey_Question__c(Survey__c=survey.id,Question__c='Test04',Type__c='Multi-Select--Vertical',
                                                               OrderNumber__c=4,Choices__c='a\nb');
@@ -106,7 +107,7 @@ Private static String surveyID='surveyID';
         Test.stopTest();
         System.assertEquals(surveyTaker.Survey_Taking_Status__c, 'Finish');
     }
-
+/*
     @isTest static void testMethod03() {
         preparedTestDate();
         Test.startTest();
@@ -114,10 +115,14 @@ Private static String surveyID='surveyID';
         ApexPages.currentPage().getParameters().put(surveyID, 'invalid id');
         Apexpages.currentPage().getParameters().put(contactid,contact.id);
         SubmitSurveyController con = new SubmitSurveyController();
+        con.getNextQuestion();
+        con.getNextQuestion();
+        con.getPreviousQuestion();
+        con.submitSurvey();
         Test.stopTest();
         System.assertEquals(con.finishSurvey,false);
     }
-
+*/
     @isTest static void testbreakSurvey() {
         preparedTestDate();
         Test.startTest();
@@ -164,7 +169,5 @@ Private static String surveyID='surveyID';
         
         Test.stopTest();
         System.assertEquals(con.taskID,task.id);
-    }
-    
-    
+    }   
 }
