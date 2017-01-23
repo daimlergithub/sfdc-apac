@@ -9,15 +9,18 @@
 */
 @isTest
 private class UtilRecordTypeTest {
+   
     public static testMethod void testRecordTypeUtility() {
         // Test getRecordTypeIdByName method
-        Id dealerRecordTypeId = 
-            UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
-            Test.startTest();
+        Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
+        Test.startTest();
         RecordType dealerRT = [SELECT Id FROM RecordType WHERE SobjectType = 'Account' AND Name = 'Dealer'];
         System.assert(dealerRT.Id == dealerRecordTypeId);
         // Test getRecordTypeNameById method
         String recordTypeName = UtilRecordType.getRecordTypeNameById('Account', dealerRecordTypeId);
+        System.assert(recordTypeName == 'Dealer');
+        // Test getRecordTypeNameByName method
+        String recordTypeName1 = UtilRecordType.getRecordTypeNameByName('Account', 'Dealer');
         Test.stopTest();
         System.assert(recordTypeName == 'Dealer');
     }

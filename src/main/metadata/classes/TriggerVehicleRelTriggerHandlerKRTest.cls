@@ -17,37 +17,23 @@ public class TriggerVehicleRelTriggerHandlerKRTest{
   
   // Prepare test data for Account
   personAcc = new Account(Dealer_Default_Flag__c=false,
-                           Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
-                           Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                           City__c='Beijing',
-                           Gender__c = 'Male',
-                           Phone = '0801801110',
-                           Area_code__c = '0101',
-                           MD__c = 'KR',
-                           LastName = 'galaxy1',
-                           FirstName = 'First Name',
-                           Salutation = 'Unknown',      
-                           Province__c = 'Shanghai',
-                           ZipCode__c= '1002347',
-                           Mobile__c = '023482832',
-                           Mobile2__c = '035456232',
-                           Primary_Email__c = 'Email1',
-                           Primary_Fax__c = 'FAX2',
-                           Primary_Phone__c ='Other2',
+                           Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '000-0000-9642',Home_Phone_2__c = '000-0000-9642',Work_Phone__c = '000-0000-9642',Status__c='NoCustomer',
+                           Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',City__c='Beijing',Gender__c = 'Male',Phone = '000-0000-9642',
+                           Area_code__c = '0101',MD__c = 'KR',LastName = 'galaxy1',FirstName = 'First Name',Salutation = 'Unknown',Province__c = 'Shanghai',ZipCode__c= '1002347',
+                           MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642',Mobile2__c = '000-0000-9642',Primary_Email__c = 'Email1',Primary_Fax__c = 'FAX2',Primary_Phone__c ='Other2',
                            RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+    insert personAcc;    
     
    // Prepare test data for Vehicle
-    vehicle = new Vehicle__c(Brand__c = 'BMW',
-                             RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId()
-                            );
+    vehicle = new Vehicle__c(Vehicle_Name__c ='Test1',UsVIN__c ='abchgdtrsghtredfr',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02',
+    Model__c = 'R350L 4MATIC',Class__c = 'A-Class',Purchase_Year__c = '2004',RegistrationNo__c = '12345',RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId());
+    insert vehicle;
      
-     
+   system.debug('$$$$$$$$$$$$$$'+personAcc.Id);
+   system.debug('$$$$$$$$$$$$$$'+vehicle.Id);  
    // Prepare test data for VehicleRelationship
-    vehicleRel = new Vehicle_Relationship__c(Car_Relation__c = 'Purchaser',
-                                            Contact__c = personAcc.Id,
-                                            Vehicle_ID__c = vehicle.Id
-                                            );
-
+    vehicleRel = new Vehicle_Relationship__c(Car_Relation__c = 'Purchaser',Contact__c = personAcc.Id,Vehicle_ID__c = vehicle.Id);
+    
     vehicleRelList.add(vehicleRel);                                           
                                                                                       
  } 
@@ -65,14 +51,14 @@ public class TriggerVehicleRelTriggerHandlerKRTest{
      update vehicleRelList;
      
  } 
- 
- public static testMethod void testHandlerDelete(){
+
+/* 
+  public static testMethod void testHandlerDelete(){
      prepareTestData();
-     insert vehicleRel;
-     List<Vehicle_Relationship__c> vrList = [SELECT Id,Name FROM Vehicle_Relationship__c WHERE Id =:vehicleRel.Id];
-     delete vrList;
+     insert vehicleRelList;
      
- } 
- 
+     Delete ;
+     
+ } */
  
 }

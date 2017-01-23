@@ -32,6 +32,8 @@ public with sharing class TriggerCampaignMembers_TestClass{
                                       City__c='Baoshan district',
                                       ZipCode__c='1024371',
                                       PersonMobilePhone='1235678910',
+                                      MBK_Data_Source__c = 'Email',
+                                      Mobile__c = '000-0000-9842',
                                       RecordTypeId=accPerson_RecordTypeId
                                      );        
         insert(testPerAcc);
@@ -46,6 +48,27 @@ public with sharing class TriggerCampaignMembers_TestClass{
         insert cm1;
         
          CampaignMember cmtest=[select CampaignId,Status,ContactId from CampaignMember where id=:cm1.id];
+         
+         TriggerCampaignMembersTriggerHandler cth = new TriggerCampaignMembersTriggerHandler();
+         cth.handleTrigger(false, false, false, false, false);
+         cth.handleIntegrationTrigger(false, false, false, false, false);
+         
+         TriggerCampaignOfferingTriggerHandler coh = new TriggerCampaignOfferingTriggerHandler();
+         coh.handleTrigger(false, false, false, false, false);
+         coh.handleIntegrationTrigger(false, false, false, false, false);
+         
+         TriggerCampaignOfferingTriggerHandlerJP cohJP = new TriggerCampaignOfferingTriggerHandlerJP();
+         cohJP.handleTrigger(false, false, false, false, false);
+         cohJP.handleIntegrationTrigger(false, false, false, false, false);
+         
+         TriggerCampaignPackageTriggerHandler cph = new TriggerCampaignPackageTriggerHandler();
+         cph.handleTrigger(false, false, false, false, false);
+         cph.handleIntegrationTrigger(false, false, false, false, false);
+         
+         TriggerCampaignPackageTriggerHandlerJP cphJP = new TriggerCampaignPackageTriggerHandlerJP();
+         cphJP.handleTrigger(false, false, false, false, false);
+         cphJP.handleIntegrationTrigger(false, false, false, false, false);
+         
           Test.stopTest();
            system.assertEquals(cmtest.Status,cm1.Status);
     }
