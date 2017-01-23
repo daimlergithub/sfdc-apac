@@ -18,9 +18,9 @@
             <layoutItems>
                 <field>UrlName</field>
             </layoutItems>
-            <layoutItems>
+        <!--   <layoutItems>
                 <field>Answer_for_Public__c</field>
-            </layoutItems>
+            </layoutItems>-->
             <layoutItems>
                 <field>ArticleType</field>
             </layoutItems>
@@ -33,12 +33,18 @@
             <layoutItems>
                 <field>Information_Updated_Flag__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
+                <field>Main_Content__c</field>
+            </layoutItems>
+			<layoutItems>
+                <field>Additional_Content__c</field>
+            </layoutItems>
+        <!--    <layoutItems>
                 <field>Related_Departments__c</field>
             </layoutItems>
             <layoutItems>
                 <field>Remarks_for_Internal__c</field>
-            </layoutItems>
+            </layoutItems>-->
             <layoutItems>
                 <field>LastModifiedById</field>
             </layoutItems>
