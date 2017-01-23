@@ -20174,11 +20174,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>true</editable>
-        <field>Survey_Question__c.Question_Ref__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Redirect_Question_Number__c</field>
         <readable>true</readable>
