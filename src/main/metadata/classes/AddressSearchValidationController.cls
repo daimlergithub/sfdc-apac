@@ -695,11 +695,11 @@ EP/Tolerant for Validation.
             if(addressobj.ZipCode__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
-            }*/
+            }
             if(addressobj.Address_Line_1__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
-            }
+            }*/
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
@@ -708,7 +708,7 @@ EP/Tolerant for Validation.
             //if(addressobj.ZipCode__c != null)
             //{
             //Changes as part of SFDCKR-683
-			if(addressobj.Address_Line_1__c != null && addressobj.Province__c != null)
+			if(addressobj.Province__c != null)
 			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);

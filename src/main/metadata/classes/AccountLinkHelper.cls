@@ -181,7 +181,7 @@ public class AccountLinkHelper
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
-            // createSharingRecord(map_AccountIdAndListAccountLinkId);
+             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
@@ -433,7 +433,7 @@ public class AccountLinkHelper
                                                 Primary_Address_Reference__r.City__c, Primary_Address_Reference__r.District__c, Primary_Address_Reference__r.Block__c,
                                                 Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,
                                                 Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c, 
-                                                Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,
+                                                Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,UCID__c,
                                                 Primary_Address_Reference__r.LastModifiedDate
                                                 from Account WHERE Id IN :AccountIds]);
         System.debug('Accountlinklist------>'+accountMap);
@@ -444,10 +444,11 @@ public class AccountLinkHelper
                 acclink.Retail_LastName__c = accountMap.get(acclink.toRole__c).LastName;
                 acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
                 //acclink.Retail_Salutation__c = accountMap.get(acclink.toRole__c).Salutation__c;
-                acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25); 
+                acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'')+ '  ' + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25);
                 acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
                 acclink.Retail_LastName_Native__c = accountMap.get(acclink.toRole__c).LastName_Native_1__c;
                 acclink.Retail_FirstName_Native__c = accountMap.get(acclink.toRole__c).FirstName_Native_1__c; 
+                acclink.Retail_Full_Name_Native__c = ((accountMap.get(acclink.toRole__c).LastName_Native_1__c != null ? accountMap.get(acclink.toRole__c).LastName_Native_1__c:'')+ ' ' +(accountMap.get(acclink.toRole__c).FirstName_Native_1__c != null ? accountMap.get(acclink.toRole__c).FirstName_Native_1__c:'')).left(50); 
                 acclink.Retail_Gender__c = accountMap.get(acclink.toRole__c).Gender__c;
                 acclink.Retail_PersonBirthdate__c = accountMap.get(acclink.toRole__c).PersonBirthdate;
                 acclink.Retail_Occupation__c = accountMap.get(acclink.toRole__c).Occupation__c;                
@@ -483,6 +484,7 @@ public class AccountLinkHelper
             acclink.Retail_Website__c = accountMap.get(acclink.toRole__c).website;
             //acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
             acclink.Retail_Fax__c = accountMap.get(acclink.toRole__c).Fax;
+            acclink.Retail_UCID__c = accountMap.get(acclink.toRole__c).UCID__c;
             
             //Checking Null for sales Address 
             if(accountMap.get(acclink.toRole__c).Primary_Address_Reference__c != null){ 

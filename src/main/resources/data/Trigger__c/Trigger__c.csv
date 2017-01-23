@@ -32,3 +32,5 @@ TriggerLeadKR,TRUE,TRUE,TRUE,TriggerLeadKR,TRUE,TRUE,TRUE,TriggerLeadTriggerHand
 RetailTaskTriggerJP,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTriggerHandlerJP,JP
 RetailTaskTriggerKR,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTriggerHandlerKR,KR
 CaseTriggerKR,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,TriggerCaseTriggerHandlerKR,KR
+TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurveyTriggerHandlerJP,JP
+TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerJP,JP

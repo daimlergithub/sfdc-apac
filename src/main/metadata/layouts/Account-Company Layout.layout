@@ -33,7 +33,7 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>AccountHierarchy</excludeButtons>
+    
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>
