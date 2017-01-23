@@ -16450,21 +16450,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-                                <field>Question__c.Choices__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Question__c.Question__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Recall__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16579,7 +16564,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>false</editable>
+                <editable>true</editable>
         <field>Retail_Campaign__c.Actual_Cost__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16659,7 +16644,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>false</editable>
+         <editable>true</editable>
         <field>Retail_Campaign__c.Add_Campaign_Member_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16669,9 +16654,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Campaign__c.Add_Service_Staff__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16734,7 +16719,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Member_Sharing_Rule__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16742,7 +16727,7 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Name__c</field>
         <readable>true</readable>
-                                </fieldPermissions>
+     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Sub_Type__c</field>
@@ -16760,7 +16745,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-                                <field>Retail_Campaign__c.Child_Campaign_Status__c</field>
+        <field>Retail_Campaign__c.Child_Campaign_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16782,7 +16767,7 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Comments__c</field>
         <readable>true</readable>
-                                </fieldPermissions>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.DM_Template__c</field>
@@ -17159,7 +17144,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>false</editable>
+                <editable>true</editable>
         <field>Retail_Campaign__c.Response_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>

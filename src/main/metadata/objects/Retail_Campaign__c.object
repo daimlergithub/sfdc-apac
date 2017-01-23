@@ -402,7 +402,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Add_Campaign_Member_ID__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Flag to copied on Campaign member for Opro Campaigns</description>
@@ -718,39 +718,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>    
-    <fields>
-        <fullName>Child_Campaign_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Campaign Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Campaign_Sub_Type__c</fullName>
@@ -833,6 +800,18 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1092,6 +1071,39 @@
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Child_Campaign_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>City__c</fullName>
@@ -1361,12 +1373,10 @@
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
-        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Driven__c</fullName>
@@ -1462,19 +1472,19 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Execution_Start_Date__c</fullName>
-        <description>This field is used to capture the start date of the execution campaign</description>
+        <fullName>Execution_End_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Execution Date</label>
+        <label>Execution End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Execution_End_Date__c</fullName>
+        <fullName>Execution_Start_Date__c</fullName>
+        <description>This field is used to capture the start date of the execution campaign</description>
         <externalId>false</externalId>
-        <label>Execution End Date</label>
+        <label>Execution Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2041,6 +2051,19 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Campaign1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Retail Campaigns (Parent Campaign)</relationshipLabel>
+        <relationshipName>Retail_Campaigns1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Parent_Campaign__c</fullName>
@@ -3494,7 +3517,7 @@
         <language>en_US</language>
     </listViews>
     <nameField>
-        <label>Name</label>
+        <label>Campaign Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
@@ -3620,29 +3643,6 @@
             </values>
             <values>
                 <fullName>eEmail</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3904,6 +3904,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4484,29 +4507,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -4764,6 +4764,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5336,29 +5359,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -5616,6 +5616,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6188,29 +6211,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -6468,6 +6468,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6919,7 +6942,7 @@
     <recordTypes>
         <fullName>Retail_Execution_Campaign</fullName>
         <active>true</active>
-        <label>Retail Execution Campaign</label>
+        <label>Campaign Execution</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
@@ -7039,25 +7062,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7319,6 +7330,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7895,29 +7929,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -8175,6 +8186,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8755,29 +8789,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -9035,6 +9046,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9486,7 +9520,7 @@
     <recordTypes>
         <fullName>Retail_Parent_Campaign</fullName>
         <active>true</active>
-        <label>Retail Parent Campaign</label>
+        <label>Planning &amp; Design Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
             <values>
@@ -9606,25 +9640,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
+                <fullName>One Account One Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9642,59 +9664,15 @@
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
-                <fullName>Familiarization workshop for dormant customers</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <fullName>Finance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Idle Hour Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maintenance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Customer Acquisition</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POM%2FAdvertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts Cross Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Promotion on Technical accessories and collections</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Product Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used-car buy-back%2FTrade-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VEP%28Seasonal Check%29</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9886,6 +9864,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10462,29 +10463,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -10742,6 +10720,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11322,29 +11323,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -11602,6 +11580,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12174,29 +12175,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Child_Campaign_Status__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Execution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planning</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Response collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Segmentation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Finance - %3E Prematurity</fullName>
@@ -12454,6 +12432,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13214,6 +13215,26 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Create_Child_Retail_Campaign</fullName>
+        <availability>online</availability>
+        <description>It will create child campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Create Child Retail Campaign</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;Parent={!Retail_Campaign__c.Name}&amp;Parent_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id} </url>
+    </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
         <availability>online</availability>

@@ -870,6 +870,12 @@
                                                 <sf:include name="CaseEscalationControllerTest"/>
                                                 <sf:include name="SubmitSurveyController"/>
                                                 <sf:include name="SubmitSurveyControllerTest"/>
+												<sf:include name="SurveyHelperJP"/>
+												<sf:include name="SurveyHelperJPTest"/>
+												<sf:include name="SurveyTakerHelperJP"/>
+												<sf:include name="SurveyTakerHelperJPTest"/>
+												<sf:include name="TriggerSurveyTakerTriggerHandlerJP"/>
+												<sf:include name="TriggerSurveyTriggerHandlerJP"/>
                                                 <sf:include name="MassApproveToolKitController"/>
                                                 <sf:include name="MassApproveToolKitControllerTest"/>
                                                 <sf:include name="MassApproveRetailCampaignController"/>
@@ -888,7 +894,11 @@
                                                                 <sf:include name="MonthlyMarketAmountReport"/>
                                                                 <sf:include name="MonthlyMarketAmountReportPage"/>
                                                                 <sf:include name="LeadConverting"/>
-                                </sf:typeset>                    
+                                </sf:typeset>
+                                <sf:typeset name="triggers">
+                                                <sf:include name="TriggerSurvey"/>
+                                                <sf:include name="TriggerSurveyTaker"/>
+                                </sf:typeset>								
                                 <sf:typeset name="approvalProcesses"/>
                                 <sf:typeset name="email"/>
                                 <sf:typeset name="workflows"/> 
