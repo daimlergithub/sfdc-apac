@@ -13233,7 +13233,7 @@ $Profile.Name != 'IntegrationAPI'
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;Parent={!Retail_Campaign__c.Name}&amp;Parent_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id} </url>
+        <url>/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;Parent={!Retail_Campaign__c.Name}&amp;Parent_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id} </url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
