@@ -181,7 +181,7 @@ public class AccountLinkHelper
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
-            // createSharingRecord(map_AccountIdAndListAccountLinkId);
+             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
