@@ -359,7 +359,7 @@ public class AddressDisplayInlineEditController {
             //if(addressobj.ZipCode__c != null)
             //{
 			//Changes as part of SFDCKR-683
-			if(addressobj.Address_Line_1__c != null && addressobj.Province__c != null)
+			if(addressobj.Province__c != null)
 			{
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
