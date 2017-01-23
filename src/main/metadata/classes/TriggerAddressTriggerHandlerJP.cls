@@ -57,8 +57,9 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
-        
-        /* if(isAfter && isInsert)
+        /*
+        if(isAfter && isInsert)
+
         {
             serializedObject=json.serialize(ListAddNew);
             
@@ -75,11 +76,12 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-           // AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
-        }*/
-        
-    }  
+			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
+        }
+        */
+    }
+
     
     
     

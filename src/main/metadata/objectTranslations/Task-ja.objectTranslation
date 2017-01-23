@@ -33,11 +33,6 @@
         <name>Activity_CommChannel__c</name>
     </fields>
     <fields>
-        <help><!-- Activity Comment --></help>
-        <label><!-- Activity Comment --></label>
-        <name>Activity_Comment__c</name>
-    </fields>
-    <fields>
         <label><!-- Activity DataSource --></label>
         <name>Activity_DataSource__c</name>
     </fields>
@@ -49,33 +44,7 @@
         <label><!-- Activity Date --></label>
         <name>Activity_Date__c</name>
     </fields>
-    <fields>
-        <help><!-- Activity InboundCallNumber --></help>
-        <label><!-- Activity InboundCallNumber --></label>
-        <name>Activity_InboundCallNumber__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity InboundExtNumber --></label>
-        <name>Activity_InboundExtNumber__c</name>
-    </fields>
-    <fields>
-        <help><!-- Activity Info --></help>
-        <label><!-- Activity Info --></label>
-        <name>Activity_Info__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity LeadsData --></label>
-        <name>Activity_LeadsData__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity OutboundCallSource --></label>
-        <name>Activity_OutboundCallSource__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity OutboundCallSubSource --></label>
-        <name>Activity_OutboundSubCallSource__c</name>
-    </fields>
-    <fields>
+   <fields>
         <help><!-- Activity Purpose --></help>
         <label><!-- Activity Purpose --></label>
         <name>Activity_Purpose__c</name>
@@ -89,16 +58,8 @@
         <name>Activity_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Adhoc eDM Template ID --></label>
-        <name>Adhoc_eDM_Template_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- Assignment Status --></label>
         <name>Assignment_Status__c</name>
-    </fields>
-    <fields>
-        <label><!-- Blacklist Sensitive Word --></label>
-        <name>BlacklistSensitiveWord__c</name>
     </fields>
     <fields>
         <label><!-- Called --></label>
@@ -209,10 +170,6 @@
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- More Than 2 OB Times --></label>
-        <name>More_Than_2_OB_Times__c</name>
-    </fields>
-    <fields>
         <label><!-- Notification Email Flag --></label>
         <name>Notification_Email_Flag__c</name>
     </fields>
@@ -296,24 +253,12 @@
         <name>Reason__c</name>
     </fields>
     <fields>
-        <label><!-- Recording ID --></label>
-        <name>Recording_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
     </fields>
     <fields>
-        <label><!-- Resource Required --></label>
-        <name>Resource_Required__c</name>
-    </fields>
-    <fields>
         <label><!-- Result --></label>
         <name>Result__c</name>
-    </fields>
-    <fields>
-        <label><!-- SMS Batch Number --></label>
-        <name>SMSBatchNumber__c</name>
     </fields>
     <fields>
         <label><!-- SMS/MMS Template ID --></label>
@@ -408,10 +353,6 @@
     <fields>
         <label><!-- UniqueCampaignMobile --></label>
         <name>UniqueCampaignMobile__c</name>
-    </fields>
-    <fields>
-        <label><!-- Unique Code --></label>
-        <name>UniqueCode__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>

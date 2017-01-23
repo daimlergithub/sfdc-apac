@@ -209,7 +209,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Account.NAME</fields>
         <fields>Campaign_Package__c</fields>
         <fields>Session_Start_Date__c</fields>
         <fields>Session_End_Date__c</fields>

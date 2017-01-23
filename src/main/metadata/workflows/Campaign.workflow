@@ -149,6 +149,15 @@ RecordType.Name,
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>campaign_status_change</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Segmentation</literalValue>
+        <name>campaign status change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>record_Close_Date</fullName>
         <field>Closed_Date__c</field>
         <formula>TODAY()</formula>
@@ -164,6 +173,52 @@ RecordType.Name,
         <name>record Publish Date</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_based_on_execution_date</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Execution</literalValue>
+        <name>status change based on execution date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_completed</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Completed</literalValue>
+        <name>status change to completed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_execution</fullName>
+        <description>campaign status will be changed o execution</description>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Execution</literalValue>
+        <name>status change to execution</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_planning</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Planning</literalValue>
+        <name>status change to planning</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_changed_to_segmentation</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Segmentation</literalValue>
+        <name>status changed to segmentation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <outboundMessages>
@@ -302,6 +357,50 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <active>true</active>
         <formula>AND (  RecordType.DeveloperName='CAC_Campaign', OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status Change on New Creation of execution Campaign</fullName>
+        <actions>
+            <name>status_change_to_planning</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <description>campaign status will be changed when we create a new campaign record with record type campaign execution</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Based Workflow on Campaign</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <description>workflow fire based on segmenation date and execution date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>status_changed_to_segmentation</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>status_change_based_on_execution_date</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>To update Content Preview</fullName>
