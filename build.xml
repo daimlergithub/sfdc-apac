@@ -585,7 +585,9 @@
                                                 <sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
-                                                <sf:include name="TriggerCampaignTriggerHandlerJP"/>
+												<sf:include name="CampaignHelperTest"/>
+                                                <sf:include name="CampaignHelper"/>
+                                                <sf:include name="TriggerCampaignTriggerHandlerJP"/>												
                                                 <sf:include name="TriggerCampaignTriggerHandlerKR"/>
                                 </sf:typeset>
                                 <sf:typeset name="triggers">
@@ -839,8 +841,6 @@
                                                 <sf:include name="AttachmentAfterTriggerHandlerJP"/>
                                                 <sf:include name="BatchAssignTasks"/>
                                                 <sf:include name="BatchAssignTasksTest"/>
-                                                <sf:include name="CampaignHelperTest"/>
-                                                <sf:include name="CampaignHelper"/>
 												<sf:include name="Batch_CreateCampaignTask"/>
 												<sf:include name="Batch_CreateCampaignNotification"/>
                                                 <sf:include name="CampaignPackageHelper"/>
