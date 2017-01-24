@@ -146,7 +146,7 @@
         <criteriaItems>
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Retail Execution Campaign</value>
+            <value>Campaign Execution</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -170,7 +170,7 @@
         <criteriaItems>
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Retail Execution Campaign</value>
+            <value>Campaign Execution</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
