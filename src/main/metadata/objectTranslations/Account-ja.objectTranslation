@@ -7674,7 +7674,7 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>
     <layouts>
-        <layout>CompanySoftDeleted</layout>
+        <layout>Company_Soft_Deleted</layout>
         <sections>
             <label><!-- Company Information --></label>
             <section>Company Information</section>
@@ -7920,8 +7920,8 @@ Allows up to 240 characters --></help>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- CompanySoftDeleted --></label>
-        <name>CompanySoftDeleted</name>
+        <label><!-- Company_Soft_Deleted --></label>
+        <name>Company_Soft_Deleted</name>
     </recordTypes>
     <recordTypes>
         <label>Dealer</label>
