@@ -4,7 +4,7 @@ public class AccountLinkControllerTest{
    private static List<Account> accountlist = new List<Account>();
    private static Account account;
    private static Account personAcc;
-
+   private static Account companyAcc;
   public static testMethod void createTestData()
   {
   
@@ -30,21 +30,34 @@ public class AccountLinkControllerTest{
        
        insert personAcc;  
        
-        account= new Account();
+      companyAcc = new Account(Name='Test Company'
+                        ,Email__c='test@compacc.com'
+						,MD__c='JP'
+						,RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+       insert companyAcc;
+      
+       /* account= new Account();
         account.Phone='09844650654';
         account.FirstName = 'Test';
-        account.Mobile__c = '1234567890';
+        account.Mobile__c = '09440044090';
         account.Data_Source__c  = 'Test4';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); */       
          
-         Id Retailcompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-        Account_Link__c acclnkcomp = new Account_Link__c(Name = 'Test Name',  toRole__c=personAcc.id, ReCordTypeId = Retailcompany);
+         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+         Id Retailcompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); 
+        Account_Link__c acclnkcomp = new Account_Link__c(Name = 'Test Name',  toRole__c=personAcc.id, RecordTypeId = RetailPerson);
         insert acclnkcomp ;
-       
+        Account_Link__c acclnkcomp1 = new Account_Link__c(Name = 'Test Name1',  toRole__c=companyAcc.id, RecordTypeId = Retailcompany);
+        insert acclnkcomp1;
+        
          test.StartTest();
          ApexPages.currentPage().getParameters().put('Id',personAcc.id);
          ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
          AccountLinkController spo=new AccountLinkController(sc);
+         
+         ApexPages.currentPage().getParameters().put('Id',companyAcc.id);
+         ApexPages.StandardController sc1 = new ApexPages.StandardController(companyAcc);
+         AccountLinkController spo1=new AccountLinkController(sc1);
          test.StopTest();
-                    }
+   }
 }
