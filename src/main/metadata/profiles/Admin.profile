@@ -16447,21 +16447,6 @@
         <field>QC__c.Total_Score__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	 <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Choices__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Question__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Question__c.Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.Created_By_EP_Transaction__c</field>
@@ -20234,11 +20219,6 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
-        <field>Survey_Question__c.Question_Ref__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23080,6 +23060,9 @@
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>QuestionList__c-Question Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
@@ -23103,6 +23086,13 @@
     <layoutAssignments>
         <layout>QC__c-SSI</layout>
         <recordType>QC__c.SSI_QC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Question-Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Question-Question Layout</layout>
+        <recordType>Question.Record_type_for_community_09ai0000000TOLlAAO_entity_Question</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>

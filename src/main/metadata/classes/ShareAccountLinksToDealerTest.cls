@@ -26,7 +26,7 @@ public static Account Dealer;
                                     Phone = '080801010',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
-                                    ZipCode__c='1234567',
+                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        //insert Dealer;
       accList.add(Dealer);
@@ -37,7 +37,7 @@ public static Account Dealer;
                                     Phone = '080801010',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
-                                    ZipCode__c='1234567',
+                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
       accList.add(newDealer);
                                    
@@ -58,7 +58,7 @@ public static Account Dealer;
                                     Dealer_Lead_System__c = 'Salesforce',
                                     Email__c='test011@test.com',
                                     Email2__c='test012@test.com',
-                                    Home_Phone_2__c='0879458745',
+                                    Home_Phone_2__c='000-000-0000',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',Allow_Data_Sharing_Comment__c='comments',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
       //  insert personAcc;
          accList.add(personAcc);
@@ -98,7 +98,7 @@ public static Account Dealer;
         insert leadList;
         
        vehicles = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200',
-                  EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',
+                  EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345',
                   Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
        insert vehicles;
       
@@ -142,6 +142,10 @@ AccountSharingDataHandler accSdh = new AccountSharingDataHandler('Account_Link__
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true); 
 accSdh.shareAccountByAccountLink(newData, oldDataAl, true); 
+    
+ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
+shacc.handleTrigger(true,true,true,true,true);
+shacc.handleIntegrationTrigger(true,true,true,true,true);
 test.stopTest();
 system.assertNotEquals(null,newData);
 }

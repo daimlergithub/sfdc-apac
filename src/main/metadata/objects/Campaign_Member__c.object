@@ -1151,4 +1151,17 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+	<webLinks>
+        <fullName>Upload_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+    </webLinks>
 </CustomObject>

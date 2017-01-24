@@ -54,8 +54,12 @@ public with sharing class TriggerCampaignCityTest {
         TriggerCampaignCityTriggerHandlerJP CampaignCityHandlerJP = new TriggerCampaignCityTriggerHandlerJP();
         CampaignCityHandlerJP.handleTrigger(false, false, false, false, false);
         CampaignCityHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
+        
+        
+        TriggerCampaignCityTriggerHandler CampaignCityHandler = new TriggerCampaignCityTriggerHandler();
+        CampaignCityHandler.handleTrigger(false, false, false, false, false);
+        CampaignCityHandler.handleIntegrationTrigger(false, false, false, false, false);
         Test.stopTest();
-      
        system.assertEquals([select Campaign__c,Start_Date__c,End_Date__c from Campaign_City__c where id=:campcity.id].IsEmpty(),true);
  }
 }

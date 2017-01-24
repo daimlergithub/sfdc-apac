@@ -3,7 +3,8 @@ Public class TerminateVehicleRelationshipTest{
 Public static Vehicle__c objVehicle;
 Public static Vehicle_Relationship__c objVehicleRelship;
 Public static Account objAccount;
-
+public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
   // Calling "Save" method
    public static testMethod void SaveTest()
      {
@@ -44,13 +45,17 @@ Public static Account objAccount;
   public static void init()
     {  
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-		 insert updatecustomsettings;
+         insert updatecustomsettings;
         // Create Account
-        objAccount=new Account();
-        objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
+        objAccount=new Account(RecordTypeId=personRecordtypeid,LastName='Pref chck test',Gender__c = 'Male',Occupation__c = 'Others',Phone = '09088767547',Province__c = 'Province1',Primary_Address__c = 'sdfsdfsdfsdf',
+                                City__c = 'asdfsf',ZipCode__c = '1234567',MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642');
+        //objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
+        insert objAccount;
         // Create Vehicle 
-        objVehicle=new Vehicle__c();                    
-        objVehicle=(Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilViewHierarchyTestData.VEHICLE_MB); 
+        objVehicle=new Vehicle__c(RecordTypeId=VehicleMBRecordtypeid,Brand__c = 'Maybach',Class__c = 'A-Class',Model__c = 'A160',UsVIN__c = '46578934237654873',EuroVIN__c = '362534778873636924',Latest_Sales_Person__c = 'Shantaram',
+                                   Warranty_Start_Date__c = Date.today(),FirstRegistrationDate__c = Date.today(),Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345');                    
+        //objVehicle=(Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilViewHierarchyTestData.VEHICLE_MB); 
+        insert objVehicle;
         // Create Vehicle Relationship
         objVehicleRelship= new Vehicle_Relationship__c();
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;

@@ -22,7 +22,7 @@
 @isTest
 public class DMControllerExtensionTest {
     public static DM_Request__c dmr;
-    
+    final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static testMethod void testMyController() {
     
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
@@ -33,10 +33,8 @@ public class DMControllerExtensionTest {
 
             // Add parameters to page URL
             System.debug('--------Begin-------');
-            Account customer = new Account(
-                                         Phone = '1234567',
-                                         Last_Successful_Call_Office_Phone__c = System.today() - 10,
-                                         DMS_Address__c = 'dmsaddress1');
+            Account customer = new Account(RecordTypeId=personRecordtypeid ,Phone = '1234567',Last_Successful_Call_Office_Phone__c = System.today() - 10,DMS_Address__c = 'dmsaddress1',
+                                           MBK_Data_Source__c = 'Email',Mobile__c = '000-0000-9642');
     
              customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
              
@@ -64,7 +62,7 @@ public class DMControllerExtensionTest {
             //Test click eDM button from Case 
             Account dealer = new Account(Phone = '1234567',
                                          Last_Successful_Call_Office_Phone__c = System.today() - 10,
-                                         DMS_Address__c = 'dmsaddress1');
+                                         DMS_Address__c = 'dmsaddress1',MBK_Data_Source__c = 'Email');
             dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);                             
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
             case1.Case_Dealer__c = dealer.Id;

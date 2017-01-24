@@ -8,7 +8,7 @@ public class TextInputtingControlelrTest {
   
   @isTest static void testTextInputtingControlelr(){
       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-		 insert updatecustomsettings;
+         insert updatecustomsettings;
   Test.startTest();
     Case newCase = (Case)UtilTestData.createSobject(new Case(), 'Inquiry');
     PageReference page = new PageReference('/apex/textinputting?cid=' + newCase.Id + '&field=mpc');

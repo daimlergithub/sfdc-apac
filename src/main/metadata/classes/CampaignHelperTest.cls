@@ -19,7 +19,7 @@
     public static Set<String> topCampaignIds;
    
     public static List<Campaign> listcampaigns;
-    
+    public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      public static void preparedTestDataCustomsettings()
      {
         Community_License_Switch__c cls=new Community_License_Switch__c();
@@ -102,7 +102,9 @@
            preparedTestDataCustomsettings();     
     Test.StartTest();
    listcampaigns=new List<Campaign>();
-     Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842');
+     insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'b', 
@@ -118,7 +120,8 @@
             StartDate = System.today(), 
             EndDate = System.today(),
             Execution_Type__c =OB_Call,
-            RecordTypeId = topCampRecordTypeId
+            RecordTypeId = topCampRecordTypeId,
+            IsActive = true
         );
         
         insert top2;
@@ -146,7 +149,7 @@
 
         insert objcampaign;
         listcampaigns.add(objcampaign);
-        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c from Campaign where id IN:listcampaigns ];
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c from Campaign where id IN:listcampaigns ];
          list<Campaign> oldList = new  list<Campaign>();
          oldList.add(listCampaign);
         map<id,Campaign> oldMap = new map<id,Campaign>();
@@ -169,6 +172,7 @@
         CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
         CampaignHelper.afterInsertEvents(listcampaigns);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
+        //try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
         Test.StopTest();
         system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
@@ -454,7 +458,7 @@
         
         /*Campaign1*/
         Campaign testCampaign1 = new Campaign(
-            IsActive = true, 
+            //IsActive = true, 
             Name = 'Test Campaign', 
             Task_Created_By__c = 'Case',
             Create_Task__c = true, 

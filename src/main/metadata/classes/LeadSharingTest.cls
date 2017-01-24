@@ -7,13 +7,13 @@ private With Sharing class LeadSharingTest {
     
     static {
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
-        dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
+        dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer', MBK_Data_Source__c ='Email');
         insert dealer;
 
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com', Dealer_Marketing_Manager__c = true);
         insert dealerContact;
         
-        contact = (Account)UtilTestData.createSobject(new Account(), 
+        contact = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Email',Mobile__c ='000-123-4567'), 
                 UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
         RecordType retailLeadType = [select Id, developername from recordtype where sobjecttype = 'lead__c' and developername = 'Retail_Sales_Leads'];

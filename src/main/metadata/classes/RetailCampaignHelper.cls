@@ -144,6 +144,26 @@ public  class RetailCampaignHelper
             }
         }
     }
+    public static void beforeDeleteEvents(List<Retail_Campaign__c> campRet)
+    {
+    Id camIdExec = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id camIdPlan = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+       
+       for(Retail_Campaign__c cam : campRet){
+
+   if(cam.RecordTypeId == camIdExec && cam.Child_Campaign_Status__c != 'planning'){
+          
+            cam.addError('You Cant Delete  The Campaign');
+    
+    }else if(cam.RecordTypeId == camIdPlan && cam.Status__c != 'Draft'){
+   
+            cam.addError('You Cant Delete  The Campaign');
+            
+    
+    }
+    
+    }
+}
     
     public static void ShareRecordToDealer_AfterUpdate(list<Retail_Campaign__c> retailCampainsNew,map<id,Retail_Campaign__c> retailCampainsNewMap,map<id,Retail_Campaign__c> retailCampainsOldMap, boolean isUpdate)
     {
