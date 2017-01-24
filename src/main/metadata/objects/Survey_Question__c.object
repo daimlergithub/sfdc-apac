@@ -56,19 +56,6 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>Camp_Question__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Camp Question</label>
-        <referenceTo>Question__c</referenceTo>
-        <relationshipLabel>Survey Questions</relationshipLabel>
-        <relationshipName>Survey_Questions</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Campaign_Question_Ref__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Created lookup with Question List Object for Japan CM requirement</description>
@@ -128,19 +115,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Question_Ref__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Question Ref</label>
-        <referenceTo>Question__c</referenceTo>
-        <relationshipLabel>Survey Questions (Question Ref)</relationshipLabel>
-        <relationshipName>Survey_Questions1</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Question__c</fullName>
