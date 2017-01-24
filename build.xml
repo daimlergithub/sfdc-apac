@@ -396,6 +396,7 @@
                                                                 <sf:include name="AccountMergeControllerTest"/>
                                                                 <sf:include name="ContactTriggerHandlerJP"/>
                                                                 <sf:include name="RetailCampaignTriggerHandlerJP"/>
+																<sf:include name="RetailCampaignHelper"/>
                                                                 <sf:include name="TaskDeletingController"/>
                                                                 <sf:include name="TaskDeletingControllerTest"/>
                                                                 <sf:include name="SSITriggerHandlerJP"/>
@@ -821,8 +822,7 @@
                 
                 <target name="deploy43">
                                 <deploy runAllTests="${sfdc.runAllTests}">
-                                <sf:typeset name="classes">
-                                                <sf:include name="RetailCampaignHelper"/>
+                                <sf:typeset name="classes">                                                
                                                 <sf:include name="RetailCampaignSharingTest"/>
                                                 <sf:include name="RetailCampaignSharingWrapService"/>
                                                 <sf:include name="RetailCampaignTriggerHandler"/>
