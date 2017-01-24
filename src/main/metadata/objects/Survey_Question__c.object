@@ -82,7 +82,6 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <fields>
     <externalSharingModel>ControlledByParent</externalSharingModel>
   <fields>
         <fullName>Choices__c</fullName>
