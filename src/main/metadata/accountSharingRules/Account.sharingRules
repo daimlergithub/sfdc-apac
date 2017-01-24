@@ -203,7 +203,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>CompanySoftDeleted</value>
+            <value>Company Soft Deleted</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>Edit</caseAccessLevel>
