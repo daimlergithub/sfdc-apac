@@ -15,7 +15,7 @@ private static Account personAccount;
 private static Id personContactId;
        public static void preparedTestData()
         {
-         personAccount = (Account)UtilTestData.createSobject(new Account(), 
+         personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c ='Email',Mobile__c ='000-123-4567'), 
        UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
                     
        Campaign centralMKTCampaign = new Campaign();

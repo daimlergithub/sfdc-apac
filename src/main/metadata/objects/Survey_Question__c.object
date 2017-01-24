@@ -83,6 +83,8 @@
         <type>Lookup</type>
     </fields>
     <fields>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>

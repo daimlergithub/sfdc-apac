@@ -17,7 +17,7 @@ public class LeadHelperJPTest
     
     public static testMethod void test_updateCustomerStage1()
     {  
-      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI'];
       User u = new User(Alias = 'standt', Email='test@mbj.com', 
       EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
       LocaleSidKey='en_US', ProfileId = p.Id, 

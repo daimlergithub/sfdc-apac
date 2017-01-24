@@ -3,12 +3,7 @@
    Guest users are never able to access this page.
  */
 @IsTest public with sharing class MyProfilePageControllerTest {
-    
-     public static testmethod void testSetContactFields() {
-       // @IsTest(SeeAllData=true)
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
+    @IsTest(SeeAllData=true) static void testSetContactFields() {
         User u = [select title, firstname, lastname, email, phone, mobilephone, fax, street, city, state, postalcode, country
                            FROM User WHERE id =: UserInfo.getUserId()];
 
@@ -19,11 +14,7 @@
         System.assertEquals(c.lastname, u.lastname, 'lastname should have been set as the lastname of the user for the contact');
     }
 
-  public static testmethod  void testSave() {
-     // @IsTest(SeeAllData=true)    
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
+    @IsTest(SeeAllData=true) static void testSave() {
         // Modify the test to query for a portal user that exists in your org
         List<User> existingPortalUsers = [SELECT id, profileId, userRoleId FROM User WHERE UserRoleId <> null AND UserType='CustomerSuccess'];
 

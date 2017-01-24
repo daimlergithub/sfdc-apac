@@ -70,6 +70,24 @@ private class TaskHelperTest {
         system.assertEquals(task.QC_Quantity__c,3);
     }
     
+   /* @isTest
+    public static void testReply_TD_unsubscribeForeachSMScontent(){
+    
+    Id SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+    taskObj =new Task(RecordTypeId = SSITaskRecordTypeId,Status='open',Activity_Status__c='Successful');
+    taskObj=createTask('open');
+    Test.startTest();                                    
+        insert taskObj;
+        List<Task> tasks = new List<Task>();
+        system.debug('%%%%%%%%%%%%%%%'+taskobj);
+        tasks.add(taskObj);
+        Map<Id, Task> taskmap = new Map<Id, Task>();
+        taskmap.put(taskObj.id, taskObj);
+        TaskHelper.Reply_TD_unsubscribeForeachSMScontent(tasks, taskMap, true, false);
+        Test.stopTest();
+    }
+    */
+    
     @isTest
     public static void testGenerateQCs()
     {
@@ -79,7 +97,7 @@ private class TaskHelperTest {
         String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname1',Salutation = Unknown, Area_Code__c = '0101',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Home_Phone_2__c = '0987654131');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname1',Salutation = Unknown, Area_Code__c = '0101',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Home_Phone_2__c = '000-0000-9642',MBK_Data_Source__c='Email',Mobile__c='000-123-4567');
         insert acc;
         Task task = new Task(Subject = acme, RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
@@ -114,7 +132,7 @@ private class TaskHelperTest {
         
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '0987654132');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname2',MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '000-0000-9842');
         insert acc;
         Campaign cam1 = new Campaign(Name = 'acmeCam1');
         insert cam1;
@@ -143,7 +161,7 @@ private class TaskHelperTest {
         taskHelper.FillintheCampaignNameBasedontheRelatedtoObject(tasks, taskMap, true, false);
         // TaskHelper.Reply_TD_unsubscribeForeachSMScontent(tasks, TaskMap, true, false);
             system.debug('%%%%%%%'+tasks);
-         	system.debug('#######'+taskMap);
+            system.debug('#######'+taskMap);
      
         taskHelper.GenerateMultipleQCs(tasks);
         
@@ -161,8 +179,8 @@ private class TaskHelperTest {
        
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         Test.startTest();
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname3',Salutation = Unknown, Area_Code__c = '0103', Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130111',PersonOtherPhone = '130112',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '0987654134');
-        Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130112',PersonOtherPhone = '130113',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '0987654135');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname3',Salutation = Unknown, Area_Code__c = '0103', Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130111',PersonOtherPhone = '130112',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c ='000-0000-9642',MBK_Data_Source__c='Email',Mobile__c='000-0000-9642');
+        Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130112',PersonOtherPhone = '130113',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c ='000-0000-9642',MBK_Data_Source__c='Email',Mobile__c='000-0000-9642');
         insert acc;
         insert acccase;
         
@@ -327,8 +345,8 @@ private class TaskHelperTest {
                                       City__c='Baoshan district',
                                       ZipCode__c='1004468',
                                       PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',
-                                      RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
+                                      PersonOtherPhone = '1301111122',Home_Phone_2__c = '000-0000-9642',
+                                      RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',MBK_Data_Source__c ='Email',Mobile__c = '000-0000-9642'
                                      ); 
         personAccount.Is_Blacklist__c = false;
         insert(personAccount);    

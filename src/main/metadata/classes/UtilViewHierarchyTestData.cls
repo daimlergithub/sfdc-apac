@@ -15,17 +15,17 @@
 */
 @isTest
 Public class UtilViewHierarchyTestData {
-    
-    private static Map<String, Id> recordTypeMap;
-    public final static String ACCOUNT_RT_PERSON_ACCOUNT = 'Person Account';
+	
+	private static Map<String, Id> recordTypeMap;
+	public final static String ACCOUNT_RT_PERSON_ACCOUNT = 'Person Account';
     public final static String ACCOUNT_RT_DEALER = 'Dealer';
-    private static String accountString='Account';
-    private static String classValue='A-Class';
-    public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+	private static String accountString='Account';
+	private static String classValue='A-Class';
+	public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
     public final static String VEHICLE_RELATIONSHIP = 'Vehicle Relationship';
     public final static String VEHICLE_MB = 'MB';
-    
-     // Initiate recordTypeMap
+	
+	 // Initiate recordTypeMap
     private static Map<String, Id> getRecordTypeMapInstance() {
         if (recordTypeMap == null) {
             recordTypeMap = new Map<String, Id>();
@@ -36,30 +36,30 @@ Public class UtilViewHierarchyTestData {
         
         return recordTypeMap;
     }
-    
-    public static Sobject createSobject(Sobject so, String recordTypeName) {
+	
+	public static Sobject createSobject(Sobject so, String recordTypeName) {
         initiateSobject(so, recordTypeName);
         
         insert so;
         return so;
     }
-    public static List<Sobject> createSobjects(List<Sobject> sos, String recordTypeName) {
-        initiateSobjects(sos, recordTypeName);
+	public static List<Sobject> createSobjects(List<Sobject> sos, String recordTypeName) {
+		initiateSobjects(sos, recordTypeName);
 
-        insert sos;
-        return sos;
-    }
+		insert sos;
+		return sos;
+	}
 
-    // Initiate sobjects which number is BATCH_SIZE
-    private static List<Sobject> initiateSobjects(List<Sobject> sos, String recordTypeName) {
-        for (Sobject so : sos) {
-            initiateSobject(so, recordTypeName);
-        }
+	// Initiate sobjects which number is BATCH_SIZE
+	private static List<Sobject> initiateSobjects(List<Sobject> sos, String recordTypeName) {
+		for (Sobject so : sos) {
+			initiateSobject(so, recordTypeName);
+		}
 
-        return sos;
-    }
-    
-    private static Sobject initiateSobject(Sobject so, String recordTypeName) {
+		return sos;
+	}
+	
+	private static Sobject initiateSobject(Sobject so, String recordTypeName) {
         if (so instanceof Account) {
             if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
                 initiatePersonAccount(so);
@@ -76,7 +76,7 @@ Public class UtilViewHierarchyTestData {
         }
         return so;
     }
-    
+	
     // Create Unsaved Person Account
     // N.B. Name is read only for Person Account
     private static void initiatePersonAccount(Sobject so) {
@@ -91,7 +91,7 @@ Public class UtilViewHierarchyTestData {
         acc.Area_Code__c = '010';
         acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
     }
-    // Create Unsaved Dealer
+	// Create Unsaved Dealer
     private static void initiateDealer(Sobject so) {
         Account acc = (Account)so;
 
@@ -105,7 +105,7 @@ Public class UtilViewHierarchyTestData {
         acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
             'North1' : acc.Dealer_MB_Sub_Region__c;
     }
-    // Create Unsaved Vehicle
+	// Create Unsaved Vehicle
     // UsVIN__c Length must be 17, 
     // EuroVIN__c length must be 17 or 18
     private static void initiateVehicle(Sobject so ) {

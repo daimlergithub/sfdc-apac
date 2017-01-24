@@ -15,13 +15,13 @@ public With Sharing class CaseHelperTest {
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
     final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
-    static Account acc = new Account(LastName='acme', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
-    static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
-    static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
+    static Account acc = new Account(LastName='acme', Phone='011111222', Area_Code__c = '010' ,MBK_Data_Source__c='Email',RecordTypeId = personRecordtypeid);
+    static Account acc1 = new Account(Name='acme',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
+    static Account acc2 = new Account(Name='acme23',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
     private static String DealerUser='Dealer User';
     private static String DealerDelegateAdmin='Dealer Delegate Admin';
-    static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
-    static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));   
+    static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'),Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345');            
+    static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'),Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345');   
     public static Account testDealer;
       
    Private static String Dealer_after_sales_service_attitude ='Dealer-after sales service attitude';
@@ -36,10 +36,13 @@ public With Sharing class CaseHelperTest {
             Class__c = 'A-Class',
             Model__c = 'A160',
             UsVIN__c = '46578934237654873',
-            EuroVIN__c = '36253477887363',
+            EuroVIN__c = '362534778873636924',
             Latest_Sales_Person__c = 'Shantaram',
             Warranty_Start_Date__c = Date.today(),
-            FirstRegistrationDate__c = Date.today()
+            FirstRegistrationDate__c = Date.today(),
+            Purchase_Month__c ='02',
+            Purchase_Year__c = '2004',
+            RegistrationNo__c = '12345'
         );
         
         insert testVehicle;
@@ -59,6 +62,7 @@ public With Sharing class CaseHelperTest {
             LastName = 'b', 
             Phone = '01212313', 
             email = 's@s.s',
+            
             Dealer_Complaint_Gate_Keeper__c = true
         );
         insert contact;
@@ -235,8 +239,10 @@ public With Sharing class CaseHelperTest {
                                         Vehicle_ID__r.UsVIN__c,Vehicle_ID__r.EuroVIN__c,Vehicle_ID__r.Latest_Sales_Person__c,Vehicle_ID__r.Warranty_Start_Date__c,Registration_Number__c,Vehicle_ID__r.FirstRegistrationDate__c
                                         from Vehicle_Relationship__c Where Vehicle_ID__c =: vehicle.Id ];
         Case caseAssign = CaseHelper.setVehicleInfo(new Case(), vr);
-        Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
-        testCase.Case_Dealer__c = testDealer.Id;
+        //Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
+        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid);
+        insert testCase;
+        testCase.Case_Dealer__c = acc.Id;
         update testCase;
         
         Complaint_Description__c cd = CaseHelper.newCaseDescription(caseAssign.Id, 'label','newValue','oldValue');
@@ -248,8 +254,9 @@ public With Sharing class CaseHelperTest {
         CaseHelper.shareDealer(caseIds);
         CaseHelper.shareCaseToRO(caseIds);
         
-        Account newAccount = (Account)UtilTestData.createSObject(new Account(), 'Person Account');
-        newAccount.PersonBirthdate = Date.today();
+        Account newAccount = new Account(RecordTypeId = personRecordtypeid);
+        //newAccount.PersonBirthdate = Date.today();
+        newAccount.LastName='Pref chck test';
         newAccount.Gender__c = 'Male';
         newAccount.Occupation__c = 'Others';
         newAccount.Phone = '09088767547';
@@ -257,7 +264,9 @@ public With Sharing class CaseHelperTest {
         newAccount.Primary_Address__c = 'sdfsdfsdfsdf';
         newAccount.City__c = 'asdfsf';
         newAccount.ZipCode__c = '1234567';
-        update newAccount;
+        newAccount.MBK_Data_Source__c='Email';
+        newAccount.Mobile__c = '000-0000-9642';
+        insert newAccount;
         
         testCase.Car_Owner__c = newAccount.Id;
         update testCase;
@@ -298,7 +307,9 @@ public With Sharing class CaseHelperTest {
         Map<Id,String> retmap = CaseHelper.getComplaintGateKeeperEmail(dealerId);
         
         List<String> roles = new List<String>{'Regional CRM Mgr (E)', 'Regional CRM Mgr (S)', 'Regional CRM Mgr (W)', 'Regional CRM Mgr (N)'};        
-        Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
+        //Case testCase = (Case)UtilTestData.createSObject(new Case(), 'MB Complaint');
+        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid);
+        insert testCase;
         User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
         for (String role : roles){
             User usr=new User();       
@@ -526,11 +537,12 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b01()
     {
-        init( );
+        //init( );
         Test.startTest();
-        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-        Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id, Others__c = 'test@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
-        
+        Account dealer = new Account(Name='acme23',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
+        insert dealer;
+        Case cas = new Case(Case_Dealer__c = dealer.id, Others__c = 'test@163.com',RecordTypeId = MBRecordtypeid );
+        insert cas;
         cas.Notice_AS__c = true;
         cas.Notice_CRM__c = true;
         cas.Notice_GM__c = true;
@@ -550,12 +562,13 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b02()
     {
-        init( );
+        //init( );
         Test.startTest();
         insert ve1;
-        Account dealer = (Account)UtilTestData.createSobject(new Account(Dealer_General_Manager_Email__c = 'gm@163.com', Dealer_Sales_Manager_Email__c = 'ds@163.com'), UtilTestData.ACCOUNT_RT_DEALER);
-        Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id,Vehicle__c =ve1.id , Others__c = 'other@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
-        
+        Account dealer = new Account(Dealer_General_Manager_Email__c = 'gm@163.com',Dealer_Sales_Manager_Email__c = 'ds@163.com',Name='acme23',MBK_Data_Source__c='Email',RecordTypeId = dealerRecordtypeid);
+        insert dealer;
+        Case cas = new Case(Case_Dealer__c = dealer.id,Vehicle__c =ve1.id , Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid);
+        insert cas;
         cas.Notice_AS__c = true;
         cas.Notice_CRM__c = true;
         cas.Notice_GM__c = true;
