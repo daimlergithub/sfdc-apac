@@ -7,21 +7,6 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <field>ArticleNumber</field>
-            </layoutItems>
-            <layoutItems>
-                <field>Title</field>
-            </layoutItems>
-            <layoutItems>
-                <field>Summary</field>
-            </layoutItems>
-            <layoutItems>
-                <field>UrlName</field>
-            </layoutItems>
-        <!--    <layoutItems>
-                <field>Answer_for_Public__c</field>
-            </layoutItems>-->
-            <layoutItems>
                 <field>ArticleType</field>
             </layoutItems>
             <layoutItems>
@@ -33,18 +18,18 @@
             <layoutItems>
                 <field>Information_Updated_Flag__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <field>Main_Content__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <field>Additional_Content__c</field>
             </layoutItems>
-         <!--   <layoutItems>
-                <field>Related_Departments__c</field>
+            <layoutItems>
+                <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
-                <field>Remarks_for_Internal__c</field>
-            </layoutItems>-->
+                <field>CreatedDate</field>
+            </layoutItems>
             <layoutItems>
                 <field>LastModifiedById</field>
             </layoutItems>
@@ -58,10 +43,19 @@
                 <field>PublishStatus</field>
             </layoutItems>
             <layoutItems>
-                <field>SystemModstamp</field>
+                <field>VersionNumber</field>
             </layoutItems>
             <layoutItems>
-                <field>VersionNumber</field>
+                <field>ArticleCreatedDate</field>
+            </layoutItems>
+            <layoutItems>
+                <field>FirstPublishedDate</field>
+            </layoutItems>
+            <layoutItems>
+                <field>ArchivedById</field>
+            </layoutItems>
+            <layoutItems>
+                <field>ArchivedDate</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
