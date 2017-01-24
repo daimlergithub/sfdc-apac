@@ -2228,14 +2228,15 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     {
                         newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
                     }
-                    else if(newleds.Nature_of_Request__c == 'Parts Enquiry' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
+                    else if(newleds.Nature_of_Request__c == 'Parts Enquiries' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
                            && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c
                            && newleds.VIN__c == olddedupLeads.VIN__c)
                     {
                         newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);                
                     }
                     else if(newleds.Nature_of_Request__c == 'Service Booking' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
-                           && newleds.Vehicle_Registration_No__c == olddedupLeads.Vehicle_Registration_No__c && newleds.Preferred_Drop_off_Time__c == olddedupLeads.Preferred_Drop_off_Time__c)
+                           && newleds.Vehicle_Registration_No__c == olddedupLeads.Vehicle_Registration_No__c && newleds.Preferred_Drop_off_Time__c == olddedupLeads.Preferred_Drop_off_Time__c
+                           && newleds.Preferred_Date__c == olddedupLeads.Preferred_Date__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c)
                     {
                         newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);
                     }
@@ -2259,6 +2260,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             }
         }
     }   
+   
     public static void shareAccountwithAssignDealer(List<Lead__c> assignLeadList ,map<id,Lead__c> newAdMap,map<id,Lead__c> oldAdMap,boolean isInsert,boolean isUpdate)
     {
         set<id> dleadId = new set<id>();
