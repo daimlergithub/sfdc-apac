@@ -7674,7 +7674,7 @@ Allows up to 240 characters --></help>
         </sections>
     </layouts>
     <layouts>
-        <layout>Company_Soft_Deleted</layout>
+        <layout>CompanySoftDeleted</layout>
         <sections>
             <label><!-- Company Information --></label>
             <section>Company Information</section>
