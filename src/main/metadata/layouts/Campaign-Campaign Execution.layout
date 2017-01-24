@@ -223,7 +223,7 @@
 	<customButtons>Upload_Campaign_Member</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <relatedList>Campaign_Member__c.Campaign__c</relatedList>
+        <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -276,7 +276,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000HD4n</masterLabel>
+        <masterLabel>00hp0000000OGxl</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
