@@ -6,7 +6,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
 	<customButtons>New_Case</customButtons>
-	<customButtons>New_Sales_Leads</customButtons>
+	<customButtons>New_Leads</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
