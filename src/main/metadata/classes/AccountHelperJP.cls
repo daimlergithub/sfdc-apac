@@ -515,6 +515,7 @@ public class AccountHelperJP
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
+				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
@@ -522,12 +523,20 @@ public class AccountHelperJP
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
                 acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
-                if(acclnk.toRole__r.Foundation_Date__c != null)
-                    acclnk.Retail_Foundation_Month__c = string.valueOf(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());         
+                if(acclnk.toRole__r.Foundation_Date__c != null){
+                    Integer FoundationDate = acclnk.toRole__r.Foundation_Date__c.month();
+                    if(FoundationDate <= 9){
+                     acclnk.Retail_Foundation_Month__c =  '0'+String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());
+                    }else {
+                        acclnk.Retail_Foundation_Month__c = String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());         
+                    }
+				}
+				acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+                acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;				
             }//End if for Company record type
             acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
             acclnk.Retail_Website__c = acclnk.toRole__r.website;
-            acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+            //acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
             acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;
             

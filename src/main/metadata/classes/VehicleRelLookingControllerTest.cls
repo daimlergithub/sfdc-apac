@@ -17,13 +17,13 @@ public class VehicleRelLookingControllerTest {
         ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();   
         Id accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
   
-        Account account1 = new Account(Dealer_Default_Flag__c=true,Dealer_DMS_SR_Code__c='Test_SR_Code1',City__c='Beijing',Phone = '080801010',Area_Code__c = '010',ZipCode__c='1003457',lastname = 'Beijing XING Limited',RecordTypeId=accPerson_RecordTypeIdp);
+        Account account1 = new Account(Dealer_Default_Flag__c=true,Dealer_DMS_SR_Code__c='Test_SR_Code1',City__c='Beijing',Phone = '080801010',Area_Code__c = '010',ZipCode__c='1003457',lastname = 'Beijing XING Limited',RecordTypeId=accPerson_RecordTypeIdp,MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000');
         insert account1;
         
         Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
         insert conComplaint;
         
-        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
+        Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class',Competitor_Brand__c='Audi',Purchase_Year__c='2016',RegistrationNo__c='45878');
         insert vehicles;
         
         Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = VRRecordTypeId,Contact__c = account1.id,Vehicle_ID__c = vehicles.id);

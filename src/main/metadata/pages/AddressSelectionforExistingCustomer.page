@@ -3,7 +3,7 @@
   
   <script language="JavaScript" type="text/javascript">
 function afterSave(){
-alert('Sucessfully Created Retail task');
+alert('Sucessfully Created Retail Copy');
 window.location.href="/{!AccId}";      
   
   }

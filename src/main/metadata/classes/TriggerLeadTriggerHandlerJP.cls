@@ -42,6 +42,9 @@ public class TriggerLeadTriggerHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
+          if(isAfter && (isUpdate || isInsert)){
+        System.debug('welcome');
+          LeadHelperJp.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);}
     }
 
 }

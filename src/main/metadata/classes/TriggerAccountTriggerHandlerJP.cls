@@ -121,13 +121,23 @@ implements TriggerHandlerIf
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject); */
             
             if(LeadUtil.accountTrigger){
-			  LeadUtil.vrTrigger = false;
+              LeadUtil.vrTrigger = false;
 
-			  AccountHelperJP.UpdateVRonAccount (trigger.new);
+              AccountHelperJP.UpdateVRonAccount (trigger.new);
             }
 
         }
+          if(isAfter && isInsert )
+        {
+          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+                }
         
+         if(isAfter && isUpdate )
+        {
+          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+                 
+        }
+
         
        /* if(isAfter && isDelete && !System.isFuture())
         {

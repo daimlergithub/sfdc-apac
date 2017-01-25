@@ -2224,7 +2224,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
->>>>>>> asia-kr
         <field>Account.Data_Sub_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6113,7 +6112,7 @@
         <field>Campaign.Campaign_Response_Channels__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Campaign_Sub_Type__c</field>
         <readable>true</readable>
@@ -6183,7 +6182,7 @@
         <field>Campaign.Driven_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Driven__c</field>
         <readable>true</readable>
@@ -20038,6 +20037,16 @@
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Taken_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
                                 <field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
@@ -20123,6 +20132,11 @@
         <field>SurveyTaker__c.Survey_Taking_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Survey_Taken_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.Survey__c</field>
@@ -20196,6 +20210,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Survey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Survey_Answer_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22572,7 +22596,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-CompanySoftDeleted</layout>
-        <recordType>Account.CompanySoftDeleted</recordType>
+        <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
@@ -23036,6 +23060,9 @@
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>QuestionList__c-Question Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
     </layoutAssignments>
@@ -23059,6 +23086,13 @@
     <layoutAssignments>
         <layout>QC__c-SSI</layout>
         <recordType>QC__c.SSI_QC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Question-Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Question-Question Layout</layout>
+        <recordType>Question.Record_type_for_community_09ai0000000TOLlAAO_entity_Question</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
@@ -24649,7 +24683,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.CompanySoftDeleted</recordType>
+        <recordType>Account.Company_Soft_Deleted</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
