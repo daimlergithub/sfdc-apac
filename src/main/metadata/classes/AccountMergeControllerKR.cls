@@ -39,12 +39,11 @@ public with sharing class AccountMergeControllerKR{
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
                 Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName,(Select id, Name, Address_Type__c, Address_Line_1__c, Address_Line_2__c, City__c, District__c, ZipCode__c from Addresses__r where Preferred__c = true),Mobile__c,
-                       PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,Dup_Reason__c,PersonBirthdate  from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
+                       PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,Dup_Reason__c,PersonBirthdate,Work_Phone__c  from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
                        
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
-                 for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Mobile__c,PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,
-                      DUPNumber__c,Id, PersonBirthdate, (Select id, Name, Address_Type__c, Address_Line_1__c, Address_Line_2__c, City__c, District__c, ZipCode__c from Addresses__r where Preferred__c = true) FROM Account
+                 for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Mobile__c,PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,DUPNumber__c,Id, PersonBirthdate,Work_Phone__c, (Select id, Name, Address_Type__c, Address_Line_1__c, Address_Line_2__c, City__c, District__c, ZipCode__c from Addresses__r where Preferred__c = true) FROM Account
                       WHERE DUPNumber__c =:Acct.DUPNumber__c  AND RecordtypeId=:Acct.RecordTypeId AND ID!=:Acct.Id AND Master_Record__c!=:Acct.Master_Record__c  LIMIT 1]) {
                     // As each Account is processed we create a new Accountwrapper object and add it to the AccountwrapperList
                     AccountwrapperList.add(new Accountwrapper(a));
