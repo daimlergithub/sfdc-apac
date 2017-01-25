@@ -17,13 +17,13 @@ private class VehicleSharingTest {
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
         
-        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
+        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme',MBK_Data_Source__c='Email',Mobile__c='000-0000-0000', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
         insert acc;      
      
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');
         insert dealerContact;        
                       
-        vehicle = new Vehicle__c(RecordTypeId=VehicleRetailType);
+        vehicle = new Vehicle__c(RecordTypeId=VehicleRetailType,Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert vehicle;
     }
     

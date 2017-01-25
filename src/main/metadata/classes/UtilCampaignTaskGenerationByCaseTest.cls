@@ -185,7 +185,7 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
     
     static void createAccount_Contact()
     {
-        companyAcc= new Account(Dealer_Default_Flag__c=false,
+       companyAcc= new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
                                 Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                 City__c='Beijing',

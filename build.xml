@@ -394,6 +394,7 @@
                                                                 <sf:include name="AccountMergeControllerKR"/>
                                                                 <sf:include name="AccountMergeControllerTest"/>
                                                                 <sf:include name="ContactTriggerHandlerJP"/>
+																<sf:include name="RetailCampaignHelper"/>
                                                                 <sf:include name="RetailCampaignTriggerHandlerJP"/>
                                                                 <sf:include name="TaskDeletingController"/>
                                                                 <sf:include name="TaskDeletingControllerTest"/>
@@ -583,6 +584,7 @@
                                                 <sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
+												<sf:include name="CampaignHelperTest"/>
                                                 <sf:include name="TriggerCampaignTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignTriggerHandlerKR"/>
                                 </sf:typeset>
@@ -821,7 +823,7 @@
                 <target name="deploy43">
                                 <deploy runAllTests="${sfdc.runAllTests}">
                                 <sf:typeset name="classes">
-                                                <sf:include name="RetailCampaignHelper"/>
+                                                
                                                 <sf:include name="RetailCampaignSharingTest"/>
                                                 <sf:include name="RetailCampaignSharingWrapService"/>
                                                 <sf:include name="RetailCampaignTriggerHandler"/>
@@ -838,7 +840,7 @@
                                                 <sf:include name="AttachmentAfterTriggerHandlerJP"/>
                                                 <sf:include name="BatchAssignTasks"/>
                                                 <sf:include name="BatchAssignTasksTest"/>
-                                                <sf:include name="CampaignHelperTest"/>
+                                                
                                                 <sf:include name="CampaignHelper"/>
 												<sf:include name="Batch_CreateCampaignTask"/>
 												<sf:include name="Batch_CreateCampaignNotification"/>

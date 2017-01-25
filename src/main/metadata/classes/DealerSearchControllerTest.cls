@@ -1,6 +1,7 @@
 @isTest
 public class DealerSearchControllerTest
 {
+    final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static testMethod void testDealerSearch_QueryException()
     {
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
@@ -24,14 +25,14 @@ public class DealerSearchControllerTest
                                      Province__c = 'Shanghai',
                                      City__c = 'Xuhui district,',
                                      Dealer_Sales_Type__c = 'Smart',
+                                     MBK_Data_Source__c = 'Email',
                                      Dealer_Service_Codes__c = 'Sales;Parts');
         dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);
         
         // Create Person Account
-        Account personAccount = new Account(Province__c = 'Shanghai',
+        Account personAccount = new Account(RecordTypeId = personRecordtypeid, Province__c = 'Shanghai',
                                             City__c = 'Xuhui district,');
-        personAccount = (Account)UtilTestData.createSobject(personAccount, 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        //personAccount = (Account)UtilTestData.createSobject(personAccount,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         
         // Start Test
         Test.startTest();

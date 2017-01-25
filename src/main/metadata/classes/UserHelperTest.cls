@@ -276,10 +276,12 @@ public With Sharing class UserHelperTest
     {
         Account acc1 = new Account();
         acc1.LastName ='testaccount';
-        acc1.Mobile__c ='074389594';
+        //acc1.Mobile__c ='074389594';
         acc1.FirstName ='batch';
         acc1.Email__c ='ssibatch@test.com';
         acc1.Salutation ='Brother';
+        acc1.MBK_Data_Source__c='Email';
+        acc1.Mobile__c = '000-0000-9642';
         insert acc1;
         
         
@@ -312,6 +314,13 @@ public static testmethod void testbatch2()
         vehc1.Vehicle_Name__c ='Test1';
         vehc1.UsVIN__c ='abchgdtrsghtredfr';
         vehc1.RecordTypeId = vechID;
+        vehc1.Brand__c ='Mercedes-Benz';
+        vehc1.FirstRegistrationDate__c = date.today();
+        vehc1.Purchase_Month__c ='02';
+        vehc1.Model__c = 'R350L 4MATIC'; 
+        vehc1.Class__c = 'A-Class';
+        vehc1.Purchase_Year__c = '2004';
+        vehc1.RegistrationNo__c = '12345';
         insert vehc1;
         
        createTestData();
@@ -346,6 +355,13 @@ public static testmethod void testbatch2()
         vehc1.Vehicle_Name__c ='Test1';
         vehc1.UsVIN__c ='abchgdtrsghtredfr';
         vehc1.RecordTypeId = vechID;
+        vehc1.Brand__c ='Mercedes-Benz';
+        vehc1.FirstRegistrationDate__c = date.today();
+        vehc1.Purchase_Month__c ='02';
+        vehc1.Model__c = 'R350L 4MATIC'; 
+        vehc1.Class__c = 'A-Class';
+        vehc1.Purchase_Year__c = '2004';
+        vehc1.RegistrationNo__c = '12345';
         insert vehc1;
         
         
@@ -424,14 +440,16 @@ public static testmethod void testbatch2()
             FirstName = 'First',
             LastName = 'Last',
             PersonEmail = 'test@test.com',
-            Salutation = 'Unknown'
+            Salutation = 'Unknown',
+            MBK_Data_Source__c='Email',
+            Mobile__c = '000-0000-9642'
         );
         insert person;
         
         CompanyAcc = new Account(
             RecordTypeId = companyRecordtypeid,
-            Mobile__c = '09686305220',
-            Work_Phone__c = '09686305220',
+            Mobile__c = '000-0000-9642',
+            Work_Phone__c = '000-0000-9642',
             Name = 'First'
             
         );
@@ -464,7 +482,8 @@ public static testmethod void testbatch2()
                 ownerId = usr.id);
         insert task;
      
-        vehicle = new Vehicle__c();
+        vehicle = new Vehicle__c(Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
+        
         insert vehicle; 
         
         Vehicle__Share vehicleShare = new Vehicle__Share();

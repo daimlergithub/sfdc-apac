@@ -4,11 +4,11 @@ public class UtilCampaignTaskGenerationByLeadsTest {
  Private static string retailLeadType =Schema.SObjectType.lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
  Private static string accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();     // Dealer.
  Private static String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
-  Private static Account account2;
+ Private static Account account2;
  Private static Contact contact;
  Private static List<Campaign> ml;
-Private static Account dealer;
-Private static List<Campaign_Lead__c> listcamplead = new List<Campaign_Lead__c>();
+ Private static Account dealer;
+ Private static List<Campaign_Lead__c> listcamplead = new List<Campaign_Lead__c>();
  private static List<Lead__c> listlead = new List<Lead__c>();
  private static Lead__C lead;
 
