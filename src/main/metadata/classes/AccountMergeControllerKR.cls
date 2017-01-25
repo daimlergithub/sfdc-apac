@@ -34,13 +34,13 @@ public with sharing class AccountMergeControllerKR{
      */    
      public AccountMergeControllerKR(){
            Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
-           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted');
+           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company Soft Deleted');
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
                 Acct = [Select Id,name,DUPNumber__c,Master_Record__c,RecordtypeId,RecordType.Name,RecordType.DeveloperName,(Select id, Name, Address_Type__c, Address_Line_1__c, Address_Line_2__c, City__c, District__c, ZipCode__c from Addresses__r where Preferred__c = true),Mobile__c,
                        PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,Dup_Reason__c,PersonBirthdate  from Account where Id=:Apexpages.currentPage().getParameters().get('id')];  
-					   
+                       
                if(Acct.DUPNumber__c!=Null){
                 AccountwrapperList.add(new Accountwrapper(Acct));  
                  for(Account a: [Select Name,recordType.developerName,Master_Record__c,Dup_Reason__c,Mobile__c,PersonOtherPhone,PersonHomePhone,Phone,Email__c,Individual_Home_Phone__c ,
