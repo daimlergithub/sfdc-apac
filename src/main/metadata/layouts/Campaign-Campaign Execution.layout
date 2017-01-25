@@ -220,7 +220,8 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-	<customButtons>Upload_Campaign_Member</customButtons>
+        <customButtons>Upload_Campaign_Member</customButtons>
+		<customButtons>Refresh</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>

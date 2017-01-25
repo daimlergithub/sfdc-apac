@@ -1,3 +1,16 @@
+/***********************************************************************************
+Created By          :    Venky 
+Created Date        :    06.12.2016
+Company             :    NTT Data,Inc.
+Usage               :   The functionality of this Class sending Account Id and DealerId to EP database
+                         Business Conditions : 
+                         Sending Current AccountId and Dealer Id to EP.
+                         in account If Warranty_Apply_Status__c is null update to "To be  sent" 
+JIRA NO             :    SFDCJP-682,631
+************************************************************************************/
+
+
+
 public class SendAccountInfoToSPO {
     Public String AccId{get;set;}
     Public Account Acclist { get; set; }
@@ -7,10 +20,11 @@ public class SendAccountInfoToSPO {
     Public String redirectUrl{get;set;}
     Public List<Address__c> AddRecords{get;set;}
     Public User  Usr{get;set;}
-	Public String HomeAdd{get;set;}
+    Public String HomeAdd{get;set;}
     Public string message{get;set;}
     public Boolean shouldRedirect {public get; private set;}
      
+     //Constructor 
     public SendAccountInfoToSPO(ApexPages.StandardController controller) {
         Acclist =new Account();
         Addlist=new Address__c ();
@@ -32,8 +46,10 @@ public class SendAccountInfoToSPO {
                 {
                 Addlist=[Select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId and Address_Type__c='Home'];
                 }
-    }
+    } //Constructor End.
     
+    
+    // Method to Send AccountId and Dealer Id to EP
     Public void SendTOSpo()
     {
     Usr=new User(); 
@@ -70,12 +86,12 @@ public class SendAccountInfoToSPO {
     }
     }
     }
-    update Accupdate; 
+    update Accupdate;  // Update account object Warranty_Apply_Status field
      System.debug('acc Accupdate'+Accupdate);
      
-    }
+    } //Method End
     
     
     
 
-}
+}// Class end

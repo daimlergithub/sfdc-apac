@@ -396,7 +396,7 @@
                                                                 <sf:include name="AccountMergeControllerTest"/>
                                                                 <sf:include name="ContactTriggerHandlerJP"/>
 																<sf:include name="RetailCampaignHelper"/>
-                                                                <sf:include name="RetailCampaignTriggerHandlerJP"/>																
+                                                                <sf:include name="RetailCampaignTriggerHandlerJP"/>
                                                                 <sf:include name="TaskDeletingController"/>
                                                                 <sf:include name="TaskDeletingControllerTest"/>
                                                                 <sf:include name="SSITriggerHandlerJP"/>
@@ -586,8 +586,8 @@
                                                 <sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 												<sf:include name="CampaignHelperTest"/>
-                                                <sf:include name="CampaignHelper"/>
-                                                <sf:include name="TriggerCampaignTriggerHandlerJP"/>												
+                                                <sf:include name="CampaignHelper"/>												
+                                                <sf:include name="TriggerCampaignTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignTriggerHandlerKR"/>
                                 </sf:typeset>
                                 <sf:typeset name="triggers">
@@ -823,8 +823,8 @@
     </target>
                 
                 <target name="deploy43">
-                                <deploy runAllTests="${sfdc.runAllTests}">
-                                <sf:typeset name="classes">                                                
+                                <deploy runAllTests="${sfdc.runAllTests}">                                               
+                                <sf:typeset name="classes">
                                                 <sf:include name="RetailCampaignSharingTest"/>
                                                 <sf:include name="RetailCampaignSharingWrapService"/>
                                                 <sf:include name="RetailCampaignTriggerHandler"/>
