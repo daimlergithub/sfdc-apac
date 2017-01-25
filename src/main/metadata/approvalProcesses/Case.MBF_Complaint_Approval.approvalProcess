@@ -32,7 +32,7 @@
         <criteriaItems>
             <field>Case.RecordType</field>
             <operation>equals</operation>
-            <value>MBF Complaint</value>
+            <value>MBF Complaint Management Case</value>
         </criteriaItems>
         <criteriaItems>
             <field>Case.Case_Class__c</field>
@@ -60,7 +60,7 @@
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>MBF Complaint Approval</label>
+    <label>MBF Complaint Management Case Approval</label>
     <recordEditability>AdminOrCurrentApprover</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>
