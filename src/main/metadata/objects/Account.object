@@ -1326,17 +1326,17 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>PersonEmail</field>
+            <field>Email__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>PersonMobilePhone</field>
+            <field>Mobile__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>PersonHomePhone</field>
+            <field>Individual_Home_Phone__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
