@@ -1,3 +1,17 @@
+/***********************************************************************************
+Created By          :    Venky    
+Created Date        :     06.12.2016
+Company             :    NTT Data,Inc.
+Usage               :    This class written to cover the test code covergae for  SendAccountInfoToSPO class
+
+MODIFICATION DETAILS:
+
+1. Modified By      :    Venky
+   Modifide Date    :    25.1.2017
+   Deatils          :Fixed test class failure and improved code coverage.
+
+************************************************************************************/
+
 @isTest
  public class SendAccountInfoToSPOTest {
  
@@ -8,7 +22,7 @@
   public static testMethod void createTestData()
   {
   
-      personAcc = new Account(Dealer_Default_Flag__c=false,
+        personAcc = new Account(Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
                                City__c='Beijing',
@@ -33,7 +47,7 @@
         account= new Account();
         account.Phone='09844650654';
         account.FirstName = 'Test';
-        account.Mobile__c = '1234567890';
+        account.Mobile__c = '023482832';
         account.Data_Source__c  = 'Test4';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
         

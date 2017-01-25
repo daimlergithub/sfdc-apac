@@ -84,7 +84,7 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
         public String clientCertName_x;
         public String clientCert_x;
         public String clientCertPasswd_x;
-        public Integer timeout_x;
+        public Integer timeout_x=60000;
         private String[] ns_map_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0', 'crmasiaDaimlerApacComSfdcnotificatio'};
         public String SARILeadNotification(String Organization,String MarketDiscriminator,String Usecase,String LeadId,String DealerId,String CorrelationId) {
             crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType request_x = new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType();
