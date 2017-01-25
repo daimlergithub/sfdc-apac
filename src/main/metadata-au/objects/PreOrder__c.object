@@ -588,9 +588,9 @@
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Closed_Reason_Validation</fullName>
-        <active>true</active>
-        <description>Closed Reason Cannot be Empty when the status is closed.</description>
+        <active>false</active>
+        <description>Cancelled Reason Cannot be Empty when the status is closed.</description>
         <errorConditionFormula>IF(  ISPICKVAL( Status__c , 'Closed')   &amp;&amp; ISBLANK(  TEXT(ClosedReason__c)  )  , true, false)</errorConditionFormula>
-        <errorMessage>Closed Reason required</errorMessage>
+        <errorMessage>Cancelled Reason is required</errorMessage>
     </validationRules>
 </CustomObject>
