@@ -318,6 +318,20 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>Parent Campaign Status Draft</fullName>
+        <actions>
+            <name>Update_Status11</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
     <rules>
         <fullName>Record Publish Date</fullName>
         <actions>
