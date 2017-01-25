@@ -697,7 +697,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>My_Mercedes_Email__c</fullName>
         <externalId>false</externalId>
         <formula>Contact_Id__r.Email3__c</formula>
@@ -912,12 +912,11 @@
     <fields>
         <fullName>Retail_Campaign_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is used to refer the related retail campaign execution record</description>
         <externalId>false</externalId>
-        <label>Retail Campaign Id</label>
-        <referenceTo>Campaign</referenceTo>
-        <relationshipLabel>Campaign Members (Retail Campaign Id)</relationshipLabel>
-        <relationshipName>Campaign_Members2</relationshipName>
+        <label>Retail Campaign ID</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Campaign Members</relationshipLabel>
+        <relationshipName>Campaign_Members</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -1152,4 +1151,31 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Refresh</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+ var listId= window.sfdcPage.relatedLists;
+window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Upload_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+    </webLinks>
 </CustomObject>

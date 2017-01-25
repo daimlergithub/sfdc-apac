@@ -60,7 +60,8 @@ Public static void preparedTestData()
             LastName = 'Test-Customer',          
             Phone = '01234567',
             Area_Code__c = '010',                         
-           // ZipCode__c = '7123456',            
+           // ZipCode__c = '7123456'
+           MBK_Data_Source__c='Email',Mobile__c ='000-123-4567',         
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()        
         );        
         insert acc;

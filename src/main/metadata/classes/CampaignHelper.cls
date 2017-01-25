@@ -12,6 +12,43 @@ public class CampaignHelper {
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
     public static string CacCampaign ='CAC Campaign';
     
+    /**
+  *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method show error message when user try to delete if status is not planning
+  and parent campaign is not Draft
+  *@Date : 20/01/2017
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */
+  public static void beforeDeleteEvents(List<Campaign> campNew)
+    {
+    Id camIdExec = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id camIdPlan = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+       system.debug('++++++'+campNew);
+       for(Campaign cam : campNew){
+
+   if(cam.RecordTypeId == camIdExec && cam.Child_Campaign_Status__c != 'planning'){
+          system.debug('+++++++++'+'checking');
+            cam.addError('You Cant Delete  The Campaign');
+    
+    }else if(cam.RecordTypeId == camIdPlan && cam.Status != 'Draft'){
+   
+            cam.addError('You Cant Delete  The Campaign');
+            system.debug('+++++++++'+'checking');
+    
+    }
+    
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
     
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
@@ -332,6 +369,7 @@ public class CampaignHelper {
         }
     }
     
+     
  /**
   *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object.
@@ -477,4 +515,5 @@ public class CampaignHelper {
             }
         }
     }
+    
 }

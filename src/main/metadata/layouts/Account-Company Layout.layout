@@ -6,6 +6,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
 	<customButtons>New_Case</customButtons>
+	<customButtons>New_Leads</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -33,7 +34,7 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
-    <excludeButtons>AccountHierarchy</excludeButtons>
+    
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComClean</excludeButtons>

@@ -16,7 +16,7 @@ public class TriggerVehicleRelationshipTest {
         System.runAs(testUser){
             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
             insert updatecustomsettings;
-			
+            
             
             System.debug('Current User Id: ' + UserInfo.getUserId());
             system.debug('Custom Settings inserted...' +updatecustomsettings);
@@ -27,11 +27,15 @@ public class TriggerVehicleRelationshipTest {
                 UtilTestData.ACCOUNT_RT_DEALER);
             
             // Create Person Account
-            Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
+            Account personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c ='Email',
+                                       Mobile__c ='000-123-4567'), 
                 UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
             
             // Create Vehicle
-            Vehicle__c vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB);
+            Vehicle__c vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,
+                                                EuroVIN__c = '12345678901111111',
+                                                UsVIN__c = '12345678902222222',
+                                                Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), UtilTestData.VEHICLE_MB);
             
             // Create Vehicle Relationship
             Vehicle_Relationship__c relationship = new Vehicle_Relationship__c();

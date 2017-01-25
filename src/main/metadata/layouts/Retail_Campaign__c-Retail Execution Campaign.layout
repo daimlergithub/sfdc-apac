@@ -13,14 +13,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Campaign_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parent_Campaign__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Child_Campaign_Status__c</field>
             </layoutItems>
             <layoutItems>
@@ -37,18 +29,18 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Add_Sales_Staff__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_Service_Staff__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Member_Sharing_Rule__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Parent_Campaign1__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Execution_Start_Date__c</field>
@@ -75,7 +67,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Campaign_Member_Sharing_Rule__c</field>
+                <field>Add_Sales_Staff__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_Service_Staff__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -92,7 +88,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Retail_Campaign_Member__c.Retail_Campaign__c</relatedList>
+        <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

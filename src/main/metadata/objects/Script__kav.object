@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <articleTypeChannelDisplay>
         <articleTypeTemplates>
@@ -24,9 +24,9 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
-        <fullName>Answer_for_Public__c</fullName>
+        <fullName>Additional_Content__c</fullName>
         <externalId>false</externalId>
-        <label>Answer for Public</label>
+        <label>Additional Content</label>
         <length>32768</length>
         <type>Html</type>
         <visibleLines>25</visibleLines>
@@ -66,19 +66,96 @@
         <required>false</required>
         <type>File</type>
     </fields>
+<!--    <fields>
+        <fullName>Attachment_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment 6</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_7__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment 7</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_8__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment 8</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>-->
     <fields>
         <fullName>Category__c</fullName>
         <externalId>false</externalId>
         <label>Category</label>
         <picklist>
             <picklistValues>
+                <fullName>Overview</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emergency Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Campaign/Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Benz</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Salesforce System</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales &amp; Marketing Other</fullName>
+                <default>false</default>
+            </picklistValues>
+         <!--   <picklistValues>
                 <fullName>Current Car Model</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Promotion</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>-->
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -91,13 +168,41 @@
         <label>Department</label>
         <picklist>
             <picklistValues>
-                <fullName>CRM</fullName>
+                <fullName>Customer Contact Center</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Network Development</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Innovation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+         <!--   <picklistValues>
                 <fullName>After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+            </picklistValues>-->
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -124,28 +229,9 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Related_Departments__c</fullName>
+        <fullName>Main_Content__c</fullName>
         <externalId>false</externalId>
-        <label>Related Departments</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Remarks_for_Internal__c</fullName>
-        <externalId>false</externalId>
-        <label>Remarks for Internal</label>
+        <label>Main Content</label>
         <length>32768</length>
         <type>Html</type>
         <visibleLines>25</visibleLines>

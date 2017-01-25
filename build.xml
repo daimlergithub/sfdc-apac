@@ -394,6 +394,7 @@
                                                                 <sf:include name="AccountMergeControllerKR"/>
                                                                 <sf:include name="AccountMergeControllerTest"/>
                                                                 <sf:include name="ContactTriggerHandlerJP"/>
+																<sf:include name="RetailCampaignHelper"/>
                                                                 <sf:include name="RetailCampaignTriggerHandlerJP"/>
                                                                 <sf:include name="TaskDeletingController"/>
                                                                 <sf:include name="TaskDeletingControllerTest"/>
@@ -582,6 +583,7 @@
                                                 <sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
+												<sf:include name="CampaignHelperTest"/>
                                                 <sf:include name="TriggerCampaignTriggerHandlerJP"/>
                                                 <sf:include name="TriggerCampaignTriggerHandlerKR"/>
                                 </sf:typeset>
@@ -820,7 +822,7 @@
                 <target name="deploy43">
                                 <deploy runAllTests="${sfdc.runAllTests}">
                                 <sf:typeset name="classes">
-                                                <sf:include name="RetailCampaignHelper"/>
+                                                
                                                 <sf:include name="RetailCampaignSharingTest"/>
                                                 <sf:include name="RetailCampaignSharingWrapService"/>
                                                 <sf:include name="RetailCampaignTriggerHandler"/>
@@ -837,7 +839,7 @@
                                                 <sf:include name="AttachmentAfterTriggerHandlerJP"/>
                                                 <sf:include name="BatchAssignTasks"/>
                                                 <sf:include name="BatchAssignTasksTest"/>
-                                                <sf:include name="CampaignHelperTest"/>
+                                                
                                                 <sf:include name="CampaignHelper"/>
 												<sf:include name="Batch_CreateCampaignTask"/>
 												<sf:include name="Batch_CreateCampaignNotification"/>
@@ -868,6 +870,12 @@
                                                 <sf:include name="CaseEscalationControllerTest"/>
                                                 <sf:include name="SubmitSurveyController"/>
                                                 <sf:include name="SubmitSurveyControllerTest"/>
+												<sf:include name="SurveyHelperJP"/>
+												<sf:include name="SurveyHelperJPTest"/>
+												<sf:include name="SurveyTakerHelperJP"/>
+												<sf:include name="SurveyTakerHelperJPTest"/>
+												<sf:include name="TriggerSurveyTakerTriggerHandlerJP"/>
+												<sf:include name="TriggerSurveyTriggerHandlerJP"/>
                                                 <sf:include name="MassApproveToolKitController"/>
                                                 <sf:include name="MassApproveToolKitControllerTest"/>
                                                 <sf:include name="MassApproveRetailCampaignController"/>
@@ -886,7 +894,11 @@
                                                                 <sf:include name="MonthlyMarketAmountReport"/>
                                                                 <sf:include name="MonthlyMarketAmountReportPage"/>
                                                                 <sf:include name="LeadConverting"/>
-                                </sf:typeset>                    
+                                </sf:typeset>
+                                <sf:typeset name="triggers">
+                                                <sf:include name="TriggerSurvey"/>
+                                                <sf:include name="TriggerSurveyTaker"/>
+                                </sf:typeset>								
                                 <sf:typeset name="approvalProcesses"/>
                                 <sf:typeset name="email"/>
                                 <sf:typeset name="workflows"/> 

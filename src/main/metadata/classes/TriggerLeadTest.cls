@@ -14,25 +14,22 @@ private class TriggerLeadTest {
 Private Static Account personAccount;
 Private Static Lead__c lead;
 Private Static Account customer;
-Private Static String personRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+Private Static Id personRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+Private Static Id salesleadsRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
 Private Static Vehicle_Relationship__c vr;
 Private Static Id aftersalesRecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 'Aftersales Leads');
 Private Static String Accepted='Accepted';
 public static void preparedTestData()
 {
-        personAccount = new Account(Allow_Data_Sharing__c = 'Yes');
-        UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        personAccount = new Account(RecordTypeId=personRecordtypeid,Allow_Data_Sharing__c = 'Yes',LastName='testacc',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842');
+        //UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
-        lead = new Lead__c(Contact__c = personAccount.Id);
-        UtilTestData.createSobject(lead, UtilTestData.LEAD_RT_SALES_LEADS);
-        
-            lead = new Lead__c(
-            Assigned_Date_Time__c = null,
-            Dealer_Audit__c = false,
-            Dealer_Lead_Status__c = Accepted);
+        lead = new Lead__c(RecordTypeId=salesleadsRecordTypeId ,Contact__c = personAccount.Id,Assigned_Date_Time__c = null,Dealer_Audit__c = false,Dealer_Lead_Status__c = Accepted);
+        //UtilTestData.createSobject(lead, UtilTestData.LEAD_RT_SALES_LEADS);
+        insert lead;
+            //lead = new Lead__c(Assigned_Date_Time__c = null,Dealer_Audit__c = false,Dealer_Lead_Status__c = Accepted);
             
-            lead = (Lead__c)UtilTestData.createSobject(lead, 
-            UtilTestData.LEAD_RT_SALES_LEADS);
+            //lead = (Lead__c)UtilTestData.createSobject(lead,UtilTestData.LEAD_RT_SALES_LEADS);
             
             lead.Assigned_Date_Time__c = System.now();
             update lead;
@@ -51,6 +48,8 @@ public static void preparedTestData()
         customer.Status__c = '0=Customer';
         customer.RecordTypeId = personRecordTypeId;
         customer.Area_Code__c = '010';
+        customer.MBK_Data_Source__c = 'Email';
+        customer.Mobile__c = '000-0000-9842';
         insert customer;
         
         vr = new Vehicle_Relationship__c(Contact__c=customer.Id, Car_Relation__c='user');
@@ -87,6 +86,7 @@ public static void preparedTestData()
         // Start Test
         Test.startTest();
         // Update CAC_Lead_Status__c from New to 'Lost(CAC)'
+        lead.Lost_To__c = 'test';
         lead.CAC_Lead_Status__c = 'Lost(CAC)';
         lead.Lost_CAC_Date__c = System.today();
         update lead;
@@ -102,10 +102,12 @@ public static void preparedTestData()
         // Start Test
         Test.startTest();
         // Update CAC_Lead_Status__c from New to 'Lost(CAC)'
+        lead.Lost_To__c = 'test';
         lead.CAC_Lead_Status__c = 'Purchased(Only Non BDC)';
         lead.Bought_Vehicle_Brand__c = 'MB';
         lead.Bought_Vehicle_Class__c = 'A-Class';
         lead.Bought_Vehicle_Model__c = 'A160';
+        lead.CAC_Lead_Status__c = 'Qualified';
         lead.Purchased_CAC_Date__c = System.today();
         update lead;        
         // Stop Test

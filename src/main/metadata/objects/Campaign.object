@@ -833,7 +833,7 @@
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1501,7 +1501,7 @@
                 <fullName>Event</fullName>
                 <default>false</default>
             </picklistValues>
-			   <picklistValues>
+            <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1972,7 +1972,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Range__c</fullName>
         <externalId>false</externalId>
         <label>Range</label>
@@ -2295,129 +2295,495 @@
         <externalId>false</externalId>
         <label>Working Day</label>
         <picklist>
+            <controllingField>SegWorkingMonth__c</controllingField>
             <picklistValues>
                 <fullName>1</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>2</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>3</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>4</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>5</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>6</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>7</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>8</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>9</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>10</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>11</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>12</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>13</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>14</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>15</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>16</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>17</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>18</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>19</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>20</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>21</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>22</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>23</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>24</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>25</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>26</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>27</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>28</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Feb</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>29</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>30</fullName>
                 <default>false</default>
+                <controllingFieldValues>Apr</controllingFieldValues>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Jun</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Nov</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
+                <controllingFieldValues>Sep</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>31</fullName>
                 <default>false</default>
+                <controllingFieldValues>Aug</controllingFieldValues>
+                <controllingFieldValues>Dec</controllingFieldValues>
+                <controllingFieldValues>Jan</controllingFieldValues>
+                <controllingFieldValues>Jul</controllingFieldValues>
+                <controllingFieldValues>Mar</controllingFieldValues>
+                <controllingFieldValues>May</controllingFieldValues>
+                <controllingFieldValues>Oct</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -2432,53 +2798,66 @@
         <externalId>false</externalId>
         <label>Working Month</label>
         <picklist>
+            <controllingField>Use_Segmentation_Criteria__c</controllingField>
             <picklistValues>
                 <fullName>Jan</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Feb</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mar</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Apr</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>May</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Jun</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Jul</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aug</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sep</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Oct</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Nov</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dec</fullName>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -2592,11 +2971,11 @@
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Draft</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -11357,6 +11736,29 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Class__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -11535,11 +11937,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11547,15 +11949,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>SMS</fullName>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>eDM</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11621,6 +12019,13 @@
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14626,59 +15031,15 @@
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
-                <fullName>Familiarization workshop for dormant customers</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <fullName>Finance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Idle Hour Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maintenance Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Customer Acquisition</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POM%2FAdvertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts Cross Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Promotion on Technical accessories and collections</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Product Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used-car buy-back%2FTrade-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VEP%28Seasonal Check%29</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14874,6 +15235,29 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15142,6 +15526,13 @@
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15457,39 +15848,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Approved</fullName>
+                <fullName>Completed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approving</fullName>
+                <fullName>Draft</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Started</fullName>
+                <fullName>Ongoing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17136,7 +17503,7 @@
                 <fullName>VEP%28Seasonal Check%29</fullName>
                 <default>false</default>
             </values>
-			</picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
             <values>
@@ -17960,8 +18327,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-    
-    
     <recordTypes>
         <fullName>smart_Best_Practice</fullName>
         <active>true</active>
@@ -19317,6 +19682,12 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>“BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Make_segementation_date_inactive</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Use_Segmentation_Criteria__c = TRUE,NOT(ISBLANK(Segmentation_Date__c ) ) )</errorConditionFormula>
+        <errorMessage>Segmentation criteria is on</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Only_Started_Campaign_can_be_activated</fullName>
         <active>false</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
@@ -19408,7 +19779,7 @@ IsActive = True
         <masterLabel>Create Child Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=012p00000004oA2&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>

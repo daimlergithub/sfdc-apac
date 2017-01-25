@@ -28,7 +28,7 @@ public with sharing class AccountHelperJPTest
                                Gender__c = 'Male',
                                Phone = '0801801110',
                                Area_code__c = '0101',
-                               MD__c = 'JP',
+                               //MD__c = 'JP',
                                LastName = 'galaxy1',
                                FirstName = 'First Name',
                                Salutation = 'Unknown',      
@@ -50,7 +50,7 @@ public with sharing class AccountHelperJPTest
                                 Gender__c = 'Male',
                                 Phone = '0801801010',
                                 Area_code__c = '0101',
-                                MD__c = 'JP',
+                                //MD__c = 'JP',
                                 name = 'tes company name',
                                 //Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
@@ -108,7 +108,7 @@ public with sharing class AccountHelperJPTest
       {
        createTestData(); 
        Test.Starttest(); 
-       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountOldMap, true);
+       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountMap,true);
        Test.Stoptest();      
      }  
     Public static testmethod void testUpdatePrimaryContactInformationBeforeInsert()

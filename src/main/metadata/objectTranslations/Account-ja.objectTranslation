@@ -7422,10 +7422,6 @@ Allows up to 240 characters --></help>
             <label>コンタクト情報</label>
             <section>Contact Infromation</section>
         </sections>
-        <sections>
-            <label><!-- Telematics Related Information --></label>
-            <section>Telematics Related Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>CompanySoftDeleted</layout>
@@ -7704,8 +7700,8 @@ Allows up to 240 characters --></help>
         <name>Company</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- CompanySoftDeleted --></label>
-        <name>CompanySoftDeleted</name>
+        <label><!-- Company_Soft_Deleted --></label>
+        <name>Company_Soft_Deleted</name>
     </recordTypes>
     <recordTypes>
         <label>Dealer</label>

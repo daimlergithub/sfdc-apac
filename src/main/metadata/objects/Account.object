@@ -19654,9 +19654,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>CompanySoftDeleted</fullName>
+        <fullName>Company_Soft_Deleted</fullName>
         <active>true</active>
-        <label>CompanySoftDeleted</label>
+        <label>Company Soft Deleted</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -30018,9 +30018,9 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-    OR(
-	   NOT(CONTAINS( $Profile.Name, 'MBJ' )), NOT(CONTAINS( $Profile.Name, 'MBF' ))
-	),$Profile.Name != 'Integration API', MD__c ='JP', ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+ OR(
+	NOT(CONTAINS( $Profile.Name, 'Dealer' )), NOT(CONTAINS( $Profile.Name, 'MBF' ))
+	),$Profile.Name != 'IntegrationAPI', MD__c ='JP', ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -30037,7 +30037,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
         <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
-        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
@@ -31336,8 +31336,8 @@ if (sforce.console.isInConsole()) {
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
-{
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+{	
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
@@ -31348,9 +31348,9 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LE
 ) 
 }	
 else { 
-if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
-{
-window.open("OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
+{	
+window.open("OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 {
@@ -31406,7 +31406,7 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
@@ -31419,7 +31419,7 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_S
 else { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {

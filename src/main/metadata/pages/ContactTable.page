@@ -24,8 +24,9 @@
         <apex:includeScript value="/support/api/28.0/interaction.js"/>
         <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
+         <apex:includeScript value="/support/console/32.0/integration.js"/>
         <apex:pageBlock id="Block">
-           <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c='JP',true,false)}">
+           <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
                 <table style="width:100%" rules="rows">               
                    <tr>        
                        <td></td> 
@@ -215,7 +216,7 @@
                    </tr> 
                </table>    
             </apex:pageBlock> 
-            <apex:pageBlock id="myTableKR" rendered="{!If(ParAcc.MD__c='KR',true,false)}">
+            <apex:pageBlock id="myTableKR" rendered="{!If(ParAcc.MD__c=='KR',true,false)}">
                 <table style="width:100%" border="1">               
                    <tr>        
                        <td></td> 
@@ -234,9 +235,10 @@
                          <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                          <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
                          <apex:outputPanel rendered="{!!editMode}"> 
-                         <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                         <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="{!if($Profile.Name =='Dealer Community User','display:block','display:none')}"> 
                              <support:clickToDial number="{!ParAcc.Mobile__c}"/>  
                          </a>
+                         
                        </apex:outputPanel>    
                        </td> 
                        <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
@@ -246,7 +248,8 @@
                        <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>           
                        </td>        
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>    
-                   </tr>               
+                   </tr>    
+                       
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
                        <td>
@@ -255,7 +258,7 @@
                             </apex:selectList>    
                           <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="{!if($Profile.Name =='Dealer Community User','display:block','display:none')}"> 
                                  <support:clickToDial number="{!ParAcc.Individual_Home_Phone__c}"/>  
                              </a>
                    </apex:outputPanel>    
@@ -277,7 +280,7 @@
                             </apex:selectList>  
                           <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
                           <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
-                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="display:none"> 
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');" style="{!if($Profile.Name =='Dealer Community User','display:block','display:none')}"> 
                            <support:clickToDial number="{!ParAcc.Work_Phone__c}"/>   
                         </a> 
                        </apex:outputPanel>     

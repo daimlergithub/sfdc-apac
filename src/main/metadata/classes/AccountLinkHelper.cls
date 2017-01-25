@@ -181,7 +181,7 @@ public class AccountLinkHelper
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
-            // createSharingRecord(map_AccountIdAndListAccountLinkId);
+             createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
         if(map_AccountIdAndListAccountLinkId.size() > 0){
@@ -460,6 +460,7 @@ public class AccountLinkHelper
                 acclink.Retail_Work_Phone__c = accountMap.get(acclink.toRole__c).Work_Phone__c;
                 acclink.Retail_Mobile__c = accountMap.get(acclink.toRole__c).Mobile__c;                
                 acclink.Retail_Email__c = accountMap.get(acclink.toRole__c).Email__c;
+				acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
             }
             //Checking the Company RecordType
             if(accountMap.get(acclink.toRole__c).RecordType.Name=='Company'){ 
@@ -468,11 +469,20 @@ public class AccountLinkHelper
                 acclink.Retail_Commercial_Reg_No__c = accountMap.get(acclink.toRole__c).Commercial_Reg_No__c;
                 acclink.Retail_Vat_No__c = accountMap.get(acclink.toRole__c).Vat_No__c;
                 if(accountMap.get(acclink.toRole__c).Foundation_Date__c != null)
-                    acclink.Retail_Foundation_Month__c = string.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());         
+                {
+                    Integer FoundationDate = accountMap.get(acclink.toRole__c).Foundation_Date__c.month();
+                    if(FoundationDate <= 9){
+                        acclink.Retail_Foundation_Month__c = '0'+String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+ String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());      
+                    }else {                    
+                        acclink.Retail_Foundation_Month__c = String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.month())+ String.valueOf(accountMap.get(acclink.toRole__c).Foundation_Date__c.Year());
+                    }
+                 }
+				 acclink.Retail_Company_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
+                 acclink.Retail_Company_Other_Phone__c =  accountMap.get(acclink.toRole__c).Work_Phone__c;
             }//End if for Company record type
             acclink.Retail_Industry__c = accountMap.get(acclink.toRole__c).Industry; 
             acclink.Retail_Website__c = accountMap.get(acclink.toRole__c).website;
-            acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
+            //acclink.Retail_Individual_Home_Phone__c = accountMap.get(acclink.toRole__c).Individual_Home_Phone__c;
             acclink.Retail_Fax__c = accountMap.get(acclink.toRole__c).Fax;
             acclink.Retail_UCID__c = accountMap.get(acclink.toRole__c).UCID__c;
             
@@ -782,8 +792,8 @@ public class AccountLinkHelper
                 {
                     province = addtrmap1.get(acc.Retail_Address_Reference__r.Province__c);
                 }                
-                acc.Retail_Province__c = province+ acc.Retail_Address_Reference__r.City__c + acc.Retail_Address_Reference__r.District__c + acc.Retail_Address_Reference__r.Block__c+ acc.Retail_Address_Reference__r.Address_Line_1__c + ' ' + acc.Retail_Address_Reference__r.Address_Line_2__c ;
-                acc.Retail_Province__c  =acc.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+               acc.Retail_Province__c = province ;//+ acc.Retail_Address_Reference__r.City__c + acc.Retail_Address_Reference__r.District__c + acc.Retail_Address_Reference__r.Block__c+ acc.Retail_Address_Reference__r.Address_Line_1__c + ' ' + acc.Retail_Address_Reference__r.Address_Line_2__c ;
+                //acc.Retail_Province__c  =acc.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
                 acc.Retail_Address_CreatedDate__c = (acc.Retail_Address_Reference__r.CreatedDate).date();
                 acc.Retail_Address_LastModifiedDate__c = (acc.Retail_Address_Reference__r.LastModifiedDate).date();
                     accountList1.add(acc);

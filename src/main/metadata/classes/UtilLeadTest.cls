@@ -103,17 +103,21 @@ public With Sharing class UtilLeadTest
     public static void createData(){
         accList = new List<Account>();
         Id recordTypeAccObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccObjId,Name = 'Mercedez');
+        accObj = new Account(RecordTypeId = recordTypeAccObjId,Name = 'Mercedez',MBK_Data_Source__c ='Email',
+        Mobile__c ='000-123-4567');
         accList.add(accObj);
         Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez');
+        accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',MBK_Data_Source__c ='Email',
+        Mobile__c ='000-123-4567');
         accList.add(accObj);
         Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',MBK_Data_Source__c ='Email',
+        Mobile__c ='000-123-4567');
         accList.add(accObj);
         insert accList;
         Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll8',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
+        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll8',Recall__c = FALSE,
+        EuroVIN__c = '12345678901111111',CurrentMileage__c=5000,NextMileage__c=6000,FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert vehicleObj;
         
         vehicleRelationshipObj = new Vehicle_Relationship__c(Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accList.get(2).Id );

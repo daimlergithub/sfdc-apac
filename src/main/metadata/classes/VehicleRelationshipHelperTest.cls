@@ -7,7 +7,7 @@ private class VehicleRelationshipHelperTest {
                                             
     static Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
-                                                UsVIN__c = '12345678902222222');
+                                                UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
                                                 
     
      
@@ -17,7 +17,8 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '080801010',
                                     Area_Code__c = '010',
-                                    LastName = 'Beijing XING Limited',                                    
+                                    LastName = 'Beijing XING Limited', MBK_Data_Source__c ='Email',
+                                     Mobile__c ='000-123-4567',                                   
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
     static Account account2 = new Account(Dealer_Default_Flag__c=true,
@@ -26,7 +27,8 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '080801011',
                                     Area_Code__c = '010',            
-                                    Name = 'Test',                                  
+                                    Name = 'Test',MBK_Data_Source__c ='Email',
+                                     Mobile__c ='000-123-4567',                                  
                                     RecordTypeId=accPerson_RecordTypeId);
     static Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = VRRecordTypeId);
     // CR-000119

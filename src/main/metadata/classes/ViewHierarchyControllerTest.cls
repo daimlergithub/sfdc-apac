@@ -46,10 +46,10 @@ Public static Account_Link__c objAccountLink;
     {  
         // Create Account
         objAccount=new Account();
-        objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(MBK_Data_Source__c='Email',Mobile__c ='000-191-8624'),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         // Create Vehicle 
         objVehicle=new Vehicle__c();                    
-        objVehicle=(Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(), UtilViewHierarchyTestData.VEHICLE_MB);        
+        objVehicle=(Vehicle__c)UtilViewHierarchyTestData.createSobject(new Vehicle__c(Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), UtilViewHierarchyTestData.VEHICLE_MB);        
         // Create Vehicle Relationship
         objVehicleRelship= new Vehicle_Relationship__c();
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;

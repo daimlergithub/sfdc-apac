@@ -8259,7 +8259,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Repeat_Complaint_Times__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20755,7 +20755,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-CompanySoftDeleted</layout>
-        <recordType>Account.CompanySoftDeleted</recordType>
+        <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
@@ -22065,7 +22065,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.CompanySoftDeleted</recordType>
+        <recordType>Account.Company_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

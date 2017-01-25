@@ -145,7 +145,7 @@ public class AddressDisplayInlineEditControllerTest
      * @author      : Sneha
      * @Date        : 1/2/2016 
    **/ 
-    public static testMethod void testValidateAddressSearch()
+    /**public static testMethod void testValidateAddressSearch()
     {  
         init(); 
         test.startTest();
@@ -155,7 +155,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddressDisplayInlineEditController.ValidateAddressSearch();
         test.stopTest();  
         system.assert(objAddressDisplayInlineEditController.addressobj!=Null);        
-    }
+    }**/
    /**    
      * @Description : For creation of Account and Address record
      * @author      : Sneha
@@ -219,20 +219,24 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.City__c='Test';
         objAccount.Email__c='test@mbau.com';
         objAccount.Email2__c = 'testemail2@test.com';
-        objAccount.Home_Phone_2__c = '098765413';    
+        //objAccount.Home_Phone_2__c = '098-876-4134';    
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
+        objAccount.MBK_Data_Source__c ='Email';
+        objAccount.Mobile__c = '999-999-9999';
+        
         
         insert objAccount;
         
         
         objAddress= new Address__c();
         objAddress.Customer__c=objAccount.Id;
-		objAddress.TitleOfHonor__c = 'To Person';		
+        objAddress.TitleOfHonor__c = 'To Person';       
         objAddress.Preferred__c=true;
         objAddress.Province__c='ACT'; 
         objAddress.Address_Type__c = 'Home';  
-        objAddress.ZipCode__c ='1234567';    
+        objAddress.ZipCode__c ='1234567'; 
+           objAddress.Address_Line_1__c = 'Banglore';
         insert objAddress;
         system.debug('objAddress>>>>>'+objAddress.Id);
         
