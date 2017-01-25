@@ -22815,7 +22815,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTask_inline_service_amount</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTaskdealerviewForContract</apexPage>
