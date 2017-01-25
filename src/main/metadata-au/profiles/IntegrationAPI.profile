@@ -21433,6 +21433,10 @@
         <layout>Vehicle__c-Vehicle Layout</layout>
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle__c-Vehicle Layout</layout>
+        <recordType>Vehicle__c.Vehicle_Product</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -23288,6 +23292,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle__c.Self_Registered</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle__c.Vehicle_Product</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
