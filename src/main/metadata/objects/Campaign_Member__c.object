@@ -1151,6 +1151,20 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Refresh</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+ var listId= window.sfdcPage.relatedLists;
+window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
+    </webLinks>
 	<webLinks>
         <fullName>Upload_Campaign_Member</fullName>
         <availability>online</availability>
