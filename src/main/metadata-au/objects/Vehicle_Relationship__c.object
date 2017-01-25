@@ -12537,6 +12537,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Service Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
