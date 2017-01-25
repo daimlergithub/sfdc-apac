@@ -21391,7 +21391,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-CompanySoftDeleted</layout>
-        <recordType>Account.CompanySoftDeleted</recordType>
+        <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
@@ -23044,8 +23044,8 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.CompanySoftDeleted</recordType>
-        <visible>false</visible>
+        <recordType>Account.Company_Soft_Deleted</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

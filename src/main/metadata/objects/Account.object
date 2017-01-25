@@ -19654,9 +19654,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>CompanySoftDeleted</fullName>
+        <fullName>Company_Soft_Deleted</fullName>
         <active>true</active>
-        <label>CompanySoftDeleted</label>
+        <label>Company Soft Deleted</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>

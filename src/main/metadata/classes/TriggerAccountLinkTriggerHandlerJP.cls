@@ -50,12 +50,13 @@ public class TriggerAccountLinkTriggerHandlerJP
         // Implementation to addedd as required in market
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            
+            AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
             AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
         }
          if(Trigger.isAfter && Trigger.isInsert)
           {
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+			AccountLinkHelper.afterInsertEvent(Trigger.new);
             AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
           }
         if(Trigger.isAfter && Trigger.isDelete)

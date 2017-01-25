@@ -34,7 +34,7 @@ public with sharing class AccountMergeController{
      */    
      public AccountMergeController(){
            Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
-           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','CompanySoftDeleted');
+           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted');
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
@@ -207,7 +207,7 @@ public with sharing class AccountMergeController{
           }
             else if(slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')
             {
-             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account','CompanySoftDeleted'); 
+             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted'); 
              slave.OwnerId = usr.Id;       
              slave.Master_Account_Id__c = master.Id; 
              master.DUPNumber__c='';
