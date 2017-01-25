@@ -136,20 +136,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	 <rules>
-        <fullName>Retail Parent Campaign Status to Draft</fullName>
-        <actions>
-            <name>status_change_on_retail_campaign</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Retail_Campaign__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Planning &amp; Design Campaign</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
     <rules>
         <fullName>Status change when new record created in Retail Campaign</fullName>
         <actions>
