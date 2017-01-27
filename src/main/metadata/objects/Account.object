@@ -31507,5 +31507,6 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
-    </webLinks>
+	</webLinks>
 </CustomObject>
+
