@@ -11094,7 +11094,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Assignment_Age__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11249,7 +11249,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Consultant_Assignment_Age__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11954,7 +11954,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Lead_Age__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
