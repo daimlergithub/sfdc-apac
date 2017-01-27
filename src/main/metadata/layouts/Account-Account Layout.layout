@@ -292,7 +292,7 @@
                 <field>Main_Dealer__c</field>
             </layoutItems>
 			 <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Sales_Address_Type__c</field>
             </layoutItems>
 			<layoutItems>
