@@ -1,3 +1,16 @@
+/***********************************************************************************
+Created By          :    Venky    
+Created Date        :    22.10.2016
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class Select dealer and Address then click save it will create retail copy for selected dealer.
+                         Business Conditions :
+                          * In case of MBJ User select Dealer and Address record.
+                          *For Dealer User only select address.
+                          * On click of create ratil copy button one retail copy will be created .  
+                          
+Jira Number         :SFDCJP-634
+************************************************************************************/
+
 public with sharing class AddressSelectionforExistingCustomer {
 
     public  Account account{get;set;}
@@ -22,6 +35,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
 
+    // Constructor
     public AddressSelectionforExistingCustomer(ApexPages.StandardController controller) {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
@@ -38,8 +52,10 @@ public with sharing class AddressSelectionforExistingCustomer {
      system.debug('+++++++++++++'+account);
      system.debug('++++++++++++++'+AccId);
 
-    }
+    } // Constructor  end
     
+    
+    //Method to selected Address  record Id
       public pageReference getSelectedAddress (){ 
     
            addId =ApexPages.currentPage().getParameters().get('idselected');  
@@ -51,7 +67,7 @@ public with sharing class AddressSelectionforExistingCustomer {
       
     }
     
-  
+  //Method to get selected dealer ID
       public void  getDealer(){
           Dealeracc=new List<Account>();
           AccId=ApexPages.currentPage().getParameters().get('id'); 
@@ -60,7 +76,10 @@ public with sharing class AddressSelectionforExistingCustomer {
            System.debug('^&^&^&^&^&^&^&^ accc'+accc);
             System.debug('^&^&^&^&^&^&^&^ AccId '+AccId);
            System.debug('^&^&^ DealerID.Company__c '+account.Company__c);
-      }
+      } //Method end
+      
+      
+      // Method to Create retail copy
     Public void CreateRetailCopy()
     { 
      
@@ -71,8 +90,14 @@ public with sharing class AddressSelectionforExistingCustomer {
     system.debug('+++++++++'+ addId );
     System.debug('##################'+accc); 
     System.debug('#################'+ AccId);
+    if(addId !=null)
+    {
     SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
+    }
     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+ 
+ 
+  // For Dealer User Creating retail copy
     if(CurrentUsr.ContactId!=null)
     {
      Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
@@ -135,6 +160,8 @@ public with sharing class AddressSelectionforExistingCustomer {
     }
     }
     
+    
+    // For MBJ User Creating retail copy
     if(CurrentUsr.ContactId==null)
     { 
             System.debug('CurrentUsr %%%%%%%'+CurrentUsr);
@@ -182,7 +209,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
     
-    }
+    }  
     if(InsertAlk!=null && InsertAlk.size()>0)
     {
     insert InsertAlk.values();

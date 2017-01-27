@@ -8,12 +8,10 @@
                 <apex:outputField value="{!Case.Case_Class__c}"/>
                 <apex:outputField value="{!Case.ownerId}"/>
                 <apex:outputField value="{!Case.Case_Type__c}"/>
-                <apex:outputField value="{!Case.Priority}"/>
                 <apex:outputField value="{!Case.Case_SubSubType__c}"/>
                 <apex:outputField value="{!Case.Case_Situation__c}"/>
                 <apex:outputField value="{!Case.Case_Department__c}"/>
                 <apex:outputField value="{!Case.Cause__c}"/>
-                <apex:outputField value="{!Case.Description}"/>
                 <apex:outputField value="{!Case.Result__c}"/>
                 <apex:outputField value="{!Case.Internal_Comments__c}"/>
                 <apex:outputField value="{!Case.Customer_Satisfaction__c}"/>
@@ -38,8 +36,6 @@
                 <apex:outputField value="{!Case.Customer_Statement__c}"/>
                 <apex:outputField value="{!Case.MPC_Internal_Notes__c}"/>
                 <apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/>
-                <apex:outputField value="{!Case.Contactid}"/>
-                <apex:outputField value="{!Case.Origin}"/>
             </apex:pageblockSection>
         
         </apex:pageBlock>
