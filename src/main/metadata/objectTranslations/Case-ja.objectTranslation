@@ -7864,11 +7864,7 @@
     <fields>
         <label><!-- Contractor UCID --></label>
         <name>Contractor_UCID__c</name>
-    </fields>
-    <fields>
-        <label><!-- Contractor UCID --></label>
-        <name>Contractor_UCID_del__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Correction --></label>
         <name>Correction__c</name>
