@@ -3608,6 +3608,14 @@ What factors were influential in your purchase decision?
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
+			<picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>H</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>D</fullName>
                 <default>false</default>
@@ -5117,6 +5125,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
+			 <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>H</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>L</fullName>
                 <default>false</default>
@@ -5685,6 +5701,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>D</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>H</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6260,6 +6284,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>D</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>H</fullName>
                 <default>false</default>
             </values>
             <values>
