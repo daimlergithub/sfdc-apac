@@ -109685,7 +109685,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New Sales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}</url>
+        <url>"OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}"</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
@@ -109696,7 +109696,7 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <masterLabel>New AfterSales Lead</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}</url>
+        <url>"OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}"</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
