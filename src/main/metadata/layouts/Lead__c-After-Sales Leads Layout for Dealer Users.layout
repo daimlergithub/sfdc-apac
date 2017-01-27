@@ -213,7 +213,6 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
-            
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -259,10 +258,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Quotation_Number_History__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Requested_Service_Date1__c</field>
             </layoutItems>
             <layoutItems>
@@ -280,6 +275,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Check_In_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Additional_Service__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -341,7 +340,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Additional_Service__c</field>
+                <field>Additional_Services__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>

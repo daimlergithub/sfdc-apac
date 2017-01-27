@@ -9,17 +9,19 @@
             <apex:pageblockSection title="General Information">
                 <apex:inputField value="{!Case.Subject}"/>
                 <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Description}"/>
+                <apex:inputField value="{!Case.Priority}"/>
+                <apex:inputField value="{!Case.Contactid}"/>
+                <apex:inputField value="{!Case.Origin}"/>
                 <apex:inputField value="{!Case.Case_Complainant__c}"/>
                 <apex:outputField value="{!Case.RecordTypeid}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
                 <apex:inputField value="{!Case.ownerId}"/>
                 <apex:inputField value="{!Case.Case_Type__c}"/>
-                <apex:inputField value="{!Case.Priority}"/>
                 <apex:inputField value="{!Case.Case_SubSubType__c}"/>
                 <apex:inputField value="{!Case.Case_Situation__c}"/>
                 <apex:inputField value="{!Case.Case_Department__c}"/>
                 <apex:inputField value="{!Case.Cause__c}"/>
-                <apex:inputField value="{!Case.Description}"/>
                 <apex:inputField value="{!Case.Result__c}"/>
                 <apex:inputField value="{!Case.Internal_Comments__c}"/>
                 <apex:inputField value="{!Case.Customer_Satisfaction__c}"/>
@@ -46,8 +48,6 @@
                 <apex:inputField value="{!Case.Customer_Statement__c}"/>
                 <apex:inputField value="{!Case.MPC_Internal_Notes__c}"/>
                 <apex:inputField value="{!Case.PR_Comment_for_Dealer__c}"/>
-                <apex:inputField value="{!Case.Contactid}"/>
-                <apex:inputField value="{!Case.Origin}"/>
             </apex:pageblockSection>
             
         </apex:pageBlock>
