@@ -36,7 +36,7 @@ public with sharing class CustomerMymercInterfaceController {
         if(aclsize.size() >0)
             accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid ];
             accont = [select id,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
-            if(!accl.isEmpty())
+            if(accl != null && !accl.isEmpty())
             {
                 for(Account_Link__c acc: accl){
                     if(acc.System__c == 'My Mercedes'){
