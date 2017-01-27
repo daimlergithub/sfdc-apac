@@ -13,6 +13,7 @@ public with sharing class SendToMyMercController {
         public Id IndividualCustomerExternaLink;
         public Id AccCom;
         public Id Person;
+        public Id vehRelType;
         public Boolean result; 
         public string emai3;
         public String FinalEmail{get;set;}
@@ -28,8 +29,10 @@ public with sharing class SendToMyMercController {
             IndividualCustomerExternaLink = rec.Id;
             RecordType recCom = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Company' limit 1];
             AccCom = recCom.Id;
-            RecordType recDelar = [select id from RecordType where sObjecttype = 'Account' AND id = '012280000000f14AAA' limit 1];
+            RecordType recDelar = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Person Account' limit 1];
             Person = recDelar.Id;
+            RecordType vehRelRecType = [select id,name from RecordType where sObjecttype = 'vehicle_relationship__c' AND Name = 'Vehicle Relationship'];
+            vehRelType = vehRelRecType.Id;
             accountRelatedData();
         }
         
@@ -38,7 +41,7 @@ public with sharing class SendToMyMercController {
             Set<ID> setAccountID = new Set<ID>();
             Map<ID,String> mapAccount = new Map<Id,String>();
             Map<ID,string> accountLinkId = new Map<Id,string>();
-            List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null ];
+            List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
            
             for(Vehicle_Relationship__c vch:lstVehicle_Relationship){
                 setAccountID.add(vch.Contact__c);
@@ -89,10 +92,8 @@ public with sharing class SendToMyMercController {
                    }
                 }
                 else{
-                    if(!uniqueids.contains(eachVRelationships.Contact__c)) {
                     lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
                     uniqueids.add(eachVRelationships.Contact__c);
-                   }
                 }
             }
            
@@ -106,7 +107,7 @@ public with sharing class SendToMyMercController {
         {      
             String VID = apexpages.currentpage().getParameters().get('recordID');  
            
-            lstVinfo= [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where ID=:VID];
+            lstVinfo= [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where ID=:VID AND recordtypeId =: vehRelType];
             
             if(String.isNotBlank(lstVinfo.Retail_Contact__r.Portal_Email__c)){
                 FinalEmail = lstVinfo.Retail_Contact__r.Portal_Email__c;
