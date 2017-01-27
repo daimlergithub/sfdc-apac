@@ -11,7 +11,17 @@ global with sharing class VehiclePickerForCaseController {
     Map<String, Set<String>> classModelMap {get;set;}
     Public boolean disableButtons{get;set;}
     public List<Vehicle_Relationship__c> caseVehicleRelationships;
-
+    public static user usr{
+        get
+        {
+            if (usr == null)
+            {
+                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
+            }
+            return usr;
+        }
+        private set;
+    }
     /**
     *@Description : This method fetches all the vehicles that are associated with the cse to pre-populate the values.
     *@Author : Shrinivas Desai.
@@ -43,14 +53,14 @@ global with sharing class VehiclePickerForCaseController {
         
             /***************** QUERY THE VEHICLES ASSOCIATED WITH THE Case : START *******************/
             
-            case_Vehicles = [Select Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Case Where Id =: currentRecordId];
+            case_Vehicles = [Select Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Case Where Id =: currentRecordId AND MD__c = :usr.Market__c];
                          
             system.debug('@ Intial Case vehicle record values :' +case_Vehicles);                                                   
             case_VehicleIds = new Set<Id>{  case_Vehicles.Interested_Vehicle__c, case_Vehicles.Interested_Competitor_Vehicle__c,
                                             case_Vehicles.Current_Vehicle_1__c, case_Vehicles.Current_Vehicle_2__c,case_Vehicles.Trade_In_Vehicle__c,
                                             case_Vehicles.Purchased_Vehicle__c
                                          };
-            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId)];           
+            caseOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Car_Owner__c from Case where Id =:currentRecordId AND MD__c = :usr.Market__c)];           
             System.debug('Case Vehicle Relationships...' +caseOwnerVehiclesRelationships.size());
             for (Integer i=0; i < caseOwnerVehiclesRelationships.size(); i++){
                 System.debug('In the For :' +caseOwnerVehiclesRelationships[i]);
@@ -58,7 +68,7 @@ global with sharing class VehiclePickerForCaseController {
             }
             if(!vehicleIds.isEmpty()){
                 System.debug('Vehicle Ids' +vehicleIds);
-                caseOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds];
+                caseOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
                 System.debug('Case Owner vehicles...:' +caseOwnerVehicles);
                 System.debug('Each Case Vehicle type...' +case_Vehicles.Interested_Vehicle__c); 
             }
@@ -106,7 +116,7 @@ global with sharing class VehiclePickerForCaseController {
             system.debug('Case Vehicle Ids :' +case_VehicleIds);
             //Query all the Vehicle Fields
             if(!case_VehicleIds.isEmpty()){
-                vehiclesForCase = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :case_VehicleIds];
+                vehiclesForCase = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :case_VehicleIds AND MD__c = :usr.Market__c];
                 System.debug('All Vehicle Ids for Leads...' +vehiclesForCase);
                 for (Vehicle__c vehicles : vehiclesForCase){
                     System.debug('Entered Loop...');
@@ -167,9 +177,9 @@ global with sharing class VehiclePickerForCaseController {
             
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c];
+                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c where MD__c = :usr.Market__c];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c Where Status__c =:status_type];
+                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
             }
             
             System.debug('New @Shrinivas Car Models:' +carModels);
@@ -332,11 +342,11 @@ global with sharing class VehiclePickerForCaseController {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
             system.debug('Vehicle for If' +vehicle);
         }
         else{
-            Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId')];
+            Case caseAcc = [Select AccountId from Case where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
             system.debug('Case Contact...' +caseAcc);
             caseVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:caseAcc.AccountId ORDER BY CreatedDate ASC];
             system.debug('Case Vehicle Relationships...' +caseVehicleRelationships);
@@ -351,7 +361,7 @@ global with sharing class VehiclePickerForCaseController {
             //Search for Self Registered:
             Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
             system.debug('Self Registered Rec Id :' +selfRegisteredRec_TypeId);
-            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.AccountId AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:caseAcc.AccountId AND RecordTypeId =:selfRegisteredRec_TypeId AND MD__c = :usr.Market__c ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
             
             if (!selfRegisteredVehicles.isEmpty()){
@@ -362,11 +372,11 @@ global with sharing class VehiclePickerForCaseController {
                 system.debug('Default Vehicle Ids...' +defaultVehicleIds);
             }
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c];
                 system.debug('Default Vehicle Records...' +vehicle);
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
             }                 
             system.debug('Vehicle for else' +vehicle); 
         }
