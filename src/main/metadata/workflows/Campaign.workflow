@@ -318,7 +318,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
+   <rules>
         <fullName>Record Publish Date</fullName>
         <actions>
             <name>record_Publish_Date</name>
