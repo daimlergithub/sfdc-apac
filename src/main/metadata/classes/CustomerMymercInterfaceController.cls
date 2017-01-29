@@ -27,7 +27,7 @@ public with sharing class CustomerMymercInterfaceController {
         MyMercVar = false;
         MyMercEmailVar = true;
         RegOutlet  = 'No';
-        ContactSectorvar = false;
+        ContactSectorvar = true;
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'ContactSector' limit 1];
         ContactSector = rec.Id;
         aclsize = new list<Account_Link__c>();
@@ -43,6 +43,7 @@ public with sharing class CustomerMymercInterfaceController {
                 myMercId = acc.name;
                 MyMercVar = true;
                 MyMercEmailVar = false;
+                ContactSectorvar = false;
                 
                     }
                     if(string.IsnotBlank(acc.Portal_Email__c)){
@@ -55,7 +56,6 @@ public with sharing class CustomerMymercInterfaceController {
             for(Account_Link__c acclink: accont.Account_Links__r){
             if(acclink.fromRole__c !=null && acclink.toRole__c !=null && acclink.RecordtypeId == ContactSector){
                 RegOutlet = 'Yes';
-                ContactSectorvar = true;
             }
             }
       
