@@ -9,6 +9,12 @@ Usage               :    The functionality of this Class Select dealer and Addre
                           * On click of create ratil copy button one retail copy will be created .  
                           
 Jira Number         :SFDCJP-634
+MODIFICATION DETAILS:
+
+
+1. Modified By      :    Venky
+   Modifide Date    :    30.01.2017
+   JIRA Number      :    SFDCJP-1134
 ************************************************************************************/
 
 public with sharing class AddressSelectionforExistingCustomer {
@@ -20,6 +26,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     public List<Address__c> SelectedAdd{set;get;}
     public Id addId{get;set;} 
     public Id did{get;set;} 
+    public  Boolean ShowHideError{set;get;}
     public List<Account_Link__c> Accountlinklist{get;set;}
     Public User  Usr{get;set;} 
     public List<Account> accc{set;get;}
@@ -42,6 +49,7 @@ public with sharing class AddressSelectionforExistingCustomer {
      SelectedAdd=new List<Address__c>();
      InsertAlk=new Map<id,Account_Link__c> ();
      account=new Account();
+       ShowHideError=false;
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
      account = (Account)controller.getRecord();
      if(AccId!=null)
@@ -72,10 +80,10 @@ public with sharing class AddressSelectionforExistingCustomer {
           Dealeracc=new List<Account>();
           AccId=ApexPages.currentPage().getParameters().get('id'); 
           // DealerID=ApexPages.currentPage().getParameters().get('DealerID');  
-           accc=[Select id from account where id=:account.Company__c];  
+           accc=[Select id from account where id=:account.Main_Dealer__c];  
            System.debug('^&^&^&^&^&^&^&^ accc'+accc);
             System.debug('^&^&^&^&^&^&^&^ AccId '+AccId);
-           System.debug('^&^&^ DealerID.Company__c '+account.Company__c);
+           System.debug('^&^&^ DealerID.Main_Dealer__c '+account.Main_Dealer__c);
       } //Method end
       
       
@@ -85,8 +93,8 @@ public with sharing class AddressSelectionforExistingCustomer {
      
     AccId=ApexPages.currentPage().getParameters().get('id');
     
-   accList=[Select Id,Company__c ,RecordtypeId from account where id=:AccId];
-   accc=[Select id,Company__c  from account where id=:account.Company__c limit 1];
+   accList=[Select Id,Main_Dealer__c ,RecordtypeId from account where id=:AccId];
+   accc=[Select id,Main_Dealer__c  from account where id=:account.Main_Dealer__c limit 1];
     system.debug('+++++++++'+ addId );
     System.debug('##################'+accc); 
     System.debug('#################'+ AccId);
@@ -116,11 +124,11 @@ public with sharing class AddressSelectionforExistingCustomer {
               }
     if(accList.RecordtypeId == accPerson_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
     }
      if(accList.RecordtypeId == accCompany_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
     }
     
     
@@ -133,7 +141,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=account.Company__c;
+    newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
     InsertAlk.put(newAlk.id,newAlk);
      
@@ -145,7 +153,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=account.Company__c;
+    newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
     InsertAlk.put(newAlk.id,newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
@@ -164,20 +172,26 @@ public with sharing class AddressSelectionforExistingCustomer {
     // For MBJ User Creating retail copy
     if(CurrentUsr.ContactId==null)
     { 
+    //For MBJ User if user not selected  Dealer Outlet display error message
+            if(account.Main_Dealer__c  ==null && account.Main_Dealer__c ==null)
+            {    
+              ShowHideError=true;                  
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer'));
+            }
             System.debug('CurrentUsr %%%%%%%'+CurrentUsr);
     if(accList.RecordtypeId == accPerson_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
     }
      if(accList.RecordtypeId == accCompany_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Company__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
     }
     
-   System.debug('#$#$#$####$'+account.Company__c);
+   System.debug('#$#$#$####$'+account.Main_Dealer__c);
    
          
-    if(Accountlinklist ==null ||  Accountlinklist.isempty())
+    if(Accountlinklist ==null ||  Accountlinklist.isempty() && account.Main_Dealer__c  !=null)
     {
     
      if(accList.RecordtypeId == accPerson_RecordTypeId)
@@ -186,7 +200,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=account.Company__c;
+    newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
     InsertAlk.put(newAlk.id,newAlk);
      
@@ -198,14 +212,15 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk=new Account_Link__c ();
     newAlk.toRole__c = AccId;
     newAlk.Retail_Address_Reference__c=addId;
-    newAlk.fromRole__c=account.Company__c;
+    newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
     InsertAlk.put(newAlk.id,newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
-    } else if(Accountlinklist !=null)
+    } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
     {
+     ShowHideError=false;  
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
     
