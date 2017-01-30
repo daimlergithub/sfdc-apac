@@ -29,18 +29,6 @@
         <name>Attachment_5__c</name>
     </fields>
     <fields>
-        <label><!-- Attachment 6 --></label>
-        <name>Attachment_6__c</name>
-    </fields>
-    <fields>
-        <label><!-- Attachment 7 --></label>
-        <name>Attachment_7__c</name>
-    </fields>
-    <fields>
-        <label><!-- Attachment 8 --></label>
-        <name>Attachment_8__c</name>
-    </fields>
-    <fields>
         <label>카테고리</label>
         <name>Category__c</name>
         <picklistValues>
