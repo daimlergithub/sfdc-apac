@@ -19,6 +19,7 @@ public with sharing class CustomerMymercInterfaceController {
     public string returnvalue{get;set;}
     public String FinalEmail{get;set;}
     public String AcId;
+    public String aclId;
     public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
     public Account_Link__c aLink{get;set;}
     
@@ -35,34 +36,30 @@ public with sharing class CustomerMymercInterfaceController {
         aclsize  = [select id, toRole__c  from Account_Link__c where toRole__c =: Accid ];
         if(aclsize.size() >0)
             accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid ];
-            accont = [select id,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
-            if(accl != null && !accl.isEmpty())
-            {
-                for(Account_Link__c acc: accl){
-                    if(acc.System__c == 'My Mercedes'){
-                myMercId = acc.name;
-                MyMercVar = true;
-                MyMercEmailVar = false;
-                ContactSectorvar = false;
-                
-                    }
+        accont = [select id,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
+        if(accl != null && !accl.isEmpty())
+        {
+            for(Account_Link__c acc: accl){
+                if(acc.System__c == 'My Mercedes'){
+                    myMercId = acc.name;
+                    MyMercVar = true;
+                    MyMercEmailVar = false;
+                    ContactSectorvar = false;
+                    aclId = acc.Id;
                     if(string.IsnotBlank(acc.Portal_Email__c)){
-                MyMercEmail = acc.Portal_Email__c;        }
-            else{
-                MyMercEmail = accont.email3__c;
+                        MyMercEmail = acc.Portal_Email__c;        
+                    }
+                }
             }
-            }
-            }
-            for(Account_Link__c acclink: accont.Account_Links__r){
+        }
+        for(Account_Link__c acclink: accont.Account_Links__r){
             if(acclink.fromRole__c !=null && acclink.toRole__c !=null && acclink.RecordtypeId == ContactSector){
                 RegOutlet = 'Yes';
-				ContactSectorvar = true;
+                ContactSectorvar = true;
             }
-            }
-      
-            
-       }
- 
+        } 
+   }
+
      public pagereference createContractSector()
      {
          user usr =[select id,profileId,contactId,Contact.AccountId from user where id =: userinfo.getUserId()];
@@ -102,88 +99,70 @@ public with sharing class CustomerMymercInterfaceController {
          displayPopup = false;   
      }    
      public void showPopup()
-     {       
-        String aID= apexpages.currentpage().getParameters().get('recordID');  
-        aLink = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c,toRole__r.Email3__c,toRole__r.Email2__c,toRole__r.Email__c from Account_Link__c where ID=:aID limit 1];
-        
-        if(String.isNotBlank(aLink.Portal_Email__c)){
-            FinalEmail = aLink.Portal_Email__c;
-        }
-        else{
-             FinalEmail = aLink.toRole__r.Email3__c ;
-        }
+     {     
+         String aID= apexpages.currentpage().getParameters().get('recordID');   
+        aLink = [select id,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_Email__c,toRole__r.Email3__c,toRole__r.Email2__c,toRole__r.Email__c from Account_Link__c where ID=:aID limit 1];
         displayPopup = true;   
      } 
         
-     public pagereference savepop()
-     {
-        Account eachAccount = [Select ID,Email__c,Email2__c,Email3__c From Account where ID=:aLink.toRole__c];       
-       
-         if(String.isNotBlank(aLink.Portal_Email__c))
-         {
-             Account_Link__c aLink = [SELECT id,Portal_Email__c from Account_Link__c where ID=:aLink.ID];
-             aLink.Portal_Email__c = FinalEmail ;
-             Database.SaveResult results = Database.Update(aLink);
-         }
+    public pagereference savepop()
+    {
+        if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please input "My Mercedes Email Id"'));
+            return null;
+        } 
+        else{ 
+            Account_Link__c aLink = [SELECT id,Portal_Email__c,toRole__c from Account_Link__c where ID=:aclId limit 1];
+            aLink.Portal_Email__c = MyMercEmail;
+            Database.SaveResult results = Database.Update(aLink);
+            accont.Email3__c  = MyMercEmail;
+            Database.SaveResult accResults = Database.Update(accont);
+            pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
+            pr.setRedirect(true);
+            return pr;
+        }
+    }
+ 
+    public PageReference mymercnew(){
+        Pattern MyPattern = Pattern.compile(emailRegex);
+        if(!String.isBlank(accont.LastName_Native_1__c)){
+        Matcher MyMatcher = MyPattern.matcher(accont.LastName_Native_1__c);
+        result  = MyMatcher.matches();
+        }
         
-        eachAccount.Email3__c  = FinalEmail ;
-        eachAccount.Email2__c = aLink.toRole__r.Email2__c;
-        eachAccount.Email__c= aLink.toRole__r.Email__c;
-        Database.SaveResult results = Database.Update(eachAccount);
-        displayPopup = false;  
-              
-          pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+aLink.toRole__c);
-          pr.setRedirect(true);
-          return pr;
-            
-      }
- 
- 
-     public PageReference mymercnew(){
-         Pattern MyPattern = Pattern.compile(emailRegex);
-         if(!String.isBlank(accont.LastName_Native_1__c)){
-            Matcher MyMatcher = MyPattern.matcher(accont.LastName_Native_1__c);
-            result  = MyMatcher.matches();
-         }
-            
+        if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please input "My Mercedes Email Id"'));
+            return null;
+        } 
+        else{ 
+            accont.Email3__c  = MyMercEmail;
+        }
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
-            system.debug('@@@in if @@@@');
-             if(accont.PersonBirthdate != null&& result ==true && accont.Email2__c!=null){
+              if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL){
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
                  accont.Portal_Apply_User__c = userinfo.getUserid();
                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
              }
-
-            else
-            {
+            else{
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Mandate Fields In Accounts'));
-                 return null;
-                 
+                 return null; 
             }
         }
- 
-     else
-     {
-         accont.Portal_Apply_Date__c = system.today();
-         accont.Portal_Apply_Status__c = 'To be Sent';
-         accont.Portal_Apply_User__c = userinfo.getUserid();
-         update accont;
+        /* else
+         {
+             accont.Portal_Apply_Date__c = system.today();
+             accont.Portal_Apply_Status__c = 'To be Sent';
+             accont.Portal_Apply_User__c = userinfo.getUserid();
+             update accont;
+         }*/
+        return null;
      }
-    return null;
- }
- 
-         
-              public pagereference saveAndReturn()
-     {
- 
-              
-          pagereference pr = new pagereference ('/'+Account.id);
-          pr.setRedirect(true);
-          return pr;
-            
-            
-      }
- 
+     
+    public pagereference saveAndReturn(){
+        pagereference pr = new pagereference ('/'+Account.id);
+        pr.setRedirect(true);
+        return pr;
+    }
 }

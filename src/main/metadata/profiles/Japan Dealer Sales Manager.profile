@@ -5013,7 +5013,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.VIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
