@@ -56,6 +56,7 @@ public with sharing class CustomerMymercInterfaceController {
             for(Account_Link__c acclink: accont.Account_Links__r){
             if(acclink.fromRole__c !=null && acclink.toRole__c !=null && acclink.RecordtypeId == ContactSector){
                 RegOutlet = 'Yes';
+				ContactSectorvar = true;
             }
             }
       
