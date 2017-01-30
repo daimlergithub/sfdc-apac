@@ -3,22 +3,37 @@ Global class UtilWebservice
 
 
 
- webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String CorrelationId)
+webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String AccountLinkId)
     {  
+     Account_link__c  alk=new  Account_Link__c();
+    List<Account_link__c> Updatealk=new List<Account_Link__c>();
+    System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
+    
+    if(AccountLinkId!=null && AccountLinkId!='')
+    {
+    System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
+    alk=[select id,CorrelationID__c from Account_Link__c where id=:AccountLinkId limit 1];
+    }
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
-        String Usecase; 
+    String Usecase; 
     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
     crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType  request=new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType ();
      crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
     
       String OrganizationId = UserInfo.getOrganizationId();
-         String MarketDiscriminator= Usr.Market__c;          
-      sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,CorrelationId);      
-      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);      
-     
+      String MarketDiscriminator= Usr.Market__c;          
+      sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,alk.CorrelationID__c);      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId); 
       System.debug('%^%%^%^%^% response'+response); 
+     if(alk.CorrelationID__c!=null && alk !=null)
+      {
+      alk.CorrelationID__c='';
+      Updatealk.add(alk);
+      }
+      Update  Updatealk;
        //return response;
     }
+	
 //(String RTCustomerId,String DealerID,String CorrelationId)
     webservice static void  AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
     {  

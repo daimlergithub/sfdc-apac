@@ -1,14 +1,20 @@
 <apex:page standardController="Account" extensions="AddressSelectionforExistingCustomer">
   <apex:form >
-  
+  <apex:outputpanel id="jspanel">
   <script language="JavaScript" type="text/javascript">
 function afterSave(){
+if({!ShowHideError} ==false)
+{
 alert('Sucessfully Created Retail Copy');
 window.location.href="/{!AccId}";      
-  
+  }
+  else
+{
+
+}
   }
 </script>
-
+</apex:outputpanel>
 <style>
     /* This is for the full screen DIV */
     .popupBackground {
@@ -68,7 +74,7 @@ window.location.href="/{!AccId}";
   <div align="Center">
     <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
  
-            <tb>  <tb>  Select Dealer </tb>   </tb> <apex:inputfield value=" {!Account.Company__c}" >
+            <tb>  <tb>  Select Dealer </tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}" >
                              <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="selectedPb" >
                                        <apex:param name="account" value="{!Account.Id}"/>
                                   </apex:actionSupport>
@@ -171,4 +177,4 @@ window.location.href="/{!AccId}";
                      
   </apex:form>
 </apex:page>
-                   
+  

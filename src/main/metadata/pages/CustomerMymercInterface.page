@@ -6,7 +6,7 @@
             <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> 
                 <apex:pageblockButtons location="bottom">
                      <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}"/> <!-- oncomplete="myfunction();"-->
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" oncomplete="myfunction();"/>
+                     <apex:commandButton action="{!savepop}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}"/><!-- oncomplete="myfunction();"/>-->
                      <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
                      <apex:commandButton action="{!cancel}" value="Cancel"/>
                 </apex:pageblockButtons>
@@ -19,7 +19,7 @@
                         <apex:inputText value="{!MyMercEmail}"/>
                         </apex:column>
                         <apex:column >
-                            <apex:commandLink value="Details" action="{!showPopup}">
+                            <apex:commandLink value="Emails" action="{!showPopup}">
                                  <apex:param name="recordID" value="{!ac.ID}"/>
                             </apex:commandLink>
                         </apex:column>
@@ -33,23 +33,18 @@
                                     <apex:pageblockSection columns="1" >
                                        <table width="100%">
                                            <tr>
-                                               <td width="25"> <!--1 -->
-                                                   <apex:inputtext value="{!FinalEmail}" label="Portal Email" Id="ddlNames"/>
+                                               <td width="25">
+                                                   <apex:outputtext value="{!eachWrap.toRole__r.Email__c}" label="Email" />
                                                </td>
                                            </tr>
                                            <tr>
-                                               <td width="25"><!--2-->
-                                                   <apex:inputtext value="{!eachWrap.toRole__r.Email__c}" label="Email" />
-                                               </td>
-                                           </tr>
-                                           <tr>
-                                               <td width="25"><!--3-->
-                                                     <apex:inputtext value="{!eachWrap.toRole__r.Email2__c}" label="Email2" />
+                                               <td width="25">
+                                                     <apex:outputtext value="{!eachWrap.toRole__r.Email2__c}" label="Email2" />
                                                </td>
                                            </tr>
                                        </table>
                                     </apex:pageblockSection>
-                                        <apex:commandButton value="Save" action="{!savepop}"/>
+                                        <!--<apex:commandButton value="Save" action="{!savepop}"/>-->
                                         <apex:commandButton value="Close" action="{!closePopup}" rerender="one"/>
                                 </apex:outputPanel>
                             </apex:outputPanel>
