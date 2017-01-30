@@ -292,12 +292,11 @@ public class CaseHelperJP {
           }      
        }
     
-    public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase){
        List<Id> caseIds = new List<Id>();
-       for(case cs: lstCase){
-           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true){
-               caseIds.add(cs.id);
-                
+       for(case cs: LstnewCase){
+           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
+               caseIds.add(cs.id);                
             }
        }        
        
