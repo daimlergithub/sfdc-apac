@@ -215,14 +215,6 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Closed - Delivered</fullName>
                 <default>false</default>
             </picklistValues>

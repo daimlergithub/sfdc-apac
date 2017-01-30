@@ -13102,7 +13102,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.UsVIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
