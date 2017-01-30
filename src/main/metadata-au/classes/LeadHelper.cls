@@ -2204,7 +2204,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         {
             olddeDupleadList = [select id, name, business_unit__c, Nature_of_Request__c, Purchase_Time__c, MB_Vehicle_Interest__c,
                                 Test_Drive_Date__c, Assigned_Dealer__c, Contact__c,Company_Account__c,Preferred_Drop_off_Time__c,
-                                Vehicle_Registration_No__c, VIN__c from Lead__c where Contact__c =:newLedaccId OR Company_Account__c =:newLedaccId];
+                                Vehicle_Registration_No__c, UsVIN__c from Lead__c where Contact__c =:newLedaccId OR Company_Account__c =:newLedaccId];
         }
         
         for(Lead__c olddedupLeads : olddeDupleadList)
@@ -2230,7 +2230,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     }
                     else if(newleds.Nature_of_Request__c == 'Parts Enquiries' && newleds.Nature_of_Request__c == olddedupLeads.Nature_of_Request__c
                            && newleds.MB_Vehicle_Interest__c == olddedupLeads.MB_Vehicle_Interest__c && newleds.Business_Unit__c == olddedupLeads.Business_Unit__c
-                           && newleds.VIN__c == olddedupLeads.VIN__c)
+                           && newleds.UsVIN__c == olddedupLeads.UsVIN__c)
                     {
                         newleds.adderror('Lead is already Exist    ' + olddedupLeads.Name);                
                     }
