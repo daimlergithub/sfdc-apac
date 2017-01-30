@@ -90,7 +90,8 @@ public class MassAssignRecallTasksControllerExtension {
     public PageReference applyFilters(){
         // MOD START CHAOS Ticket147654 2014/4/14
         String sql = 'Select Count() From Task Where ' + getFilters() + ' limit 40000';
-
+        system.debug('sql>>>' + sql);
+        system.debug('csrIds>>>>' + csrIds);
         // MOD END CHAOS Ticket147654 2014/4/14
         th.Tasks_Found__c = Database.countQuery(sql);
         th.CSR__c = '';
@@ -131,10 +132,10 @@ public class MassAssignRecallTasksControllerExtension {
     
     private String getFilters(){
         
-        String sql = 'Createddate >= LAST_N_MONTHS:6 And Status = \'Open\' ';
+        String sql = 'Createddate >= LAST_N_MONTHS:6 And Status = \'Not Started\' ';
         
         //ADD START Shuang Li US-SMART_SSI-007
-        sql += ' And RecordType.DeveloperName In (\'smart_SSI_Task\', \'SSI_Task\', \'OB_Task\', \'Welcome_Call\')';
+        sql += ' And RecordType.DeveloperName In (\'smart_SSI_Task\', \'SSI_Task\', \'OB_Task\', \'Welcome_Call\', \'Change_Owner\')';
         //ADD END Shuang Li US-SMART_SSI-007
         
         if(th.Subject__c!=null && th.Subject__c.length()>0){
@@ -333,6 +334,28 @@ public class MassAssignRecallTasksControllerExtension {
                 profiles.add('CAC IB SV');
                 profiles.add('CAC OB SV');
                 profiles.add('CAC SSI SV');
+                profiles.add('System Administrator');
+                profiles.add('Agency');
+                profiles.add('Customer Retention');
+                profiles.add('Dealer Consultant');
+                profiles.add('Dealer CRM Manager');
+                profiles.add('Dealer Divisional Manager');
+                profiles.add('Dealer Services');
+                profiles.add('Dealer-Read Only');
+                profiles.add('DRM');
+                profiles.add('EMC');
+                profiles.add('Fleet');
+                profiles.add('Fleet (Delete)');
+                profiles.add('Fleet (Delete) – MBAuP');
+                profiles.add('Fleet – MBAuP');
+                profiles.add('FS Admin');
+                profiles.add('Head Office - BDM\'s-cars,vans,trucks');
+                profiles.add('Head Office – Enquiries');
+                profiles.add('Head Office - General user - cars BU');
+                profiles.add('Head Office – Marketing');
+                profiles.add('Network Devevlopment');
+                profiles.add('System Admin Business');
+                profiles.add('Team Leader (EMC + CR)');
             }else{
                 profiles.add('CAC IB CSR'); 
                 profiles.add('CAC IB QC'); 
@@ -358,8 +381,9 @@ public class MassAssignRecallTasksControllerExtension {
         return sql;
     }
 
-    public PageReference assignTasks(){
-        
+    public PageReference assignTasks()
+    {
+        system.debug('csrIds>>>>' + csrIds);   
         if(th.Tasks_Found__c!=null && th.Tasks_Found__c>0 && csrIds!=null && csrIds.length()>0){
             
             if(th.Evenly_Location__c == false && th.By_Number__c == null){
