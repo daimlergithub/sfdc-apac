@@ -450,12 +450,12 @@ public class AccountHelperJP
     {
        string sfdcMarketDiscriminator = MarketDiscriminator;
        string orgId=UserInfo.getOrganizationId();
-       profile pro = [select id, name from Profile where id =: userinfo.getProfileId()];
+       
         string sfdcTypeName='Account';
         if(!test.isrunningtest())
-             if(pro.Name != 'IntegrationAPI'){
+             
 				UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
-			 }
+			 
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     
