@@ -3235,55 +3235,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></description>
-        <label><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></label>
-        <name>MBK_Lead_vehicle</name>
-        <sections>
-            <label><!-- Assigned Dealer --></label>
-            <name>Assigned Dealer</name>
-        </sections>
-        <sections>
-            <label><!-- Compared Vehicle --></label>
-            <name>Compared Vehicle</name>
-        </sections>
-        <sections>
-            <label><!-- Compared Vehicle Car Model --></label>
-            <name>Compared Vehicle Car Model</name>
-        </sections>
-        <sections>
-            <label><!-- DM Request --></label>
-            <name>DM Request</name>
-        </sections>
-        <sections>
-            <label><!-- Expected DM Material 1 --></label>
-            <name>Expected DM Material 1</name>
-        </sections>
-        <sections>
-            <label><!-- Expected DM Material 2 --></label>
-            <name>Expected DM Material 2</name>
-        </sections>
-        <sections>
-            <label><!-- Expected DM Material 3 --></label>
-            <name>Expected DM Material 3</name>
-        </sections>
-        <sections>
-            <label><!-- Interested Vehicle --></label>
-            <name>Interested Vehicle</name>
-        </sections>
-        <sections>
-            <label><!-- Interested Vehicle Car Model --></label>
-            <name>Interested Vehicle Car Model</name>
-        </sections>
-        <sections>
-            <label><!-- Leads --></label>
-            <name>Leads</name>
-        </sections>
-        <sections>
-            <label><!-- Personal Account --></label>
-            <name>Personal Account</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- MKT Raw Data Report --></description>
         <label><!-- MKT Raw Data Report --></label>
         <name>MKT_Raw_Data_Report</name>
