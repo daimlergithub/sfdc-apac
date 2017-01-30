@@ -2674,15 +2674,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Account with Vehicle rel --></description>
-        <label><!-- Account with Vehicle rel --></label>
-        <name>Account_with_Vehicle_rel</name>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description>DM 요청 포함 계정</description>
         <label>DM 요청 포함 계정</label>
         <name>Accounts_with_DM_requests</name>

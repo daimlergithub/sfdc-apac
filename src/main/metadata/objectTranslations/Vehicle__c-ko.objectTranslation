@@ -4248,10 +4248,6 @@
     </layouts>
     <layouts>
         <layout>Vehicle Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>
