@@ -8504,14 +8504,82 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+       <picklistValues>
             <picklist>Fuel__c</picklist>
+            <values>
+                <fullName>ANG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FKerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline%2FLPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kerosene</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LPG%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Oil%2FElectricity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Methanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
