@@ -468,7 +468,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTableController</apexClass>
-        <enabled>false</enabled>
+        <enabled>True</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandler</apexClass>
@@ -22660,7 +22660,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
-        <enabled>false</enabled>
+        <enabled>True</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
