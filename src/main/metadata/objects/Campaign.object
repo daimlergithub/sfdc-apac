@@ -19911,6 +19911,36 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
 } else { alert('Invalid Dealer'); }</url>
     </webLinks>
     <webLinks>
+        <fullName>List_Ready_Maintenance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>List Ready Maintenance</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")}
+
+     if({! Campaign.Ready_for_List_Maintenance__c } == false)
+     {
+          var c = new sforce.SObject("Campaign");
+          c.id = "{!Campaign.Id}";
+          c.Ready_for_List_Maintenance__c  = true;
+          result = sforce.connection.update([c]);
+          if ( result[0].getBoolean( "success" ) )
+          {
+               window.location.reload();
+          }
+          else
+          {
+               alert( result[0].errors.message);
+          }
+     }
+     else
+     {
+          alert("Already True");
+     }</url>
+    </webLinks>
+    <webLinks>
         <fullName>ViewAllCampaignMembers</fullName>
         <availability>online</availability>
         <displayType>link</displayType>

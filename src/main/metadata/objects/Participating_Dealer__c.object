@@ -410,6 +410,36 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <errorMessage>Session Start Date must be less than or equal to Session End Date</errorMessage>
     </validationRules>
     <webLinks>
+        <fullName>Complete</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Complete</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")} 
+
+if({!Participating_Dealer__c.Approve_the_List__c  } == false) 
+{ 
+var c = new sforce.SObject("Participating_Dealer__c"); 
+c.id = "{!Participating_Dealer__c.Id}"; 
+c.Approve_the_List__c   = true; 
+result = sforce.connection.update([c]); 
+if ( result[0].getBoolean( "success" ) ) 
+{ 
+window.location.reload(); 
+} 
+else 
+{ 
+alert( result[0].errors.message); 
+} 
+} 
+else 
+{ 
+alert("Already True"); 
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Manage_Participating_Dealers</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
