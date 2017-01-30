@@ -728,10 +728,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>OrderHelperTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
