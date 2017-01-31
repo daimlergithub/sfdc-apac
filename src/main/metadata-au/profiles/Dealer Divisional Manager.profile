@@ -20182,7 +20182,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle__c.CurrentMileage__c</field>
         <readable>true</readable>
     </fieldPermissions>
