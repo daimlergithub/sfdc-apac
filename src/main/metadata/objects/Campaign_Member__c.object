@@ -1152,6 +1152,19 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>
+        <fullName>ExportCampaign</fullName>
+        <availability>online</availability>
+        <description>This will export the wholesale campaign members</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Export</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var recId = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
+    </webLinks>
+    <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1165,7 +1178,7 @@
  var listId= window.sfdcPage.relatedLists;
 window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Upload_Campaign_Member</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
