@@ -1626,6 +1626,10 @@
         <apexClass>dealerViewForContractTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>exportCampaignMembers</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>true</enabled>
@@ -24321,6 +24325,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Exception</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ExportAsCsvCampaign</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
