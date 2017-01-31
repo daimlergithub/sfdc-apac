@@ -4848,7 +4848,7 @@ var rt = RTs.getArray("records");
 var RTs1 = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Person'"); 
 var rt1 = RTs1.getArray("records");
 if(RetailCopyflag != true &amp;&amp; RTType != rt[0].Id &amp;&amp; RTType != rt1[0].Id){
-var myWindow = window.open("/apex/ALKDeleteConformationpage?Id={!Account_Link__c.Id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!Account_Link__c.Id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
 }
 else {
 alert("{!$Label.AlreadyProcessed}");

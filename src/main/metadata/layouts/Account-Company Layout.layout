@@ -203,7 +203,7 @@
         <label>Contact Infromation</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
