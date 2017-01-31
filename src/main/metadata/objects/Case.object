@@ -109680,12 +109680,14 @@ window.open("OBJECT_CASE_ID?def_account_id={!Account.Id}&amp;amp;RecordType=CASE
         <fullName>New_Lead</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Sales Lead</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>"OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}"</url>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/36.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+window.open("OBJECT_LEAD_TAB_ID?retURL=%2Fa13%2Fo&amp;RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Case&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}","_parent");</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
