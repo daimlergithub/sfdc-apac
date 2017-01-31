@@ -13,6 +13,8 @@ demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 dev_sb_asia_Test=arun.iyer.ntt@asia.daimler-apac.com.test
 # Asia Stage Sandbox
 dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
+# Asia Stage2 Sandbox
+dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
 dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com
