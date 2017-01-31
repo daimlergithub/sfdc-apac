@@ -29,7 +29,7 @@ Dev Item : P3
            }
        }
        function RelodeParent(){
-          window.opener.location.href="/{!$CurrentPage.parameters.id}";
+          window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
           window.top.close();
   
        }
