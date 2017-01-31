@@ -35,6 +35,7 @@
                 <behavior>Edit</behavior>
                 <field>Campaign_Member_Sharing_Rule__c</field>
             </layoutItems>
+            
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -87,6 +88,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <customButtons>ExportCampaign</customButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
@@ -140,7 +142,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Jths</masterLabel>
+		<masterLabel>00hp0000000Jths</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

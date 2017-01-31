@@ -146,20 +146,7 @@
                                                
                        </td>         
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>  
-                   </tr> 
-                    <tr>        
-                       <th style="text-align: Right;">{!$Label.Business_Email}</th>        
-                       <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Email__c}"  rendered="{!!editMode}"/>
-                       </td>                           
-                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
-                           <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
-                       </td>   
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />
-                                               
-                       </td>      
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>        
-                   </tr> 
+                   </tr>  
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Business_Email}</th>        
                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
