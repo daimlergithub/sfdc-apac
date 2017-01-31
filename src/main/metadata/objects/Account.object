@@ -11817,7 +11817,7 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
         <externalId>false</externalId>
         <label>Vehicle Amount</label>
-        <precision>2</precision>
+        <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
@@ -26085,6 +26085,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupDialogsAdditionalFields>Primary_Address_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>00N2800000A9C3R</lookupFilterFields>
         <lookupFilterFields>00N2800000A9C3J</lookupFilterFields>
@@ -26101,7 +26102,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Dealer_ND_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
