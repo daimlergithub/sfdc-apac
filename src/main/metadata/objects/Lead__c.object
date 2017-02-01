@@ -21953,6 +21953,21 @@ Company_Account__r.Work_Phone__c  ,
             <role>Regional_AS_Retail_Marketing</role>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_Lead</fullName>
+        <columns>RECORDTYPE</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Mine</filterScope>
+        <label>All Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>Retail</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_MB_Lead</fullName>
         <columns>OBJECT_ID</columns>

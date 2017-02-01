@@ -98,7 +98,7 @@
                                         </apex:outputpanel>
                                         
                                         <apex:outputpanel rendered="{!NOT(wrap.isMasterChecked)}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" value="master"/>
+                                            <!-- <input type="radio" name="{!wrap.fieldAPI}" value="master"/> -->
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
                                         </apex:outputpanel>
                                         
@@ -115,7 +115,7 @@
                                         </apex:outputpanel>
                                         
                                         <apex:outputpanel rendered="{!NOT(wrap.isSlaveChecked)}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" value="slave"/>
+                                            <!-- <input type="radio" name="{!wrap.fieldAPI}" value="slave"/> -->
                                             <apex:inputHidden value="{!wrap.isSlaveChecked}" />
                                         </apex:outputpanel>
                                         

@@ -85,6 +85,56 @@
                                 <deploy runAllTests="${sfdc.runAllTests}">
                                                 <!-- <sf:typeset name="installedPackages"/> -->
                                 </deploy>
+	</target>
+	
+	<target name="deployAll">
+		<delete file="${file.checksums.local}" quiet="true"/>
+		<property name="skip.checksum.retrieval" value="true"/>
+		<antcall target="deploy"/>
+	</target>
+	
+	<target name="retrieveChecksums">
+		<sf:retrieveChecksums unless:set="skip.checksum.retrieval"
+				sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
+	</target>
+	
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy18,deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,deploy53,postDestructiveChanges">
+<!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
+	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
+		<fail if:set="failed.deploy.step" message="Deployment failed in step ${failed.deploy.step}."/>
+	</target>
+	
+	<target name="preDestructiveChanges">
+		<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
+		<property name="persistedOnly" value="false" unless:set="CI"/>
+		<property name="persistedOnly" value="true" if:set="CI"/>
+		
+		<sf:deployDestructiveChanges
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+	</target>
+
+	<target name="postDestructiveChanges">
+		<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
+		<property name="persistedOnly" value="false" unless:set="CI"/>
+		<property name="persistedOnly" value="true" if:set="CI"/>
+		
+		<sf:deployDestructiveChanges
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+	</target>
+	<target name="deploy01">
+		<deploy runAllTests="${sfdc.runAllTests}">
+			<!-- <sf:typeset name="installedPackages"/> -->
+		</deploy>
     </target>
                 <target name="deploy05">
                                 <deploy runAllTests="${sfdc.runAllTests}">
@@ -296,6 +346,169 @@
                                                                 <sf:include name="Survey_Question__c"/>
                                                 </sf:typeset>
                                 </deploy>
+								</target>
+	
+	<target name="deploy18">
+		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="queues"/>
+			<sf:typeset name="objects">
+				<sf:exclude name="Account"/>
+				<sf:exclude name="PersonAccount"/>
+				<sf:exclude name="Contact"/>
+				<sf:exclude name="Campaign"/>
+				<sf:exclude name="Case"/>
+				<sf:exclude name="Task"/>
+				<sf:exclude name="Activity"/>
+				<sf:exclude name="ContentVersion"/>
+				<sf:exclude name="Vehicle__c"/>
+				<sf:exclude name="Vehicle_Relatioship__c"/>
+				<sf:exclude name="Address__c"/>
+				<sf:exclude name="Account_Link__c"/>
+				<sf:exclude name="SSI__c"/>
+				<sf:exclude name="Retail_Task__c"/>
+			</sf:typeset>			
+		</deploy>
+    </target>	
+	
+	<target name="deploy20">
+		<deploy transformations="transformations29.xml">
+			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
+		</deploy>
+	</target>
+	
+	<target name="deploy21">
+		<deploy  runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="objects">
+				<sf:include name="Case"/>
+				<sf:include name="Task"/>
+				<!--<sf:include name="Activity"/>-->
+				<sf:exclude name="Activity"/>
+				<sf:include name="ContentVersion"/>
+				<sf:exclude name="Account"/>
+				<sf:exclude name="PersonAccount"/>
+				<sf:exclude name="Contact"/>
+				<sf:exclude name="Campaign"/>
+				<!-- TODO FALK check this: do not deploy site -->
+				<sf:exclude name="Site"/>
+			    <sf:exclude name=".*__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
+			</sf:typeset>			
+			<sf:typeset name="tabs">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="PDFHeaderFooter"/>
+			</sf:typeset>
+			<sf:typeset name="pages">
+			   <sf:include name="GeneratePDF"/>
+			   <sf:include name="SelectSlaveAccount"/>
+			   <sf:include name="SelectSlaveAccountKR"/>
+			   <sf:include name="AccountMerge"/>
+			   <sf:include name="AccountMergeKR"/>
+			   <sf:include name="TaskDeleting"/>
+			   <sf:include name="Tasks"/>			   
+			</sf:typeset>
+			<sf:typeset name="classes">	
+				<sf:include name="TriggerHandlerIf"/>
+				<sf:include name="TriggerUtil"/>
+				<sf:include name="TriggerUtilTest"/>
+				<sf:include name="AccountHelperJP"/>
+				<sf:include name="AccountHelperJPTest"/>
+				<sf:include name="TestUserCreate"/>
+				<sf:include name="CaseHelperJP"/>
+				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="CaseHelper"/>
+				<sf:include name="CaseHelperTest"/>
+				<sf:include name="TaskHelperKR"/>
+				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="UtilTestData"/>
+				<sf:include name="UtilRecordTypeTest"/>
+				<sf:include name="UtilRecordType"/>				
+				<sf:include name="AccountMergeController"/>		
+				<sf:include name="AccountMergeControllerKR"/>
+				<sf:include name="AccountMergeControllerTest"/>
+				<sf:include name="ContactTriggerHandlerJP"/>
+				<sf:include name="RetailCampaignTriggerHandlerJP"/>
+				<sf:include name="TaskDeletingController"/>
+				<sf:include name="TaskDeletingControllerTest"/>
+				<sf:include name="SSITriggerHandlerJP"/>
+				<sf:include name="SSITriggerHandler"/>
+				<sf:include name="SSITriggerHandlerTest"/>
+				<sf:include name="UtilTask"/>
+				<sf:include name="UtilTaskTest"/>
+				<sf:include name="TriggerAccountTriggerHandlerJP"/>
+				<sf:include name="TriggerCaseTriggerHandlerJP"/>
+				<sf:include name="TriggerCaseTriggerHandlerKR"/>
+				<sf:include name="shareAccountRecord"/>
+				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
+				<sf:include name="DMRequestHelperJP"/>
+				<sf:include name="DMRequestHelperJPTest"/>
+				<sf:include name="LeadUtil"/>
+				<sf:include name="TriggerLeadTriggerHandlerKR"/>
+				<sf:include name="TriggerLeadTriggerHandlerJP"/>
+				<sf:include name="TriggerLeadTriggerHandler"/>
+				<sf:include name="LeadSharingTest"/>
+				<sf:include name="TriggerLeadTest"/>
+				<sf:include name="LeadSharingWrapService"/>
+				<sf:include name="SharingWrapperService"/>
+				<sf:include name="SharingWrapper"/>
+				<sf:include name="SharingWrapperTest"/>
+				<sf:include name="LeadHelperAccountLinkCreateJP"/>
+				<sf:include name="LeadHelper"/>
+				<sf:include name="LeadHelperTest"/>
+				<sf:include name="ReservationMessageTemplate"/>
+				<sf:include name="ReservationMessageTemplateTest"/>
+				<sf:include name="TriggerRecallTriggerHandlerJP"/>
+				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
+				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
+				<sf:include name="VehicleRelationshipHelperJP"/>
+				<sf:include name="VehicleRelationshipHelperJPTest"/>
+				<sf:include name="CaseTriggerHandlerJP"/>
+				<sf:include name="TaskTriggerHandlerJP"/>
+				<sf:include name="TaskTriggerHandlerKR"/>
+				<sf:include name="LeadHelperJP"/>
+				<sf:include name="LeadHelperJPTest"/>
+				<sf:include name="TestTriggerHandler"/>
+				<sf:include name="UtilProfile"/>
+				<sf:include name="UtilSobject"/>
+				<sf:include name="UtilLead"/>
+				<sf:include name="UtilLeadTest"/>
+				<sf:include name="VehicleDataSharingHandlerTest"/>
+				<sf:include name="VehicleDataSharingHandler"/>
+				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CustomLogUtilTest"/>
+				<sf:include name="SharingDataHandlerBase"/>
+				<sf:include name="SharingDataHandlerBaseTest"/>
+				<sf:include name="CMapTest"/>
+				<sf:include name="CMap"/>
+				<sf:include name="UserService"/>
+				<sf:include name="SharingService"/>
+				<sf:include name="AccountSharingDataHandler"/>
+				<sf:include name="AccountSharingDataHandlerTest"/>
+				<sf:include name="AccountLinkHelper"/>
+				<sf:include name="AccountLinkHelperTest"/>
+				<sf:include name="TriggerAccountTriggerHandlerKR"/>
+				<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+				<sf:include name="AccountHelperKR"/>
+				<sf:include name="AccountHelperKRTest"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>
+				<sf:include name="RetailTaskTriggerHandlerJP"/>
+				<sf:include name="RetailTaskTriggerHandlerKR"/>
+				<sf:include name="RetailTaskHelperJP"/>						
+				<sf:include name="RetailTaskHelperJPTest"/>
+				<sf:include name="UtilShare"/>
+				<sf:include name="LeadSharingforDealerJP"/>
+			</sf:typeset>
+			<sf:typeset name="triggers">
+				<sf:include name="TriggerUtilTestTrigger"/>
+				<sf:include name="CaseTrigger"/>
+				<sf:include name="TriggerDMRequest"/>
+				<sf:include name="TriggerLead"/>
+				<sf:include name="RetailTaskTrigger"/>				
+			</sf:typeset>
+		</deploy>
     </target>
                
                 <target name="deploy20">

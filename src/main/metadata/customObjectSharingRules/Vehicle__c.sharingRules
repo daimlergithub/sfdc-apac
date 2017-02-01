@@ -77,19 +77,6 @@
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to Central</name>
     </criteriaBasedRules>
-	<criteriaBasedRules>
-        <fullName>Share_Vehicle_with_KR_Dealers</fullName>
-        <sharedTo>
-            <roleAndSubordinates>Retail</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>Share Vehicle with KR Dealers</name>
-    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>SoftDelete_Vehicles_Only_for_IT</fullName>
         <sharedTo>
