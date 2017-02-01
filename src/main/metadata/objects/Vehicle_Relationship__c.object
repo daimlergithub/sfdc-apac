@@ -5169,14 +5169,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
-			 <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-			 <values>
-                <fullName>H</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>L</fullName>
                 <default>false</default>
@@ -5724,15 +5716,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>H</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>D</fullName>
-                <default>false</default>
-            </values>
-			 <values>
-                <fullName>C</fullName>
                 <default>false</default>
             </values>
 			 <values>
@@ -6292,14 +6276,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>D</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>H</fullName>
                 <default>false</default>
             </values>
             <values>

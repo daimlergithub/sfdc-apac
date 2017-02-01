@@ -149,4 +149,3 @@ implements TriggerHandlerIf
             //AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
     }
-}
