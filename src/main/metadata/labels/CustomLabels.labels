@@ -810,15 +810,6 @@
         <shortDescription>Campaign Calendar Page Type Other</shortDescription>
         <value>Other</value>
     </labels>
-	
-    <labels>
-        <fullName>Campaign_Calendar_Page_Type_Other</fullName>
-        <categories>Campaign Calendar</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Campaign Calendar Page Type Other</shortDescription>
-        <value>Other</value>
-    </labels>
     <labels>
         <fullName>Campaign_Notification1</fullName>
         <language>en_US</language>
