@@ -86,13 +86,6 @@
                                                 <!-- <sf:typeset name="installedPackages"/> -->
                                 </deploy>
 	</target>
-	
-	<target name="deployAll">
-		<delete file="${file.checksums.local}" quiet="true"/>
-		<property name="skip.checksum.retrieval" value="true"/>
-		<antcall target="deploy"/>
-	</target>
-	
 	<target name="retrieveChecksums">
 		<sf:retrieveChecksums unless:set="skip.checksum.retrieval"
 				sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}"
