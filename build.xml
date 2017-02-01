@@ -647,14 +647,17 @@
                                                                 <sf:include name="FS_CaseInlineController"/>
                                                                 <sf:include name="LeadDealerAssignmentProcess"/>
                                                                 <sf:include name="LeadDealerAssignmentProcessTest"/>
-                                                                                                                                                                                                                                                                <sf:include name="AnnouncementController"/>
-                                                                                                                                                                                                                                                                <sf:include name="AnnouncementController_test"/>
+																																										                                                                 <sf:include name="AnnouncementController"/>
+                                                                                                                                                                                                                                         <sf:include name="AnnouncementController_test"/>
 																																																										<sf:include name="CampaignMembersCustomHelperJP"/>
 																<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
 																<sf:include name="CampaignMembersCustomHelperJPTest"/>
 																<sf:include name="DealerListMemberHelperJP"/>
 																<sf:include name="TriggerDealerListMemberHandlerJP"/>
 																<sf:include name="DealerListMemberHelperTestJP"/>
+																<sf:include name="ParticipateDealerHandlerJP"/>
+                                                                <sf:include name="TriggerParticipateDealerHandlerJP"/>
+                                                                <sf:include name="ParticipateDealerHandlerTestJP"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="triggers">
                                                                 <sf:include name="TriggerUtilTestTrigger"/>
