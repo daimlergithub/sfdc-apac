@@ -4,10 +4,9 @@ public with sharing class UtilShare{
         Map<Id,AccountShare> mapShareObjAS = new  Map<Id,AccountShare>();     
         
         for(Id uid : UserOrGroupId){            
-            for(id pid : parentId){   
-                   
+            for(id pid : parentId){         
                 if( pid != Null && uid != Null){
-                AccountShare shareObjAS = new AccountShare();
+                    AccountShare shareObjAS = new AccountShare();
                     shareObjAS.AccountId= pid;
                     shareObjAS.UserOrGroupId= uid;
                     shareObjAS.AccountAccessLevel= Permission;
@@ -18,7 +17,9 @@ public with sharing class UtilShare{
             }
         } 
         if(mapShareObjAS.size() > 0 ){
-            insert mapShareObjAS.values();   
+            system.debug('Insert 1 :');
+            insert mapShareObjAS.values(); 
+            system.debug('Insert 2 :'); 
         }  
         system.debug('mapShareObjAS :'+mapShareObjAS);  
         return null;
@@ -67,7 +68,7 @@ public with sharing class UtilShare{
     @future
     public static void groupmembersadd(set<id> rtlst,Set<id> dealerAccountIds){
         
-        List<Lead__c> listLead = [select id,Name,Assigned_Dealer__c,RecordTypeId,RecordType.Name,VehicleRel_No__c,AfterSales_Vehicle__c
+        List<Lead__c> listLead = [select id,Name,Assigned_Dealer__c,Contact__c,RecordTypeId,RecordType.Name,VehicleRel_No__c,AfterSales_Vehicle__c
             from Lead__c where id IN : rtlst];
         system.debug('listLead  << :'+listLead);        
         for (Lead__c Led : listLead) {
@@ -109,6 +110,7 @@ public with sharing class UtilShare{
                  dealerAccountIds.add(Led.Assigned_Dealer__c);
             }
         }
+        system.debug('newGroupMap :'+newGroupMap);
         if(newGroupMap.size() >0){
             upsert newGroupMap.values();
         }   
@@ -159,7 +161,7 @@ public with sharing class UtilShare{
                     if(Led.Recordtype.Name == 'Sales Leads' || Led.Recordtype.Name == 'Aftersales Leads'){
                         if (dealerName != NULL && dealerName.Name == groupid.Name) {
                             system.debug('test 4 :');
-                            accountIds.add(Led.Assigned_Dealer__c);
+                            accountIds.add(Led.Contact__c);
                             parentIdsVS.add(Led.VehicleRel_No__c);
                             parentIdsVRS.add(Led.AfterSales_Vehicle__c);
                             groupIds.add(groupid.Id);                              
