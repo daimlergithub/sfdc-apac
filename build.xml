@@ -935,9 +935,6 @@
 				<sf:include name="Manual__kav.*"/>
 			</sf:typeset>
 			<sf:typeset name="datacategorygroups">
-				<sf:include name="APAC"/>
-				<sf:include name="Topic"/>
-			</sf:typeset>
 			<sf:typeset name="permissionsets"/>
 		</deploy>
     </target>
