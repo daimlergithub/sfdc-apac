@@ -103,7 +103,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Loan_Car_Provided_by_Dealer__c</field>
+                <field>Service_Loan_Car__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
