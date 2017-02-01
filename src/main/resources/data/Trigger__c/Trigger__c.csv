@@ -35,3 +35,4 @@ CaseTriggerKR,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,TriggerCaseTriggerHandle
 TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurveyTriggerHandlerJP,JP
 TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerJP,JP
 TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignMembersCustomHandlerJP,JP
+DealerListMember,TRUE,TRUE,TRUE,DealerListMember,TRUE,TRUE,TRUE,TriggerDealerListMemberHandlerJP,JP
