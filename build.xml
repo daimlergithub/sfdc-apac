@@ -934,7 +934,7 @@
 				<sf:include name="Script__kav.*"/>
 				<sf:include name="Manual__kav.*"/>
 			</sf:typeset>
-			<sf:typeset name="datacategorygroups">
+			<sf:typeset name="datacategorygroups"/>
 			<sf:typeset name="permissionsets"/>
 		</deploy>
     </target>
