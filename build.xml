@@ -486,13 +486,17 @@
                                                                 <sf:include name="LeadDealerAssignmentProcessTest"/>
                                                                                                                                                                                                                                                                 <sf:include name="AnnouncementController"/>
                                                                                                                                                                                                                                                                 <sf:include name="AnnouncementController_test"/>
+																																																										<sf:include name="CampaignMembersCustomHelperJP"/>
+																<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
+																<sf:include name="CampaignMembersCustomHelperJPTest"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="triggers">
                                                                 <sf:include name="TriggerUtilTestTrigger"/>
                                                                 <sf:include name="CaseTrigger"/>
                                                                 <sf:include name="TriggerDMRequest"/>
                                                                 <sf:include name="TriggerLead"/>
-                                                                <sf:include name="RetailTaskTrigger"/>                                                               
+                                                                <sf:include name="RetailTaskTrigger"/>   
+																<sf:include name="TriggerCampaignmembersCustom"/>														
                                                 </sf:typeset>
                                 </deploy>
     </target>       

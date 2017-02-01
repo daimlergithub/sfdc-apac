@@ -34,3 +34,4 @@ RetailTaskTriggerKR,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTr
 CaseTriggerKR,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,TriggerCaseTriggerHandlerKR,KR
 TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurveyTriggerHandlerJP,JP
 TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerJP,JP
+TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignMembersCustomHandlerJP,JP
