@@ -811,6 +811,69 @@
         <value>Other</value>
     </labels>
     <labels>
+        <fullName>Campaign_Notification1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification1</shortDescription>
+        <value>Dear admin, owner,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification2</shortDescription>
+        <value>The following campaign implementation day came.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification3</shortDescription>
+        <value>XXX (Campaign Name)</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification4</shortDescription>
+        <value>Please contact the customer.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification5</shortDescription>
+        <value>※ To check the list you will need to log in to sales force.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification6</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification7</shortDescription>
+        <value>If you have any questions about sales force operation,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification8</shortDescription>
+        <value>Please contact Sales Force Support Desk.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification9</shortDescription>
+        <value>Mercedes · Benz Japan XXX (TBD) Secretariat</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Planning_Page_Cancel_Button</fullName>
         <categories>Campaign</categories>
         <language>en_US</language>
@@ -921,6 +984,21 @@
         <protected>false</protected>
         <shortDescription>Campaign Planning Page Subtitle</shortDescription>
         <value>Participating Region/Province/City &amp; Dealer Selection</value>
+    </labels>
+	
+    <labels>
+        <fullName>Campaign_Segmentation1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation1</shortDescription>
+        <value>I will extract the target customers of the following campaign today.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Segmentation2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation2</shortDescription>
+        <value>Please do it according to the campaign schedule after reviewing the list.</value>
     </labels>
     <labels>
         <fullName>Campaign_Type</fullName>

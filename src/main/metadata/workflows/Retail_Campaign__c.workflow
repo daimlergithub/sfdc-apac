@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Retail_Execution_Notification</fullName>
+        <description>Retail Execution Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Retail_CampaignnotificationforExecution</template>
+    </alerts>
+    <alerts>
+        <fullName>Retail_Segmentation_Notification</fullName>
+        <description>Retail Segmentation Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Retail_CampaignNotificationforSegmen</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Apply_Status_Approved</fullName>
         <field>Apply_Status__c</field>
@@ -136,6 +156,54 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>Retail Execution Start Date Notification To Owner</fullName>
+        <actions>
+            <name>Retail_Execution_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Record_Type_Name__c</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Execution_Start_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Retail_Campaign__c.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Segmentation start date Notification to WS Users</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Segmentation_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Retail_Segmentation_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
     <rules>
         <fullName>Status change when new record created in Retail Campaign</fullName>
         <actions>
