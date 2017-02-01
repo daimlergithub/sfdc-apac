@@ -3,6 +3,20 @@
   DevItem : P3.
   Created By: Kiran
   Date: 2016-12-20
+  
+  ================
+  Modification : SFDCJP-SFDCJP-1332.
+  Modified my : Venky
+  Date : 2017-01-31
+  Description : Update query where condition included few profiles in query 
+  =================
+   ================
+  Modification : SFDCJP-SFDCJP-1337.
+  Modified my : Venky
+  Date : 2017-02-01
+  Description : On click of assign button current code is updating owner, Instead of user we have to update Assigned Service Advisor field .
+  =================
+  
 */  
 public class LeadDealerAssignmentProcess{
 
@@ -23,10 +37,10 @@ public class LeadDealerAssignmentProcess{
        if(leadslist.RecordType.DeveloperName == 'Sales_Leads') {
       
         UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND Profile.Name ='Japan Dealer Sales Representative'];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor')];
               try
         {
-           Account_Link__c accLink = [select id, Name, Sales_Representative__c,toRole__c from Account_Link__c WHERE toRole__c =: leadslist.Assigned_Dealer__c  LIMIT 1];
+           Account_Link__c accLink = [select id, Name, Sales_Representative__c,toRole__c,fromRole__c from Account_Link__c WHERE fromRole__c =: leadslist.Assigned_Dealer__c  LIMIT 1];
             if (acclink!=null && acclink.Sales_Representative__c!= null){
                 userid1 = acclink.Sales_Representative__c;
             }
@@ -38,7 +52,7 @@ public class LeadDealerAssignmentProcess{
         }
         else if(leadslist.RecordType.DeveloperName == 'Aftersales_Leads'){
             UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
-                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND Profile.Name ='Japan Dealer Service Advisor'];
+                                    ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor')];
             if (leadslist.Service_Advisor__c != null ){
                 userid1 = leadslist.Service_Advisor__c ;
             }
@@ -86,7 +100,7 @@ public class LeadDealerAssignmentProcess{
   */
     public  Pagereference AssignLeadtoDealer()
     {
-        update  new Lead__c(id=leadid, ownerid=userid1 );    
+        update  new Lead__c(id=leadid, Service_Advisor__c=userid1 );    
         return null;        
     }
     
