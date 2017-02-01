@@ -20,30 +20,37 @@ public with sharing class LeadHelperTest {
     private static final String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+    private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service Lead').getRecordTypeId();
+    private static final String ContractRTid = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
+    private static final String ServiceRTid = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
+    private static final String InsuranceRTid = Schema.sObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance').getRecordTypeId();
+    private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
+    private static final String VehRTid = Schema.sObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+    private static final String VehrelRTid = Schema.sObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     private static TestDataUtil testData = TestDataUtil.getInstance();
     private static string localeSideKeyValue = 'en_US';
     //add in 11/27
     private static string BusinessUnitValue = 'Alliance';
     private static string EOCRecipientTypeValue = '60 days primary';
     private static string LeadEscalationRecipientTypeValue ='Immediate Notice';
+    private static string LeadEscalationRecipientTypeValue1 ='CC Lead Escalation Recipient';
      private static string SubBusinessUnitValue = 'Finance';
     private static string SubBusinessUnitValue1 = 'Finance & Insurance';
     private static string LeadTypeValue1 = 'New Car';
      private static string FinanceLeadType = 'Key 2 Key';
      private static string CACLeadStatusValue1='New Enquiry';
     private static string LeadSourceValue = 'Campaign';
+    
     private static User user;
+     private static User user1;
     private static Vehicle__c vehicles;
     private static void createUser(Profile profile){        
         
-         user = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
+        user = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
                                   Email = 'sichao7.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = localeSideKeyValue,
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue);
-        insert user;
-        
-        
+        insert user;        
     }
     private static void createDealer(){
          
@@ -62,7 +69,7 @@ public with sharing class LeadHelperTest {
     public static void LeadHelperTest2() {
        
       
-        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service Lead').getRecordTypeId();
        
         Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
          createUser(profile);
@@ -678,5 +685,1307 @@ public with sharing class LeadHelperTest {
         insert lead;
         return lead;
           
-    }    
+    }
+
+@istest(seealldata = false)
+    public static void LeadHelperTest9(){
+	
+   Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+	
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   
+   insert Cus;
+	
+	EmailTemplate temp=[select id,developername from EmailTemplate where developername = 'Finance_Leads_Only'];    
+    
+    Contact con=new Contact();
+	con.Salutation='DRM MBFS';
+	con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+	con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+	con.Dealer_Lead_Gate_Keeper__c=false;
+	con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+	con.Sub_BusinessUnit__c = 'Finance';
+	con.Inactive__c = false ;
+	
+	insert con; 
+        
+    con.Lead_Escalation_Recipient_Type__c='24H Untouched Notice';
+	update con;   
+      
+    Test.startTest();      
+  
+    Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId = leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = deal.id;
+	Flead.X24H_Untouched__c = false;
+	Flead.X72H_Untouched__c = false;
+	
+    insert Flead;
+   
+	Flead.X24H_Untouched__c = true;
+	Flead.X72H_Untouched__c = false;
+	
+    update Flead;    
+         
+    Test.stopTest();
+	
+     
+	}
+ @istest(seealldata = false)
+public static void LeadHelperTest8(){
+	
+   Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+    
+    
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+
+   Contact con=new Contact();
+    con.Salutation='DRM MBFS';
+    con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+    con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+    con.Dealer_Lead_Gate_Keeper__c=false;
+    con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+    con.Sub_BusinessUnit__c = 'Finance';
+    con.Inactive__c = false ;
+	
+	insert con;
+    
+    Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = deal.id;
+	Flead.X24H_Untouched__c = false;
+	Flead.X72H_Untouched__c = false;
+	
+    insert Flead;
+   
+    
+    List<Lead__c> leads=new List<Lead__c>();
+    leads.add(Flead);
+    List<String> con1= new List<String>();
+      con1.add(con.id);
+    Map<String,List<String>> mailinfos = new Map<String,List<String>>();
+        mailinfos.put('abc@nttdata.com',con1);	
+    Map<id,Map<String,List<String>>> initialEmail = new Map<id,Map<String,List<String>>>();
+          initialEmail.put(Flead.id,mailinfos);
+
+   Test.startTest();      
+
+    LeadHelper.initialEmail(leads);
+	
+   Test.stopTest();     	   
+}
+
+    @istest(seealldata = false)
+public static void LeadHelperTest10(){
+	
+   Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+    
+    
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+
+   Contact con=new Contact();
+    con.Salutation='DRM MBFS';
+    con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+    con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+    con.Dealer_Lead_Gate_Keeper__c=false;
+    con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+    con.Sub_BusinessUnit__c = 'Finance';
+    con.Inactive__c = false ;
+	
+	insert con;
+    
+    Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = deal.id;
+	Flead.X24H_Untouched__c = false;
+	Flead.X72H_Untouched__c = false;
+	Flead.Is_Finance_Send_Email_Before_60_Days__c = true;
+    Flead.Is_Finance_Send_Email_Before_20_Days__c = true;
+    Flead.Is_Finance_Send_Email_Before_15_Days__c = true;
+    Flead.Is_Fleet_Send_Email_Before_45_Days__c = true; 
+    Flead.Is_Finance_Send_Email_Before_150_Days__c = true;
+    insert Flead;
+   
+    
+    
+    List<String> con1= new List<String>();
+      con1.add(con.id);
+    Map<id,Account> ContactMap=new Map<id,Account>();
+	    ContactMap.put(deal.id,deal);
+	Map<String,List<String>> mailinfos = new Map<String,List<String>>();
+        mailinfos.put('abc@nttdata.com',con1);	
+    Map<id,Map<String,List<String>>> initialEmail = new Map<id,Map<String,List<String>>>();
+          initialEmail.put(Flead.id,mailinfos);
+
+   Test.startTest();      
+
+    LeadHelper.getMailAddress(Flead,ContactMap);
+	
+   Test.stopTest();     	   
+ }  
+  
+  @istest(seealldata = false)
+public static void LeadHelperTest11()
+{   
+   Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+   
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+     
+    Retail_Task__c Contr=new Retail_Task__c();
+   Contr.RecordTypeId =ContractRTid;
+   Contr.Name = '1234';
+   Contr.Related_Dealer__c = Deal.id;
+   
+	insert Contr;
+	
+	Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Existing_Contract__c = Contr.id;
+    
+	insert Flead;
+     
+	 List<Lead__c> newLeads = new List<Lead__c>();
+	 newLeads.add(Flead);
+     Map<Id,Id> ldContrctMap = new Map<Id,Id>();
+	 ldContrctMap.put(newLeads[0].id,newLeads[0].Existing_Contract__c);
+	 
+	 Test.startTest();
+	 
+	 LeadHelper.autoFillAssignedDealer(newLeads);
+	 
+	 Test.stopTest();
+	 
+	 }  
+    
+    @istest(seealldata = false)
+public static void LeadHelperTest12()
+{
+   Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MB Trucks';
+      
+	
+   insert deal;
+   
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   
+   insert Cus;
+   
+   EmailTemplate VehicleTemplate = [select id ,developername from EmailTemplate where developername = 'EMC_Qualified_Vehicle_Lead'];
+   
+   Contact con=new Contact();
+	con.Salutation='DRM MBFS';
+	con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+	con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue1; 
+	con.Dealer_Lead_Gate_Keeper__c=false;
+    con.Business_Unit__c = 'MB Trucks';	
+	con.Sub_BusinessUnit__c = 'Service';
+	con.Inactive__c = false ;
+	
+	insert con;
+	
+	Contact con1=new Contact();
+	con1.Salutation='DRM MBFS';
+	con1.FirstName = 'lai';
+    con1.LastName = 'sichao12';
+	con1.AccountId = deal.id;
+    con1.Email = 'sichao12.lai@nttdata.com';
+    con1.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con1.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+	con1.Dealer_Lead_Gate_Keeper__c=false;
+    con1.Business_Unit__c = 'MB Trucks';	
+	con1.Sub_BusinessUnit__c = 'Service';
+	con1.Inactive__c = false ;
+	
+	insert con1;
+
+	
+	Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadSPRt ;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'Walk-In';
+	Flead.Nature_of_Request__c = 'Service Booking';
+	Flead.Business_Unit__c = 'MB Trucks';
+	Flead.Sub_BusinessUnit__c = 'Service';
+	Flead.CAC_Lead_Status__c = 'Qualified';
+	Flead.Assigned_Dealer__c = deal.id;
+	Flead.X24H_Untouched__c = false;
+	Flead.X72H_Untouched__c = false;
+	Flead.Preferred_Date__c = system.today();
+	Flead.Preferred_Drop_off_Time__c = '6:00 pm';
+	Flead.Preferred_Pickup_Time__c = '9:00 am';
+	Flead.MB_Vehicle_Interest__c = 'A-Class';
+	Flead.Vehicle_Registration_No__c = '1111';
+	
+    insert Flead;
+	
+	
+	
+	List<Lead__c> leadsForSend = new List<Lead__c>();
+	    leadsForSend.add(Flead);
+	set<id> DealerIds = new Set<id>();
+		DealerIds.add(deal.id);
+	String EmailType = 'Immediate Notice';
+	List<String> CCemails = new List<String>();
+	    CCemails.add(con.id);
+	Map<Lead__c,List<String>> leadContactCCEmails = new Map<Lead__c,List<String>>();	
+	     leadContactCCEmails.put(Flead,CCemails);
+    List<String> TOemails = new List<String>();
+	     Toemails.add(con1.id);
+	Map<Lead__c,List<String>> leadContactTOEmails = new Map<Lead__c,List<String>>();
+          leadContactTOEmails.put(Flead,TOEmails);	
+	
+	Test.startTest();
+	
+	LeadHelper.sendServicePartsEmail (leadsForSend,DealerIds,EmailType);
+	
+	Test.stopTest();
+	
+	} 
+    
+ @istest(seealldata = false)
+public static void LeadHelperTest13()
+{
+    Profile profile = [select Id from Profile where Name = 'Dealer Consultant'];
+         createUser1(profile);
+        
+      
+
+        system.runAs( user1 )
+    
+
+{
+EmailTemplate Template = [select id ,developername from EmailTemplate where developername = 'Lead_Assignment_Notification_Individual'];
+EmailTemplate Template1 = [select id ,developername from EmailTemplate where developername ='Lead_Assignment_Notification_Company'];
+EmailTemplate Template2 = [select id ,developername from EmailTemplate where developername ='Lead_Gate_Keeper_Notification_Individual'];
+EmailTemplate Template3 = [select id ,developername from EmailTemplate where developername ='Lead_Gate_Keeper_Notification_Company'];
+
+ Account fdeal = new Account(); // for Finance Lead //
+   fdeal.RecordTypeId = dealerRecordtypeid;
+   fdeal.Name = 'testdealer1';
+   fdeal.Phone = '58396247'; 
+   fdeal.Active__c='yes';
+   fdeal.Dealer_Allocation__c='MBAuP';
+   fdeal.Activation_Date__c=system.today();
+   fdeal.Business_Unit__c='MBFS Cars';
+      	
+   insert fdeal;
+
+    Account sdeal = new Account(); // for service Lead //
+   sdeal.RecordTypeId = dealerRecordtypeid;
+   sdeal.Name = 'testdealer3';
+   sdeal.Phone = '58396248'; 
+   sdeal.Active__c='yes';
+   sdeal.Dealer_Allocation__c='MBAuP';
+   sdeal.Activation_Date__c=system.today();
+   sdeal.Business_Unit__c='MB Trucks';
+      	
+   insert sdeal;
+     
+   Account vdeal = new Account(); // for vehicle Lead //
+   vdeal.RecordTypeId = dealerRecordtypeid;
+   vdeal.Name = 'testdealer5';
+   vdeal.Phone = '58396248'; 
+   vdeal.Active__c='yes';
+   vdeal.Dealer_Allocation__c='MBAuP';
+   vdeal.Activation_Date__c=system.today();
+   vdeal.Business_Unit__c='MB Trucks';
+      
+   insert vdeal;
+  
+   Account pdeal = new Account(); // for parts Lead //
+   pdeal.RecordTypeId = dealerRecordtypeid;
+   pdeal.Name = 'testdealer5';
+   pdeal.Phone = '58396248'; 
+   pdeal.Active__c='yes';
+   pdeal.Dealer_Allocation__c='MBAuP';
+   pdeal.Activation_Date__c=system.today();
+   pdeal.Business_Unit__c='MB Vans';
+      	
+   insert pdeal;
+    
+   Account Comp = new Account(); // for finance,service,Vehicle Lead //
+   Comp.Name='ABC Pvt Ltd';
+   Comp.Phone='2132123';
+   
+   insert Comp;
+    
+   Account Cus=new Account(); // for finance lead //
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396201';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+   
+   Account Cus1=new Account(); // for service lead //
+   Cus1.RecordTypeId = PersonRecordtypeid;
+   Cus1.Salutation='Lord';
+   Cus1.FirstName='Mount1';
+   Cus1.LastName='Batten';
+   Cus1.City__c='England';
+   Cus1.Phone='58396202';
+   Cus1.Email__c='abc@nttdata.com';
+   
+   insert Cus1;
+   
+   Account Cus2=new Account(); //for vehicle Lead //
+   Cus2.RecordTypeId = PersonRecordtypeid;
+   Cus2.Salutation='Lord';
+   Cus2.FirstName='Mount2';
+   Cus2.LastName='Batten';
+   Cus2.City__c='England';
+   Cus2.Phone='58396203';
+   Cus2.Email__c='abc@nttdata.com';
+   
+   insert Cus2;
+   
+   Account Cus3=new Account(); //for parts Lead //
+   Cus3.RecordTypeId = PersonRecordtypeid;
+   Cus3.Salutation='Lord';
+   Cus3.FirstName='Mount3';
+   Cus3.LastName='Batten';
+   Cus3.City__c='England';
+   Cus3.Phone='58396204';
+   Cus3.Email__c='abc@nttdata.com';
+   
+   insert Cus3;
+     
+   Contact con=new Contact();
+    con.Salutation='DRM MBFS';
+    con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+    con.AccountId = fdeal.id;
+    con.Email = 'sichao11.lai@nttdata.com'; 
+    con.Dealer_Lead_Gate_Keeper__c=True;
+    con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+    con.Sub_BusinessUnit__c = 'Finance';
+    con.Inactive__c = false ;
+	
+	insert con;
+	
+	Contact con1=new Contact();
+	con1.Salutation='DRM MBFS';
+	con1.FirstName = 'lai';
+    con1.LastName = 'sichao11';
+	con1.AccountId = sdeal.id;
+    con1.Email = 'sichao11.lai@nttdata.com';
+    con1.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con1.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue1; 
+	con1.Dealer_Lead_Gate_Keeper__c=false;
+    con1.Business_Unit__c = 'MB Trucks';	
+	con1.Sub_BusinessUnit__c = 'Service';
+	con1.Inactive__c = false ;
+	
+	insert con1;
+    
+    Contact con2=new Contact();
+	con2.Salutation='DRM MBFS';
+	con2.FirstName = 'lai';
+    con2.LastName = 'sichao11';
+	con2.AccountId = vdeal.id;
+    con2.Email = 'sichao11.lai@nttdata.com';
+    con2.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con2.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue1; 
+	con2.Dealer_Lead_Gate_Keeper__c=false;
+    con2.Business_Unit__c = 'MB Trucks';	
+	con2.Sub_BusinessUnit__c = 'Service';
+	con2.Inactive__c = false ;
+	
+	insert con2;
+    
+	Contact con3=new Contact();
+	con3.Salutation='DRM MBFS';
+	con3.FirstName = 'lai';
+    con3.LastName = 'sichao11';
+	con3.AccountId = pdeal.id;
+    con3.Email = 'sichao11.lai@nttdata.com';
+    con3.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con3.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue1; 
+	con3.Dealer_Lead_Gate_Keeper__c=false;
+    con3.Business_Unit__c = 'MB Vans';	
+	con3.Sub_BusinessUnit__c = 'parts';
+	con3.Inactive__c = false ;
+	
+	insert con3;
+	
+	Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Company_Account__c = comp.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = fdeal.id;
+	Flead.Sales_Consultant__c =con.id; 
+	Flead.Dealer_Assignment_Date__c = system.today();
+	Flead.Source_System__c='DLM';
+    Flead.OwnerId = user1.id;
+     
+	insert Flead;
+   
+   Lead__c slead = new Lead__c();
+	slead.RecordTypeId = leadSPRt ;
+	slead.Contact__c = Cus1.id;
+	slead.Company_Account__c =Comp.id ;
+	slead.Lead_Source__c = 'Walk-In';
+	slead.Nature_of_Request__c = 'Service Booking';
+	slead.Business_Unit__c = 'MB Trucks';
+	slead.Sub_BusinessUnit__c = 'Service';
+	slead.CAC_Lead_Status__c = 'Qualified';
+	slead.Assigned_Dealer__c = sdeal.id;
+	slead.X24H_Untouched__c = false;
+	slead.X72H_Untouched__c = false;
+	slead.Preferred_Date__c = system.today();
+	slead.Preferred_Drop_off_Time__c = '6:00 pm';
+	slead.Preferred_Pickup_Time__c = '9:00 am';
+	slead.MB_Vehicle_Interest__c = 'A-Class';
+	slead.Vehicle_Registration_No__c = '1111';
+	slead.Source_System__c ='DLM';
+	slead.Sales_Consultant__c =con1.id;
+    slead.OwnerId = user1.id;
+    
+	insert slead;
+	
+	Lead__c vlead = new Lead__c();
+	vlead.RecordTypeId = leadVehicleRt;
+	vlead.Contact__c = Cus2.id;
+	vlead.Company_Account__c =Comp.id ;
+	vlead.Nature_of_Request__c = 'Request a Quote';
+	vlead.Lead_Source__c = 'Walk-In';
+	vlead.Business_Unit__c = 'MB Trucks';
+	vlead.Sub_BusinessUnit__c = 'Service';
+	vlead.CAC_Lead_Status__c = 'Qualified';
+	vlead.Assigned_Dealer__c = vdeal.id;
+	vlead.Test_Drive_Date__c = system.today();
+    vlead.MB_Vehicle_Interest__c = 'Atego';
+	vlead.Purchase_Time__c = '24 Hours';
+	vlead.Source_System__c = 'DLM';
+	vlead.Sales_Consultant__c =con2.id;
+    vlead.OwnerId = user1.id;
+	
+    insert vlead;
+		
+	Lead__c plead = new Lead__c();
+	plead.Contact__c = Cus3.id ;
+    plead.Company_Account__c =Comp.id ;
+	plead.Nature_of_Request__c = 'Parts Enquiries';
+	plead.Lead_Source__c = 'Walk-In';
+	plead.CAC_Lead_Status__c = 'Qualified';
+	plead.Business_Unit__c = 'Vans';
+	plead.Sub_BusinessUnit__c = 'Parts';
+	plead.Assigned_Dealer__c = pdeal.id;
+	plead.MB_Vehicle_Interest__c = 'Citan';
+	plead.UsVIN__c = '1212';
+	plead.Description__c='Its regarding the Parts Enquiry';
+	plead.Source_System__c = 'DLM';
+	plead.Sales_Consultant__c =con3.id;
+    plead.OwnerId = user1.id;
+	
+	insert plead;
+
+   Map<id,Lead__c> newMap=new Map<id,Lead__c>();
+        newMap.put(Flead.id,Flead);
+	Map<id,Lead__c> oldMap=new Map<id,Lead__c>();
+         oldMap.put(Flead.id,Flead);
+	Map<id,Lead__c> newMap1=new Map<id,Lead__C>();
+         newMap1.put(slead.id,slead);
+    Map<id,Lead__c> oldMap1=new Map<id,Lead__c>();
+          oldMap1.put(slead.id,slead);	
+	Map<id,Lead__c> newMap2=new Map<id,Lead__c>();
+          newMap2.put(vlead.id,vlead);
+    Map<id,Lead__c> oldMap2=new Map<id,Lead__c>();
+           oldMap2.put(vlead.id,vlead);	
+	Map<id,Lead__c> newMap3=new Map<id,Lead__c>();
+          newMap3.put(plead.id,plead);
+    Map<id,Lead__c> oldMap3=new Map<id,Lead__c>();
+           oldMap3.put(plead.id,plead);
+		   
+	Test.startTest();
+
+	LeadHelper.autoAssignLeads(newMap,oldMap,true,false);
+	LeadHelper.autoAssignLeads(newMap,oldMap,false,true);
+	LeadHelper.autoAssignLeads(newMap1,oldMap1,true,false);
+	LeadHelper.autoAssignLeads(newMap1,oldMap1,false,true);
+	LeadHelper.autoAssignLeads(newMap2,oldMap2,true,false);
+	LeadHelper.autoAssignLeads(newMap2,oldMap2,false,true);
+    LeadHelper.autoAssignLeads(newMap3,oldMap3,true,false);
+	LeadHelper.autoAssignLeads(newMap3,oldMap3,false,true);
+	
+	Test.stopTest(); 
+   }    
+}
+    @istest(seealldata = false)
+public static void LeadHelperTest14()
+{
+Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
+         createUser(profile);
+        
+        system.runAs( user ) {
+
+
+Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+   
+   Account deal1 = new Account();
+   deal1.RecordTypeId = dealerRecordtypeid;
+   deal1.Name = 'testdealer';
+   deal1.Phone = '58396243'; 
+   deal1.Active__c='yes';
+   deal1.Dealer_Allocation__c='MBAuP';
+   deal1.Activation_Date__c=system.today();
+   deal1.Business_Unit__c='MBFS Cars';
+   deal1.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal1;
+            Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+    
+	Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = deal.id;
+    Flead.OwnerID = user.id;       
+	insert Flead;
+	
+	Contact con=new Contact();
+    con.Salutation='DRM MBFS';
+    con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+    con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+    con.Dealer_Lead_Gate_Keeper__c=true;
+    con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+    con.Sub_BusinessUnit__c = 'Finance';
+    con.Inactive__c = false ;
+	
+	insert con;
+	
+	List<Lead__c> newlist=new List<Lead__c>();
+	newlist.add(Flead);	
+	Map<id,Lead__c> newLeadMap = new Map<id,Lead__c>();
+	newLeadMap.put(Flead.id,Flead);
+	Map<id,Lead__c> leadoldMap = new Map<id,Lead__c>();
+	leadoldMap.put(Flead.id,Flead);
+	
+	Test.startTest();
+	
+	LeadHelper.updateDealerAssignmentDate(newlist,newLeadMap,leadoldMap,true,false);
+	LeadHelper.updateDealerAssignmentDate(newlist,newLeadMap,leadoldMap,false,true);
+	
+	Test.stopTest();
+        }
+}    
+    
+ private static void createUser1(Profile profile){        
+ 
+		Account ac1=new Account();
+		ac1.RecordTypeId = dealerRecordtypeid;
+         ac1.Name = 'testdealer';
+         ac1.Phone = '58396243'; 
+         ac1.Active__c='yes';
+         ac1.Dealer_Allocation__c='MBAuP';
+         ac1.Activation_Date__c=system.today();
+         ac1.Business_Unit__c='MBFS Cars';
+         ac1.Cars_Offered_Service__c='Finance & Insurance';    
+	
+          insert ac1;
+		  
+		  Contact con=new Contact();
+          con.Salutation='DRM MBFS';
+          con.FirstName = 'lai';
+          con.LastName = 'sichao11';
+          con.AccountId = ac1.id;
+          con.Email = 'sichao11.lai@nttdata.com';
+          con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+          con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+          con.Dealer_Lead_Gate_Keeper__c=true;
+          con.Finance_Lead_Type__c ='Agility';
+          con.Business_Unit__c = 'MBFS Cars';	
+          con.Sub_BusinessUnit__c = 'Finance';
+          con.Inactive__c = false ;
+		  
+		  insert con;
+		
+		 user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
+                                  Email = 'sichao7.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = localeSideKeyValue,
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue,ContactID=con.id);
+         insert user1;        
+    }   
+   
+    @istest(seealldata = false)
+public static void LeadHelperTest15()
+{
+
+    EmailTemplate m = [select id ,developername from EmailTemplate where developername = 'Finance_Leads_Only'];
+    EmailTemplate m1 = [select id ,developername from EmailTemplate where developername = 'Fleet_EOC_Template'];
+
+Account deal = new Account();
+   deal.RecordTypeId = dealerRecordtypeid;
+   deal.Name = 'testdealer';
+   deal.Phone = '58396243'; 
+   deal.Active__c='yes';
+   deal.Dealer_Allocation__c='MBAuP';
+   deal.Activation_Date__c=system.today();
+   deal.Business_Unit__c='MBFS Cars';
+   deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+   insert deal;
+
+   Account Cus=new Account();
+   Cus.RecordTypeId = PersonRecordtypeid;
+   Cus.Salutation='Lord';
+   Cus.FirstName='Mount';
+   Cus.LastName='Batten';
+   Cus.City__c='England';
+   Cus.Phone='58396200';
+   Cus.Email__c='abc@nttdata.com';
+   
+   insert Cus;
+   
+   Lead__c Flead = new Lead__c();
+	Flead.RecordTypeId =leadFinanceRT;
+	Flead.Contact__c = Cus.id;
+	Flead.Lead_Source__c = 'LiveChat';
+	Flead.Nature_of_Request__c = 'Agility';
+	Flead.Business_Unit__c = 'MBFS Cars';
+	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
+	Flead.CAC_Lead_Status__c = 'Sold Finance';
+	Flead.Assigned_Dealer__c = deal.id;
+    
+           
+	insert Flead;
+	
+	
+	Contact con=new Contact();
+    con.Salutation='DRM MBFS';
+    con.FirstName = 'lai';
+    con.LastName = 'sichao11';
+    con.AccountId = deal.id;
+    con.Email = 'sichao11.lai@nttdata.com';
+    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
+    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
+    con.Dealer_Lead_Gate_Keeper__c=true;
+    con.Finance_Lead_Type__c ='Agility';
+    con.Business_Unit__c = 'MBFS Cars';	
+    con.Sub_BusinessUnit__c = 'Finance';
+    con.Inactive__c = false ;
+	
+	insert con;
+
+	List<Lead__c> leads = new List<Lead__c>();
+	   leads.add(flead);
+    List<String> con1= new List<String>();
+      con1.add(con.id);
+	Map<String,List<String>> mailinfos = new Map<String,List<String>>();
+        mailinfos.put('abc@nttdata.com',con1);	
+    Map<id,Map<String,List<String>>> initialEmail = new Map<id,Map<String,List<String>>>();
+          initialEmail.put(Flead.id,mailinfos);
+	   
+	Test.startTest();
+ 
+ LeadHelper.send171Email(leads);
+
+	Test.stopTest();	  
+}    
+
+@istest(seealldata = false)
+public static void LeadHelperTest16()
+{        
+    Test.startTest();
+    Account deal = new Account();
+    deal.RecordTypeId = dealerRecordtypeid;
+    deal.Name = 'testdealer';
+    deal.Phone = '58396243'; 
+    deal.Active__c='yes';
+    deal.Dealer_Allocation__c='MBAuP';
+    deal.Activation_Date__c=system.today();
+    deal.Business_Unit__c='MBFS Cars';
+    deal.MBFS_Car_Offered_Service__c='Service';    
+        
+    insert deal;
+    
+    Account Comp = new Account(); // for finance,service,Vehicle Lead //
+    Comp.Name='ABC Pvt Ltd';
+    Comp.Phone='2132123';
+    
+    insert Comp;
+       
+    Account Cus=new Account();  // Customer Account hot lead
+    Cus.RecordTypeId = PersonRecordtypeid;
+    Cus.Company__c = deal.id;   
+    Cus.Salutation='Lord';
+    Cus.FirstName='Mount';
+    Cus.LastName='Batten';
+    Cus.City__c='England';
+    Cus.Phone='58396200';
+    Cus.PC_Status__c = 'Customer'; // Prospect,Service Only,Complaintant //
+    Cus.CV_Status__c = 'Customer'; // Customer,Service Only	 //
+    Cus.VAN_Status__c = 'Customer'; // Prospect,Service Only,Complaintant //
+    Cus.Behavioural_group__c = 'Revolver'; // New to the brand,Attriter,Keeper //
+       
+    insert Cus;
+        
+    Account Cus2=new Account(); // Customer Account warm lead
+    Cus2.RecordTypeId = PersonRecordtypeid;
+    Cus2.Company__c = deal.id;   
+    Cus2.Salutation='Lord';
+    Cus2.FirstName='Mount';
+    Cus2.LastName='Batten';
+    Cus2.City__c='England';
+    Cus2.Phone='58396200';
+    Cus2.PC_Status__c = 'Customer'; // Prospect,Service Only,Complaintant //
+    Cus2.CV_Status__c = 'Customer'; // Customer,Service Only	 //
+    Cus2.VAN_Status__c = 'Customer'; // Prospect,Service Only,Complaintant //
+    Cus2.Behavioural_group__c = 'Keeper'; // New to the brand,Attriter,Revolver //
+       
+    insert Cus2;
+    
+    Account Cus1=new Account(); //Prospect Account
+    Cus1.RecordTypeId = PersonRecordtypeid;
+    Cus1.Company__c = deal.id;   
+    Cus1.Salutation='Lord';
+    Cus1.FirstName='Mount';
+    Cus1.LastName='Batten';
+    Cus1.City__c='England';
+    Cus1.Phone='58396200';
+    Cus1.PC_Status__c = 'Prospect'; // Customer,Service Only,Complaintant //
+    Cus1.CV_Status__c = 'Prospect'; // Customer,Service Only	 //
+    Cus1.VAN_Status__c = 'Prospect'; // Customer,Service Only,Complaintant //
+    Cus1.Behavioural_Group__c = 'Revolver'; // New to the brand,Attriter,Keeper //
+       
+    insert Cus1;
+    
+     Account Cus3=new Account(); //Prospect Account
+    Cus3.RecordTypeId = PersonRecordtypeid;
+    Cus3.Company__c = deal.id;   
+    Cus3.Salutation='Lord1';
+    Cus3.FirstName='Mount';
+    Cus3.LastName='Batten';
+    Cus3.City__c='England';
+    Cus3.Phone='58396200';
+    Cus3.PC_Status__c = 'Prospect'; // Customer,Service Only,Complaintant //
+    Cus3.CV_Status__c = 'Prospect'; // Customer,Service Only	 //
+    Cus3.VAN_Status__c = 'Prospect'; // Customer,Service Only,Complaintant //
+    Cus3.Behavioural_Group__c = 'Keeper'; // New to the brand,Attriter,Keeper //
+       
+    insert Cus3;
+    
+    Vehicle__c veh= new Vehicle__c(); //hot lead
+    veh.RecordTypeId = VehRTid;
+    veh.UsVIN__c = '1212';
+    veh.Class__c = 'A-Class';
+    veh.Related_contact__c = Cus.id;
+    
+    insert veh;
+    
+    Vehicle__c veh1= new Vehicle__c(); //warm lead
+    veh1.RecordTypeId = VehRTid;
+    veh1.UsVIN__c = '1212';
+    veh1.Class__c = 'A-Class';
+    veh1.Related_contact__c = Cus2.id;
+    
+    insert veh1;
+    
+    Vehicle_Relationship__c	vehrel = new Vehicle_Relationship__c(); //hot lead
+    vehrel.RecordTypeId = VehrelRTid;
+    vehrel.Car_Relation__c = 'Owner';
+    vehrel.Status__c = 'Currently Owned';
+    vehrel.Contact__c = Cus.id;
+    vehrel.Vehicle_ID__c = veh.id;
+    
+    insert vehrel;
+    
+    Vehicle_Relationship__c	vehrel1 = new Vehicle_Relationship__c(); //warm lead
+    vehrel1.RecordTypeId = VehrelRTid;
+    vehrel1.Car_Relation__c = 'Owner';
+    vehrel1.Status__c = 'Currently Owned';
+    vehrel1.Contact__c = Cus2.id;
+    vehrel1.Vehicle_ID__c = veh1.id;
+    
+    insert vehrel1;
+    
+    Retail_Task__c rtask = new Retail_Task__c(); //hot lead Service Contract 
+    rtask.RecordTypeId = ServiceRTid;
+    rtask.Service_Dealer__c = deal.Id; 
+    rtask.Related_Vehicle__c = veh.Id;
+    rtask.Account__c = Cus.id;
+    
+    insert rtask;
+      
+     Retail_Task__c Contr=new Retail_Task__c();  //hot lead Contract
+   Contr.RecordTypeId = ContractRTid;
+   Contr.Name = '1234';
+   Contr.Related_Dealer__c = Deal.id;
+   Contr.Account__c = Cus.id;
+   Contr.Related_Vehicle__c = veh.id;
+	
+	insert Contr;
+   	
+	Retail_Task__c Insur = new Retail_Task__c(); //hot lead insurance contract
+	Insur.RecordTypeId = InsuranceRTid;
+	Insur.Name = 'Vehicle1';
+	Insur.Account__c = Cus.id;
+	
+	insert Insur;
+       
+    Lead__c vlead = new Lead__c(); // Customer hot lead
+        vlead.RecordTypeId = leadVehicleRt;
+        vlead.Contact__c = Cus.id;
+        vlead.Company_Account__c =Comp.id ;
+        vlead.Nature_of_Request__c = 'Test Drive Request';
+        vlead.Lead_Source__c = 'Walk-In';
+        vlead.Business_Unit__c = 'Cars';
+        vlead.Sub_BusinessUnit__c = 'Service';
+        vlead.CAC_Lead_Status__c = 'Qualified';
+        vlead.Assigned_Dealer__c = deal.id;
+        vlead.Test_Drive_Date__c = system.today();
+        vlead.MB_Vehicle_Interest__c = 'A-Class';
+        vlead.Purchase_Time__c = '24 Hours';
+        
+        insert vlead;
+    
+    Lead__c vlead2 = new Lead__c(); //customer warm lead
+        vlead2.RecordTypeId = leadVehicleRt;
+        vlead2.Contact__c = Cus2.id;
+        vlead2.Nature_of_Request__c = 'Brochure Request';
+        vlead2.Lead_Source__c = 'Walk-In';
+        vlead2.Business_Unit__c = 'Cars';
+        vlead2.Sub_BusinessUnit__c = 'Service';
+        vlead2.CAC_Lead_Status__c = 'Qualified';
+        vlead2.Assigned_Dealer__c = deal.id;
+        vlead2.MB_Vehicle_Interest__c = 'B-Class';
+        vlead2.Purchase_Time__c = 'Not sure';  
+        
+        insert vlead2;	
+        
+     Lead__c vlead1 = new Lead__c();  //Prospect
+        vlead1.RecordTypeId = leadVehicleRt;
+        vlead1.Contact__c = Cus1.id;
+        vlead1.Nature_of_Request__c = 'Test Drive Request';
+        vlead1.Lead_Source__c = 'Walk-In';
+        vlead1.Business_Unit__c = 'Cars';
+        vlead1.Sub_BusinessUnit__c = 'Service';
+        vlead1.CAC_Lead_Status__c = 'Qualified';
+        vlead1.Assigned_Dealer__c = deal.id;
+        vlead1.Test_Drive_Date__c = system.today();
+        vlead1.MB_Vehicle_Interest__c = 'B-Class';
+        vlead1.Purchase_Time__c = '24 Hours';
+             
+        insert vlead1;
+    
+     Lead__c vlead3 = new Lead__c(); //Prospect warm lead
+        vlead3.RecordTypeId = leadVehicleRt;
+        vlead3.Contact__c = Cus3.id;
+        vlead3.Nature_of_Request__c = 'Brochure Request';
+        vlead3.Lead_Source__c = 'Walk-In';
+        vlead3.Business_Unit__c = 'Cars';
+        vlead3.Sub_BusinessUnit__c = 'Service';
+        vlead3.CAC_Lead_Status__c = 'Qualified';
+        vlead3.Assigned_Dealer__c = deal.id;
+        vlead3.MB_Vehicle_Interest__c = 'B-Class';
+        vlead3.Purchase_Time__c = 'Not sure';  
+        
+        insert vlead3;
+             
+	Test.stopTest();
+}    
+
+@istest(seealldata = false)
+public static void LeadHelperTest17()
+{
+Account deal = new Account();
+deal.RecordTypeId = dealerRecordtypeid;
+deal.Name = 'testdealer';
+deal.Phone = '58396243'; 
+deal.Active__c='yes';
+deal.Dealer_Allocation__c='MBAuP';
+deal.Activation_Date__c=system.today();
+deal.Business_Unit__c='MBFS Cars';
+deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+insert deal;
+
+Account Cus=new Account();
+Cus.RecordTypeId = PersonRecordtypeid;
+Cus.Salutation='Lord';
+Cus.FirstName='Mount';
+Cus.LastName='Batten';
+Cus.City__c='England';
+Cus.Phone='58396200';
+   
+insert Cus;
+
+Lead__c vlead = new Lead__c();
+	vlead.RecordTypeId = leadVehicleRt;
+	vlead.Contact__c = Cus.id;
+	vlead.Nature_of_Request__c = 'Request a Quote';
+	vlead.Lead_Source__c = 'Walk-In';
+	vlead.Business_Unit__c = 'Cars';
+	vlead.Sub_BusinessUnit__c = 'Service';
+	vlead.CAC_Lead_Status__c = 'Qualified';
+	vlead.Assigned_Dealer__c = deal.id;
+	vlead.Test_Drive_Date__c = system.today();
+    vlead.MB_Vehicle_Interest__c = 'A-Class';
+	vlead.Purchase_Time__c = '24 Hours';
+	vlead.Dealer_Assignment_Date__c = system.now();
+	vlead.Consultant_Assignment_Date__c = system.now();
+    vlead.Lead_Priority__c = 'Hot';
+	
+    insert vlead;
+
+	List<Lead__c> list_leads_new = new List<Lead__c>();
+	list_leads_new.add(vlead);
+	
+	Test.startTest();
+	
+	LeadHelper.DueDateForAssignedDealer(list_leads_new);
+	
+	Test.stopTest();
+
+}  
+@istest(seealldata = false)
+public static void LeadHelperTest18()
+{
+Account deal = new Account();
+deal.RecordTypeId = dealerRecordtypeid;
+deal.Name = 'testdealer';
+deal.Phone = '58396243'; 
+deal.Active__c='yes';
+deal.Dealer_Allocation__c='MBAuP';
+deal.Activation_Date__c=system.today();
+deal.Business_Unit__c='MBFS Cars';
+deal.Cars_Offered_Service__c='Finance & Insurance';    
+	
+insert deal;
+
+Account Comp = new Account(); // for finance,service,Vehicle Lead //
+Comp.Name='ABC Pvt Ltd';
+Comp.Phone='2132123';
+
+insert Comp;
+
+Account Cus=new Account();
+Cus.RecordTypeId = PersonRecordtypeid;
+Cus.Company__c = deal.id;
+Cus.Salutation='Lord';
+Cus.FirstName='Mount';
+Cus.LastName='Batten';
+Cus.City__c='England';
+Cus.Phone='58396200';
+   
+insert Cus;
+
+Vehicle__c veh= new Vehicle__c();
+veh.RecordTypeId = VehRTid;
+veh.UsVIN__c = '1212';
+veh.Class__c = 'A-Class';
+
+insert veh;
+
+Retail_Task__c rtask = new Retail_Task__c();
+rtask.RecordTypeId = ContractRTid;
+rtask.Related_Dealer__c = deal.Id; 
+rtask.Related_Vehicle__c = veh.Id;
+rtask.Account__c = Cus.id;
+
+insert rtask;
+
+Lead__c vlead = new Lead__c();
+	vlead.RecordTypeId = leadVehicleRt;
+	vlead.Contact__c = Cus.id;
+	vlead.Company_Account__c = Comp.id;
+	vlead.Nature_of_Request__c = 'Brochure Request';
+	vlead.Lead_Source__c = 'Walk-In';
+	vlead.Business_Unit__c = 'Cars';
+	vlead.Sub_BusinessUnit__c = 'Service';
+	vlead.CAC_Lead_Status__c = 'Qualified';
+	vlead.Assigned_Dealer__c = deal.id;
+	vlead.Test_Drive_Date__c = system.today();
+    vlead.MB_Vehicle_Interest__c = 'A-Class';
+	vlead.Purchase_Time__c = '24 Hours';
+    vlead.Lead_Priority__c = 'Hot';
+	vlead.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead;
+	
+Lead__c vlead1 = new Lead__c();
+	vlead1.RecordTypeId = leadVehicleRt;
+	vlead1.Contact__c = Cus.id;
+	vlead1.Company_Account__c = Comp.id;
+	vlead1.Nature_of_Request__c = 'Test Drive Request';
+	vlead1.Lead_Source__c = 'Walk-In';
+	vlead1.Business_Unit__c = 'Cars';
+	vlead1.Sub_BusinessUnit__c = 'Service';
+	vlead1.CAC_Lead_Status__c = 'Qualified';
+	vlead1.Assigned_Dealer__c = deal.id;
+	vlead1.Test_Drive_Date__c = system.today();
+    vlead1.MB_Vehicle_Interest__c = 'A-Class';
+	vlead1.Purchase_Time__c = '24 Hours';
+    vlead1.Lead_Priority__c = 'Hot';
+	vlead1.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead1.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead1;
+
+Lead__c vlead2 = new Lead__c();
+	vlead2.RecordTypeId = leadVehicleRt;
+	vlead2.Contact__c = Cus.id;
+	vlead2.Company_Account__c = Comp.id;
+	vlead2.Nature_of_Request__c = 'Request a Quote';
+	vlead2.Lead_Source__c = 'Walk-In';
+	vlead2.Business_Unit__c = 'Cars';
+	vlead2.Sub_BusinessUnit__c = 'Service';
+	vlead2.CAC_Lead_Status__c = 'Qualified';
+	vlead2.Assigned_Dealer__c = deal.id;
+	vlead2.Test_Drive_Date__c = system.today();
+    vlead2.MB_Vehicle_Interest__c = 'A-Class';
+	vlead2.Purchase_Time__c = '24 Hours';
+    vlead2.Lead_Priority__c = 'Hot';
+	vlead2.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead2.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead2;
+
+Lead__c vlead3 = new Lead__c();
+	vlead3.RecordTypeId = leadVehicleRt;
+	vlead3.Contact__c = Cus.id;
+	vlead3.Company_Account__c = Comp.id;
+	vlead3.Nature_of_Request__c = 'Corporate Programme';
+	vlead3.Lead_Source__c = 'Walk-In';
+	vlead3.Business_Unit__c = 'Cars';
+	vlead3.Sub_BusinessUnit__c = 'Service';
+	vlead3.CAC_Lead_Status__c = 'Qualified';
+	vlead3.Assigned_Dealer__c = deal.id;
+	vlead3.Test_Drive_Date__c = system.today();
+    vlead3.MB_Vehicle_Interest__c = 'A-Class';
+	vlead3.Purchase_Time__c = '24 Hours';
+    vlead3.Lead_Priority__c = 'Hot';
+	vlead3.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead3.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead3;
+
+Lead__c vlead4 = new Lead__c();
+	vlead4.RecordTypeId = leadVehicleRt;
+	vlead4.Contact__c = Cus.id;
+	vlead4.Company_Account__c = Comp.id;
+	vlead4.Nature_of_Request__c = 'Fleet Programme';
+	vlead4.Lead_Source__c = 'Walk-In';
+	vlead4.Business_Unit__c = 'Cars';
+	vlead4.Sub_BusinessUnit__c = 'Service';
+	vlead4.CAC_Lead_Status__c = 'Qualified';
+	vlead4.Assigned_Dealer__c = deal.id;
+	vlead4.Test_Drive_Date__c = system.today();
+    vlead4.MB_Vehicle_Interest__c = 'A-Class';
+	vlead4.Purchase_Time__c = '24 Hours';
+    vlead4.Lead_Priority__c = 'Hot';
+	vlead4.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead4.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead4;
+
+Lead__c vlead5 = new Lead__c();
+	vlead5.RecordTypeId = leadVehicleRt;
+	vlead5.Contact__c = Cus.id;
+	vlead5.Company_Account__c = Comp.id;
+	vlead5.Nature_of_Request__c = 'Parts Enquiries';
+	vlead5.Lead_Source__c = 'Walk-In';
+	vlead5.Business_Unit__c = 'Cars';
+	vlead5.Sub_BusinessUnit__c = 'Service';
+	vlead5.CAC_Lead_Status__c = 'Qualified';
+	vlead5.Assigned_Dealer__c = deal.id;
+	vlead5.Test_Drive_Date__c = system.today();
+    vlead5.MB_Vehicle_Interest__c = 'A-Class';
+	vlead5.Purchase_Time__c = '24 Hours';
+    vlead5.Lead_Priority__c = 'Hot';
+	vlead5.Preferred_Drop_off_Time__c = '6:00 pm';
+	vlead5.Vehicle_Registration_No__c = 'TN30BC7101' ;
+	
+    insert vlead5;
+
+	List<Lead__c> deDupleadList = new List<Lead__c>();
+	deDupleadList.add(vlead);
+	List<Lead__c> deDupleadList1 = new List<Lead__c>();
+	deDupleadList1.add(vlead1);
+	List<Lead__c> deDupleadList2 = new List<Lead__c>();
+	deDupleadList2.add(vlead2);
+	List<Lead__c> deDupleadList3 = new List<Lead__c>();
+	deDupleadList3.add(vlead3);
+	List<Lead__c> deDupleadList4 = new List<Lead__c>();
+	deDupleadList4.add(vlead4);
+	List<Lead__c> deDupleadList5 = new List<Lead__c>();
+	deDupleadList5.add(vlead5);
+	
+	Test.startTest();
+	
+	LeadHelper.leaddeDuplication(deDupleadList);
+	LeadHelper.leaddeDuplication(deDupleadList1);
+	LeadHelper.leaddeDuplication(deDupleadList2);
+	LeadHelper.leaddeDuplication(deDupleadList3);
+	LeadHelper.leaddeDuplication(deDupleadList4);
+	LeadHelper.leaddeDuplication(deDupleadList5);
+		
+	Test.stopTest();    
+}
 }
