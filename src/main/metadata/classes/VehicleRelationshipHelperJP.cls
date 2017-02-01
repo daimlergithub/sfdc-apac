@@ -428,12 +428,12 @@ public with sharing class VehicleRelationshipHelperJP
         Set<Id> currentVrId=new Set<Id>();
         
         for(Vehicle_Relationship__c vc : newList){
-            if(vc.Contact__c != null && vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId){
-                if(!map_AccountIdAndListVCId.containsKey(vc.Contact__c)){
-                      map_AccountIdAndListVCId.put(vc.Contact__c, new List<Id>());
+            if(vc.Owner_Dealer__c != null && vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId){
+                if(!map_AccountIdAndListVCId.containsKey(vc.Owner_Dealer__c)){
+                      map_AccountIdAndListVCId.put(vc.Owner_Dealer__c, new List<Id>());
                        
                   }
-                  map_AccountIdAndListVCId.get(vc.Contact__c).add(vc.Id);
+                  map_AccountIdAndListVCId.get(vc.Owner_Dealer__c).add(vc.Id);
             }
             else 
                 if(vc.Contact__c != null && vc.RecordTypeId == vehicleRelationship_VRRecordTypeId){
@@ -475,14 +475,14 @@ public with sharing class VehicleRelationshipHelperJP
           List<Vehicle_Relationship__Share> list_SharingDele = new List<Vehicle_Relationship__Share>();
           
         for(Vehicle_Relationship__c vc : newList){
-            if(vc.Contact__c != null && vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId && vc.Contact__c != oldMap.get(vc.Id).Contact__c){
-                if(!map_AccountIdAndListVCId.containsKey(vc.Contact__c)){
-                      map_AccountIdAndListVCId.put(vc.Contact__c, new List<Id>());
+            if(vc.Owner_Dealer__c != null && vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId && vc.Owner_Dealer__c != oldMap.get(vc.Id).Owner_Dealer__c){
+                if(!map_AccountIdAndListVCId.containsKey(vc.Owner_Dealer__c)){
+                      map_AccountIdAndListVCId.put(vc.Owner_Dealer__c, new List<Id>());
                        
                   }
-                  map_AccountIdAndListVCId.get(vc.Contact__c).add(vc.Id);
+                  map_AccountIdAndListVCId.get(vc.Owner_Dealer__c).add(vc.Id);
                   currentVrId.add(vc.Id);
-                  set_AccountId.add(oldMap.get(vc.Id).Contact__c);
+                  set_AccountId.add(oldMap.get(vc.Id).Owner_Dealer__c);
                   list_VehicleRelationId.add(vc.Id);
             }
             else 
@@ -495,9 +495,10 @@ public with sharing class VehicleRelationshipHelperJP
                       map_AccountIdAndListVCwithVRrecordtypeId.get(vc.Contact__c).add(vc.Id);
                       }
                       currentVrId.add(vc.Id);
-                }
+                
                 set_AccountId.add(oldMap.get(vc.Id).Contact__c);
                 list_VehicleRelationId.add(vc.Id);
+				}
         }
         if(set_AccountId!=null)
         {
