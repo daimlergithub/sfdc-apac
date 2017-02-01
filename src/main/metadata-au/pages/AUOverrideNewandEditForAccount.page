@@ -91,10 +91,10 @@
             <apex:inputField value="{!objPersonAccount.Marital_Status__c}" taborderhint="8"/>
             <apex:inputField value="{!objPersonAccount.Company__c}" taborderhint="9"/>
             <apex:inputField value="{!objPersonAccount.PersonBirthdate}" taborderhint="10"/>
-            <apex:inputField value="{!objPersonAccount.Education__c}" taborderhint="11"/>   
+            <!--apex:inputField value="{!objPersonAccount.Education__c}" taborderhint="11"/ -->   
             <apex:inputField value="{!objPersonAccount.Industry}" taborderhint="12"/>   
             <apex:inputField value="{!objPersonAccount.Age_Range__c}" taborderhint="13"/>   
-            <apex:inputField value="{!objPersonAccount.Occupation__c}" taborderhint="14"/>  
+            <!--apex:inputField value="{!objPersonAccount.Occupation__c}" taborderhint="14"/-->  
             <apex:inputField value="{!objPersonAccount.Partner_Title__c}" taborderhint="15"/>   
             <apex:inputField value="{!objPersonAccount.Corporate_Program__c}" taborderhint="16"/>
             <apex:inputField value="{!objPersonAccount.Partner_First_Name__c}" taborderhint="17"/>
@@ -103,8 +103,8 @@
             <apex:inputField value="{!objPersonAccount.Preferred_Partner_Name__c}" taborderhint="20"/>
             <apex:inputField value="{!objPersonAccount.Partner_DOB__c}" taborderhint="21"/>            
         </apex:pageBlockSection>
-		
-		<apex:pageBlockSection columns="2" id="pbsAccInfoIddlr1" title="Account Information" collapsible="false" rendered="{!$Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'}">
+        
+        <apex:pageBlockSection columns="2" id="pbsAccInfoIddlr1" title="Account Information" collapsible="false" rendered="{!$Profile.Name == 'Dealer CRM Manager' || $Profile.Name == 'Dealer Divisional Manager' || $Profile.Name == 'Dealer Consultant'}">
             <apex:outputtext value="{!accountOwner}" label="Account Owner"/>
             <apex:inputField value="{!objPersonAccount.Partner_Title__c}" />
            <!-- <apex:outputtext value="{!recordType}" label="Account Record Type"/> -->
@@ -125,6 +125,10 @@
             <apex:inputField value="{!objPersonAccount.PreferredName__c}" taborderhint="8"/>
             <apex:inputField label="Partner Birthdate" value="{!objPersonAccount.Partner_DOB__c}" taborderhint="9"/>
             <apex:inputField value="{!objPersonAccount.PersonBirthdate}" taborderhint="10"/>
+            <apex:inputField value="{!objPersonAccount.Industry}" taborderhint="11"/>
+            <apex:inputField value="{!objPersonAccount.Gender__c}" taborderhint="12"/>
+            <apex:inputField value="{!objPersonAccount.Company__c}" taborderhint="13"/>
+            <apex:inputField value="{!objPersonAccount.Deceased__c}" taborderhint="14"/>
             
          </apex:pageBlockSection>        
         <apex:pageBlockSection columns="2" id="pbsContactInfoId1" title="Contact Informations" collapsible="false">
