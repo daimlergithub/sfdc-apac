@@ -13338,11 +13338,6 @@
         <field>Lead__c.Lead_Desired_Service__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.MBK_Lead_Desired_Service__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lead_InfoSourceSub__c</field>
