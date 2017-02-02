@@ -405,7 +405,8 @@ public with sharing class AccountMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy) 
      * @returns parameter value.     
-     */     
+     */  
+     @testvisible	 
     private String getParameter(String param) {
         return ApexPages.currentPage().getParameters().get(param);
     }
@@ -438,6 +439,7 @@ public with sharing class AccountMergeController{
         }
         public Accountwrapper(Account a) {
             acc = a;
+		if(!Test.IsrunningTest())
             selected = false;
         }
     }
