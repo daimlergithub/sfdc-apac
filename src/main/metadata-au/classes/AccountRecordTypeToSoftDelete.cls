@@ -59,7 +59,7 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
         {
             taskList = [SELECT id, LastModifiedDate, WhatId  FROM task where WhatId =:accids ORDER BY LastModifiedDate DESC LIMIT 1];
             eventList = [SELECT id, LastModifiedDate, WhatId  FROM event where WhatId =:accids ORDER BY LastModifiedDate DESC LIMIT 1];
-            leadList = [SELECT id, Name,LastModifiedDate from Lead__c where (Contact__c =:accids OR Company_Account__c =:accids) ORDER BY LastModifiedDate DESC LIMIT 1];
+            leadList = [SELECT id, Name,LastModifiedDate,Contact__c,Company_Account__c from Lead__c where (Contact__c =:accids OR Company_Account__c =:accids) ORDER BY LastModifiedDate DESC LIMIT 1];
         }
             if (leadList!= null && !leadList.isEmpty())
             {
@@ -86,7 +86,8 @@ global class AccountRecordTypeToSoftDelete implements Database.Batchable<sobject
             system.debug('lastmodifieddate_task_event>>>' + lastmodifieddate_task_event);
             for(Account acc : acctList)
             {
-                if (((acc.id == leadList[0].Contact__c || acc.Id == leadList[0].Company_Account__c) && (acc.Id == taskList[0].WhatId) && (acc.Id == eventList[0].WhatId) && lastmodifieddate_lead != null && lastmodifieddate_lead < lastFiveYears) && (lastmodifieddate_task_event == null || lastmodifieddate_task_event < lastFiveYears ) ) 
+                if (((leadList[0] != null && acc.id == leadList[0].Contact__c) || (leadList[0] != null && acc.Id == leadList[0].Company_Account__c)) 
+                     && (taskList[0] != null && acc.Id == taskList[0].WhatId) && (eventList[0] != null && acc.Id == eventList[0].WhatId) && (lastmodifieddate_lead != null && lastmodifieddate_lead < lastFiveYears) && (lastmodifieddate_task_event != null || lastmodifieddate_task_event < lastFiveYears ) ) 
             
                     {                
                         if (acc.RecordtypeID == PersonAccountRecordTypeId)
