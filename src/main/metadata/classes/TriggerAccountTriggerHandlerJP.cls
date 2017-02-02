@@ -29,7 +29,7 @@ implements TriggerHandlerIf
         }
         if(isAfter && isInsert )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+          AccountHelperJP.handleAfterInsertEvent(Trigger.new);
         if(usr.Profile.Name.contains('Dealer')){
             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
           }
@@ -130,8 +130,7 @@ implements TriggerHandlerIf
         }
           if(isAfter && isInsert )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
-                }
+         AccountHelperJP.handleAfterInsertEvent(Trigger.new);                }
         
          if(isAfter && isUpdate )
         {
