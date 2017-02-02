@@ -22,6 +22,11 @@ public class TriggerCampaignTriggerHandlerJP
             CampaignHelper.beforeDeleteEvents(Trigger.old);
             
         }
+        if(Trigger.isAfter && Trigger.isUpdate)
+        {
+            CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
+            
+        }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
