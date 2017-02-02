@@ -2114,6 +2114,15 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Dealer_Manual_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Manual Create</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
         <label>CV No. Brand Purchases</label>
