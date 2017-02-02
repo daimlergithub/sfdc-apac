@@ -60,7 +60,7 @@ public class ContactTableController
         system.debug('p.Name :'+p.Name);
         if(p.Name.contains('Dealer')){
             system.debug('Test 123');            
-            disableButtons = false;          
+            disableButtons = true;          
         }
         if(disableButtons == true){
              //editMode = true;
