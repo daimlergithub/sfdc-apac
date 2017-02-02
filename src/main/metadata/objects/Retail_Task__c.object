@@ -3916,7 +3916,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Service_Vehicle_VIN__c</fullName>
         <externalId>false</externalId>
-        <formula>Related_Vehicle__r.UsVIN__c</formula>
+        <formula>Service_Vehicle__r.UsVIN__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Vehicle VIN</label>
         <required>false</required>
