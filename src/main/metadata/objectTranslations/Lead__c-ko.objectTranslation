@@ -15500,10 +15500,6 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
             <label>딜러 정보</label>
             <section>Dealer Information</section>
         </sections>
@@ -15537,10 +15533,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15580,10 +15572,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15645,10 +15633,6 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
             <label>설명 정보</label>
             <section>Description Information</section>
         </sections>
@@ -15686,10 +15670,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15792,10 +15772,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
