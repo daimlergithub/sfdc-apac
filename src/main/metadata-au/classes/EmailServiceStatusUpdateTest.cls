@@ -84,7 +84,7 @@ private class EmailServiceStatusUpdateTest {
         system.assertEquals('Contact Attempt Made',leadAfterUpdate.CAC_Lead_Status__c);
         system.assertEquals(null,leadAfterUpdate.CAC_Lost_Reason__c);
 
-        email.subject='Lead No.'+leada.Name+':'+String.valueof(leada.id)+':Closed:Interest Rate:';
+        email.subject='Lead No.'+leada.Name+':'+String.valueof(leada.id)+':Closed Won:Interest Rate:';
         emailProcess.handleInboundEmail(email, env);
         
         leadAfterUpdate = [select CAC_Lost_Reason__c,CAC_Lead_Status__c from Lead__c where id =: leada.id];
@@ -111,7 +111,7 @@ private class EmailServiceStatusUpdateTest {
         emsg1.ParentId = cas.Id;
         insert emsg1;
         Test.stopTest() ;
-        system.assertEquals('Closed',leadAfterUpdate.CAC_Lead_Status__c);
+        system.assertEquals('Closed Won',leadAfterUpdate.CAC_Lead_Status__c);
         system.assertEquals('Interest Rate',leadAfterUpdate.CAC_Lost_Reason__c );
     }
 
