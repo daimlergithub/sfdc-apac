@@ -14583,11 +14583,6 @@
         <field>Manual__kav.Attachment_1__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	 <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.MBK_Lost_Situation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Manual__kav.Attachment_2__c</field>
