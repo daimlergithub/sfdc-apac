@@ -2472,10 +2472,6 @@
             <section>Flags</section>
         </sections>
         <sections>
-            <label><!-- Payment Conditions --></label>
-            <section>Payment Conditions</section>
-        </sections>
-        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
@@ -2491,19 +2487,8 @@
             <section>Flags</section>
         </sections>
         <sections>
-            <label><!-- Payment Conditions --></label>
-            <section>Payment Conditions</section>
-        </sections>
-        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Retail Task Layout(Contract)</layout>
-        <sections>
-            <label><!-- MOT Information --></label>
-            <section>MOT Information</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>

@@ -2609,19 +2609,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description>계정 링크1 포함 계정</description>
-        <label>계정 링크1 포함 계정</label>
-        <name>Account_with_Accountlink2</name>
-        <sections>
-            <label><!-- 取引先 --></label>
-            <name>取引先</name>
-        </sections>
-        <sections>
-            <label><!-- 関係者1 --></label>
-            <name>関係者1</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description>주소 포함 계정</description>
         <label>주소 포함 계정</label>
         <name>Account_with_Address</name>
