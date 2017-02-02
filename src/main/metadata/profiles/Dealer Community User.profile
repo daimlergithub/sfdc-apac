@@ -14550,11 +14550,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.WIP_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Waived_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14592,6 +14587,11 @@
         <editable>false</editable>
         <field>Manual__kav.Attachment_2__c</field>
         <readable>false</readable>
+	</fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.WIP_Number__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
