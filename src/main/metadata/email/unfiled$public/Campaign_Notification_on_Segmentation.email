@@ -1,0 +1,43 @@
+<messaging:emailTemplate subject="Campaign notification on segmentation Date" recipientType="User" relatedToType="Campaign">
+<messaging:htmlEmailBody >
+<html>
+   <style type="text/css">
+   </style>
+   <body>
+   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Owner.Name} {!$Label.Email_LeadDealerAssign2}</p>
+   
+   <p> {!$Label.Campaign_Notification1}</p>
+   
+   <p> {!$Label.Campaign_Segmentation1}</p>
+   
+   <p>{!relatedTo.Name}</p>
+   
+   <p> {!$Label.Campaign_Segmentation2}</p>
+   
+   <a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.Id}">
+        Direct link URL to the detail page
+  </a>
+   
+   <p> {!$Label.Campaign_Notification5}</p>
+   
+   <p> {!$Label.Campaign_Notification6}</p>
+   
+   <p> {!$Label.Campaign_Notification7}</p>
+   
+   <p> {!$Label.Campaign_Notification8}</p>
+   
+   <p> {!$Label.Campaign_Notification9}</p>
+   
+   -------------------------------------------
+   
+    <p> {!$Label.Email_LeadDealerAssign15}</p>
+    <p> {!$Label.Email_LeadDealerAssign16}</p>
+    <p> {!$Label.Email_LeadDealerAssign17}</p>
+    <p> {!$Label.Email_LeadDealerAssign18}</p>
+   -----------------------------------------------
+   
+   </body>
+   </html>
+     
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

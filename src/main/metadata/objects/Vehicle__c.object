@@ -8578,7 +8578,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+       <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>ANG</fullName>

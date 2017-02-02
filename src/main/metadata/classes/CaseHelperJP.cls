@@ -539,7 +539,6 @@ List<Account> accUpdLst = new List<Account>();
     }
     
     
-    
       public static void countchildcase(List<Case> cases,List<case> oldcases){
       Id caseinquiryrt= Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
         Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -638,13 +637,11 @@ List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_
       }     
  }
 
-         
-    public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase){
        List<Id> caseIds = new List<Id>();
-       for(case cs: lstCase){
-           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true){
-               caseIds.add(cs.id);
-                
+       for(case cs: LstnewCase){
+           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
+               caseIds.add(cs.id);                
             }
        }        
        

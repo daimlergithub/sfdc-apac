@@ -211,6 +211,7 @@
             <value>Company Soft Deleted</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
+		<booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
         <caseAccessLevel>Edit</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>MBK Account Sharing Rule</name>

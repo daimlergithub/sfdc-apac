@@ -50,7 +50,7 @@
                                                                 useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
                 </target>
                
-                <target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,deploy53,postDestructiveChanges">
+                <target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15,deploy18, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,deploy53,postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">     -->
                 <sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
                                                                 username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
@@ -299,7 +299,7 @@
                                 </deploy>
     </target>
                
-                <target name="deploy20">
+                <target name="deploy18">
                                 <deploy runAllTests="${sfdc.runAllTests}">
                                                 <sf:typeset name="objects">
                                                                 <sf:exclude name="Account"/>
@@ -321,9 +321,16 @@
                                                 </sf:typeset>   
                                 </deploy>
     </target>       
-                <target name="deploy21">
-                                <deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
-                                                <sf:typeset name="objects">
+	
+													<target name="deploy20">
+														<deploy transformations="transformations29.xml">
+															<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
+														</deploy>
+													</target>
+													
+													<target name="deploy21">
+														<deploy  runAllTests="${sfdc.runAllTests}">
+															<sf:typeset name="objects">
                                                                 <sf:include name="Case"/>
                                                                
                                                                 <!--<sf:exclude name="Activity"/>
@@ -485,15 +492,27 @@
                                                                 <sf:include name="FS_CaseInlineController"/>
                                                                 <sf:include name="LeadDealerAssignmentProcess"/>
                                                                 <sf:include name="LeadDealerAssignmentProcessTest"/>
-                                                                                                                                                                                                                                                                <sf:include name="AnnouncementController"/>
-                                                                                                                                                                                                                                                                <sf:include name="AnnouncementController_test"/>
+																																										                                                                 <sf:include name="AnnouncementController"/>
+                                                                                                                                                                                                                                         <sf:include name="AnnouncementController_test"/>
+																																																										<sf:include name="CampaignMembersCustomHelperJP"/>
+																<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
+																<sf:include name="CampaignMembersCustomHelperJPTest"/>
+																<sf:include name="DealerListMemberHelperJP"/>
+																<sf:include name="TriggerDealerListMemberHandlerJP"/>
+																<sf:include name="DealerListMemberHelperTestJP"/>
+																<sf:include name="ParticipateDealerHandlerJP"/>
+                                                                <sf:include name="TriggerParticipateDealerHandlerJP"/>
+                                                                <sf:include name="ParticipateDealerHandlerTestJP"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="triggers">
                                                                 <sf:include name="TriggerUtilTestTrigger"/>
                                                                 <sf:include name="CaseTrigger"/>
                                                                 <sf:include name="TriggerDMRequest"/>
                                                                 <sf:include name="TriggerLead"/>
-                                                                <sf:include name="RetailTaskTrigger"/>                                                               
+                                                                <sf:include name="RetailTaskTrigger"/>   
+																<sf:include name="TriggerCampaignmembersCustom"/>
+												                <sf:include name="DealerListMember"/>
+																
                                                 </sf:typeset>
                                 </deploy>
     </target>       
@@ -1081,7 +1100,7 @@
                 </target>
                
                 <property name="typesets.circle">
-                                CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,
+                                CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,DataCategoryGroup,
  
                                 Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow
                 </property>
@@ -1127,3 +1146,4 @@
                                                                 useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
                 </target>
 </project>
+

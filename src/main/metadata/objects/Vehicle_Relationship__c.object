@@ -3608,7 +3608,7 @@ What factors were influential in your purchase decision?
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
-		     <picklistValues>
+			<picklistValues>
                 <fullName>C</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5173,6 +5173,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>L</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>N</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>R</fullName>
                 <default>false</default>
@@ -5712,11 +5716,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>H</fullName>
+                <fullName>D</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>D</fullName>
+			 <values>
+                <fullName>H</fullName>
                 <default>false</default>
             </values>
             <values>

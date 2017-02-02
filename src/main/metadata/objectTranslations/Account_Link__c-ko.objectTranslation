@@ -6,13 +6,26 @@
     </caseValues>
     <fields>
         <help><!-- Activate Flag --></help>
-        <label><!-- Active --></label>
+        <label>활성 중</label>
         <name>Active__c</name>
     </fields>
     <fields>
-        <label><!-- Contract --></label>
+        <label>계약</label>
         <name>ContractId__c</name>
-        <relationshipLabel><!-- Account Link --></relationshipLabel>
+        <relationshipLabel>계정 연결</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Correlation ID --></label>
+        <name>CorrelationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>CreatedById__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CreatedDate --></label>
+        <name>CreatedDate__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -23,12 +36,33 @@
         <name>CurrentMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer No. --></label>
+        <label><!-- Customer ID --></label>
+        <name>CustomerID__c</name>
+    </fields>
+    <fields>
+        <label>딜러 번호</label>
         <name>Dealer_No__c</name>
     </fields>
     <fields>
         <label><!-- End Date --></label>
         <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Id --></label>
+        <name>Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsDeleted --></label>
+        <name>IsDeleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>LastModifiedById__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LastModifiedDate --></label>
+        <name>LastModifiedDate__c</name>
     </fields>
     <fields>
         <label><!-- Last Service Date --></label>
@@ -48,11 +82,11 @@
         <relationshipLabel><!-- Account Link (Last Service Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- MB Connection --></label>
+        <label>MB 커넥션</label>
         <name>MBConnection__c</name>
     </fields>
     <fields>
-        <label><!-- Market Discriminator --></label>
+        <label>시장 구분자</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -72,8 +106,17 @@
         <name>Origin__c</name>
     </fields>
     <fields>
+        <label><!-- User --></label>
+        <name>OwnerId__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Portal E-Mail --></label>
         <name>Portal_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Mercedes Id --></label>
+        <name>Portal_ID__c</name>
     </fields>
     <fields>
         <label><!-- Portal Message Mail Opt Out --></label>
@@ -84,27 +127,27 @@
         <name>Portal_Message_Opt_Out__c</name>
     </fields>
     <fields>
-        <label><!-- Event --></label>
+        <label>이벤트</label>
         <name>Portal_Source__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <translation>없음</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Portal Type --></label>
+        <label>포털 유형</label>
         <name>Portal_Type__c</name>
         <picklistValues>
             <masterLabel>M-Care</masterLabel>
-            <translation><!-- M-Care --></translation>
+            <translation>Mercedes me connect</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal</masterLabel>
-            <translation><!-- Normal --></translation>
+            <translation>일반</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal (M-Care)</masterLabel>
-            <translation><!-- Normal (M-Care) --></translation>
+            <translation>일반 (Mercedes me connect)</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -112,8 +155,29 @@
         <name>Position__c</name>
     </fields>
     <fields>
-        <label><!-- Primary --></label>
+        <label>기본</label>
         <name>Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Responsible Dealer --></label>
+        <name>Responsible_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Responsible Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>개인 정보 해외 이전 동의</label>
+        <name>Retail_Abroad_Agreement__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>아니오</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation>철회</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation>예</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Retail Address CreatedDate --></label>
@@ -158,6 +222,38 @@
         <picklistValues>
             <masterLabel>Other Address 3</masterLabel>
             <translation>다른 주소 3</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>개인 정보 취급 위탁 동의</label>
+        <name>Retail_Agreement_Info_Processing__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>아니오</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation>철회</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation>예</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>개인 정보 수집 및 이용 동의</label>
+        <name>Retail_Agreement__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>아니오</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation>철회</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -225,6 +321,10 @@
         <name>Retail_Complaint_Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Retail Consent Form Serial No --></label>
+        <name>Retail_Consent_Form_Serial_No__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Contact Method --></label>
         <name>Retail_Contact_Method__c</name>
         <picklistValues>
@@ -240,7 +340,26 @@
             <translation><!-- Telephone --></translation>
         </picklistValues>
     </fields>
-   
+    <fields>
+        <label><!-- Retail Country --></label>
+        <name>Retail_Country__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label><!-- Retail CreatedDate --></label>
         <name>Retail_CreatedDate__c</name>
@@ -278,6 +397,10 @@
         <name>Retail_Dealer_Company__c</name>
     </fields>
     <fields>
+        <label><!-- Retail Delete Flag --></label>
+        <name>Retail_Delete_Flag__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Distinct --></label>
         <name>Retail_Distinct__c</name>
     </fields>
@@ -286,8 +409,16 @@
         <name>Retail_Duplicate_Flag__c</name>
     </fields>
     <fields>
+        <label><!-- Retail Email OptOut --></label>
+        <name>Retail_Email_OptOut__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Email --></label>
         <name>Retail_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Fax OptOut --></label>
+        <name>Retail_Fax_OptOut__c</name>
     </fields>
     <fields>
         <label><!-- Retail Fax --></label>
@@ -300,6 +431,14 @@
     <fields>
         <label><!-- Retail FirstName --></label>
         <name>Retail_FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail First Consent Date --></label>
+        <name>Retail_First_Consent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail First Consent User --></label>
+        <name>Retail_First_Consent_User__c</name>
     </fields>
     <fields>
         <label><!-- Retail Foundation Month --></label>
@@ -534,6 +673,22 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>개인 정보 제 3자 제공 동의</label>
+        <name>Retail_Information_Third_Party_Release__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>아니오</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation>철회</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation>예</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Retail LastModifiedDate --></label>
         <name>Retail_LastModifiedDate__c</name>
     </fields>
@@ -654,12 +809,76 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail Denied Activities --></label>
+        <name>Retail_OptOutContact_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Campaign (Aftersales)</masterLabel>
+            <translation><!-- Campaign (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (Finance)</masterLabel>
+            <translation><!-- Campaign (Finance) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (New Car)</masterLabel>
+            <translation><!-- Campaign (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (Aftersales)</masterLabel>
+            <translation><!-- Event (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (New Car)</masterLabel>
+            <translation><!-- Event (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation><!-- Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gift</masterLabel>
+            <translation><!-- Gift --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOT Car inspection</masterLabel>
+            <translation><!-- MOT Car inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation><!-- Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Aftersales)</masterLabel>
+            <translation><!-- Product Info (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Finance)</masterLabel>
+            <translation><!-- Product Info (Finance) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (New Car)</masterLabel>
+            <translation><!-- Product Info (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Retail PersonBirthdate --></label>
         <name>Retail_PersonBirthdate__c</name>
     </fields>
     <fields>
+        <label><!-- Retail Phone OptOut --></label>
+        <name>Retail_Phone_OptOut__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Position --></label>
         <name>Retail_Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Postal OptOut --></label>
+        <name>Retail_Postal_OptOut__c</name>
     </fields>
     <fields>
         <label><!-- Retail Preferred Contact Method --></label>
@@ -757,7 +976,34 @@
             <translation>베트남 사람</translation>
         </picklistValues>
     </fields>
-    
+    <fields>
+        <label><!-- Retail Primary Phone --></label>
+        <name>Retail_Primary_Phone__c</name>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation><!-- Home Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other1</masterLabel>
+            <translation><!-- Other1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other2</masterLabel>
+            <translation><!-- Other2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Mobile</masterLabel>
+            <translation><!-- Work Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Phone</masterLabel>
+            <translation><!-- Work Phone --></translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label><!-- Retail Province --></label>
         <name>Retail_Province__c</name>
@@ -818,8 +1064,24 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail UCID --></label>
+        <name>Retail_UCID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Updated Consent Date --></label>
+        <name>Retail_Updated_Consent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Updated Consent User --></label>
+        <name>Retail_Updated_Consent_User__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Vat No --></label>
         <name>Retail_Vat_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Visit OptOut --></label>
+        <name>Retail_Visit_OptOut__c</name>
     </fields>
     <fields>
         <label><!-- Retail Web Site --></label>
@@ -834,71 +1096,71 @@
         <name>Retail_ZipCode__c</name>
     </fields>
     <fields>
-        <label><!-- Role2 --></label>
+        <label>역할2</label>
         <name>Role2__c</name>
         <picklistValues>
             <masterLabel>After-Sales</masterLabel>
-            <translation><!-- After-Sales --></translation>
+            <translation>애프터 세일즈</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
-            <translation><!-- Business partner --></translation>
+            <translation>비즈니스 파트너</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Child</masterLabel>
-            <translation><!-- Child --></translation>
+            <translation>자녀</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation><!-- Colleague --></translation>
+            <translation>동료</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>회사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation><!-- Employee --></translation>
+            <translation>직원</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
-            <translation><!-- Friend --></translation>
+            <translation>친구</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand child</masterLabel>
-            <translation><!-- Grand child --></translation>
+            <translation>손자녀</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand parent</masterLabel>
-            <translation><!-- Grand parent --></translation>
+            <translation>조부모</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband&apos;s Wife</masterLabel>
-            <translation><!-- Husband&apos;s Wife --></translation>
+            <translation>Husband&apos;s Wife</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
-            <translation><!-- Husband・Wife --></translation>
+            <translation>부부</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Manager</masterLabel>
-            <translation><!-- Manager --></translation>
+            <translation>매니저</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parent</masterLabel>
-            <translation><!-- Parent --></translation>
+            <translation>부모</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partner</masterLabel>
-            <translation><!-- Partner --></translation>
+            <translation>연인</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Relative</masterLabel>
-            <translation><!-- Relative --></translation>
+            <translation>친척</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
-            <translation><!-- Sales --></translation>
+            <translation>판매</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -906,71 +1168,71 @@
         <name>Role_Text__c</name>
     </fields>
     <fields>
-        <label><!-- Role --></label>
+        <label>역할</label>
         <name>Role__c</name>
         <picklistValues>
             <masterLabel>After-Sales</masterLabel>
-            <translation><!-- After-Sales --></translation>
+            <translation>애프터 세일즈</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Business partner</masterLabel>
-            <translation><!-- Business partner --></translation>
+            <translation>비즈니스 파트너</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Child</masterLabel>
-            <translation><!-- Child --></translation>
+            <translation>자녀</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Colleague</masterLabel>
-            <translation><!-- Colleague --></translation>
+            <translation>동료</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>회사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Employee</masterLabel>
-            <translation><!-- Employee --></translation>
+            <translation>직원</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Friend</masterLabel>
-            <translation><!-- Friend --></translation>
+            <translation>친구</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand child</masterLabel>
-            <translation><!-- Grand child --></translation>
+            <translation>손자녀</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Grand parent</masterLabel>
-            <translation><!-- Grand parent --></translation>
+            <translation>조부모</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
-            <translation><!-- Husband・Wife --></translation>
+            <translation>부부</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Manager</masterLabel>
-            <translation><!-- Manager --></translation>
+            <translation>매니저</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parent</masterLabel>
-            <translation><!-- Parent --></translation>
+            <translation>부모</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Partner</masterLabel>
-            <translation><!-- Partner --></translation>
+            <translation>연인</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Relative</masterLabel>
-            <translation><!-- Relative --></translation>
+            <translation>친척</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>
-            <translation><!-- Sales --></translation>
+            <translation>판매</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Sales Person Id --></label>
+        <label>영업직원 ID</label>
         <name>Sales_Person_Id__c</name>
     </fields>
     <fields>
@@ -1013,6 +1275,11 @@
         <relationshipLabel><!-- Account Link (Service Advisor) --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Service Dealer --></label>
+        <name>Service_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Service Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- SocialMediaAccount ID --></label>
         <name>SocialMediaAccount_ID__c</name>
     </fields>
@@ -1049,115 +1316,111 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Mercedes Me Portal --></label>
+        <label><!-- SystemModstamp --></label>
+        <name>SystemModstamp__c</name>
+    </fields>
+    <fields>
+        <label>Mercedes me Portal</label>
         <name>System__c</name>
+    </fields>
+    <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label><!-- Vehicle --></label>
+        <label><!-- VIN --></label>
+        <name>VIN__c</name>
+    </fields>
+    <fields>
+        <label>차량</label>
         <name>Vehicle__c</name>
-        <relationshipLabel><!-- Account Links --></relationshipLabel>
+        <relationshipLabel>계정 링크</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Account 1 --></label>
+        <label>계정 1</label>
         <name>fromRole__c</name>
-        <relationshipLabel><!-- Account Links (Contact to Contact) --></relationshipLabel>
+        <relationshipLabel>계정 링크(연락처 간)</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Account 2 --></label>
+        <label>계정 2</label>
         <name>toRole__c</name>
-        <relationshipLabel><!-- Account Links(External Link) --></relationshipLabel>
+        <relationshipLabel>계정 링크(외부 링크)</relationshipLabel>
     </fields>
     <layouts>
         <layout>Account Link Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Company Customer External Link</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>정보</label>
             <section>Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Contact Sector</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>필드</label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Contact to Dealer</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>정보</label>
             <section>Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Contact2Contact</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>정보</label>
             <section>Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Individual Customer External Link</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>정보</label>
             <section>Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Vehicle External Link</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>정보</label>
             <section>Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>
