@@ -184,7 +184,7 @@ public static Account companyacc1;
              objAccountController.getParameter('Test');
              objAccountController.selectAllParam = 'Test';
              try{
-             objAccountController.cancel();
+             //objAccountController.cancel();
              }catch(exception e ){}
         // Stop Test
         Test.stopTest();        
