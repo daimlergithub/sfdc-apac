@@ -6583,7 +6583,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Car_Remarks__c</field>
         <readable>false</readable>
     </fieldPermissions>
