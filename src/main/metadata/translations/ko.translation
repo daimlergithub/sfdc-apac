@@ -2590,20 +2590,7 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customTabs>
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
-    </customTabs>
-    <reportTypes>
-        <description>마이그레이션용 테스트</description>
-        <label>계정 링크 포함 계정</label>
-        <name>Account_with_AccountLink</name>
-        <sections>
-            <label>계정 연결(외부 링크)</label>
-            <name>Account Links(External Link)</name>
-        </sections>
-        <sections>
-            <label>계정</label>
-            <name>Accounts</name>
-        </sections>
-    </reportTypes>
+    </customTabs
      <reportTypes>
 -        <description><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></description>
 -        <label><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></label>
