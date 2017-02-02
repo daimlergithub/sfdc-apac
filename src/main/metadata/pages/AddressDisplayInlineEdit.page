@@ -153,7 +153,7 @@
                     
                 </apex:pageBlockTable>
                 
-                <!--buttons to add, save edit  and edit cancel--  commneted rendered="{!if(profilename==TRUE,FALSE,TRUE)}">
+                <!--buttons to add, save edit  and edit cancel-->
                 <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" />
                 <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
                 
