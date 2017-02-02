@@ -53,7 +53,7 @@ public with sharing class TriggerCampaignCityTest {
         delete campcity;
         TriggerCampaignCityTriggerHandlerJP CampaignCityHandlerJP = new TriggerCampaignCityTriggerHandlerJP();
         CampaignCityHandlerJP.handleTrigger(false, false, false, false, false);
-        CampaignCityHandlerJP.handleIntegrationTrigger(false, false, false, false, false);
+        CampaignCityHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
         
         
         TriggerCampaignCityTriggerHandler CampaignCityHandler = new TriggerCampaignCityTriggerHandler();

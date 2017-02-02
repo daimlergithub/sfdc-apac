@@ -1,14 +1,18 @@
 @isTest
 public without sharing class VehiclePickerForCaseControllerTest{
     
-    
-    private static Case testCase;
+    public static Account accobj;
+    public static Case testCase;
     private static Vehicle__c testVehicleMB;
     private static Vehicle__c testVehicle_VehicleProduct;
     private static List<Car_Model__c> carModels;
     private static List<Map<String, Set<String>>> carModelMap;
     private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1', 'CurrentVehicle2', 'TradeIn', 'Purchased'};
-    
+    public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id MBRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+    public static Id InquiryRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+    public static id VehicleProductRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('Vehicle Product').getRecordTypeId();
+    public static id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
     
     public static void createTestData(){
     
@@ -16,21 +20,23 @@ public without sharing class VehiclePickerForCaseControllerTest{
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
-
-        UtilConstant utilConst = new UtilConstant();     
-        testCase = (Case)UtilTestData.createSobject(new Case(), UtilConstant.SALES_LEADS);
-        system.debug('Leads... :' +testCase);
+        UtilConstant utilConst = new UtilConstant(); 
         
-        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,
-                                                EuroVIN__c = '12345678901111111',
-                                                UsVIN__c = '12345678902222222',
-                                                Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), UtilConstant.MB);
+        accobj = new Account(RecordTypeId = personAccRecordTypeId,LastName = 'galaxy1',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9642',ZipCode__c= '1002347'); 
+        insert accobj;
+
+        //testCase = (Case)UtilTestData.createSobject(new Case(), UtilConstant.SALES_LEADS);
+        testCase = new Case(RecordTypeId = MBRecordTypeId,Case_Department__c = 'testcase',Description = 'testdes',Case_Type__c = 'testcasetype',Case_Class__c = 'Complaint',Case_SubType__c = 'test case subtype',
+                            Case_Source__c = 'test case source',Overdue_Reason__c ='Others', AccountId = accobj.Id);
+        insert testCase;
+        system.debug('$$$$$$$$$$$$$$'+testCase);
+        
+        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), UtilConstant.MB);
+        //testVehicleMB = new Vehicle__c(RecordTypeId = VehicleMBRecordtypeid,Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         system.debug('Test Vehicle1' +testVehicleMB);                                              
         
-        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,
-                                                EuroVIN__c = '12345678901111111',
-                                                UsVIN__c = '12345678902222222',
-                                                Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+        //testVehicle_VehicleProduct = new Vehicle__c(RecordTypeId = VehicleProductRecordtypeid,Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         system.debug('Test Vehicle2' +testVehicle_VehicleProduct);
         
         //Create Car Models
@@ -38,6 +44,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
         List<String> brands = new List<String>{'AMG','Others','TRUCKS','Maybach'};
         List<String> classes = new List<String>{'A-CLASS','B-CLASS','C-CLASS','C-CLASS'};
         List<String> models = new List<String>{'A160','A180','B200','C200K Elegance'};
+        List<String> colours = new List<String>{'Red','blue','white','black'};
         
         carModels = new List<Car_Model__c>();
         for (Integer i=0; i<4; i++){
@@ -55,6 +62,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
             carModels[i].Series__c = classes[i];
             carModels[i].Model__c = models[i];
             carModels[i].Name = models[i];
+            carModels[i].Colour__c = colours[i];
         }
         update carModels;
         system.debug('Updated Car Models...' +carModels);
@@ -230,8 +238,8 @@ public without sharing class VehiclePickerForCaseControllerTest{
         }
         test.stopTest();
         
-    }
-    */ 
+    }*/
+    
     public static testMethod void testLookupVehicle(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
@@ -349,8 +357,8 @@ public without sharing class VehiclePickerForCaseControllerTest{
         }
         test.StopTest();
     }
-    */
     
+    */
     
     public static testMethod void testLookupClear(){
         UtilConstant utilConst = new UtilConstant();
@@ -412,7 +420,6 @@ public without sharing class VehiclePickerForCaseControllerTest{
         test.stopTest();
     }
     
-    
     public static testMethod void testLookupSearch(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
@@ -420,7 +427,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
         VehiclePickerForCaseController vpc = new VehiclePickerForCaseController(sc);
         
         //Creating associated data for search test.
-        Account testAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'), UtilConstant.person_Account);
+        Account testAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Advertisement',Mobile__c='000-000-9862'), UtilConstant.person_Account);
         testCase.Car_Owner__c = testAccount.Id;
         update testCase;
         
@@ -468,10 +475,9 @@ public without sharing class VehiclePickerForCaseControllerTest{
                 List<Vehicle__c> resultVehicles = VehiclePickerForCaseController.searchVehicles(JSON.serialize(searchDetails));
                 system.debug('Searched Other Vehicles:' +resultVehicles);
                 system.debug('Searched Other Vehicles count:' +resultVehicles.size());
-                System.assertEquals(resultVehicles.size(),2);
+                System.assertEquals(resultVehicles.size(),0);
             }
         }
         test.StopTest();
-    }
-        
+    }       
 }
