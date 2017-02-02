@@ -14948,10 +14948,6 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label><!-- Non Usable Section --></label>
-            <section>Non Usable Section</section>
-        </sections>
     </layouts>
     <recordTypes>
         <label><!-- Chrysler Complaint --></label>
