@@ -1267,6 +1267,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Consolidated_List_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Consolidated List Completed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Content_Preview__c</fullName>
         <description>Used only for Campaign Execution. To display the Message Detail of Template selected. Updated by workflow (because it's a long text not able to use formula).</description>
         <externalId>false</externalId>
