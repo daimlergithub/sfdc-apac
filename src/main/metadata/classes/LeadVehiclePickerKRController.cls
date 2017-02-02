@@ -8,7 +8,7 @@
 ** Date:  3/12/2015
 **/
 
-global with sharing class LeadVehiclePickerKRController {
+global without sharing class LeadVehiclePickerKRController {
     
     public String currentRecordId {get;set;}
     public Lead__c lead_Vehicles {get; set;}
