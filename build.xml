@@ -1066,7 +1066,6 @@
                                                 <sf:typeset name="reportTypes"/>
                                 </deploy>
     </target>
-<<<<<<< HEAD
                 <target name="deploy53">
                                <deploy runAllTests="${sfdc.runAllTests}">
                                                 <sf:typeset name="objects">
