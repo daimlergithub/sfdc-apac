@@ -596,7 +596,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingforDealerJP</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadUtil</apexClass>
@@ -1280,7 +1280,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilShare</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilSobject</apexClass>

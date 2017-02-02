@@ -1,4 +1,4 @@
-public with sharing class UtilShare{
+public without sharing class UtilShare{
     
    public sObject createShareObject(Set<id> parentId, Set<id> UserOrGroupId,string Permission){
         Map<Id,AccountShare> mapShareObjAS = new  Map<Id,AccountShare>();     
@@ -99,6 +99,7 @@ public with sharing class UtilShare{
                         newGroup.DoesIncludeBosses = false; 
                         newGroupMap.put(newGroup.id,newGroup);
                         dealerAccountIds.add(Led.Assigned_Dealer__c);
+						allGroups.put(newGroup.Id,newGroup);
                     }               
                 }
             }
@@ -108,6 +109,7 @@ public with sharing class UtilShare{
                  newGroup.DoesIncludeBosses = false; 
                  newGroupMap.put(newGroup.id,newGroup);
                  dealerAccountIds.add(Led.Assigned_Dealer__c);
+				 allGroups.put(newGroup.Id,newGroup);
             }
         }
         system.debug('newGroupMap :'+newGroupMap);
