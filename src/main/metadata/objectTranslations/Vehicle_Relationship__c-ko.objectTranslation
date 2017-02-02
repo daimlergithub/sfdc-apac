@@ -3287,7 +3287,6 @@
             <translation><!-- None --></translation>
         </picklistValues>
     </fields>
-    <layouts>
     <nameFieldLabel><!-- VehicleRel No. --></nameFieldLabel>
     <recordTypes>
         <label>차량 연결</label>
