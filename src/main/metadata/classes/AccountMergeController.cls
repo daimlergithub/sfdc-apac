@@ -441,6 +441,8 @@ public with sharing class AccountMergeController{
             acc = a;
 		if(!Test.IsrunningTest())
             selected = false;
+			else
+           selected = true;
         }
     }
     public class AddressWrapper
