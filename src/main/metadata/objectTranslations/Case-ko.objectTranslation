@@ -14555,14 +14555,6 @@
         <name>customercare_cn__c</name>
     </fields>
     <layouts>
-        <layout>Case Feed Layout</layout>
-        <layoutType>CaseInteraction</layoutType>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Chrysler Complaint Layout - CAC</layout>
         <sections>
             <label><!-- Case Information --></label>
@@ -14571,10 +14563,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
         </sections>
         <sections>
             <label><!-- Description --></label>
@@ -14609,10 +14597,6 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
             <label>설명 정보</label>
             <section>Description Information</section>
         </sections>
@@ -14644,14 +14628,6 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
             <label><!-- On-site Manager --></label>
             <section>On-site Manager</section>
         </sections>
@@ -14679,10 +14655,6 @@
             <section>Case Feedback</section>
         </sections>
         <sections>
-            <label><!-- Dealer Info --></label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
             <label><!-- Inquiry Information --></label>
             <section>Inquiry Information</section>
         </sections>
@@ -14700,10 +14672,6 @@
         <sections>
             <label>문의 피드백</label>
             <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
         </sections>
         <sections>
             <label>문의 정보</label>
@@ -14727,14 +14695,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>필드</label>
-            <section>Fields</section>
         </sections>
         <sections>
             <label>현장 매니저</label>
@@ -14766,14 +14726,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>필드</label>
-            <section>Fields</section>
         </sections>
         <sections>
             <label>기타 정보</label>
@@ -14809,14 +14761,6 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>필드</label>
-            <section>Fields</section>
         </sections>
         <sections>
             <label>현장 매니저</label>
@@ -14994,55 +14938,19 @@
     <layouts>
         <layout>MBF Contract Closing Cases</layout>
         <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
-        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Early termination Actual --></label>
-            <section>Early termination Actual</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Non-Usable Section --></label>
-            <section>Non-Usable Section</section>
         </sections>
     </layouts>
     <layouts>
         <layout>MBF Quotation Cases Layout</layout>
         <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
-        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Early Termination Quotation --></label>
-            <section>Early Termination Quotation</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
             <label><!-- Non Usable Section --></label>
             <section>Non Usable Section</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 1 --></label>
-            <section>Quotation Request 1</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 2 --></label>
-            <section>Quotation Request 2</section>
         </sections>
     </layouts>
     <recordTypes>
