@@ -7429,10 +7429,6 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>기타 정보</label>
-            <section>Other information</section>
-        </sections>
-        <sections>
             <label><!-- Retail Information --></label>
             <section>Retail Information</section>
         </sections>
@@ -7466,10 +7462,6 @@ Allows up to 240 characters --></help>
             <label>연락처 정보</label>
             <section>Contact Infromation</section>
         </sections>
-        <sections>
-            <label>텔레매틱스 관련 정보</label>
-            <section>Telematics Related Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Company Read Only Layout</layout>
@@ -7480,10 +7472,6 @@ Allows up to 240 characters --></help>
         <sections>
             <label><!-- Contact Infromation --></label>
             <section>Contact Infromation</section>
-        </sections>
-        <sections>
-            <label><!-- Telematics Related Information --></label>
-            <section>Telematics Related Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -7511,14 +7499,6 @@ Allows up to 240 characters --></help>
             <label>딜러 포털 관련 정보</label>
             <section>Dealer Portal Related Information</section>
         </sections>
-        <sections>
-            <label>GSSN 주소 정보</label>
-            <section>GSSN Address Information</section>
-        </sections>
-        <sections>
-            <label>GSSN 정보</label>
-            <section>GSSN Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Dealer Layout-CAC</layout>
@@ -7534,14 +7514,6 @@ Allows up to 240 characters --></help>
             <label>딜러 포털 관련 정보</label>
             <section>Dealer Portal Related Information</section>
         </sections>
-        <sections>
-            <label>GSSN 주소 정보</label>
-            <section>GSSN Address Information</section>
-        </sections>
-        <sections>
-            <label>GSSN 정보</label>
-            <section>GSSN Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Dealer Layout-Portal</layout>
@@ -7556,14 +7528,6 @@ Allows up to 240 characters --></help>
         <sections>
             <label>딜러 포털 정보</label>
             <section>Dealer Portal Information</section>
-        </sections>
-        <sections>
-            <label>GSSN 주소 정보</label>
-            <section>GSSN Address Information</section>
-        </sections>
-        <sections>
-            <label>GSSN 정보</label>
-            <section>GSSN Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -7594,24 +7558,12 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>기타 정보</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
             <label>개인 계정 기본 정보</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
-        </sections>
-        <sections>
-            <label>텔레매틱스 관련 정보</label>
-            <section>Telematics Related Information</section>
-        </sections>
-        <sections>
-            <label>전체 활동</label>
-            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>
@@ -7626,16 +7578,8 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>기타 정보</label>
-            <section>Other information</section>
-        </sections>
-        <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
-        </sections>
-        <sections>
-            <label>전체 활동</label>
-            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>
@@ -7666,24 +7610,12 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label>기타 정보</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
             <label>개인 계정 기본 정보</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
-        </sections>
-        <sections>
-            <label>텔레매틱스 관련 정보</label>
-            <section>Telematics Related Information</section>
-        </sections>
-        <sections>
-            <label>전체 활동</label>
-            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>

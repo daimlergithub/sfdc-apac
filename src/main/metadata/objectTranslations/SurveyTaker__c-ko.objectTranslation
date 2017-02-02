@@ -98,19 +98,5 @@
         <label><!-- View By All --></label>
         <name>View_By_All__c</name>
     </fields>
-    <layouts>
-        <layout>Revised SurveyTaker Layout</layout>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>SurveyTaker Layout</layout>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <nameFieldLabel><!-- ID --></nameFieldLabel>
 </CustomObjectTranslation>

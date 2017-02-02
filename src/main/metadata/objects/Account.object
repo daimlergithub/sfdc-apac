@@ -2140,6 +2140,15 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Dealer_Manual_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Manual Create</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
         <label>CV No. Brand Purchases</label>
@@ -14179,36 +14188,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>MyAccounts</fullName>
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
-    </listViews>
-    <listViews>
-        <fullName>NewLastWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>LAST_WEEK</value>
-        </filters>
-        <label>New Last Week</label>
-    </listViews>
-    <listViews>
-        <fullName>NewThisWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>THIS_WEEK</value>
-        </filters>
-        <label>New This Week</label>
-    </listViews>
-    <listViews>
-        <fullName>PlatinumandGoldSLACustomers</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <label>Platinum and Gold SLA Customers</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
