@@ -9624,7 +9624,7 @@
     </fieldPermissions>		
     <fieldPermissions>
         <editable>true</editable>
-        <field>MD__c.Master_Customer__c</field>
+        <field>Duplicate_Merge_Info__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
