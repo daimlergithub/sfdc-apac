@@ -291,10 +291,6 @@
     </fields>
     <fields>
         <label><!-- Established Date --></label>
-        <name>Contractor_Company_Esatblished_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Established Date --></label>
         <name>Contractor_Company_Established_Date__c</name>
     </fields>
     <fields>
