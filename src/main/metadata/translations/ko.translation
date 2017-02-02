@@ -2844,15 +2844,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Lead_Check --></description>
-        <label><!-- Lead_Check --></label>
-        <name>Lead_Check</name>
-        <sections>
-            <label>리드</label>
-            <name>Leads</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Leads with  VR --></description>
         <label><!-- Leads with  VR --></label>
         <name>Leads_with_VR</name>
