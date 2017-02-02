@@ -2963,26 +2963,4 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
             <name>Service Contracts</name>
         </sections>
     </reportTypes>
-    <reportTypes>
-        <description><!-- 車両顧客関係 --></description>
-        <label><!-- 車両顧客関係 --></label>
-        <name>VechRelationShip</name>
-        <sections>
-            <label><!-- 車両 --></label>
-            <name>車両</name>
-        </sections>
-        <sections>
-            <label><!-- 車両顧客関係 --></label>
-            <name>車両顧客関係</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
-        <description><!-- Vehicle_VehicleRel --></description>
-        <label><!-- Vehicle_VehicleRel --></label>
-        <name>Vehicle_VehicleRel</name>
-        <sections>
-            <label><!-- 車両顧客関係 --></label>
-            <name>車両顧客関係</name>
-        </sections>
-    </reportTypes>
 </Translations>
