@@ -11984,9 +11984,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>True</editable>
         <field>Lead__c.Check_Out_Date__c</field>
-        <readable>true</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12909,9 +12909,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>True</editable>
         <field>Lead__c.Order_Confirmation_Date__c</field>
-        <readable>true</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -13419,9 +13419,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>True</editable>
         <field>Lead__c.Registration_Number__c</field>
-        <readable>true</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
