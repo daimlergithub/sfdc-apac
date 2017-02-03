@@ -21,7 +21,7 @@
                        <apex:inputText value="{!eachWrap.PortalEmail}" ID="txtName"/>
                     </apex:column>
                     <apex:column >
-                   <apex:commandLink value="Details" action="{!showPopup}">
+                   <apex:commandLink value="Emails" action="{!showPopup}">
                     
                         <apex:param name="recordID" value="{!eachWrap.VID}"/>
                     </apex:commandLink>
@@ -46,35 +46,14 @@
                             <apex:outputPanel styleClass="popup" layout="block" rendered="{!displayPopUp}">
                                 <apex:pageblockSection columns="1" >
                                <table width="100%">
-                                 
-                                <tr>
-                                      
-                                        <td width="25"> <!--1 -->
-                                        
-                                          <apex:inputtext value="{!FinalEmail}" label="Portal Email" Id="ddlNames"/>
-                                       </td>
-                                       
-                                 </tr>
-                                  <tr>
-                                   
-                                        <td width="25"><!--2-->
-                                             <apex:inputtext value="{!eachWrap.Contact__r.Email__c}" label="Email" />
-                                            
-                                       </td>
-                                       </tr>
-                                       <tr>
-                                                                         
-                                        <td width="25"><!--3-->
-                                             <apex:inputtext value="{!eachWrap.Contact__r.Email2__c}" label="Email2" />
-                                            
-                                       </td>
-                                        
-                                   </tr>
-
-                               </table>
-                               
-                                   </apex:pageblockSection>
-                                 <apex:commandButton value="Save" action="{!savepop}" onclick="window.location.top.reload();" />
+                                   <tr><td width="25">
+                                           <apex:outputtext value="{!eachWrap.Contact__r.Email__c}" label="Email" />
+                                   </td></tr>
+                                       <tr><td width="25"><!--3-->
+                                             <apex:outputtext value="{!eachWrap.Contact__r.Email2__c}" label="Email2" />
+                                        </td></tr>
+                                </table>
+                                </apex:pageblockSection>
                                 <apex:commandButton value="Close" action="{!closePopup}" rerender="one"/>
                                 
                             </apex:outputPanel>
