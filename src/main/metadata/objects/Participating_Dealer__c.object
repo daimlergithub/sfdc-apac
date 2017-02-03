@@ -409,6 +409,12 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <errorConditionFormula>Session_Start_Date__c  &gt;  Session_End_Date__c</errorConditionFormula>
         <errorMessage>Session Start Date must be less than or equal to Session End Date</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>lock_on_campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Campaign__r.Consolidated_List_Completed__c =true)</errorConditionFormula>
+        <errorMessage>Campaign is locked</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Complete</fullName>
         <availability>online</availability>
