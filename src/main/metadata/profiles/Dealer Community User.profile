@@ -6673,21 +6673,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_SubType__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	 <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.MBK_Case_Class__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Case.MBK_Case_Sub_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBK_Case_Type__c</field>
         <readable>true</readable>
