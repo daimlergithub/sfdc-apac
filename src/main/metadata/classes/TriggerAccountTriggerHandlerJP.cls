@@ -50,7 +50,7 @@ implements TriggerHandlerIf
         {
             serializedObject=json.serialize(ListAccOld);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].MD__c,serializedObject);
+            AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
     }
     
