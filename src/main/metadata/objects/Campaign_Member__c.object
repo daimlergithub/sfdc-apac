@@ -1151,6 +1151,18 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>campaign_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>campaign is locked</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>retail_campaign_is_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>Retail Campaign is locked</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>ExportCampaign</fullName>
         <availability>online</availability>
