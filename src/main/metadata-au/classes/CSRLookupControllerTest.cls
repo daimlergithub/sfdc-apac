@@ -24,7 +24,7 @@ public class CSRLookupControllerTest {
 
     public static testMethod void testMyController() {
         
-        User user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
+        User user1 = UtilTestData.createUser('Australia','System Administrator');
         
         System.runAs ( user1 ) {        
         	

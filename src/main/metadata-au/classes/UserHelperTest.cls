@@ -1,4 +1,4 @@
-@isTest(seeAllData=true)
+@isTest(seeAllData=false)
 public class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();

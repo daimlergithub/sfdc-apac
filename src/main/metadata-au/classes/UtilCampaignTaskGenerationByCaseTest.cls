@@ -21,7 +21,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	private static string CallscriptRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Callscript').getRecordTypeId();
 	private static string strVeriStatus = 'Need Verification';
 	static{
-		Profile objProfile = [ select Id from profile where Name='IntegrationAPI'];
+		Profile objProfile = [ select Id from profile where Name='System Administrator'];
         objUsr = new User();
         objUsr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daicampaignLister.com';
         objUsr.ProfileId = objProfile.Id;
@@ -211,6 +211,10 @@ public class UtilCampaignTaskGenerationByCaseTest
     
     static void createCampaign_Case(string executionType)
     {
+        DM_Material__c dm = new DM_Material__c();
+        dm.Name = 'Test DM for Campaign';
+        dm.Type__c = 'Car Book';
+        insert dm;
     	createpersonAccount();
 	    Campaign m = new Campaign();
 	    m.Name = 'top';
@@ -221,6 +225,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	    m.Content_Preview__c='Test';
 	    m.Execution_Type__c=executionType;
 	    m.Flow_URL__c='test url';
+        m.DM_Material__c = dm.Id;
 	    if(executionType!='DM')
 	    m.Template__c=tempObj.id;
 	    campaignList.add(m);
