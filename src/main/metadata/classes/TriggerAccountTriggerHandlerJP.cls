@@ -36,7 +36,7 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');            
-            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].MD__c,serializedObject);
+            AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
