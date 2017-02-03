@@ -1188,7 +1188,12 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
     </webLinks>
 </CustomObject>
