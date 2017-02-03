@@ -431,10 +431,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Quotation_Number_History__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Wholesale_Comment__c</field>
             </layoutItems>
             <layoutItems>
@@ -585,7 +581,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Contact__c</fields>
         <fields>Status__c</fields>
         <fields>Expected_DM_Material1__c</fields>
         <fields>Status1__c</fields>
@@ -594,6 +589,7 @@
         <fields>Expected_DM_Material3__c</fields>
         <fields>Status3__c</fields>
         <fields>Delivery_Type__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -602,7 +598,7 @@
         <fields>Survey_Taking_Status__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
-        <fields>Dealer_Account__c</fields>
+        <fields>Account__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Lead__c</relatedList>
     </relatedLists>
