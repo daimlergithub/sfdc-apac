@@ -434,6 +434,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+<<<<<<< HEAD
                 <field>Education__c</field>
             </layoutItems>
             <layoutItems>
@@ -459,6 +460,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
+			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -510,6 +515,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+<<<<<<< HEAD
                 <field>Fax_Validity__c</field>
             </layoutItems>
             <layoutItems>
@@ -555,6 +561,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Sanction__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
