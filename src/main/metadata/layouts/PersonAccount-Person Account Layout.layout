@@ -434,7 +434,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-<<<<<<< HEAD
                 <field>Education__c</field>
             </layoutItems>
             <layoutItems>
@@ -515,7 +514,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-<<<<<<< HEAD
                 <field>Fax_Validity__c</field>
             </layoutItems>
             <layoutItems>
