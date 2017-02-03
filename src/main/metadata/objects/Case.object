@@ -1610,7 +1610,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </field>
+    </fields>
     <fields>
         <fullName>Approver__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
