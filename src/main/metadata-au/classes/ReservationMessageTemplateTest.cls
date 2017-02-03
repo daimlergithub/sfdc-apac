@@ -50,7 +50,7 @@ private class ReservationMessageTemplateTest {
     }
     public static void prepareTestData(){
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service Lead').getRecordTypeId();
         String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
      Account account2 = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_SR_Code__c='Test_SR_Code2',
