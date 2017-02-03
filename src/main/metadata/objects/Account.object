@@ -19197,10 +19197,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>MBJ</fullName>
 				<default>false</default>
             </values>
-			<values>
-                <fullName>GLC-Class Coupe</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>GLE-Class</fullName>
                 <default>false</default>
@@ -28428,10 +28424,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Autocar</fullName>
 				<default>false</default>
-            </values>
-            <values>
-                <fullName>GLC-Class Coupe</fullName>
-                <default>false</default>
             </values>
             <values>
                 <fullName>GLE-Class</fullName>
