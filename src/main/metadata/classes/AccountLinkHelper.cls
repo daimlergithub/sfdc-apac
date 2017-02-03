@@ -135,6 +135,8 @@ public class AccountLinkHelper
         Map<Id, List<Id>> map_DealerAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> CompanyPersonVehicleLinkALK = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = getRelatedIndividualCustomerRecordTypeAccountLink(list_AccountLink);
+        
         Set<Id> VehicleExtaccountId = new Set<Id>();
         for(Account_Link__c accountLink : list_AccountLink){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.fromRole__c != null){
@@ -151,10 +153,9 @@ public class AccountLinkHelper
                         map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
                     }
                     map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
+                    map_AccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
                 }
             }
-            
-            
              
             if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
                 if(accountLink.fromRole__c != null && accountLink.toRole__c != null){
@@ -178,13 +179,19 @@ public class AccountLinkHelper
                 }
             }
             
-            if(accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
-                || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId){
-                    
+            if(accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId) {
+            	if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                  	map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+              	}
+              	map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            	map_PersonCompanyAccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId) {
                 if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                  map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
-              }
-              map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                  	map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+              	}
+              	map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
             }
             
             if(accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId){
@@ -243,6 +250,36 @@ public class AccountLinkHelper
         }
         
          
+    }
+    
+    // Get all the Account Link records of "Individual Customer External Link" record Type.
+    private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
+    	Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = new Map<Id, List<Id>>();
+    	Set<Id> accIdSet = new Set<Id>();
+    	for(Account_Link__c accLinkRec : list_AccountLink) {
+    		accIdSet.add(accLinkRec.toRole__c);
+    	}
+    	
+    	List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet];
+    	for(Account accRec : accList) {
+			String dealerAccId;    		
+    		for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+    			if(accLinkRec.RecordType.DeveloperName == 'Retail_Person') {
+    				dealerAccId = accLinkRec.fromRole__c;
+    			} 
+    		}
+    		
+    		for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+    			if(accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' && String.isNotBlank(dealerAccId)) {
+    				if(!map_FromAccountToListIndividualAccountLinkId.containsKey(dealerAccId)) {
+	    				map_FromAccountToListIndividualAccountLinkId.put(dealerAccId, new List<Id>());
+	    			}
+	    			map_FromAccountToListIndividualAccountLinkId.get(dealerAccId).add(accLinkRec.Id);
+    			} 
+    		}
+    	}
+    	
+    	return map_FromAccountToListIndividualAccountLinkId;
     }
     
     
