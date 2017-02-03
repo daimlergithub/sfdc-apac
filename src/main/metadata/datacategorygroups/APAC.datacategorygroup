@@ -76,7 +76,7 @@
                     <label>기타</label>
                     <name>Others</name>
                 </dataCategory>
-                <label>Customer Contact Center</label>
+                <label>고객 컨텍 센터</label>
                 <name>Customer_Contact_Center</name>
             </dataCategory>
             <dataCategory>
@@ -100,7 +100,7 @@
                     <label>기타</label>
                     <name>SMOthers</name>
                 </dataCategory>
-                <label>Sales &amp; Marketing</label>
+                <label>세일즈 &amp; 마케팅</label>
                 <name>Sales_Marketing</name>
             </dataCategory>
             <dataCategory>
@@ -128,7 +128,7 @@
                     <label>기타</label>
                     <name>ASOthers</name>
                 </dataCategory>
-                <label>After Sales</label>
+                <label>애프터세일즈</label>
                 <name>After_Sales</name>
             </dataCategory>
             <dataCategory>
@@ -236,7 +236,7 @@
                     <label>가격 정보</label>
                     <name>Vehicle_Price</name>
                 </dataCategory>
-                <label>Product</label>
+                <label>차량</label>
                 <name>Product</name>
             </dataCategory>
             <dataCategory>
@@ -264,7 +264,7 @@
                     <label>캠패인 / 이벤트</label>
                     <name>DCampaign_Event</name>
                 </dataCategory>
-                <label>Dealer</label>
+                <label>딜러</label>
                 <name>Dealer</name>
             </dataCategory>
             <label>Korea</label>

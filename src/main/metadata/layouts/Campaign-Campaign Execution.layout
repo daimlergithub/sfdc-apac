@@ -64,6 +64,10 @@
                 <behavior>Edit</behavior>
                 <field>Is_Sync__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Consolidated_List_Completed__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -253,6 +257,7 @@
         <relatedList>Lead__c.Source_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
+	<customButtons>Convert_To_DM_Request</customButtons>
         <fields>NAME</fields>
         <fields>Customer_Name__c</fields>
         <fields>Actual_DM_Material1__c</fields>

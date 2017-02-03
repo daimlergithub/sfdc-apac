@@ -55,7 +55,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Approve_the_List__c</fullName>
         <defaultValue>false</defaultValue>
@@ -394,7 +394,7 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Campaign_Package_cannot_be_empty</fullName>
         <active>true</active>
@@ -408,6 +408,12 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <active>true</active>
         <errorConditionFormula>Session_Start_Date__c  &gt;  Session_End_Date__c</errorConditionFormula>
         <errorMessage>Session Start Date must be less than or equal to Session End Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>lock_on_campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Campaign__r.Consolidated_List_Completed__c =true)</errorConditionFormula>
+        <errorMessage>Campaign is locked</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Complete</fullName>

@@ -449,13 +449,13 @@ public class AccountHelperJP
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject)
     {
        string sfdcMarketDiscriminator = MarketDiscriminator;
-        string orgId=UserInfo.getOrganizationId();
+       string orgId=UserInfo.getOrganizationId();
        
         string sfdcTypeName='Account';
         if(!test.isrunningtest())
-            
-            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
-        
+             
+                UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+             
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     
@@ -575,6 +575,52 @@ public class AccountHelperJP
     //*created by :Suryavarma
     // sharing account to dealer user
     //SFDCJP(2.0)-578 
+ public static void handleAfterInsertEvent(list<Account>listDealerAccounts)
+    {
+        list<account>aclist=new list<account>();
+                        if(listDealerAccounts!=null && !listDealerAccounts.isempty())
+                {
+        aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
+    }
+        list<accountshare>aslist=new list<accountshare>();
+        map<string,id> assgroupMap = new map<string,id>();  
+
+        Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+                                if( aclist!=null && !aclist.isempty())
+                                {
+        for(account a:aclist)
+        {
+                                                 if(a.recordtypeid==rpa)
+            {
+              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
+               {
+               
+                assgroupMap.put(assg.Name, assg.id);
+                system.debug('Inserting');
+
+               }
+            }
+                                                
+            if(assgroupMap!=null && assgroupMap.containskey(a.name))
+            {
+            
+                Accountshare acs=new Accountshare();
+                acs.Accountid=a.id;
+                acs.UserOrGroupId = assgroupMap.get(a.name);
+                acs.AccountAccessLevel='read';
+                acs.OpportunityAccessLevel ='read';
+                acs.RowCause = Schema.Accountshare.RowCause.Manual;
+                aslist.add(acs);
+            }
+        }
+                                }
+            if(aslist!=null)
+            {
+             insert aslist;
+            }
+
+    
+    }
  public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts,Map<Id,Account>OldMap)
     {
         list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
