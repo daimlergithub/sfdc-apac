@@ -15,6 +15,8 @@ dev_sb_asia_Test=arun.iyer.ntt@asia.daimler-apac.com.test
 dev_sb_asia_TestKorea=arun.iyer.ntt@mbj.daimler-apac.com.testkorea
 # Asia Stage Sandbox
 dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
+# Asia Stage2 Sandbox
+dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
 dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com

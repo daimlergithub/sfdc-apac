@@ -459,6 +459,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
+			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -555,6 +559,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Sanction__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

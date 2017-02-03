@@ -9,6 +9,7 @@ public with sharing class AccountHelperJPTest
 {
    private static List<Account> accountlist = new List<Account>();
    Private static map<id,Account> accountMap =  new map<id,Account>();
+   Private static map<id,Account> accountOldMap =  new map<id,Account>();
    private static User user1;
    private static Account personAcc;
    private static Account companyacc; 
@@ -66,6 +67,7 @@ public with sharing class AccountHelperJPTest
       insert accountlist;  
       for(Account acc: accountlist){
          accountMap.put(acc.Id,acc);
+         accountOldMap.put(acc.Id,acc);
        }
    }
     Public static testmethod void testUpdateAccountFieldsBeforeInsert()
@@ -101,7 +103,7 @@ public with sharing class AccountHelperJPTest
       {
        createTestData(); 
        Test.Starttest(); 
-       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountMap,true);
+       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountOldMap, true);
        Test.Stoptest();      
      }  
     Public static testmethod void testUpdatePrimaryContactInformationBeforeInsert()

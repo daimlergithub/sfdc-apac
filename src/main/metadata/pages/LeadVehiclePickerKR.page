@@ -508,7 +508,7 @@
           
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {
-              $scope.brands.sort();
+              //$scope.brands.sort();
               $scope.relatedClasses.sort();
               $scope.models.sort();
               

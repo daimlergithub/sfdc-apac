@@ -1295,7 +1295,7 @@
         <name>End_Reason__c</name>
         <picklistValues>
             <masterLabel>Bought Competitors</masterLabel>
-            <translation>競合車への乗換</translation>
+            <translation>他メーカーへの乗換</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS</masterLabel>

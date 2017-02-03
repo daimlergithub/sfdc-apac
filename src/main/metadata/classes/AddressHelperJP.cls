@@ -73,7 +73,16 @@ public with sharing class AddressHelperJP {
         
                  set<id> accountId = new set<id>();  
                  list<Account> accountList = new list<Account>();
-                  
+                 string regexForNullValue ='null';
+				 
+				 // addded by rakesh 
+                 string nullValue ='';
+                  String province;         
+                 
+                 Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+                 UtilAddressTranslation.gettranslatedvalues('JP'); 
+				 // end by rakesh
+				 
                  //get the related accountIds
                  for(Address__c add:newMap.values()){
                         accountId.add(add.Customer__c);
@@ -83,7 +92,15 @@ public with sharing class AddressHelperJP {
                      if((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))){
                          if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
                                  Address__c add =newMap.get(acc.Primary_Address_Reference__c);
-                                 acc.Primary_Address_Display__c=add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
+								 //added by rakesh
+                                  if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
+                                    {
+                                        province = addtrmap1.get(add.Province__c);
+                                    }
+                                 //acc.Primary_Address_Display__c=add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
+                                 acc.Primary_Address_Display__c=province+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
+								 //end by rakesh
+                                 acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);   
                                  accountList.add(acc);
                          }
                      }

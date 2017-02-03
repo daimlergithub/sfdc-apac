@@ -8843,6 +8843,10 @@ Modify Reason:
                 <fullName>C-Class Cabriolet</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13657,7 +13661,7 @@ Modify Reason:
 Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
         <externalId>false</externalId>
         <label>Vehicle Amount</label>
-        <precision>2</precision>
+        <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
@@ -17513,6 +17517,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -19191,7 +19199,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
-                <default>false</default>
+				<default>false</default>
             </values>
             <values>
                 <fullName>MBK</fullName>
@@ -27919,6 +27927,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -28415,7 +28427,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Autocar</fullName>
-                <default>false</default>
+				<default>false</default>
             </values>
             <values>
                 <fullName>Avenue L %28롯데%29</fullName>
@@ -29903,6 +29915,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
 		<lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
 		<lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
         <lookupFilterFields>Primary_Address_Display__c</lookupFilterFields>
