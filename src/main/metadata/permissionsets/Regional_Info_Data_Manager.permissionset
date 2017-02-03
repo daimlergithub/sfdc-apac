@@ -14218,11 +14218,6 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Adhoc_eDM_Template_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Assignment_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
