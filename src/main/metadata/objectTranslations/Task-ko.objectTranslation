@@ -98,10 +98,6 @@
         <name>Communication_Type__c</name>
     </fields>
     <fields>
-        <label><!-- Communication date --></label>
-        <name>Communication_date__c</name>
-    </fields>
-    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
     </fields>
