@@ -17517,6 +17517,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -19196,10 +19200,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>MBJ</fullName>
 				<default>false</default>
-            </values>
-            <values>
-                <fullName>GLE-Class</fullName>
-                <default>false</default>
             </values>
             <values>
                 <fullName>MBK</fullName>
@@ -27927,6 +27927,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -28424,10 +28428,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Autocar</fullName>
 				<default>false</default>
-            </values>
-            <values>
-                <fullName>GLE-Class</fullName>
-                <default>false</default>
             </values>
             <values>
                 <fullName>Avenue L %28롯데%29</fullName>
