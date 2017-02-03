@@ -349,7 +349,7 @@
     <validationRules>
         <fullName>lock_on_campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Campaign_c__r.Consolidated_List_Completed__c = true)</errorConditionFormula>
+        <errorConditionFormula>AND(Campaign__r.Consolidated_List_Completed__c = true)</errorConditionFormula>
         <errorMessage>Campaign is Locked</errorMessage>
     </validationRules>
 </CustomObject>
