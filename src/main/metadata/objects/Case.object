@@ -442,6 +442,1175 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>MBK_Case_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Case Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBK_Case_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Case Sub Type</label>
+        <picklist>
+            <controllingField>MBK_Case_Type__c</controllingField>
+            <picklistValues>
+                <fullName>ABC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ABS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Acceleration malfunction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accident recovery/estimation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Accident</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ad blue</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Adblue charge</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After sales campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air-bag</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air conditioner / heater</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AIR MATIC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Antifreeze leak</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Application</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATTENTION ASSIST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Audio/DVD</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Availble service center for accident recovery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Accident</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BAS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Battery</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blackbox</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bluetooth</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bonnet/trunk</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bonnet smoke</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brake Fluid</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BRAKE WEAR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Callcenter miscommunication</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Center</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Callcenter processing time</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Center</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Callcenter response attitude</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Center</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancel contact/Direct mail/Email</fullName>
+                <default>false</default>
+                <controllingFieldValues>Profile update</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancel the order</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card alliance</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card close</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card customer info change</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card Issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card receipt</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card registration</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card re-issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card renewal</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card return</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Card service point</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car fire</fullName>
+                <default>false</default>
+                <controllingFieldValues>Accident</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car key</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car starting malfunction(discharging)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car starting malfunction(freezing)</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+                <controllingFieldValues>Circle of excellence</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection purchase</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COOLANT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coolant replenshment</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate-Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coupon</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crisis Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG</fullName>
+                <default>false</default>
+                <controllingFieldValues>DAG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dashboard</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dashboard malfunction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer - Environment And Facility of Rest Area/Workshop</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-Event Inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-Event Registration</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer feedback</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer morality</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealership genenral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer - Test drive postponement request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delivery Enquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diplomatic-Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distronic</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Door lock</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Door malfunction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Door operation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DPF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving program</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DTK</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emergency fueling</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emergency refueling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENGINE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENGINE Alarm</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine Displacement</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>Breakdown</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENGINE OIL LEVEL</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine overheating</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine Temperature</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine thrill</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engine vibration</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ESP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events Enquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events Registration</fullName>
+                <default>false</default>
+                <controllingFieldValues>Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extended warranty contract</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Flat tire</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuel Efficiency</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuel efficiency calculation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuel leak</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Handle noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>Breakdown</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Happy call</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Highpass</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISP</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Key inability</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light malfunction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Locked vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost key</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty card process</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing chance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty card usage</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing chance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine return</fullName>
+                <default>false</default>
+                <controllingFieldValues>Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine sending</fullName>
+                <default>false</default>
+                <controllingFieldValues>Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance specialty deficiency</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MALFUNCTION</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK Loyalty</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Card</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK Mercedes me</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK Survey</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK website</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBK</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mixed oil</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Muffler smoke</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nevigation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New car release</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>News article</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nighttime service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Noise while driving</fullName>
+                <default>false</default>
+                <controllingFieldValues>Breakdown</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil-hole</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil leak</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>other after sales complaint</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other brand</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other oil related inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+                <controllingFieldValues>Call Center</controllingFieldValues>
+                <controllingFieldValues>Marketing chance</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Profile update</controllingFieldValues>
+                <controllingFieldValues>RSA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PARKING BRAKE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parking pilot operation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parking sensor</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts order pending</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts stock</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending loyalty card issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing chance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending magazine sending</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing chance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Profile Change</fullName>
+                <default>false</default>
+                <controllingFieldValues>Profile update</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick-up &amp; Delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Place an order</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Power off</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Owned / Trade-In</fullName>
+                <default>false</default>
+                <controllingFieldValues>Purchase &amp; deliver</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PRE-SAFE</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pricing &amp; Benchmarking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rear camera</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>Instructor call</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular inspection interval</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular inspection message</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental car</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repair period</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repair price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request for Brochure / Catalog</fullName>
+                <default>false</default>
+                <controllingFieldValues>Product information</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request for MB Magazine</fullName>
+                <default>false</default>
+                <controllingFieldValues>Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request for Product Information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Product information</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request for service booking</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request handbook</fullName>
+                <default>false</default>
+                <controllingFieldValues>Product information</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request test drive</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RESERVE FUEL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RPM malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA accident recovery request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complain &amp; feedback</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA accident towing request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA cancellation</fullName>
+                <default>false</default>
+                <controllingFieldValues>RSA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA completion</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complain &amp; feedback</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA cost</fullName>
+                <default>false</default>
+                <controllingFieldValues>Finance service</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>RSA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA dispatch</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advisory Mercedes-Benz driving Academy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA flooding towing request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA pending</fullName>
+                <default>false</default>
+                <controllingFieldValues>RSA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA service attitude</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA towing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advisory Mercedes-Benz driving Academy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>s24h warranty period</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Campaign</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SBC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Search for job opportunities</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seat malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seat operation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service booking status</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service center facility</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service duration</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service response</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom facility</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom Working Hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sidebrake</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Side mirror</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spare parts quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speed</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Start malfunction</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Steering wheel malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Steering wheel setting</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sunroof malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sunroof operation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspension malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tire</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TIRE PRESSURE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Towing</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Towing for accident</fullName>
+                <default>false</default>
+                <controllingFieldValues>Accident</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transmission malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trunk malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Color code</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle foreign eximport</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle insurance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle option</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle problem</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>AD Sale</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle related operation</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle stock</fullName>
+                <default>false</default>
+                <controllingFieldValues>After-Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle term</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle year number</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty and ISP</fullName>
+                <default>false</default>
+                <controllingFieldValues>CSR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty Parts</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WASHER FLUID</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Washer liquid</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Window brush</fullName>
+                <default>false</default>
+                <controllingFieldValues>MBDA business</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Window brush malfuction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing crisis</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Window noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>Breakdown</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wiper noise</fullName>
+                <default>false</default>
+                <controllingFieldValues>Breakdown</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workshop contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workshop location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workshop Working Hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>World Wide Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Guarantee repair &amp; maintenance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wrong number</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>true</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Approver__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -10887,6 +12056,210 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>MBK_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Case Type</label>
+        <picklist>
+            <controllingField>MBK_Case_Class__c</controllingField>
+            <picklistValues>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase &amp; deliver</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Profile update</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBK</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guarantee repair &amp; maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDA service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Network development department</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Instructor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDA business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breakdown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Instructor call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accident</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance service</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing crisis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA</fullName>
+                <default>false</default>
+                <controllingFieldValues>RSA</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advisory Mercedes-Benz driving Academy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complain &amp; feedback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Case Type</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CSR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AD Sale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing chance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workshop</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warning sign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle operate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Noise</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Happycall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Date_Received__c</fullName>
         <externalId>false</externalId>
@@ -18417,6 +19790,11 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -20949,6 +22327,11 @@ Modify Reason:
                 <fullName>A453</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart fortwo CABRIO</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C253</fullName>
+                <default>false</default>
+                <controllingFieldValues>GLC SUC</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -35785,6 +37168,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC SUC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLC SUV</fullName>
                 <default>false</default>
             </values>
@@ -36368,6 +37755,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>C240E Elegance %28not current series%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C253</fullName>
                 <default>false</default>
             </values>
             <values>

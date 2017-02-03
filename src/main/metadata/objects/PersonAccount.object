@@ -3161,6 +3161,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
@@ -8053,6 +8057,10 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17716,6 +17724,10 @@
             </values>
             <values>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
