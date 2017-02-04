@@ -107781,7 +107781,7 @@ if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
 	}
 }
 else {
-	alert("Only new or qualified lead can select prefer dealer.");
+	alert("Only new or qualified lead can select Prefer dealer.");
 }</url>
     </webLinks>
     <webLinks>
