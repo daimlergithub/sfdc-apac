@@ -5569,11 +5569,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blueÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>385 France coast blue(Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain BrownÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>491 Rocky Mountain Brown (Dark)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5581,15 +5581,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain BrownÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>697 Rocky Mountain Brown (Light colors)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya greyÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>725 Himalaya grey（Dark）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya greyÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>756 Himalaya grey（Color）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5597,11 +5597,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya greyÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>770 Himalaya grey（Light colors）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute grayÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>773 Di Yi flute gray（Light colors）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5609,19 +5609,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute grayÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>781 Di Yi flute gray（Color）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland GreenÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>808 Ireland Green（Dark）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland GreenÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>886 Ireland Green（Color）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blueÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>947 France coast blue（Dark）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7775,12 +7775,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blueÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>385 France coast blue (Light colors)</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain BrownÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>491 Rocky Mountain Brown (Dark)</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7790,17 +7790,17 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain BrownÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>697 Rocky Mountain Brown (Light colors)</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya greyÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>725 Himalaya grey（Dark）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya greyÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>756 Himalaya grey（Color）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7810,12 +7810,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya greyÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>770 Himalaya grey（Light colors）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute grayÃ¯Â¼Ë†Light colorsÃ¯Â¼â€°</fullName>
+                <fullName>773 Di Yi flute gray（Light colors）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7825,22 +7825,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute grayÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>781 Di Yi flute gray（Color）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland GreenÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>808 Ireland Green（Dark）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland GreenÃ¯Â¼Ë†ColorÃ¯Â¼â€°</fullName>
+                <fullName>886 Ireland Green（Color）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blueÃ¯Â¼Ë†DarkÃ¯Â¼â€°</fullName>
+                <fullName>947 France coast blue（Dark）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
