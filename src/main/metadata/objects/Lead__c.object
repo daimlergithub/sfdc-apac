@@ -22141,7 +22141,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>Approving</value>
         </filters>
-        <label>DM_SÃ£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹Ã£â€šÂ»Ã£Æ’Â³Ã£Æ’Ë†Ã£Æ’Â©Ã£Æ’Â«DM 2016_Ã¦â€°Â¿Ã¨ÂªÂÃ¤Â¸Â­</label>
+        <label>DM_SクラスセントラルDM 2016_承認中</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22274,9 +22274,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>Ã¦â€“Â°Ã¥Å¾â€¹SÃ£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹ Ã£â€šÂ«Ã£Æ’â€“Ã£Æ’ÂªÃ£â€šÂªÃ£Æ’Â¬Ã¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLÃ¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLCÃ£â€šÂ»Ã£Æ’Â³Ã£Æ’Ë†Ã£Æ’Â©Ã£Æ’Â«DM2016</value>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
         </filters>
-        <label>Ã¦â€“Â°Ã¥Å¾â€¹SÃ£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹ Ã£â€šÂ«Ã£Æ’â€“Ã£Æ’ÂªÃ£â€šÂªÃ£Æ’Â¬Ã¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLÃ¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLCÃ£â€šÂ»Ã£Æ’Â³Ã£Æ’Ë†Ã£Æ’Â©Ã£Æ’Â«DM2016</label>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22295,14 +22295,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>Ã¦â€“Â°Ã¥Å¾â€¹SÃ£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹ Ã£â€šÂ«Ã£Æ’â€“Ã£Æ’ÂªÃ£â€šÂªÃ£Æ’Â¬Ã¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLÃ¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLCÃ£â€šÂ»Ã£Æ’Â³Ã£Æ’Ë†Ã£Æ’Â©Ã£Æ’Â«DM2016</value>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
         </filters>
         <filters>
             <field>CREATED_DATE</field>
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>Ã¦â€“Â°Ã¥Å¾â€¹SÃ£â€šÂ¯Ã£Æ’Â©Ã£â€šÂ¹ Ã£â€šÂ«Ã£Æ’â€“Ã£Æ’ÂªÃ£â€šÂªÃ£Æ’Â¬Ã¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLÃ¯Â¼ÂÃ¦â€“Â°Ã¥Å¾â€¹SLCÃ£â€šÂ»Ã£Æ’Â³Ã£Æ’Ë†Ã£Æ’Â©Ã£Æ’Â«DM2016_Ã¤Â»Å Ã¦â€”Â¥</label>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22353,7 +22353,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>001_Ã¦Å“Â¬Ã¦â€”Â¥Ã£ÂÂ®Ã£Æ’ÂªÃ£Æ’Â¼Ã£Æ’â€°</label>
+        <label>001_本日のリード</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
