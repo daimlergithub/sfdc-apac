@@ -24272,10 +24272,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>40 Black</fullName>
                 <default>false</default>
             </values>
