@@ -107261,7 +107261,7 @@ RecordType.Name == 'Sales Leads'
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_No_History__c))),ISCHANGED(Finance_Quotation_No_History__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Quotation_No_History__c</errorDisplayField>
-        <errorMessage>Finance Quotation No History cannot be changed manually</errorMessage>
+        <errorMessage>Finance Quotation no History cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
