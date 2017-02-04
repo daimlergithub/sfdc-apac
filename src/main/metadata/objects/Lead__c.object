@@ -5392,6 +5392,10 @@ Collectioner_Name__r.HomePhone
                 <fullName>370 Sulfur with lime</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>474 Jewel Brown metallic</fullName>
                 <default>false</default>
