@@ -3236,7 +3236,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event/Sâ€™Ship</fullName>
+                <fullName>Event/SÃ¢â‚¬â„¢Ship</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3949,7 +3949,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+   <fields>
         <fullName>Dealer_Lost_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Lost Reason</label>
@@ -3958,36 +3958,43 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Price not accepted</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Stock</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Double lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other reasons</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4063,6 +4070,16 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Quotation request from other dealer</fullName>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead Merge</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5388,19 +5405,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paintï¼ŒRutile-Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paintï¼ŒGermanium-limeï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paintï¼ŒTin-lead-blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paintï¼ŒSapphire blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5432,11 +5449,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paintï¼ŒGarnet Greenï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk whiteï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5448,7 +5465,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paintï¼ŒFlint Greyï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5472,7 +5489,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paintï¼ŒPearl ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5484,7 +5501,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paintï¼ŒPalladium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5492,7 +5509,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>799 Paint，Diamond White high color，Metallic paint</fullName>
+                <fullName>799 Paintï¼ŒDiamond White high colorï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5508,7 +5525,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9197 Paint，Obsidian Black，Metallic paint</fullName>
+                <fullName>9197 Paintï¼ŒObsidian Blackï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5532,15 +5549,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9723 Paint，Cuban silver，Metallic paint</fullName>
+                <fullName>9723 Paintï¼ŒCuban silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>9775 Paint，Iridium silver，Metallic paint</fullName>
+                <fullName>9775 Paintï¼ŒIridium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium-silver</fullName>
+                <fullName>792 Paintï¼ŒPalladium-silver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5552,11 +5569,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blueï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brownï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5564,15 +5581,15 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brownï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya greyï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya greyï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5580,11 +5597,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya greyï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute grayï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5592,19 +5609,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute grayï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Greenï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Greenï¼ˆColorï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blueï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7553,22 +7570,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paintï¼ŒRutile-Brown</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paintï¼ŒGermanium-limeï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paintï¼ŒTin-lead-blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paintï¼ŒSapphire blueï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7608,12 +7625,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paintï¼ŒGarnet Greenï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk whiteï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7628,7 +7645,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paintï¼ŒFlint Greyï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7658,7 +7675,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paintï¼ŒPearl ashï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7673,7 +7690,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paintï¼ŒPalladium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7683,7 +7700,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>799 Paint，Diamond White high color，Metallic paint</fullName>
+                <fullName>799 Paintï¼ŒDiamond White high colorï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7703,7 +7720,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9197 Paint，Obsidian Black，Metallic paint</fullName>
+                <fullName>9197 Paintï¼ŒObsidian Blackï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7733,17 +7750,17 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9723 Paint，Cuban silver，Metallic paint</fullName>
+                <fullName>9723 Paintï¼ŒCuban silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>9775 Paint，Iridium silver，Metallic paint</fullName>
+                <fullName>9775 Paintï¼ŒIridium silverï¼ŒMetallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>792 Paint，Palladium-silver</fullName>
+                <fullName>792 Paintï¼ŒPalladium-silver</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7758,12 +7775,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blueï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brownï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7773,17 +7790,17 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brownï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya greyï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya greyï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7793,12 +7810,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya greyï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute grayï¼ˆLight colorsï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7808,22 +7825,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute grayï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Greenï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Greenï¼ˆColorï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blueï¼ˆDarkï¼‰</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -9717,7 +9734,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event/S’Ship (new value)</fullName>
+                <fullName>Event/Sâ€™Ship (new value)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -9992,7 +10009,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed – successful</fullName>
+                <fullName>Closed â€“ successful</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10028,7 +10045,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed – lost sale(after sales following, in-active)</fullName>
+                <fullName>Closed â€“ lost sale(after sales following, in-active)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10450,7 +10467,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10460,7 +10477,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10470,7 +10487,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10500,7 +10517,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10878,7 +10895,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10888,7 +10905,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10898,7 +10915,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -10928,7 +10945,7 @@ Modify Reason:
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars</controllingFieldValues>
             </picklistValues>
@@ -12678,13 +12695,13 @@ ISPICKVAL(Purchase_Time__c, '4 - 6 months'))
         <externalId>false</externalId>
         <formula>IF(AND(OR(
 ISPICKVAL(CAC_Lead_Status__c,"Purchased(Only Non BDC)"),
-ISPICKVAL(Life_Cycle__c,"Closed – successful")
+ISPICKVAL(Life_Cycle__c,"Closed â€“ successful")
 ),Successful_Call_Number__c&gt;=1),1,0) -
 
 IF(AND(ISPICKVAL(Lead_DataSubSource__c, "Auto Show")
         , OR(
 ISPICKVAL(CAC_Lead_Status__c,"Purchased(Only Non BDC)"),
-ISPICKVAL(Life_Cycle__c,"Closed – successful")
+ISPICKVAL(Life_Cycle__c,"Closed â€“ successful")
 )
 
         , Successful_Call_Number__c=1),1,0)</formula>
@@ -12906,7 +12923,7 @@ ISPICKVAL(CAC_Lead_Status__c,'Purchased(Only Non BDC)')
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(CAC_Lost_Reason__c,"Non-Daimler Purchase"),"Non-Daimler Purchase",
 IF(ISPICKVAL(CAC_Lost_Reason__c,"Interest Lost"),"Interest Lost",
-IF(ISPICKVAL(Life_Cycle__c,"Closed – successful"), "Closed – successful", 
+IF(ISPICKVAL(Life_Cycle__c,"Closed â€“ successful"), "Closed â€“ successful", 
 IF(CONTAINS(Is_Active__c,"Active"),"Active",""))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Lead Status</label>
@@ -22117,14 +22134,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Approving</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_承認中</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM 2016_æ‰¿èªä¸­</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22145,9 +22162,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>自動車誕生130周年記念キャンペーン2016</value>
+            <value>è‡ªå‹•è»Šèª•ç”Ÿ130å‘¨å¹´è¨˜å¿µã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³2016</value>
         </filters>
-        <label>自動車誕生130周年記念キャンペーン2016</label>
+        <label>è‡ªå‹•è»Šèª•ç”Ÿ130å‘¨å¹´è¨˜å¿µã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22168,14 +22185,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Allocated</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_展開済</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM 2016_å±•é–‹æ¸ˆ</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22200,7 +22217,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>notEqual</operation>
             <value>Not Allocated</value>
         </filters>
-        <label>未展開リード</label>
+        <label>æœªå±•é–‹ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22257,9 +22274,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+            <value>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
+        <label>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22278,14 +22295,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+            <value>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CREATED_DATE</field>
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
+        <label>æ–°åž‹Sã‚¯ãƒ©ã‚¹ ã‚«ãƒ–ãƒªã‚ªãƒ¬ï¼æ–°åž‹SLï¼æ–°åž‹SLCã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016_ä»Šæ—¥</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22336,7 +22353,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>001_本日のリード</label>
+        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22354,9 +22371,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>メルセデス ミー 東京羽田</value>
+            <value>ãƒ¡ãƒ«ã‚»ãƒ‡ã‚¹ ãƒŸãƒ¼ æ±äº¬ç¾½ç”°</value>
         </filters>
-        <label>メルセデス ミー 東京羽田のリード</label>
+        <label>ãƒ¡ãƒ«ã‚»ãƒ‡ã‚¹ ãƒŸãƒ¼ æ±äº¬ç¾½ç”°ã®ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22377,7 +22394,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>LAST_N_DAYS:7</value>
         </filters>
-        <label>002_過去7日間のリード</label>
+        <label>002_éŽåŽ»7æ—¥é–“ã®ãƒªãƒ¼ãƒ‰</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22405,7 +22422,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>My Mercedes</value>
         </filters>
-        <label>001_本日のリード(My Mercedes)</label>
+        <label>001_æœ¬æ—¥ã®ãƒªãƒ¼ãƒ‰(My Mercedes)</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22426,14 +22443,14 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
         <filters>
             <field>CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>New</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_新規</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM 2016_æ–°è¦</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22454,9 +22471,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
+            <value>Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</value>
         </filters>
-        <label>DM_SクラスセントラルDM2016</label>
+        <label>DM_Sã‚¯ãƒ©ã‚¹ã‚»ãƒ³ãƒˆãƒ©ãƒ«DM2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -27068,7 +27085,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27096,7 +27113,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27104,7 +27121,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27172,7 +27189,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27327,7 +27344,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27355,7 +27372,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27363,7 +27380,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27431,7 +27448,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39139,7 +39156,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39167,7 +39184,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39175,7 +39192,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39243,7 +39260,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39398,7 +39415,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39426,7 +39443,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39434,7 +39451,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39502,7 +39519,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51504,7 +51521,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51532,7 +51549,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51540,7 +51557,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51608,7 +51625,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51763,7 +51780,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51791,7 +51808,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51799,7 +51816,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51867,7 +51884,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63873,7 +63890,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63901,7 +63918,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63909,7 +63926,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63977,7 +63994,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64132,7 +64149,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64160,7 +64177,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64168,7 +64185,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64236,7 +64253,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76690,7 +76707,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76718,7 +76735,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76726,7 +76743,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76794,7 +76811,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76949,7 +76966,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76977,7 +76994,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -76985,7 +77002,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77053,7 +77070,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88918,7 +88935,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88950,7 +88967,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88958,7 +88975,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88966,7 +88983,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89121,7 +89138,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89149,7 +89166,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89157,7 +89174,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89225,7 +89242,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100171,7 +100188,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100199,7 +100216,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100207,7 +100224,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100275,7 +100292,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100430,7 +100447,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Coupé</fullName>
+                <fullName>C-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100458,7 +100475,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class Coupé</fullName>
+                <fullName>CLK-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100466,7 +100483,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLS-Class Coupé</fullName>
+                <fullName>CLS-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -100534,7 +100551,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>E-Class Coupé</fullName>
+                <fullName>E-Class CoupÃ©</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -107046,7 +107063,7 @@ MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lead_Latest_Phase__c</errorDisplayField>
-        <errorMessage>Lead Latest Phase" cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced”</errorMessage>
+        <errorMessage>Lead Latest Phase" cannot be changed into â€œWIP Linkageâ€, â€œJob Card Issueâ€, â€œInvoicedâ€</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Status_Lost_Check</fullName>
@@ -107061,7 +107078,7 @@ MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>Dealer Lead Status" cannot be changed into “Lost</errorMessage>
+        <errorMessage>Dealer Lead Status" cannot be changed into â€œLost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check</fullName>
@@ -107306,7 +107323,7 @@ ISNULL(Lost_Dealer_Date__c)
     <validationRules>
         <fullName>Lost_Reason_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
@@ -107317,7 +107334,7 @@ ISNULL(Lost_Dealer_Date__c)
  ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI', MD__c= 'JP'||MD__c='KR'
 )</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>“Lost To” field is mandatory when the lead has been lost</errorMessage>
+        <errorMessage>â€œLost Toâ€ field is mandatory when the lead has been lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lost_To_Whom_CAC</fullName>
@@ -107326,7 +107343,7 @@ ISNULL(Lost_Dealer_Date__c)
 OR(ISBLANK(Lost_To__c), ISNULL(Lost_To__c)), 
 ISPICKVAL(CAC_Lead_Status__c,'Lost(CAC)'),$Profile.Name != 'IntegrationAPI',MD__c='KR')</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
-        <errorMessage>“Lost To” field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
+        <errorMessage>â€œLost Toâ€ field is mandatory when the CAC lead status has been set to lost(CAC)</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Manual_Status_Change_To_Approve_Check</fullName>
