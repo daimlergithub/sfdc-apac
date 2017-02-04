@@ -24295,6 +24295,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>492 Paint，Rutile-Brown</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89 </fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
                 <default>false</default>
