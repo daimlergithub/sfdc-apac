@@ -185,7 +185,7 @@
 			   <sf:include name="UtilCustomSettings"/>
 			   <sf:include name="VehicleRelationshipHelper"/>
 			   <sf:include name="createRetailCopyKR"/>
-			   
+			   <sf:include name="createRetailCopyKRTest"/>
 			   
 			</sf:typeset>
 		</deploy>
