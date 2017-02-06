@@ -52,6 +52,10 @@ public  class UtilCustomSettingsJP {
       Trigger__c TaskTrigger=new Trigger__c(Name='TaskTrigger',Trigger_Name__c='TaskTrigger',Trigger_Handler__c='TaskTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TaskTrigger);
       
+      Trigger__c TaskTriggerKR =new Trigger__c(Name='TaskTriggerKR',Trigger_Name__c='TaskTriggerKR',Trigger_Handler__c='TaskTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TaskTriggerKR);     
+      
+      
       Trigger__c ToolKitTrigger=new Trigger__c(Name='ToolKitTrigger',Trigger_Name__c='ToolKitTrigger',Trigger_Handler__c='ToolKitTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(ToolKitTrigger);
       
@@ -73,6 +77,9 @@ public  class UtilCustomSettingsJP {
       Trigger__c TriggerCampaignMembers=new Trigger__c(Name='TriggerCampaignMembers',Trigger_Name__c='TriggerCampaignMembers',Trigger_Handler__c='TriggerCampaignMembersTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaignMembers);
       
+      Trigger__c TriggerRetailCampaignMember=new Trigger__c(Name='TriggerRetailCampaignMember',Trigger_Name__c='TriggerRetailCampaignMember',Trigger_Handler__c='TriggerRetailCampaignMemberHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(TriggerRetailCampaignMember);
+      
       Trigger__c TriggerCampaignOffering=new Trigger__c(Name='TriggerCampaignOffering',Trigger_Name__c='TriggerCampaignOffering',Trigger_Handler__c='TriggerCampaignOfferingTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaignOffering);
       
@@ -88,9 +95,15 @@ public  class UtilCustomSettingsJP {
       Trigger__c TriggerLead=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerLead);
     
-    Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-       updatecustomsetting.add(TriggerVehicleRelationship);        
-   
+      Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+      updatecustomsetting.add(TriggerVehicleRelationship);
+      
+      Trigger__c ShareCampaignByCollab=new Trigger__c(Name='ShareCampaignByCollab',Trigger_Name__c='ShareCampaignByCollab',Trigger_Handler__c='ShareCampaignByCollabTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(ShareCampaignByCollab);
+      
+      Trigger__c ShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(ShareAccountLinksToDealer);     
+        
       
    return updatecustomsetting;
    }
