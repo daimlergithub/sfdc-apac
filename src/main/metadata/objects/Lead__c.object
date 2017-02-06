@@ -3236,7 +3236,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event/SÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢Ship</fullName>
+                <fullName>Event/Sâ€™Ship</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3949,7 +3949,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-   <fields>
+    <fields>
         <fullName>Dealer_Lost_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Lost Reason</label>
@@ -3958,43 +3958,36 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Price not accepted</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Stock</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Double lead</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other reasons</fullName>
                 <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4070,16 +4063,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Quotation request from other dealer</fullName>
                 <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lead Merge</fullName>
-                <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchased Vehicle</fullName>
-                <default>false</default>
-                <controllingFieldValues>Lost</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5405,19 +5388,19 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint, Rutile-Brown</fullName>
+                <fullName>492 Paint，Rutile-Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint,Germanium-lime, Metallic paint</fullName>
+                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint, Tin-lead-blue, Metallic paint</fullName>
+                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint, Sapphire blue, Metallic paint</fullName>
+                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5449,11 +5432,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 PaintÃ¯Â¼Å’Garnet GreenÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk whiteÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>650 Chalk white，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5465,7 +5448,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 PaintÃ¯Â¼Å’Flint GreyÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5489,7 +5472,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 PaintÃ¯Â¼Å’Pearl ashÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5501,7 +5484,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>792 PaintÃ¯Â¼Å’Palladium silverÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5569,11 +5552,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue(Light colors)</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown (Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5581,7 +5564,7 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown (Light colors)</fullName>
+                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7570,22 +7553,22 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>492 Paint ,Rutile-Brown</fullName>
+                <fullName>492 Paint，Rutile-Brown</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>494 Paint, Germanium-lime, Metallic paint</fullName>
+                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5353 Paint, Tin-lead-blue, Metallic paint</fullName>
+                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>5359 Paint, Sapphire blue, Metallic paint</fullName>
+                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7625,12 +7608,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>6300 PaintÃ¯Â¼Å’Garnet GreenÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>650 Chalk whiteÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>650 Chalk white，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7645,7 +7628,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7360 PaintÃ¯Â¼Å’Flint GreyÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7675,7 +7658,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>7747 PaintÃ¯Â¼Å’Pearl ashÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7690,7 +7673,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>792 PaintÃ¯Â¼Å’Palladium silverÃ¯Â¼Å’Metallic paint</fullName>
+                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7775,12 +7758,12 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>385 France coast blue (Light colors)</fullName>
+                <fullName>385 France coast blue（Light colors）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>491 Rocky Mountain Brown (Dark)</fullName>
+                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -7790,7 +7773,7 @@ Collectioner_Name__r.HomePhone
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>697 Rocky Mountain Brown (Light colors)</fullName>
+                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
                 <default>false</default>
                 <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
@@ -22192,7 +22175,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>Allocated</value>
         </filters>
-        <label>DM_SクラスセントラルDM 2016_承認中</label>
+        <label>DM_SクラスセントラルDM 2016_展開済</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22302,7 +22285,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</label>
+        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22371,7 +22354,7 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>メルセデス ミー 東京羽田のリード</value>
+            <value>メルセデス ミー 東京羽田</value>
         </filters>
         <label>メルセデス ミー 東京羽田のリード</label>
         <language>ja</language>
@@ -22450,7 +22433,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>New</value>
         </filters>
-        <label>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016_今日</label>
+        <label>DM_SクラスセントラルDM 2016_新規</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -24268,7 +24251,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24288,27 +24271,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89 </fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24344,11 +24323,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24356,7 +24335,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24364,11 +24343,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24384,7 +24363,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24400,15 +24379,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24424,11 +24403,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24444,7 +24423,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24452,7 +24431,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24472,7 +24451,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25652,7 +25631,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25672,23 +25651,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25724,11 +25703,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25736,7 +25715,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25744,11 +25723,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25764,7 +25743,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25780,15 +25759,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25804,11 +25783,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25824,7 +25803,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25832,7 +25811,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25852,7 +25831,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36015,7 +35994,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36035,23 +36014,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36087,11 +36066,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36099,7 +36078,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36107,11 +36086,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36127,7 +36106,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36143,15 +36122,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36167,11 +36146,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36187,7 +36166,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36195,7 +36174,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36215,7 +36194,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37627,7 +37606,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37647,23 +37626,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37699,11 +37678,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37711,7 +37690,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37719,11 +37698,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37739,7 +37718,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37755,15 +37734,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37779,11 +37758,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37799,7 +37778,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37807,7 +37786,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37827,7 +37806,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48408,7 +48387,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48428,23 +48407,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48480,11 +48459,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48492,7 +48471,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48500,11 +48479,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48520,7 +48499,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48536,15 +48515,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48560,11 +48539,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48580,7 +48559,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48588,7 +48567,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48608,7 +48587,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50020,7 +49999,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50040,23 +50019,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50092,11 +50071,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50104,7 +50083,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50112,11 +50091,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50132,7 +50111,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50148,15 +50127,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50172,11 +50151,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50192,7 +50171,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50200,7 +50179,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50220,7 +50199,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60773,7 +60752,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60793,23 +60772,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60845,11 +60824,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60857,7 +60836,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60865,11 +60844,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60885,7 +60864,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60901,15 +60880,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60925,11 +60904,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60945,7 +60924,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60953,7 +60932,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60973,7 +60952,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62385,7 +62364,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62405,23 +62384,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62457,11 +62436,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62469,7 +62448,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62477,11 +62456,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62497,7 +62476,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62513,15 +62492,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62537,11 +62516,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62557,7 +62536,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62565,7 +62544,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62585,7 +62564,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73414,7 +73393,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73434,23 +73413,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73486,11 +73465,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73498,7 +73477,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73506,11 +73485,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73526,7 +73505,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73542,15 +73521,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73566,11 +73545,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73586,7 +73565,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73594,7 +73573,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -73614,7 +73593,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75238,7 +75217,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75258,23 +75237,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75310,11 +75289,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75322,7 +75301,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75330,11 +75309,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75350,7 +75329,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75366,15 +75345,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75390,11 +75369,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75410,7 +75389,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75418,7 +75397,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75438,7 +75417,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -85978,7 +85957,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -85998,23 +85977,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86050,11 +86029,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86062,7 +86041,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86070,11 +86049,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86090,7 +86069,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86106,15 +86085,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86130,11 +86109,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86150,7 +86129,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86158,7 +86137,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86178,7 +86157,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87330,7 +87309,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87350,23 +87329,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87402,11 +87381,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87414,7 +87393,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87422,11 +87401,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87442,7 +87421,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87458,15 +87437,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87482,11 +87461,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87502,7 +87481,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87510,7 +87489,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87530,7 +87509,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97374,7 +97353,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97394,23 +97373,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97446,11 +97425,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97458,7 +97437,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97466,11 +97445,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97486,7 +97465,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97502,15 +97481,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97526,11 +97505,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97546,7 +97525,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97554,7 +97533,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -97574,7 +97553,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98754,7 +98733,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>385 France coast blue（Light colors）</fullName>
+                <fullName>385 France coast blue%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98774,23 +98753,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>491 Rocky Mountain Brown（Dark）</fullName>
+                <fullName>491 Rocky Mountain Brown%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>492 Paint，Rutile-Brown</fullName>
+                <fullName>492 Paint%EF%BC%8CRutile-Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>494 Paint，Germanium-lime，Metallic paint</fullName>
+                <fullName>494 Paint%EF%BC%8CGermanium-lime%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5353 Paint，Tin-lead-blue，Metallic paint</fullName>
+                <fullName>5353 Paint%EF%BC%8CTin-lead-blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5359 Paint，Sapphire blue，Metallic paint</fullName>
+                <fullName>5359 Paint%EF%BC%8CSapphire blue%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98826,11 +98805,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>6300 Paint，Garnet Green，Metallic paint</fullName>
+                <fullName>6300 Paint%EF%BC%8CGarnet Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>650 Chalk white，Metallic paint</fullName>
+                <fullName>650 Chalk white%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98838,7 +98817,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>697 Rocky Mountain Brown（Light colors）</fullName>
+                <fullName>697 Rocky Mountain Brown%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98846,11 +98825,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>725 Himalaya grey（Dark）</fullName>
+                <fullName>725 Himalaya grey%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7360 Paint，Flint Grey，Metallic paint</fullName>
+                <fullName>7360 Paint%EF%BC%8CFlint Grey%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98866,7 +98845,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>756 Himalaya grey（Color）</fullName>
+                <fullName>756 Himalaya grey%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98882,15 +98861,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>770 Himalaya grey（Light colors）</fullName>
+                <fullName>770 Himalaya grey%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>773 Di Yi flute gray（Light colors）</fullName>
+                <fullName>773 Di Yi flute gray%EF%BC%88Light colors%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>7747 Paint，Pearl ash，Metallic paint</fullName>
+                <fullName>7747 Paint%EF%BC%8CPearl ash%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98906,11 +98885,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>781 Di Yi flute gray（Color）</fullName>
+                <fullName>781 Di Yi flute gray%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint，Palladium silver，Metallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98926,7 +98905,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>808 Ireland Green（Dark）</fullName>
+                <fullName>808 Ireland Green%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98934,7 +98913,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>886 Ireland Green（Color）</fullName>
+                <fullName>886 Ireland Green%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98954,7 +98933,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>947 France coast blue（Dark）</fullName>
+                <fullName>947 France coast blue%EF%BC%88Dark%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -107082,7 +107061,7 @@ MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
-        <errorMessage>Dealer Lead Status" cannot be changed into “Lost Ã¢â‚¬Å“Lost</errorMessage>
+        <errorMessage>Dealer Lead Status" cannot be changed into “Lost</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Latest_Phase_Manual_Check</fullName>
@@ -107265,7 +107244,7 @@ RecordType.Name == 'Sales Leads'
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISBLANK(PRIORVALUE(Finance_Quotation_No_History__c))),ISCHANGED(Finance_Quotation_No_History__c),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Finance_Quotation_No_History__c</errorDisplayField>
-        <errorMessage>Finance Quotation no History cannot be changed manually</errorMessage>
+        <errorMessage>Finance Quotation No History cannot be changed manually</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Contact_Customer_Required_Check</fullName>
@@ -107327,7 +107306,7 @@ ISNULL(Lost_Dealer_Date__c)
     <validationRules>
         <fullName>Lost_Reason_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
@@ -107785,7 +107764,7 @@ if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
 	}
 }
 else {
-	alert("Only new or qualified lead can select Prefer dealer.");
+	alert("Only new or qualified lead can select prefer dealer.");
 }</url>
     </webLinks>
     <webLinks>
