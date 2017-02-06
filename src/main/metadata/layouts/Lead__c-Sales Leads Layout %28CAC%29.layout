@@ -2,9 +2,9 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Merge</customButtons>
     <customButtons>New_Task</customButtons>
-	<customButtons>Convert_Lead</customButtons>
+    <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
-    <excludeButtons>Share</excludeButtons>
+    <customButtons>Print_PDF</customButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -145,6 +145,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -428,19 +432,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interested_Competitor_Vehicle_Text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Current_Vehicle_2_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Vehicle_Text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Trade_In_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
