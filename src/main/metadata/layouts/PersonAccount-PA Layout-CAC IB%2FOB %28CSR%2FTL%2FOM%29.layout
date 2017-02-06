@@ -777,8 +777,7 @@
         <fields>TASK.WHAT_NAME</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.RECORDTYPE</fields>
-        <fields>TASK.CREATED_DATE</fields>
-        <fields>Activity_Comment__c</fields>
+        <fields>TASK.CREATED_DATE</fields> 
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>

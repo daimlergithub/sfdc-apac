@@ -122,6 +122,19 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Survey_Question_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the question Id against the survey</description>
+        <externalId>false</externalId>
+        <label>Survey Question Id</label>
+        <referenceTo>Survey_Question__c</referenceTo>
+        <relationshipLabel>Survey Question Responses (Survey Question Id)</relationshipLabel>
+        <relationshipName>Survey_Question_Responses</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Survey_Question__c</fullName>
         <externalId>false</externalId>
         <label>Survey Question</label>
@@ -132,6 +145,19 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Survey_Taken_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the Survey Taken Id</description>
+        <externalId>false</externalId>
+        <label>Survey Taken Id</label>
+        <referenceTo>SurveyTaker__c</referenceTo>
+        <relationshipLabel>Survey Question Responses (Survey Taken Id)</relationshipLabel>
+        <relationshipName>Survey_Question_Responses</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>

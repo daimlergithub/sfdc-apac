@@ -1715,6 +1715,11 @@
         <editable>true</editable>
         <field>Account.COS_Flag__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Dealer_Manual_Create__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9621,7 +9626,12 @@
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
         <readable>true</readable>
-    </fieldPermissions>	
+    </fieldPermissions>		
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Transaction_Date__c</field>
@@ -22877,3 +22887,4 @@
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
+
