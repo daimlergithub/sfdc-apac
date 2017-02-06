@@ -41,7 +41,8 @@ Public with sharing class TriggerCampaignLeadTest {
     // US-Lead-001
     public static testMethod void testTriggerCampaignLead_PopulateContact() {
       preparetestdata();  
-      
+       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
       //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
       //insert updatecustomsettings;
         
@@ -62,9 +63,9 @@ Public with sharing class TriggerCampaignLeadTest {
         system.debug('%%%%%%%%%%%%%%%%%%%'+camLead.id);
         camLead = [SELECT Contact__c FROM Campaign_Lead__c WHERE Id = :camLead.Id];       
         // Stop Test
-        TriggerCampaignLeadTriggerHandler cclth = new TriggerCampaignLeadTriggerHandler();
+       /* TriggerCampaignLeadTriggerHandler cclth = new TriggerCampaignLeadTriggerHandler();
         cclth.handleTrigger(false, false, false, false, false);
-        cclth.handleIntegrationTrigger(false, false, false, false, false);
+        cclth.handleIntegrationTrigger(false, false, false, false, false);*/
         
         TriggerCampaignLeadTriggerHandlerJP cclthJP = new TriggerCampaignLeadTriggerHandlerJP();
         cclthJP.handleTrigger(false, false, false, false, false);
