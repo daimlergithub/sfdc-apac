@@ -40,7 +40,7 @@ public with sharing class LeadConvertingControllerTest
        insert thirdParty;
        dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
        insert dealer;
-       rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
+       rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved', Close_Date__c = date.today(), Start_Date__c = date.today(), Status__c = 'Draft');
        insert rc;      
        rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
        insert rtm;       
