@@ -107386,8 +107386,11 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
     <validationRules>
         <fullName>Purchased_Leads_NoChange_Lost</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'Aftersales_Leads',ISBLANK(AfterSales_Vehicle__c),
-$Profile.Name != 'IntegrationAPI',MD__c = 'JP', ISCHANGED(AfterSales_Vehicle__c),OR(ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)'),ISPICKVAL(Dealer_Lead_Status__c,'Lost')))</errorConditionFormula>
+        <errorConditionFormula>AND(ISCHANGED(AfterSales_Vehicle__c),
+	OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
+	ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+	RecordType.DeveloperName = 'Aftersales_Leads',
+	$Profile.Name != 'IntegrationAPI',MD__c = 'JP')<errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
