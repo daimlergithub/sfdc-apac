@@ -3958,36 +3958,43 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Price not accepted</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Stock</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Double lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other reasons</fullName>
                 <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
                 <controllingFieldValues>Lost(Dealer)</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4063,6 +4070,16 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <picklistValues>
                 <fullName>Quotation request from other dealer</fullName>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead Merge</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>Lost</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -107306,7 +107323,7 @@ ISNULL(Lost_Dealer_Date__c)
     <validationRules>
         <fullName>Lost_Reason_Mandatory</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(Dealer_Lead_Status__c,'Lost'),($Profile.Name != 'IntegrationAPI')&amp;&amp;(MD__c = 'JP'),OR(ISPICKVAL(Dealer_Lost_Reason__c,''),ISPICKVAL(Lost_Situation__c,'')))</errorConditionFormula>
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
@@ -107384,12 +107401,16 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Lead Latest Phase cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Purchased_Leads_NoChange_Lost</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'Aftersales_Leads',ISBLANK(AfterSales_Vehicle__c),
-$Profile.Name != 'IntegrationAPI',MD__c = 'JP', ISCHANGED(AfterSales_Vehicle__c),OR(ISPICKVAL(Dealer_Lead_Status__c,'Purchased(Only Non BDC)'),ISPICKVAL(Dealer_Lead_Status__c,'Lost')))</errorConditionFormula>
+         <fullName>Purchased_Leads_NoChange_Lost</fullName>
+         <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(AfterSales_Vehicle__c),
+	OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
+	ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
+	RecordType.DeveloperName = 'Aftersales_Leads',
+	$Profile.Name != 'IntegrationAPI',MD__c = 'JP')
+	    </errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
-        <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
+         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
 	<validationRules>
         <fullName>Quotation_No_History_Check</fullName>

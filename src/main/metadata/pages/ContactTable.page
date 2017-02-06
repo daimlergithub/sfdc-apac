@@ -344,7 +344,7 @@
                                 sforce.console.refreshSubtabById(subtabId, true);                                
                             };                            
                             testGetFocusedSubtabId();
-                            window.open("/{!id}","_parent");
+                            window.open("{!URLFOR($Site.Prefix)}/{!id}","_parent");
                             </script>
                        </apex:outputText>
                    </apex:outputPanel>
@@ -356,7 +356,7 @@
        <script  type="text/javascript">
        function refreshParentPage()
        {  
-           window.open("/{!AccId}","_parent");    
+           window.open("{!URLFOR($Site.Prefix)}/{!AccId}","_parent");    
        }       
        </script>     
     </apex:form>

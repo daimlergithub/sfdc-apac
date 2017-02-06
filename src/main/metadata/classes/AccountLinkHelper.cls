@@ -136,7 +136,7 @@ public class AccountLinkHelper
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> CompanyPersonVehicleLinkALK = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = getRelatedIndividualCustomerRecordTypeAccountLink(list_AccountLink);
-        
+        Set<Id> VehiclealkId = new Set<Id>();
         Set<Id> VehicleExtaccountId = new Set<Id>();
         for(Account_Link__c accountLink : list_AccountLink){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.fromRole__c != null){
@@ -217,16 +217,17 @@ public class AccountLinkHelper
             
             if(accountLink.RecordTypeId == AccountLink_VehicleExternalRecordTypeId)
             {
-              if(accountLink.fromRole__c !=null)
+              if(accountLink.fromRole__c !=null && accountLink.Vehicle__c!=null)
               {
               VehicleExtaccountId.add(accountLink.fromRole__c);
+              VehiclealkId.add(accountLink.Vehicle__c);
               }
             }
         }
         
-        if(VehicleExtaccountId!=null)
-        {
-        ShareehicleALK(VehicleExtaccountId);
+        if(VehicleExtaccountId!=null && VehiclealkId!=null)
+        { 
+        ShareehicleALK(VehicleExtaccountId,VehiclealkId);
         }
         if(map_AccountIdAndListAccountLinkId.size() > 0){
              createSharingRecord(map_AccountIdAndListAccountLinkId);
@@ -366,11 +367,19 @@ public class AccountLinkHelper
         }
     }
     
-    private static void ShareehicleALK(Set<Id> set_ToAccountId)
+    private static void ShareehicleALK(Set<Id> set_ToAccountId,Set<Id> VehiclealkId)
     {
+	List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
     List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-     List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>([SELECT Id,recordtypeID, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId] );
-           List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
+	List<User> portaluser=new List<User>();
+	if(VehiclealkId !=null && set_ToAccountId!=null)
+	{
+     Vehiclelist_AccountLink =[SELECT Id,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
+	 }
+	 if(set_ToAccountId!=null)
+	 {
+         portaluser=[SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true];
+		   }
       
       if(portaluser!=null)
        {

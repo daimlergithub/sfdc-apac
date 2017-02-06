@@ -182,6 +182,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Lost_Dealer_Date_Time</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lost Dealer Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -1027,14 +1036,14 @@ Proxy_Date_Time__c
 	<rules>
         <fullName>Update Lead Lost Date Time</fullName>
         <actions>
-            <name>Update_Lead_Lost_Date_Time</name>
+            <name>Update_Lost_Dealer_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
-            <value>Lost(Dealer)</value>
+            <value>Lost</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.MD__c</field>

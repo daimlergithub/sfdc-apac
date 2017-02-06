@@ -1151,6 +1151,18 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>campaign_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>campaign is locked</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>retail_campaign_is_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>Retail Campaign is locked</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>ExportCampaign</fullName>
         <availability>online</availability>
@@ -1188,7 +1200,12 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
     </webLinks>
 </CustomObject>

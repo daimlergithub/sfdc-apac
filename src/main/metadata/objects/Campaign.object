@@ -19739,6 +19739,12 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
         <errorMessage>Previous campaign execution only belong to this parent campaign.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Record_lock_on_campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Consolidated_List_Completed__c = true)</errorConditionFormula>
+        <errorMessage>Record is Locked</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SMS_Task_Verified_is_True</fullName>
         <active>false</active>
         <errorConditionFormula>AND(

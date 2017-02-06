@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
 	<alerts>
+        <fullName>Execution_Start_Date_Notification_To_Owner</fullName>
+        <description>Execution Start Date Notification To Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Campaign_notification_on_Execution</template>
+    </alerts>
+	<alerts>
         <fullName>Segmentation_Email_Notifications_For_WS_Users</fullName>
         <description>Segmentation Email Notifications For WS Users</description>
         <protected>false</protected>
@@ -280,6 +290,30 @@ RecordType.Name,
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	<rules>
+        <fullName>Execution start date Notification to WS Users</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Execution_Start_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Execution_Start_Date_Notification_To_Owner</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
     <rules>
         <fullName>Index Calculation</fullName>
         <actions>
@@ -498,5 +532,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    </rules>	
 </Workflow>
