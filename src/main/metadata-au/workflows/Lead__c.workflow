@@ -926,10 +926,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp;
-! ISNULL(Dealer_Due_Date__c) &amp;&amp;
-( LastModifiedDate &gt; Consultant_Due_Date__c) &amp;&amp;
- RecordType.DeveloperName = 'Sales_Leads'</formula>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ! ISNULL(Dealer_Due_Date__c) &amp;&amp; ( LastModifiedDate &gt; Consultant_Due_Date__c) &amp;&amp;  RecordType.DeveloperName = 'Sales_Leads'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -939,10 +936,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp;
-! ISNULL(Dealer_Due_Date__c) &amp;&amp;
-( LastModifiedDate &gt; Dealer_Due_Date__c ) &amp;&amp;
- RecordType.DeveloperName = 'Sales_Leads'</formula>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ! ISNULL(Dealer_Due_Date__c) &amp;&amp; ( LastModifiedDate &gt; Dealer_Due_Date__c ) &amp;&amp;  RecordType.DeveloperName = 'Sales_Leads'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1236,7 +1230,7 @@ Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</descripti
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED(CAC_Lead_Status__c), OR(ISPICKVAL(CAC_Lead_Status__c , "Closed")  ,ISPICKVAL(CAC_Lead_Status__c , "Lost")), ISBLANK(Lead_Closed_Date__c))</formula>
+        <formula>AND(ISCHANGED(CAC_Lead_Status__c), OR(ISPICKVAL(CAC_Lead_Status__c , "Closed Won")  ,ISPICKVAL(CAC_Lead_Status__c , "Closed Lost")), ISBLANK(Lead_Closed_Date__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
