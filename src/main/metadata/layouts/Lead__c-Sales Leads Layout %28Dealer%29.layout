@@ -232,6 +232,13 @@
         <editHeading>true</editHeading>
         <label>Vehicle Select</label>
         <layoutColumns>
+			<layoutItems>
+                <height>400</height>
+                <page>VehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
@@ -247,7 +254,7 @@
                 <field>Interested_Vehicle_Note__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
