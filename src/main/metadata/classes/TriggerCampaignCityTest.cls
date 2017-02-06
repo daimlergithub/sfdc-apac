@@ -6,8 +6,10 @@ public with sharing class TriggerCampaignCityTest {
     public static List<Account> accList;
      public static Account accObj;
  @isTest static void testCampaignHelper(){
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+        
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
          insert updatecustomsettings;
+     
         String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
         String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
      
@@ -56,9 +58,9 @@ public with sharing class TriggerCampaignCityTest {
         CampaignCityHandlerJP.handleIntegrationTrigger(false, false, false, false, false); 
         
         
-        TriggerCampaignCityTriggerHandler CampaignCityHandler = new TriggerCampaignCityTriggerHandler();
+       /* TriggerCampaignCityTriggerHandler CampaignCityHandler = new TriggerCampaignCityTriggerHandler();
         CampaignCityHandler.handleTrigger(false, false, false, false, false);
-        CampaignCityHandler.handleIntegrationTrigger(false, false, false, false, false);
+        CampaignCityHandler.handleIntegrationTrigger(false, false, false, false, false);*/
         Test.stopTest();
        system.assertEquals([select Campaign__c,Start_Date__c,End_Date__c from Campaign_City__c where id=:campcity.id].IsEmpty(),true);
  }
