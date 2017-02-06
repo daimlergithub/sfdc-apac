@@ -949,10 +949,10 @@ public class AccountLinkHelper
         if(accountList.size() > 0){
             for(Account_Link__c acc: accountList){            
                 acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
-                acc.Retail_City__c = acc.Retail_Address_Reference__r.City__c;
-                acc.Retail_Distinct__c = acc.Retail_Address_Reference__r.District__c + ' ' + acc.Retail_Address_Reference__r.Block__c ;
-                acc.Retail_Address_Line_1__c  = acc.Retail_Address_Reference__r.Address_Line_1__c;
-                acc.Retail_Address_Line_2__c =  acc.Retail_Address_Reference__r.Address_Line_2__c;
+                  acc.Retail_City__c = (acc.Retail_Address_Reference__r.City__c != null ? acc.Retail_Address_Reference__r.City__c : '').left(17);
+                acc.Retail_Distinct__c = ((acc.Retail_Address_Reference__r.District__c !=null ? acc.Retail_Address_Reference__r.District__c : '')+ (acc.Retail_Address_Reference__r.Block__c!=null ? acc.Retail_Address_Reference__r.Block__c : '')).left(17);               
+               acc.Retail_Address_Line_1__c  = (acc.Retail_Address_Reference__r.Address_Line_1__c !=null? acc.Retail_Address_Reference__r.Address_Line_1__c :'').left(17);
+               acc.Retail_Address_Line_2__c =  (acc.Retail_Address_Reference__r.Address_Line_2__c !=null? acc.Retail_Address_Reference__r.Address_Line_2__c :'').left(17);
                 acc.Retail_ZipCode__c = acc.Retail_Address_Reference__r.ZipCode__c;
                 if(addtrmap1.containsKey(acc.Retail_Address_Reference__r.Province__c) )
                 {
