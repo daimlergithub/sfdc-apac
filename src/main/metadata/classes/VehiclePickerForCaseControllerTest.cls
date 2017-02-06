@@ -479,5 +479,240 @@ public without sharing class VehiclePickerForCaseControllerTest{
             }
         }
         test.StopTest();
-    }       
+    }
+	
+    public static testMethod void testAssociatedCaseVehicles(){     
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        UtilConstant utilConst = new UtilConstant(); 
+        
+        // Account
+        accobj = new Account(RecordTypeId = personAccRecordTypeId,LastName = 'galaxy1',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9642',ZipCode__c= '1002347'); 
+        insert accobj;
+		
+		// Case
+        testCase = new Case(RecordTypeId = MBRecordTypeId,Case_Department__c = 'testcase',Description = 'testdes',Case_Type__c = 'testcasetype'
+        						,Case_Class__c = 'Complaint',Case_SubType__c = 'test case subtype', Case_Source__c = 'test case source'
+        							,Overdue_Reason__c ='Others', AccountId = accobj.Id, Car_Owner__c=accobj.Id);
+        insert testCase;
+        
+        // Vehicle 1
+        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), UtilConstant.MB);
+        
+        // Vehicle 2
+        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Current Vehicle 1
+        Vehicle__c currentVehicle1 = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Current Vehicle 2
+        Vehicle__c currentVehicle2 = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Trade In Vehicle
+        Vehicle__c TradeInVehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Purchased Vehicle
+        Vehicle__c PurchasedVehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+        
+        // Vehicle Relationship
+        Vehicle_Relationship__c vr = new Vehicle_Relationship__c(Vehicle_ID__c = testVehicle_VehicleProduct.Id,Contact__c=accobj.id);
+        insert vr;
+                
+        testCase.Interested_Vehicle__c = testVehicle_VehicleProduct.Id;
+        testCase.Interested_Competitor_Vehicle__c  = testVehicleMB.Id;
+		testCase.Current_Vehicle_1__c  = currentVehicle1.Id;        
+		testCase.Current_Vehicle_2__c  = currentVehicle2.Id;
+        testCase.Trade_In_Vehicle__c  = TradeInVehicle.Id;
+        testCase.Purchased_Vehicle__c  = PurchasedVehicle.Id;
+        update testCase;
+        
+        System.assertEquals(testCase.Purchased_Vehicle__c,PurchasedVehicle.Id);
+        System.assertEquals(testCase.Trade_In_Vehicle__c,TradeInVehicle.Id);
+        System.assertEquals(testCase.Current_Vehicle_2__c,currentVehicle2.Id);
+        System.assertEquals(testCase.Current_Vehicle_1__c,currentVehicle1.Id);
+        
+        test.StartTest();
+        ApexPages.StandardController sc = new ApexPages.StandardController(testCase);
+        VehiclePickerForCaseController vpc = new VehiclePickerForCaseController(sc);
+        test.StopTest();
+        System.assertNotEquals(testCase,null);
+    }
+	
+    public static testMethod void testupdateVehicleDetailsNew(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        UtilConstant utilConst = new UtilConstant(); 
+        
+        // Account
+        accobj = new Account(RecordTypeId = personAccRecordTypeId,LastName = 'galaxy1',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9642',ZipCode__c= '1002347'); 
+        insert accobj;
+        system.assertNotEquals(accobj,null);
+		
+		// Case
+        testCase = new Case(RecordTypeId = MBRecordTypeId,Case_Department__c = 'testcase',Description = 'testdes',Case_Type__c = 'testcasetype'
+        						,Case_Class__c = 'Complaint',Case_SubType__c = 'test case subtype', Case_Source__c = 'test case source'
+        							,Overdue_Reason__c ='Others', AccountId = accobj.Id, Car_Owner__c=accobj.Id);
+        insert testCase;
+        system.assertNotEquals(testCase,null);
+        
+        // Car Models
+        Car_Model__c cm = new Car_Model__c();
+        cm.Status__c = 'Own Sellable';
+        cm.Brand__c = 'AMG';
+        cm.Series__c = 'A-CLASS';
+        cm.Model__c = 'A160';
+        cm.Name = 'A160';
+        cm.Colour__c = 'white';        
+		insert cm; 
+		system.assertNotEquals(cm,null);
+		
+        // Start Test
+        test.StartTest();
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(testCase);
+        VehiclePickerForCaseController vpc = new VehiclePickerForCaseController(sc);
+        
+        Map<String,String> tempMap = new Map<String,String>();
+        for(String vehicle : vehicleTypes){
+            tempMap.put('caseVehicleType',vehicle);
+            tempMap.put('Lookup','false');
+            tempMap.put('CurrentRecordId',testCase.Id);
+            tempMap.put('Mileage','10');
+            tempMap.put('Operation','New');
+            tempMap.put('Brand','AMG');
+            tempMap.put('Class','A-CLASS');
+            tempMap.put('Colour','white');
+            tempMap.put('Model','A160');
+            system.assertEquals(tempMap.get('Model'),'A160');
+            String vehicleDetails = JSON.serialize(tempMap);
+            VehiclePickerForCaseController.updateVehicleDetails(vehicleDetails);
+        }
+        
+        // Stop Test
+        test.stopTest();
+    }
+
+
+    public static testMethod void testupdateVehicleDetailsEdit(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        UtilConstant utilConst = new UtilConstant(); 
+        
+        // Account
+        accobj = new Account(RecordTypeId = personAccRecordTypeId,LastName = 'galaxy1',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9642',ZipCode__c= '1002347'); 
+        insert accobj;
+        system.assertNotEquals(accobj,null);
+		
+		// Case
+        testCase = new Case(RecordTypeId = MBRecordTypeId,Case_Department__c = 'testcase',Description = 'testdes',Case_Type__c = 'testcasetype'
+        						,Case_Class__c = 'Complaint',Case_SubType__c = 'test case subtype', Case_Source__c = 'test case source'
+        							,Overdue_Reason__c ='Others', AccountId = accobj.Id, Car_Owner__c=accobj.Id);
+        insert testCase;
+        system.assertNotEquals(testCase,null);
+
+        // Vehicle 1
+        testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), UtilConstant.MB);
+        
+        // Vehicle 2
+        testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Current Vehicle 1
+        Vehicle__c currentVehicle1 = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Current Vehicle 2
+        Vehicle__c currentVehicle2 = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Trade In Vehicle
+        Vehicle__c TradeInVehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        // Purchased Vehicle
+        Vehicle__c PurchasedVehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
+        								,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
+        									,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+        										,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
+
+        testCase.Interested_Vehicle__c = testVehicle_VehicleProduct.Id;
+        testCase.Interested_Competitor_Vehicle__c  = testVehicleMB.Id;
+		testCase.Current_Vehicle_1__c  = currentVehicle1.Id;        
+		testCase.Current_Vehicle_2__c  = currentVehicle2.Id;
+        testCase.Trade_In_Vehicle__c  = TradeInVehicle.Id;
+        testCase.Purchased_Vehicle__c  = PurchasedVehicle.Id;
+        update testCase;
+
+        System.assertEquals(testCase.Purchased_Vehicle__c,PurchasedVehicle.Id);
+        System.assertEquals(testCase.Trade_In_Vehicle__c,TradeInVehicle.Id);
+        System.assertEquals(testCase.Current_Vehicle_2__c,currentVehicle2.Id);
+        System.assertEquals(testCase.Current_Vehicle_1__c,currentVehicle1.Id);
+
+        // Car Models
+        Car_Model__c cm = new Car_Model__c();
+        cm.Status__c = 'Own Sellable';
+        cm.Brand__c = 'AMG';
+        cm.Series__c = 'A-CLASS';
+        cm.Model__c = 'A160';
+        cm.Name = 'A160';
+        cm.Colour__c = 'white';        
+		insert cm; 
+		system.assertNotEquals(cm,null);
+		
+        // Start Test
+        test.StartTest();
+        
+        ApexPages.StandardController sc = new ApexPages.StandardController(testCase);
+        VehiclePickerForCaseController vpc = new VehiclePickerForCaseController(sc);
+        
+        Map<String,String> tempMap = new Map<String,String>();
+        for(String vehicle : vehicleTypes){
+            tempMap.put('caseVehicleType',vehicle);
+            tempMap.put('CurrentRecordId',testCase.Id);
+            tempMap.put('Operation','Edit');
+            tempMap.put('Lookup','false');
+            tempMap.put('Mileage','10');
+            tempMap.put('Brand','AMG');
+            tempMap.put('Class','A-CLASS');
+            tempMap.put('Colour','white');
+            tempMap.put('Model','A160');
+            system.assertEquals(tempMap.get('Model'),'A160');
+            String vehicleDetails = JSON.serialize(tempMap);
+            VehiclePickerForCaseController.updateVehicleDetails(vehicleDetails);
+        }
+        
+        // Stop Test
+        test.stopTest();
+    }
+
+
 }
