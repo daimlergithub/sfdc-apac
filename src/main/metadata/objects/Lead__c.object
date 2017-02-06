@@ -107390,7 +107390,7 @@ $Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
 	OR(ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Purchased(Only Non BDC)'),
 	ISPICKVAL(PRIORVALUE(Dealer_Lead_Status__c),'Lost')),
 	RecordType.DeveloperName = 'Aftersales_Leads',
-	$Profile.Name != 'IntegrationAPI',MD__c = 'JP')<errorConditionFormula>
+	$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>AfterSales_Vehicle__c</errorDisplayField>
         <errorMessage>Aftersales Vehicle cannot be changed</errorMessage>
     </validationRules>
