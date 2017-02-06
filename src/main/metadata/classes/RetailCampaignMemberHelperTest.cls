@@ -42,4 +42,4 @@ public class RetailCampaignMemberHelperTest {
                    listRCM = new list<Retail_Campaign_Member__c>();
                   listRCM.add(rtm);
             }
-})
+}
