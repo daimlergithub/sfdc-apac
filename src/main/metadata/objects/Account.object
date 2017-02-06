@@ -14148,7 +14148,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </listViews>
     <listViews>
         <fullName>MyAccounts</fullName>
-        <filterScope>Mine</filterScope>
+        <filterScope>Everything</filterScope>
         <label>My Accounts</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
