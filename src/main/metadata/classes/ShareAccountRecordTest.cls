@@ -40,7 +40,7 @@ public class ShareAccountRecordTest {
     system.debug('$$$$$$$$caselist$$$$$$$$$'+caselist);
     
     groupobj = new Group();
-    groupobj.Name = 'TestGroup';
+    groupobj.Name = 'testaccount';
     //insert groupobj;
     grouplist = new List<Group>();
     grouplist.add(groupobj);
