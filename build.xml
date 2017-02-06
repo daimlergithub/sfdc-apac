@@ -308,6 +308,7 @@
 				<sf:include name="AccountMergeController"/>		
 				<sf:include name="AccountMergeControllerKR"/>
 				<sf:include name="AccountMergeControllerTest"/>
+				<sf:include name="AccountMergeControllerKRTest"/>
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
@@ -321,6 +322,7 @@
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerKR"/>
 				<sf:include name="shareAccountRecord"/>
+				<sf:include name="shareAccountRecordTest"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>

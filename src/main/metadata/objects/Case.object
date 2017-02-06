@@ -22935,16 +22935,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <sharedTo/>
     </listViews>
     <listViews>
-        <fullName>AllOpenCases</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>All Open Cases</label>
-    </listViews>
-    <listViews>
         <fullName>All_Central_Office_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -23490,25 +23480,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>My Cases</label>
     </listViews>
     <listViews>
-        <fullName>MyOpenCases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>Dealer_Case_Category__c</columns>
-        <columns>Dealer_Case_Type__c</columns>
-        <columns>Dealer_Case_SubType__c</columns>
-        <columns>OWNER_NAME</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CASES.RECORDTYPE</columns>
-        <columns>Case_Dealer__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.MB_Complaint,Case.Object_Connector</value>
-        </filters>
-        <label>On site manager open Complaint</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>My_Handling_Cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -23530,23 +23501,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <role>PL_WL_Team</role>
             <role>Regional_CRM_Manager</role>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>My_Retail_Campaign_Case</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Retail_Campaign</value>
-        </filters>
-        <label>My Retail Campaign Case</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>PL_WL_MANAGER_HISTORY_RECORD</fullName>
@@ -23756,21 +23710,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Sample_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.TYPE</field>
-            <operation>equals</operation>
-            <value>Sample Cases</value>
-        </filters>
-        <label>Sample Cases</label>
-    </listViews>
-    <listViews>
         <fullName>Supervisor_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
@@ -23799,41 +23738,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Support_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>Case_Dealer__c</columns>
-        <columns>Support_Dealer_1__c</columns>
-        <columns>Support_Dealer_2__c</columns>
-        <columns>Support_Dealer_3__c</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Is_Primary_Case__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>Supported by</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Trial_Activities</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CASES.CLOSED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.TYPE</field>
-            <operation>equals</operation>
-            <value>Trial</value>
-        </filters>
-        <label>Trial Activities</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
