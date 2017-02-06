@@ -369,9 +369,17 @@ public class AccountLinkHelper
     
     private static void ShareehicleALK(Set<Id> set_ToAccountId,Set<Id> VehiclealkId)
     {
+	List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
     List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-     List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>([SELECT Id,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] );
-           List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
+	List<User> portaluser=new List<User>();
+	if(VehiclealkId !=null && set_ToAccountId!=null)
+	{
+     Vehiclelist_AccountLink =[SELECT Id,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
+	 }
+	 if(set_ToAccountId!=null)
+	 {
+         portaluser=[SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true];
+		   }
       
       if(portaluser!=null)
        {
