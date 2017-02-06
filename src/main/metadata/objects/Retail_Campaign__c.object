@@ -13157,6 +13157,20 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Site Cost  plus Gift Expense cannot be greater than Actual Expense</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( Start_Date__c &lt; TODAY() , true,false)</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Status_is_Ongoing_cant_change_Start_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( ISCHANGED( Start_Date__c ) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Status is ongoing you can not change Start date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Unlock_Application</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -13204,7 +13218,7 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>You can't update Retail Campaign information with current apply status.</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Unlock_Application_Feedback</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -13254,7 +13268,6 @@ $Profile.Name != 'IntegrationAPI'
         <showsStatus>false</showsStatus>
         <url>/00O90000007UqL8?pv0={!Retail_Campaign__c.Id}</url>
     </webLinks>
-	
     <webLinks>
         <fullName>Generate_Retail_Campaign</fullName>
         <availability>online</availability>
