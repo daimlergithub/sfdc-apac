@@ -20,6 +20,7 @@ public class TriggerCampaignTriggerHandlerJP
         if(Trigger.isBefore && Trigger.isDelete)
         {
             CampaignHelper.beforeDeleteEvents(Trigger.old);
+            CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
             
         }
         if(Trigger.isAfter && Trigger.isUpdate)
