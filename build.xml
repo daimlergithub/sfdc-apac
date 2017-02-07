@@ -175,6 +175,7 @@
                                                                 <sf:include name="RetailTaskLoan"/>
                                                                 <sf:include name="Retailcopybutton"/>
                                                                 <sf:include name="AddressSelectionforExistingCustomer"/>
+																<sf:include name="LeadAssignmentPage"/>
                                                                 <sf:include name="PrintPDF"/>
                                                                 <sf:include name="SelectAddress"/>                                    
                                                    <sf:include name="createRetailCopyKRButton"/>
@@ -360,7 +361,11 @@
                                                    <sf:include name="AccountMerge"/>
                                                    <sf:include name="AccountMergeKR"/>
                                                    <sf:include name="TaskDeleting"/>
+												    <sf:include name="TaskMassAssignChangeOwnerJP"/>
+												
                                                    <sf:include name="Tasks"/>
+												      <sf:include name="ConvertToLead"/>
+	
                <sf:include name="ALKDeleteConformationpage"/>
                                                    <sf:include name="RetailTaskdealerviewForContract"/>
                                                    <!-- Added by Naga Start-->
@@ -503,6 +508,8 @@
 																<sf:include name="ParticipateDealerHandlerJP"/>
                                                                 <sf:include name="TriggerParticipateDealerHandlerJP"/>
                                                                 <sf:include name="ParticipateDealerHandlerTestJP"/>
+																<sf:include name="TaskMassAssignChangeOwnerJP"/>
+																 <sf:include name="ConvertToLeadController"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="triggers">
                                                                 <sf:include name="TriggerUtilTestTrigger"/>

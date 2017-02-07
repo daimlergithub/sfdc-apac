@@ -11,6 +11,7 @@
 public class TriggerAccountLinkTriggerHandlerJP 
     implements TriggerHandlerIf
 {
+     User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
           if(Trigger.isAfter && Trigger.isInsert){
@@ -43,6 +44,11 @@ public class TriggerAccountLinkTriggerHandlerJP
             
             AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
            
+        }
+          if(Trigger.isAfter && Trigger.isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+            System.debug('----->Is update is called');
+            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isAfter, trigger.new );
+            
         }
     }
         
