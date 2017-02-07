@@ -1,5 +1,5 @@
 @isTest
-global class WebServiceMockImpl implements WebServiceMock {
+global class WebServiceMockImpl2 implements WebServiceMock {
    global void doInvoke(
            Object stub,
            Object request,
@@ -10,7 +10,13 @@ global class WebServiceMockImpl implements WebServiceMock {
            String responseNS,
            String responseName,
            String responseType) {
-               crmasiaDaimlerApacComValidateaddress.Address address = new crmasiaDaimlerApacComValidateaddress.Address();
+               crmasiaDaimlerApacComCustomeridentif.IdentifyCustomerResponse response_x= new crmasiaDaimlerApacComCustomeridentif.IdentifyCustomerResponse();
+               crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse  rsp=new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+               rsp.TransactionId='12121000';
+                 rsp.ResultStatus='OK';
+                 rsp.ResultMessage='Success';
+                 response_x.CustomerIdentificationResponse=rsp;
+               /*crmasiaDaimlerApacComValidateaddress.Address address = new crmasiaDaimlerApacComValidateaddress.Address();
                address.Address_Code = '12121000';
                address.Address_Line_1 = 'address line 1';
                address.Address_Line_2 = 'address line 2';
@@ -33,7 +39,7 @@ global class WebServiceMockImpl implements WebServiceMock {
               //responseMsg.Addresses = addresses;
                system.debug('responseMsg  :'+responseMsg );
                crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse response_x = new crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse();
-               response_x.AddressValidationResponseMessage = responseMsg;
+               response_x.AddressValidationResponseMessage = responseMsg;*/
   
        response.put('response_x',response_x);
                
