@@ -243,7 +243,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Address_Display__c</field>
             </layoutItems>
