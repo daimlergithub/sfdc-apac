@@ -1,43 +1,65 @@
 @istest
 public class createRetailCopyKRTest {
-  public static Account acc;
-  public static Account acc2;
-  public static Address__c add89;
+  public static Account accobj;
+  public static Account accountobj;
   public static Account_Link__c acclinkobj;
-  public  List<Address__c> Addres ;
+  public static Address__c addressobj;
+  public static List<Address__c> addresslist;
   public static Id retailcompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
 
-  Public static testmethod void testMethod2() {
-    testdata();
-    ApexPages.currentPage().getParameters().put('Id',acc2.Id);
-    ApexPages.StandardController objSc = new ApexPages.StandardController(acc2);
-    createRetailCopyKR csvi = New createRetailCopyKR(objSc );
-    Test.StartTest();
-      csvi.abc = acc;
-      csvi.getSelected ();
-      csvi.getAccount();
-      csvi.Save();
-      csvi.Cancel();
-    Test.StopTest();
-  }
-  public static void testdata() {
-    acc = new Account (Name = 'sreeni');
-    insert acc;
+  static void createTestData() {
+    accobj = new Account (Name = 'Sreeni');
+    insert accobj;
 
-    acc2 = new Account (Name = 'pradeep');
-    insert acc2;
+    accountobj = new Account (Name = 'Pradeep');
+    insert accountobj;
     
     acclinkobj = new Account_Link__c();
     acclinkobj.RecordTypeId = retailcompanyRecordTypeId;
     acclinkobj.Name = 'accountlinktest';
-    acclinkobj.fromRole__c = acc.id;
-    acclinkobj.toRole__c = acc.id;
+    acclinkobj.fromRole__c = accobj.id;
+    acclinkobj.toRole__c = accobj.id;
     insert acclinkobj;
     system.debug('$$$$$ acclinkobj $$$$$' +acclinkobj);
     
-    List<Address__c> Addres = New List<Address__c>();
-    add89 = New Address__c ( Customer__c = acc.id,Address_Type__c = 'Home',ZipCode__c = '7920500',Province__c = 'Ibaraki',TitleOfHonor__c = 'To Person',Status__c = 'Active');
-    Addres.add(add89 );
-    insert Addres;
+    addressobj = new Address__c();
+    addressobj.Customer__c = accobj.id;
+    addressobj.Address_Type__c = 'Home';
+    addressobj.ZipCode__c = '7920500';
+    addressobj.Province__c = 'Ibaraki';
+    addressobj.TitleOfHonor__c = 'To Person';
+    addressobj.Status__c = 'Active';
+    
+    //Addresslist insert
+    
+    addresslist = new List<Address__c>();
+    addresslist.add(addressobj);
+    insert addresslist;
   }
+  
+  Public static testmethod void createRetailCopyKRTest1() {
+    createTestData();
+    ApexPages.currentPage().getParameters().put('Id',accountobj.Id);
+    ApexPages.StandardController objSc = new ApexPages.StandardController(accountobj);
+    createRetailCopyKR crkr = New createRetailCopyKR(objSc );
+    test.startTest();
+      crkr.abc = accobj;
+      crkr.getSelected ();
+      crkr.getAccount();
+      crkr.Save();
+      crkr.Cancel();
+    test.stopTest();
+  }
+  /*Public static testmethod void createRetailCopyKRTest2() {
+    createTestData();
+    ApexPages.currentPage().getParameters().put('Id',accountobj.Id);
+    ApexPages.StandardController objSc = new ApexPages.StandardController(accountobj);
+    createRetailCopyKR crkr = New createRetailCopyKR(objSc );
+    test.startTest();
+      crkr.abc = accobj;
+      addressobj.Address_Type__c = 'Other Address 3';
+      update addressobj;
+      crkr.Save();
+    test.stopTest();
+  }*/
 }

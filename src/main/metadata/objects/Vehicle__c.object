@@ -4803,6 +4803,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <label>New Used</label>
         <picklist>
             <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>

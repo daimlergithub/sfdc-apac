@@ -171,6 +171,7 @@
 			   <sf:include name="UtilwebserviceTest"/>
 			   <sf:include name="DealerLocatorHttpResponseGenerator"/>
 			   <sf:include name="WebServiceMockImpl"/>
+			   <sf:include name="WebServiceMockImpl2"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
 			   <sf:include name="UtilCustomSettingsKernel"/>
@@ -301,6 +302,7 @@
 				<sf:include name="CaseHelper"/>
 				<sf:include name="CaseHelperTest"/>
 				<sf:include name="TaskHelperKR"/>
+				<sf:include name="TaskHelperKRTest"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
@@ -382,6 +384,7 @@
 				<sf:include name="RetailTaskHelperJP"/>						
 				<sf:include name="RetailTaskHelperJPTest"/>
 				<sf:include name="UtilShare"/>
+				<sf:include name="UtilShareTest"/>
 				<sf:include name="LeadSharingforDealerJP"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
@@ -728,6 +731,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAfterTriggerHandlerTest"/>
 			<sf:include name="AttachmentAfterTriggerHandlerJP"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
