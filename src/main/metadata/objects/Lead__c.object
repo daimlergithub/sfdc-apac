@@ -107637,6 +107637,18 @@ alert("Web service callout failed");
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>{!Lead__c.Name}</url>
+    </webLinks>	
+    <webLinks>
+        <fullName>Lead_Assignment</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Lead Assignment</masterLabel>
+        <openType>sidebar</openType>
+        <page>LeadAssignmentPage</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
     </webLinks>
     <webLinks>
         <fullName>Merge</fullName>
