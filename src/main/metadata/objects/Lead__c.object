@@ -4314,6 +4314,22 @@ Collectioner_Name__r.HomePhone
         <label>Insurance Type</label>
         <picklist>
             <picklistValues>
+                <fullName>This outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7659,6 +7675,38 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Car Wash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plus Check</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -23742,7 +23790,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Insurance_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>No insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
