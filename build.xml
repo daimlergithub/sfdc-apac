@@ -175,7 +175,7 @@
                                                                 <sf:include name="RetailTaskLoan"/>
                                                                 <sf:include name="Retailcopybutton"/>
                                                                 <sf:include name="AddressSelectionforExistingCustomer"/>
-																<sf:include name="LeadAssignment"/>
+																<sf:include name="LeadAssignmentPage"/>
                                                                 <sf:include name="PrintPDF"/>
                                                                 <sf:include name="SelectAddress"/>                                    
                                                    <sf:include name="createRetailCopyKRButton"/>
