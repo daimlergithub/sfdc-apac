@@ -61121,10 +61121,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Insurance_Type__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
