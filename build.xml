@@ -589,6 +589,7 @@
 			<sf:include name="TriggerPackageItem_TestClass"/>
 			<sf:include name="TriggerAccountLinkTriggerHandler"/>
 			<sf:include name="DealerSystemHelper"/>
+			<sf:include name="DealerSystemHelperTest"/>
 			<sf:include name="TriggerDealerSystemTriggerHandler"/>
 			<sf:include name="OrderHelper"/>
 			<sf:include name="TriggerOrderTriggerHandler"/>
