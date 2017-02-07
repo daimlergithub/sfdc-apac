@@ -1163,6 +1163,19 @@
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
+     <webLinks>
+        <fullName>Convert_to_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To Lead</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
+    </webLinks>
     <webLinks>
         <fullName>ExportCampaign</fullName>
         <availability>online</availability>
