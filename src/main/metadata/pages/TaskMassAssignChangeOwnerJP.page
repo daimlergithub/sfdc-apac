@@ -1,4 +1,4 @@
-<apex:page controller="TaskMassChangeOwner" showHeader="true" sidebar="true"  tabStyle="Task">
+<apex:page controller="TaskMassAssignChangeOwnerJP" showHeader="true" sidebar="true"  tabStyle="Task">
     <apex:includeScript value="/support/console/27.0/integration.js"/>
     <script type="text/javascript">
         function CloseTab() {
