@@ -15,13 +15,15 @@ public class ShareCampaignByCollaborationTest {
     
     
                  @isTest static void testshareToUserInsert()
-                 {
+                 {	/*
+                     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         			insert updatecustomsettings;*/
                      PrepareTestData();
                      Test.startTest();
                      UtilCampaignShareByCollaboration.shareToUserInsert(listCTNew);  
-                     ShareCampaignByCollabTriggerHandler shcamp = new ShareCampaignByCollabTriggerHandler();
+                     /*ShareCampaignByCollabTriggerHandler shcamp = new ShareCampaignByCollabTriggerHandler();
                      shcamp.handleTrigger(true,true,true,true,true);
-					 shcamp.handleIntegrationTrigger(true,true,true,true,true);
+					 shcamp.handleIntegrationTrigger(true,true,true,true,true);*/
                      Test.stopTest();
                      system.assert(Colla!=null);
                      system.assert(csList!=null);
@@ -48,9 +50,8 @@ public class ShareCampaignByCollaborationTest {
                  
          Public Static void PrepareTestData()
          {
-         
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+         	List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
 
          listCTNew=new List<Collaboration_Team__c>();
          listCTupdate=new List<Collaboration_Team__c>();
@@ -91,6 +92,9 @@ public class ShareCampaignByCollaborationTest {
                     ParentId = top.Id
                       );
                 insert cac;
+             
+             
+             
                for(Integer i = 0; i < 200; i++)
                 {
                 Colla=new Collaboration_Team__c(Campaign__c=cac.id,Access_Type__c='Edit',Resource_Required__c='no',Member_Name__c=usr.id);
@@ -126,4 +130,6 @@ public class ShareCampaignByCollaborationTest {
                 }
                 insert csList;
                }
+    
+    	
         }
