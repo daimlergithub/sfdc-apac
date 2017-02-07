@@ -4254,12 +4254,11 @@ What factors were influential in your purchase decision?
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Vehicle_Address_Display__c</fullName>
         <externalId>false</externalId>
-        <formula>MOT_User_Address__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Vehicle Address Display</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4354,17 +4353,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>Vehicle_Address_Display__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Address Display</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Warranty_Apply_Flag__c</fullName>
