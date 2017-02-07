@@ -89,6 +89,7 @@
     </layoutSections>
     <relatedLists>
         <customButtons>ExportCampaign</customButtons>
+		<customButtons>Convert_to_Lead</customButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
@@ -97,7 +98,7 @@
         <relatedList>Participating_Dealer__c.Retail_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>TASK.SUBJECT</fields>
+	    <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
@@ -132,6 +133,17 @@
         <fields>Lead__c</fields>
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Retail_Campaign__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <customButtons>Lead_Assignment</customButtons>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Contact__c</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>Lead__c.Retail_Campaign_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
