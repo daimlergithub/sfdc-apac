@@ -20739,6 +20739,36 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Duplicate_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Duplicate_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.EP_Transaction_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Transaction_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
@@ -21027,6 +21057,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Custom_Debug_Info__c-Custom Debug Info Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Duplicate_Merge_Info__c-Duplicate Merge Info Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DM_Material__c-DM Material Layout</layout>
@@ -21728,6 +21761,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Custom_Debug_Info__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Duplicate_Merge_Info__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
