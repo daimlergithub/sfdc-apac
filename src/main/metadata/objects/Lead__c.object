@@ -107552,7 +107552,7 @@ if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
-if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Advisor' || prName == 'System Administrator'){ 
+if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'System Administrator'){ 
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
 else{ 
