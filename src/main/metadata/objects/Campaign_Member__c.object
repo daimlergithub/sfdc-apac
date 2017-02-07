@@ -910,6 +910,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Response_FirstName__c</fullName>
+        <externalId>false</externalId>
+        <label>Response FirstName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response_LastName__c</fullName>
+        <externalId>false</externalId>
+        <label>Response LastName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Retail_Campaign_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1022,7 +1042,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>
@@ -1047,7 +1067,7 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
