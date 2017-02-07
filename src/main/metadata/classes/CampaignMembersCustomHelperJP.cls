@@ -60,7 +60,7 @@ public with sharing class CampaignMembersCustomHelperJP {
         for(campaign_member__c curMem : newList){
             camMemSet.add(curMem.Id);   
         }
-        campMembers = [SELECT Id,Name,Status__c,Response_email__c, Response_firstName__c,response_lastName__c,contact_id__c,campaign_id__c FROM Campaign_member__c WHERE Id IN: camMemSet];
+        campMembers = [SELECT Id,Name,Status__c,Response_email__c, Response_FirstName__c,response_lastName__c,contact_id__c,campaign_id__c FROM Campaign_member__c WHERE Id IN: camMemSet];
         for(Campaign_Member__c cm : campMembers){
             if(cm.contact_Id__c == NULL && cm.Response_FirstName__c != NULL && cm.Response_LastName__c != NULL && cm.Response_Email__c != NULL){
                 camMemList.add(cm);
