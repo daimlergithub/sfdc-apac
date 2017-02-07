@@ -98,8 +98,7 @@
         <relatedList>Participating_Dealer__c.Retail_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
-	<customButtons>Mass_Assign</customButtons>
-        <fields>TASK.SUBJECT</fields>
+	    <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
