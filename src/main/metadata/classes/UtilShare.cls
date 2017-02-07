@@ -1,70 +1,4 @@
 public without sharing class UtilShare{
-    
-   public sObject createShareObject(Set<id> parentId, Set<id> UserOrGroupId,string Permission){
-        Map<Id,AccountShare> mapShareObjAS = new  Map<Id,AccountShare>();     
-        
-        for(Id uid : UserOrGroupId){            
-            for(id pid : parentId){         
-                if( pid != Null && uid != Null){
-                    AccountShare shareObjAS = new AccountShare();
-                    shareObjAS.AccountId= pid;
-                    shareObjAS.UserOrGroupId= uid;
-                    shareObjAS.AccountAccessLevel= Permission;
-                    shareObjAS.OpportunityAccessLevel= Permission;   
-                    shareObjAS.RowCause='Manual';
-                    mapShareObjAS.put(shareObjAS.id,shareObjAS);
-                }
-            }
-        } 
-        if(mapShareObjAS.size() > 0 ){
-            system.debug('Insert 1 :');
-            insert mapShareObjAS.values(); 
-            system.debug('Insert 2 :'); 
-        }  
-        system.debug('mapShareObjAS :'+mapShareObjAS);  
-        return null;
-    }
-    public sObject VehicleRelationshipShare(Set<id> parentId, Set<id> UserOrGroupId,string Permission){
-        Map<Id,Vehicle_Relationship__Share> mapshareObjVRS = new Map<Id,Vehicle_Relationship__Share>();
-        for(Id uid : UserOrGroupId){           
-            for(id pid : parentId){                   
-                if( pid != Null && uid != Null){
-                    Vehicle_Relationship__Share shareObjVRS = new Vehicle_Relationship__Share();
-                    shareObjVRS.ParentId=pid;
-                    shareObjVRS.UserOrGroupId= uid;
-                    shareObjVRS.AccessLevel= Permission;                
-                    shareObjVRS.RowCause='Manual';
-                    mapshareObjVRS.put(shareObjVRS.id,shareObjVRS);
-                }
-             }
-         }
-                
-         if(mapshareObjVRS.size() > 0 ){
-            insert mapshareObjVRS.values(); 
-         }  
-         system.debug('mapshareObjVRS :'+mapshareObjVRS);    
-         return null;
-    }
-    public sObject VehicleShare(Set<id> parentId, Set<id> UserOrGroupId,string Permission){
-        Map<id,Vehicle__Share> MapShareObjVS = new Map<id,Vehicle__Share>();
-        for(Id uid : UserOrGroupId){
-            for(id pid : parentId){
-                if( pid != Null && uid != Null){ 
-                    Vehicle__Share shareObjVS = new Vehicle__Share();
-                    shareObjVS.ParentId=pid;
-                    shareObjVS.UserOrGroupId= uid;
-                    shareObjVS.AccessLevel= Permission;
-                    shareObjVS.RowCause='Manual';
-                    MapShareObjVS.put(shareObjVS.id,shareObjVS); 
-                }  
-            }
-        }     
-        if(MapShareObjVS.size() > 0){
-           insert MapShareObjVS.values();   
-        }  
-        system.debug('MapShareObjVS :'+MapShareObjVS);  
-        return null;
-    }
     @future
     public static void groupmembersadd(set<id> rtlst,Set<id> dealerAccountIds){
         
@@ -99,7 +33,7 @@ public without sharing class UtilShare{
                         newGroup.DoesIncludeBosses = false; 
                         newGroupMap.put(newGroup.id,newGroup);
                         dealerAccountIds.add(Led.Assigned_Dealer__c);
-						allGroups.put(newGroup.Id,newGroup);
+                        allGroups.put(newGroup.Id,newGroup);
                     }               
                 }
             }
@@ -109,7 +43,7 @@ public without sharing class UtilShare{
                  newGroup.DoesIncludeBosses = false; 
                  newGroupMap.put(newGroup.id,newGroup);
                  dealerAccountIds.add(Led.Assigned_Dealer__c);
-				 allGroups.put(newGroup.Id,newGroup);
+                 allGroups.put(newGroup.Id,newGroup);
             }
         }
         system.debug('newGroupMap :'+newGroupMap);
@@ -164,8 +98,8 @@ public without sharing class UtilShare{
                         if (dealerName != NULL && dealerName.Name == groupid.Name) {
                             system.debug('test 4 :');
                             accountIds.add(Led.Contact__c);
-                            parentIdsVS.add(Led.VehicleRel_No__c);
-                            parentIdsVRS.add(Led.AfterSales_Vehicle__c);
+                            parentIdsVRS.add(Led.VehicleRel_No__c);
+                            parentIdsVS.add(Led.AfterSales_Vehicle__c);
                             groupIds.add(groupid.Id);                              
                         }    
                     }
@@ -175,16 +109,64 @@ public without sharing class UtilShare{
             system.debug('parentIdsVS>> :'+parentIdsVS);
             system.debug('parentIdsVRS>> :'+parentIdsVRS);
             system.debug('groupIds>> :'+groupIds); 
-            UtilShare util = new UtilShare();
-            if(accountIds != Null && groupIds != Null){    
-                util.createShareObject(accountIds,groupIds,'Read');
-            }
-            if(parentIdsVRS!= Null && groupIds != Null){
-                util.VehicleRelationshipShare(parentIdsVRS,groupIds,'Read');
-            }
-            if(parentIdsVS!= Null && groupIds != Null){
-                util.VehicleShare(parentIdsVS,groupIds,'Read');
-            }               
+            
+            Map<Id,AccountShare> mapShareObjAS = new  Map<Id,AccountShare>();
+            for(Id uid : groupIds){            
+                for(id pid : accountIds){         
+                    if( pid != Null && uid != Null){
+                        AccountShare shareObjAS = new AccountShare();
+                        shareObjAS.AccountId= pid;
+                        shareObjAS.UserOrGroupId= uid;
+                        shareObjAS.AccountAccessLevel= 'Read';
+                        shareObjAS.OpportunityAccessLevel= 'Read';   
+                        shareObjAS.RowCause='Manual';
+                        mapShareObjAS.put(shareObjAS.id,shareObjAS);
+                    }
+                }
+            } 
+            if(mapShareObjAS.size() > 0 ){
+                system.debug('Insert 1 :');
+                insert mapShareObjAS.values(); 
+                system.debug('Insert 2 :'); 
+            }  
+            
+        
+            Map<Id,Vehicle_Relationship__Share> mapshareObjVRS = new Map<Id,Vehicle_Relationship__Share>();
+            for(Id uid : groupIds){           
+                for(id pid : parentIdsVRS){                   
+                    if( pid != Null && uid != Null){
+                        Vehicle_Relationship__Share shareObjVRS = new Vehicle_Relationship__Share();
+                        shareObjVRS.ParentId=pid;
+                        shareObjVRS.UserOrGroupId= uid;
+                        shareObjVRS.AccessLevel= 'Read';                
+                        shareObjVRS.RowCause='Manual';
+                        mapshareObjVRS.put(shareObjVRS.id,shareObjVRS);
+                    }
+                 }
+             }
+                    
+             if(mapshareObjVRS.size() > 0 ){
+                insert mapshareObjVRS.values(); 
+             }  
+             system.debug('mapshareObjVRS :'+mapshareObjVRS);   
+
+            Map<id,Vehicle__Share> MapShareObjVS = new Map<id,Vehicle__Share>();
+            for(Id uid : groupIds){
+                for(id pid : parentIdsVS){
+                    if( pid != Null && uid != Null){ 
+                        Vehicle__Share shareObjVS = new Vehicle__Share();
+                        shareObjVS.ParentId=pid;
+                        shareObjVS.UserOrGroupId= uid;
+                        shareObjVS.AccessLevel= 'Read';
+                        shareObjVS.RowCause='Manual';
+                        MapShareObjVS.put(shareObjVS.id,shareObjVS); 
+                    }  
+                }
+            }     
+            if(MapShareObjVS.size() > 0){
+               insert MapShareObjVS.values();   
+            }  
+            system.debug('MapShareObjVS :'+MapShareObjVS);  
         }        
     }
     

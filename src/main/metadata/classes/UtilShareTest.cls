@@ -62,8 +62,8 @@ public class UtilShareTest {
         dealerAccountIds.add(accobj.id);
         UserOrGroupId.add(userinfo.getuserid()); 
         
-        us.createShareObject(dealerAccountIds,UserOrGroupId,'READ');        
-        us.VehicleShare(parentId1,UserOrGroupId,'READ');
+       // us.createShareObject(dealerAccountIds,UserOrGroupId,'READ');        
+       // us.VehicleShare(parentId1,UserOrGroupId,'READ');
         
         UtilShare.groupmembersadd(rtlst,dealerAccountIds);
        // us.VehicleRelationshipShare(parentId2,UserOrGroupId,'READ');
