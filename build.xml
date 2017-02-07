@@ -301,6 +301,7 @@
 				<sf:include name="CaseHelper"/>
 				<sf:include name="CaseHelperTest"/>
 				<sf:include name="TaskHelperKR"/>
+				<sf:include name="TaskHelperKRTest"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
