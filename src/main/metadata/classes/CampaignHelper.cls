@@ -157,6 +157,52 @@ JIRA NO             :    SFDCJP-1026
    
    
    
+   
+  /*************************************************************************************************************************
+Created Date        :    31.01.2017
+Company             :    NTT Data,Inc.
+Usage               :   On clicking on the Delete button Parent Campaign and associated Child execution campaign will be deleted,
+                        if only child execution campaign will be in planning state else system will block the deletion process.
+JIRA NO             :    SFDCJP-1024 */
+/********************************************************************************************************************/
+   
+   Public static void beforeDeleteCampaignStatus(List<Campaign> CampDel)
+{
+Id parentCampaign = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+Id childCampaign= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+List<Campaign> childcamp=new List<Campaign>();
+List<Campaign> Parentcamp=new List<Campaign>();
+Set<Id> parecamId=new Set<Id>();
+
+for(Campaign cmp: CampDel){
+if(cmp.RecordTypeId == parentCampaign && cmp.Status == 'Draft'){
+  parecamId.add(cmp.id);
+   } 
+  }
+
+  if(parecamId!=null)
+  {
+childcamp=[select id from Campaign where ParentId=:parecamId];
+}
+if(childcamp!=null)
+{
+delete childcamp;
+}
+  
+  if(Parentcamp!=null && childcamp.size()==0)
+  {
+  Parentcamp=[select id from Campaign where ID=:parecamId];
+    delete Parentcamp;
+    }
+    
+}
+
+/*End of SFDCJP-1024   */
+
+
+
+
+   
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
  /**
