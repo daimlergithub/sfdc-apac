@@ -869,6 +869,9 @@
                                                 <sf:include name="TriggerCampaignTriggerHandler"/>
                                                 <sf:include name="UserTriggerCallout"/>
                                                 <sf:include name="UserTriggerCalloutTest"/>
+												<sf:include name="CampaignSchedulerAndNotificationJP"/>
+												<sf:include name="RetailCampaignSchedulerAndNotificationJP"/>
+												
                                 </sf:typeset>
                                 <sf:typeset name="triggers">
                                                 <sf:include name="RetailCampaignTrigger"/>

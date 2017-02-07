@@ -668,13 +668,17 @@
         <fields>NAME</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
     </relatedLists>
-    <relatedLists>
+	  <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
+        <fields>Lead_Desired_Service__c</fields>
         <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Lead_Latest_Phase__c</fields>
+        <fields>Lead_DataSource__c</fields>
+        <fields>AfterSales_VIN__c</fields>
+        <fields>Expected_Close_Date__c</fields>
+        <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
