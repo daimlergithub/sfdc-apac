@@ -42,7 +42,7 @@ Public with sharing class TriggerCampaignLeadTest {
     public static testMethod void testTriggerCampaignLead_PopulateContact() {
       preparetestdata();  
        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+        // insert updatecustomsettings;
       //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
       //insert updatecustomsettings;
         
