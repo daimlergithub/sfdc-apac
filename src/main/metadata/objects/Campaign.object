@@ -19772,6 +19772,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>StartDate</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
+	  <validationRules>
+        <fullName>Start_date_can_not_be_equal_to_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
+        <errorDisplayField>StartDate</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
@@ -19783,7 +19790,7 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
-    <webLinks>
+	<webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
