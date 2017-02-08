@@ -167,9 +167,19 @@
 				<sf:include name="utilVehicleClass"/>
 				<sf:include name="utilPriorityScore"/>
 				<sf:include name="LeadHelper"/>
+				<sf:include name="LeadHelperTest"/>				  	
+				<sf:include name="AccountHelper"/>
+				<sf:include name="AccountHelperTest"/>
 				<sf:include name="RetailTaskHelper"/>							
 				<sf:include name="ScheduledSendNotificationEmail"/>
-				<sf:include name="ScheduledSendNotificationEmailTest"/>
+				<sf:include name="ScheduledSendNotificationEmailTest"/>				
+				<sf:include name="AccountSharingDataHandlerTest"/>
+				<sf:include name="EmailServiceStatusUpdateTest"/>
+				<sf:include name="ReservationMessageTemplateTest"/>
+				<sf:include name="TriggerLeadTest"/>
+				<sf:include name="UserHelper"/>
+				<sf:include name="UserHelperTest"/>			
+				<sf:include name="UtilAccountTest"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -403,7 +413,6 @@
 			<sf:include name="TaskTriggerHandlerTest"/>
 			<sf:include name="UtilTask"/>			
 			<sf:include name="AccountSharingDataHandler"/>
-			<sf:include name="AccountSharingDataHandlerTest"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
@@ -538,7 +547,6 @@
 		<sf:typeset name="classes">
 			<sf:include name="LeadHelperTest"/>
 			<sf:include name="ReservationMessageTemplate"/>
-			<sf:include name="ReservationMessageTemplateTest"/>
 			<sf:include name="LeadSharingWrapService"/>
 			<sf:include name="TriggerLeadTriggerHandler"/>
 			<sf:include name="UtilLead"/>
@@ -656,9 +664,7 @@
 			<sf:include name="SSITriggerHandler"/>
 			<sf:include name="SSITriggerHandlerTest"/>
 			<sf:include name="SSIVINMatchProcess"/>	
-			<sf:include name="SSIVINMatchProcessTest"/>  	
-			<sf:include name="AccountHelper"/>
-			<sf:include name="AccountHelperTest"/>
+			<sf:include name="SSIVINMatchProcessTest"/>
 			<sf:include name="UtilAccount"/>
 			<sf:include name="TriggerAccountTest"/>
 			<sf:include name="TriggerAccountTriggerHandler"/>
@@ -748,7 +754,6 @@
 			<sf:include name="LeadConvertingController"/>
 			<sf:include name="LeadConvertingControllerTest"/>
 			<sf:include name="LeadSharingTest"/>
-			<sf:include name="TriggerLeadTest"/>
 			<sf:include name="TriggerCampaignMembers_TestClass"/>
 			<sf:include name="CampaignMemberAfterTriggerHandler"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
@@ -809,8 +814,6 @@
 			<sf:include name="ShareDataToNewUserBatchTest"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="TriggerPD_TestClass"/>
-			<sf:include name="UserHelper"/>
-			<sf:include name="UserHelperTest"/>
 			<sf:include name="UserTriggerHandler"/>
 			<sf:include name="TriggerComplaintDescriptionHandler"/>	
 		</sf:typeset>	
@@ -849,8 +852,7 @@
 			<sf:include name="TriggerAddressTriggerHandler"/>
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
-			<sf:include name="AddressHelperTest"/>			
-			<sf:include name="UtilAccountTest"/>	
+			<sf:include name="AddressHelperTest"/>	
 			<sf:include name="CampaignCalendarController"/>
 			<sf:include name="CampaignCalendarControllerTest"/>
 			<sf:include name="CampaignMemberHistoryController"/>
@@ -867,7 +869,6 @@
 			<sf:include name="TaskMassChangeActivateDeactive"/>
 			<sf:include name="TaskMassChangeActivateDeactiveTest"/>	
 			<sf:include name="EmailServiceStatusUpdate"/>
-			<sf:include name="EmailServiceStatusUpdateTest"/>
 			<sf:include name="NewCMSContractsRelationController"/>
 			<sf:include name="NewCMSContractsRelationControllerTest"/>
 			<sf:include name="ReportUserController"/>	
