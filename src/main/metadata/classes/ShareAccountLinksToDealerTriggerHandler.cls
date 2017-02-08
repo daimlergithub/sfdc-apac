@@ -8,7 +8,7 @@ public class ShareAccountLinksToDealerTriggerHandler
         handler.shareAccountByAccountLink((Map<Id,Account_Link__c>)Trigger.newMap, (Map<Id,Account_Link__c>)Trigger.oldMap, Trigger.isInsert);
         //------------------Added by bing---------------------   
         
-        if (Trigger.isInsert) {
+        if (isInsert) {
             VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
             SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromAccountLinks(Trigger.new));
             
@@ -16,7 +16,7 @@ public class ShareAccountLinksToDealerTriggerHandler
             SharingService.shareAccountLinks(wrapService.wrapAccountLinksByRecordTypes(Trigger.new));
             
         } 
-        else if(Trigger.isUpdate) {
+        else if(isUpdate) {
             VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
             SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromAccountLinks(Trigger.new));
         }

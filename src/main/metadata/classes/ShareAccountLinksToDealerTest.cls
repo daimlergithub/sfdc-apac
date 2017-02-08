@@ -14,8 +14,8 @@ public static Account Dealer;
     public static Account_Link__c newAccLink;
     public static void createTestData()
     { 
-    /* List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;*/
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
         
      Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
      insert TriggerShareAccountLinksToDealer;  
@@ -145,14 +145,15 @@ newData.put(newAccLink.id, newAccLink);
 Map<id,Account_Link__c> oldDataAl = new Map<id,Account_Link__c>();
 oldDataAl.put(AccLink.id, AccLink); 
 test.startTest(); 
+ 
+    
+ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
+//shacc.handleTrigger(true,true,true,true,true);
+shacc.handleIntegrationTrigger(true,true,true,true,true);
 AccountSharingDataHandler accSdh = new AccountSharingDataHandler('Account_Link__c'); 
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true); 
-accSdh.shareAccountByAccountLink(newData, oldDataAl, true); 
-/*    
-ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
-shacc.handleTrigger(true,true,true,true,true);
-shacc.handleIntegrationTrigger(true,true,true,true,true);*/
+accSdh.shareAccountByAccountLink(newData, oldDataAl, true);
 test.stopTest();
 system.assertNotEquals(null,newData);
 }
