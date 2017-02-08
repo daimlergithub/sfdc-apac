@@ -827,6 +827,7 @@
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
 			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseTest"/>
 			<sf:include name="UtilCaseShare"/>
 			<sf:include name="UtilCaseShareTest"/>
 			<sf:include name="CaseTriggerHandler"/>
