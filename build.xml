@@ -145,8 +145,9 @@
 				<sf:exclude name="SurveyQuestionResponse__c"/>
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
-				<sf:exclude name="Campaign_member__c"/>
 				<sf:exclude name="Participating_Dealer__c"/>
+				<sf:exclude name="Dealer_List_Member__c"/>
+				<sf:exclude name="Campaign_Member__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -172,8 +173,9 @@
 				<sf:include name="SurveyTaker__c"/>
 				<sf:include name="SurveyQuestionResponse__c"/>
 				<sf:include name="Survey_Question__c"/>
-				<sf:include name="Campaign_member__c"/>
 				<sf:include name="Participating_Dealer__c"/>
+				<sf:include name="Campaign_Member__c"/>
+				<!--<sf:include name="Dealer_List_Member__c"/>-->
 			</sf:typeset>
 		</deploy>
     </target>
@@ -181,6 +183,7 @@
 	<target name="deploy20">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
+				<sf:include name="Dealer_List_Member__c"/>
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
