@@ -172,6 +172,7 @@
 			   <sf:include name="DealerLocatorHttpResponseGenerator"/>
 			   <sf:include name="WebServiceMockImpl"/>
 			   <sf:include name="WebServiceMockImpl2"/>
+			   <sf:include name="WebServiceMockImpl3"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
 			   <sf:include name="UtilCustomSettingsKernel"/>
@@ -827,6 +828,7 @@
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
 			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseTest"/>
 			<sf:include name="UtilCaseShare"/>
 			<sf:include name="UtilCaseShareTest"/>
 			<sf:include name="CaseTriggerHandler"/>
