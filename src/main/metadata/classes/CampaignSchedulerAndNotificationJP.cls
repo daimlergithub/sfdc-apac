@@ -1,3 +1,12 @@
+/***********************************************************************************
+Created By          :    Siva Krishna k   
+Created Date        :    02.02.2017
+Company             :    NTT Data,Inc.
+Usage               :    Campaign Scheduler and Notification Class
+                          
+JIRA NO             :    SFDCJP-1013                                            
+************************************************************************************/
+
 global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SObject>, Database.Stateful, Schedulable {
     global List<String> notiMailerList = new List<String>();
     global String emailBodyStr;
