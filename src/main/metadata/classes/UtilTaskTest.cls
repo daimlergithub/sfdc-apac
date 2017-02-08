@@ -22,7 +22,7 @@ public With Sharing class UtilTaskTest
         accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez');
         accList.add(accObj);
         Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',MBK_Data_Source__c ='Email',Mobile__c ='000-123-4567');
+        accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605',Mobile__c ='09865234112');
         accList.add(accObj);
         insert accList;
         Contact contactObj = new Contact(AccountId= accList.get(0).Id,LastName= 'TestClass',Federation_ID__c = '258963147');
