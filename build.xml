@@ -172,6 +172,7 @@
 			   <sf:include name="DealerLocatorHttpResponseGenerator"/>
 			   <sf:include name="WebServiceMockImpl"/>
 			   <sf:include name="WebServiceMockImpl2"/>
+			   <sf:include name="WebServiceMockImpl3"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
 			   <sf:include name="UtilCustomSettingsKernel"/>
