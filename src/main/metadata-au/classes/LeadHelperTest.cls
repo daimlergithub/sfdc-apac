@@ -1466,9 +1466,9 @@ Account deal = new Account();
 		  insert con;
 		
 		 user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
-                                  Email = 'sichao7.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  Email = 'sichao7.lai@nttdata.com', Alias = 'laisc',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = localeSideKeyValue,
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue,ContactID=con.id);
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue);
          insert user1;        
     }   
    
