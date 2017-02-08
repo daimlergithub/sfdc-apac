@@ -198,8 +198,131 @@ delete childcamp;
 }
 
 /*End of SFDCJP-1024   */
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Created Date        :    8.01.2017
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class to make a copy of a campaign to Retail Campaign
+                         Business Conditions :
+                          Required For Joint Driven Campaign Implementaion                          
+JIRA NO             :    SFDCJP-1044                                              
+************************************************************************************/
+   public static void copyCampaignToRetailCampaign(List<Campaign> campaignIds){
+   
+   List<Campaign> camListCheck = New List<Campaign>();
+List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
+List<Retail_Campaign__c> ret   = New List<Retail_Campaign__c>();
+List<Retail_Campaign__c> tail    = New List<Retail_Campaign__c>();
 
-
+           
+Set<id> sid = New Set<id>();
+Set<id> aid = New Set<id>();
+    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    Id executionRetailRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordRetailId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+        For(Campaign campNew : campaignIds){
+            
+            if( campNew.Child_Campaign_Status__c =='Execution' && campNew.Set_List_Maintenance_Flag__c == false ){
+            
+                 sid.add(campNew.ParentId);
+                 aid.add(campNew.Id);  
+            
+        }else if (campNew.Child_Campaign_Status__c =='Execution' && campNew.Consolidated_List_Completed__c == true){
+        
+          sid.add(campNew.ParentId);
+                 aid.add(campNew.Id); 
+        
+        } 
+        
+        
+        
+        
+      List<Campaign> camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
+          
+        
+    for(Campaign cam : camList ){
+        
+       if(Cam.Campaign_Executer__c == 'Retail'){
+       Retail_Campaign__c newChildRetail = new Retail_Campaign__c();
+            newChildRetail.Name = campNew.Name;
+           newChildRetail.Parent_Campaign__c = campNew.Id;
+            newChildRetail.Execution_Start_Date__c = campNew.Execution_Start_Date__c;
+            newChildRetail.Execution_End_Date__c = campNew.Execution_End_Date__c;
+            newChildRetail.Segmentation_Date__c = campNew.Segmentation_Date__c;
+            newChildRetail.Child_Campaign_Status__c = campNew.Child_Campaign_Status__c;
+            newChildRetail.Response_Date__c = campNew.Response_Date__c;
+            newChildRetail.Execution_Type__c = campNew.Execution_Type__c;
+            newChildRetail.Segmentation_Base__c = campNew.Segmentation_Base__c;
+            newChildRetail.DM_Template__c = campNew.DM_Template__c;
+            newChildRetail.Final_List_Approved__c = campNew.Final_List_Approved__c;
+            newChildRetail.Survey__c = campNew.Survey__c;
+            newChildRetail.Add_Sales_Staff__c = campNew.Add_Sales_Staff__c;
+            newChildRetail.Add_Service_Staff__c = campNew.Add_Service_Staff__c;
+            newChildRetail.Add_Campaign_Member_ID__c = campNew.Add_Campaign_Member_ID__c;
+            newChildRetail.Campaign_Member_Sharing_Rule__c = campNew.Campaign_Member_Sharing_Rule__c;
+            newChildRetail.RecordTypeId = executionRetailRecordId;
+            newChildRetail.Campaign_Execution_Channels__c = 'DM';
+            
+            ret.add(newChildRetail);
+            
+         } 
+         if(ret.size() > 0){
+         insert ret;
+         }
+                  
+       Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
+        newRetail.Name = cam.Name; 
+        //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
+        newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
+        newRetail.Parent_Campaign__c = cam.Id;
+        newRetail.Start_Date__c = cam.StartDate; 
+        newRetail.Close_Date__c = cam.EndDate;  
+        newRetail.Status__c = cam.Status ; 
+        newRetail.Event_Type__c = cam.Event_Type__c  ;
+        newRetail.Description__c  = cam.Description ;
+        newRetail.Campaign_Execution_Channels__c = cam.Campaign_Execution_Channels__c ; 
+        newRetail.Actual_Cost__c = cam.ActualCost;  
+        newRetail.Brand__c  = cam.Brand__c ;
+        newRetail.Class__c = cam.Class__c ;
+        newRetail.Budgeted_Cost__c = cam.BudgetedCost;      
+        newRetail.RecordTypeId = planningRecordRetailId;
+      
+        retailCamParentList.add(newRetail);
+        }
+        
+     }
+     //insert retailCamParentList; 
+     Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
+     integer i=0;
+     for(Database.SaveResult sr :srList){
+     if(sr.isSuccess()){
+     
+     ret[i].Parent_Campaign1__c = sr.getId();
+     i++;
+     } 
+     
+     
+     }
+    system.debug('++++++++++++'+srList );
+     
+    integer k=0;
+    for(Retail_Campaign__c  cam : ret){
+    
+    cam.Parent_Campaign1__c = ret[k].Parent_Campaign1__c ;
+    k++;
+    system.debug('++++++++++++'+cam.Parent_Campaign1__c );
+    update cam;
+    
+    }
+   
+   
+   
+   
+   
+   
+   
+   }
 
 
    

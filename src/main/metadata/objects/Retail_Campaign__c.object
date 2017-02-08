@@ -2069,7 +2069,7 @@
         <fullName>Parent_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Parent Campaign</label>
+        <label>Relevant Campaign </label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -13159,7 +13159,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),(IF( Start_Date__c &lt; TODAY() , true,false)))</errorConditionFormula>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt; TODAY(), true,false)))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
