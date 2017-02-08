@@ -1073,7 +1073,7 @@ public static void LeadHelperTest12()
  @istest(seealldata = false)
 public static void LeadHelperTest13()
 {
-    Profile profile = [select Id from Profile where Name = 'Dealer Consultant'];
+    Profile profile = [select Id from Profile where Name = 'System Administrator'];
          createUser1(profile);
         
       
