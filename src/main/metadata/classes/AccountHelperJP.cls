@@ -17,6 +17,18 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+	public static boolean persongroup1 = false;
+    public static boolean persongroup2 = false;
+    public static boolean persongroup3 = false;
+    public static boolean persongroup4 = false;
+    public static boolean persongroup5 = false;
+    public static boolean persongroup6= false;
+    public static boolean persongroup7=false;
+    public static boolean persongroup8 = false;
+    public static boolean persongroup9 = false;
+    public static boolean persongroup10 = false;
+    public static boolean companygroup1 = false;
+    public static boolean companygroup2=false;
     
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
@@ -467,23 +479,77 @@ public class AccountHelperJP
         # Author : Kiran
         */
     
-    public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst){
+      public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst , Map<Id,Account>oldAccountmap){
         
         system.debug('------>Method is called');
-        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
-        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
-        for(Account acc : accLst){
-            if(isUpdate && acc.MD__c == label.MarketJp){ //Checking Market for updated account
-                AccountIds.add(acc.id); //Adding accountId's to set
-                System.debug('AccountID--->'+acc.id);        
+Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
+List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+  for(Account acc : accLst){
+    if(isUpdate && acc.MD__c == label.MarketJp ){ //Checking Market for updated account
+            if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c){
+                 AccountIds.add(acc.id); //Adding accountId's to set
+                   System.debug('AccountID--->'+acc.id);  
+                    persongroup1 = true;
             }
-            
-        }
-        string regexForNullValue ='null';
-            string nullValue ='';                            
-            String province;
-            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
+            if(oldAccountmap.get(Acc.id).Gender__c != acc.Gender__c || oldAccountmap.get(Acc.id).PersonBirthdate != acc.PersonBirthdate || oldAccountmap.get(Acc.id).Occupation__c != Acc.Occupation__c || oldAccountmap.get(Acc.id).Industry != acc.Industry || oldAccountmap.get(Acc.id).Preferred_Language__c != acc.Preferred_Language__c
+                ||oldAccountmap.get(Acc.id).Special_Care__c != acc.Special_Care__c || oldAccountmap.get(Acc.id).Special_Needs_Class__c != Acc.Special_Needs_Class__c){
+                     AccountIds.add(acc.id);
+                    persongroup2 = true;
+            }
+            if(oldAccountmap.get(acc.id).Allow_Data_Sharing2__c != acc.Allow_Data_Sharing2__c){
+                    AccountIds.add(acc.id);
+                    persongroup3 = true;
+            }
+            if(oldAccountmap.get(acc.id).Individual_Home_Phone__c != acc.Individual_Home_Phone__c){
+                    AccountIds.add(acc.id); 
+                    persongroup4 = true;
+            }
+            if(oldAccountmap.get(acc.id).Work_Phone__c != acc.Work_Phone__c){
+                    AccountIds.add(acc.id);
+                    persongroup5 = true;
+            }
+            if(oldAccountmap.get(acc.id).Mobile__c != acc.Mobile__c){
+                    AccountIds.add(acc.id);
+                    persongroup6 = true;
+            }
+            if(oldAccountmap.get(acc.id).Fax != acc.Fax){
+                    AccountIds.add(acc.id); 
+                    persongroup7= true;
+            }
+            if(oldAccountmap.get(acc.id).Email__c != acc.Email__c){
+                    AccountIds.add(acc.id);
+                    persongroup8 = true;
+            } 
+            if(oldAccountmap.get(acc.id).Primary_Phone__c != acc.Primary_Phone__c){
+                    AccountIds.add(acc.id); 
+                    persongroup10 = true;
+            }  
+            if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
+                || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Province__c != acc.Primary_Address_Reference__r.Province__c ||
+                    oldAccountmap.get(acc.id).Primary_Address_Reference__r.City__c  != acc.Primary_Address_Reference__r.City__c  ||
+                    oldAccountmap.get(acc.id).Primary_Address_Reference__r.District__c  != acc.Primary_Address_Reference__r.District__c ||
+                    oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Line_1__c  != acc.Primary_Address_Reference__r.Address_Line_1__c ||
+                    oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Line_2__c  != acc.Primary_Address_Reference__r.Address_Line_2__c ||
+                    oldAccountmap.get(acc.id).Primary_Address_Reference__r.ZipCode__c  != acc.Primary_Address_Reference__r.ZipCode__c){
+                    AccountIds.add(acc.id); 
+                    persongroup9 = true;
+            }
+            if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c){
+                    AccountIds.add(acc.id);
+                    companygroup1 = true;
+            }
+            if((oldAccountmap.get(acc.id).Commercial_Reg_No__c != acc.Commercial_Reg_No__c || oldAccountmap.get(acc.id).Vat_No__c != acc.Vat_No__c || oldAccountmap.get(acc.id).Foundation_Date__c != acc.Foundation_Date__c
+               || oldAccountmap.get(acc.id).Industry != acc.Industry || oldAccountmap.get(acc.id).website != acc.website)&& acc.RecordTypeID == accCompany_RecordTypeId){
+                    AccountIds.add(acc.id);
+                    companygroup2 = true;
+               }
+        }            
+    }   
+       string regexForNullValue ='null';
+       string nullValue ='';                            
+       String province;
+       Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+       UtilAddressTranslation.gettranslatedvalues('JP');
             
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
@@ -499,55 +565,86 @@ public class AccountHelperJP
                                                 toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         System.debug('Accountlinklist------>'+Accountlinklist  );
-        //Account link iteration
+        
+      //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
-                acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
-                acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
-                //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
-                acclnk.Retail_Full_Name__c = (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName :'') + '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'').left(25); 
-                acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
-                acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
-                acclnk.Retail_FirstName_Native__c = acclnk.toRole__r.FirstName_Native_1__c; 
-                acclnk.Retail_Full_Name_Native__c = ((acclnk.toRole__r.LastName_Native_1__c!=null ? acclnk.toRole__r.LastName_Native_1__c : '')+ ' ' +(acclnk.toRole__r.FirstName_Native_1__c!=null ? acclnk.toRole__r.FirstName_Native_1__c:'')).left(50);
-                acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
-                acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
-                acclnk.Retail_Occupation__c = acclnk.toRole__r.Occupation__c;                
-                acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
-                acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
-                acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
-                acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
-                acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
-                acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
-                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
-                acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
-                acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+                if(persongroup1 == true){
+                    acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
+                    acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
+                    //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
+                    //acclnk.Retail_Full_Name__c = (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName :'') + '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'').left(25); 
+                    //acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
+                    acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
+                    acclnk.Retail_FirstName_Native__c = acclnk.toRole__r.FirstName_Native_1__c; 
+                    acclnk.Retail_Full_Name_Native__c = ((acclnk.toRole__r.LastName_Native_1__c!=null ? acclnk.toRole__r.LastName_Native_1__c : '')+ ' ' +(acclnk.toRole__r.FirstName_Native_1__c!=null ? acclnk.toRole__r.FirstName_Native_1__c:'')).left(50);
+                }
+                if(persongroup2 == true){
+                    acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
+                    acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
+                    acclnk.Retail_Occupation__c = acclnk.toRole__r.Occupation__c;                
+                    acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
+                    acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
+                    acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
+                    acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
+                }
+                if(persongroup3 == true){
+                    acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;  
+                }   
+                if(persongroup4 == true){
+                    acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+                }
+                if(persongroup5 == true){
+                    acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
+                }
+                if(persongroup6 == true){
+                    acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;   
+                }   
+                
+                if(persongroup8 == true){   
+                    acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
+                }
+                if(persongroup10 == true){  
+                    acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
+                }               
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
-                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Name;
-                acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
-                acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
-                acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
-                if(acclnk.toRole__r.Foundation_Date__c != null){
-                    Integer FoundationDate = acclnk.toRole__r.Foundation_Date__c.month();
-                    if(FoundationDate <= 9){
-                     acclnk.Retail_Foundation_Month__c =  '0'+String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());
-                    }else {
+            
+            if(companygroup1 == true){
+                    acclnk.Retail_Company_Name__c = acclnk.toRole__r.Name;
+                    acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
+            }
+            if(companygroup2 == true){
+                    acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
+                    acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
+                    if(acclnk.toRole__r.Foundation_Date__c != null){
+                        Integer FoundationDate = acclnk.toRole__r.Foundation_Date__c.month();
+                        if(FoundationDate <= 9){
+                            acclnk.Retail_Foundation_Month__c =  '0'+String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());
+                        }else {
                         acclnk.Retail_Foundation_Month__c = String.valueof(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());         
                     }
                 }
+                acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
+                acclnk.Retail_Website__c = acclnk.toRole__r.website;
+            }
+                
+            if(persongroup4 == true){
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-                acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;              
+            }               
+            if(persongroup4 == true){
+                acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
+            }                                  
             }//End if for Company record type
-            acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
-            acclnk.Retail_Website__c = acclnk.toRole__r.website;
-            //acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-            acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
-            acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;
+            if(persongroup7 == true){
+                    acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
+             }  
             
-            //Checking Null for sales Address 
-            if(acclnk.toRole__r.Primary_Address_Reference__c != null){ 
+                       
+            //acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;   
+              //Checking Null for sales Address 
+            if(acclnk.toRole__r.Primary_Address_Reference__c != null && persongroup9 == True){ 
                     acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                     if(addtrmap1.containsKey(acclnk.toRole__r.Primary_Address_Reference__r.Province__c) )
                     {
@@ -561,12 +658,13 @@ public class AccountHelperJP
                     acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
                     acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
                     acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
-                    acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
-                    acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
+                    //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
+                    //acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
 
                 }//End if for Sales Address
             
-            AccountlnkUpdate.add(acclnk); //Adding Account link to Lsit  
+            AccountlnkUpdate.add(acclnk); //Adding Account link to List  
+            system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
         }//End of for loop
         
         if(!AccountlnkUpdate.isEmpty())

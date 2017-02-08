@@ -5,6 +5,7 @@
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
+    <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

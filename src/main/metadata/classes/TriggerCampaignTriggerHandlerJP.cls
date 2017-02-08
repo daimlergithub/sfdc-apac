@@ -26,6 +26,7 @@ public class TriggerCampaignTriggerHandlerJP
         if(Trigger.isAfter && Trigger.isUpdate)
         {
             CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
+            CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
             
         }
     }
