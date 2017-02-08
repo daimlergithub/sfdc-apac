@@ -2069,7 +2069,7 @@
         <fullName>Parent_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Parent Campaign</label>
+        <label>Relevant Campaign Execution</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
