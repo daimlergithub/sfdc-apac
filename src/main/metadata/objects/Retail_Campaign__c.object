@@ -13156,7 +13156,7 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>Site Cost  plus Gift Expense cannot be greater than Actual Expense</errorMessage>
     </validationRules>
-     <validationRules>
+    <validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED(Start_Date__c),(IF( Start_Date__c &lt; TODAY() , true,false)))</errorConditionFormula>
@@ -13218,7 +13218,7 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>You can't update Retail Campaign information with current apply status.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Unlock_Application_Feedback</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -13706,6 +13706,19 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>/apex/GenericUploader</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload</fullName>
+        <availability>online</availability>
+        <description>Retail Campaign response handling via File Updload</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>View_Report</fullName>
