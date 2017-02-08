@@ -387,6 +387,7 @@
 				<sf:include name="UtilShare"/>
 				<sf:include name="UtilShareTest"/>
 				<sf:include name="LeadSharingforDealerJP"/>
+				<sf:include name="LeadSharingforDealerJPTest"/>
 				<sf:include name="WSMockAddressValidationRespInvalidAddr"/>
 				<sf:include name="WSMockAddressValidationResponseFailure"/>
 				<sf:include name="WSMockCustomerIdenticationResp"/>
@@ -603,10 +604,12 @@
 			<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
 			<sf:include name="TriggerCampaignLeadTriggerHandler"/>
 			<sf:include name="UtilCampaignLead"/>
+			<sf:include name="UtilCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
 			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="UtilCampaignCityTest"/>
 			<sf:include name="AddressHelperJP"/>
 			<sf:include name="AddressHelperJPTest"/>
 			<sf:include name="TriggerAddressTriggerHandlerJP"/>
@@ -714,6 +717,7 @@
 			<sf:include name="TookKitSharingWrapService"/>
 			<sf:include name="ToolKitTriggerHandler"/>
 			<sf:include name="ToolKitTriggerHelper"/>
+			<sf:include name="ToolKitTriggerHelperTest"/>
 		</sf:typeset>
 		</deploy>					
     </target>
