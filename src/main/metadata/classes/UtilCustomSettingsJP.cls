@@ -25,12 +25,18 @@ public  class UtilCustomSettingsJP {
       
       Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(AttachmentAfter);
+	  
+	  Trigger__c AttachmentAfterKER=new Trigger__c(Name='AttachmentAfterKER',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(AttachmentAfterKER);
 
       Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerAddress);
       
       Trigger__c CampaignMemberAfterTrigger=new Trigger__c(Name='CampaignMemberAfterTrigger',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(CampaignMemberAfterTrigger);
+	  
+	  Trigger__c CampaignMemberAfterTriggerKER=new Trigger__c(Name='CampaignMemberAfterTriggerKER',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(CampaignMemberAfterTriggerKER);
       
       Trigger__c CaseTrigger=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(CaseTrigger);
@@ -64,6 +70,9 @@ public  class UtilCustomSettingsJP {
       
       Trigger__c TriggerCampaign=new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaign);
+	  
+	  Trigger__c TriggerCampaignCityKER=new Trigger__c(Name='TriggerCampaignCityKER',Trigger_Name__c='TriggerCampaignCity',Trigger_Handler__c='TriggerCampaignCityTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(TriggerCampaignCityKER);
       
       Trigger__c TriggerCampaignCity=new Trigger__c(Name='TriggerCampaignCity',Trigger_Name__c='TriggerCampaignCity',Trigger_Handler__c='TriggerCampaignCityTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaignCity);
