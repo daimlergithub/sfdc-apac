@@ -40,6 +40,7 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =joint;
         YearlyTA.M_ATL_BTL__c =mediaplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;
@@ -69,6 +70,7 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =joint;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -98,6 +100,7 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =mediaplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -127,7 +130,8 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
-        
+		YearlyTA.Campaign_Execution_Channels__c='DM';
+         
         Test.startTest();
         insert YearlyTA;        
         PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -156,7 +160,8 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
-        
+        YearlyTA.Campaign_Execution_Channels__c='DM';
+         
         Test.startTest();
         insert YearlyTA;        
         PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -185,7 +190,8 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
-        
+        YearlyTA.Campaign_Execution_Channels__c='DM';
+         
         Test.startTest();
         insert YearlyTA;        
         PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -213,7 +219,9 @@ Private Static YearlyTAReportController extension;
         YearlyTA.M_KPI_Type__c=marketingbudget;
         YearlyTA.Driven__c =joint;
         YearlyTA.M_ATL_BTL__c =mediaplan;
-        YearlyTA.M_YearlyTA__c=rc.id;        
+        YearlyTA.M_YearlyTA__c=rc.id;
+         YearlyTA.Campaign_Execution_Channels__c='DM';
+        
         Test.startTest();
         insert YearlyTA;                
         PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -242,7 +250,9 @@ Private Static YearlyTAReportController extension;
         YearlyTA.M_KPI_Type__c=marketingbudget;
         YearlyTA.Driven__c =joint;
         YearlyTA.M_ATL_BTL__c =mediaplan;
-        YearlyTA.M_YearlyTA__c=rc.id;        
+        YearlyTA.M_YearlyTA__c=rc.id;
+         YearlyTA.Campaign_Execution_Channels__c='DM';
+         
         Test.startTest();
         insert YearlyTA;        
         PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -272,7 +282,9 @@ Private Static YearlyTAReportController extension;
         YearlyTA.M_KPI_Type__c=marketingbudget;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
-        YearlyTA.M_YearlyTA__c=rc.id;  
+        YearlyTA.M_YearlyTA__c=rc.id;
+         YearlyTA.Campaign_Execution_Channels__c='DM';
+         
         Test.startTest();
         insert YearlyTA;    
          PageReference YearlyTAReport = Page.Yearly_TA_Report;
@@ -302,6 +314,7 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+         YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -331,7 +344,7 @@ Private Static YearlyTAReportController extension;
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
-        
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -363,7 +376,7 @@ public static testMethod void testYearlyTAsmartNewOrder(){
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
-        
+        YearlyTA.Campaign_Execution_Channels__c='DM'; 
         
         Test.startTest();
         insert YearlyTA;                
@@ -393,6 +406,7 @@ public static testMethod void testYearlyTAsmartNewOrder(){
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -422,6 +436,7 @@ public static testMethod void testYearlyTAsmartNewOrder(){
         YearlyTA.Driven__c =dealerdriven;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;
+        YearlyTA.Campaign_Execution_Channels__c='DM';
         
         Test.startTest();
         insert YearlyTA;        
@@ -455,6 +470,7 @@ public static testMethod void testYearlyTAsmartNewOrder(){
         rc.M_KPI_Type__c=marketingbudget;
         rc.Driven__c =joint;
         rc.M_ATL_BTL__c =mediaplan;
+        rc.Campaign_Execution_Channels__c='DM';
         
         insert rc;
         
