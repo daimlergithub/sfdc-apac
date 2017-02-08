@@ -15,7 +15,7 @@ Private static string Closed='Closed';
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         // Create Person Account
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'), 
+        Account personAccount = (Account)UtilTestData.createSobject(new Account(Mobile__c='09865231450'), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         // Prepare for the historical activity record
         // Create an activity for personAccount
