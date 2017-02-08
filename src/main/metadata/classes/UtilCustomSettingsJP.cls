@@ -23,7 +23,7 @@ public  class UtilCustomSettingsJP {
   {
       // ***************   JP Market   ***************
       
-      Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+      Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(AttachmentAfter);
 
       Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');

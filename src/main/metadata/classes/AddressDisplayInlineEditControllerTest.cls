@@ -152,7 +152,7 @@ public class AddressDisplayInlineEditControllerTest
         ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
-        objAddressDisplayInlineEditController.ValidateAddressSearch();
+        //objAddressDisplayInlineEditController.ValidateAddressSearch();
         test.stopTest();  
         system.assert(objAddressDisplayInlineEditController.addressobj!=Null);        
     }**/
@@ -170,7 +170,7 @@ public class AddressDisplayInlineEditControllerTest
         AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
         objAddressDisplayInlineEditController.addressobj=editadds[0];
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        objAddressDisplayInlineEditController.ValidateAddressSearch();
+        //objAddressDisplayInlineEditController.ValidateAddressSearch();
         test.stopTest();    
         system.assert(objAddressDisplayInlineEditController.addressobj!=Null);     
     }

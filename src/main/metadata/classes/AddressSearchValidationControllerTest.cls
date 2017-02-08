@@ -94,7 +94,7 @@ public class AddressSearchValidationControllerTest
         
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         JPAcccontroller.AddressSearchbyZipCode();
-        JPAcccontroller.validateAddressByZipCode();
+        //JPAcccontroller.validateAddressByZipCode();
         JPAcccontroller.saveAccount();
         test.stopTest();
         system.assertNotEquals(null, personAcc.id);
@@ -138,7 +138,7 @@ public class AddressSearchValidationControllerTest
         
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         JPAcccontroller.AddressSearchbyZipCode();
-        JPAcccontroller.validateAddressByZipCode();
+        //JPAcccontroller.validateAddressByZipCode();
         JPAcccontroller.saveAccount();
         test.stopTest();
         system.assertNotEquals(null, objAccount.id);
@@ -234,7 +234,7 @@ public class AddressSearchValidationControllerTest
         
         JPAcccontroller.market = 'JP';
         JPAcccontroller.getAddressOptions();
-        JPAcccontroller.validateAddressByZipCode();
+        //JPAcccontroller.validateAddressByZipCode();
         test.startTest();        
         JPAcccontroller.saveAccount();
         
