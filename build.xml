@@ -234,6 +234,7 @@
 				<sf:exclude name="Campaign.*"/>
 				<sf:exclude name="Event.*"/>
 				<sf:exclude name="Task.*"/>
+				<sf:exclude name="Vehicle_Relationship__c.*"/>
 				<sf:exclude name="Case.*"/>
 				<sf:exclude name="PersonAccount.*"/>
 				<sf:exclude name="Lead__c.*"/>
@@ -926,6 +927,7 @@
 				<sf:include name="Campaign.*"/>
 				<sf:include name="Event.*"/>
 				<sf:include name="Task.*"/>
+				<sf:include name="Vehicle_Relationship__c.*"/>
 				<sf:include name="Case.*"/>
 				<sf:include name="PersonAccount.*"/>
 				<sf:include name="Lead__c.*"/>
