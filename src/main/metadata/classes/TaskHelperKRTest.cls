@@ -76,6 +76,9 @@ public class TaskHelperKRTest {
                                          Market__c='JP');
     insert TriggerDMR;
     
+	List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+	
     Material = new DM_Material__c();
     Material.Name='testname';
     insert Material;
