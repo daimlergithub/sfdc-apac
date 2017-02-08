@@ -929,7 +929,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Retail_Campaign_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1224,4 +1224,3 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
 var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
 </CustomObject>
-
