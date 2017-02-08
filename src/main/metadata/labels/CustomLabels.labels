@@ -4738,6 +4738,13 @@ please contact the number below.</value>
         <shortDescription>Zipcode validation</shortDescription>
         <value>Zipcode :Please enter any  7 digit number</value>
     </labels>
+	<labels>
+        <fullName>address_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Filter</shortDescription>
+        <value>Address Filters</value>
+    </labels>
     <labels>
         <fullName>apex_AccountMerge_Id</fullName>
         <language>en_US</language>
