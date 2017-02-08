@@ -2427,6 +2427,11 @@
         <field>Account.Dealer_MB_Sub_Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Dealer_Manual_Create__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Marketing_Manager_Email__c</field>
@@ -7736,6 +7741,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Date_of_1st_Registration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Response_FirstName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Response_LastName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

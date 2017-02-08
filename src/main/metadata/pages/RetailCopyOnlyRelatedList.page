@@ -14,7 +14,16 @@
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Name.Label}">
                     <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkdealer.Name}</apex:outputlink>
-                      
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_FirstName__c.Label}">
+                    <apex:outputText value="{!row.Retail_FirstName__c}" style="width:9%; white-space:nowrap;">
+                    </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_LastName__c.Label}">
+                    <apex:outputText value="{!row.Retail_LastName__c}" style="width:9%; white-space:nowrap;">
+                    </apex:outputText>
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Comments__c.Label}">
@@ -22,7 +31,7 @@
                         </apex:outputText>
                     </apex:column>
                                   
-                                   <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}">
+                    <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}">
                         <apex:outputText value="{!row.Retail_OptOutContact_Reason__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
