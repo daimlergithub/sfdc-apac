@@ -30,7 +30,7 @@ global class WebServiceMockImpl implements WebServiceMock {
                crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType responseMsg = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
                
                responseMsg.ValidationStatus  = 'OK';
-              //responseMsg.Addresses = addresses;
+               responseMsg.Addresses = addresses;
                system.debug('responseMsg  :'+responseMsg );
                crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse response_x = new crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse();
                response_x.AddressValidationResponseMessage = responseMsg;

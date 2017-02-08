@@ -28,7 +28,7 @@ public class UtilwebserviceTest
        Test.setMock(WebServiceMock.class, new WebServiceMockImpl2());
         
         custresponse = UtilWebservice.validateCustomerDetails(objAccount);
-        //custresponse = UtilWebservice.validateCustomerDetailsWithAddress(objAccount,Addressobj);
+        custresponse = UtilWebservice.validateCustomerDetailsWithAddress(objAccount,Addressobj);
         //system.debug('custresponse -->>>>'+ custresponse.ResultStatus);
         test.stopTest();
         //system.assertEquals('OK', custresponse.ResultStatus);
@@ -57,6 +57,38 @@ public class UtilwebserviceTest
        addressobj.Customer__c = objAccount.id;
        addressobj.ZipCode__c = '1040041';
        insert addressobj;
+
+    }
+    private static testMethod void coverTypes()
+    {
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationResponseMessageType();
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationFaultType();
+        new crmasiaDaimlerApacComSarinotificatio.SARILeadNotificationRequestMessageType(); 
+        new crmasiaDaimlerApacComSarinotificatio.SARICustomerNotificationRequestMessageType(); 
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationPort(); 
+        
+         test.startTest();
+         crmasiaDaimlerApacComSarinotificatio.SARINotificationPort req=new crmasiaDaimlerApacComSarinotificatio.SARINotificationPort();
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl3());
+        String response=req.SARICustomerNotification('test','test','test','test','test');
+        
+        test.stopTest();
+
+    }   
+     private static testMethod void coverMethos()
+    {
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationResponseMessageType();
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationFaultType();
+        new crmasiaDaimlerApacComSarinotificatio.SARILeadNotificationRequestMessageType(); 
+        new crmasiaDaimlerApacComSarinotificatio.SARICustomerNotificationRequestMessageType(); 
+        new crmasiaDaimlerApacComSarinotificatio.SARINotificationPort(); 
+        
+         test.startTest();
+         crmasiaDaimlerApacComSarinotificatio.SARINotificationPort req=new crmasiaDaimlerApacComSarinotificatio.SARINotificationPort();
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl3());
+        String response=req.SARILeadNotification('test','test','test','test','test');
+        
+        test.stopTest();
 
     }   
 }
