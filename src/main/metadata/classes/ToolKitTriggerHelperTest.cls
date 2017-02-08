@@ -199,6 +199,7 @@ public class ToolKitTriggerHelperTest {
       toolKitNewmap.put(tollkitobjevent.id, tollkitobjevent);
       system.debug('$$$$$$$$$$$$$$$$$'+toolKitNewmap);
       ToolKitTriggerHelper.afterInsertUpdateDeleteEvents(tollkitlist,tollkitlistnew,toolKitOldmap,toolKitNewmap,true,true,true);
+      ToolKitTriggerHelper.shareToolKit(toolKitOldmap,toolKitNewmap);
     test.stoptest();
     //system.assertEquals(tollkitobjevent.Original_Plan_Start_Date__c,System.today());
   }
@@ -229,5 +230,5 @@ public class ToolKitTriggerHelperTest {
       tth.handleIntegrationTrigger(true,true,true,true,true);*/
     test.stoptest();
     //system.assertEquals(tollkitobjevent.Original_Plan_Start_Date__c,System.today());
-  } 
+  }
 }
