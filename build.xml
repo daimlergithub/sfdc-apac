@@ -352,6 +352,7 @@
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerKR"/>
+				<sf:include name="TaskTriggerHandlerKRTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
 				<sf:include name="TestTriggerHandler"/>
@@ -386,6 +387,9 @@
 				<sf:include name="UtilShare"/>
 				<sf:include name="UtilShareTest"/>
 				<sf:include name="LeadSharingforDealerJP"/>
+				<sf:include name="WSMockAddressValidationRespInvalidAddr"/>
+				<sf:include name="WSMockAddressValidationResponseFailure"/>
+				<sf:include name="WSMockCustomerIdenticationResp"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
