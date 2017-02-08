@@ -156,6 +156,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Campaign"/>
+				<sf:include name="Retail_Campaign__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -167,7 +168,7 @@
 				<sf:include name="Campaign_Lead__c"/>
 				<sf:include name="DM_Request__c"/>
 				<sf:include name="SMS_Batch__c"/>
-				<sf:include name="Retail_Campaign__c"/>
+				<!--<sf:include name="Retail_Campaign__c"/>-->
 				<sf:include name="OB_Task_Handing__c"/>
 				<sf:include name="Retail_Campaign_Member__c"/>
 				<sf:include name="SurveyTaker__c"/>
