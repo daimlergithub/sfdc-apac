@@ -479,7 +479,7 @@ public class AccountHelperJP
         # Author : Kiran
         */
     
-     public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst , Map<Id,Account>oldAccountmap){
+      public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst , Map<Id,Account>oldAccountmap){
         
         system.debug('------>Method is called');
 Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
@@ -501,7 +501,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     persongroup3 = true;
             }
             if(oldAccountmap.get(acc.id).Individual_Home_Phone__c != acc.Individual_Home_Phone__c){
-                    AccountIds.add(acc.id);
+                    AccountIds.add(acc.id); 
                     persongroup4 = true;
             }
             if(oldAccountmap.get(acc.id).Work_Phone__c != acc.Work_Phone__c){
@@ -513,7 +513,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     persongroup6 = true;
             }
             if(oldAccountmap.get(acc.id).Fax != acc.Fax){
-                    AccountIds.add(acc.id);
+                    AccountIds.add(acc.id); 
                     persongroup7= true;
             }
             if(oldAccountmap.get(acc.id).Email__c != acc.Email__c){
@@ -521,7 +521,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     persongroup8 = true;
             } 
             if(oldAccountmap.get(acc.id).Primary_Phone__c != acc.Primary_Phone__c){
-                    AccountIds.add(acc.id);
+                    AccountIds.add(acc.id); 
                     persongroup10 = true;
             }  
             if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
@@ -531,15 +531,15 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Line_1__c  != acc.Primary_Address_Reference__r.Address_Line_1__c ||
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Line_2__c  != acc.Primary_Address_Reference__r.Address_Line_2__c ||
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.ZipCode__c  != acc.Primary_Address_Reference__r.ZipCode__c){
-                    AccountIds.add(acc.id);
+                    AccountIds.add(acc.id); 
                     persongroup9 = true;
             }
             if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c){
                     AccountIds.add(acc.id);
                     companygroup1 = true;
             }
-            if(oldAccountmap.get(acc.id).Commercial_Reg_No__c != acc.Commercial_Reg_No__c || oldAccountmap.get(acc.id).Vat_No__c != acc.id || oldAccountmap.get(acc.id).Foundation_Date__c != acc.Foundation_Date__c
-               || oldAccountmap.get(acc.id).Industry != acc.Industry || oldAccountmap.get(acc.id).website != acc.website){
+            if((oldAccountmap.get(acc.id).Commercial_Reg_No__c != acc.Commercial_Reg_No__c || oldAccountmap.get(acc.id).Vat_No__c != acc.Vat_No__c || oldAccountmap.get(acc.id).Foundation_Date__c != acc.Foundation_Date__c
+               || oldAccountmap.get(acc.id).Industry != acc.Industry || oldAccountmap.get(acc.id).website != acc.website)&& acc.RecordTypeID == accCompany_RecordTypeId){
                     AccountIds.add(acc.id);
                     companygroup2 = true;
                }
@@ -658,12 +658,13 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
                     acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
                     acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
-                    acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
-                    acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
+                    //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
+                    //acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
 
                 }//End if for Sales Address
             
-            AccountlnkUpdate.add(acclnk); //Adding Account link to Lsit  
+            AccountlnkUpdate.add(acclnk); //Adding Account link to List  
+            system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
         }//End of for loop
         
         if(!AccountlnkUpdate.isEmpty())

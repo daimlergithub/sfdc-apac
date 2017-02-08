@@ -270,7 +270,7 @@ Set<id> aid = New Set<id>();
          if(ret.size() > 0){
          insert ret;
          }
-                  
+        if(Cam.Campaign_Executer__c == 'Retail'){          
        Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
         newRetail.Name = cam.Name; 
         //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
@@ -289,6 +289,7 @@ Set<id> aid = New Set<id>();
         newRetail.RecordTypeId = planningRecordRetailId;
       
         retailCamParentList.add(newRetail);
+        }
         }
         
      }
