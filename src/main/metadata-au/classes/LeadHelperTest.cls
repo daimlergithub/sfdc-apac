@@ -1082,10 +1082,6 @@ public static void LeadHelperTest13()
     
 
 {
-EmailTemplate Template = [select id ,developername from EmailTemplate where developername = 'Lead_Assignment_Notification_Individual'];
-EmailTemplate Template1 = [select id ,developername from EmailTemplate where developername ='Lead_Assignment_Notification_Company'];
-EmailTemplate Template2 = [select id ,developername from EmailTemplate where developername ='Lead_Gate_Keeper_Notification_Individual'];
-EmailTemplate Template3 = [select id ,developername from EmailTemplate where developername ='Lead_Gate_Keeper_Notification_Company'];
 
  Account fdeal = new Account(); // for Finance Lead //
    fdeal.RecordTypeId = dealerRecordtypeid;
@@ -1471,82 +1467,7 @@ Account deal = new Account();
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue);
          insert user1;        
     }   
-   
-    @istest(seealldata = false)
-public static void LeadHelperTest15()
-{
-
-    EmailTemplate m = [select id ,developername from EmailTemplate where developername = 'Finance_Leads_Only'];
-    EmailTemplate m1 = [select id ,developername from EmailTemplate where developername = 'Fleet_EOC_Template'];
-
-Account deal = new Account();
-   deal.RecordTypeId = dealerRecordtypeid;
-   deal.Name = 'testdealer';
-   deal.Phone = '58396243'; 
-   deal.Active__c='yes';
-   deal.Dealer_Allocation__c='MBAuP';
-   deal.Activation_Date__c=system.today();
-   deal.Business_Unit__c='MBFS Cars';
-   deal.Cars_Offered_Service__c='Finance & Insurance';    
-	
-   insert deal;
-
-   Account Cus=new Account();
-   Cus.RecordTypeId = PersonRecordtypeid;
-   Cus.Salutation='Lord';
-   Cus.FirstName='Mount';
-   Cus.LastName='Batten';
-   Cus.City__c='England';
-   Cus.Phone='58396200';
-   Cus.Email__c='abc@nttdata.com';
-   
-   insert Cus;
-   
-   Lead__c Flead = new Lead__c();
-	Flead.RecordTypeId =leadFinanceRT;
-	Flead.Contact__c = Cus.id;
-	Flead.Lead_Source__c = 'LiveChat';
-	Flead.Nature_of_Request__c = 'Agility';
-	Flead.Business_Unit__c = 'MBFS Cars';
-	Flead.Sub_BusinessUnit__c = 'Finance & Insurance';
-	Flead.CAC_Lead_Status__c = 'Sold Finance';
-	Flead.Assigned_Dealer__c = deal.id;
     
-           
-	insert Flead;
-	
-	
-	Contact con=new Contact();
-    con.Salutation='DRM MBFS';
-    con.FirstName = 'lai';
-    con.LastName = 'sichao11';
-    con.AccountId = deal.id;
-    con.Email = 'sichao11.lai@nttdata.com';
-    con.EOC_Recipient_Type__c = EOCRecipientTypeValue;
-    con.Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue; 
-    con.Dealer_Lead_Gate_Keeper__c=true;
-    con.Finance_Lead_Type__c ='Agility';
-    con.Business_Unit__c = 'MBFS Cars';	
-    con.Sub_BusinessUnit__c = 'Finance';
-    con.Inactive__c = false ;
-	
-	insert con;
-
-	List<Lead__c> leads = new List<Lead__c>();
-	   leads.add(flead);
-    List<String> con1= new List<String>();
-      con1.add(con.id);
-	Map<String,List<String>> mailinfos = new Map<String,List<String>>();
-        mailinfos.put('abc@nttdata.com',con1);	
-    Map<id,Map<String,List<String>>> initialEmail = new Map<id,Map<String,List<String>>>();
-          initialEmail.put(Flead.id,mailinfos);
-	   
-	Test.startTest();
- 
- LeadHelper.send171Email(leads);
-
-	Test.stopTest();	  
-}    
 
 @istest(seealldata = false)
 public static void LeadHelperTest16()
