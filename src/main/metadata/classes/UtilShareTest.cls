@@ -21,7 +21,7 @@ public class UtilShareTest {
     accobj.MBK_Data_Source__c='Email';
     accobj.Mobile__c = '000-0000-9642';
     accobj.ZipCode__c= '1002347';
-    accobj.Parentid='001p000000GgV8s';
+    //accobj.Parentid='001p000000GgV8s';
     accobjlist = new List<Account>();
     accobjlist.add(accobj);
     insert accobjlist;
