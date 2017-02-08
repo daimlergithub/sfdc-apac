@@ -3828,7 +3828,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Dealer_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Dealer Comments</label>
+        <label>Lead Comment</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -3847,6 +3847,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+	<fields>
+        <fullName>Dealer_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Comment</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Dealer_DMS_Comments__c</fullName>

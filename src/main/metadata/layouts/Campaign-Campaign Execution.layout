@@ -229,6 +229,7 @@
         <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
+		<customButtons>Convert_to_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
@@ -248,6 +249,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+	<customButtons>Lead_Assignment</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
