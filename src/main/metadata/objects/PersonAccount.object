@@ -14908,6 +14908,21 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Active__c</picklist>
             <values>
