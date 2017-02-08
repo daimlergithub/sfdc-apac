@@ -83,9 +83,9 @@ public class AttachmentAfterTriggerHandlerTest {
     //System.runAs(usr) {          
       test.startTest();    
         createTestData();   
-        AttachmentAfterTriggerHandler ath = new AttachmentAfterTriggerHandler();
+        /*AttachmentAfterTriggerHandler ath = new AttachmentAfterTriggerHandler();
         ath.handleTrigger(true,true,true,true,true);
-        ath.handleIntegrationTrigger(true,true,true,true,true);
+        ath.handleIntegrationTrigger(true,true,true,true,true);*/
         AttachmentAfterTriggerHandlerJP athJP = new AttachmentAfterTriggerHandlerJP();
         athJP.handleTrigger(true,true,true,true,true);
         athJP.handleIntegrationTrigger(true,true,true,true,true);

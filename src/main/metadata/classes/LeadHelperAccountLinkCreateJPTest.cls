@@ -2,6 +2,7 @@
 public class LeadHelperAccountLinkCreateJPTest {
   public static Account accobj;
   public static Account accobj1;
+  public static Account accobj2;
   public static Contact contobj;
   public static Contact contobj1;
   public static Contact contobj2;
@@ -12,11 +13,13 @@ public class LeadHelperAccountLinkCreateJPTest {
   //public static map<id,Lead__c> leadOldMap;
   public static Account_Link__c acclink;
   public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(); 
+  public static Id AccountCompanyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
   public static Id DealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(); 
   public static Id companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId(); 
   public static Id salesleadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
   public static Id retailpersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); 
   public static Id ContactSectorRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId(); 
+  public static Id AddressRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId(); 
   
   static void createTestData() {
     accobj = new Account();
@@ -31,8 +34,8 @@ public class LeadHelperAccountLinkCreateJPTest {
     system.debug('$$$$$$$$$$$$'+accobj.id);
     
     accobj1 = new Account();
-    accobj1.RecordTypeId = DealerRecordTypeId;
-    accobj1.Name = 'testaccountone';
+    accobj1.RecordTypeId = personAccRecordTypeId ;
+    accobj1.LastName = 'testaccountone';
     accobj1.Phone = '000-0000-9842';
     accobj1.MBK_Data_Source__c='Campaign';
     accobj1.Mobile__c = '000-0000-9842';
@@ -40,6 +43,11 @@ public class LeadHelperAccountLinkCreateJPTest {
     insert accobj1;
     system.debug('$$$$$$$$$$$$'+accobj1);
     system.debug('$$$$$$$$$$$$'+accobj1.id);
+    
+    Address__c add = new Address__c(Customer__c = accobj1.id,Address_Type__c = 'Home',City__c =  'test');
+    insert add;
+    accobj1.Primary_Address_Reference__c =add.id;
+    update accobj1;
     
     contobj = new Contact();
     contobj.LastName = 'contacttest';
@@ -87,8 +95,9 @@ public class LeadHelperAccountLinkCreateJPTest {
     leadobj.RecordTypeId = salesleadRecordTypeId;
     leadobj.CAC_Lead_Status__c = 'Qualified';
     leadobj.Lead_Type__c = 'New Car';
-    leadobj.MD__c = 'JP';
-    leadobj.Assigned_Dealer__c = accobj1.Id;
+    leadobj.MD__c = 'KR';
+    leadobj.Assigned_Dealer__c = accobj.Id;
+    leadobj.Contact__c = accobj1.id;
     //insert leadobj;
     system.debug('$$$$$$$$$$$$'+leadobj);
     leadlist = new LIst<Lead__c>();
@@ -118,8 +127,13 @@ public class LeadHelperAccountLinkCreateJPTest {
     system.debug('$$$$$$$$$$$$'+acclink.id);
     //}
   }
-  public static testmethod void leadAccountDetailsTest() {
+ 
+      
+  public static testmethod void createAccountLinkRecordTest() {
     createTestData();
+      set<string> contactId = new set<string>();
+    contactId.add(contobj.id);
+    
     le = new Lead__c();
     le.RecordTypeId = salesleadRecordTypeId;
     le.CAC_Lead_Status__c = 'Approved';
@@ -133,18 +147,11 @@ public class LeadHelperAccountLinkCreateJPTest {
     system.debug('$$$$$$$le'+le);
     system.debug('$$$$$$$leadlist'+leadlist);
     system.debug('$$$$$$$leadOldMap'+leadOldMap);
-    
-    test.starttest();
-      LeadHelperAccountLinkCreateJP.leadAccountDetails(leadlist,leadOldMap,true,true);
-    test.stoptest();
-    system.assertEquals(leadobj.Lead_Type__c,'New Car');
-  }
-  public static testmethod void createAccountLinkRecordTest() {
-    set<String> contactId = new set<String>();
-    createTestData();
+
     test.starttest();  
-      LeadHelperAccountLinkCreateJP.createAccountLinkRecord(contactId);
+      LeadHelperAccountLinkCreateJP.leadAccountDetails(leadlist,leadOldMap,true,true);
+      //LeadHelperAccountLinkCreateJP.createAccountLinkRecord(contactId);
     test.stoptest();
-    //system.assertEquals(leadobj.Lead_Type__c,'New Car'); 
+    system.assertEquals(leadobj.Lead_Type__c,'New Car'); 
   }   
 }
