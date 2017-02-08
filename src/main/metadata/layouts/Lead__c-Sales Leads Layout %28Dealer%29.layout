@@ -233,7 +233,7 @@
         <label>Vehicle Select</label>
         <layoutColumns>
             <layoutItems>
-                <height>400</height>
+                <height>150</height>
                 <page>VehiclePicker</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>

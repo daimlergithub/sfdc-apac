@@ -8,6 +8,7 @@
     
     1. Mouse Created on 2013-04-26
     2. Mouse Updated on 2013-07-04 for US-Lead-009
+
 */
 @isTest
 private class TriggerLeadTest {
@@ -48,14 +49,13 @@ public static void preparedTestData()
         customer.Status__c = '0=Customer';
         customer.RecordTypeId = personRecordTypeId;
         customer.Area_Code__c = '010';
-        customer.MBK_Data_Source__c = 'Email';
-        customer.Mobile__c = '000-0000-9842';
+        //customer.MBK_Data_Source__c = 'Email';
+        customer.Mobile__c = '09865234112';
         insert customer;
         
         vr = new Vehicle_Relationship__c(Contact__c=customer.Id, Car_Relation__c='user');
         insert vr;
 
-        
 }
    
     
