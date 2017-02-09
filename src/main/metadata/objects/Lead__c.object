@@ -35584,6 +35584,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Lead Merge</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>No serious interest</fullName>
                 <default>false</default>
@@ -35606,6 +35610,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Purchased Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -85426,6 +85434,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Customer does not respond</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Double lead</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Duplicate for un-reported show-up</fullName>
                 <default>false</default>
@@ -85436,6 +85448,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Invalid customer data</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lead Merge</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -85460,6 +85476,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Purchased Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -107027,10 +107047,9 @@ MD__c='KR'
     </validationRules>
     <validationRules>
         <fullName>Dealer_lost_Reason_Manadatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(ISBLANK(Lost_Comment__c),
 ISPICKVAL(Dealer_Lead_Status__c, 'Lost'),
-MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Lost_Comment__c</errorDisplayField>
@@ -107342,7 +107361,7 @@ ISNULL(Lost_Dealer_Date__c)
         <active>true</active>
         <errorConditionFormula>AND(
  LEN(Lost_To__c) &lt; 1 ,
- ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI', MD__c= 'JP'||MD__c='KR'
+ ISPICKVAL(Dealer_Lead_Status__c,'Lost'),$Profile.Name != 'IntegrationAPI',MD__c='KR'
 )</errorConditionFormula>
         <errorDisplayField>Lost_To__c</errorDisplayField>
         <errorMessage>“Lost To” field is mandatory when the lead has been lost</errorMessage>
