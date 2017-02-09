@@ -42,25 +42,25 @@ public with sharing class CampaignMembersCustomHelperJP {
      Desc  : For new campaign member if conatac_id__c is empty then assign the account which is exist based on 'Response firstname, response lastname, response lastname', then assign
              that account to new campaign member or create new account based on the above fields and assign that account to campaign member.
     */
-    public static void updateCampaignMemberStatusResponseCollection(List<campaign_member__c> newList){
+     public static void updateCampaignMemberStatusResponseCollection(List<campaign_member__c> newList){
         Set<Id> camMemSet = new Set<Id>();
-        List<campaign_member__c> newAccCampMem = new List<campaign_member__C>();
         List<String> firstName = new List<String>();
         List<String> lastName = new List<String>();
         List<String> email = new List<String>();
         List<Account> accList = new List<Account>();
+        List<campaign_member__c> newAccCampMem = new List<campaign_member__C>();
         List<campaign_member__C> campmembers = new List<campaign_member__c>();
         List<campaign_member__c> camMemList = new List<campaign_member__C>();
         List<campaign_member__c> updateCampList = new List<campaign_member__C>();
         List<Account> newAccounts = new List<Account>();
         RecordType perAccRecType =  [select id from RecordType where sObjecttype = 'Account' AND Name = 'Person Account' limit 1];
         Boolean accFind = false;
-        
-        
+        List<campaign_member__C> camMemWithOutCont = new List<Campaign_member__c>();
+        Map<String,Campaign_member__c> nameCamMemId = new Map<String,Campaign_member__c>();
         for(campaign_member__c curMem : newList){
             camMemSet.add(curMem.Id);   
         }
-        campMembers = [SELECT Id,Name,Status__c,Response_email__c, Response_FirstName__c,response_lastName__c,contact_id__c,campaign_id__c FROM Campaign_member__c WHERE Id IN: camMemSet];
+        campMembers = [SELECT Id,Name,Status__c,Response_email__c, Response_FirstName__c,response_lastName__c,contact_id__c,campaign_id__c,retail_campaign_Id__c FROM Campaign_member__c WHERE Id IN: camMemSet];
         for(Campaign_Member__c cm : campMembers){
             if(cm.contact_Id__c == NULL && cm.Response_FirstName__c != NULL && cm.Response_LastName__c != NULL && cm.Response_Email__c != NULL){
                 camMemList.add(cm);
@@ -68,17 +68,27 @@ public with sharing class CampaignMembersCustomHelperJP {
                 lastName.add(cm.Response_LastName__c);
                 email.add(cm.Response_Email__c);
             }
+            if(cm.name != NULL && cm.contact_Id__c == NULL && cm.Response_FirstName__c == NULL && cm.Response_LastName__c == NULL && cm.Response_Email__c == NULL){
+                camMemWithOutCont.add(cm); 
+                nameCamMemId.put(cm.Name,cm);  
+            }
+        }
+        if(camMemWithOutCont != NULL && !camMemWithOutCont.isEmpty()){
+            for(Campaign_Member__c cMem : camMemWithOutCont){
+                Account accnt = new Account();
+                accnt.LastName = cMem.name;
+                accnt.RecordTypeId = perAccRecType.Id;
+                newAccounts.add(accnt);    
+            }
         }
         accList = [SELECT Id,Name,FirstName,LastName,Email__C FROM Account WHERE FirstName IN: firstName AND lastName IN: lastName AND Email__c IN: email AND RecordTypeId =: perAccRecType.Id];
         System.debug('Acclist'+accList);
         if(accList != NULL && !accLIst.isEmpty()){
             for(campaign_member__c c : camMemList){
-                System.debug('CampMember'+c);
                 for(Account acc : accList){
-                    System.Debug('account'+acc);
                     if(c.Response_Email__c == acc.Email__c && c.Response_FirstName__c == acc.FirstName && c.Response_LastName__c == acc.LastName){
                         c.Contact_Id__c = acc.Id;
-                        System.debug('AccountFoundCampaign'+c);
+                        c.Status__c = 'Responded';
                         updateCampList.add(c);
                         accFind = true;
                     }
@@ -102,7 +112,6 @@ public with sharing class CampaignMembersCustomHelperJP {
                 acc.LastName = c.Response_LastName__c;
                 acc.Email__c = c.Response_Email__c;
                 acc.recordtypeId = perAccRecType.Id;
-                System.debug('Enter to else acc'+acc);
                 newAccounts.add(acc);
                 newAccCampMem.add(c);
             }
@@ -111,29 +120,65 @@ public with sharing class CampaignMembersCustomHelperJP {
         System.debug('newAccount'+newAccounts);
         if(newAccounts != NULL && !newAccounts.isEmpty()){
             insert newAccounts;
+        }
+        
+        if(nameCamMemId != NULL && !nameCamMemId.isEmpty()){
+            for(Account ac : newAccounts){
+                if(nameCamMemId.containsKey(ac.lastName)){
+                    nameCamMemId.get(ac.lastName).Contact_Id__c = ac.Id;
+                    updateCampList.add(nameCamMemId.get(ac.lastName));
+                }
+            }
+        }
+        
+        if(newAccCampMem != NULL && !newAccCampMem.isEmpty()){
             for(campaign_member__c camp : newAccCampMem){
                 for(Account acct : newAccounts){
-                    System.debug('========'+camp.Response_Email__c +'=='+ acct.PersonEmail +'=='+ camp.Response_FirstName__c +'=='+ acct.FirstName+'='+  camp.Response_LastName__c +'=='+ acct.LastName);
                     if(camp.Response_Email__c == acct.Email__c && camp.Response_FirstName__c == acct.FirstName && camp.Response_LastName__c == acct.LastName){    
                         camp.contact_Id__c = acct.Id;
                         camp.Status__c= 'Responded';
-                        System.debug('AccountNotFoundcampaing'+camp);
                         updateCampList.add(camp);
                     }
                 }
             }
         }
-        try{
-            if(updateCampList != NULL && !updateCampList.isEmpty()){
+         if(updateCampList != NULL && !updateCampList.isEmpty()){
                 update updateCampList;
-            }
+         }
+     }
+     
+     /*trigger  : After Update Campaign Members
+       Added by : Lokesh 
+	   Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' then update the related campaing status to 'Response collection'
+					and retail campaign member status to 'Response collection'
+      */
+    public static void afterUpdateCampaignMembers(Map<Id,Campaign_Member__c> afterCampMembers){
+        List<Id> parentCampIds = new  List<Id>();
+        List<Id> parentRetailCampIds = new  List<Id>();
+        for(Campaign_Member__c campMem : [SELECT Status__c, Campaign_Id__c, Retail_Campaign_Id__c FROM Campaign_Member__c WHERE ID IN: afterCampMembers.keySet()]){
+            if(campMem.Status__c == 'Responded'){
+                if(campMem.Campaign_Id__c != null)
+                    parentCampIds.add(campMem.Campaign_Id__c);
+                if(campMem.Retail_Campaign_Id__c != null)
+                    parentRetailCampIds.add(campMem.Retail_Campaign_Id__c);
+            }            
         }
-        catch(Exception e){
-            System.debug('Error occured'+e);
-            System.debug('Error Line'+e.getLineNumber());
+        
+        List<Campaign> listCamp = new List<Campaign>();
+        for(Campaign cmp : [SELECT Child_Campaign_Status__c FROM Campaign WHERE Id IN : parentCampIds]){
+            cmp.Child_Campaign_Status__c = 'Response Collection';
+            listCamp.add(cmp);
         }
+        if(listCamp.size()> 0)
+            update listCamp;
+        
+        List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();
+        for(Retail_Campaign__c retCmp : [SELECT Child_Campaign_Status__c FROM Retail_Campaign__c WHERE Id IN : parentRetailCampIds]){
+            retCmp.Child_Campaign_Status__c = 'Response Collection';
+            listRetCamp.add(retCmp);
+        }
+        if(listRetCamp.size()> 0)
+            update listRetCamp;
     }
+    
 }
-       /*
-         Added By: Siva Krishna
-        */

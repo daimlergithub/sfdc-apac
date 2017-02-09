@@ -17,7 +17,8 @@ public class TriggerCampaignMembersCustomHandlerJP
         }
        if(Trigger.isAfter && Trigger.isUpdate) {
             CampaignMembersCustomHelperJP.afterUpdateOperation((Map<Id, Campaign_Member__c>)trigger.oldMap, (Map<Id, Campaign_Member__c>)trigger.newMap, (List<Campaign_Member__c>)trigger.new);
-        }
+       		CampaignMembersCustomHelperJP.afterUpdateCampaignMembers((Map<Id,Campaign_Member__c>)trigger.newMap);
+       }
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
