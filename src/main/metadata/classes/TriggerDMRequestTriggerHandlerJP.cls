@@ -28,9 +28,7 @@ public class TriggerDMRequestTriggerHandlerJP
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        List<DM_Request__c> dmReqList = Trigger.new;
-        if(dmReqList[0].MD__c == 'JP')
-        {
+        
 			if(Trigger.isBefore && Trigger.isInsert)
 			{
 				DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
@@ -42,7 +40,5 @@ public class TriggerDMRequestTriggerHandlerJP
 				DMRequestHelperJP.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
 				DMRequestHelperJP.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
 			}
-		}
-		
     }
 }

@@ -11,18 +11,27 @@ public class TriggerUtil
     public static Boolean userCreate = false;
     public static User usr = new User();
     
-    /*public static Boolean isTriggerEnabled(String aTriggerName) 
+    public static Boolean isTriggerEnabled(String aTriggerName) 
     {
         return isTriggerEnabled(getTriggerInfo(aTriggerName,usr));
-    }*/
-    public static Boolean isTriggerEnabled(Trigger__c aTriggerInfo) 
+    }
+    public static Boolean isTriggerEnabled(List<Trigger__c> aTriggerInfoLst) 
     {
-        if (aTriggerInfo != null) {
-            return aTriggerInfo.enabled__c;
+        if (!aTriggerInfoLst.isEmpty() && aTriggerInfoLst.size() > 0) 
+		{
+			for (Trigger__c triggerCust : aTriggerInfoLst)
+			{
+				if(triggerCust != null)
+				{
+					return triggerCust.enabled__c;
+				}
+				else 
+				{
+					return false;
+				}
+			} 
         }
-        else {
-            return false;
-        }
+		return false;
     }
     
     public static void handleTrigger(String aTriggerName)
@@ -39,7 +48,7 @@ public class TriggerUtil
         if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1)
         {
             triggerVal = triggerInfolst[0];
-            if (isTriggerEnabled(triggerVal)) 
+            if (isTriggerEnabled(triggerInfolst)) 
             {
                 TriggerHandlerIf triggerHandler = getTriggerHandler(triggerVal, aTriggerName);
                 system.debug('Trigger Handler...' +triggerHandler);
@@ -53,7 +62,7 @@ public class TriggerUtil
         {
             for(Trigger__c triggerInfo : triggerInfolst)
             {
-                if (isTriggerEnabled(triggerInfo)) 
+                if (isTriggerEnabled(triggerInfolst)) 
                 {
                     TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
                     
@@ -73,9 +82,9 @@ public class TriggerUtil
             }
         }
     }
-    public static set<Trigger__c> getTriggerInfo(String aTriggerName, User user) 
+    public static List<Trigger__c> getTriggerInfo(String aTriggerName, User user) 
     {
-    set<Trigger__c> triggerInfoList = new set<Trigger__c>();
+    List<Trigger__c> triggerInfoList = new List<Trigger__c>();
         system.debug('   *$*$*$* aTriggerName  ' + aTriggerName);
         if (aTriggerName != null) {
             String profileName = user.profile.Name;
