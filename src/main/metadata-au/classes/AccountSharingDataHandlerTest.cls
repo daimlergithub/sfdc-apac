@@ -135,7 +135,7 @@ public with sharing class AccountSharingDataHandlerTest
       
       
       usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() + 'systemadmin@test.com',
             
             ProfileId = SystemAdmin.Id,            
             Alias = 'test123',
