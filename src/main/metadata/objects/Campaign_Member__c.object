@@ -1172,19 +1172,6 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
-        <fullName>StatusChangingFromExecuted</fullName>
-        <active>true</active>
-        <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
-        <errorConditionFormula>AND(
-    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
-    OR(  
-      ISPICKVAL( Status__c , "Removed") ,
-      ISPICKVAL( Status__c , "Ready")
-    ) 
-)</errorConditionFormula>
-        <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>campaign_locked</fullName>
         <active>true</active>
         <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
@@ -1196,6 +1183,19 @@
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Convert_To_DM_Request</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To DM Request</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_to_Lead</fullName>
         <availability>online</availability>
@@ -1247,6 +1247,25 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Retail_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
 var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else

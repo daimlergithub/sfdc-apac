@@ -230,6 +230,7 @@
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
 		<customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_To_DM_Request</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
@@ -286,7 +287,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000M2b1</masterLabel>
+        <masterLabel>00hp0000000Jtms</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

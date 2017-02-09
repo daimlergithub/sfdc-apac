@@ -4,7 +4,7 @@
            <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
                 <apex:pageBlockSectionItem > 
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Name.Label}"/>   
-                <apex:outputlink value="#" onclick="window.open('/{!acclnkdealer.Id}','_blank');">{!acclnkdealer.Name}</apex:outputlink>
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.id}')">{!acclnkdealer.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
               
            <apex:pageBlockSectionItem >                 
@@ -49,7 +49,7 @@
               
            <apex:pageBlockSectionItem >
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Sales_Consultant__c.Label}"/>
-                <apex:outputlink value="#" onclick="window.open('/{!acclnkdealer.Retail_Sales_Consultant__r.id}','_blank');">{!acclnkdealer.Retail_Sales_Consultant__r.Name}</apex:outputlink>
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.Retail_Sales_Consultant__r.id}')">{!acclnkdealer.Retail_Sales_Consultant__r.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
              
            <apex:pageBlockSectionItem >       
