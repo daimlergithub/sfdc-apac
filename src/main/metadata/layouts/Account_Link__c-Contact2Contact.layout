@@ -30,10 +30,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Portal_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Created_By_EP_Transaction__c</field>
             </layoutItems>
             <layoutItems>
@@ -82,10 +78,6 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBConnection__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
