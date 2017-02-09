@@ -93,6 +93,7 @@
     </layoutSections>
     <relatedLists>
 		<customButtons>Upload_Campaign_Member</customButtons>
+		 <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
 		<excludeButtons>New</excludeButtons>
