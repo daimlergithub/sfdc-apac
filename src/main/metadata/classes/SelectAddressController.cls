@@ -8,6 +8,7 @@ public with sharing class SelectAddressController {
     public List<Address__c> addressList {get; set;}
     private ApexPages.StandardController stdController;
     public String accountId;
+    public String market{get;set;}
     public String selectedAddress {get; set;}
     public List<SelectOption> addressSelectOptionList {get; set;}
     
@@ -15,7 +16,8 @@ public with sharing class SelectAddressController {
         this.stdController = stdController; 
         accountId = ApexPages.currentPage().getParameters().get('id');
         addressSelectOptionList = new List<SelectOption>();
-        
+        User u = [SELECT Id,Market__c,Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+        market = u.Market__c;
         addressList = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                     Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,
                     Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,
