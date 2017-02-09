@@ -930,6 +930,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Retail_Campaign_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign ID</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Campaign Members</relationshipLabel>
+        <relationshipName>Campaign_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Retail_Task__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1153,8 +1165,9 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>CM-{0000}</displayFormat>
         <label>Campaign Member Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
@@ -1206,4 +1219,3 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
 var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
 </CustomObject>
-
