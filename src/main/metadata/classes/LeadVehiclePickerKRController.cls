@@ -356,31 +356,31 @@ global without sharing class LeadVehiclePickerKRController {
         String lead_Vehicle_Type = vehicleAttributes.get('VehicleType');
         if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
             lead = [Select Id, Interested_Vehicle__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Interested_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Interested_Vehicle__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Interested_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Interested_Vehicle__c].RecordTypeId;
         }else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
             lead = [Select Id, Interested_Competitor_Vehicle__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Interested_Competitor_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Interested_Competitor_Vehicle__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Interested_Competitor_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Interested_Competitor_Vehicle__c].RecordTypeId;
         }else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
             lead = [Select Id, Current_Vehicle_1__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Current_Vehicle_1__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Current_Vehicle_1__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Current_Vehicle_1__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Current_Vehicle_1__c].RecordTypeId;
         }else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
             lead = [Select Id, Current_Vehicle_2__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Current_Vehicle_2__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Current_Vehicle_2__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Current_Vehicle_2__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Current_Vehicle_2__c].RecordTypeId;
         }else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
             lead = [Select Id, Trade_In_Vehicle__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Trade_In_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Trade_In_Vehicle__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Trade_In_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Trade_In_Vehicle__c].RecordTypeId;
         }else if (lead_Vehicle_Type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
             lead = [Select Id, Purchased_Vehicle__c from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:lead.Purchased_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Purchased_Vehicle__c].RecordTypeId;
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:lead.Purchased_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:lead.Purchased_Vehicle__c].RecordTypeId;
         }
         
-        String recType_name = UtilRecordType.getRecordTypeNameById('Vehicle__c', vehicleRec_Id);
+        String recType_name = UtilRecordType.getRecordTypeNameById('Vehicle__c', vehicleId.RecordTypeId);
         System.debug('@Clear : Vehicle Rec Name :' +recType_name);
         
         if (recType_name.equalsIgnoreCase(utilConst.VEHICLE_PRODUCT)){
