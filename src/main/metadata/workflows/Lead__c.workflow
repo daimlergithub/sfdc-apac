@@ -10,6 +10,16 @@
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Assigned_to_Dealer_Gatekeeper_Lead</template>
     </alerts>
+    <alerts>
+        <fullName>Campaign_Lead_Assignment_Notification</fullName>
+        <description>Campaign Lead Assignment Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
+    </alerts>
 	 <alerts>
         <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
         <description>No modification is made in 10 days (All Modifications)</description>
@@ -675,6 +685,16 @@ Proxy_Date_Time__c
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Campaign Lead Notification to WS Users</fullName>
+        <actions>
+            <name>Campaign_Lead_Assignment_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED( OwnerId ),  NOT(ISNULL(Source_Campaign__c)) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
