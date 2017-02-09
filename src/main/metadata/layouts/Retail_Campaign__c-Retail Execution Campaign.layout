@@ -92,6 +92,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+		<customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <fields>NAME</fields>
