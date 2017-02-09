@@ -930,18 +930,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Retail_Campaign_Id__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Retail Campaign ID</label>
-        <referenceTo>Retail_Campaign__c</referenceTo>
-        <relationshipLabel>Campaign Members</relationshipLabel>
-        <relationshipName>Campaign_Members</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Retail_Task__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1176,12 +1164,6 @@
         <active>true</active>
         <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>campaign is locked</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>retail_campaign_is_locked</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
-        <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>ExportCampaign</fullName>
