@@ -51,8 +51,9 @@ public class TriggerVehicleRelTriggerHandlerJP
      }
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-       List<Vehicle_Relationship__c> velRelList = Trigger.new;
-        if(velRelList[0].MD__c == 'JP')
+       List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
+	   List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
+        if((!velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'JP') || (!velRelOldList.isEmpty() && velRelOldList.size() > 0 && velRelOldList[0].MD__c == 'JP'))
         {  
 		  // Implementation to addedd as required in market
 			 VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
