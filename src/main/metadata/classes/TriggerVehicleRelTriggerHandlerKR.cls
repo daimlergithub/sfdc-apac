@@ -48,7 +48,7 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
   
        // Update Status , Update Vehicle Relationship and Create Account Link     
-       List<Vehicle_Relationship__c> vehicleRelationList = Trigger.new;
+       List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
         List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
         if((!velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'KR') || (!velRelOldList.isEmpty() && velRelOldList.size() > 0 && velRelOldList[0].MD__c == 'KR'))
         {
