@@ -51,30 +51,34 @@ public class TriggerVehicleRelTriggerHandlerJP
      }
    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-      // Implementation to addedd as required in market
-         VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
-        Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
-        Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-         // US-CP-007
-        /* if (trigger.isBefore && trigger.isInsert){
-                vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
-         }
-         if(trigger.isBefore && trigger.isUpdate){
-                vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
-         }*/
-       // Update Status , Update Vehicle Relationship and Create Account Link     
-      
-        
-       if(trigger.isAfter && (trigger.isInsert))
-        {
-          VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
-        }
-        if(trigger.isAfter && Trigger.isUpdate) {
-          Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-          VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
-        } 
-       if(trigger.isAfter && Trigger.isDelete) {
-          VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
-        }
+       List<Vehicle_Relationship__c> velRelList = Trigger.new;
+        if(velRelList[0].MD__c == 'JP')
+        {  
+		  // Implementation to addedd as required in market
+			 VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
+			Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
+			Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+			 // US-CP-007
+			/* if (trigger.isBefore && trigger.isInsert){
+					vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
+			 }
+			 if(trigger.isBefore && trigger.isUpdate){
+					vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
+			 }*/
+		   // Update Status , Update Vehicle Relationship and Create Account Link     
+		  
+			
+		   if(trigger.isAfter && (trigger.isInsert))
+			{
+			  VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+			}
+			if(trigger.isAfter && Trigger.isUpdate) {
+			  Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+			  VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+			} 
+		   if(trigger.isAfter && Trigger.isDelete) {
+			  VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
+			}
+		}
     }
 }
