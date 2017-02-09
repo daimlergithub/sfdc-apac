@@ -30,9 +30,7 @@ implements TriggerHandlerIf
         if(isAfter && isInsert )
         {
           AccountHelperJP.handleAfterInsertEvent(Trigger.new);
-        if(usr.Profile.Name.contains('Dealer')){
-            AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-          }
+        
         }
         
          if(isAfter && isUpdate )
@@ -57,6 +55,9 @@ implements TriggerHandlerIf
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+			if(usr.Profile.Name.contains('Dealer')){
+            AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+          }
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         } 
