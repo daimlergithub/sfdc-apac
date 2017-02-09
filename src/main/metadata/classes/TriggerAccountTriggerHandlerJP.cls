@@ -56,39 +56,21 @@ implements TriggerHandlerIf
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        
-        
-        if(isBefore && isInsert )
+		List<Account> accountList = Trigger.new;
+        if(accountList[0].MD__c == 'JP')
         {
-            
-            AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-            AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
-        }
-        if(isBefore && isUpdate)
-        {
-            AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-        }
-        
-        if(isAfter && isInsert && !System.isFuture())
-        {
-            serializedObject=json.serialize(ListAccNew);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            //AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-        } 
-        if(isAfter && isUpdate && !System.isFuture())
-        {
-            serializedObject=json.serialize(ListAccNew);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            //AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-        }
-        
-        if(isAfter && isDelete && !System.isFuture())
-        {
-            serializedObject=json.serialize(ListAccOld);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            //AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
-        }
+			if(isBefore && isInsert )
+			{
+				
+				AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+				AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
+			}
+			if(isBefore && isUpdate)
+			{
+				AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+				AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+				AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
+			}
+		}
     }
 }
