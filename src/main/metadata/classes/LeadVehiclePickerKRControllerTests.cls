@@ -32,9 +32,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         insert testLead;
         system.debug('Leads... :' +testLead);
         for(ApexPages.Message msg :  ApexPages.getMessages()) {
-			System.assertEquals('Have a nice day', msg.getSummary());
-			System.assertEquals(ApexPages.Severity.ERROR, msg.getSeverity());
-		}
+            System.assertEquals('Have a nice day', msg.getSummary());
+            System.assertEquals(ApexPages.Severity.ERROR, msg.getSeverity());
+        }
         
         /*
         lead.Relation_With_The_Leads__c = 'testR';
@@ -479,7 +479,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
                                                     Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert testVR_vehicle;
         //Vehicle_Relationship__c testVR  = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
-        Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c(RecordTypeId=VehicleRelationshipRetailRecordtypeid );
+        Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c(RecordTypeId=VehicleRelationshipRetailRecordtypeid );        
+        testVR.Contact__c = testAccount.Id;
+        testVR.Vehicle_ID__c = testVehicleMB.Id;
         insert testVR;
         testVR.Contact__c = testAccount.Id;
         testVR.Vehicle_ID__c = testVehicleMB.Id;
