@@ -768,6 +768,7 @@
 			<sf:include name="LeadConvertingControllerTest"/>
 			<sf:include name="TriggerCampaignMembers_TestClass"/>
 			<sf:include name="CampaignMemberAfterTriggerHandler"/>
+			<sf:include name="CampaignMemberAfterTriggerHandlerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
 			<sf:include name="CaseEscalationController"/>
 			<sf:include name="CaseEscalationControllerTest"/>
@@ -835,7 +836,7 @@
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
-				<sf:include name="ContactTableController"/>
+			<sf:include name="ContactTableController"/>
 		    <sf:include name="ContactTableControllerTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 

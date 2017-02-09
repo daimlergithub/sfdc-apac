@@ -11,10 +11,10 @@ public class TriggerUtil
     public static Boolean userCreate = false;
     public static User usr = new User();
     
-    public static Boolean isTriggerEnabled(String aTriggerName) 
+    /*public static Boolean isTriggerEnabled(String aTriggerName) 
     {
         return isTriggerEnabled(getTriggerInfo(aTriggerName,usr));
-    }
+    }*/
     public static Boolean isTriggerEnabled(Trigger__c aTriggerInfo) 
     {
         if (aTriggerInfo != null) {
@@ -27,46 +27,62 @@ public class TriggerUtil
     
     public static void handleTrigger(String aTriggerName)
     {
-
+        system.debug('*$*$*$* handleTrigger method Count');
+        Trigger__c triggerVal = new Trigger__c();
         if(!userCreate)
         {
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             userCreate = true;
         }
-        Trigger__c triggerInfo = getTriggerInfo(aTriggerName,usr);
-
-        if (isTriggerEnabled(triggerInfo) ) 
+        List<Trigger__c> triggerInfolst = new List<Trigger__c>(getTriggerInfo(aTriggerName,usr));
+        system.debug('*$*$*$* List Value after return in Handler Method  ' + triggerInfolst);
+        if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1)
         {
-            TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
-            
-            system.debug('Trigger Handler...' +triggerHandler);
-            if (triggerHandler != null) 
+            triggerVal = triggerInfolst[0];
+            if (isTriggerEnabled(triggerVal)) 
             {
-                if( Test.isRunningTest())
+                TriggerHandlerIf triggerHandler = getTriggerHandler(triggerVal, aTriggerName);
+                system.debug('Trigger Handler...' +triggerHandler);
+                if (triggerHandler != null) 
                 {
-                 	triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
-                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);                    
-                }
-                else
-                {
-                    if(usr.profile.Name!='IntegrationAPI')
                     triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
-                else                
-                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
                 }
-                        
+            }
+        }
+        else
+        {
+            for(Trigger__c triggerInfo : triggerInfolst)
+            {
+                if (isTriggerEnabled(triggerInfo)) 
+                {
+                    TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
+                    
+                    system.debug('Trigger Handler...' +triggerHandler);
+                    if (triggerHandler != null) 
+                    {
+                        if( Test.isRunningTest())
+                        {
+                            triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
+                            triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);                    
+                        }
+                        else if(usr.profile.Name =='IntegrationAPI')               
+                            triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
+                    }
+                                
+                }
             }
         }
     }
-    public static Trigger__c getTriggerInfo(String aTriggerName, User user) 
+    public static set<Trigger__c> getTriggerInfo(String aTriggerName, User user) 
     {
-
+    set<Trigger__c> triggerInfoList = new set<Trigger__c>();
+        system.debug('   *$*$*$* aTriggerName  ' + aTriggerName);
         if (aTriggerName != null) {
             String profileName = user.profile.Name;
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
-                if ((aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c) || profileName.equals('IntegrationAPI') ||(Test.isRunningTest()))))                
+                if ((aTriggerName.equals(triggerInfo.Trigger_Name__c) && (user.Market__c!=null && user.Market__c.equals(triggerInfo.Market__c))) || (profileName.equals('IntegrationAPI')&& aTriggerName.equals(triggerInfo.Trigger_Name__c)) ||(Test.isRunningTest() && aTriggerName.equals(triggerInfo.Trigger_Name__c)))                
                 {
-
+                    system.debug('This method was called  ' + profileName);
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
                     }
@@ -81,10 +97,13 @@ public class TriggerUtil
                     }
                     if (trigger.isDelete && !triggerInfo.delete__c) {
                         continue;
-                    }
-                    return triggerInfo;
+                    }  
+                    triggerInfoList.add(triggerInfo);
+                    system.debug(triggerInfoList + '   *$*$*$*  triggerInfo  ' + triggerInfo);
                 }
             }
+            system.debug('   *$*$*$*  Set Value before Return  ' + triggerInfoList);
+            return triggerInfoList;
         }
         
         // If no corresonding data, just return null
@@ -96,6 +115,7 @@ public class TriggerUtil
         String triggerHandlerName;
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
             triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
+            system.debug('*$*$*$*  triggerHandlerName  ' + triggerHandlerName);
         }
         /*else {
             triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
