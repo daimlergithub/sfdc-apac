@@ -59,7 +59,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Campaign Member</label>
-        <referenceTo>Campaign_member__c</referenceTo>
+        <referenceTo>Campaign_Member__c</referenceTo>
         <relationshipLabel>Dealer List Members</relationshipLabel>
         <relationshipName>Dealer_List_Members</relationshipName>
         <required>false</required>
