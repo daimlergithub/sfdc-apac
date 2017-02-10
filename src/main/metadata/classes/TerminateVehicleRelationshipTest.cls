@@ -18,7 +18,7 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
         objVehicleRelship.End_Date__c=system.today(); 
         objVehicleRelship.End_Setting_User__c=UserInfo.getUserId();
         objVehicleRelship.End_Setting_DateTime__c=system.now();            
-        PageReference redirectSuccess=objVehicleController.Save();         
+        PageReference redirectSuccess=objVehicleController.SaveRecords();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
