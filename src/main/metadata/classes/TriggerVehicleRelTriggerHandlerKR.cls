@@ -50,7 +50,7 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
        // Update Status , Update Vehicle Relationship and Create Account Link     
        List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
         List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
-        if(!velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'KR' && !isDelete)
+        if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'KR')
         {
 		   if(trigger.isAfter && (trigger.isInsert))
 			{

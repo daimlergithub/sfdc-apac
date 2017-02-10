@@ -72,12 +72,13 @@ public class AddressSearchValidationController{
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){  
-           AddressOptions.add(new SelectOption('',''));         
+           AddressOptions.add(new SelectOption('--None--','--None--'));         
            AddressOptions.add(new SelectOption('Home','Home'));
            AddressOptions.add(new SelectOption('Business','Business'));           
         }
         else{
             try{
+                AddressOptions.add(new SelectOption('--None--','--None--'));
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
                 for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
                     //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));
@@ -135,6 +136,7 @@ public class AddressSearchValidationController{
                        objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
                        objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
                     {
+                        system.debug('Enter JP Loop : ');
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
                     else
@@ -170,10 +172,10 @@ public class AddressSearchValidationController{
                     {       
                         system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                         objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-						if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
-						{
-							objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
-						}
+                        if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
                     }                    
                     else
                     {
@@ -187,10 +189,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-						if(objAccount.Work_Phone__c.startsWith(' -'))
-						{
-							objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
-						}
+                        if(objAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+                        }
                     }
                     else
                     {
@@ -203,11 +205,11 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-						if(objAccount.Mobile__c.startsWith(' -'))
-						{
-							objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
-						}
-						
+                        if(objAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+                        }
+                        
                     }
                     else
                     {
@@ -236,10 +238,10 @@ public class AddressSearchValidationController{
                     else if((homePhoneAreaCodePart1 != ' ' || homePhoneAreaCodePart1 == ' ') && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
                     {             
                         objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-						if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
-						{
-							objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
-						}
+                        if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
                     }                    
                     else
                     {
@@ -253,10 +255,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-						if(objPersonAccount.Work_Phone__c.startsWith(' -'))
-						{
-							objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
-						}
+                        if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+                        }
                     }
                     else
                     {
@@ -269,10 +271,10 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-						if(objPersonAccount.Mobile__c.startsWith(' -'))
-						{
-							objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
-						}
+                        if(objPersonAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+                        }
                     }
                     else
                     {
@@ -343,10 +345,10 @@ public class AddressSearchValidationController{
                     {       
                         system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                         objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-						if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
-						{
-							objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
-						}
+                        if(objAccount.Individual_Home_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Individual_Home_Phone__c = objAccount.Individual_Home_Phone__c.removeStart(' -');
+                        }
                     }                    
                     else
                     {
@@ -360,10 +362,10 @@ public class AddressSearchValidationController{
                     else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                     {                         
                         objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-						if(objAccount.Work_Phone__c.startsWith(' -'))
-						{
-							objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
-						}
+                        if(objAccount.Work_Phone__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone__c = objAccount.Work_Phone__c.removeStart(' -');
+                        }
                     }
                     else
                     {
@@ -376,10 +378,10 @@ public class AddressSearchValidationController{
                     else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-						if(objAccount.Mobile__c.startsWith(' -'))
-						{
-							objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
-						}
+                        if(objAccount.Mobile__c.startsWith(' -'))
+                        {
+                            objAccount.Mobile__c = objAccount.Mobile__c.removeStart(' -');
+                        }
                     }
                     else
                     {
@@ -387,20 +389,20 @@ public class AddressSearchValidationController{
                     }  
                     if(Validation == False){
                         refreshPage = true;
-						objAccount.id = null;
+                        objAccount.id = null;
                         insert objAccount ;
                         AddressObj.Customer__c = objAccount.id;
-						if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
-						{
+                        if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+                        {
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
-						}
+                        }
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
                     }
                 }         
                 
-				else if( recordType == 'Company' && market != System.Label.KR)
+                else if( recordType == 'Company' && market != System.Label.KR)
                 {
                     
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
@@ -427,7 +429,7 @@ public class AddressSearchValidationController{
                     }                  
                     
                 }
-				
+                
                 system.debug('recordType 6:'+recordType);
                 system.debug('recordType 7:'+ System.Label.PersonAccount);
                 if(recordType == System.Label.PersonAccount && market == System.Label.KR)
@@ -477,10 +479,10 @@ public class AddressSearchValidationController{
                         {       
                             system.debug('*$*$*$ Entered HOme either Null or not null scenario');               
                             objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-							if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
-							{
-								objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
-							}
+                            if(objPersonAccount.Individual_Home_Phone__c.startsWith(' -'))
+                            {
+                                objPersonAccount.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c.removeStart(' -');
+                            }
                         }                    
                         else
                         {
@@ -494,10 +496,10 @@ public class AddressSearchValidationController{
                         else if((workPhoneAreaCodePart1 != ' ' || workPhoneAreaCodePart1 == ' ') && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 != '' || workPhoneAreaCodePart3 == ''))
                         {                         
                             objPersonAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-							if(objPersonAccount.Work_Phone__c.startsWith(' -'))
-							{
-								objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
-							}
+                            if(objPersonAccount.Work_Phone__c.startsWith(' -'))
+                            {
+                                objPersonAccount.Work_Phone__c = objPersonAccount.Work_Phone__c.removeStart(' -');
+                            }
                         }
                         else
                         {
@@ -510,10 +512,10 @@ public class AddressSearchValidationController{
                         else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                         {              
                             objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
-							if(objPersonAccount.Mobile__c.startsWith(' -'))
-							{
-								objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
-							}
+                            if(objPersonAccount.Mobile__c.startsWith(' -'))
+                            {
+                                objPersonAccount.Mobile__c = objPersonAccount.Mobile__c.removeStart(' -');
+                            }
                         }
                         else
                         {
@@ -525,45 +527,46 @@ public class AddressSearchValidationController{
                             objPersonAccount.Id = null;
                             insert objPersonAccount ;
                             AddressObj.Customer__c = objPersonAccount.id;
-							if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
-							{
+                            if(AddressObj.Temp_ZipCode__c == null && AddressObj.Temp_Address__c == null)
+                            {
                             AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
-							}
+                            }
                             insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objPersonAccount.Id);           
                             return PageRef;
                         }
                     }
                 }
-				
-				else if(recordType == 'Person Account' && market != System.Label.KR)
+                
+                else if(recordType == 'Person Account' && market != System.Label.KR)
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
-                    
-                    
+                    system.debug('Enter JP Loop 2 :');
+                    /****************************************
                     if(Address_Validated_Flag == false)
-                    {
+                    {   system.debug('Enter JP Loop 3 :');                    
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
                     if(AddressObj.Address_Type__c == null )
-                    {
+                    {   system.debug('Enter JP Loop 4 :'); 
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         
-                    }
-                    
+                    }                    
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
-                    {
+                    { 
+                    *****************************************/  
+                        system.debug('Enter JP Loop 5 :'); 
                         refreshPage = true;
-                        insert objPersonAccount ;
+                        upsert objPersonAccount ;
                         AddressObj.Customer__c = objPersonAccount.id;
                         AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                         insert AddressObj;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
                         return PageRef;
-                    }
+                   // }
                 }
-				
+                
             }
             catch(DMLException e)
             {
@@ -700,11 +703,11 @@ EP/Tolerant for Validation.
             //if(addressobj.ZipCode__c != null)
             //{
             //Changes as part of SFDCKR-683
-			if(addressobj.Province__c != null)
-			{
+            if(addressobj.Province__c != null)
+            {
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
-			}
+            }
             //} 
         }
         if(Market !='KR'){

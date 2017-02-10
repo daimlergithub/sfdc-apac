@@ -14053,12 +14053,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <filters>
             <field>MD__c</field>
             <operation>equals</operation>
-            <value>KR</value>
+            <value>JP</value>
         </filters>
         <label>All dealers</label>
         <language>en_US</language>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -14122,7 +14122,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>All dealers</label>
+        <label>All MBK dealers</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
