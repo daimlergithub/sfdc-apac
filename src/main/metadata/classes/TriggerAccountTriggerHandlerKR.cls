@@ -64,8 +64,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
 	{
 		List<Account> accountNewList = Trigger.new;
-        List<Account> accountOldList = Trigger.old;
-        if((!accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'KR') || (!accountOldList.isEmpty() && accountOldList.size() > 0 && accountOldList[0].MD__c == 'KR'))
+        if(!accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'KR' && !isDelete)
         {
 
 		   if(isBefore && isInsert)

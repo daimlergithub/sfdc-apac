@@ -57,8 +57,7 @@ implements TriggerHandlerIf
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
 		List<Account> accountNewList = Trigger.new;
-		List<Account> accountOldList = Trigger.old;
-        if((!accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'JP') || (!accountOldList.isEmpty() && accountOldList.size() > 0 && accountOldList[0].MD__c == 'JP'))
+        if(!accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'JP' && !isDelete)
         {
 			if(isBefore && isInsert )
 			{
