@@ -68,7 +68,7 @@ JIRA NO             :    SFDCJP-1026
   
     
     
-  
+  }
   List<Campaign> CamList = [Select id,Name,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Name from Participating_Dealers__r) from Campaign Where Id =:sid];
   System.Debug('++++++++++'+CamList );
   
@@ -149,8 +149,8 @@ JIRA NO             :    SFDCJP-1026
   }
   
   Messaging.sendEmail(mails);
-  
   }
+  
    }  
    /* End Of SFDCJP-1026 */
    
