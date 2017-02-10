@@ -902,7 +902,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             String origin = ApexPages.currentPage().getParameters().get('correlationID');
+             String origin = ApexPages.currentPage().getParameters().get('CLNID');
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
