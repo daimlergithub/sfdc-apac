@@ -53,7 +53,7 @@ public class TriggerVehicleRelTriggerHandlerJP
     {
        List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
 	   List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
-        if(!velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'JP' && !isDelete)
+        if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'JP')
         {  
 		  // Implementation to addedd as required in market
 			 VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
