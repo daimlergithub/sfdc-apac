@@ -164,6 +164,119 @@ public  class RetailCampaignHelper
     
     }
 }
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Created Date        :    30.01.2017
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to send email notification to the Dealer Sales Manager when a new retail campaign is created 
+                         Business Conditions :
+                          * It sends Email Notification to dealer sales manager to start their retail execution  
+                          * It Adds Campaign Members and participating dealers to respective child retail campaign                         
+JIRA NO             :    SFDCJP-1044                                              
+************************************************************************************/
+public static void emailNotificationRetail (List<Retail_Campaign__c > retCampList)  {
+    
+    Set<Id> sid = New Set<Id>();
+  List<Id> userIds = new List<Id>();
+  List<String> sDealerEmails = New List<String>();
+  List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+   Id retId; 
+  For(Retail_Campaign__c  camp : retCampList){
+  
+   if(camp.Parent_Campaign__c != null ){
+   
+   
+        sid.add(camp.Parent_Campaign__c);
+        retId = camp.Id;
+         }
+  
+    
+    
+  }
+  List<Campaign> CamList = [Select id,Name,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Name from Participating_Dealers__r) from Campaign Where Id =:sid];
+  System.Debug('++++++++++'+CamList );
+  
+  For(Campaign c : CamList){
+  
+     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
+     
+     if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c))
+   { 
+                
+                sDealerEmails.add(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c);
+                
+                System.Debug('++++++++++'+sDealerEmails);
+                List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : sDealerEmails];
+                 for(User u : userRecords){
+            userIds.add(u.id);
+        }
+        
+        String mailBody =  URL.getSalesforceBaseUrl().toExternalForm()+ '/'+ retId;
+        
+         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        mail.saveAsActivity = false;
+        //mail.setTargetObjectIds(userIds);
+        mail.setToAddresses(userIds);
+        
+        
+        mail.setUseSignature(false);
+        mail.setSaveAsActivity(false);
+        mail.setSubject('List Maintenance Notification');
+        String body = 'メルセデス・ベンツ　'+ parDealer.Dealer__r.Name  +'　店 ';
+      body += '<br>管理者様、ご担当者様';
+      body +=  '<p>';
+      body += '<br>以下のキャンペーンの対象顧客リストを展開しました。';
+      body += '<br>'+ c.Name           + '';
+      body += '<br>期日までにリスト確認を終え、提出してください。<br>';
+      body +=  '<p>';
+      body +=   '<p>';
+      body += '<a href='+mailBody+'>';
+      body +=  'Direct link URL to the detail page</a>';
+      body +=  '<p>';
+      body +=   '<p>';
+      body += '<br>※リストの確認にはセールスフォースへのログインが必要となります';
+      body += '<p>';
+      body += '<p>';
+      body += '<br>よろしくお願いいたします。';
+      body += '<p>';
+      body += '<br>セールスフォースの操作について、ご不明な点がございましたら、';
+      body += '<br>セールスフォース　サポートデスクまでお問い合わせください。';
+      body += '<p>';
+      body += '<br>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局';
+      body += '<p>';
+      body += '<br>-----------------------------------------------';
+      body += '<br>セールスフォースの操作、システムメンテナンスに関しての';
+      body += '<br>お問い合わせは下記の電話番号までお願いいたします。';
+      body += '<p>';
+      body += '<br>◆セールスフォースサポートデスク';
+      body += '<br>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）';
+      body += '<br>※本メールへは返信しないようにお願いいたします。';
+      body += '<br>-----------------------------------------------';
+      
+      
+         mail.setHtmlBody(body);       
+         //Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });       
+            
+               
+               
+               
+            mails.add(mail);   
+
+            }
+     
+     
+     
+     
+     }
+  
+  
+  }
+  
+  Messaging.sendEmail(mails);
+  
+  
+   }  
+   
     
     public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
     
@@ -256,7 +369,7 @@ public  class RetailCampaignHelper
     }
     
     
-    
+    /* End Of SFDCJP-1044 */
     
     
     public static void ShareRecordToDealer_AfterUpdate(list<Retail_Campaign__c> retailCampainsNew,map<id,Retail_Campaign__c> retailCampainsNewMap,map<id,Retail_Campaign__c> retailCampainsOldMap, boolean isUpdate)
