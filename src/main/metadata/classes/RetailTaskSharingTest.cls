@@ -22,7 +22,7 @@ private class RetailTaskSharingTest {
         dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = accDealer.Id, Email = 'test@test.com');
         insert dealerContact;
         //Inserting record for Vehicle
-        vehicle = new Vehicle__c(Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll',EuroVIN__c = '12345678901111111',CurrentMileage__c=5000,NextMileage__c=6000,Recall__c = FALSE,FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
+        vehicle = new Vehicle__c(Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkkllllll',EuroVIN__c = '12345678901111111',CurrentMileage__c=5000,NextMileage__c=6000,Recall__c = FALSE,FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert vehicle;        
        }
        static {
