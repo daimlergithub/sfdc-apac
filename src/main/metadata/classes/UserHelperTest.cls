@@ -124,6 +124,7 @@ public With Sharing class UserHelperTest
         Retail_Campaign__c retCamAsY = new Retail_Campaign__c();
         retCamAsY.RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId();
         retCamAsY.Dealer_Name__c = dealer.id;
+        retCamAsY.Campaign_Execution_Channels__c='DM';
         insert retCamAsY;
         
         Retail_Campaign__Share retCamAsYShare = new Retail_Campaign__Share();
@@ -147,6 +148,7 @@ public With Sharing class UserHelperTest
          Retail_Campaign__c retCamSm = new Retail_Campaign__c();
         retCamSm.RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Sales & Marketing Yearly TA').getRecordTypeId();
         retCamSm.Dealer_Name__c = dealer.id;
+        retCamSm.Campaign_Execution_Channels__c='DM';
         insert retCamSm;
         
         Retail_Campaign__Share retCamSmShare = new Retail_Campaign__Share();
@@ -171,6 +173,7 @@ public With Sharing class UserHelperTest
         Retail_Campaign__c retCamSmEr = new Retail_Campaign__c();
         retCamSmEr.RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
         retCamSmEr.Dealer_Name__c = dealer.id;
+        retCamSmEr.Campaign_Execution_Channels__c='DM';
         insert retCamSmEr;
         
         Retail_Campaign__Share retCamSmErShare = new Retail_Campaign__Share();
@@ -194,6 +197,7 @@ public With Sharing class UserHelperTest
         Retail_Campaign__c retCamMb = new Retail_Campaign__c();
         retCamMb.RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail MB Best Practice').getRecordTypeId();
         retCamMb.Dealer_Name__c = dealer.id;
+        retCamMb.Campaign_Execution_Channels__c='DM';
         insert retCamMb;
         
         Retail_Campaign__Share retCamMbShare = new Retail_Campaign__Share();
@@ -280,8 +284,8 @@ public With Sharing class UserHelperTest
         acc1.FirstName ='batch';
         acc1.Email__c ='ssibatch@test.com';
         acc1.Salutation ='Brother';
-        acc1.MBK_Data_Source__c='Email';
-        acc1.Mobile__c = '000-0000-9642';
+        //acc1.MBK_Data_Source__c='Email';
+        acc1.Mobile__c = '09865234112';
         insert acc1;
         
         
@@ -410,13 +414,22 @@ public static testmethod void testbatch2()
         con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
-        //create user  
+        //create user
+        
+        
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
+            
+        //Create UserRole
+        UserRole ur = [Select Id From UserRole Where PortalType = 'Partner' Limit 1];
+                    
         usr = new User(
             Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
-            ProfileId = DealerDelegatedAdmin.Id,            
+            ProfileId = DealerDelegatedAdmin.Id,
+           // ProfileId  = portalProfile.Id,
+		    UserRoleId = ur.Id,            
+		    //PortalRole ='Worker',
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
@@ -427,8 +440,7 @@ public static testmethod void testbatch2()
             LanguageLocaleKey = 'en_US',
             ContactId=con.id
         );
-        
-        insert usr;
+       insert usr;
         
         //Sandeep - After insert for trigger helper class coverage.
         update usr;
@@ -441,15 +453,15 @@ public static testmethod void testbatch2()
             LastName = 'Last',
             PersonEmail = 'test@test.com',
             Salutation = 'Unknown',
-            MBK_Data_Source__c='Email',
-            Mobile__c = '000-0000-9642'
+            //MBK_Data_Source__c='Email',
+            Mobile__c = '09865234112'
         );
         insert person;
         
         CompanyAcc = new Account(
             RecordTypeId = companyRecordtypeid,
-            Mobile__c = '000-0000-9642',
-            Work_Phone__c = '000-0000-9642',
+            Mobile__c = '09642259685',
+            //Work_Phone__c = '000-0000-9642',
             Name = 'First'
             
         );

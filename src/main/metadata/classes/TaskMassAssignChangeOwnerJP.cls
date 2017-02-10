@@ -1,14 +1,11 @@
-/*
-    Type:       Controller for TaskMassAssignChangeOwnerJP Visualforce page 
-    Purpose:    Mass assign tasks 
-    User Story: US-SSI-006
-    Used By:    TaskMassAssignChangeOwnerJP.page
-    ---------------------------------------------------------------
-    History:
-    
-    1. Chris Created on 2013-04-24
-    2. Shuang Li Edit on 2014-03-17  US-SMART_SSI-007
-*/
+/***********************************************************************************
+Created By          :    Siva Krishna k   
+Created Date        :    02.02.2017
+Company             :    NTT Data,Inc.
+Usage               :    TaskMassAssignChangeOwner Class
+                          
+JIRA NO             :    SFDCJP-1016 & SFDCJP-1020                                             
+************************************************************************************/
 
 public with sharing class TaskMassAssignChangeOwnerJP {
     public Task task{set;get;}    
@@ -16,8 +13,6 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     
     /**
   *@Description : Constructor
-  *@Date : 4/11/2015
-  *@param: ApexPages.StandardController(Task)
   *@return:This mehtod does not return any value.
 
   */
@@ -31,10 +26,8 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     }            
         
     /**
-  *@Description : Assigns the task with different owner and updates Related SSI object.
-  *@Date : 4/11/2015
-  *@param: None
-  *@return:This mehtod does not return any value.
+ 
+ *@return:This mehtod does not return any value.
 
   */    
         
@@ -62,8 +55,7 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     }
     /**
   *@Description : Assigns the task with different owner and updates Related SSI object.
-  *@Date : 4/11/2015
-  *@param: None
+  
   *@return:This mehtod does not return any value.
 
   */

@@ -30,9 +30,7 @@ implements TriggerHandlerIf
         if(isAfter && isInsert )
         {
           AccountHelperJP.handleAfterInsertEvent(Trigger.new);
-        if(usr.Profile.Name.contains('Dealer')){
-            AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-          }
+        
         }
         
          if(isAfter && isUpdate )
@@ -57,6 +55,9 @@ implements TriggerHandlerIf
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+			if(usr.Profile.Name.contains('Dealer')){
+            AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+          }
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         } 
@@ -65,7 +66,7 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new); 
+            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new,(Map<Id,Account>)Trigger.OldMap); 
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -83,7 +84,7 @@ implements TriggerHandlerIf
         */
         if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
             System.debug('----->Is update is called');
-            AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+            AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new,(Map<Id,Account>)Trigger.OldMap);
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
     }

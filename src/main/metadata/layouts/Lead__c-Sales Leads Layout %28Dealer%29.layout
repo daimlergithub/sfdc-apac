@@ -233,7 +233,7 @@
         <label>Vehicle Select</label>
         <layoutColumns>
             <layoutItems>
-                <height>400</height>
+                <height>230</height>
                 <page>VehiclePicker</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -277,6 +277,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Comment__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
