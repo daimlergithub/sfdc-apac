@@ -7,6 +7,7 @@ public class RetailCampaignTriggerHandler
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();
             SharingService.shareRetailCampaigns(wrapService.wrapRetailCampaigns(Trigger.new));
             RetailCampaignHelper.afterInsertUpdateEvents(Trigger.new,(Map<Id,Retail_Campaign__c>)Trigger.oldmap,Trigger.isInsert,Trigger.isUpdate);
+             RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
         }
         if (trigger.isAfter && trigger.isUpdate) {
             RetailCampaignHelper.afterInsertUpdateEvents(Trigger.new,(Map<Id,Retail_Campaign__c>)Trigger.oldmap,Trigger.isInsert,Trigger.isUpdate);

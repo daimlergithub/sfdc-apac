@@ -165,6 +165,100 @@ public  class RetailCampaignHelper
     }
 }
     
+    public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
+    
+    List<Participating_Dealer__c> newRetail = New List<Participating_Dealer__c>();
+    List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
+
+     Id retailId;       
+    Set<id> sid = New Set<id>();    
+        
+        for(Retail_Campaign__c retcam : retCamp){
+            
+            if(retcam.Parent_Campaign__c != null){
+                
+                    sid.add(retcam.Parent_Campaign__c);
+                    retailId = retcam.Id;
+            }
+            
+            
+            
+        }
+    
+    
+    
+      List<Campaign> camList =[Select id,Name,Consolidated_List_Completed__c,Set_List_Maintenance_Flag__c ,(Select Id,Name,Retail_Campaign__c From Participating_Dealers__r) From Campaign Where Id =: sid ];
+      
+      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c   From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
+      
+      
+      
+      For(Campaign campMain : camList){
+          
+          
+          if(campMain.Consolidated_List_Completed__c == true){
+          
+          For(Participating_Dealer__c partiDealer : campMain.Participating_Dealers__r){
+              
+              
+              partiDealer.Retail_Campaign__c = retailId ;
+              
+             newRetail.add(partiDealer); 
+          }
+          
+          }
+          
+          
+      }
+    
+            if(newRetail.size() > 0){
+             update newRetail;
+            }  
+            
+            For(Campaign caMem : caMemList ){
+            
+            if(caMem.Set_List_Maintenance_Flag__c == false){
+                
+              For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
+                  
+                 Campaign_Member__c newCamRetail = new Campaign_Member__c();
+                 newCamRetail.Name = camo.Name;
+                 newCamRetail.Retail_Campaign_Id__c = retailId;
+                 newCamRetail.Status__c = camo.Status__c;
+                 newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;
+
+                  retailMem.add(newCamRetail);               
+                  
+                  
+              }
+
+
+                                                  
+                
+            }
+            
+            
+        }  
+        if(retailMem.size() >0){
+            insert retailMem;   
+            
+            } 
+                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
     public static void ShareRecordToDealer_AfterUpdate(list<Retail_Campaign__c> retailCampainsNew,map<id,Retail_Campaign__c> retailCampainsNewMap,map<id,Retail_Campaign__c> retailCampainsOldMap, boolean isUpdate)
     {
         String aftersalesYearlyTARecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_YEARLY).getRecordTypeId();
