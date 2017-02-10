@@ -26,7 +26,7 @@ private class VehicleRelationshipSharingTest {
     static void testWrapRetailVehicleRelationships() {
         RecordType retailType = [select Id from RecordType where SObjectType = 'Vehicle_Relationship__c' and DeveloperName = 'Vehicle_Relationship_Retail' limit 1];
         Vehicle_Relationship__c retailVehicleRelationship = new Vehicle_Relationship__c(RecordTypeId = retailType.Id, Owner_Dealer__c = dealer.Id, Vehicle_ID__c = vehicle.Id);
-        insert retailVehicleRelationship;
+        //insert retailVehicleRelationship;
         
         Test.startTest();
         VehicleRelationshipSharingWrapService wrapService = new VehicleRelationshipSharingWrapService();        
@@ -40,7 +40,7 @@ private class VehicleRelationshipSharingTest {
         Test.startTest();
         RecordType retailType = [select Id from RecordType where SObjectType = 'Vehicle_Relationship__c' and DeveloperName = 'Vehicle_Relationship_Retail' limit 1];
         Vehicle_Relationship__c retailVehicleRelationship = new Vehicle_Relationship__c(RecordTypeId = retailType.Id, Owner_Dealer__c = dealer.Id, Vehicle_ID__c = vehicle.Id);
-        insert retailVehicleRelationship;
+        //insert retailVehicleRelationship;
         Test.stopTest();
         system.assertNotEquals(null, retailVehicleRelationship);
         system.assertNotEquals(null, retailVehicleRelationship.Owner_Dealer__c);

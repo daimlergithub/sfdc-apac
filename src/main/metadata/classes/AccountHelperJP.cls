@@ -167,7 +167,7 @@ public class AccountHelperJP
             UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
-                if(a.MD__c == 'JP'|| a.MD__c == 'KR')
+                if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -195,7 +195,7 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
-					//Code commented by Srinivas Pendli for #SFDCKR-620
+                    //Code commented by Srinivas Pendli for #SFDCKR-620
                     /*
                     else if(acc.Primary_Address_Reference__c ==Null)
                     {
@@ -390,16 +390,16 @@ public class AccountHelperJP
                             if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'JP'){
                                 ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
-						else
-						if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
+                        else
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
                             System.debug('###############################-->createUCID---Person Account---KR');
-							ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
-						}
-						else
-						if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
+                            ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
+                        }
+                        else
+                        if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
                             System.debug('###############################-->createUCID---Company Account---KR');
-							ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
-						}
+                            ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
+                        }
                         
                         if(ucidsequence != null && ucidsequence.length() > 0)
                         {
@@ -453,8 +453,8 @@ public class AccountHelperJP
         string sfdcTypeName='Account';
         if(!test.isrunningtest())
              
-				UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
-			 
+                UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+             
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     
