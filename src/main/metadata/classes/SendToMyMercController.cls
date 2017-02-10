@@ -126,7 +126,7 @@ public with sharing class SendToMyMercController {
         Vehset = new set<id>();
         list<Vehicle_Relationship__c> vehfinal = new list<Vehicle_Relationship__c>();
         list<Vehicle_Relationship__c> AccVehfinal = new list<Vehicle_Relationship__c>();
-        list<account> accfinal = new list<account>();
+        Map<Id,Account> accfinal = new Map<Id,Account>();
         set<Id> isMyMercAccId = new set<Id>();
         Boolean emptyMail = false;
         PageReference pr = null;
@@ -144,7 +144,7 @@ public with sharing class SendToMyMercController {
                 }
                 if(obj.isMyMerc){
                     if(obj.isMyMerc == true && string.isBlank(obj.PortalEmail)){
-                    	emptyMail = true;
+                        emptyMail = true;
                     }
                     isMyMercAccId.add(obj.AccountId);
                     email3update.put(obj.AccountId,obj.PortalEmail);
@@ -155,7 +155,7 @@ public with sharing class SendToMyMercController {
                 for(Account acc : isMyMercAccList){
                     acc.email3__c = email3update.get(acc.Id);
                     acc.Portal_Apply_Status__c = 'To be Sent';
-                    accfinal.add(acc);
+                    accfinal.put(acc.Id,acc);
                 }
             }
             if(emptyMail){
@@ -201,13 +201,13 @@ public with sharing class SendToMyMercController {
                         if(ac.recordtypeid == AccCom){
                             {  
                                 ac.Opt_Out_Portal_Reason__c = reasonMap.get(ac.Id);
-                                accfinal.add(ac);
+                                accfinal.put(ac.Id,ac);
                             }
                         }
                         if(ac.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account && ac.PersonBirthdate != null && result == true){
                             {   
                                 ac.Opt_Out_Portal_Reason__c = reasonMap.get(ac.Id);
-                                accfinal.add(ac);
+                                accfinal.put(ac.Id,ac);
                             }
                         }
                         else{
@@ -217,7 +217,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accfinal != null && !accfinal.isEmpty()){
-                update accfinal;
+                update accfinal.values();
                 if(AccVehupdate != null && !AccVehupdate.isEmpty() )
                 {
                     for(Vehicle_Relationship__c ac:AccVehupdate ){
