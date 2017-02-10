@@ -158,7 +158,7 @@ private class RetailCampaignSharingTest {
     static void testWrapRetailCampaigns() {
         
 
- 	 string strSubject;
+     string strSubject;
     User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
     System.runAs(thisUser ){
         Set<Id> campaignIDS = new Set<Id>(); 
@@ -183,19 +183,19 @@ insert updatecustomsettings;
             system.debug('$$$listRecordType$$'+listRecordType);
             if(listRecordType != null && listRecordType.size() > 0){
                 for(RecordType retailCampaignType :listRecordType) {
-                    retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB');
+                    retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB',Campaign_Execution_Channels__c = 'eEmail');
                     retailCampaigns.add(retailCampaign);
                 }
                 for(RecordType retailCampaignType :listRecordType) {
-                    retailCampaignsmart = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'smart');
+                    retailCampaignsmart = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'smart',Campaign_Execution_Channels__c = 'eEmail');
                     retailCampaigns.add(retailCampaignsmart);
                 }
                 for(RecordType retailCampaignType :listRecordType) {
-                    retailCampaignAMG = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'AMG');
+                    retailCampaignAMG = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'AMG',Campaign_Execution_Channels__c = 'eEmail');
                     retailCampaigns.add(retailCampaignAMG);
                 }
                 for(RecordType retailCampaignType :listRecordType) {
-                    retailCampaignStarElite = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'StarElite');
+                    retailCampaignStarElite = new Retail_Campaign__c(Dealer_Name__c = dealer.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'StarElite',Campaign_Execution_Channels__c = 'eEmail');
                     retailCampaigns.add(retailCampaignStarElite);
                 }
                 insert retailCampaigns;
@@ -205,19 +205,19 @@ insert updatecustomsettings;
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();        
             List<SharingWrapper> wrapRetailCampaigns=wrapService.wrapRetailCampaigns(retailCampaigns);
             RetailCampaignHelper RetailCampaigntest = new RetailCampaignHelper();
-        	RetailCampaignHelper.updateParentCampaignStatus(campaignIDS);
-        	RetailCampaignHelper.updateParentCampaignQuarter(campaignIDS);
-        	RetailCampaignHelper.ShareRecordToDealer_BeforeInsert(retailCampaignck);
-        	RetailCampaignHelper.ShareRecordToDealer_AfterUpdate(retailCampaignck, retailCampaignMap, retailCampaignMaps, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, true);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	
-        	
+            RetailCampaignHelper.updateParentCampaignStatus(campaignIDS);
+            RetailCampaignHelper.updateParentCampaignQuarter(campaignIDS);
+            RetailCampaignHelper.ShareRecordToDealer_BeforeInsert(retailCampaignck);
+            RetailCampaignHelper.ShareRecordToDealer_AfterUpdate(retailCampaignck, retailCampaignMap, retailCampaignMaps, false);
+            RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+            RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+            RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+            RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, true);
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+            
+            
              RetailCampaignHelper.generateTask(thisUser, retailCampaign, strSubject);
            RetailCampaignHelper.generateHighPrioTask(thisUser, retailCampaign, strSubject);
         
@@ -233,7 +233,7 @@ insert updatecustomsettings;
     static void testWrapRetailCampaigns2() {
         
 
- 	 string strSubject;
+     string strSubject;
     User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
     System.runAs(thisUser ){
         Set<Id> campaignIDS = new Set<Id>(); 
@@ -252,7 +252,7 @@ insert updatecustomsettings;
         List<Trigger__c> updatecustomsettings = UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
         
-         retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer1.Id,Region_Recommendation__c=false,Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer1.Id, RecordTypeId = RecordTypeIdRC, Brand__c = 'MB');
+         retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer1.Id,Region_Recommendation__c=false,Campaign_Execution_Channels__c = 'eEmail',Y_Apply_Deadline__c=system.today(), Y_Dealer_Name__c = dealer1.Id, RecordTypeId = RecordTypeIdRC, Brand__c = 'MB');
          insert retailCampaign;
         
          retailCampaign.Region_Recommendation__c=true;
@@ -270,11 +270,11 @@ insert updatecustomsettings;
             Test.startTest();
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();        
             
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	
-        	
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+            RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+            
+            
              RetailCampaignHelper.generateTask(thisUser, retailCampaign, strSubject);
            RetailCampaignHelper.generateHighPrioTask(thisUser, retailCampaign, strSubject);
         
