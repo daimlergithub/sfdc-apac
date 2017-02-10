@@ -346,10 +346,4 @@
     <pluralLabel>Dealer List Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-    <validationRules>
-        <fullName>lock_on_campaign</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Campaign__r.Consolidated_List_Completed__c = true)</errorConditionFormula>
-        <errorMessage>Campaign is Locked</errorMessage>
-    </validationRules>
 </CustomObject>
