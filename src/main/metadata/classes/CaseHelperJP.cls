@@ -5,11 +5,12 @@ public class CaseHelperJP {
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-        
+    public List<Account> accUpdLst = new List<Account>();    
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map){
         system.debug('Trigger Old Map...' +case_Map);
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
+        List<Id> newAccoutIds = new List<Id>();
         for (Case c : cases){
             if (c.MD__c == 'JP' || c.MD__c == 'KR'){
                 Case caseRec = (Case)case_Map.get(c.Id);
@@ -21,6 +22,8 @@ public class CaseHelperJP {
                         count[0]++;
                     }
                     accounts.add(caseRec.AccountId);               
+                }else{
+                    newAccoutIds.add(c.AccountId);
                 }
              }
         }
@@ -28,10 +31,21 @@ public class CaseHelperJP {
         System.debug('Count of the Accounts changed...' +acc_Count);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND (MD__c = 'JP' OR MD__c = 'KR')
                                       AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
-                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];    
-        
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];  
+        List<Account> accLst = new List<Account>([select id, name, Complaint_Amount__c from Account where id in: newAccoutIds]);
+        for(Account acc: accLst){
+            if(acc.Complaint_Amount__c > 0){
+                acc.Complaint_Amount__c = acc.Complaint_Amount__c+1;
+            }else{
+                acc.Complaint_Amount__c = 1;
+            }
+                accUpdLst.add(acc);
+        }
+        if(accUpdLst.size()>0){
+            update accUpdLst;
+        }
         
                    
         for(Case c : case_acc){
@@ -49,11 +63,14 @@ public class CaseHelperJP {
         for (Account acc : accRecords){
            List<Id> caseIds = accountCaseMap.get(acc.Id);
            List<Integer> caseCount = acc_Count.get(acc.Id);
-           acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
-           updateAccount.add(acc);
+                acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
+                updateAccount.add(acc);
+           
         }
         system.debug('Accounts to be updated...' +updateAccount);
-        update updateAccount;
+        if(updateAccount.size()>0){
+            update updateAccount;
+        }
     }
     
     public void calculateComplaintAmount(List<Case> cases){
