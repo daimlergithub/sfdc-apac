@@ -656,7 +656,7 @@ public without sharing class RetailCampaignSegmentationController {
         }
        
         else if(CheckboxFields.contains(field)){
-           return  '\''  + criteria + '\'';
+           return  True  + criteria ;
         }
         
        
@@ -682,7 +682,7 @@ public without sharing class RetailCampaignSegmentationController {
             'Latest_Contract_Date__c', 'NextMileage__c', 'NextServiceDate__c', 'Warranty_Start_Date__c'};
         vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Purchase_Date__c', 'Recall__c',
             'Registration_City__c', 'Registration_Date__c', 'Selling_Dealer__c'};
-            CheckboxFields=new Set<string>{'Retail_Visit_OptOut__c=true', 'Retail_Email_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Postal_OptOut__c' };
+            CheckboxFields=new Set<string>{'Retail_Visit_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Postal_OptOut__c' };
           AccountLinkFields =new Set<String>{'Sales_Representative__c', 'Retail_Visit_OptOut__c', 'Retail_Sales_Sanction__c', 'Retail_Postal_OptOut__c', 'Retail_Phone_OptOut__c', 'Retail_Fax_OptOut__c', 'Retail_Email_OptOut__c', 'Retail_OptOutContact_Reason__c', 'Portal_ID__c' };  
           
           CampaignFields =new Set<String>{'Name' , 'Status'};
