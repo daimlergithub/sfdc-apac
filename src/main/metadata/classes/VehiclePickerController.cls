@@ -515,8 +515,6 @@ global with sharing class VehiclePickerController {
         List<Car_Model__c> carModel;    
         System.debug('I am in my remote method...' +vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
-		carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
-		Lead__c lead = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             System.debug('The Vehicle Attributes...' +vehicleAttributes);
             System.debug('Operation Value' +vehicleAttributes.get('Operation'));
@@ -526,7 +524,7 @@ global with sharing class VehiclePickerController {
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
-            
+            carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
 
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
@@ -539,7 +537,7 @@ global with sharing class VehiclePickerController {
                 leadVehicle.Car_Model__c = carModel[0].Id;
                 insert leadVehicle;
                 
-                //Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
+                Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      lead.Interested_Vehicle__c = leadVehicle.Id;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
@@ -556,7 +554,7 @@ global with sharing class VehiclePickerController {
                 update lead;
             }else if (vehicleAttributes.get('Operation').equalsIgnoreCase('Edit')){
                 System.debug('Edit...');
-                
+                Lead__c lead = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     leadVehicle.Id =  lead.Interested_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;
@@ -602,7 +600,7 @@ global with sharing class VehiclePickerController {
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);
-           //Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
+           Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
            if (vehicleAttributes.get('VehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                system.debug('Vehicle Type :' +vehicleAttributes.get('VehicleType'));
                system.debug('Vehicle Id:' +vehicleAttributes.get('Id'));

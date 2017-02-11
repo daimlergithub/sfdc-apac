@@ -360,7 +360,7 @@ public without sharing class VehiclePickerControllerTests{
         test.StartTest();
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         VehiclePickerController vpc = new VehiclePickerController(sc);
-        test.stopTest();
+        
         Map<String,String> tempMap = new Map<String,String>();
         Lead__c leadDetails;
         leadDetails = [Select Interested_Vehicle__c, Current_Vehicle_1__c, Current_Vehicle_2__c, Trade_In_Vehicle__c, Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
@@ -410,7 +410,7 @@ public without sharing class VehiclePickerControllerTests{
             }
             
         }
-        
+        test.stopTest();
     }
     
     
