@@ -29,8 +29,8 @@ public with sharing class SendToMyMercController {
         IndividualCustomerExternaLink = rec.Id;
         RecordType recCom = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Company' limit 1];
         AccCom = recCom.Id;
-        RecordType recDelar = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Person Account' limit 1];
-        Person = recDelar.Id;
+        RecordType recPerson = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Person Account' limit 1];
+        Person = recPerson.Id;
         RecordType vehRelRecType = [select id,name from RecordType where sObjecttype = 'vehicle_relationship__c' AND Name = 'Vehicle Relationship'];
         vehRelType = vehRelRecType.Id;
         accountRelatedData();
@@ -41,13 +41,13 @@ public with sharing class SendToMyMercController {
         Set<ID> setAccountID = new Set<ID>();
         Map<ID,String> mapAccount = new Map<Id,String>();
         Map<ID,string> accountLinkId = new Map<Id,string>();
-        List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
-        
+        List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Contact__c,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
+        System.debug('========vR'+lstVehicle_Relationship);
         for(Vehicle_Relationship__c vch:lstVehicle_Relationship){
             setAccountID.add(vch.Contact__c);
         }
         for(Account eachAccount:[SELECT Id,Name,(SELECT Id,name,toRole__c From Account_Links__r where RecordtypeId =: IndividualCustomerExternaLink AND System__c = 'My Mercedes' AND Primary__c = True) from Account where ID IN:setAccountID] ){
-            for(Account_Link__c eachLink:eachAccount.Account_Links__r){
+            for(Account_Link__c eachLink : eachAccount.Account_Links__r){
                 if( eachLink.toRole__c== eachAccount.Id )
                     accountLinkId.put(eachAccount.ID,eachLink.name);
                 system.debug('!!!'+accountLinkId);
@@ -56,7 +56,6 @@ public with sharing class SendToMyMercController {
         }
         Map<id,string> accountCarmap = new Map<id,string>();
         Set<id> uniqueids = new Set<id>();
-        boolean cb;
         for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
             if(accountCarmap.containskey(eachVRelationships.contact__c))
                 accountCarmap.put(eachVRelationships.contact__c,accountCarmap.get(eachVRelationships.contact__c)+'/'+eachVRelationships.Car_Relation__c);
@@ -65,16 +64,6 @@ public with sharing class SendToMyMercController {
         }
         
         for(Vehicle_Relationship__c eachVRelationships:lstVehicle_Relationship){
-            
-            if(String.isNotBlank(eachVRelationships.Retail_Contact__r.Name) &&eachVRelationships.Retail_Contact__r.system__c== 'My Mercedes' && eachVRelationships.Retail_Contact__r.Primary__c== true && eachVRelationships.Retail_Contact__r.toRole__c == eachVRelationships.Contact__c)
-            {
-                cb = true;
-            }
-            else
-            {
-                cb = false;
-            }
-            
             if(String.isNotBlank(eachVRelationships.Retail_Contact__r.Portal_Email__c) && eachVRelationships.Retail_Contact__r.system__c== 'My Mercedes')
             {
                 emai3= eachVRelationships.Retail_Contact__r.Portal_Email__c;
@@ -86,167 +75,134 @@ public with sharing class SendToMyMercController {
             if(eachVRelationships.Retail_Contact__r.RecordtypeId == IndividualCustomerExternaLink && eachVRelationships.Retail_Contact__r.Primary__c == true && eachVRelationships.Retail_Contact__r.toRole__c == eachVRelationships.Contact__c && eachVRelationships.Retail_Contact__r.system__c == 'My Mercedes')
             {
                 if(!uniqueids.contains(eachVRelationships.Contact__c)) {
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c));
                     uniqueids.add(eachVRelationships.Contact__c);
                 }
             }
             else{
                 if(!uniqueids.contains(eachVRelationships.Contact__c)) {
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,cb,eachVRelationships.Portal_Visiblity__c));
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c));
                     uniqueids.add(eachVRelationships.Contact__c);
                 }
             }
         }       
         return lstAccountWrapper;
-    }
-    
-    public void closePopup()
-    {  
-        displayPopup = false;   
-    }    
-    public void showPopup()
-    {      
-        String VID = apexpages.currentpage().getParameters().get('recordID');  
-        lstVinfo= [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where ID=:VID AND recordtypeId =: vehRelType];
-        if(String.isNotBlank(lstVinfo.Retail_Contact__r.Portal_Email__c)){
-            FinalEmail = lstVinfo.Retail_Contact__r.Portal_Email__c;
-        }
-        else
-        {
-            FinalEmail = lstVinfo.Contact__r.Email3__c ;
-        }
-        displayPopup = true; 
     } 
     
     public pagereference Submit(){
-        map<id,string> reasonMap = new map<id,string>();//email3update
         map<id,string> email3update = new map<id,string>();
         map<id,boolean> visiblemap = new map<id,boolean>();
+        Map<Id,Account> myMercAcc = new Map<Id,Account>();
+        Map<Id,Account> nonMyMercAcc = new Map<Id,Account>();
+        Map<Id,Account_Link__c> idAccLinkMap = new Map<Id,Account_Link__c>();
         accset = new set<Id>();
         Vehset = new set<id>();
         list<Vehicle_Relationship__c> vehfinal = new list<Vehicle_Relationship__c>();
         list<Vehicle_Relationship__c> AccVehfinal = new list<Vehicle_Relationship__c>();
+        Map<Id,String> accIdReasonMap = new Map<Id,String>();
         Map<Id,Account> accfinal = new Map<Id,Account>();
-        set<Id> isMyMercAccId = new set<Id>();
-        Boolean emptyMail = false;
+        List<Account_Link__c> accLinkFinal = new List<Account_Link__c>();
         PageReference pr = null;
-        if(lstAccountWrapper != null && !lstAccountWrapper.isEmpty()){ 
+        Boolean reason = false;
+        Boolean emptyMail = false;
+        Boolean personBirthDate = false;
+        if(lstAccountWrapper != null && !lstAccountWrapper.isEmpty()){
             for(AccountWrapper obj: lstAccountWrapper){
-                if(obj.isSelect){
-                    if(obj.isMyMerc == false && String.isBlank(obj.OptOutReason)){
-                        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter The Reason'));
-                    }
+                if(obj.isSelect == false && String.isBlank(obj.OptOutReason)){
+                    reason = true;
+                }
+                else if(Obj.isSelect == false && !String.isBlank(obj.OptOutReason)){
+                    System.debug('nonselectaccountreason'+obj.accountid+'reason'+obj.optoutreason);
+                    accIdReasonMap.put(obj.AccountId,obj.OptOutReason);     
+                }
+                if(obj.isSelect == true && String.isBlank(Obj.PortalEmail)){
+                    emptyMail = true;
+                }
+                else if(obj.isSelect == true && !String.isBlank(Obj.PortalEmail)){
                     Vehset.add(obj.VehRelId);
                     visiblemap.put(obj.AccountId,obj.isVisible);
                     accset.add(obj.AccountId);                       
-                    reasonMap.put(obj.AccountId,obj.OptOutReason);
                     email3update.put(obj.AccountId,obj.PortalEmail);
                 }
-                if(obj.isMyMerc){
-                    if(obj.isMyMerc == true && string.isBlank(obj.PortalEmail)){
-                        emptyMail = true;
-                    }
-                    isMyMercAccId.add(obj.AccountId);
-                    email3update.put(obj.AccountId,obj.PortalEmail);
-                }
-            }
-            if(isMyMercAccId != NULL && !isMyMercAccId.isEmpty() && emptyMail == false){
-                List<account> isMyMercAccList = [SELECT Id,Portal_Apply_Status__c,Email3__c FROM Account WHERE Id IN: isMyMercAccId];
-                for(Account acc : isMyMercAccList){
-                    acc.email3__c = email3update.get(acc.Id);
-                    acc.Portal_Apply_Status__c = 'To be Sent';
-                    accfinal.put(acc.Id,acc);
-                }
-            }
-            if(emptyMail){
-                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter My Merc Email Id'));
-            }
-            else {
-                if(accset.isEmpty() && accfinal.isEmpty()){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please Select Atleast One.'));
-                }
-                if(accset !=null && !accset.isEmpty() )
-                {
-                    Accupdate = [select id,Portal_Apply_Status__c,recordtypeid,Email2__c,PersonBirthdate,LastName_Native_1__c  from account where Id In: accset];
-                    AccVehupdate = [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accset];
-                }
-                if(Vehset !=null && !Vehset.isEmpty()){
-                    Vehupdate = [select id,Portal_Apply_User__c,Portal_Apply_Date__c,Contact__c,Portal_Visiblity__c from Vehicle_Relationship__c where Id In: Vehset];
-                }
-                
-                if(Vehupdate != null && !Vehupdate.isEmpty() ){
-                    for(Vehicle_Relationship__c veh:Vehupdate )
-                    {
-                        veh.Portal_Apply_Status__c = 'To be Sent';
-                        veh.Portal_Apply_Date__c = system.Today();
-                        veh.Portal_Apply_User__c = userinfo.getUserid();
-                        if(visiblemap.get(veh.Contact__c) == true)
-                            veh.Portal_Visiblity__c = True;
-                        vehfinal.add(veh);
-                    } 
-                    if(vehfinal != null && !vehfinal.isEmpty()){
-                        update vehfinal;
-                        pr = new PageReference('/'+vehpageid);
-                        pr.setRedirect(true);
-                    } 
-                }
-                if(Accupdate != null && !Accupdate.isEmpty() )
-                {  
-                    for(Account ac:Accupdate ){
-                        Pattern MyPattern = Pattern.compile(emailRegex);
-                        if(!String.isBlank(ac.LastName_Native_1__c)){
-                            Matcher MyMatcher = MyPattern.matcher(ac.LastName_Native_1__c);
-                            result  = MyMatcher.matches();
-                        }
-                        if(ac.recordtypeid == AccCom){
-                            {  
-                                ac.Opt_Out_Portal_Reason__c = reasonMap.get(ac.Id);
-                                accfinal.put(ac.Id,ac);
-                            }
-                        }
-                        if(ac.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account && ac.PersonBirthdate != null && result == true){
-                            {   
-                                ac.Opt_Out_Portal_Reason__c = reasonMap.get(ac.Id);
-                                accfinal.put(ac.Id,ac);
-                            }
-                        }
-                        else{
-                            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandate Fields In Accounts'));
-                        }
-                    }
+            }  
+        }
+        if(Reason == false && emptyMail == false){
+            System.debug('accIdReasonMap'+accIdReasonMap);
+            if(accIdReasonMap != NULL && !accIdReasonMap.isEmpty()){
+                for(Account eachAccount : [SELECT Id,Opt_Out_Portal_Reason__c from Account where ID IN: accIdReasonMap.keySet()] ){
+                    System.debug('========'+ accIdReasonMap.get(eachAccount.Id));
+                    system.Debug('=='+eachAccount.Id);
+                    eachAccount.Opt_Out_Portal_Reason__c = accIdReasonMap.get(eachAccount.Id);
+                    accFinal.put(eachAccount.Id,eachAccount);      
                 }   
             }
+            if(accset !=null && !accset.isEmpty() ){
+                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                    for(Account_link__c accLink : eachAcc.Account_Links__r){
+                        if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
+                            myMercAcc.put(eachAcc.Id,eachAcc);
+                            idAccLinkMap.put(eachAcc.Id,accLink);
+                        }
+                    }
+                    if(!myMercAcc.containsKey(eachAcc.Id)){
+                        nonMyMercAcc.put(eachAcc.Id,eachAcc);        
+                    }
+                    if(eachAcc.RecordTypeId == person && (eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c))){
+                    	personBirthdate = true;    
+                    }
+                }
+                if(personBirthdate == false){
+                    for(Account acc : myMercAcc.values()){
+                        acc.Email3__c = email3update.get(acc.Id);
+                        idAccLinkMap.get(acc.Id).Portal_Email__C = email3update.get(acc.Id);
+                        accfinal.put(acc.Id, acc);
+                        accLinkFinal.add(idAccLinkMap.get(acc.Id));
+                    }
+                    for(Account acct : nonMyMercAcc.values()){ 
+                        acct.Portal_Apply_Status__c = 'To be Sent';
+                        acct.Portal_Apply_Date__c = System.today();
+                        acct.Portal_Apply_User__c = userinfo.getUserId();
+                        acct.Email3__c = email3update.get(acct.Id);
+                        accfinal.put(acct.Id,acct);
+                    }
+                    AccVehupdate = [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accset AND End_Date__c = Null AND RecordtypeId =: vehRelType];
+                    if(AccVehupdate != null && !AccVehupdate.isEmpty() )
+                    {
+                        for(Vehicle_Relationship__c ac:AccVehupdate ){
+                            ac.Portal_Apply_Date__c = system.Today();
+                            ac.Portal_Apply_Status__c = 'To be Sent';
+                            ac.Portal_Apply_User__c = userinfo.getUserid();
+                            if(visiblemap.get(ac.Contact__c) == true)
+                                ac.Portal_Visiblity__c = True;
+                            AccVehfinal.add(ac);
+                        }
+                    }
+                }
+                else{
+                	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
+                }
+            }        
             if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
-                if(AccVehupdate != null && !AccVehupdate.isEmpty() )
-                {
-                    for(Vehicle_Relationship__c ac:AccVehupdate ){
-                        ac.Portal_Apply_Date__c = system.Today();
-                        ac.Portal_Apply_Status__c = 'To be Sent';
-                        ac.Portal_Apply_User__c = userinfo.getUserid();
-                        if(visiblemap.get(ac.Contact__c) == true)
-                            ac.Portal_Visiblity__c = True;
-                        AccVehfinal.add(ac);
-                    }
-                    if(AccVehfinal != null && !AccVehfinal.isEmpty() ){
-                        update AccVehfinal;
-                    }
-                    pr = new PageReference('/'+vehpageid);
-                    pr.setRedirect(true);
+                if(accLinkFinal != NULL && !accLinkFinal.isEmpty()){
+                    update accLinkFinal;
                 }
-            }
+                if(AccVehfinal != null && !AccVehfinal.isEmpty() ){
+                    update AccVehfinal;
+                }
+    	         pr = new PageReference('/'+vehpageid);
+        	     pr.setRedirect(true);
+        	}
         }
-        return pr;
+        else if(reason){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter The Reason for Non selected Account'));
+        }
+        else if(emptyMail){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter My Merc Email Id for selected Account'));
+        }
+    return pr;
     }
     
-    public pagereference cancel () 
-    {
-        pagereference pr = new pagereference ('/'+vehpageid);
-        pr.setRedirect(true);
-        return pr; 
-    }
-    
-
     public class AccountWrapper{
         public String accountData{get;set;}
         public String vehicleRelationship{get;set;}
@@ -256,12 +212,11 @@ public with sharing class SendToMyMercController {
         public String PortalEmail {get;set;}
         public String personalEmail {get;set;}
         public boolean isSelect{get;set;}
-        public boolean isMyMerc{get;set;}
         public boolean isVisible{get;set;}
-        public Id AccountId;
+        public Id AccountId {set;get;}
         public ID VID{get;set;}
         public Id VehRelId;
-        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVar,boolean isMyMercVis){
+        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVis){
             accountData = accountDataVar;
             vehicleRelationship = vehicleRelationshipVar;
             accountLink = accountLinkVar;
@@ -270,13 +225,11 @@ public with sharing class SendToMyMercController {
             AccountId = accid;
             VehRelId = vehid;
             isSelect = false;
-            isMyMerc = isMyMercVar;
             personalEmail = personalEmailVar;
             isVisible = isMyMercVis;
             accountLink = accountLinkVar;
             PortalEmail = PortalEmailVar;
-            VID = VIDVar;
-            
+            VID = VIDVar;  
         }
     }    
 }
