@@ -560,43 +560,44 @@ global with sharing class VehiclePickerController {
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     leadVehicle.Id =  lead.Interested_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;
-                    update leadVehicle;
+                    //update leadVehicle;
                     lead.Interested_Vehicle__c = leadVehicle.Id;
-                    update lead;
+                    //update lead;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
                     System.debug('@shrinivas : vehicle id :' +leadVehicle);
                     System.debug('@shrinivas : lead vehicle id :' +lead.Interested_Competitor_Vehicle__c);
                     leadVehicle.Id =  lead.Interested_Competitor_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;
-                    update leadVehicle;       
+                    //update leadVehicle;       
                     lead.Interested_Competitor_Vehicle__c = leadVehicle.Id;
-                    update lead;
+                    //update lead;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                     leadVehicle.Id =  lead.Current_Vehicle_1__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;                           
-                    update leadVehicle;
+                    //update leadVehicle;
                     lead.Current_Vehicle_1__c = leadVehicle.Id;
-                    update lead;
+                    //update lead;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
                     leadVehicle.Id =  lead.Current_Vehicle_2__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;      
-                    update leadVehicle;
+                    //update leadVehicle;
                     lead.Current_Vehicle_2__c = leadVehicle.Id;                     
-                    update lead;
+                    //update lead;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
                     leadVehicle.Id =  lead.Trade_In_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;       
-                    update leadVehicle;
+                    //update leadVehicle;
                     lead.Trade_In_Vehicle__c = leadVehicle.Id;
-                    update lead;
+                    //update lead;
                 }else if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                     leadVehicle.Id =  lead.Purchased_Vehicle__c;
                     leadVehicle.Car_Model__c = carModel[0].Id;       
-                    update leadVehicle;
+                    //update leadVehicle;
                     lead.Purchased_Vehicle__c = leadVehicle.Id;
-                    update lead;
+                    //update lead;
                 }
-                
+                update leadVehicle;
+				update lead;
             }            
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
