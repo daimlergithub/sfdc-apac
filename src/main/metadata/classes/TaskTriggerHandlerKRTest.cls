@@ -7,6 +7,7 @@ public Class TaskTriggerHandlerKRTest {
   //Static String centralmarkcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
   public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
   public static Id peraccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+  public static Id DealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
   public static List<Campaign> camplist;
   Public Static Account customer;
   private static Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
@@ -21,15 +22,12 @@ public Class TaskTriggerHandlerKRTest {
   Static void createtestdata() {
         //customer = [Select Name,Id,PersonContactId From Account Where Id =: customer.Id];
         
-         customer = new Account(LastName='TEST ACC',
-                                    FirstName = 'FirstName',
+         customer = new Account(Name='TEST ACC',
                                       Status__c='VIP',
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
-                                      ZipCode__c='1004468',
-                                      PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',Home_Phone_2__c = '000-0000-9642',
-                                      RecordTypeId=peraccRecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',MBK_Data_Source__c ='Email',Mobile__c = '000-0000-9642'
+                                      ZipCode__c='1004468',Home_Phone_2__c = '000-0000-9642',
+                                      RecordTypeId=DealerRecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',MBK_Data_Source__c ='Email',Mobile__c = '000-0000-9642'
                                      ); 
         insert customer;
         
@@ -73,10 +71,17 @@ public Class TaskTriggerHandlerKRTest {
     
     contobj = new Contact(AccountId = customer.Id, LastName = 'b', Phone = '1212313', MobilePhone='1236547890',email = 's@s.s',DUP_Number__c='test dup');
     insert contobj;
-    
+    Map <String,Schema.RecordTypeInfo> fetchrecordTypes = Account.sObjectType.getDescribe().getRecordTypeInfosByName();
+    Id personAccRecordTypeId = fetchrecordTypes.get('Person Account').getRecordTypeId();
+    Account newPersonAccount = new Account();
+     newPersonAccount.FirstName = 'Fred';
+     newPersonAccount.LastName = 'Smith';
+     newPersonAccount.RecordTypeid = personAccRecordTypeId;
+     insert newPersonAccount;
+    Contact conId = [select id from Contact where AccountId =: newPersonAccount.id];
     member = new CampaignMember();
     member.CampaignId = camp.Id;
-    member.ContactId = contobj.Id;
+    member.ContactId = conId.Id;
     member.MD__c='KR';
     member.Status = 'Sent';
     member.Task_Generated__c=false;
@@ -91,15 +96,8 @@ public Class TaskTriggerHandlerKRTest {
     //insert cammemberlist;
   }
   public static testmethod void updateCampaignMemberStatus() {
-    //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
-    //insert updatecustomsettings;
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
     insert updatecustomsettings;
     createtestdata();
-    test.starttest();
-      TaskTriggerHandlerKR tasktrig = new TaskTriggerHandlerKR();
-      tasktrig.handleTrigger(true,true,true,true,true);
-      tasktrig.handleIntegrationTrigger(true,true,true,true,true);
-    test.stoptest();  
   }
 }

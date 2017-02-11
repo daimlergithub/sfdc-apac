@@ -34,7 +34,7 @@ public class CaseHelperJP {
                                       Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND (MD__c = 'JP' OR MD__c = 'KR')
                                       AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
                                       AND Case_Class__c = 'Complaint' and MD__c = 'KR')];  
-        List<Account> accLst = new List<Account>([select id, name, Complaint_Amount__c from Account where id in: newAccoutIds]);
+        List<Account> accLst = new List<Account>([select id, Complaint_Amount__c from Account where id in: newAccoutIds]);
         for(Account acc: accLst){
             if(acc.Complaint_Amount__c > 0){
                 acc.Complaint_Amount__c = acc.Complaint_Amount__c+1;

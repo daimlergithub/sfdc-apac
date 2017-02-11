@@ -296,6 +296,10 @@
 				<sf:include name="CaseHelperJPTest"/>
 				<sf:include name="CaseHelper"/>
 				<sf:include name="CaseHelperTest"/>
+				<sf:include name="CaseEscalationController"/>
+				<sf:include name="CaseEscalationControllerTest"/>
+				<sf:include name="GenerateCatalogueCsv"/>
+				<sf:include name="GenerateCatalogueCsvTest"/>
 				<sf:include name="TaskHelperKR"/>
 				<sf:include name="TaskHelperKRTest"/>
 				<sf:include name="GenerateAndAttachPDF"/>
@@ -344,6 +348,8 @@
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 				<sf:include name="VehicleRelationshipHelperJP"/>
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
+				<sf:include name="VehiclePickerController"/>
+				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerKR"/>
@@ -357,6 +363,7 @@
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
 				<sf:include name="VehicleDataSharingHandler"/>
+				<sf:include name="VehicleRelationshipSharingTest"/>
 				<sf:include name="CustomLogUtil"/>
 				<sf:include name="CustomLogUtilTest"/>
 				<sf:include name="SharingDataHandlerBase"/>
@@ -474,16 +481,12 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="VehiclePickerController"/>
-			<sf:include name="VehiclePickerControllerTests"/>
 			<sf:include name="VehiclePickerForCaseController"/>
 			<sf:include name="VehiclePickerForCaseControllerTest"/>
 			<sf:include name="LeadVehiclePickerKRController"/>
 			<sf:include name="LeadVehiclePickerKRControllerTests"/>
 			<sf:include name="MarketCheckOnVehiclePickerCon"/>
 			<sf:include name="MarketCheckOnVehiclePickerConTest"/>
-			<sf:include name="GenerateCatalogueCsv"/>
-			<sf:include name="GenerateCatalogueCsvTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
@@ -697,7 +700,6 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="VehicleRelationshipHelperTest"/>
-			<sf:include name="VehicleRelationshipSharingTest"/>
 			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
@@ -769,8 +771,6 @@
 			<sf:include name="CampaignMemberAfterTriggerHandler"/>
 			<sf:include name="CampaignMemberAfterTriggerHandlerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
-			<sf:include name="CaseEscalationController"/>
-			<sf:include name="CaseEscalationControllerTest"/>
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
 			<sf:include name="MassApproveToolKitController"/>
