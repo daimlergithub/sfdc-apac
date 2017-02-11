@@ -248,6 +248,7 @@ public without sharing class VehiclePickerControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         VehiclePickerController vpc = new VehiclePickerController(sc);
         Map<String,String> tempMap = new Map<String,String>();
+		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -257,26 +258,26 @@ public without sharing class VehiclePickerControllerTests{
             String vehicleDetails = JSON.serialize(tempMap);
             system.debug('Vehicle Detials for Lookup...' +vehicleDetails);
             VehiclePickerController.updateVehicleDetails(vehicleDetails);
-            Lead__c leadDetails;
+		
             
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-                leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Interested_Vehicle__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_1__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_2__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-                leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Trade_In_Vehicle__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-                leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Purchased_Vehicle__c,testVehicleMB.Id);
             }
             
@@ -370,8 +371,7 @@ public without sharing class VehiclePickerControllerTests{
         Map<String,String> tempMap = new Map<String,String>();
         Lead__c leadDetails;
         leadDetails = [Select Interested_Vehicle__c, Current_Vehicle_1__c, Current_Vehicle_2__c, Trade_In_Vehicle__c, Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
-        Vehicle__c clearedVehicle;
-        clearedVehicle = [Select Id from Vehicle__c Where Id =:testVehicleMB.Id];        
+   
         for(String vehicle : vehicleTypes){
         
             if (!vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
@@ -413,11 +413,7 @@ public without sharing class VehiclePickerControllerTests{
                 }
                 
                 
-                try{                    
-                    System.debug('Vehicle after clear :' +clearedVehicle);
-                }catch(Exception e){
-                    system.debug('Exeption encoutered :' +e.getMessage());
-                }
+                
             }
             
         }
