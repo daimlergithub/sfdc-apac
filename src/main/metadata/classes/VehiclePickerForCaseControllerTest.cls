@@ -247,6 +247,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
         ApexPages.StandardController sc = new ApexPages.StandardController(testCase);
         VehiclePickerForCaseController vpc = new VehiclePickerForCaseController(sc);
         Map<String,String> tempMap = new Map<String,String>();
+		//Case caseDetails = [Select Id, Interested_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:testCase.Id];
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -255,8 +256,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
             String vehicleDetails = JSON.serialize(tempMap);
             system.debug('Vehicle Detials for Lookup...' +vehicleDetails);
             VehiclePickerForCaseController.updateVehicleDetails(vehicleDetails);
-            Case caseDetails;
-            
+            Case caseDetails;          
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 caseDetails = [Select Interested_Vehicle__c from Case where Id =:testCase.Id];
                 System.assertEquals(caseDetails.Interested_Vehicle__c,testVehicleMB.Id);

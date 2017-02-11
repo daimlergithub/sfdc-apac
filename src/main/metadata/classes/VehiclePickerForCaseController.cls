@@ -279,39 +279,38 @@ global without sharing class VehiclePickerForCaseController {
         UtilConstant utilConst = new UtilConstant();
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
         System.debug('Vehicle Type...' +vehicleAttributes.get('VehicleType'));
+		Case cse = [Select Id, Interested_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c,Interested_Competitor_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
 
-        
-        Case cse;
         Vehicle__c vehicleId;
         Id vehicleRec_Id;
         String case_Vehicle_Type = vehicleAttributes.get('VehicleType');
         if (case_Vehicle_Type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-            cse = [Select Id, Interested_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Interested_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Interested_Vehicle__c].RecordTypeId;
+            //cse = [Select Id, Interested_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Interested_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Interested_Vehicle__c].RecordTypeId;
         }else if (case_Vehicle_Type.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
-            cse = [Select Id, Interested_Competitor_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Interested_Competitor_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Interested_Competitor_Vehicle__c].RecordTypeId;
+            //cse = [Select Id, Interested_Competitor_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Interested_Competitor_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Interested_Competitor_Vehicle__c].RecordTypeId;
         }else if (case_Vehicle_Type.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-            cse = [Select Id, Current_Vehicle_1__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Current_Vehicle_1__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Current_Vehicle_1__c].RecordTypeId;
+            //cse = [Select Id, Current_Vehicle_1__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Current_Vehicle_1__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Current_Vehicle_1__c].RecordTypeId;
         }else if (case_Vehicle_Type.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-            cse = [Select Id, Current_Vehicle_2__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Current_Vehicle_2__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Current_Vehicle_2__c].RecordTypeId;
+            //cse = [Select Id, Current_Vehicle_2__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Current_Vehicle_2__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Current_Vehicle_2__c].RecordTypeId;
         }else if (case_Vehicle_Type.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-            cse = [Select Id, Trade_In_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Trade_In_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Trade_In_Vehicle__c].RecordTypeId;
+            //cse = [Select Id, Trade_In_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Trade_In_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Trade_In_Vehicle__c].RecordTypeId;
         }else if (case_Vehicle_Type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-            cse = [Select Id, Purchased_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
-            vehicleId = [Select Id from Vehicle__c Where Id=:cse.Purchased_Vehicle__c];
-            vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Purchased_Vehicle__c].RecordTypeId;
+            //cse = [Select Id, Purchased_Vehicle__c from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+            vehicleId = [Select Id,RecordTypeId from Vehicle__c Where Id=:cse.Purchased_Vehicle__c];
+            //vehicleRec_Id = [SELECT RecordTypeId FROM Vehicle__c WHERE Id =:cse.Purchased_Vehicle__c].RecordTypeId;
         }
         
-        String recType_name = UtilRecordType.getRecordTypeNameById('Vehicle__c', vehicleRec_Id);
+        String recType_name = UtilRecordType.getRecordTypeNameById('Vehicle__c', vehicleId.RecordTypeId);
         System.debug('@Clear : Vehicle Rec Name :' +recType_name);
         
         if (recType_name.equalsIgnoreCase(utilConst.VEHICLE_PRODUCT)){
@@ -441,6 +440,8 @@ global without sharing class VehiclePickerForCaseController {
         List<Car_Model__c> carModel;    
         System.debug('I am in my remote method...' +vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
+		carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
+		Case cse = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             System.debug('The Vehicle Attributes...' +vehicleAttributes);
             System.debug('Operation Value' +vehicleAttributes.get('Operation'));
@@ -450,8 +451,7 @@ global without sharing class VehiclePickerForCaseController {
             caseVehicle.Trim__c = vehicleAttributes.get('Trim');
             caseVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
-            carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
-
+        
             if (!mileageVal.equals('')){
                 caseVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
@@ -464,7 +464,7 @@ global without sharing class VehiclePickerForCaseController {
                 insert caseVehicle;
                 
                 
-                Case cse = [Select Id from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+                
                 if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      cse.Interested_Vehicle__c = caseVehicle.Id;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
@@ -481,52 +481,52 @@ global without sharing class VehiclePickerForCaseController {
                 update cse;
             }else if (vehicleAttributes.get('Operation').equalsIgnoreCase('Edit')){
                 System.debug('Edit...');
-                Case cse = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                     caseVehicle.Id =  cse.Interested_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;
-                    update caseVehicle;
+                    //update caseVehicle;
                     cse.Interested_Vehicle__c = caseVehicle.Id;
-                    update cse;
+                    //update cse;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
                     System.debug('@shrinivas : vehicle id :' +caseVehicle);
                     System.debug('@shrinivas : cse vehicle id :' +cse.Interested_Competitor_Vehicle__c);
                     caseVehicle.Id =  cse.Interested_Competitor_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;
-                    update caseVehicle;       
+                    //update caseVehicle;       
                     cse.Interested_Competitor_Vehicle__c = caseVehicle.Id;
-                    update cse;
+                    //update cse;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                     caseVehicle.Id =  cse.Current_Vehicle_1__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;                           
-                    update caseVehicle;
+                    //update caseVehicle;
                     cse.Current_Vehicle_1__c = caseVehicle.Id;
-                    update cse;
+                    //update cse;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
                     caseVehicle.Id =  cse.Current_Vehicle_2__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;      
-                    update caseVehicle;
+                    //update caseVehicle;
                     cse.Current_Vehicle_2__c = caseVehicle.Id;                     
-                    update cse;
+                    //update cse;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
                     caseVehicle.Id =  cse.Trade_In_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;       
-                    update caseVehicle;
+                    //update caseVehicle;
                     cse.Trade_In_Vehicle__c = caseVehicle.Id;
-                    update cse;
+                    //update cse;
                 }else if (vehicleAttributes.get('caseVehicleType').equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                     caseVehicle.Id =  cse.Purchased_Vehicle__c;
                     caseVehicle.Car_Model__c = carModel[0].Id;       
-                    update caseVehicle;
+                    //update caseVehicle;
                     cse.Purchased_Vehicle__c = caseVehicle.Id;
-                    update cse;
+                    //update cse;
                 }
-                
+				update caseVehicle;
+                update cse;
             }            
         }
         if(vehicleAttributes.get('Lookup') == 'true'){
            System.debug('Vehicle Type is Interested Vehicle...' +vehicleAttributes);
-           Case cse = [Select Id from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
+           //Case cse = [Select Id from Case Where Id =:vehicleAttributes.get('CurrentRecordId')];
            if (vehicleAttributes.get('VehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                system.debug('Vehicle Type :' +vehicleAttributes.get('VehicleType'));
                system.debug('Vehicle Id:' +vehicleAttributes.get('Id'));
