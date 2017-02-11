@@ -9486,7 +9486,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9690,7 +9690,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Freelancers</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
