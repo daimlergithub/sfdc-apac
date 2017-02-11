@@ -557,13 +557,27 @@ public class AddressSearchValidationController{
                     { 
                     *****************************************/  
                         system.debug('Enter JP Loop 5 :'); 
-                        refreshPage = true;
-                        upsert objPersonAccount ;
-                        AddressObj.Customer__c = objPersonAccount.id;
-                        AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
-                        insert AddressObj;
+                        if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
+                           objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
+                           objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
+                        {
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                            Validation = true;
+                        }
+                        
+                        system.debug('refreshPage 1:'+refreshPage );
+                        if(Validation = false){
+                             system.debug('refreshPage 2:'+refreshPage );
+                            upsert objPersonAccount ;
+                            if(AddressObj !=null && Address_Validated_Flag == true){
+                                AddressObj.Customer__c = objPersonAccount.id;
+                                AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
+                                insert AddressObj;
+                            }
+                        
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
                         return PageRef;
+                        }
                    // }
                 }
                 
