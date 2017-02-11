@@ -3386,6 +3386,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Related_Contact4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 4</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Related Contact 4)</relationshipLabel>
+        <relationshipName>Retail_Tasks7</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Related_Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>

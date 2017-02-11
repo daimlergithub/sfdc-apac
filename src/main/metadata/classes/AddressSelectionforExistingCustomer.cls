@@ -17,7 +17,7 @@ MODIFICATION DETAILS:
    JIRA Number      :    SFDCJP-1134
 ************************************************************************************/
 
-public with sharing class AddressSelectionforExistingCustomer {
+public without sharing class AddressSelectionforExistingCustomer {
 
     public  Account account{get;set;}
     public  Account accList{get;set;}
@@ -33,7 +33,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     Public  Id DealeAccId{get;set;}
     public List<Contact> contactList{ get; set; }  
     public Account_Link__c newAlk;
-    public Map<id,Account_Link__c> InsertAlk; 
+    public List<Account_Link__c> InsertAlk; 
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
     public List<Account> Dealeracc{set;get;}
@@ -47,7 +47,7 @@ public with sharing class AddressSelectionforExistingCustomer {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
      SelectedAdd=new List<Address__c>();
-     InsertAlk=new Map<id,Account_Link__c> ();
+     InsertAlk=new List<Account_Link__c> ();
      account=new Account();
        ShowHideError=false;
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
@@ -143,7 +143,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -155,12 +155,13 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
     } else if(Accountlinklist !=null)
     {
+    ShowHideError=true;  
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
    
@@ -202,7 +203,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -214,20 +215,20 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
     } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
     {
-     ShowHideError=false;  
+     ShowHideError=true;  
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
     
     }  
     if(InsertAlk!=null && InsertAlk.size()>0)
     {
-    insert InsertAlk.values();
+    insert InsertAlk;
     }
     
     }

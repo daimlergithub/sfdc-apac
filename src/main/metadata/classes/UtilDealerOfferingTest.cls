@@ -87,7 +87,7 @@ public With Sharing class UtilDealerOfferingTest
         accObj = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez');
        // accList.add(accObj);
         insert accObj;
-        Id recordTypeCampaignDealerObjId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+        Id recordTypeCampaignDealerObjId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
         campaignObj = new Campaign(Name = 'Test Campaign',CAC_Frequency_Category__c= 'Ad Hoc',Repeat_From__c= System.now(),Repeat_End__c=system.now(),RecordTypeId=recordTypeCampaignDealerObjId);
         insert campaignObj;
         campaignOffering = new Campaign_Offering__c(Campaign__c = campaignObj.Id,Description__c= 'Test',End_Date__c=system.today(),Start_Date__c=system.today());
