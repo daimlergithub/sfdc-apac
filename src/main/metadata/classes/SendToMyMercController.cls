@@ -1,3 +1,9 @@
+/*
+    JIRA NO: SFDC-1416
+    Last Modified By : Lokesh M
+    Last Modified Date : 11-Feb-2017
+*/
+
 public with sharing class SendToMyMercController {
     
     list<Account> Accupdate; 
@@ -5,7 +11,6 @@ public with sharing class SendToMyMercController {
     public Vehicle__c vehicleRecord;
     public list<Vehicle_Relationship__c> Vehupdate;
     public list<Vehicle_Relationship__c> AccVehupdate;
-    public boolean ApplyToMerc{get;set;}//VisibleInMerc
     public boolean VisibleInMerc{get;set;}
     public set<Id> accset;
     public set<Id> Vehset;
@@ -19,7 +24,6 @@ public with sharing class SendToMyMercController {
     public String FinalEmail{get;set;}
     public ID VIDs;
     public Vehicle_Relationship__c lstVinfo{get;set;}
-    public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
     public boolean displayPopup {get; set;} 
     
     public SendToMyMercController(ApexPages.StandardController controller) {
@@ -27,8 +31,6 @@ public with sharing class SendToMyMercController {
         vehicleRecord = (Vehicle__c)controller.getRecord();
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'Individual Customer External Link' limit 1];
         IndividualCustomerExternaLink = rec.Id;
-        RecordType recCom = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Company' limit 1];
-        AccCom = recCom.Id;
         RecordType recPerson = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Person Account' limit 1];
         Person = recPerson.Id;
         RecordType vehRelRecType = [select id,name from RecordType where sObjecttype = 'vehicle_relationship__c' AND Name = 'Vehicle Relationship'];
@@ -89,6 +91,24 @@ public with sharing class SendToMyMercController {
         return lstAccountWrapper;
     } 
     
+    public void closePopup()
+    {  
+        displayPopup = false;   
+    }    
+    public void showPopup()
+    {      
+        String VID = apexpages.currentpage().getParameters().get('recordID');  
+        lstVinfo= [SELECT Id,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where ID=:VID AND recordtypeId =: vehRelType];
+        if(String.isNotBlank(lstVinfo.Retail_Contact__r.Portal_Email__c)){
+            FinalEmail = lstVinfo.Retail_Contact__r.Portal_Email__c;
+        }
+        else
+        {
+            FinalEmail = lstVinfo.Contact__r.Email3__c ;
+        }
+        displayPopup = true; 
+    } 
+    
     public pagereference Submit(){
         map<id,string> email3update = new map<id,string>();
         map<id,boolean> visiblemap = new map<id,boolean>();
@@ -104,11 +124,12 @@ public with sharing class SendToMyMercController {
         List<Account_Link__c> accLinkFinal = new List<Account_Link__c>();
         PageReference pr = null;
         Boolean reason = false;
+        Boolean reasonNonMerc = false;
         Boolean emptyMail = false;
         Boolean personBirthDate = false;
         if(lstAccountWrapper != null && !lstAccountWrapper.isEmpty()){
             for(AccountWrapper obj: lstAccountWrapper){
-                if(obj.isSelect == false && String.isBlank(obj.OptOutReason)){
+                if((obj.isSelect == false && String.isBlank(obj.OptOutReason)) || (obj.isSelect == true && String.isBlank(obj.vehicleRelationship) && String.isBlank(obj.OptOutReason))){
                     reason = true;
                 }
                 else if(Obj.isSelect == false && !String.isBlank(obj.OptOutReason)){
@@ -148,7 +169,7 @@ public with sharing class SendToMyMercController {
                         nonMyMercAcc.put(eachAcc.Id,eachAcc);        
                     }
                     if(eachAcc.RecordTypeId == person && (eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c))){
-                    	personBirthdate = true;    
+                        personBirthdate = true;    
                     }
                 }
                 if(personBirthdate == false){
@@ -179,7 +200,7 @@ public with sharing class SendToMyMercController {
                     }
                 }
                 else{
-                	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
                 }
             }        
             if(accfinal != null && !accfinal.isEmpty()){
@@ -190,15 +211,15 @@ public with sharing class SendToMyMercController {
                 if(AccVehfinal != null && !AccVehfinal.isEmpty() ){
                     update AccVehfinal;
                 }
-    	         pr = new PageReference('/'+vehpageid);
-        	     pr.setRedirect(true);
-        	}
-        }
-        else if(reason){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter The Reason for Non selected Account'));
+                 pr = new PageReference('/'+vehpageid);
+                 pr.setRedirect(true);
+            }
         }
         else if(emptyMail){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter My Merc Email Id for selected Account'));
+        }
+        else if(reason){
+            ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,'Please enter Reason for Non-selected account OR Selected Non-Mymercedes acccount'));
         }
     return pr;
     }
