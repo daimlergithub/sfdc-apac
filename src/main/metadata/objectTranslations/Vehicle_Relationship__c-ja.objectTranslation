@@ -2630,8 +2630,8 @@
         <label>販売形態</label>
         <name>SalesType__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
         </picklistValues>
     </fields>
     <fields>
