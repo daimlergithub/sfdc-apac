@@ -199,7 +199,7 @@ public class ToolKitTriggerHelperTest {
       toolKitNewmap.put(tollkitobjevent.id, tollkitobjevent);
       system.debug('$$$$$$$$$$$$$$$$$'+toolKitNewmap);
       ToolKitTriggerHelper.afterInsertUpdateDeleteEvents(tollkitlist,tollkitlistnew,toolKitOldmap,toolKitNewmap,true,true,true);
-      ToolKitTriggerHelper.shareToolKit(toolKitOldmap,toolKitNewmap);
+      //ToolKitTriggerHelper.shareToolKit(toolKitOldmap,toolKitNewmap);
     test.stoptest();
     //system.assertEquals(tollkitobjevent.Original_Plan_Start_Date__c,System.today());
   }
@@ -218,13 +218,15 @@ public class ToolKitTriggerHelperTest {
   }*/
   public static testmethod void tollkiwrapandhandlerTest() {
     createTestData();
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
     //createTestDataone();
     test.starttest();
       TookKitSharingWrapService tsws = new TookKitSharingWrapService();
       tsws.wrapToolKits(tollkitlist);
       tsws.wrapBrandToolKits(tollkitlist);
       tsws.wrapToolKitsFor3rdPartyUsers(tollkitlist);
-      
+
      /* ToolKitTriggerHandler tth = new ToolKitTriggerHandler();
       tth.handleTrigger(true,true,true,true,true);
       tth.handleIntegrationTrigger(true,true,true,true,true);*/
