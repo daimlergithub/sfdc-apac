@@ -927,13 +927,13 @@
 		</deploy>
     </target>
 	<target name="deploy51">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<deploy>
 			<sf:typeset name="objectTranslations"/>
 			<sf:typeset name="translations"/>
 		</deploy>
     </target>
 	<target name="deploy52">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<deploy>
 			<sf:typeset name="reports"/>
 			<sf:typeset name="reportTypes"/>
 		</deploy>
