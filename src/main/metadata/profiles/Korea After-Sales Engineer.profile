@@ -12295,7 +12295,7 @@
         <editable>true</editable>
         <field>Lead__c.Purchased_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>git add src/
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Purchased_Vehicle_Text__c</field>
