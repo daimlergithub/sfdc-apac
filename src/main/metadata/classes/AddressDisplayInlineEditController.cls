@@ -366,7 +366,7 @@ public class AddressDisplayInlineEditController {
 			}
             //}           
         }
-        if(Market !='KR'){
+        if(Market !='KR' && Market !=null && Market!=''){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c))){
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
