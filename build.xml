@@ -928,14 +928,14 @@
     </target>
 	<target name="deploy51">
 		<deploy>
-			<sf:typeset name="objectTranslations"/>
-			<sf:typeset name="translations"/>
+			<sf:typeset name="reports"/>
+			<sf:typeset name="reportTypes"/>
 		</deploy>
     </target>
 	<target name="deploy52">
 		<deploy>
-			<sf:typeset name="reports"/>
-			<sf:typeset name="reportTypes"/>
+			<sf:typeset name="objectTranslations"/>
+			<sf:typeset name="translations"/>
 		</deploy>
     </target>
 	<target name="deploy53">

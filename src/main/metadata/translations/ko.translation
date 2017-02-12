@@ -2571,6 +2571,36 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
     </customTabs>
+	<reportTypes>
+        <description><!-- Account with Account Link and Retail Task --></description>
+        <label><!-- Account with Account Link and Retail Task --></label>
+        <name>Account_with_Account_Link_and_Retail_Task</name>
+        <sections>
+            <label><!-- Account Link --></label>
+            <name>Account Link</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
+	<reportTypes>
+        <description><!-- Account with Retail Task --></description>
+        <label><!-- Account with Retail Task --></label>
+        <name>Account_with_Retail_Task</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
     <reportTypes>
         <description>주소 포함 계정</description>
         <label>주소 포함 계정</label>
@@ -2586,19 +2616,6 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <sections>
             <label><!-- 取引先 --></label>
             <name>取引先</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
-        <description><!-- Account with Retail Task --></description>
-        <label><!-- Account with Retail Task --></label>
-        <name>Account_with_Retail_Task</name>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-        <sections>
-            <label><!-- Retail Tasks (Signer) --></label>
-            <name>Retail Tasks (Signer)</name>
         </sections>
     </reportTypes>
     <reportTypes>
