@@ -6,7 +6,7 @@
 	
 */
 @istest
-public class ContactTableControllerTest {
+public class contactTableControllerTest {
   public static Account objAccount; 
   public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   
