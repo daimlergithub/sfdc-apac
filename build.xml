@@ -188,7 +188,7 @@
 			   <sf:include name="VehicleRelationshipHelper"/>
 			   <sf:include name="createRetailCopyKR"/>
 			   <sf:include name="createRetailCopyKRTest"/>
-			   
+			   <sf:include name="TriggerVehicleRelationshipTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -836,7 +836,7 @@
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ContactTableController"/>
-		    <sf:include name="ContactTableControllerTest"/>
+		    <sf:include name="contactTableControllerTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
