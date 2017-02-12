@@ -2017,11 +2017,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Dealer_Comment__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Finance_Contract_Term__c</field>
             <table>Lead__c</table>
         </columns>
