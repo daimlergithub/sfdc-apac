@@ -43,7 +43,7 @@ public without sharing class AddressSelectionforExistingCustomer {
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
 
     // Constructor
-    public AddressSelectionforExistingCustomer(ApexPages.StandardController controller) {
+    public AddressSelectionforExistingCustomer() {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
      SelectedAdd=new List<Address__c>();
@@ -51,7 +51,7 @@ public without sharing class AddressSelectionforExistingCustomer {
      account=new Account();
        ShowHideError=false;
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
-     account = (Account)controller.getRecord();
+   //  account = (Account)controller.getRecord();
      if(AccId!=null)
      {
       ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where  Customer__c =:AccId];
@@ -230,7 +230,14 @@ public without sharing class AddressSelectionforExistingCustomer {
     {
     insert InsertAlk;
     }
-    
+    System.debug('InsertAlknewAlk%%%%%%%'+InsertAlk);
     }
+    
+    
+    
+     public PageReference cancel() 
+      {
+        return new PageReference('{!URLFOR($Site.Prefix)}/' + AccId);
+      }
 
 }
