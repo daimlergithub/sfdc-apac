@@ -12280,12 +12280,7 @@
         <editable>true</editable>
         <field>Lead__c.Purchased_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Purchased_VIN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>git add src/
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Purchased_Vehicle_Text__c</field>
