@@ -8,18 +8,18 @@
                
                 <presetdef name="deploy">
                                 <sf:deploy
-                                                                debug="${sfdc.debug}" dryRun="${dryrun}"
-                                                                username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-                                                                useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
-                                                                transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
+									debug="${sfdc.debug}" dryRun="${dryrun}"
+									username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
+									useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
+									transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
                 </presetdef>
                 
                 <presetdef name="loadData">
                                 <sf:loadData
-                                                                debug="${sfdc.debug}"
-                                                                username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
-                                                                useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-                                                                dataRoot="src/main/resources/data" logDir="logs"/>
+									debug="${sfdc.debug}"
+									username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
+									useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+									dataRoot="src/main/resources/data" logDir="logs"/>
                 </presetdef>
                
                 <target name="gitVersion">
@@ -234,27 +234,31 @@
                                                    <sf:include name="CustomerMymercInterfaceControllerTest"/>
                                                    <sf:include name="SendToMyMercController"/>
                                                    <sf:include name="SendToMyMercControllerTest"/>
-                                                   <sf:include name="AccountLinkController"/>
-                                                   <sf:include name="AccountLinkControllerTest"/>
-                                                   <sf:include name="ServiceRetailTask"/>
-                                                <sf:include name="ServiceRetailTaskTest"/>
-                                                <sf:include name="RelatedDealerViewForInsurance"/>
-                                                <sf:include name="RelatedDealerViewForInsuranceTest"/>
-                                                <sf:include name="RelatedDealerViewForLoan"/>
-                                                <sf:include name="RelatedDealerViewForLoanTest"/>
-                                                <sf:include name="createRetailCopy"/>
-                                                <sf:include name="createRetailCopyJPTEST"/>
-                                                <sf:include name="PrintPDF"/>
-                                                <sf:include name="PrintPDFTest"/>
-                                                <sf:include name="AddressSelectionforExistingCustomer"/>
-                                                <sf:include name="AddressSelectionforExistingCustomerTest"/>
-                                                <sf:include name="SelectAddressController"/>
-                                                <sf:include name="SelectAddressControllerTest"/>
+													<sf:include name="AccountLinkController"/>
+													<sf:include name="AccountLinkControllerTest"/>
+													<sf:include name="ServiceRetailTask"/>
+													<sf:include name="ServiceRetailTaskTest"/>
+													<sf:include name="RelatedDealerViewForInsurance"/>
+													<sf:include name="RelatedDealerViewForInsuranceTest"/>
+													<sf:include name="RelatedDealerViewForLoan"/>
+													<sf:include name="RelatedDealerViewForLoanTest"/>
+													<sf:include name="createRetailCopy"/>
+													<sf:include name="createRetailCopyJPTEST"/>
+													<sf:include name="PrintPDF"/>
+													<sf:include name="PrintPDFTest"/>
+													<sf:include name="AddressSelectionforExistingCustomer"/>
+													<sf:include name="AddressSelectionforExistingCustomerTest"/>
+													<sf:include name="SelectAddressController"/>
+													<sf:include name="SelectAddressControllerTest"/>
                                                    <sf:include name="VehicleRelationshipHelper"/>
                                                    <sf:include name="createRetailCopyKR"/>
 												 <sf:include name="ScheduleCampCompletion"/>
-                                                 <sf:include name="ScheduleCampCompletionTest"/>  
+                                                 <sf:include name="ScheduleCampCompletionTest"/>
+												 <sf:include name="exportCampaignMembers"/>
                                                 </sf:typeset>
+												<sf:typeset name="pages">
+                                                         <sf:include name="ExportAsCsvCampaign"/>
+												</sf:typeset>
                                 </deploy>
     </target>
  
@@ -283,9 +287,9 @@
                                                                 <sf:exclude name="SurveyQuestionResponse__c"/>
                                                                 <sf:exclude name="Survey_Question__c"/>
                                                                 <sf:exclude name="Contract_Relation__c"/>
-                                                                                                                                                                                                                                                                <sf:exclude name="Participating_Dealer__c"/>
-                                                                                                                                                                                                                                                                <sf:exclude name="Retail_Campaign__c"/>
-                                                                                                                                                                                                                                                                <sf:exclude name="Dealer_List_Member__c"/>
+                                                                <sf:exclude name="Participating_Dealer__c"/>
+                                                                <sf:exclude name="Retail_Campaign__c"/>
+                                                                <sf:exclude name="Dealer_List_Member__c"/>
                                                 </sf:typeset>
                                 </deploy>
     </target>
@@ -329,30 +333,27 @@
 															<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
 														</deploy>
 													</target>
-													
-													<target name="deploy21">
+												<target name="deploy21">
 														<deploy  runAllTests="${sfdc.runAllTests}">
 															<sf:typeset name="objects">
-                                                                <sf:include name="Case"/>
-                                                               
-                                                                <!--<sf:exclude name="Activity"/>
-                                                                                                                                                                                                                                                                <sf:include name="Task"/> -->
-                                                                <sf:include name="ContentVersion"/>
-                                                                <sf:exclude name="Account"/>
-                                                                <sf:exclude name="PersonAccount"/>
-                                                                <sf:exclude name="Contact"/>
-                                                                <sf:exclude name="Campaign"/>
-                                                              
-                                                                <sf:exclude name="Site"/>
-                                                    <sf:exclude name=".*__c"/>
-                                                                <sf:include name="AreaCodeTranslation__mdt"/>
-                                                </sf:typeset>
+																<sf:include name="Case"/>
+																<!--<sf:exclude name="Activity"/>
+																<sf:include name="Task"/> -->
+																<sf:include name="ContentVersion"/>
+																<sf:exclude name="Account"/>
+																<sf:exclude name="PersonAccount"/>
+																<sf:exclude name="Contact"/>
+																<sf:exclude name="Campaign"/>
+																<sf:exclude name="Site"/>
+																<sf:exclude name=".*__c"/>
+																<sf:include name="AreaCodeTranslation__mdt"/>
+															</sf:typeset>
                                                 <sf:typeset name="profiles" suppressChecksumUpdate="true"/>         
                                                 <sf:typeset name="tabs">
                                                                 <sf:include name="Tasks"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="components">
-                                                                <sf:include name="PDFHeaderFooter"/>
+                                                    <sf:include name="PDFHeaderFooter"/>
                                                 </sf:typeset>
                                                 <sf:typeset name="pages">
                                                    <sf:include name="GeneratePDF"/>
@@ -362,12 +363,10 @@
                                                    <sf:include name="AccountMerge"/>
                                                    <sf:include name="AccountMergeKR"/>
                                                    <sf:include name="TaskDeleting"/>
-												    <sf:include name="TaskMassAssignChangeOwnerJP"/>
-												
-                                                   <sf:include name="Tasks"/>
-												      <sf:include name="ConvertToLead"/>
-	
-               <sf:include name="ALKDeleteConformationpage"/>
+												   <sf:include name="TaskMassAssignChangeOwnerJP"/>
+												   <sf:include name="Tasks"/>
+												   <sf:include name="ConvertToLead"/>
+	     										   <sf:include name="ALKDeleteConformationpage"/>
                                                    <sf:include name="RetailTaskdealerviewForContract"/>
                                                    <!-- Added by Naga Start-->
                                                    <sf:include name="MBJ_FS_Case_Inquiry_Page"/>
@@ -380,7 +379,7 @@
                                                    <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
                                                    <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
                                                    <sf:include name="LeadDealerAssignmentPage"/>
-                                                                                                                                                                                                   <sf:include name="AnnouncementsPage"/>
+                                                   <sf:include name="AnnouncementsPage"/>
                                                    <!-- Added by Naga Start-->
                                                 </sf:typeset>
                                                 <!--<sf:typeset name="layouts">
@@ -659,7 +658,7 @@
                                                 <sf:include name="UtilLeadEmailEscalation"/>
                                                 <sf:include name="BatchCreateDealerOBEmails"/>
                                                 <sf:include name="AccountMergeControllerTest"/>
-												<sf:include name="exportCampaignMembers"/>
+												<!--<sf:include name="exportCampaignMembers"/>-->
                                 </sf:typeset>
                                 <sf:typeset name="tabs">
                                                 <sf:include name="Retail_Campaigns"/>
@@ -667,7 +666,7 @@
                                 <sf:typeset name="pages">
                                                                 <sf:include name="NewVehicleRelationship"/>
                                                                 <sf:include name="Retail_Campaigns"/>
-																<sf:include name="ExportAsCsvCampaign"/>
+																<!--<sf:include name="ExportAsCsvCampaign"/>-->
                                 </sf:typeset>                    
                                 </deploy>                                                                          
     </target>

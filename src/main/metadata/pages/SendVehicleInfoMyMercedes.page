@@ -12,10 +12,17 @@
                     </apex:column>
                     <apex:column headerValue="Account Name" value="{!eachWrap.accountData}">
                     </apex:column>
-                    <apex:column headerValue="My Merc Id"  value="{!eachWrap.vehicleRelationship}"/>
+                    <apex:column headerValue="My Merc Id" >
+                        <apex:outputtext value="{!eachWrap.vehicleRelationship}"/>
+                    </apex:column>
                     <apex:column headerValue="Car Relation"  value="{!eachWrap.CarRelation}"/>
                     <apex:column headerValue="My Merc Email Id"  >
                        <apex:inputText value="{!eachWrap.PortalEmail}" ID="txtName"/>
+                    </apex:column>
+                    <apex:column >
+                   <apex:commandLink value="Emails" action="{!showPopup}" reRender="one">
+                        <apex:param name="recordID" value="{!eachWrap.VID}"/>
+                    </apex:commandLink>
                     </apex:column>
                     <apex:column headerValue="Reason">
                         <apex:inputText value="{!eachWrap.OptOutReason}"/>
@@ -24,7 +31,59 @@
                     <apex:inputCheckbox value="{!eachWrap.isVisible}"/>
                     </apex:column>   
                 </apex:pageBlockTable>
+                <apex:outputPanel id="one">
+                    <apex:repeat value="{!lstVinfo}" var="eachWrap">
+                       <apex:outputPanel id="popup">
+                          <apex:outputPanel styleClass="popupBg" layout="block" rendered="{!displayPopUp}"/>
+                            <apex:outputPanel styleClass="popup" layout="block" rendered="{!displayPopUp}">
+                               <apex:pageblockSection columns="1" >
+                                 <table width="100%">
+                                    <tr><td width="25">
+                                        <apex:outputtext value="{!eachWrap.Contact__r.Email__c}" label="Email" />
+                                    </td></tr>
+                                    <tr><td width="25"><!--3-->
+                                         <apex:outputtext value="{!eachWrap.Contact__r.Email2__c}" label="Email2" />
+                                    </td></tr>
+                                </table>
+                                </apex:pageblockSection>
+                                <apex:commandButton value="Close" action="{!closePopup}" rerender="one"/>                              
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                </apex:outputPanel>
             </apex:pageblocksection>
         </apex:pageblock>        
     </apex:form>
+
+<style type="text/css">
+
+        .popup
+        {
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 500px;
+            margin-left: -250px;
+            top:80px;
+        }
+
+        .popupBg
+        {
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 70);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+</style>
+
 </apex:page>
