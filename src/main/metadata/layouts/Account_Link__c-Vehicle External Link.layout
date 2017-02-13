@@ -26,7 +26,8 @@
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Portal_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -34,7 +35,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Service_Dealer__c</field>
+                <field>Last_Service_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
