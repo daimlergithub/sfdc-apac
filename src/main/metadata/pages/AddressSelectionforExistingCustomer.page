@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="AddressSelectionforExistingCustomer">
+<apex:page controller="AddressSelectionforExistingCustomer" >
   <apex:form >
   <apex:outputpanel id="jspanel">
   <script language="JavaScript" type="text/javascript">
@@ -6,7 +6,7 @@ function afterSave(){
 if({!ShowHideError} ==false)
 {
 alert('Sucessfully Created Retail Copy');
-window.location.href="/{!AccId}";      
+window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";      
   }
   else
 {
@@ -175,6 +175,5 @@ window.location.href="/{!AccId}";
 
 </apex:pageBlock>
                      
-  </apex:form>
+  </apex:form> 
 </apex:page>
-  

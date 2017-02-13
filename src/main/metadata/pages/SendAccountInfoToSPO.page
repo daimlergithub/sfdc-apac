@@ -1,17 +1,79 @@
 <apex:page standardController="Account" extensions="SendAccountInfoToSPO">
    <apex:form >
-     
-   
-  <script language="JavaScript" type="text/javascript">
-function afterSave(){
+
+ <apex:outputpanel id="jspanel">
+<script language="JavaScript" type="text/javascript">
+function afterSave(){  
+if({!ShowHideError} ==false)
+{
 alert('Sucessfully Sent Information to SPO');
-window.location.href="/{!AccId}";      
+window.location.href="/{!AccId}"; 
+}
+else
+{
+
+}  
   
   }
 </script>
-  
+    </apex:outputpanel>
+     <style>
+    /* This is for the full screen DIV */
+    .popupBackground {
+        /* Background color */
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
     
-     
+        /* Dimensions */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        position: absolute;
+        
+        /* Mouse */
+        cursor:wait;
+    }
+ 
+    /* This is for the message DIV */
+    .PopupPanel {
+        /* Background color */
+        border: solid 2px blue;
+        background-color: white;
+ 
+        /* Dimensions */
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 50%;
+        height: 50px;
+        margin-top: -25px;
+        z-index: 999;
+        position: fixed;
+        
+        /* Mouse */
+        cursor:pointer;
+    }
+</style>
+<apex:actionStatus id="statusSaveTrip" stopText="" >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="PopupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center"><b>Please Wait</b></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionStatus>
+
+<apex:pageMessages id="Errormessage"></apex:pageMessages>
          <apex:pageBlock >
              <apex:pageblockSection title="Account Information" columns="2">
            <!--  <apex:outputField value="{!Account.Recordtype.Name}"/>-->
@@ -96,7 +158,7 @@ window.location.href="/{!AccId}";
               </apex:pageBlockSectionItem>              
            </apex:pageblockSection>
            <apex:pageBlockButtons location="bottom">
-           <apex:commandButton action="{!SendTOSpo}"   onclick="if(!confirm('Are you sure want to send information to SPO interface?')){return false};" oncomplete="afterSave()" value="{!$Label.SentToSPO}"/>
+           <apex:commandButton action="{!SendTOSpo}"   onclick="if(!confirm('Are you sure want to send information to SPO interface?')){return false};" oncomplete="afterSave()" value="{!$Label.SentToSPO}" status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
            <apex:commandButton action="{!cancel}"  value="Cancel" />
         </apex:pageBlockButtons>
         </apex:pageBlock>

@@ -1257,10 +1257,11 @@ window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
- var listId= window.sfdcPage.relatedLists;
-window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
+var campaignID = "{!Campaign.Id}";
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>

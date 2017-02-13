@@ -23,7 +23,7 @@ public class SendAccountInfoToSPO {
     Public String HomeAdd{get;set;}
     Public string message{get;set;}
     public Boolean shouldRedirect {public get; private set;}
-     
+    public  Boolean ShowHideError{set;get;} 
      //Constructor 
     public SendAccountInfoToSPO(ApexPages.StandardController controller) {
         Acclist =new Account();
@@ -63,9 +63,13 @@ public class SendAccountInfoToSPO {
     }
       crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
   
+    try
+    {
     if (!Test.isRunningTest())
     {
+      
     response= UtilWebservice.AccountIfnoSendSPO(AccId,usr.Contact.AccountId);
+     ShowHideError=false; 
     }
     System.debug('response $%$%$%$%$%$$'+response);
     listAcc =[select id,Warranty_Apply_Status__c from Account where id=:AccId];
@@ -89,9 +93,17 @@ public class SendAccountInfoToSPO {
     update Accupdate;  // Update account object Warranty_Apply_Status field
      System.debug('acc Accupdate'+Accupdate);
      
-    } //Method End
+   
+    }
+     Catch(CalloutException e)
+                   {
+                   
+                   ShowHideError=True; 
+                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));     
+                  
+                  }          
     
-    
+     } //Method End
     
 
 }// Class end
