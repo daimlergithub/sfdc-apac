@@ -20,7 +20,7 @@ public class LeadSharingforDealerJPTest {
     FirstName='first',
     Alias = 'fTest',
     Email = 'testUser@test.com',
-    Username = 'testClassUser@test.com',
+    Username = 'testclassdata-daimler-APAC'+System.now().millisecond()+'@test.com',
     ProfileId = profileId.id,
     TimeZoneSidKey = 'GMT',
     LanguageLocaleKey = 'en_US',
