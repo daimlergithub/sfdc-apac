@@ -1324,10 +1324,10 @@
     </sharingReasons>
 	 <webLinks>
         <label>Autoline送信</label>
-        <name>Send to Autoline</name>
+        <name>Send_To_AutoLine/name>
     </webLinks>
 	 <webLinks>
         <label>顧客情報（自法人のみ参照可）削除</label>
-        <name>Delete retail Copy</name>
+        <name>Delete_retail_copy</name>
     </webLinks>
 </CustomObjectTranslation>

@@ -7418,6 +7418,9 @@ Allows up to 240 characters --></help>
             <label>会社情報</label>
             <section>Company Information</section>
         </sections>
+            <label>リテールコピー情報</label>
+            <section>Retail Copy Information</section>
+        </sections>
         <sections>
             <label>コンタクト情報</label>
             <section>Contact Infromation</section>
@@ -7491,6 +7494,10 @@ Allows up to 240 characters --></help>
             <section>Business Account Detail</section>
         </sections>
         <sections>
+            <label>顧客情報（自法人のみ参照可）</label>
+            <section>Company Account Detail</section>
+        </sections>
+        <sections>
             <label>会社情報</label>
             <section>Company Information</section>
         </sections>
@@ -7523,7 +7530,7 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
@@ -7571,8 +7578,16 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
+            <label>リテールコピー情報</label>
+            <section>Retail Copy Only Related List</section>
+        </sections>
+        <sections>
             <label>主要コンタクト・コンセント</label>
             <section>Main Contact and Consent</section>
+        </sections>
+        <sections>
+            <label>顧客情報（自法人のみ参照可）</label>
+            <section>Person Account Detail</section>
         </sections>
         <sections>
             <label>プロフィール情報</label>
@@ -7615,7 +7630,7 @@ Allows up to 240 characters --></help>
             <section>Contact Info Status</section>
         </sections>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label>コンタクト情報</label>
             <section>Contact Information</section>
         </sections>
         <sections>
@@ -7653,6 +7668,10 @@ Allows up to 240 characters --></help>
         <sections>
             <label>コンタクト情報</label>
             <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>リテールコピー情報</label>
+            <section>Retail copy only Related List</section>
         </sections>
         <sections>
             <label>主要コンタクト・コンセント</label>
@@ -8043,6 +8062,14 @@ Allows up to 240 characters --></help>
     <webLinks>
         <label><!-- Car_Model_Comparison --></label>
         <name>Car_Model_Comparison</name>
+    </webLinks>
+    <webLinks>
+        <label>名寄せ確認</label>
+        <name>Check_Duplicates</name>
+    </webLinks>
+    <webLinks>
+        <label>リテールコピー作成</label>
+        <name>Create_Retail_Copy</name>
     </webLinks>
     <webLinks>
         <label>車両作成</label>
