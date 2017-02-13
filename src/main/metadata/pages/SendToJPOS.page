@@ -80,7 +80,7 @@ else
     <div align="Center">
                         <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
 
-            <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputfield value=" {!Account.Company__c}">
+            <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}">
                              <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="PbId" >
                                        <apex:param name="DealerID" value="{!Account.Id}"/>
                                   </apex:actionSupport>

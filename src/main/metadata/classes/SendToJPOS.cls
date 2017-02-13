@@ -146,7 +146,7 @@ public class SendToJPOS{
           AccId=ApexPages.currentPage().getParameters().get('id'); 
           // DealerID=ApexPages.currentPage().getParameters().get('DealerID'); 
            
-           accc=[Select id from account where id=:DealerID.Company__c];   
+           accc=[Select id from account where id=:DealerID.Main_Dealer__c];   
            
            if(AccId !=null)
            {
@@ -155,16 +155,16 @@ public class SendToJPOS{
            } 
            
            
-           if(AccId !=null && DealerID.Company__c!=null && (Acclist.Recordtypeid==accPerson_RecordTypeId))  
+           if(AccId !=null && DealerID.Main_Dealer__c!=null && (Acclist.Recordtypeid==accPerson_RecordTypeId))  
            {
-            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Company__c and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId];
+            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Main_Dealer__c and toRole__c =:AccId and Recordtypeid=:alkPerson_RecordTypeId];
              
            }
            
-           if( AccId !=null && DealerID.Company__c!=null && (Acclist.Recordtypeid==accCompany_RecordTypeId))
+           if( AccId !=null && DealerID.Main_Dealer__c!=null && (Acclist.Recordtypeid==accCompany_RecordTypeId))
            {
              
-            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Company__c  and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
+            listAlk=[Select id,System__c,Retail_Duplicate_Flag__c ,Retail_Sales_Consultant__c,Retail_Delete_Flag__c ,fromRole__c,toRole__c from  Account_Link__c where fromRole__c=:DealerID.Main_Dealer__c  and toRole__c =:AccId and Recordtypeid=:alkCompany_RecordTypeId];
            
            }
            
@@ -209,7 +209,7 @@ public class SendToJPOS{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select atleast one Address'));
             }
             //For MBJ User if user not selected  Dealer Outlet display error message
-            if(DealerID.Company__c ==null && CurrentUsr.contactid==null)
+            if(DealerID.Main_Dealer__c ==null && CurrentUsr.contactid==null)
             {
             ShowHideError=True;             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer Outlet'));
@@ -222,7 +222,7 @@ public class SendToJPOS{
            }
            
            //Query to get Dealer Account RecordId
-           Dealeracc=[Select id,Name from Account where id=:DealerID.Company__c];
+           Dealeracc=[Select id,Name from Account where id=:DealerID.Main_Dealer__c];
            for(Account AccDealer:Dealeracc)
            {
            DealeAccId.add(AccDealer.id);
