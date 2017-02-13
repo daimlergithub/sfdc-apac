@@ -763,17 +763,22 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-     
- 
- public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
+    set<id>fromroleidlist=new set<id>();
+    set<String> GCCode = new set<String>();
+    list<String> AccountNAme = new List<String>();
     for(Account_Link__c atl:allist)
     {
         toroleidlist.add(atl.toRole__r.id);
+        fromroleidlist.add(atl.fromRole__c);
+        GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
+    list<account> acolist = [select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer'];
+    
      Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
@@ -821,7 +826,11 @@ public class AccountLinkHelper
         } 
         
     }
-    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+     for(Account acc :acolist){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
         for(Group assg:glist)
@@ -838,8 +847,37 @@ public class AccountLinkHelper
                  
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
+                  if(AccountNAme.size()>0)
+                    {
+                    for(id m:assgroupMap.values())
+                    {
                  system.debug('Inserting1');
                      Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = m;
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
+                  {
+                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=m;
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                 sutlist.add(surt);
+                           
+                      }    
+                  }
+                  }
+                  }
+                  else {
+                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
                      a.AccountAccessLevel='edit';
@@ -861,6 +899,7 @@ public class AccountLinkHelper
                            
                       }    
                   }
+                  }
         }
     }
     if(acclist.size()>0)
@@ -879,15 +918,16 @@ public class AccountLinkHelper
   // list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :oldlist];
      set<id>toroleidlist=new set<id>();
      set<Id> fromRoleIdList = new set<id>();
-
+     set<String> GCCode = new set<String>();
+     list<String> AccountNAme = new List<String>();
      for(Account_Link__c atl:oldlist)
      {
            toroleidlist.add(atl.toRole__c);
            fromRoleIdList.add(atl.fromRole__c);
-
+           GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
      }
      list<SurveyTaker__c> stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
-     
+     list<account> acolist = [select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer'];
      Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
@@ -945,7 +985,11 @@ public class AccountLinkHelper
          } 
         
      }
-     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+     for(Account acc :acolist){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
      
      
     if( aclistnames!=null&& allist1!=null)
@@ -960,36 +1004,65 @@ public class AccountLinkHelper
      for(Account_Link__c alnk: allist1) 
      {
           if(AccountIdsSet.contains(alnk.fromRole__c))
-          {
+            {
                  
-              if(fromAccountRecordTypeMap.containskey(alnk.fromRole__c) && assgroupMap.containskey(fromAccountRecordTypeMap.get(alnk.fromRole__c).name))
-              {
-               system.debug('assgroupMap'+ assgroupMap);
-                Accountshare a=new Accountshare();
-                a.Accountid=alnk.toRole__c;
-                a.UserOrGroupId = assgroupMap.get(fromAccountRecordTypeMap.get(alnk.fromRole__c).name);
-                a.AccountAccessLevel='edit';
-                a.RowCause = Schema.Accountshare.RowCause.Manual;
-                a.OpportunityAccessLevel ='edit';
-                acclist.add(a);
-                if(newstmap.containskey(alnk.toRole__c))
+                if(assgroupMap.containskey(alnk.fromRole__r.name))
+                {
+                  if(AccountNAme.size()>0)
+                    {
+                    for(id m:assgroupMap.values())
+                    {
+                 system.debug('Inserting1');
+                     Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = m;
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
                   {
                       for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
                       {
                           //checking match with current accountid with accountid in survey taker record
-                          system.debug('Inserting1');
-                                SurveyTaker__share surt=new SurveyTaker__share();
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
                                  surt.ParentId=sa.id;
-                                 surt.UserOrGroupId=assgroupMap.get(FromAccountRecordTypeMap.get(alnk.fromRole__c).name);
+                                 surt.UserOrGroupId=m;
                                  surt.AccessLevel='edit';
                                  surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
-                                sutlist.add(surt);
-                             
-                      }   
+                                 sutlist.add(surt);
+                           
+                      }    
                   }
-               } 
-    
-          }
+                  }
+                  }
+                  else {
+                      Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
+                  {
+                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=assgroupMap.get(alnk.fromRole__r.name);
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                 sutlist.add(surt);
+                           
+                      }    
+                  }
+                  }
+        }
+      }
        }
      }
     if(acclist.size()>0)
@@ -1000,8 +1073,9 @@ public class AccountLinkHelper
             insert sutlist;
             }
     }
- }
-  public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
+ } 
+ 
+   public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();
