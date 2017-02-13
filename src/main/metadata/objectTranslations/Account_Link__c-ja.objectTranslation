@@ -1176,6 +1176,36 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
+	<layouts>
+        <layout>Company Retail Copy</layout>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>'新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+    </layouts>
+	<layouts>
+        <layout>Person Retail Copy</layout>
+        <sections>
+            <label>コンタクト情報</label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label>主要コンタクト・コンセント</label>
+            <section>Main Contact Opt-out information</section>
+        </sections>
+        <sections>
+            <label>プロフィール情報</label>
+            <section>Profile Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>Company Customer External Link</layout>
         <sections>
@@ -1183,7 +1213,7 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
+            <label>情報</label>
             <section>Information</section>
         </sections>
         <sections>
@@ -1292,4 +1322,12 @@
         <label><!-- External Link Share --></label>
         <name>External_Link_Share</name>
     </sharingReasons>
+	 <webLinks>
+        <label>Autoline送信</label>
+        <name>Send to Autoline</name>
+    </webLinks>
+	 <webLinks>
+        <label>顧客情報（自法人のみ参照可）削除</label>
+        <name>Delete retail Copy</name>
+    </webLinks>
 </CustomObjectTranslation>
