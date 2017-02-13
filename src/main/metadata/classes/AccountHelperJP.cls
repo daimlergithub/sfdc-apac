@@ -675,24 +675,14 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     //SFDCJP(2.0)-578 
  public static void handleAfterInsertEvent(list<Account>listDealerAccounts)
     {
-        set<String> GCCode = new set<String>();
-        list<String> AccountNAme = new List<String>();
         list<account>aclist=new list<account>();
                         if(listDealerAccounts!=null && !listDealerAccounts.isempty())
                 {
-        aclist=[select id,name,recordtypeId,Dealer_GC_Code__c from account where id IN :listDealerAccounts];
-        for(account a:aclist){
-            GCCode.add(a.Dealer_GC_Code__c);
-        
-        }
+        aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
     }
-    list<account>accounts=[select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer'];
         list<accountshare>aslist=new list<accountshare>();
         map<string,id> assgroupMap = new map<string,id>();  
-      for(Account acc :accounts){
-           system.debug('acc.Name'+acc.Name);
-           AccountNAme.add(acc.Name);   
-       }
+
         Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
                                 if( aclist!=null && !aclist.isempty())
                                 {
@@ -700,7 +690,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         {
                                                  if(a.recordtypeid==rpa)
             {
-              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name OR Name IN: AccountNAme])
+              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
                {
                
                 assgroupMap.put(assg.Name, assg.id);
@@ -708,22 +698,8 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 
                }
             }
-             if(AccountNAme.size()>0)
-                 {
-                    for(id m:assgroupMap.values())
-                    {
-                       Accountshare acs=new Accountshare();
-                         acs.Accountid=a.id;
-                         acs.UserOrGroupId = m;
-                         acs.AccountAccessLevel='read';
-                         acs.OpportunityAccessLevel ='read';
-                         acs.RowCause = Schema.Accountshare.RowCause.Manual;
-                         aslist.add(acs);
-                    }
-                    
-                 }
                                                 
-          else if(assgroupMap!=null && assgroupMap.containskey(a.name))
+            if(assgroupMap!=null && assgroupMap.containskey(a.name))
             {
             
                 Accountshare acs=new Accountshare();
@@ -743,6 +719,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 
     
     }
+
  public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts,Map<Id,Account>OldMap)
     {
         list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
