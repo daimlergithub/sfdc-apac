@@ -310,6 +310,8 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                      &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
                      ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
                     
+					if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c !=null)
+					{
                          if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
                                      lstDMR.Status__c='Duplicate';
@@ -328,7 +330,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                          }
-                                   
+                      }             
                }
                    
            }
@@ -337,6 +339,8 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                      &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
                     
+					if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c !=null)
+					{
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
                                      lstDMR.Status__c='Duplicate';
@@ -352,6 +356,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                           }
+					}	  
                 }
            }
         }
