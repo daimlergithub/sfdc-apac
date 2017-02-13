@@ -3066,10 +3066,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>宛先コンタクト先住所（TEXT）</label>
-        <name>Vehicle_Address_Display__c</name>
-    </fields>
-    <fields>
         <label><!-- Vehicle Amount --></label>
         <name>Vehicle_Amount__c</name>
     </fields>
