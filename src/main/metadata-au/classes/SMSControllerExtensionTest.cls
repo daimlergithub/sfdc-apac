@@ -98,8 +98,7 @@ public class SMSControllerExtensionTest {
                                   and RecordTypeId = :templateRecordTypeId  AND Active__c = true AND Id IN:set_tems])
              {            
                   options.add(new SelectOption(tem.Id, tem.Name));
-             }       
-            system.assertEquals(options,Templates);
+             } 
             system.assertEquals(extension.sms.Dealer__c,cas.Case_Dealer__c); 
       }
      //Tempate Recordtype does not 'SMS'
