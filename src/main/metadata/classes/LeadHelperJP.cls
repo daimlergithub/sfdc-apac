@@ -232,13 +232,13 @@ public class LeadHelperJP
         
         
         }
-             
-       for(Account acc : [select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer']){
+        list<account>acl=new list<account>([select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer']);
+       for(Account acc : acl){
            system.debug('acc.Name'+acc.Name);
            AccountNAme.add(acc.Name);   
        }
-        
-        for(Group assg:[select id ,Name ,Type from Group where Name IN:asslist OR Name IN: AccountNAme] )
+        list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:asslist OR Name IN: AccountNAme]);
+        for(Group assg:grplist)
         {
                
             assgroupMap.put(assg.Name, assg.id);
