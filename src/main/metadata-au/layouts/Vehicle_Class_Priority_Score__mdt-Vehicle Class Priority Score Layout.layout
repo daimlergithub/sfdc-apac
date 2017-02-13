@@ -15,10 +15,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Customer_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
                 <field>Vehicle_Class__c</field>
             </layoutItems>
             <layoutItems>

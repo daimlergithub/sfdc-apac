@@ -124,10 +124,37 @@
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
     <fieldUpdates>
+        <fullName>CAStatusChangeDate</fullName>
+        <field>CA_status_change_date__c</field>
+        <formula>TODAY()</formula>
+        <name>CAStatusChangeDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Close_Date_Update</fullName>
         <field>Close_Date__c</field>
         <formula>Today()</formula>
         <name>Close Date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ConsulatantReassignment_Date_update</fullName>
+        <field>Consultant_Reassignment_Date__c</field>
+        <formula>now()</formula>
+        <name>Consultant Reassignment date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ConsultantAssignmentDateUpdate</fullName>
+        <field>Consultant_Assignment_Date__c</field>
+        <formula>NOW()</formula>
+        <name>ConsultantAssignmentDateUpdate</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -162,6 +189,25 @@
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReassgnmentDateUpdate</fullName>
+        <description>Updating the reassignment date to current date</description>
+        <field>Reassignment_Date__c</field>
+        <formula>NOW()</formula>
+        <name>ReassgnmentDateUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_Override_Escaltion_flag</fullName>
+        <field>Override_Escalation__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset Override Escaltion flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
@@ -382,6 +428,34 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Lead_Closed_Date_Field</fullName>
+        <field>Lead_Closed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lead Closed Date Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Origin_field_as_Retail</fullName>
+        <field>Lead_Origin__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Lead Origin field as Retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Origin_field_as_Wholesale</fullName>
+        <field>Lead_Origin__c</field>
+        <literalValue>Wholesale</literalValue>
+        <name>Update Lead Origin field as Wholesale</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Lead_Recieved_Date_Time_to_Now</fullName>
         <field>Received_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -527,6 +601,24 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Retail_Consultant_overdue</fullName>
+        <field>Retail_update_Consultant_overdue__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Retail Consultant overdue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Retail_Dealer_overdue</fullName>
+        <field>Retail_update_Dealer_overdue__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Retail Dealer overdue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Visited_Showroom_Date_Time_to_Now</fullName>
         <field>Visited_Showroom_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -554,7 +646,7 @@ Proxy_Date_Time__c
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-        <rules>
+    <rules>
         <fullName>Email Notification to Lead Owner</fullName>
         <active>true</active>
         <criteriaItems>
@@ -570,7 +662,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Deal Lost</value>
+            <value>Settled,Closed Won,Deal lost</value>
         </criteriaItems>
         <description>Email notification to lead owner whenever the leads are untouched for 4 days.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -662,7 +754,7 @@ Proxy_Date_Time__c
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-     <rules>
+    <rules>
         <fullName>Escalation%3A Lead not touched for 7 days</fullName>
         <active>true</active>
         <criteriaItems>
@@ -678,7 +770,7 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>notEqual</operation>
-            <value>Settled,Closed,Deal Lost</value>
+            <value>Settled,Closed Won,Deal lost</value>
         </criteriaItems>
         <description>This Lead has not been touched for 7 days after creation.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -813,6 +905,52 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Lead Consultant Reassignment Date update</fullName>
+        <actions>
+            <name>ConsulatantReassignment_Date_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Reset_Override_Escaltion_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When owner of lead is modified, owner is Dealer consultant and  consulatant assignement date is not NULL Then change Field : Consultant Reassignment Date to current Date/time</description>
+        <formula>AND( ISCHANGED( OwnerId ) , IF( Owner:User.Profile.Name = 'Dealer Consultant', true,false), NOT(ISNULL( Consultant_Assignment_Date__c )) , MD__c = 'AU' )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead modified after Consultant Overdue</fullName>
+        <actions>
+            <name>Update_Retail_Consultant_overdue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ! ISNULL(Dealer_Due_Date__c) &amp;&amp; ( LastModifiedDate &gt; Consultant_Due_Date__c) &amp;&amp;  RecordType.DeveloperName = 'Sales_Leads'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead modified after Dealer Overdue</fullName>
+        <actions>
+            <name>Update_Retail_Dealer_overdue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ! ISNULL(Dealer_Due_Date__c) &amp;&amp; ( LastModifiedDate &gt; Dealer_Due_Date__c ) &amp;&amp;  RecordType.DeveloperName = 'Sales_Leads'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LeadStatusChangedateUpdate</fullName>
+        <actions>
+            <name>CAStatusChangeDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Whenever the lead status changed  updating the CA_status_change_date__c to current date</description>
+        <formula>AND(     ISCHANGED(CAC_Lead_Status__c) , MD__c  = 'AU'         )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Leads fields update</fullName>
         <actions>
             <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
@@ -820,6 +958,32 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         </actions>
         <active>false</active>
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LeadsReassignmentDateUpdate</fullName>
+        <actions>
+            <name>ReassgnmentDateUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>If the assigned dealer is changed and lead status is qualified then set the current date to reassignment date</description>
+        <formula>AND( ISCHANGED( Assigned_Dealer__c ),  NOT(ISNULL( Dealer_Assignment_Date__c  ) ),  ISPICKVAL( CAC_Lead_Status__c ,'Qualified'),  IF( OR(Owner:User.Profile.Name = 'Dealer CRM Manager',Owner:User.Profile.Name = 'Dealer Divisional Manager') , true,false))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>LeadsUpdateConsultantAssignmentDate</fullName>
+        <actions>
+            <name>ConsultantAssignmentDateUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Reset_Override_Escaltion_flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If lead owner profile is 'Dealer Consultant' then updating the current datetime to cosultant _assingment_date__c</description>
+        <formula>AND( ISCHANGED( OwnerId ) , Owner:User.Profile.Name  = 'Dealer Consultant', ISBLANK( Consultant_Assignment_Date__c ) ,       MD__c = 'AU' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1060,6 +1224,38 @@ Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</descripti
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Update Lead Closed Date When status closed or lost</fullName>
+        <actions>
+            <name>Update_Lead_Closed_Date_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED(CAC_Lead_Status__c), OR(ISPICKVAL(CAC_Lead_Status__c , "Closed Won")  ,ISPICKVAL(CAC_Lead_Status__c , "Closed Lost")), ISBLANK(Lead_Closed_Date__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Origin field as Retail</fullName>
+        <actions>
+            <name>Update_Lead_Origin_field_as_Retail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>In case the record will be created manually in Wholesale this field is to be set to “Retail”</description>
+        <formula>ISPICKVAL($Profile.UserType,"PowerPartner") &amp;&amp; ($Profile.Name != 'Integration API')</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Origin field as Wholesale</fullName>
+        <actions>
+            <name>Update_Lead_Origin_field_as_Wholesale</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>In case the record will be created manually in Wholesale this field is to be set to “Wholesale”</description>
+        <formula>NOT(ISPICKVAL($Profile.UserType,"PowerPartner")) &amp;&amp;  ($Profile.Name != 'Integration API')</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Lead Qualified Date Time</fullName>
         <actions>
             <name>Update_Qualified_Date_Time_to_Now</name>
@@ -1094,7 +1290,7 @@ Modify Reason:
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
-            <value>Lost</value>
+            <value>Closed Lost</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

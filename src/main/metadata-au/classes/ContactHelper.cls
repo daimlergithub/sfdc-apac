@@ -68,13 +68,55 @@ public class ContactHelper {
                 
                 if(con.Dealer_Lead_Gate_Keeper__c && AccountIdHasSalesKeeper.contains(con.AccountId))
                 {
-                    con.addError(HasSalesGetKeeper);
+                    //con.addError(HasSalesGetKeeper);
                 }
             }   
         }
          
     }
     
+    public static void validateduplicategatekeeper(List<Contact> New_Contact_List)
+    {
+        
+                
+            Set<Id> AccIdSet = new Set<Id>(); 
+            for (Contact con: New_Contact_List)
+            {
+                AccIdSet.add ( con.accountId);
+                   
+            }
+            Map<id,Account> AccountMap= new  Map<id,Account>([SELECT id,(SELECT id, Dealer_Lead_Gate_Keeper__c,Sub_BusinessUnit__c,Business_Unit__c FROM Contacts WHERE Dealer_Lead_Gate_Keeper__c=true) FROM Account WHERE id IN : AccIdSet ]);
+           
+           for (Contact con: New_Contact_List)
+           {
+               if (con.Dealer_Lead_Gate_Keeper__c == true)
+               {
+                   Id AccId = con.accountId;
+                   Account acct= AccountMap.get(AccId);
+                   for (Contact con1: acct.contacts)
+                   {
+                       if ( con1.id != con.id)
+                       {
+                           List<String> Con_business_unit_set= new List<String>(con.Business_Unit__c.split(';'));
+                           List<String> Con1_business_unit_set= new List<String>(con1.Business_Unit__c.split(';'));
+                           system.debug('Con_business_unit_set>>>' + Con_business_unit_set);
+                           system.debug('Con_business_unit_set>>>' + Con1_business_unit_set);
+                           for(Integer i=0 ;i< Con_business_unit_set.size() ; i++)
+                           {
+                               for(Integer j=0; j< Con1_business_unit_set.size(); j++)
+                               {
+                                   if(Con_business_unit_set[i].equals(Con1_business_unit_set[j]))
+                                   {                                   
+                                       con.adderror('Only one user per business unit can be assigned as "Dealer Lead Administrator"');                                                                    
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+                  
+           }                                                
+    }
     public static void ValidateManager(List<Contact> contacts) {
         
         List<Contact> newContactsForManager = new List<Contact>();
@@ -151,6 +193,8 @@ public class ContactHelper {
         }
         
     }
+    
+    
     public static void ValidateBusinessUnit(List<Contact> newContacts) {
         Set<Id> AccountIds = new Set<Id>();
         map<id,Account> accountMap = new  map<id,Account>();

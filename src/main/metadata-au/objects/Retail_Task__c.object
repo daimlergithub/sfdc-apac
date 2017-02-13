@@ -312,6 +312,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -550,6 +551,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -570,6 +572,14 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Cancellation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Cancellation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contract_Category__c</fullName>
@@ -594,6 +604,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -774,6 +785,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -806,6 +818,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -956,6 +969,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1245,6 +1259,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1279,6 +1294,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1363,6 +1379,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1557,6 +1574,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1648,6 +1666,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1728,6 +1747,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1858,6 +1878,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1988,6 +2009,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2139,6 +2161,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2178,6 +2201,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2274,6 +2298,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2392,6 +2417,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MOT_Owner_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Name Native</label>
+        <length>90</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MOT_Owner_Name__c</fullName>
         <externalId>false</externalId>
         <label>MOT Owner Name</label>
@@ -2412,6 +2447,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MOT_User_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Name Native</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MOT_User_Name__c</fullName>
         <externalId>false</externalId>
         <label>MOT User Name</label>
@@ -2422,9 +2467,37 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MOT_User_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Phone</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Postal__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Postal</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Maximum_lease_extention_Date__c</fullName>
         <externalId>false</externalId>
         <label>Maximum lease extention Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Membership_Accept_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Membership Accept Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -2524,6 +2597,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2546,6 +2620,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Claim_Bonus__c</fullName>
+        <externalId>false</externalId>
+        <label>Number Claim Bonus</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Number_Of_Employees__c</fullName>
@@ -2647,6 +2731,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2677,6 +2762,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2755,6 +2841,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2777,6 +2864,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2979,6 +3067,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2993,6 +3082,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -3038,6 +3128,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Related_Contact2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 2</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracts &amp; Aftersales (Related Contact 2)</relationshipLabel>
+        <relationshipName>Retail_Tasks9</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Contact3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 3</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracts &amp; Aftersales (Related Contact 3)</relationshipLabel>
+        <relationshipName>Retail_Tasks10</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Related_Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3056,6 +3170,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>Related Dealer</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Retail Tasks</relationshipLabel>
+        <relationshipName>Retail_Tasks</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Lead</label>
+        <referenceTo>Lead__c</referenceTo>
+        <relationshipLabel>Contracts &amp; Aftersales</relationshipLabel>
         <relationshipName>Retail_Tasks</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -3169,6 +3295,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3191,6 +3318,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3334,6 +3462,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3342,6 +3471,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Service Contact Name</label>
         <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Currency__c</fullName>
+        <description>Visible for WS user only</description>
+        <externalId>false</externalId>
+        <label>Service Currency</label>
+        <length>10</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -3424,6 +3564,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Labour_Amount__c</fullName>
+        <description>Visible for WS user only</description>
+        <externalId>false</externalId>
+        <label>Service Labour Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Mileage__c</fullName>
         <externalId>false</externalId>
         <label>Service Mileage</label>
@@ -3445,6 +3597,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Parts_Amount__c</fullName>
+        <description>Visible for WS user only</description>
+        <externalId>false</externalId>
+        <label>Service Parts Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Position__c</fullName>
         <externalId>false</externalId>
         <label>Service Position</label>
@@ -3454,6 +3618,42 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Total_Amount__c</fullName>
+        <description>Visible for WS user only</description>
+        <externalId>false</externalId>
+        <label>Service Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Vehicle_VIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Related_Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Service Vehicle VIN</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>For Service History</description>
+        <externalId>false</externalId>
+        <label>Service Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Contracts &amp; Aftersales (Service Vehicle)</relationshipLabel>
+        <relationshipName>Retail_Tasks1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Settlement_Officer__c</fullName>
@@ -3789,6 +3989,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4075,6 +4276,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -4311,6 +4513,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4442,6 +4645,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>

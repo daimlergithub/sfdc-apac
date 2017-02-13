@@ -44,10 +44,6 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contact_Timing__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -88,14 +84,14 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Contact Details</label>
+        <editHeading>true</editHeading>
+        <label>Address Details</label>
         <layoutColumns>
             <layoutItems>
-                <height>300</height>
-                <page>LeadContactInformation</page>
+                <height>200</height>
+                <page>Lead_Address</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -205,8 +201,8 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
+        <fields>Status__c</fields>
+        <fields>Priority__c</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>Reason__c</fields>
         <fields>Result__c</fields>
@@ -239,7 +235,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000InPW</masterLabel>
+        <masterLabel>00h1a000001fjYo</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -1,55 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-   <!-- <alerts>
-        <fullName>Escalation_after_48_hours</fullName>
-        <description>Escalation_after_48_hours</description>
+    <fieldUpdates>
+        <fullName>PublicCheckBoxToTrue</fullName>
+        <field>IsVisibleInSelfService</field>
+        <literalValue>1</literalValue>
+        <name>PublicCheckBoxToTrue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Escalation_after_48_hours</template>
-    </alerts> -->
-   <!-- <alerts>
-        <fullName>Send_Email_Notification_On_Task_Creation</fullName>
-        <description>Send Email Notification On Task Creation</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_Notification_On_Task_Creation</template>
-    </alerts> -->
-   <!-- <alerts>
-        <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <description>Send_Email_To_DRM_User_After_24hrs_DueDate</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Escalation_after_24_hours</template>
-    </alerts> -->
-   <!-- <alerts>
-        <fullName>Task_Has_Been_Created</fullName>
-        <description>Task_Has_Been_Created</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/General_Task_Email</template>
-    </alerts>
-    <alerts>
-        <fullName>send_email_alert_to_owner_on_DRM_task_creation_or_assignment</fullName>
-        <description>send email alert to owner on DRM task creation or assignment</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Email_to_DRM_on_Task_Assignment</template>
-    </alerts> -->
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Call_End_Time</fullName>
         <field>End_call_time__c</field>
@@ -77,6 +36,33 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Origin_field_as_Retail</fullName>
+        <field>Origin__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Origin field as Retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Origin_field_as_Wholesale</fullName>
+        <field>Origin__c</field>
+        <literalValue>Wholesale</literalValue>
+        <name>Update Origin field as Wholesale</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_field_with_Dealer_name</fullName>
+        <field>Dealer_Name__c</field>
+        <formula>CreatedBy.Contact.Account.Name</formula>
+        <name>Update field with Dealer name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>General Task Email</fullName>
         <active>true</active>
@@ -94,17 +80,7 @@
     </rules>
     <rules>
         <fullName>Notification to the assigned to user With Time Trigger</fullName>
-		<workflowTimeTriggers>
-        <actions>
-            <name>Update_Notification_Email_Flag</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
-        <timeLength>0</timeLength>
-        <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
         <active>false</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
@@ -132,13 +108,18 @@
         </criteriaItems>
         <description>If  &quot;Due Task Notification&quot; flag is checked the system shall send the email notification to the assigned to user a 9.00 am on the due date in case the status is unequal to &quot;Complete&quot; or &quot;Deferred&quot;.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Notification_Email_Flag</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Task.Notification_Email_Time__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Send Email On Task Creation</fullName>
-       <!-- <actions>
-            <name>Send_Email_Notification_On_Task_Creation</name>
-            <type>Alert</type>
-        </actions> -->
         <active>true</active>
         <criteriaItems>
             <field>User.ProfileId</field>
@@ -154,7 +135,7 @@
 Content of email will be reference the task number and due date.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-   <!-- <rules>
+    <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
         <active>true</active>
         <criteriaItems>
@@ -164,7 +145,7 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>If status is not completed 24 hours after the due date, send an email notification to DRM user.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules> -->
+    </rules>
     <rules>
         <fullName>Send_Email_To_NSM_On_Status_Visit</fullName>
         <active>false</active>
@@ -172,7 +153,7 @@ Content of email will be reference the task number and due date.</description>
         <formula>((PRIORVALUE(Subject)==&apos;1st Meeting Metro Visit&apos;) &amp;&amp; Subject == &apos;2nd Visit reporting penetration and volume&apos;) || ((PRIORVALUE(Subject)==&apos;2nd Visit reporting penetration and volume&apos;) &amp;&amp; Subject == &apos;3rd visit (leads) update on leads&apos;) || ((PRIORVALUE(Subject)==&apos;3rd visit (leads) update on leads&apos;) &amp;&amp; Subject == &apos;4th follow up or touch base&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-   <!-- <rules>
+    <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
         <active>true</active>
         <criteriaItems>
@@ -181,7 +162,7 @@ Content of email will be reference the task number and due date.</description>
         </criteriaItems>
         <description>If status is not completed 48 hours after the due date, send an email notification to DRM user and the National Sales Manager user</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules> -->
+    </rules>
     <rules>
         <fullName>Send_Email_To_Owner</fullName>
         <active>true</active>
@@ -203,6 +184,17 @@ Content of email will be reference the task number and due date.</description>
         <description>When tasks are created or assigned to DRM, a notification Email will be sent</description>
         <formula>OR(AND(ISNEW(), RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;), AND( ISCHANGED(OwnerId) ,RecordType.DeveloperName = &apos;DRM_Task&apos;,MD__c = &apos;AU&apos;) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>TaskUpdatePublicCheckBoxTrue</fullName>
+        <actions>
+            <name>PublicCheckBoxToTrue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Whenever a task is created by dealer user then update public(IsVisibleInSelfService) as true</description>
+        <formula>IF(     AND(       OR(Owner:User.Profile.Name  = &apos;Dealer CRM Manager&apos;  ,            Owner:User.Profile.Name = &apos;Dealer Divisional Manager&apos;,           Owner:User.Profile.Name = &apos;Dealer Consultant&apos;         ),  MD__c = &apos;AU&apos;       ) ,    true, false   )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>TestTaskEmail</fullName>
@@ -231,6 +223,38 @@ Content of email will be reference the task number and due date.</description>
             <value>Inbound,Outbound</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Dealer name on task object</fullName>
+        <actions>
+            <name>Update_field_with_Dealer_name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Origin field As Retail</fullName>
+        <actions>
+            <name>Update_Origin_field_as_Retail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Origin field based on as Retail for General and Marketing tasks</description>
+        <formula>ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;) &amp;&amp; ($Profile.Name != &apos;Integration API&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Origin field As Wholesale</fullName>
+        <actions>
+            <name>Update_Origin_field_as_Wholesale</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Origin field based on as Wholesale for General and Marketing tasks</description>
+        <formula>NOT(ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;)) &amp;&amp; ($Profile.Name != &apos;Integration API&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update_Comment_With_TimeStamp</fullName>

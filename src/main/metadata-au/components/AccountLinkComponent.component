@@ -1,0 +1,6 @@
+<apex:component controller="AccountLinkEmailTemplate" access="global">
+  <apex:attribute name="accLink" assignTo="{!accLinkId}" type="Id" description="Id of the AccountLink"/>
+  <apex:repeat value="{!accLinkList}" var="acc">
+  <tr><td>{!acc.name}</td></tr>
+  </apex:repeat>
+ </apex:component>

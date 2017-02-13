@@ -131,7 +131,7 @@ public with sharing class AUOverrideNewandEditForAccountController
     Account objAcc=[Select id,Fax,Recordtypeid,Salutation,isPersonAccount,FirstName,Deceased__c,LastName,Gender__c,Suffix__c,Marital_Status__c,Company__c,PersonBirthdate,Education__c,
             Industry,Age_Range__c,Occupation__c,Partner_Title__c,Corporate_Program__c,Partner_First_Name__c,Partner_Surname__c,Partner_DOB__c,
             Work_Phone__c,Individual_Home_Phone__c,Opt_In_Work_Phone__c,Opt_In_Home_Phone__c,FS_Opt_In_Work_Phone__c,FS_Opt_In_Home_Phone__c,
-            Mobile__c,Opt_In_SMS__c,FS_Opt_In_SMS__c,Email__c,FS_Opt_In_Email__c,Opt_In_Email__c
+            Mobile__c,Opt_In_SMS__c,FS_Opt_In_SMS__c,Email__c,FS_Opt_In_Email__c,Opt_In_Email__c,PreferredName__c,Preferred_Partner_Name__c
             from Account where id=:recordId];
     return   objAcc;        
   }  

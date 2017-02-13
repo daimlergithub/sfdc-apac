@@ -29,12 +29,20 @@
                 <field>Lead_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Sub_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Escalation_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Override_Escalation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -91,7 +99,7 @@
                 <field>Lead_Priority__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Priority_Score__c</field>
             </layoutItems>
         </layoutColumns>
@@ -116,25 +124,13 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Opt-in / Opt-out</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>300</height>
-                <page>LeadContactInformation</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Contact Details</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Contact_Method__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
@@ -266,6 +262,80 @@
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Lead Age and Activity Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Assignment_Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consultant_Assignment_Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Status_Age__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Activity_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Time_to_First_Activity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Time_since_Last_Activity__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Overdue Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Dealer_Overdue_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Override_Overdue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue_Description__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Consultant_Overdue_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Consultant_Override_Overdue__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Overdue_Reason__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
@@ -281,9 +351,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
@@ -305,7 +372,6 @@
         <fields>Contact__c</fields>
         <fields>Company_Account__c</fields>
         <fields>Lead_Source__c</fields>
-        <fields>Sub_Source__c</fields>
         <fields>Nature_of_Request__c</fields>
         <fields>Business_Unit__c</fields>
         <fields>Sub_BusinessUnit__c</fields>
@@ -316,8 +382,8 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
+        <fields>Status__c</fields>
+        <fields>Priority__c</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>Reason__c</fields>
         <fields>Result__c</fields>
@@ -328,8 +394,9 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
         <fields>Reason__c</fields>
         <fields>Result__c</fields>
         <relatedList>RelatedHistoryList</relatedList>

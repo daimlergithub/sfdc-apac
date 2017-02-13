@@ -66,9 +66,29 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_Line_1_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 1 Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address_Line_1__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Line 2 Native</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -156,14 +176,35 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Block_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Block Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Block__c</fullName>
         <externalId>false</externalId>
         <label>Block</label>
         <length>24</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>City Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -214,6 +255,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -246,6 +288,16 @@
         <externalId>false</externalId>
         <label>Delivery Point ID</label>
         <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>District_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Town Native</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -326,7 +378,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -346,6 +398,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>Preferred</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Province_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Prefecture Native</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Province__c</fullName>
@@ -386,6 +448,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -410,6 +473,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -448,6 +512,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -934,7 +999,7 @@ $Profile.Name != 'IntegrationAPI'
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_DEALER_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
+        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_DEALER_RECORDTYPE_ID &amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
     <webLinks>
         <fullName>New_Individual_Address</fullName>
@@ -948,5 +1013,5 @@ $Profile.Name != 'IntegrationAPI'
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
         <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
-    </webLinks> 
+    </webLinks>
 </CustomObject>

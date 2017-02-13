@@ -1158,5 +1158,55 @@ public class AccountHelper {
                
                System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
+    public static void shareProspectWithDealers(List<Account> prospectAccList)
+    {
+        set<id> prosaccids = new set<id>();
+        set<string> groupName = new set<string>();
+        List<Account> prosAccList = new List<Account>();
+        List<group> groupList = new List<group>();
+        map<string,id> groupMap = new map<string,id>();
+        List<AccountShare> updateAccShare = new List<AccountShare>();
+        for(Account prosacc : prospectAccList)
+        {
+            if(prosacc.PC_Status__c == 'Prospect' && prosacc.VAN_Status__c == 'Prospect' && prosacc.Insurance_Status__c == 'Prospect')
+            {
+                prosaccids.add(prosacc.Id);
+            }
+        }
+        prosAccList = [select id, CreatedBy.Profile.UserLicense.Name,CreatedBy.Contact.Account.Name from Account where Id =:prosaccids];
+        if(!prosAccList.isEmpty() && prosAccList != null)
+        {
+            for(Account accpr : prosAccList)
+            {
+                groupName.add(accpr.CreatedBy.Contact.Account.Name);
+            }
+        }
+        groupList = [select id ,DeveloperName ,Name ,Type from Group where Name =:groupName];
+        
+        if(!groupList.isEmpty() && groupList != null)
+        {
+            for(Group prosgrp : groupList)
+            {
+            	groupMap.put(prosgrp.name, prosgrp.id);
+            }
+        }
+        for(Account sharepors : prosAccList)
+        {
+            if(!groupMap.isEmpty() && groupMap != null && groupMap.get(sharepors.CreatedBy.Contact.Account.Name) != null)
+            {
+                AccountShare proacshr = new AccountShare();
+                proacshr.AccountId = sharepors.id;
+                proacshr.UserOrGroupId = groupMap.get(sharepors.CreatedBy.Contact.Account.Name);
+                proacshr.AccountAccessLevel = 'Read';
+                proacshr.OpportunityAccessLevel = 'None';
+                updateAccShare.add(proacshr);
+            }
+        }
+        if(!updateAccShare.isEmpty() && updateAccShare != null)
+        {
+            insert updateAccShare;
+        }
+    }
+    
     //Existing AU related functionality ends here   
 }

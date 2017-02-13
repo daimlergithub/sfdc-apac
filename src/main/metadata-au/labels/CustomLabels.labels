@@ -124,6 +124,13 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>Au_Community_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Au Community URL</shortDescription>
+        <value>https://dev5-crmone.cs21.force.com/</value>
+    </labels>
+    <labels>
         <fullName>Btn_Preview_No_Questions</fullName>
         <categories>Questionnaire Tool</categories>
         <language>en_US</language>
@@ -769,6 +776,13 @@
         <protected>false</protected>
         <shortDescription>Case Record Type</shortDescription>
         <value>Case Type</value>
+    </labels>
+    <labels>
+        <fullName>Change_Owner_Record_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Change Owner Record type</shortDescription>
+        <value>0123B00000009Gm</value>
     </labels>
     <labels>
         <fullName>City</fullName>

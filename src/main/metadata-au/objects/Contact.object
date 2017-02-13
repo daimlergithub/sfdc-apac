@@ -200,6 +200,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -289,7 +290,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <inlineHelpText>Permission set: clues</inlineHelpText>
-        <label>Dealer Lead Gate Keeper</label>
+        <label>Dealer Lead Administrator</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
@@ -378,6 +379,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -438,6 +440,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -689,6 +692,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -780,6 +784,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -803,6 +808,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -913,6 +919,7 @@ Adds an active member/membership status/update activity generated sales leads--t
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>10</visibleLines>
@@ -932,6 +939,7 @@ Adds an active member/membership status/update activity generated sales leads--t
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1027,6 +1035,7 @@ Adds an active member/membership status/update activity generated sales leads--t
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -1051,6 +1060,7 @@ Adds an active member/membership status/update activity generated sales leads--t
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -3212,6 +3222,7 @@ Adds an active member/membership status/update activity generated sales leads--t
         <searchResultsAdditionalFields>CONTACT.PHONE1</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Inactive__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

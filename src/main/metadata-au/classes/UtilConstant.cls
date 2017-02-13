@@ -5,7 +5,7 @@ Global with sharing class UtilConstant {
     public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
     public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
     public final static String SALES_LEADS = 'Vehicle Lead';
-    public final static String AFTER_SALES_LEADS = 'Service/Parts Lead';
+    public final static String AFTER_SALES_LEADS = 'Service Lead';
     public final static String RETAIL_SALES_LEADS = 'Retail Sales Leads';
     public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
@@ -49,7 +49,15 @@ Global with sharing class UtilConstant {
     public final static String DRM_MBFS = 'DRM MBFS';
     public final static String Finance_Fleet_lead = 'Fleet Finance Lead';
     public final static String Fleet_Vans = 'Fleet Vans';
-    
+    public final static String PERSON_ACCOUNT='Person Account';
+    public final static String COMPANY_ACCOUNT='Company';
+    public final static String PERSON_SOFT_DELETE_ACCOUNT='Person Account Soft Deleted';
+    public final static String COMPANY_SOFT_DELETE_ACCOUNT='Company Soft Deleted';
+      public final static String Prospect_Value = 'Prospect'; 
+    Public final Static String ET_Lead_Consultant_Person= 'Lead_Assignment_Notification_Individual';
+     Public final Static String ET_Lead_Consultant_Comapany= 'Lead_Assignment_Notification_Company';
+    Public final Static String ET_Lead_GateKeeper_Person= 'Lead_Gate_Keeper_Notification_Individual';
+     Public final Static String ET_Lead_GateKeeper_Comapany= 'Lead_Gate_Keeper_Notification_Company';
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {

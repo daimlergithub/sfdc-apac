@@ -670,8 +670,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>

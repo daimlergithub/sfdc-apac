@@ -460,52 +460,50 @@ Campaign top5 = new Campaign(
      }
      
     // Test method to test au specific code
-   @isTest(SeeAllData=true)  public static void testau_Before_Insert_Update_Events() 
+   @isTest(SeeAllData=false)  
+    public static void testau_Before_Insert_Update_Events() 
     {
         // creating test data
         // 
         
-        User u1 = UtilTestData.createUser('IT Manager', 'CAC Data Manager');
+        User u1 = UtilTestData.createUser('Australia', 'System Administrator');
         User u2 = UtilTestData.createUser('IT Manager', 'CAC Data Manager');
         
-        System.runAs(u1){
-
-        Campaign cmp = new Campaign(
-            Status = Started,
-            Name = 'cmp', 
-            StartDate = System.today(), 
-            EndDate = System.today()
-            );
-        insert cmp;
-        
-        Campaign cmp2 = new Campaign(
-            Status = Started,
-            Name = 'cmp2', 
-            StartDate = System.today(), 
-            EndDate = System.today()
-            );
-        insert cmp2;
-        
-        
-        
-        u2.ManagerId = u1.id;
-        update u2;
-        cmp.OwnerId = u2.id;
-        cmp2.OwnerId = u2.id;
-        
-        List<Campaign> cmplist = new List<Campaign>();
-        cmplist.add(cmp);
-        
-        map<id,Campaign> cmpmap = new map<id,Campaign>();
-        cmpmap.put(cmp.id, cmp);
-        cmpmap.put(cmp2.id, cmp2);
-        
-        test.startTest();
-        CampaignHelper.au_Before_Insert_Update_Events(cmplist, cmpmap, true, false);
-        
-        test.stopTest();
-        
-        system.assert(cmp.Approver__c != null);
-    }        
+       system.runAs(u1)
+       {
+            Campaign cmp = new Campaign(
+                Status = Started,
+                Name = 'cmp', 
+                StartDate = System.today(), 
+                EndDate = System.today()
+                );
+            insert cmp;
+            
+            Campaign cmp2 = new Campaign(
+                Status = Started,
+                Name = 'cmp2', 
+                StartDate = System.today(), 
+                EndDate = System.today()
+                );
+            insert cmp2;
+           
+            u2.ManagerId = u1.id;
+            update u2;
+            cmp.OwnerId = u2.id;
+            cmp2.OwnerId = u2.id;
+            
+            List<Campaign> cmplist = new List<Campaign>();
+            cmplist.add(cmp);
+            
+            map<id,Campaign> cmpmap = new map<id,Campaign>();
+            cmpmap.put(cmp.id, cmp);
+            cmpmap.put(cmp2.id, cmp2);
+            
+            test.startTest();
+            update cmp;
+                CampaignHelper.au_Before_Insert_Update_Events(cmplist, cmpmap, true, false);        
+            test.stopTest();       
+        	system.assert(cmp.Approver__c != null);
+       }     
     }
 }
