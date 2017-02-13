@@ -17,6 +17,14 @@
         <name>Add_User__c</name>
     </fields>
     <fields>
+        <label>MyM申請日</label>
+        <name>Portal_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label>住所（車両）</label>
+        <name>Vehicle_Address_Display__c</name>
+    </fields>
+    <fields>
         <label><!-- Additional Offer Others --></label>
         <name>Additional_Offer_Others__c</name>
     </fields>
@@ -2335,6 +2343,11 @@
         <label><!-- Previous Model --></label>
         <name>Previous_Model__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Previous Model) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>販売店顧客</label>
+        <name>Retail_Contact__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Retail Contact) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Previous Year --></label>
