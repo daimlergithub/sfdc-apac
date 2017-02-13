@@ -181,7 +181,7 @@ public class AddressDisplayInlineEditController {
                 addressobj.Customer__c = acc.id;            
                 try{  
                     if(Address_Validated_Flag == false)
-					{
+          {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
                     }
@@ -199,12 +199,12 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = true;
                     }*/  
-					if(Address_Validated_Flag == true && Validation == False)
-					{
-						refreshPage= true;
-						addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-						insert addressobj;
-					}
+          if(Address_Validated_Flag == true && Validation == False)
+          {
+            refreshPage= true;
+            addressObj.Address_Code__c = ValidateAddressCode(addressObj);
+            insert addressobj;
+          }
                 }
                 catch (DmlException e){
                     refreshPage = false;
@@ -358,15 +358,15 @@ public class AddressDisplayInlineEditController {
              //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
-			//Changes as part of SFDCKR-683
-			if(addressobj.Province__c != null)
-			{
+      //Changes as part of SFDCKR-683
+      if(addressobj.Province__c != null)
+      {
                 addressobj.MD__c = Market;
                 ValidateAddressSearchCallout(addressobj);
-			}
+      }
             //}           
         }
-        if(Market !='KR' && Market !=null && Market!=''){
+        if(Market !='KR' && Market !='' ){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c))){
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -498,7 +498,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         Public boolean isSelected{get;set;}
        
         Public Address__c add{get;set;} 
-        addressSelectionWrapper(Address__c add){
+        public addressSelectionWrapper(Address__c add){
             this.add = add;
             //isSelected = false;
         }         
