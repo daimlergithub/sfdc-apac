@@ -70,8 +70,9 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -128,6 +129,20 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Survey_Question_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the question Id against the survey</description>
+        <externalId>false</externalId>
+        <label>Survey Question Id</label>
+        <referenceTo>Survey_Question__c</referenceTo>
+        <relationshipLabel>Survey Question Responses (Survey Question Id)</relationshipLabel>
+        <relationshipName>Survey_Question_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Survey_Question__c</fullName>
         <externalId>false</externalId>
         <label>Survey Question</label>
@@ -139,6 +154,20 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Survey_Taken_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the Survey Taken Id</description>
+        <externalId>false</externalId>
+        <label>Survey Taken Id</label>
+        <referenceTo>SurveyTaker__c</referenceTo>
+        <relationshipLabel>Survey Question Responses (Survey Taken Id)</relationshipLabel>
+        <relationshipName>Survey_Question_Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
@@ -170,6 +199,25 @@
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Question_Responses</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Question Responses</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>Response-{0000000}</displayFormat>

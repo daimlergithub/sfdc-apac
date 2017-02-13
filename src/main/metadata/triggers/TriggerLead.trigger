@@ -18,7 +18,7 @@
     16-June-2014 Bing(NDC) Modified
     23-April-2015 Gerhard Henning (NTTData)     Moved code to TriggerLeadTriggerHandler
 */
-trigger TriggerLead on Lead__c(before insert, before update, after update) 
+trigger TriggerLead on Lead__c(before insert, before update, after update,after insert) 
 {
     TriggerUtil.handleTrigger('TriggerLead');
 }

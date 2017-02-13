@@ -26,11 +26,11 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -55,6 +55,11 @@
             <field>Lead__c.RecordType</field>
             <operation>equals</operation>
             <value>Aftersales Leads,Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>

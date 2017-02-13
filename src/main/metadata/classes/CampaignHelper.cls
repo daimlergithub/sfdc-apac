@@ -58,12 +58,12 @@ public class CampaignHelper {
     }
     
     
-	/**
-	  *@Description : Updates Campaign Member status to Related Campaigns.
-	  *@Date : 3/11/2015
-	  *@param:List of Campaign Members.
-	  *@return:This mehtod does not return any value.	
-	  */
+    /**
+      *@Description : Updates Campaign Member status to Related Campaigns.
+      *@Date : 3/11/2015
+      *@param:List of Campaign Members.
+      *@return:This mehtod does not return any value.   
+      */
     public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){  
         Set<String> topCampaignIds = new Set<String>();
         Set<String> obcallCampaignIds = new Set<String>();
@@ -110,13 +110,13 @@ public class CampaignHelper {
     }
     
     /**
-	  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
-	  				  which gets invoked by Trigger on Campaign Object.
-	  *@Date : 3/11/2015
-	  *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
-	  *@return:This mehtod does not return any value.
-	
-	  */
+      *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+                      which gets invoked by Trigger on Campaign Object.
+      *@Date : 3/11/2015
+      *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
+      *@return:This mehtod does not return any value.
+    
+      */
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
 
@@ -137,10 +137,11 @@ public class CampaignHelper {
         Batch_Job__c vehJob = new Batch_Job__c(Batch_Type__c='Vehicle', Status__c=pending);
         Batch_Job__c caseJob = new Batch_Job__c(Batch_Type__c='Case', Status__c=pending);
         /* END Variable Definition  */
-        
+         System.debug('campaignNew>>>' + campaignNew);
         /* START Iterate Campaign to relevant campaign list */
         for(Campaign cp : campaignNew) {
             // All Activated Campaign Execution
+            System.debug('campaignNew>>>' + campaignNew);
             if(cp.Create_Task__c && (isUpdate && !campaignOldMap.get(cp.Id).Create_Task__c) && 
                 (cp.RecordTypeId == cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId() || 
                 cp.RecordTypeId == cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId())) {
@@ -148,6 +149,7 @@ public class CampaignHelper {
                 if(cp.Task_Created_By__c == 'Contact') {
                     // Campaign Exection List by Contact 
                     cpAccList.add(cp); 
+                    System.debug('cpAccList>>>' + cpAccList);
                     // Batch Job Ids String
                     cpAccIds = cpAccIds + ';' + String.valueof(cp.Id);
                 } else if(cp.Task_Created_By__c == 'Lead') {
@@ -198,12 +200,14 @@ public class CampaignHelper {
         /* END Campaign Excution create task update */
         
         System.debug('cpVehicleList >>>' + cpVehicleList);
-            
+             System.debug('cpAccList>>>' + cpAccList);
         /* START Batch Execution */
         if(!cpAccList.isEmpty()) {          
-            //database.executeBatch(new UtilCampaignTaskGenerationByAccount(cpAccList), 200);
+            database.executeBatch(new UtilCampaignTaskGenerationByAccount(cpAccList), 200);
             accJob.Campaign_Set__c = cpAccIds;
+            if(accJob!=Null){
             insert accJob;
+            }
         }
         
         if(!cpLeadList.isEmpty()) {         
@@ -228,13 +232,13 @@ public class CampaignHelper {
     }
     
     
-	 /**
-	  *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
-	  which gets invoked by Trigger on Campaign Object.
-	  *@Date : 3/11/2015
-	  *@param:List of campaign.New. Campaign.Oldmap.
-	  *@return:This mehtod does not return any value.
-	  */ 
+     /**
+      *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
+      which gets invoked by Trigger on Campaign Object.
+      *@Date : 3/11/2015
+      *@param:List of campaign.New. Campaign.Oldmap.
+      *@return:This mehtod does not return any value.
+      */ 
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
       

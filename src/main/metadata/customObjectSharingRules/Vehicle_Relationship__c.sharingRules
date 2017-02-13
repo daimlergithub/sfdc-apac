@@ -20,6 +20,19 @@
         <name>JP_MarketVehicle Relatioship_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBK_Vehicle_Relationship_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MBK Vehicle Relationship Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Read_Write_of_Vehicle_to_CAC</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>

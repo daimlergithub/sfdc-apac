@@ -154,8 +154,8 @@ public class AccountHelperJP
 ** Created By: Sudhir 
 ** Date: 2015-12-22
 **/
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)    
-    {        
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)
+    {
         Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -167,7 +167,7 @@ public class AccountHelperJP
             UtilAddressTranslation.gettranslatedvalues('JP');
             For(Account a:listNewAccounts)
             {      
-                if(a.MD__c == 'JP')
+                if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -178,15 +178,14 @@ public class AccountHelperJP
             }
             For(Account acc:listNewAccounts)
             {      
-                if(acc.MD__c == 'JP')
+                if(acc.MD__c == 'JP' || acc.MD__c == 'KR')
                 {   
                     If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null && (acc.Primary_Address_Reference__c !=oldMap.get(acc.id).Primary_Address_Reference__c))
                     {   
                         system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
                         system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
                         system.debug('*************Account*********'+acc);
-                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c);     
-                        
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
                         {
@@ -196,10 +195,13 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
+                    //Code commented by Srinivas Pendli for #SFDCKR-620
+                    /*
                     else if(acc.Primary_Address_Reference__c ==Null)
                     {
                         acc.Primary_Address_Display__c ='';
                     }
+                    */
                     
                 }
             }     
@@ -375,19 +377,29 @@ public class AccountHelperJP
             }    
             if(!AccIds.isEmpty() && AccIds != Null)
             {
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null)
                 {
                     for(Account acc : accountlist)
                     {                        
                         
-                        if(acc.RecordTypeId == accPerson_RecordTypeId){
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'JP'){
                             ucidsequence = 'JSP' + acc.UCID_Sequence__c;                
                         }
                         else
-                            if(acc.RecordTypeId == accCompany_RecordTypeId){
+                            if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'JP'){
                                 ucidsequence = 'JSC' + acc.UCID_Sequence__c;                
                             }
+                        else
+                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Person Account---KR');
+                            ucidsequence = 'KSP' + acc.UCID_Sequence__c;                
+                        }
+                        else
+                        if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == 'KR'){
+                            System.debug('###############################-->createUCID---Company Account---KR');
+                            ucidsequence = 'KSC' + acc.UCID_Sequence__c;                
+                        }
                         
                         if(ucidsequence != null && ucidsequence.length() > 0)
                         {
@@ -430,18 +442,19 @@ public class AccountHelperJP
         CustomLogUtil.DebugLogInsert();
         
     }
-    
+   //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)
-    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+   
+    public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject)
     {
-        string sfdcMarketDiscriminator = 'JP';
-        string orgId=UserInfo.getOrganizationId();
+       string sfdcMarketDiscriminator = MarketDiscriminator;
+       string orgId=UserInfo.getOrganizationId();
        
         string sfdcTypeName='Account';
         if(!test.isrunningtest())
-            
-            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
-        
+             
+                UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
+             
         System.debug('@@@ orgId'+ orgId +'@@@@@@ sfdcTypeName'+ sfdcTypeName +'@@ updateType'+updateType +'### sfdcId'+sfdcId +'$$$$$$ serlializedObject'+serlializedObject+'@@@@ sfdcMarketDiscriminator'+sfdcMarketDiscriminator);
     }
     

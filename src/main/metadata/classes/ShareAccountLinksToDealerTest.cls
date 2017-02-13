@@ -14,9 +14,12 @@ public static Account Dealer;
     public static Account_Link__c newAccLink;
     public static void createTestData()
     { 
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
         
-     Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+     Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
      insert TriggerShareAccountLinksToDealer;  
+        
       List<Account> accList=new List<Account>();
       List<Lead__c> leadList=new List<Lead__c>();
       Dealer = new Account(Dealer_Default_Flag__c=true,
@@ -26,7 +29,7 @@ public static Account Dealer;
                                     Phone = '080801010',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
-                                    ZipCode__c='1234567',
+                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        //insert Dealer;
       accList.add(Dealer);
@@ -37,7 +40,7 @@ public static Account Dealer;
                                     Phone = '080801010',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
-                                    ZipCode__c='1234567',
+                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
       accList.add(newDealer);
                                    
@@ -58,11 +61,11 @@ public static Account Dealer;
                                     Dealer_Lead_System__c = 'Salesforce',
                                     Email__c='test011@test.com',
                                     Email2__c='test012@test.com',
-                                    Home_Phone_2__c='0879458745',
+                                    Home_Phone_2__c='000-000-0000',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000',Allow_Data_Sharing_Comment__c='comments',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-      //  insert personAcc;
+        insert personAcc;
          accList.add(personAcc);
-        insert accList;
+       // insert accList;
         objCaseold = new Case(AccountId = personAcc.Id);
         objCaseold.case_Dealer__C=Dealer.Id;
         UtilTestData.createSobject(objCaseold, UtilTestData.CASE_RT_CHRYSLER_COMPLAINT);
@@ -98,7 +101,7 @@ public static Account Dealer;
         insert leadList;
         
        vehicles = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200',
-                  EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',
+                  EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345',
                   Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
        insert vehicles;
       
@@ -128,9 +131,13 @@ public static Account Dealer;
       newAccLink = new Account_Link__c(toRole__c =Dealer.Id,fromRole__c = personAcc.Id,RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get(UtilTestData.accountLink_Contact2Contact).getRecordTypeId(),Name = 'contact-Contact-Contact-Contact', Vehicle__c = vehicles.Id);
       insert newAccLink;
   }
+    
+    
     public static testmethod void testshareAccountByAccountLink()
 {
-createTestData(); 
+createTestData();
+    
+    
 Map<id,Account_Link__c> newDataAl = new Map<id,Account_Link__c>();
 newDataAl.put(AccLink.id, AccLink);
 Map<id,Account_Link__c> newData = new Map<id,Account_Link__c>();
@@ -138,10 +145,15 @@ newData.put(newAccLink.id, newAccLink);
 Map<id,Account_Link__c> oldDataAl = new Map<id,Account_Link__c>();
 oldDataAl.put(AccLink.id, AccLink); 
 test.startTest(); 
+ 
+    
+ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
+//shacc.handleTrigger(true,true,true,true,true);
+shacc.handleIntegrationTrigger(true,true,true,true,true);
 AccountSharingDataHandler accSdh = new AccountSharingDataHandler('Account_Link__c'); 
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true); 
-accSdh.shareAccountByAccountLink(newData, oldDataAl, true); 
+accSdh.shareAccountByAccountLink(newData, oldDataAl, true);
 test.stopTest();
 system.assertNotEquals(null,newData);
 }

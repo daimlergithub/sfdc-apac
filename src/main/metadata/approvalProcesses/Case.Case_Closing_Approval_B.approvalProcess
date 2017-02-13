@@ -66,6 +66,11 @@
             <operation>equals</operation>
             <value>Inquiry</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
         <action>

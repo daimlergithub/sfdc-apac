@@ -55,7 +55,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
+  <fields>
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>
@@ -67,8 +67,9 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -142,6 +143,20 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Survey_Answer_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field is used to refer the related Answer</description>
+        <externalId>false</externalId>
+        <label>Survey Answer Id</label>
+        <referenceTo>SurveyQuestionResponse__c</referenceTo>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Survey__c</fullName>
         <externalId>false</externalId>
@@ -191,6 +206,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -206,6 +222,28 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Survey_Questions</fullName>
+        <columns>NAME</columns>
+        <columns>OrderNumber__c</columns>
+        <columns>Question__c</columns>
+        <columns>Survey__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Survey Questions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <label>Name</label>
@@ -229,7 +267,7 @@
         <fullName>Set_Single_Opinion_Text_Next_Question</fullName>
         <active>true</active>
         <description>If show the free text box and set the redirect no for this question, you also need set the next question number when fill in the free text</description>
-        <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ) )</errorConditionFormula>
+        <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ),  $Profile.Name != 'IntegrationAPI',OR(MD__c = 'KR',MD__c = 'JP'))</errorConditionFormula>
         <errorDisplayField>Single_FreeText_Next_Question_No__c</errorDisplayField>
         <errorMessage>Please set the single opinion free text next question number</errorMessage>
     </validationRules>
@@ -237,7 +275,7 @@
         <fullName>Type_Show_Free_TextBox</fullName>
         <active>true</active>
         <description>To controll which type question can show the free text box</description>
-        <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c)</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c, $Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorMessage>Only Single selection can show the free text box</errorMessage>
     </validationRules>
 </CustomObject>

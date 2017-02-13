@@ -36,11 +36,11 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -74,6 +74,11 @@
             <field>Case.Case_Class__c</field>
             <operation>equals</operation>
             <value>Finance</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>

@@ -27,7 +27,7 @@ public class BatchJobHelper
                         }
                         
                         if(nxJob.Batch_Type__c == 'Contact') 
-                            database.executeBatch(new UtilCampaignTaskGenerationByAccount(cpList, nxJob.Id), 200);
+                            database.executeBatch(new UtilCampaignTaskGenerationByAccount(cpList), 200);
                         if(nxJob.Batch_Type__c == 'Lead')        
                             database.executeBatch(new UtilCampaignTaskGenerationByLeads(cpList, nxJob.Id), 200);
                         if(nxJob.Batch_Type__c == 'Vehicle')        

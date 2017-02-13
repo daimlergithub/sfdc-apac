@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"> 
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -18,10 +18,6 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -71,6 +67,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -164,6 +161,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -183,6 +181,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -516,6 +515,10 @@
                 <fullName>Opel</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Pagani</fullName>
                 <default>false</default>
@@ -790,6 +793,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -826,6 +830,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Colour__c</fullName>
+        <externalId>false</externalId>
+        <label>Colour</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -876,6 +890,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -884,7 +899,7 @@
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -1909,6 +1924,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2082,6 +2098,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2105,6 +2122,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2130,6 +2148,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trim__c</fullName>
+        <externalId>false</externalId>
+        <label>Trim</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
@@ -2177,6 +2205,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2292,6 +2321,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2319,6 +2349,35 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Xbenzall</fullName>
+        <columns>NAME</columns>
+        <columns>Brand__c</columns>
+        <columns>Series__c</columns>
+        <columns>Range__c</columns>
+        <columns>Model_Code__c</columns>
+        <columns>Material_Portal_Code__c</columns>
+        <columns>Class_Name_Native__c</columns>
+        <columns>Model_Native__c</columns>
+        <columns>Series_Description__c</columns>
+        <columns>Model__c</columns>
+        <columns>Model_ShortName__c</columns>
+        <columns>Brand_code__c</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Vehicle_Group__c</columns>
+        <columns>Vehicle_SubGroup__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Brand_Native__c</field>
+            <operation>equals</operation>
+            <value>Mercedes-Benz,メルセデス・ベンツ</value>
+        </filters>
+        <label>Benzすべて</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <nameField>
         <label>Car Model Name</label>
         <trackHistory>true</trackHistory>
@@ -2341,4 +2400,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Model_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISBLANK(TEXT(Model__c)),ISBLANK(TEXT(Brand__c)),ISBLANK(TEXT(Series__c))),$Profile.Name != 'IntegrationAPI',MD__c= 'KR')</errorConditionFormula>
+        <errorDisplayField>Model__c</errorDisplayField>
+        <errorMessage>Model is Mandatory.</errorMessage>
+    </validationRules>
 </CustomObject>

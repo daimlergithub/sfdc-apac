@@ -752,8 +752,9 @@
     <fields>
         <fullName>MD__c</fullName>
 		<defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+			IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+			IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+			IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -1441,10 +1442,6 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <fullName>Mrs%2E</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Permission_Set_Settings__c</picklist>
@@ -1938,10 +1935,6 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <fullName>Mrs%2E</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Permission_Set_Settings__c</picklist>
@@ -2433,10 +2426,6 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

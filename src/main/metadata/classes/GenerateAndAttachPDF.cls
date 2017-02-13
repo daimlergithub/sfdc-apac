@@ -44,9 +44,10 @@ public with sharing class GenerateAndAttachPDF {
     * Define number of characters per line
     */
    public static final Integer LINE_LENGTH = 57;
-
+   public user usr{get;set;}
 
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
+      usr = [select id,Market__c from user where id =:userinfo.getUserId()];
       this.cas=(Case)controller.getRecord();  
       cas=[select id,Vehicle__c,CaseNumber,AccountId,Customer_Statement__c,PR_Comment_for_Dealer__c from case Where id=:ApexPages.currentPage().getParameters().get(System.Label.Id)];     
     }

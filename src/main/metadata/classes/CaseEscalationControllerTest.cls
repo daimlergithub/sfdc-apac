@@ -20,9 +20,10 @@ public with sharing class CaseEscalationControllerTest {
         objUsr=[select id from user where id=:userinfo.getuserid()];
     }   
     static void init( boolean isrequired){
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-    insert updatecustomsettings;
-    
+    //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    //insert updatecustomsettings;
+    Trigger__c CaseTrigger=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='TriggerCaseTriggerHandlerKR',update__c=false,insert__c=false,delete__c=false,after__c=false,before__c=false,enabled__c=false,Market__c='KR');
+      upsert CaseTrigger;
      Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
@@ -65,7 +66,7 @@ public with sharing class CaseEscalationControllerTest {
         c.Occupation__c = 'test Occupation';
         c.Owner_Tele__c = 'test Owner';
         c.Owned_MB_Vehicle_PL__c = '1';
-        c.EU_VIN__c = '123456abc7';
+        c.EU_VIN__c = '123456abc765894273';
         c.US_VIN__c = '123456abc78902222';
         c.Order_No__c = '1';
         c.Vehicle_Class__c = 'test Vehicle';
@@ -91,7 +92,7 @@ public with sharing class CaseEscalationControllerTest {
     
     @future
     static void test_EscalateCase_Dealer_Region_East(){    
-        init(true);    
+       init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
         controller.escalate();      
       }    
@@ -99,7 +100,7 @@ public with sharing class CaseEscalationControllerTest {
     static void test_EscalateCase_Dealer_Region(){    
         init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
-       controller.escalate();      
+        controller.escalate();      
       } 
    @future
     static void test_EscalateCase_Dealer_Region_West_elsecondition(){    
