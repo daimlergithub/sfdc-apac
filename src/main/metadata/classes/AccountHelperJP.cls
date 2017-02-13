@@ -677,13 +677,14 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     {
         set<String> GCCode = new set<String>();
         list<String> AccountNAme = new List<String>();
+        list<string>asslist=new list<string>();
         list<account>aclist=new list<account>();
                         if(listDealerAccounts!=null && !listDealerAccounts.isempty())
                 {
         aclist=[select id,name,recordtypeId,Dealer_GC_Code__c from account where id IN :listDealerAccounts];
         for(account a:aclist){
             GCCode.add(a.Dealer_GC_Code__c);
-        
+            asslist.add(a.name);
         }
     }
     list<account>accounts=[select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer'];
@@ -693,6 +694,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
            system.debug('acc.Name'+acc.Name);
            AccountNAme.add(acc.Name);   
        }
+       list<group>grlist=new list<group>([select id ,Name ,Type from Group where Name IN: asslist OR Name IN: AccountNAme]);
         Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
                                 if( aclist!=null && !aclist.isempty())
                                 {
@@ -700,7 +702,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         {
                                                  if(a.recordtypeid==rpa)
             {
-              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name OR Name IN: AccountNAme])
+              for(Group assg:grlist)
                {
                
                 assgroupMap.put(assg.Name, assg.id);
