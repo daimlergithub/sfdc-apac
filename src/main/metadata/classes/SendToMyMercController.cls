@@ -1,7 +1,6 @@
 /*
     JIRA NO: SFDC-1416
     Last Modified By : Lokesh M
-    Last Modified Date : 11-Feb-2017
 */
 
 public with sharing class SendToMyMercController {
@@ -129,7 +128,7 @@ public with sharing class SendToMyMercController {
         Boolean personBirthDate = false;
         if(lstAccountWrapper != null && !lstAccountWrapper.isEmpty()){
             for(AccountWrapper obj: lstAccountWrapper){
-                if((obj.isSelect == false && String.isBlank(obj.OptOutReason)) || (obj.isSelect == true && String.isBlank(obj.vehicleRelationship) && String.isBlank(obj.OptOutReason))){
+                if(obj.isSelect == false && String.isBlank(obj.OptOutReason) && String.isBlank(obj.vehicleRelationship)){
                     reason = true;
                 }
                 else if(Obj.isSelect == false && !String.isBlank(obj.OptOutReason)){
@@ -219,7 +218,7 @@ public with sharing class SendToMyMercController {
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter My Merc Email Id for selected Account'));
         }
         else if(reason){
-            ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,'Please enter Reason for Non-selected account OR Selected Non-Mymercedes acccount'));
+            ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,'Please enter Reason for Non-selected Non-Mymercedes acccount'));
         }
     return pr;
     }
