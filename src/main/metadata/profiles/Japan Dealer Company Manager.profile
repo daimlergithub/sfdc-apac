@@ -749,7 +749,7 @@
     <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
-    </classAccesses
+    </classAccesses>
 	<classAccesses>
         <apexClass>PrintPDF</apexClass>
         <enabled>true</enabled>
@@ -22834,7 +22834,7 @@
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
-    </pageAccesses
+    </pageAccesses>
 	<pageAccesses>
         <apexPage>PrintPDF</apexPage>
         <enabled>true</enabled>
