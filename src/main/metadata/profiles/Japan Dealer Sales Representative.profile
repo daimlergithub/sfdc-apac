@@ -22793,7 +22793,7 @@
 	 <pageAccesses>
         <apexPage>PrintPDF</apexPage>
         <enabled>true</enabled>
-    </pageAccesses
+    </pageAccesses>
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
         <enabled>false</enabled>
