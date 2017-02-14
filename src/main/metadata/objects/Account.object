@@ -15000,10 +15000,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
             </values>
@@ -31746,10 +31742,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Allow_Data_Sharing2__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Choice Yet</fullName>
                 <default>false</default>
             </values>
             <values>
