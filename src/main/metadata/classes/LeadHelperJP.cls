@@ -191,8 +191,9 @@ public class LeadHelperJP
      Created by:Surya Varma
      Date:1/12/2016
    */
-    public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
+     public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
     {
+     Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
      set<String> GCCode = new set<String>();
      set<id> leadIds = new set<id>();
@@ -232,7 +233,7 @@ public class LeadHelperJP
         
         
         }
-        list<account>acl=new list<account>([select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordType.DeveloperName = 'Dealer']);
+        list<account>acl=new list<account>([select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId]);
        for(Account acc : acl){
            system.debug('acc.Name'+acc.Name);
            AccountNAme.add(acc.Name);   

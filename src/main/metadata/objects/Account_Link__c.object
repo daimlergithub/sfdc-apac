@@ -3270,10 +3270,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
             </values>
@@ -3865,10 +3861,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <picklist>Retail_Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Choice Yet</fullName>
                 <default>false</default>
             </values>
             <values>
