@@ -140,6 +140,7 @@ public class AccountLinkHelper
         Set<Id> contactSetorDealerIdSet = new Set<Id>();
         
         for(Account_Link__c accountLink : list_AccountLink){
+		if(accountLink.Retail_Delete_Flag__c == false){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.fromRole__c != null){
               if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
                   map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
@@ -236,7 +237,7 @@ public class AccountLinkHelper
                 }
             }
         }
-        
+        }
         
         // START: Adding Similar GC Code related Account To Map which is sharing already.
         Set<Id> dealerAccIdSet = new Set<Id>();
@@ -376,6 +377,7 @@ public class AccountLinkHelper
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         
         for(Account_Link__c accountLink : list_AccountLink){
+		if(accountLink.Retail_Delete_Flag__c == false){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
                 accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
                 accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c)){
@@ -431,7 +433,7 @@ public class AccountLinkHelper
                 map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
         }
-        
+        }
         if(set_accountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
             List<Account_Link__Share> list_SharingDele = new List<Account_Link__Share>([SELECT Id FROM Account_Link__Share 
@@ -472,7 +474,7 @@ public class AccountLinkHelper
             {
                  for(Account_Link__c alk:Vehiclelist_AccountLink)
                  {
-                 if(alk.recordtypeID ==AccountLink_VehicleExternalRecordTypeId)
+                 if(alk.recordtypeID ==AccountLink_VehicleExternalRecordTypeId && alk.Retail_Delete_Flag__c == false)
                  {
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
@@ -506,6 +508,7 @@ public class AccountLinkHelper
             {
                  for(Account_Link__c alk:list_AccountLink)
                  {
+				  if(alk.Retail_Delete_Flag__c == false){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
                     accountLinkShare.UserOrGroupId = usr.Id;
@@ -517,7 +520,7 @@ public class AccountLinkHelper
              }
         }
         }
-        
+        }
         
         system.debug('list_SharingRecord@@@@'+list_SharingRecord);
         if(list_SharingRecord.size() > 0){
