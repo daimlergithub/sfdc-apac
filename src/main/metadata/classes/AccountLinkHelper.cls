@@ -304,26 +304,32 @@ public class AccountLinkHelper
         }
     }
     
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     // Get all the Dealer Account with Same GC Code -
     private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
         
         List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordType.DeveloperName = 'Dealer'];
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        Set<Id> accIdSet = new Set<Id>();
         for(Account accRec : dealerAccList) {
-            gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+            if(String.isNotBlank(accRec.Dealer_GC_Code__c)) {
+                gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+                accIdSet.add(accRec.Id);
+            }
         }
-        
+        system.debug('gcCodeToDealerAccIdMap \n\n' + gcCodeToDealerAccIdMap + '\n\n' + gcCodeToDealerAccIdMap.keySet());
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
         if(dealerAccList.size() > 0) {
             List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
-                                                                    AND RecordType.DeveloperName = 'Dealer' AND Id IN: gcCodeToDealerAccIdMap.values()
-                                                                    AND Dealer_GC_Code__c != null];
+                                                                    AND RecordtypeId =: Dealer_RecordTypeId];
             for(Account accRec : similarGCCodeDealerAccountList) {
-                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
-                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                if(!accIdSet.contains(accRec.Id) && accRec.Dealer_GC_Code__c != null) {
+                    if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                        dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                    }
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
                 }
-                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
             }                                                       
         }
         return dealerIdToSimilarGCCodeDealerAccountIdsMap;
@@ -763,9 +769,7 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-     
- 
- public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
     Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
@@ -1043,7 +1047,8 @@ public class AccountLinkHelper
             }
     }
  }
-  public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
+ 
+   public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();

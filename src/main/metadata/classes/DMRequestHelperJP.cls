@@ -165,9 +165,48 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         }
         system.debug('++++++++++++++'+list_SharingRecord);
     }
+    // Get all the Dealer Account with Same GC Code -
+    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
+        
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordType.DeveloperName = 'Dealer'];
+        Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        for(Account accRec : dealerAccList) {
+            gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+        }
+        
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
+        if(dealerAccList.size() > 0) {
+            List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
+                                                                    AND RecordType.DeveloperName = 'Dealer' AND Id NOT IN: gcCodeToDealerAccIdMap.values()
+                                                                    AND Dealer_GC_Code__c != null];
+            for(Account accRec : similarGCCodeDealerAccountList) {
+                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                }
+                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
+            }                                                       
+        }
+        return dealerIdToSimilarGCCodeDealerAccountIdsMap;
+    }
     
     
     private static List<DM_Request__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDmrequest){
+    // START: Adding Similar GC Code related Account To Map which is sharing already.
+        Set<Id> dealerAccIdSet = new Set<Id>();
+        for(Id dealerAccId : mapDmrequest.keySet()) {
+            dealerAccIdSet.add(dealerAccId);
+        }
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSet);
+        
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            if(mapDmrequest.containsKey(dealerId)) {
+                List<Id> vrIdList = mapDmrequest.get(dealerId);
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                    mapDmrequest.put(similarGCCodeDealerId, vrIdList);
+                }
+            }
+        }
+        // END: Adding Similar GC Code related Account To Map which is sharing already.
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
         for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:mapDmrequest.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
             if(mapDmrequest.containsKey(usr.AccountId)){
@@ -309,9 +348,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                    if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                      &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
                      ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
-                    
-					if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c !=null)
-					{
+                           if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
                          if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
                                      lstDMR.Status__c='Duplicate';
@@ -330,7 +367,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                          }
-                      }             
+                    }               
                }
                    
            }
@@ -338,9 +375,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                      if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                      &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
-                    
-					if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c !=null)
-					{
+                      if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
                                      lstDMR.Status__c='Duplicate';
@@ -356,7 +391,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                           }
-					}	  
+						  }
                 }
            }
         }

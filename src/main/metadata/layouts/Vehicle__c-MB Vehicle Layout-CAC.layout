@@ -5,6 +5,7 @@
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Change_Contact_Target</customButtons>
     <excludeButtons>Share</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -38,19 +39,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>BodyType__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -60,16 +53,8 @@
                 <behavior>Edit</behavior>
                 <field>Purchase_Year__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RegistrationNo__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>System_Data_Source__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Valid__c</field>
@@ -109,10 +94,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ModelYear__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Competitor_Brand__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -245,14 +226,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NextInspectionDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>LastServiceDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>InsuranceExpiryDate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
