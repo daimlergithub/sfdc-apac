@@ -3346,6 +3346,26 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Purchase
                 <fullName>Original car replacement (Benz)</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buy additional vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5139,6 +5159,26 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Re-purchase</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Buy additional vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>RegistrationProvince__c</picklist>
@@ -5691,6 +5731,26 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Re-purchase</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Buy additional vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6246,6 +6306,26 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Re-purchase</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Buy additional vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
