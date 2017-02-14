@@ -459,7 +459,7 @@ public class AccountLinkHelper
     List<User> portaluser=new List<User>();
     if(VehiclealkId !=null && set_ToAccountId!=null)
     {
-     Vehiclelist_AccountLink =[SELECT Id,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
+     Vehiclelist_AccountLink =[SELECT Id,Retail_Delete_Flag__c,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
      }
      if(set_ToAccountId!=null)
      {
@@ -498,7 +498,7 @@ public class AccountLinkHelper
     //If Alk record type is person or company or vehicle external share alk records to Dealer user
     private static void SharePersonCompanyVehicleALK(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId,Set<Id> set_ToAccountId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-         List<Account_Link__C> list_AccountLink = new List<Account_Link__C>([SELECT Id, toRole__c, fromRole__c  FROM Account_Link__C   WHERE toRole__c IN: map_AccountIdAndListAccountLinkId.keySet() and fromRole__c=:set_ToAccountId] );
+         List<Account_Link__C> list_AccountLink = new List<Account_Link__C>([SELECT Id,Retail_Delete_Flag__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE toRole__c IN: map_AccountIdAndListAccountLinkId.keySet() and fromRole__c=:set_ToAccountId] );
          List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
        if(portaluser!=null)
        {
