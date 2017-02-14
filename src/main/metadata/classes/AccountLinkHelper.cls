@@ -771,7 +771,9 @@ public class AccountLinkHelper
       */
     public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
-    Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+
+ 
+ 
     list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
     set<id>fromroleidlist=new set<id>();
@@ -786,7 +788,9 @@ public class AccountLinkHelper
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
     list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
     
-     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
+     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
+	 
+	 
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
                 {

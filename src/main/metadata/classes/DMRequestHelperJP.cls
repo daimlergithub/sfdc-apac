@@ -165,10 +165,11 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         }
         system.debug('++++++++++++++'+list_SharingRecord);
     }
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     // Get all the Dealer Account with Same GC Code -
     private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
         
-        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordType.DeveloperName = 'Dealer'];
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId ];
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
         for(Account accRec : dealerAccList) {
             gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
@@ -177,8 +178,9 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
         if(dealerAccList.size() > 0) {
             List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
-                                                                    AND RecordType.DeveloperName = 'Dealer' AND Id NOT IN: gcCodeToDealerAccIdMap.values()
-                                                                    AND Dealer_GC_Code__c != null];
+                                                                    AND RecordTypeId =: Dealer_RecordTypeId AND Id NOT IN: gcCodeToDealerAccIdMap.values()];
+                                                                    
+                       system.debug('+++++++++++++++++++'+similarGCCodeDealerAccountList);
             for(Account accRec : similarGCCodeDealerAccountList) {
                 if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
                     dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
@@ -391,7 +393,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                           }
-						  }
+                          }
                 }
            }
         }

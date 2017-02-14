@@ -5,11 +5,11 @@
     <apex:pageBlockTable value="{!acclnkrellist}" var="row">
     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.fromRole__c.Label}">
-                      <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkrellist.Name}</apex:outputlink>
+                      <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkrellist.fromRole__c}</apex:outputlink>
                      </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.toRole__c.Label}">
-                    <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkrellist.Name}</apex:outputlink>
+                    <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkrellist.toRole__c}</apex:outputlink>
                      </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Name.Label}">
