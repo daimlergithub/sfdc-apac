@@ -749,7 +749,7 @@
     <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
-    </classAccesses
+    </classAccesses>
 	<classAccesses>
         <apexClass>PrintPDF</apexClass>
         <enabled>true</enabled>
