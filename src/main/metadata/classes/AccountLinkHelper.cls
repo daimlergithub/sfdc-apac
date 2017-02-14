@@ -304,26 +304,32 @@ public class AccountLinkHelper
         }
     }
     
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     // Get all the Dealer Account with Same GC Code -
     private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
         
         List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordType.DeveloperName = 'Dealer'];
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        Set<Id> accIdSet = new Set<Id>();
         for(Account accRec : dealerAccList) {
-            gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+            if(String.isNotBlank(accRec.Dealer_GC_Code__c)) {
+                gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+                accIdSet.add(accRec.Id);
+            }
         }
-        
+        system.debug('gcCodeToDealerAccIdMap \n\n' + gcCodeToDealerAccIdMap + '\n\n' + gcCodeToDealerAccIdMap.keySet());
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
         if(dealerAccList.size() > 0) {
             List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
-                                                                    AND RecordType.DeveloperName = 'Dealer' AND Id IN: gcCodeToDealerAccIdMap.values()
-                                                                    AND Dealer_GC_Code__c != null];
+                                                                    AND RecordtypeId =: Dealer_RecordTypeId];
             for(Account accRec : similarGCCodeDealerAccountList) {
-                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
-                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                if(!accIdSet.contains(accRec.Id) && accRec.Dealer_GC_Code__c != null) {
+                    if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                        dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                    }
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
                 }
-                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
             }                                                       
         }
         return dealerIdToSimilarGCCodeDealerAccountIdsMap;
@@ -763,17 +769,23 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-     
- 
- public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+    Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
+    set<id>fromroleidlist=new set<id>();
+    set<String> GCCode = new set<String>();
+    list<String> AccountNAme = new List<String>();
     for(Account_Link__c atl:allist)
     {
         toroleidlist.add(atl.toRole__r.id);
+        fromroleidlist.add(atl.fromRole__c);
+        GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
+    list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+    
      Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
@@ -821,7 +833,11 @@ public class AccountLinkHelper
         } 
         
     }
-    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+     for(Account acc :acolist){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
         for(Group assg:glist)
@@ -838,8 +854,37 @@ public class AccountLinkHelper
                  
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
+                  if(AccountNAme.size()>0)
+                    {
+                    for(id m:assgroupMap.values())
+                    {
                  system.debug('Inserting1');
                      Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = m;
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
+                  {
+                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=m;
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                 sutlist.add(surt);
+                           
+                      }    
+                  }
+                  }
+                  }
+                  else {
+                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
                      a.AccountAccessLevel='edit';
@@ -860,6 +905,7 @@ public class AccountLinkHelper
                                  sutlist.add(surt);
                            
                       }    
+                  }
                   }
         }
     }
@@ -1001,7 +1047,8 @@ public class AccountLinkHelper
             }
     }
  }
-  public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
+ 
+   public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();

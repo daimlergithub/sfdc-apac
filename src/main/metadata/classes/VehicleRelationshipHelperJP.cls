@@ -446,7 +446,6 @@ public with sharing class VehicleRelationshipHelperJP
                 }
         }
         
-         
         if(map_AccountIdAndListVCId.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(map_AccountIdAndListVCId));
         }
@@ -498,7 +497,7 @@ public with sharing class VehicleRelationshipHelperJP
                 
                 set_AccountId.add(oldMap.get(vc.Id).Contact__c);
                 list_VehicleRelationId.add(vc.Id);
-				}
+                }
         }
         if(set_AccountId!=null)
         {
@@ -539,8 +538,55 @@ public with sharing class VehicleRelationshipHelperJP
         }
     }
     
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    
+    // Get all the Dealer Account with Same GC Code -
+    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
+        
+        
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId];
+        Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        for(Account accRec : dealerAccList) {
+            if(String.isNotBlank(accRec.Dealer_GC_Code__c)) {
+                gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+            }
+        }
+        
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
+        if(dealerAccList.size() > 0) {
+            List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
+                                                                    AND RecordTypeId =: Dealer_RecordTypeId AND Id NOT IN: gcCodeToDealerAccIdMap.values()];
+            //system.assert(false, similarGCCodeDealerAccountList);
+            for(Account accRec : similarGCCodeDealerAccountList) {
+                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                }
+                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
+            }                                                       
+        }
+        //system.assert(false, dealerIdToSimilarGCCodeDealerAccountIdsMap);
+        return dealerIdToSimilarGCCodeDealerAccountIdsMap;
+    }
     
     private static List<Vehicle_Relationship__Share> createDealerAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCId){
+        
+        // START: Adding Similar GC Code related Account To Map which is sharing already.
+        Set<Id> dealerAccIdSet = new Set<Id>();
+        for(Id dealerAccId : map_AccountIdAndListVCId.keySet()) {
+            dealerAccIdSet.add(dealerAccId);
+        }
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSet);
+        
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            if(map_AccountIdAndListVCId.containsKey(dealerId)) {
+                List<Id> vrIdList = map_AccountIdAndListVCId.get(dealerId);
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                    map_AccountIdAndListVCId.put(similarGCCodeDealerId, vrIdList);
+                }
+            }
+        }
+        // END: Adding Similar GC Code related Account To Map which is sharing already. 
+        
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
         for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListVCId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
             if(map_AccountIdAndListVCId.containsKey(usr.AccountId)){
@@ -560,39 +606,43 @@ public with sharing class VehicleRelationshipHelperJP
     
     private static List<Vehicle_Relationship__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> map_AccountIdAndListVCwithVRrecordtypeId,Set<Id> currentVrId){
      
-       List<Account_Link__c> ListAlk=new List<Account_Link__c>();
-      Set<Id> DealerAccId=new Set<Id>();
-      Set<Id> VrID=new Set<Id>();
-      
-      ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:map_AccountIdAndListVCwithVRrecordtypeId.keySet() ];
-       for(Account_Link__c alk:ListAlk)
-       {
-       DealerAccId.add(alk.fromRole__c);
-       }
-       System.debug('DealerAccId  newList'+DealerAccId);
-       
+        List<Account_Link__c> ListAlk=new List<Account_Link__c>();
+        Set<Id> DealerAccId=new Set<Id>();
+        Set<Id> VrID=new Set<Id>();
+        
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:map_AccountIdAndListVCwithVRrecordtypeId.keySet() ];
+        for(Account_Link__c alk:ListAlk) {
+            DealerAccId.add(alk.fromRole__c);
+        }
+        DealerAccId.remove(null);
+        
+        // Start: Share with all Dealer Account with same GC Code
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                DealerAccId.add(similarGCCodeDealerId);
+            }
+        }
+        // Finish: Share with all Dealer Account with same GC Code
+        System.debug('DealerAccId  newList'+DealerAccId);
+        
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(User usr : [SELECT Id, contact.AccountId,AccountId FROM User WHERE contact.AccountId =:DealerAccId AND IsPortalEnabled = true])
-        {
-             
-                 if(currentVrId!=null)
-                    {
-                for(Id ids:currentVrId)
-                {
+        for(User usr : [SELECT Id, contact.AccountId,AccountId FROM User WHERE contact.AccountId IN: DealerAccId AND IsPortalEnabled = true]) {
+            if(currentVrId != null) {
+                for(Id ids:currentVrId) {
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Edit';
                     vehicleRelationShare.UserOrGroupId = usr.Id; 
                     vehicleRelationShare.ParentId =ids; 
                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                     list_SharingRecord.add(vehicleRelationShare);
-              }
-               
-              }
-           
+                }
+            }
         } 
-     
         return list_SharingRecord;
     }
+    
+    
  public static void beforeupdateEventAddress(List<Vehicle_Relationship__c> newList,Map<Id, Vehicle_Relationship__c> oldMap){
      set<id> addressids= new set<id>();
      
