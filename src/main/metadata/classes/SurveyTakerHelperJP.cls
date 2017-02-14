@@ -5,6 +5,8 @@ date:1/11/2017
 
 
 public class SurveyTakerHelperJP {
+
+
     public static Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId();
     public static Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
@@ -15,15 +17,18 @@ public class SurveyTakerHelperJP {
         Map<Id, user> map_PCAccountIdAndListSTId = new Map<Id,user>();
         Map<Id, user> map_DAccountIdAndListSTId = new Map<Id,user>();
         Map<Id, user> map_UserIdAndListSTId = new Map<Id,user>();
-
+        
+       // list<String> AccountNAme = new List<String>();
+        set<String> GCCode = new set<String>();
         set<id>surveyinsurveytakeridlist=new set<id>();
         set<id>toroleidlist=new set<id>();
         set<id>userorgrplist=new set<id>();
         list<SurveyTaker__share>SurveyTakerList=new list<SurveyTaker__share>();
         Map<Id,surveytaker__c>  newsurveymap = new Map<Id,surveytaker__c>([select id,account__c,survey__c from surveytaker__c where id IN : newList]);
-          
+        Map<Id,account> AccountNAme =new Map<Id,account>();
         
-        list<SurveyTaker__c> stlist= new list<SurveyTaker__c>([select id,account__c,survey__c,View_By_All__c,account__r.RecordTypeId,(select id from Survey_Question_Answers__r),user__c  from surveytaker__c where id IN : newList]);
+        list<SurveyTaker__c> stlist= new list<SurveyTaker__c>([select id,account__c,survey__c,View_By_All__c,account__r.RecordTypeId,account__r.Dealer_GC_Code__c,
+                                                                 (select id from Survey_Question_Answers__r),user__c  from surveytaker__c where id IN : newList]);
         set<Id>SurveyIdWithPCList=new set<Id>();
         set<Id>SurveyIdWithDList=new set<Id>();
         set<Id>UserIdList=new set<Id>();
@@ -35,6 +40,8 @@ public class SurveyTakerHelperJP {
              else if(str.account__r.RecordTypeId==da)
              {
                 SurveyIdWithDList.add(str.account__c);
+                GCCode.add(str.account__r.Dealer_GC_Code__c);
+                system.debug('Dealer_GC_Code__c'+str.account__r.Dealer_GC_Code__c);
              }
             
             UserIdList.add(str.user__c);
@@ -43,8 +50,9 @@ public class SurveyTakerHelperJP {
         if(SurveyIdWithPCList.size()>0){
           for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:SurveyIdWithPCList 
                                             AND IsPortalEnabled = true ])
-             
+              
                map_PCAccountIdAndListSTId.put(usr.AccountId,usr);
+               System.debug('mapsize'+map_PCAccountIdAndListSTId.size());
                                             
         }
         if(SurveyIdWithDList.size()>0){
@@ -52,6 +60,7 @@ public class SurveyTakerHelperJP {
                                             AND IsPortalEnabled = true ])
              
                map_DAccountIdAndListSTId.put(usr.AccountId,usr);
+               system.debug('map_DAccountIdAndListSTId'+map_DAccountIdAndListSTId.size());
                                             
         }
         if(UserIdList.size()>0){
@@ -64,10 +73,36 @@ public class SurveyTakerHelperJP {
 
       
         list<survey__c>surveyList=new list<survey__c>([select id,name from survey__c where id IN:SurveyIdList]);
-       
+        list<account>aclist=new list<account>([select id, Name, RecordTypeId,Dealer_GC_Code__c from Account 
+                                                 WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeId = :da]);
         list<survey__share>surveyShareList=new  list<survey__share>();
+        
+        map<string,list<id>> mapGC=new map<string,list<id>>();
+       for(account a:aclist)
+        {
+             system.debug('a.id'+a.id);
+             AccountNAme.put(a.id,a);
+             if(!mapGC.containskey(a.Dealer_GC_Code__c)){
+               List<Id> Tempids =new List<Id>();
+               Tempids.add(a.id);
+               mapGC.put(a.Dealer_GC_Code__c,Tempids);
+             }
+             else{
+             List<Id> Tempids =new List<Id>();
+              Tempids = mapGC.get(a.Dealer_GC_Code__c);
+              TempIds.add(a.id);
+              mapGC.put(a.Dealer_GC_Code__c,TempIds);
+             
+             }
+             
+        }
         for(SurveyTaker__c s:stlist)
         {
+           system.debug('s.account__c'+s.account__c);
+        system.debug('mpc'+map_PCAccountIdAndListSTId.containskey(s.account__c));
+        system.debug('md'+map_DAccountIdAndListSTId.containskey(s.account__c));
+        system.debug('muser'+map_UserIdAndListSTId.containskey(s.user__c));
+        system.debug('view by all'+ (s.View_By_All__c));
             
         
             if(s.account__c!=null && (oldmap == NULL || s.account__c!=oldmap.get(s.id).account__c) && ( ( (map_PCAccountIdAndListSTId.containskey(s.account__c) || map_UserIdAndListSTId.containskey(s.user__c)) && s.account__r.recordtypeid !=da) || map_DAccountIdAndListSTId.containskey(s.account__c) || s.View_By_All__c==true))
@@ -79,27 +114,94 @@ public class SurveyTakerHelperJP {
                     map_AccountIdAndListSTId.put(s.account__c, new List<Id>());
                 } 
                 map_AccountIdAndListSTId.get(s.account__c).add(s.Id);
+                
             }
           
         }
+        
         if(map_AccountIdAndListSTId.size() > 0)
         {
-           
+           system.debug('map_AccountIdAndListSTId.size'+map_AccountIdAndListSTId.size());
+           system.debug('map'+map_AccountIdAndListSTId);
+           System.debug('AccountNAme'+AccountNAme.size());
             List<SurveyTaker__share> list_SharingRecord = new List<SurveyTaker__share>();
-            for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListSTId.keySet() 
+            Map<id,id> UseraccountidMap = new Map<id,id>();
+            
+            For(User u: [Select id,Accountid From User Where Accountid IN:AccountNAme.keyset()]){
+                 UseraccountidMap.put(u.accountid,u.id);
+                 System.debug('AccountIdUserIdddddd'+UseraccountidMap.size());
+            
+            }
+            
+            for(User usr : [SELECT Id, AccountId,Account.Dealer_GC_Code__c  FROM User WHERE AccountId IN:map_AccountIdAndListSTId.keySet()
                                             AND IsPortalEnabled = true ]){
+                   system.debug('usr.id====='+usr.id);
+                   system.debug('usr.accountid'+usr.accountid);
+              if(AccountNAme.size()>0){    
            
-            if(map_AccountIdAndListSTId.containsKey(usr.AccountId))
+                 if(map_AccountIdAndListSTId.containskey(usr.AccountId)){
+                      
+                      
+                      for( Id vcId: map_AccountIdAndListSTId.get(usr.AccountId)){
+                    
+                       system.debug('Inserting2');
+                        SurveyTaker__share surveyShare = new SurveyTaker__share();
+                        surveyShare.AccessLevel = 'Edit';
+                        surveyShare.UserOrGroupId = usr.Id;
+                        surveyShare.ParentId = vcId;
+                        surveyShare.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                        system.debug('mapGC'+mapGC);
+                         if(mapGC.containskey(usr.account.Dealer_GC_Code__c)){
+                             system.debug('usr.account.Dealer_GC_Code__c'+usr.account.Dealer_GC_Code__c);
+                         for(id Accid : mapGC.get(usr.account.Dealer_GC_Code__c)){
+                            if(UseraccountidMap.containskey(Accid)){
+                              id usrid = UseraccountidMap.get(Accid);
+                              System.debug('AccounttttUserIdddd'+usrid);     
+                              SurveyTaker__share surveyShare1 = new SurveyTaker__share();
+                              surveyShare1.AccessLevel = 'Edit';
+                              surveyShare1.UserOrGroupId = usrId;
+                              surveyShare1.ParentId = vcId;
+                              surveyShare1.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                              System.debug('firstttttttt'+surveyShare1);
+                           list_SharingRecord.add(surveyShare1);
+                          }
+                         }
+                        }
+                         System.debug('seconddddddddd'+surveyShare);
+                           list_SharingRecord.add(surveyShare);
+
+                       
+                       
+                              //checking match with current surveyid with surveyid in current survey taker record
+                              if(Trigger.newmap.containskey(vcid) && newSurveymap.get(vcid).survey__c != null)
+                                {
+                                    system.debug('Inserting2');
+                                    Survey__share surt=new Survey__share();
+                                    surt.ParentId = newSurveymap.get(vcid).survey__c;
+                                    surt.UserOrGroupId=usr.Id;
+                                    surt.AccessLevel='read';
+                                    surt.RowCause = Schema.Survey__share.RowCause.Manual;
+                                    surveyShareList.add(surt);
+                                }    
+                    }
+                }
+            
+            }
+            else
+            {
+               if(map_AccountIdAndListSTId.containsKey(usr.AccountId))
             {
                 
                 for(Id vcId : map_AccountIdAndListSTId.get(usr.AccountId))
                 {
                   system.debug('Inserting2');
-                    SurveyTaker__share surveyShare = new SurveyTaker__share();
-                    surveyShare .AccessLevel = 'Edit';
-                    surveyShare .UserOrGroupId = usr.Id;
-                    surveyShare .ParentId = vcId;
-                    surveyShare .RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                   SurveyTaker__share surveyShare = new SurveyTaker__share();
+                    surveyShare.AccessLevel = 'Edit';
+                    System.debug('userIdddddddd'+usr.Id);
+                    surveyShare.UserOrGroupId = usr.Id;
+                    surveyShare.ParentId = vcId;
+                    surveyShare.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                    System.debug('Thirdddddddd'+surveyShare);
                     list_SharingRecord.add(surveyShare);
                    
                           //checking match with current surveyid with surveyid in current survey taker record
@@ -116,22 +218,23 @@ public class SurveyTakerHelperJP {
                   
                 }  
             } 
+            }
         }
            SurveyTakerList.addAll(list_SharingRecord);
-           if(SurveyTakerList.size()>0)
+           System.debug('listsharingrecordssss'+list_SharingRecord);
+           if(SurveyTakerList != NULL && !SurveyTakerList.isEmpty())
             {
-               
                insert SurveyTakerList;
                if(surveyShareList.size()>0)
                 {
-                      
-
                     insert surveyShareList;
                 }
             }
         }
         
     }
+  
+  
    public static void afterDeleteEvent(List<SurveyTaker__c> oldList)
    {
         Map<Id, List<Id>> map_AccountIdAndListSTId = new Map<Id, List<Id>>();
