@@ -3265,7 +3265,11 @@
             <label>車検情報</label>
             <section>MOT Information</section>
         </sections>
-        <sections>
+		<sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+		<sections>
             <label>車両住所情報</label>
             <section>Vehicle Address Information</section>
         </sections>

@@ -774,14 +774,26 @@ public class AccountLinkHelper
       */
     public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+
+ 
+ 
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
+    set<id>fromroleidlist=new set<id>();
+    set<String> GCCode = new set<String>();
+    list<String> AccountNAme = new List<String>();
     for(Account_Link__c atl:allist)
     {
         toroleidlist.add(atl.toRole__r.id);
+        fromroleidlist.add(atl.fromRole__c);
+        GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
-     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
+    list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+    
+     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
+	 
+	 
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
                 {
@@ -828,7 +840,11 @@ public class AccountLinkHelper
         } 
         
     }
-    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+     for(Account acc :acolist){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
         for(Group assg:glist)
@@ -845,8 +861,37 @@ public class AccountLinkHelper
                  
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
+                  if(AccountNAme.size()>0)
+                    {
+                    for(id m:assgroupMap.values())
+                    {
                  system.debug('Inserting1');
                      Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = m;
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
+                  {
+                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=m;
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                 sutlist.add(surt);
+                           
+                      }    
+                  }
+                  }
+                  }
+                  else {
+                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
                      a.AccountAccessLevel='edit';
@@ -867,6 +912,7 @@ public class AccountLinkHelper
                                  sutlist.add(surt);
                            
                       }    
+                  }
                   }
         }
     }
