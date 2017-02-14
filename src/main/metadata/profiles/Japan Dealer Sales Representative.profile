@@ -750,6 +750,10 @@
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>PrintPDF</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>false</enabled>
@@ -22786,11 +22790,15 @@
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	 <pageAccesses>
+        <apexPage>PrintPDF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
+	<pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
