@@ -195,6 +195,14 @@
         <apexClass>AccountHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>AccountLinkController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountLinkControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>true</enabled>
@@ -22781,6 +22789,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCampaign_Timeline</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>RetailCopyOnlyRelatedList</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
