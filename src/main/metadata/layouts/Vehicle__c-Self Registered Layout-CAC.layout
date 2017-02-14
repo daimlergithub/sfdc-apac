@@ -3,6 +3,7 @@
     <customButtons>TerminateVehicleRelationships</customButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>TerminateVehicleRelationships</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -28,10 +29,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Brand__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -223,14 +220,6 @@
                 <behavior>Readonly</behavior>
                 <field>Latest_Invoice_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Warranty_Start_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Warranty_End_Date__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -239,7 +228,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>LastServiceDate__c</field>
+                <field>Warranty_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Warranty_End_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -368,22 +361,19 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Contact__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Owner_Relation__c</fields>
-        <fields>New_Used__c</fields>
-        <fields>Finance_Method__c</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
-        <fields>Selling_Dealer__c</fields>
-        <fields>Last_Service_Dealer__c</fields>
-		<fields>UPDATEDBY_USER</fields>
-        <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
+        <fields>RECORDTYPE</fields>
+        <fields>Portal_ID__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>CreatedDate__c</fields> 
+        <relatedList>Account_Link__c.toRole__c</relatedList>
+        <sortField>RECORDTYPE</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
 		<customButtons>New_Inquiry</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
+		<fields>CASES.RECORDTYPE</fields>
         <fields>ACCOUNT.NAME</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Category__c</fields>
@@ -391,29 +381,8 @@
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-        <fields>Customer_Request__c</fields>
         <fields>PARENT.CASE_NUMBER</fields>
         <relatedList>Case.Vehicle__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Status__c</fields>
-        <fields>Recall_Reason__c</fields>
-        <fields>Recall_Date__c</fields>
-        <fields>Recall_Type__c</fields>
-        <fields>Recall_No__c</fields>
-        <fields>Recall_Class__c</fields>
-        <relatedList>Recall__c.Vehicle_ID__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Type__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>Status__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
