@@ -1087,9 +1087,9 @@
                                 </deploy>
     </target>
                 <target name="deploy51">
-                                <deploy runAllTests="${sfdc.runAllTests}">
+                              <!--  <deploy runAllTests="${sfdc.runAllTests}">
                                                 <sf:typeset name="objectTranslations"/>
-                                                <sf:typeset name="translations"/>
+                                                <sf:typeset name="translations"/>-->
                                 </deploy>
     </target>
                 <target name="deploy52">
