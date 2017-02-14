@@ -109051,16 +109051,18 @@ if(leadObj.RecordTypeId='OBJECT_LEAD_SALES_RECORD_TYPE_ID')
         <masterLabel>Convert Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")}
-var relatedId='{!Lead__c.Related_Leads__c}';
-if(relatedId !==''){
-	alert("This Lead is already converted");
-}
-else{
-	var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'});
-	var relatedId1='{!Lead__c.Related_Leads__c}';
-	window.location.href={!URLFOR($Site.Prefix)}/+leadCopy;
+        <url>{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/apex.js")} 
+var relatedId='{!Lead__c.Related_Leads__c}'; 
+if(relatedId !==''){ 
+alert("This Lead is already converted"); 
+} 
+else{ 
+if (confirm('Are you sure you want to convert this Lead?')) { 
+var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'}); 
+var relatedId1='{!Lead__c.Related_Leads__c}'; 
+window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy; 
+} 
 }</url>
     </webLinks>
     <webLinks>

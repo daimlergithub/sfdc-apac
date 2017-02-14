@@ -754,6 +754,14 @@
         <apexClass>RecallHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>PrintPDF</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrintPDFTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>RecallHelperTest</apexClass>
         <enabled>true</enabled>
@@ -22663,6 +22671,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	 <pageAccesses>
+        <apexPage>PrintPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
