@@ -3137,10 +3137,6 @@
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Flag --></label>
-        <name>Warranty_Apply_Flag__c</name>
-    </fields>
-    <fields>
         <label><!-- Warranty Apply NDCode --></label>
         <name>Warranty_Apply_NDCode__c</name>
     </fields>

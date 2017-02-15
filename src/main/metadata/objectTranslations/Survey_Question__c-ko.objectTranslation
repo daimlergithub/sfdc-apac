@@ -5,11 +5,6 @@
         <value>설문 조사 질문</value>
     </caseValues>
     <fields>
-        <label><!-- Camp Question --></label>
-        <name>Camp_Question__c</name>
-        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
-    </fields>
-    <fields>
         <label>선택 항목</label>
         <name>Choices__c</name>
     </fields>
