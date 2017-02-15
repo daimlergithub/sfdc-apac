@@ -122,7 +122,7 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
-    <logo>Logo/MBK_LOGO_FV2.png</logo>
+    <logo>Logo/MB_LOGO.png</logo>
     <pushNotifications>
         <pushNotification>
             <fieldNames>AccountNumber</fieldNames>
