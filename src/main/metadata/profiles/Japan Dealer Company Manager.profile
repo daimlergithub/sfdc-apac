@@ -23667,25 +23667,25 @@
 	<tabVisibilities>
         <tab>Participating_Dealer__c</tab>
         <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-     <tabVisibilities>
-       <tab>standard-Leads</tab>
+    </tabVisibilities>   
+	<tabVisibilities>
+       <tab>standard-Lead</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Opportunities</tab>
+       <tab>standard-Opportunity</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Orders</tab>
+       <tab>standard-Order</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Products</tab>
+       <tab>standard-FileSearchActivity</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Contacts</tab>
+       <tab>standard-Contact</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
@@ -23693,43 +23693,39 @@
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Contracts</tab>
+       <tab>standard-Contract</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Reports</tab>
-       <visibility>DefaultOff</visibility>
+       <tab>standard-Report</tab>
+       <visibility>DefaultOn</visibility>
     </tabVisibilities>
      <tabVisibilities>
        <tab>standard-Chatter</tab>
        <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+      <tab>standard-Product2</tab>
+     <visibility>DefaultOff</visibility>
+  </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Documents</tab>
+       <tab>standard-Document</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-Service Contracts</tab>
-       <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-       <tab>standard-Entitlements</tab>
-       <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-       <tab>standard-Solutions</tab>
-       <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-       <tab>standard-Files</tab>
+       <tab>standard-ServiceContract</tab>
        <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-       <tab>standard-Subscriptions</tab>
+       <tab>standard-Entitlement</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-       <tab>standard-Ideas</tab>
+       <tab>standard-Solution</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Idea</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
