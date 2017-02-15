@@ -3432,17 +3432,4 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
             <name>車両顧客関係</name>
         </sections>
     </reportTypes>
-    <reportTypes>
-        <description><!-- test --></description>
-        <label><!-- test --></label>
-        <name>testtes</name>
-        <sections>
-            <label><!-- Leads --></label>
-            <name>Leads</name>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Relationship --></label>
-            <name>Vehicle Relationship</name>
-        </sections>
-    </reportTypes>
 </Translations>
