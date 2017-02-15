@@ -8,62 +8,6 @@
         <active>true</active>
         <description>Record type for person account</description>
         <label>Person Account</label>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -118,6 +62,21 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1943,6 +1902,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -3242,21 +3212,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -3628,6 +3583,312 @@
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Data_Source__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>After-service center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Circle of excellence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magazine Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Academy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StarClass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4281,6 +4542,51 @@
             </values>
             <values>
                 <fullName>Shareholder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10009,51 +10315,6 @@
         <active>true</active>
         <description>Record type for customer created by dealer</description>
         <label>Person Account Retail</label>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -14057,6 +14318,51 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -14905,36 +15211,6 @@
             </values>
             <values>
                 <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17766,9 +18042,9 @@
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
@@ -18870,6 +19146,36 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -19391,8 +19697,8 @@
             </values>
             <values>
                 <fullName>III</fullName>
-				<default>false</default>
-			</values>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>IV</fullName>
                 <default>false</default>
@@ -20126,10 +20432,10 @@
             </values>
             <values>
                 <fullName>3</fullName>
-				<default>false</default>
-			</values>
-			<values>
-				<fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20150,69 +20456,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Language__c</picklist>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
-            <values>                
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hindhi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portuguese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spanish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tagalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24058,7 +24301,67 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
