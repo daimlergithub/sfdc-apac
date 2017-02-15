@@ -118,11 +118,11 @@
         </defaultShortcut>
     </keyboardShortcuts>
     <label>MBK Customer Contact Center</label>
-	<logo>Logo/MB_LOGO.png</logo>
     <listPlacement>
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
+    <logo>Logo/MB_LOGO.png</logo>
     <pushNotifications>
         <pushNotification>
             <fieldNames>AccountNumber</fieldNames>
@@ -1318,19 +1318,21 @@
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
-	<tab>Lead__c</tab>
-    <tab>Tasks</tab>    
-	<tab>Vehicle__c</tab>
-    <tab>Vehicle_Relationship__c</tab>    
+    <tab>Lead__c</tab>
+    <tab>Tasks</tab>
+    <tab>Vehicle__c</tab>
+    <tab>Vehicle_Relationship__c</tab>
     <tab>standard-Campaign</tab>
-	<tab>standard-report</tab>
-	<tab>DM_Material__c</tab>
-	<tab>DM_Request__c</tab>
+    <tab>standard-report</tab>
+    <tab>DM_Material__c</tab>
+    <tab>DM_Request__c</tab>
     <tab>Survey__c</tab>
     <tab>Survey_Question__c</tab>
     <tab>SurveyQuestionResponse__c</tab>
     <tab>SurveyTaker__c</tab>
-	<tab>Account_Link__c</tab>	
+    <tab>Account_Link__c</tab>
+    <tab>standard-Knowledge</tab>
+    <tab>standard-KnowledgePublishing</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>fromRole__c</fieldName>
@@ -1380,13 +1382,19 @@
         <mapping>
             <fieldName>ParentId</fieldName>
             <tab>standard-Campaign</tab>
-        </mapping>		
-        <mapping>            
-            <tab>standard-report</tab>
         </mapping>
         <mapping>
             <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Knowledge</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-KnowledgePublishing</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

@@ -25,6 +25,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -236,6 +240,266 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>AccountMergeFieldsCompany</fullName>
+        <description>AccountMerge</description>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Name_Native_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Legal_Form__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Legal_Form_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Legal_Form_Position__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Mark_on_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Data_Source__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_MMS_IM_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Foundation_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Industry</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_No_Of_Employees__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Fiscal_Year_Start__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Commercial_Reg_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Website</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>VIP__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Care__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Needs_Class__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Interest_Model__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UpsellOpportunity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>AccountMergeFieldsCompany</label>
     </fieldSets>
     <fieldSets>
         <fullName>AccountMergeFieldsCompanyKR</fullName>
@@ -501,6 +765,361 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeFieldsCompanyKR</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>AccountMergeFieldsPerson</fullName>
+        <description>AccountMerge.page (Contact Portfolio)</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName_Native_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName_Native_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UpsellOpportunity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Mark_on_Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Data_Source__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sales_Sanction_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mobile2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SMS_MMS_IM_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Individual_Home_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Home_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Work_Phone_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email_Status_3__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fax_Validity2__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Fax__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Contact_Method__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Contact_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Contact_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonHasOptedOutOfEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Postal_Opt_Out__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonHasOptedOutOfFax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Visit_Opt_Out__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Main_Dealer__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_Out_Portal__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_Out_Portal_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_In_Contact_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opt_In_Contact_Reason_Details__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonBirthdate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Gender__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Occupation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Industry</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Household_Amount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Marital_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Household_Other__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>AnnualRevenue</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Language__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Place_of_Birth__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Newspaper__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Magazine__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Internet_Site__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hobby__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Deceased__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Driver_License_Number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Driver_License_Validity_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>VIP__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Care__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Special_Needs_Class__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Interest_Model__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>AccountMergeFieldsPerson</label>
     </fieldSets>
     <fieldSets>
         <fullName>AccountMergeFieldsPersonKR</fullName>
@@ -1340,7 +1959,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Work_Phone__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1416,7 +2035,6 @@
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1579,6 +2197,19 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Age__c</fullName>
+        <description>/* 
+			Calculate Age of the Customer
+		*/</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(PersonContact.Birthdate) , '', TEXT(FLOOR((TODAY()-PersonContact.Birthdate +1)/365.2425)))</formula>
+        <label>Age</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Agreement_to_commit_info_processing__c</fullName>
         <externalId>false</externalId>
         <label>Agreement to commit info processing</label>
@@ -1595,13 +2226,21 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>All_channel_opt_out__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All channel opt-out</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Alliance_Offered_Service__c</fullName>
@@ -2114,15 +2753,6 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Dealer_Manual_Create__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Dealer Manual Create</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
         <label>CV No. Brand Purchases</label>
@@ -2409,7 +3039,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2612,6 +3241,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Complaint_Priority__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Complaint Priority</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Consent_Form_Serial_No__c</fullName>
         <externalId>false</externalId>
         <label>Consent Form Serial No</label>
@@ -2621,15 +3259,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Complaint_Priority__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Priority</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Contact_Background__c</fullName>
@@ -2786,21 +3415,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>Age__c</fullName>
-		<description>/* 
-			Calculate Age of the Customer
-		*/</description>
-        <externalId>false</externalId> 
-		<formula>
-		 IF(ISNULL(PersonContact.Birthdate) , '', TEXT(FLOOR((TODAY()-PersonContact.Birthdate +1)/365.2425)))
-		</formula>
-        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
-        <label>Age</label>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>	
-		<unique>false</unique>		
-    </fields>	
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
@@ -2873,26 +3487,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>All_channel_opt_out__c</fullName>
-        <externalId>false</externalId> 
-		<formula>
-		IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)
-		</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All channel opt-out</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>		
-    </fields>
-    <fields>
-        <fullName>Customer_LastUpdatedDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Attributes UpdatedDate</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
     <fields>
         <fullName>Customer_Consent_Happy_Calls__c</fullName>
         <externalId>false</externalId>
@@ -2916,6 +3510,15 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <label>Customer Consent</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_LastUpdatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Attributes UpdatedDate</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Customer_Lifecycle_Phase__c</fullName>
@@ -5315,6 +5918,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Dealer_Manual_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Manual Create</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Dealer_Marketing_Manager_Email__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Marketing Manager Email</label>
@@ -5612,7 +6224,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5974,7 +6585,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>Company</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -7034,7 +7644,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -7081,6 +7690,17 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>First Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Fleet_Category__c</fullName>
@@ -7355,7 +7975,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>diplomats in country</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8900,7 +9519,6 @@ Modify Reason:
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9486,14 +10104,14 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields><fields>
+    </fields>
+    <fields>
         <fullName>MBK_Occupation__c</fullName>
         <externalId>false</externalId>
         <label>MBK Occupation</label>
@@ -9690,7 +10308,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Freelancers</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9916,7 +10533,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <fullName>Casa Living</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10188,7 +10804,6 @@ Function: After a suspect account is rejected or merged, master account id shoul
                 <fullName>Money Today</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11051,7 +11666,6 @@ Modify Reason:
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11076,7 +11690,6 @@ Modify Reason:
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11101,7 +11714,6 @@ Modify Reason:
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11156,7 +11768,6 @@ Modify Reason:
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12550,7 +13161,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13467,17 +14077,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>First_Consent_User__c</fullName>
-        <externalId>false</externalId>
-        <label>First Consent User</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>UpsellOpportunity__c</fullName>
         <externalId>false</externalId>
         <label>Upsell Opportunity</label>
@@ -13522,7 +14121,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13578,7 +14176,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>VIN__c</fullName>
         <externalId>false</externalId>
         <label>VIN</label>
@@ -13751,7 +14349,6 @@ Invisible on UI."</description>
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14020,74 +14617,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All Customer Accounts</label>
         <language>en_US</language>
         <sharedTo>
-            <role>central</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_dealers_MBK</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Dealer_ND_Code__c</columns>
-        <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_Lead_System__c</columns>
-        <columns>Dealer_DMS_CRM_Code__c</columns>
-        <columns>Dealer_DMS_SR_Code__c</columns>
-        <columns>Dealer_DMS_AS_Code__c</columns>
-        <columns>Dealer_Region__c</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>Dealer_City_EN__c</columns>
-        <columns>Dealer_Active__c</columns>
-        <columns>ACCOUNT.LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </filters>
-        <label>All dealers</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_All_Customer_Accounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>ZipCode__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CREATEDBY_USER.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>Primary_Address__c</columns>
-        <columns>Primary_Address_Validity__c</columns>
-        <columns>Customer_Number__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.PersonAccount</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>MBK All Customer Accounts</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -14129,6 +14659,44 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>All_dealers_MBK</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Dealer_ND_Code__c</columns>
+        <columns>Dealer_Default_Flag__c</columns>
+        <columns>Dealer_Lead_System__c</columns>
+        <columns>Dealer_DMS_CRM_Code__c</columns>
+        <columns>Dealer_DMS_SR_Code__c</columns>
+        <columns>Dealer_DMS_AS_Code__c</columns>
+        <columns>Dealer_Region__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>Dealer_City_EN__c</columns>
+        <columns>Dealer_Active__c</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Dealer</value>
+        </filters>
+        <filters>
+            <field>Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </filters>
+        <label>All dealers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBDA_DM</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.PHONE1</columns>
@@ -14147,6 +14715,35 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBK_All_Customer_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>Primary_Address__c</columns>
+        <columns>Primary_Address_Validity__c</columns>
+        <columns>Customer_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.PersonAccount</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Customer Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyAccounts</fullName>
         <filterScope>Everything</filterScope>
         <label>My Accounts</label>
@@ -14157,77 +14754,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Company</fullName>
         <active>true</active>
         <label>Company</label>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -14310,6 +14836,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16259,6 +16800,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -17513,11 +18065,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLE-Class</fullName>
+                <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC-Class Coupe</fullName>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17736,7 +18288,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>MBFS_Truck_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -17873,7 +18425,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-        </picklistValues><picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>MBK_Occupation__c</picklist>
             <values>
                 <fullName>Accounting</fullName>
@@ -18711,6 +19264,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
             <values>
                 <fullName>Sent</fullName>
@@ -19199,7 +19797,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>MBK</fullName>
@@ -25175,77 +25773,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>	
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -25328,6 +25855,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26957,6 +27499,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Vans_Dlr_Class__c</picklist>
             <values>
                 <fullName>Metro</fullName>
@@ -27923,11 +28476,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLE-Class</fullName>
+                <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC-Class Coupe</fullName>
+                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28427,7 +28980,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Autocar</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Avenue L %28롯데%29</fullName>
@@ -29050,6 +29603,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -29910,11 +30508,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>Primary_Address_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Email_Display__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>UCID__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>		
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Email_Display__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>UCID__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Address_EN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>Primary_Phone_Display__c</lookupFilterFields>
@@ -30998,6 +31596,16 @@ else {
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Create_Retail_Copy</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>replace</openType>
+        <page>createRetailCopyKRButton</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>
         <description>Create new vehicle record</description>
@@ -31215,11 +31823,11 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
 
 } 
@@ -31228,11 +31836,11 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LE
 else { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("OBJECT_LEAD_TAB_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 }</url>
     </webLinks>
@@ -31253,11 +31861,11 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
+sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}');
 }
 
 } 
@@ -31266,11 +31874,11 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_S
 else { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
 {	
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID')
 {
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_LKID={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 }
 }</url>
     </webLinks>
@@ -31445,16 +32053,6 @@ if (sforce.console.isInConsole()) {
         <url>http://maps.yahoo.com/py/maps.py?cn={!Account.BillingCountry}&amp;csz={!Account.BillingCity}+{!Account.BillingState}+{!Account.BillingPostalCode}+&amp;addr={!Account.BillingStreet}</url>
     </webLinks>
     <webLinks>
-        <fullName>Create_Retail_Copy</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Create Retail Copy</masterLabel>
-        <openType>replace</openType>
-        <page>createRetailCopyKRButton</page>
-        <protected>false</protected>
-    </webLinks>
-    <webLinks>
         <fullName>eDM</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -31478,5 +32076,5 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
-	</webLinks>
+    </webLinks>
 </CustomObject>

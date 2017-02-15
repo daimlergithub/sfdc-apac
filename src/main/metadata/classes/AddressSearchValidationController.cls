@@ -104,13 +104,13 @@ public class AddressSearchValidationController{
         //AddressObj.Province__c = provincepicklist;
         Validation = false;
         // Save record without Address record if no value is Entered in Address section
-        if(AddressObj.Address_Type__c == null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
+        if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--') && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null &&
            AddressObj.ZipCode__c == null && AddressObj.Block__c ==  null && AddressObj.City__c == null &&  AddressObj.District__c == null &&
-           AddressObj.Province__c == null && market == 'JP')
-        {
+           AddressObj.Province__c == null)
+        {   system.debug('enter 2 :');
             try
             {
-                if(recordType == 'Company' && market == 'JP')
+                if(recordType == 'Company')
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
@@ -121,14 +121,14 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
                     else
-                    {
+                    {   system.debug('JP Company loop 1 :');
                         refreshPage = true;
                         insert objAccount ;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
                     }                   
                 }               
-                if(recordType == 'Person Account' && market == 'JP')
+                if(recordType == 'Person Account' )
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
@@ -140,7 +140,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                     }
                     else
-                    {
+                    {   system.debug('JP Company loop 2 :');
                         refreshPage = true;
                         insert objPersonAccount ;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
@@ -155,7 +155,7 @@ public class AddressSearchValidationController{
             }
         }
       
-        if(AddressObj.Address_Type__c == Null && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null && AddressObj.ZipCode__c == null){
+        if((AddressObj.Address_Type__c == '' || AddressObj.Address_Type__c == Null || AddressObj.Address_Type__c == '--None--') && AddressObj.Address_Line_1__c ==null && AddressObj.Address_Line_2__c == null && AddressObj.ZipCode__c == null){
             try{        
                 system.debug('recordType 1:'+recordType);
                 if(recordType == System.Label.Company && market == System.Label.KR)
@@ -430,7 +430,7 @@ public class AddressSearchValidationController{
                     
                 }
                 
-                system.debug('recordType 6:'+recordType);
+                system.debug('recordType 6:'+ recordType);
                 system.debug('recordType 7:'+ System.Label.PersonAccount);
                 if(recordType == System.Label.PersonAccount && market == System.Label.KR)
                 {   
@@ -448,7 +448,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         Validation = TRUE;
                     } 
-                   /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+                    /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = TRUE;
@@ -467,7 +467,8 @@ public class AddressSearchValidationController{
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));
                         Validation = TRUE;
-                    }  */                 
+                    }  
+                    */                 
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     {   
                         if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')

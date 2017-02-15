@@ -95,15 +95,15 @@
                         </apex:outputText>
                     </apex:column>                    
                    <!--
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
+                   <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}" rendered="{!IF(market == 'KR', true, false)}">
                             <apex:outputText value="{!row.Company_Name_Native__c}" style="width:10%; white-space:none;">
                         </apex:outputText>                        
                     </apex:column>
                                    
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}"> 
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}" rendered="{!IF(market == 'KR', true, false)}"> 
                         <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%; white-space:none;">
                         </apex:outputField>                         
-                    </apex:column>                   
+                    </apex:column>                      
                     -->
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
                         <apex:outputField value="{!row.Status__c}" style="width:10%; white-space:none;">
@@ -173,10 +173,9 @@
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>
                     <apex:inputField value="{!addressobj.Company_Name__c}"/>
-                    <apex:outputPanel rendered="{!if(Market=='KR',False,True)}">
-                        <apex:inputField value="{!addressobj.Company_Name_Native__c}"/>
-                        <apex:inputField value="{!addressobj.TitleOfHonor__c}"/> 
-                    </apex:outputPanel> 
+                     <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
+                     <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
+                     
                     <apex:inputField value="{!addressobj.Status__c}"/>
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>

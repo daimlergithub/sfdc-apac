@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey Taken --></value>
+        <value>실시된 설문조사</value>
     </caseValues>
     <fields>
         <label>계정별로 실시된 설문조사</label>
@@ -98,5 +98,19 @@
         <label><!-- View By All --></label>
         <name>View_By_All__c</name>
     </fields>
+    <layouts>
+        <layout>Revised SurveyTaker Layout</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SurveyTaker Layout</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel><!-- ID --></nameFieldLabel>
 </CustomObjectTranslation>
