@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>TerminateVehicleRelationships</customButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -31,15 +30,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Model_Description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Info_Sub_Source__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -70,10 +69,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Info_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Info_Sub_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -237,10 +232,6 @@
                 <behavior>Edit</behavior>
                 <field>NextInspectionDate__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>LastServiceDate__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -368,20 +359,14 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Contact__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Owner_Relation__c</fields>
-        <fields>New_Used__c</fields>
-        <fields>Finance_Method__c</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
-        <fields>Selling_Dealer__c</fields>
-        <fields>Last_Service_Dealer__c</fields>
-		<fields>UPDATEDBY_USER</fields>
-        <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
+        <fields>RECORDTYPE</fields>
+        <fields>Portal_ID__c</fields>
+        <fields>Responsible_Dealer__c</fields>
+        <fields>CreatedDate__c</fields>
+        <relatedList>Account_Link__c.Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
-		<customButtons>New_Inquiry</customButtons>
+        <customButtons>New_Inquiry</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>ACCOUNT.NAME</fields>
@@ -391,29 +376,9 @@
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
         <fields>Case_Dealer__c</fields>
-        <fields>Customer_Request__c</fields>
         <fields>PARENT.CASE_NUMBER</fields>
+        <fields>CASES.RECORDTYPE</fields>
         <relatedList>Case.Vehicle__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Status__c</fields>
-        <fields>Recall_Reason__c</fields>
-        <fields>Recall_Date__c</fields>
-        <fields>Recall_Type__c</fields>
-        <fields>Recall_No__c</fields>
-        <fields>Recall_Class__c</fields>
-        <relatedList>Recall__c.Vehicle_ID__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Type__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>Status__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
