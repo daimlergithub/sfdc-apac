@@ -511,27 +511,25 @@ public class AccountLinkHelper
     private static void SharePersonCompanyVehicleALK(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId,Set<Id> set_ToAccountId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
          List<Account_Link__C> list_AccountLink = new List<Account_Link__C>([SELECT Id,Retail_Delete_Flag__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE toRole__c IN: map_AccountIdAndListAccountLinkId.keySet() and fromRole__c=:set_ToAccountId] );
-         List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
-       if(portaluser!=null)
-       {
-        for(User usr :portaluser){
+         //for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
             
-            if(list_AccountLink!=null)
-            {
-                 for(Account_Link__c alk:list_AccountLink)
-                 {
-                  if(alk.Retail_Delete_Flag__c == false){
-                    Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = usr.Id;
-                    accountLinkShare.ParentId = alk.id;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
-                
-             }
-             }
-        }
-        }
+         List<Group> portaluser = new List<Group>([select Id, Name, Type from Group where Name IN: set_ToAccountId]);
+         //List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
+        if(portaluser!=null) {
+            for(Group usr :portaluser){
+                if(list_AccountLink!=null) {
+                    for(Account_Link__c alk:list_AccountLink) {
+                        if(alk.Retail_Delete_Flag__c == false){
+                            Account_Link__Share accountLinkShare = new Account_Link__Share();
+                            accountLinkShare.AccessLevel = 'Edit';
+                            accountLinkShare.UserOrGroupId = usr.Id;
+                            accountLinkShare.ParentId = alk.id;
+                            accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                            list_SharingRecord.add(accountLinkShare);
+                        }
+                    }
+                }
+            }
         }
         
         system.debug('list_SharingRecord@@@@'+list_SharingRecord);
@@ -542,14 +540,24 @@ public class AccountLinkHelper
     
      
     
-    private static void createSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+    private static void createSharingRecord ( Map<Id, List<Id>> map_AccountIdAndListAccountLinkId) {
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true]){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -563,13 +571,22 @@ public class AccountLinkHelper
     
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -584,13 +601,23 @@ public class AccountLinkHelper
     
     
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -604,6 +631,15 @@ public class AccountLinkHelper
     
     
     private static void createVehicleRelationship(Map<Id, List<Id>> map_FromAccountIdAndListToAccountId, Set<Id> set_ToAccountId){
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: set_ToAccountId];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         Map<Id, List<Id>> map_AccountIdListUser = new Map<Id, List<Id>>();
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
         
@@ -611,16 +647,14 @@ public class AccountLinkHelper
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
         if(list_VehicleRelationRecord.size() > 0){
-            for(User usr :  [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId AND IsPortalEnabled = true]){
-                     
-             
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
                 for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
                     if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
                         for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){                           
                                  
                                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                                     vehicleRelationShare.AccessLevel = 'Edit';
-                                    vehicleRelationShare.UserOrGroupId = Usr.id;
+                                    vehicleRelationShare.UserOrGroupId = groupRec.id;
                                     vehicleRelationShare.ParentId = vehicleR.Id;
                                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                                     list_SharingRecord.add(vehicleRelationShare);                                
