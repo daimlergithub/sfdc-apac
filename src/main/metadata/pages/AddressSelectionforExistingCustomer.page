@@ -105,7 +105,7 @@ window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
                           </apex:column>
                           
                           
-                                                <apex:column headerValue="{!$ObjectType.Account.fields.Name.Label}">
+                          <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
                         <apex:outputField value="{!ad.Name}"/>
                         </apex:column>
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
@@ -164,6 +164,9 @@ window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
                         </apex:column>
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}">
                         <apex:outputField value="{!ad.Temp_Address__c}"/>
+                        </apex:column>  
+                       <apex:column headerValue="{!$ObjectType.Address__c.fields.LastModifiedDate .Label}">
+                        <apex:outputField value="{!ad.LastModifiedDate }"/>
                         </apex:column>  
 
 
