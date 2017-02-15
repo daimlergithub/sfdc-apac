@@ -23681,10 +23681,6 @@
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
      <tabVisibilities>
-       <tab>standard-FileSearchActivity</tab>
-       <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-     <tabVisibilities>
        <tab>standard-Contact</tab>
        <visibility>DefaultOff</visibility>
     </tabVisibilities>
