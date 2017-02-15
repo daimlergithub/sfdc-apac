@@ -18852,11 +18852,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Survey_Question__c.Camp_Question__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Choices__c</field>
         <readable>true</readable>
