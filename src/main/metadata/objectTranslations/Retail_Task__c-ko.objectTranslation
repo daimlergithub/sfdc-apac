@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Retail Task --></value>
+        <value>서비스 히스토리</value>
     </caseValues>
     <fields>
         <label><!-- Contractor --></label>
@@ -288,6 +288,10 @@
     <fields>
         <label><!-- Contractor Birthdate --></label>
         <name>Contractor_BirthDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Established Date --></label>
+        <name>Contractor_Company_Esatblished_Date__c</name>
     </fields>
     <fields>
         <label><!-- Established Date --></label>
@@ -2457,6 +2461,22 @@
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
         <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
@@ -2464,12 +2484,44 @@
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
         <sections>
+            <label><!-- Bank Account Information --></label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
             <label><!-- Contract Status --></label>
             <section>Contract Status</section>
         </sections>
         <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
             <label><!-- Flags --></label>
             <section>Flags</section>
+        </sections>
+        <sections>
+            <label><!-- Guarantor information --></label>
+            <section>Guarantor information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Conditions --></label>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Remaining Balance Information --></label>
+            <section>Remaining Balance Information</section>
         </sections>
         <sections>
             <label><!-- System Information --></label>
@@ -2479,16 +2531,73 @@
     <layouts>
         <layout>Retail Task Layout (Loan)</layout>
         <sections>
+            <label><!-- Bank Account Information --></label>
+            <section>Bank Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
             <label><!-- Contract Status --></label>
             <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label><!-- Contractor Information --></label>
+            <section>Contractor Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
             <label><!-- Flags --></label>
             <section>Flags</section>
         </sections>
         <sections>
+            <label><!-- Guarantor information --></label>
+            <section>Guarantor information</section>
+        </sections>
+        <sections>
+            <label><!-- Main Information --></label>
+            <section>Main Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Conditions --></label>
+            <section>Payment Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Remaining Balance Information --></label>
+            <section>Remaining Balance Information</section>
+        </sections>
+        <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Contract)</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Retail Activity)</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Service)</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>

@@ -282,7 +282,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
+            <translation>DM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Visit</masterLabel>
@@ -355,7 +355,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SMS</masterLabel>
-            <translation><!-- SMS --></translation>
+            <translation>SMS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Social Media</masterLabel>
@@ -1652,6 +1652,10 @@
     <validationRules>
         <errorMessage>&quot;캠페인이  시작되지 않아 활성화할 수 없습니다&quot;</errorMessage>
         <name>Campaign_Not_Yet_Started_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CAS Campaign can&apos;t be active when it is being created. --></errorMessage>
+        <name>Campaign_Validation_Rule</name>
     </validationRules>
     <validationRules>
         <errorMessage>실행 유형이 DM일 경우, DM 자료가 있어야 합니다</errorMessage>
