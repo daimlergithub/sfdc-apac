@@ -888,5 +888,88 @@ public class TaskHelper {
                    
         
        }
-  
+    
+    /* Vehicle Relationship Field update on creation and updation of task record
+   * whenever a task is created with recordtype change owner, To be actioned Checkbox on Vehicle Relationship should be checked
+   * when the task is updated with activity status completed, To be actioned checkbox should be unchecked
+   */
+    public static void au_After_Insert_Update_Events_Task(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
+    {
+        set<Id> vRId =new set<Id>();
+        map<id,Task> changeOwnVrMap = new map<id,task>();
+        List<Vehicle_Relationship__c> changeOwnerVrList =new List<Vehicle_Relationship__c>();
+        List<Vehicle_Relationship__c> updateVrList =new List<Vehicle_Relationship__c>(); 
+        Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
+        for(Task task : listTaskNew)
+        {              
+            if(task.WhatId != null && String.valueOf(task.WhatId).startsWith('a0o') && task.RecordTypeId == changeOwnerRecordId)
+            {
+                vRId.add(task.WhatId);
+                changeOwnVrMap.put(task.WhatId, task);                
+            }
+        }
+        system.debug('vRId>>>' + vRId);
+        system.debug('changeOwnVrMap>>>' + changeOwnVrMap);
+        if(!vRId.isEmpty() && vRId != null)
+        {
+        	changeOwnerVrList=[select id,ToBeActioned__c from Vehicle_Relationship__c where id In : vRId];
+        }
+        system.debug('changeOwnerVrList>>>' + changeOwnerVrList);
+        for(Vehicle_Relationship__c coVr : changeOwnerVrList)
+        {
+            if(changeOwnVrMap.get(coVr.Id).status != 'Complete')
+            {
+                coVr.ToBeActioned__c = true;
+            }
+            else if(changeOwnVrMap.get(coVr.Id).status == 'Complete')
+            {
+                coVr.ToBeActioned__c = false;
+            }
+            updateVrList.add(coVr);
+        }
+        system.debug('updateVrList>>>' + updateVrList);
+        try 
+        {
+            if(!updateVrList.isEmpty() && updateVrList != null)
+            {
+            	update updateVrList;
+            }
+        }
+        catch (DMLException e) 
+        {
+            trigger.new[0].addError(e.getDMLMessage(0));
+        }
+    }
+    /*Change OwnerId i.e. AssignedTo in Task */
+    public static void au_before_Insert_Events_Task(list<task> listTaskNew,boolean isInsert)
+    {        
+        Id removeAccountRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Remove Account').getRecordTypeId(); 
+        Id changeOwnerRecordId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Change Owner').getRecordTypeId();
+        Id assignedToId=[select id from user where name = 'Clare Yan' limit 1].Id;
+        List<task> taskListco = new List<Task>();        
+        List<Task> updateTaskList = new List<Task>();
+        set<id> taskId = new set<id>();
+        for(Task tk : listTaskNew)
+        {
+            if(tk.RecordTypeId == removeAccountRecordId || tk.RecordTypeId == changeOwnerRecordId)
+            {
+                taskId.add(tk.Id);
+            }
+        }
+        taskListco = [select id ,createdById ,OwnerId from task where Id =:taskId];
+        System.debug('assigned to'+assignedToId);
+        for(Task tsk : taskListco)
+        {
+            String tskCreatedBy=userInfo.getUserType();
+            if(tskCreatedBy.contains('Partner'))
+            {    
+                tsk.OwnerId=assignedToId;
+                updateTaskList.add(tsk);
+            } 
+        }
+        if(!updateTaskList.isEmpty() && updateTaskList != null)
+        {
+            update updateTaskList;
+        }        
+    }  
 }

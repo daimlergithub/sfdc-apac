@@ -1,11 +1,11 @@
 public class AccountLinkHelper
 {
-	private static final String CUSTOMER_TYPE = 'Customer', SERVICE_TYPE = 'Service', PROSPECT_TYPE = 'Prospect';
+    private static final String CUSTOMER_TYPE = 'Customer', SERVICE_TYPE = 'Service', PROSPECT_TYPE = 'Prospect';
     private static final String NO_TYPE = 'The imported relationship has no type';
-    
-	public static string nameParsing(string name)
+    private static final String contact2ContactRT = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+    public static string nameParsing(string name)
     {
-    	String crmCode;
+        String crmCode;
         if(name!=null && name.indexOf('DMS-') > -1)
         {
             name = name.substring(name.indexOf('DMS-'));
@@ -16,18 +16,18 @@ public class AccountLinkHelper
     //Existing AU Functionality starts here.
     public static void auBefore_Insert_Events(list<Account_Link__c> listALNew)
     {
-    	List<Account_Link__c> cdrs = new List<Account_Link__c>();
-	    for(Account_Link__c cdr : listALNew){
-	        if(cdr.toRole__c == null || cdr.fromRole__c == null){
-	            cdr.addError('Customer or Dealer must be provided!');
-	        }
-	        else{
-	            cdrs.add(cdr);
-	        }
-	    }
-	    if(cdrs!=null && !cdrs.isEmpty()){
-	        preventRelationshipSaving(cdrs);
-	    }
+        List<Account_Link__c> cdrs = new List<Account_Link__c>();
+        for(Account_Link__c cdr : listALNew){
+            if(cdr.toRole__c == null || cdr.fromRole__c == null){
+                cdr.addError('Customer or Dealer must be provided!');
+            }
+            else{
+                cdrs.add(cdr);
+            }
+        }
+        if(cdrs!=null && !cdrs.isEmpty()){
+            preventRelationshipSaving(cdrs);
+        }
     }
     
      public static void preventRelationshipSaving(List<Account_Link__c> relationships){
@@ -96,6 +96,151 @@ public class AccountLinkHelper
             return true;
         }
         return false;
+    }
+    
+    Public static void shareAccountToDealer(List<Account_Link__c> aclinkList)
+    {
+        set<id> aclnkId = new set<id>();
+        set<string> grpId = new set<string>();
+        map<string,id> groupMap = new map<string,id>();
+        List<Group> grpList = new List<Group>();
+        map<id,id> accountMap = new map<id,id>();
+        List<Sobject> shareacclinkList = new List<Sobject>();
+        List<Account_Link__c> shareaclkList = new List<Account_Link__c>();
+        for(Account_Link__c aclnk : aclinkList)
+        {
+            if(aclnk.toRole__c != null && aclnk.fromRole__c != null && aclnk.RecordTypeId != contact2ContactRT &&
+               (aclnk.Status__c == 'Preferred' || aclnk.Status__c == 'Preferred' || aclnk.Status__c == 'Last Selling' ||
+               aclnk.Status__c == 'Last Servicing' || aclnk.Status__c == 'Territory Dealer'|| aclnk.Status__c == 'Last Financing'))
+            {
+                aclnkId.add(aclnk.id);   
+            }            
+        }
+        system.debug('aclnkId>>>>' + aclnkId);
+        shareaclkList = [select id, torole__c, fromrole__c, fromrole__r.Name from Account_Link__c where id =:aclnkId];        
+        if(!shareaclkList.isEmpty() && shareaclkList != null)
+        {
+            for(Account_Link__c acln : shareaclkList)
+            {
+                grpId.add(acln.fromrole__r.Name);
+                accountMap.put(acln.Id, acln.toRole__c);
+            }
+        }
+        system.debug('groupID>>>>' + grpId);
+        
+        grpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpId];
+        for(Group gr :grpList)
+        {
+            groupMap.put(gr.Name, gr.id);
+        }
+        system.debug('groupMap>>>>' + groupMap);
+        if(!shareaclkList.isEmpty() && shareaclkList != null)
+        {
+            for(Account_Link__c shaclnk : shareaclkList)
+            {
+                system.debug('$%^^&^%&&' + groupMap.get(shaclnk.fromrole__r.Name));
+                if(!groupMap.isEmpty() && groupMap != null && groupMap.get(shaclnk.fromrole__r.Name) != null)
+                {
+                    AccountShare acshar = new AccountShare();
+                    acshar.AccountId = accountMap.get(shaclnk.id);
+                    acshar.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                    acshar.AccountAccessLevel = 'Edit';
+                    acshar.OpportunityAccessLevel = 'Read';
+                    acshar.CaseAccessLevel = 'Read';
+                    shareacclinkList.add(acshar);
+                    
+                    Account_Link__Share alinkShare = new Account_Link__Share();
+                    alinkShare.ParentId = shaclnk.Id;
+                    alinkShare.UserOrGroupId = groupMap.get(shaclnk.fromrole__r.Name);
+                    alinkShare.AccessLevel = 'Edit';
+                    shareacclinkList.add(alinkShare);
+                }
+        	}
+        }
+        system.debug('5253645322' + shareacclinkList);
+        if(!shareacclinkList.isEmpty() && shareacclinkList != null)
+        {
+            insert shareacclinkList;
+        }
+    }
+    //share contact2contact accountlink record to the dealers
+    
+    Public static void shareaccountlinksToDealer(List<Account_Link__c> con2conaclinkList ,map<id,Account_Link__c> oldmap,boolean isInsert,boolean isUpdate)
+    {
+        set<id> accId = new set<id>();
+        set<id> fromRoleAccId = new set<id>();
+        set<id> accLinkId = new set<id>();
+        set<id> userorGroupId = new set<id>();
+        List<AccountShare> sharedaccList = new List<AccountShare>();
+        List<Account_Link__Share> sharedaccLinkList = new List<Account_Link__Share>();
+        map<id,id> accountgroupMap = new map<id,id>();
+        List<Account_Link__Share> con2conshreList = new List<Account_Link__Share>();
+        for(Account_Link__c con2aclink : con2conaclinkList)
+        {
+         	if(con2aclink.toRole__c != null && con2aclink.RecordTypeId == contact2ContactRT && 
+               (isInsert || (isUpdate && con2aclink.toRole__c != oldmap.get(con2aclink.Id).toRole__c)))
+            {
+                accId.add(con2aclink.toRole__c);
+                accLinkId.add(con2aclink.Id);                
+            }
+            if(con2aclink.fromRole__c != null && con2aclink.RecordTypeId == contact2ContactRT && 
+               (isInsert || (isUpdate && con2aclink.fromRole__c != oldmap.get(con2aclink.Id).fromRole__c)))
+            {
+                fromRoleAccId.add(con2aclink.fromRole__c);
+                accLinkId.add(con2aclink.Id);                
+            }
+        }
+        if(!accId.isEmpty() && accId != null && !fromRoleAccId.isEmpty() && fromRoleAccId != null)
+        {
+        	sharedaccList = [select id ,AccountId, UserorGroupId from AccountShare where AccountId =:accId OR AccountId =:fromRoleAccId];
+        }
+        if(!accLinkId.isEmpty() && accLinkId !=null)
+        {
+            sharedaccLinkList = [select id ,ParentId, UserorGroupId from Account_Link__Share where ParentID =:accLinkId];            
+        }
+        if(!sharedaccList.isEmpty() && sharedaccList != null)
+        {
+            for(AccountShare acshr : sharedaccList)
+            {
+                userorGroupId.add(acshr.UserOrGroupId);
+            }         	   
+        }
+        if(!sharedaccLinkList.isEmpty() && sharedaccLinkList != null)
+        {
+            for(Account_Link__Share shreaccLink : sharedaccLinkList)
+            {
+                accountgroupMap.put(shreaccLink.ParentId, shreaccLink.UserOrGroupId);
+            }
+        }
+        system.debug('accountgroupMap>>>..' + accountgroupMap);
+        system.debug('userorGroupId>>>..' + userorGroupId);
+        system.debug('sharedaccList>>>..' + sharedaccList);
+        system.debug('sharedaccLinkList>>>..' + sharedaccLinkList);
+        for(Account_Link__c conshr : con2conaclinkList)
+        {
+            if(conshr.RecordTypeId == contact2ContactRT && conshr.toRole__c != null)
+            {
+                if((isInsert || (isUpdate && conshr.toRole__c != oldmap.get(conshr.Id).toRole__c)))
+                {
+                    for(ID userId : userorGroupId)
+                    {
+                        if(!accountgroupMap.isEmpty() && accountgroupMap.get(conshr.id) != userId && conshr.OwnerId != userId)
+                        {
+                            Account_Link__Share conalinkShare = new Account_Link__Share();
+                            conalinkShare.ParentId = conshr.Id;
+                            conalinkShare.UserOrGroupId = userId;
+                            conalinkShare.AccessLevel = 'Read';
+                            con2conshreList.add(conalinkShare);
+                        }
+                    }
+                }
+            }
+        }
+        if(!con2conshreList.isEmpty() && con2conshreList != null)
+        {
+            insert con2conshreList;
+        }
+        system.debug('con2conshreList>>>>' +con2conshreList);
     }
     //Existing AU Functionality ends here.
 }

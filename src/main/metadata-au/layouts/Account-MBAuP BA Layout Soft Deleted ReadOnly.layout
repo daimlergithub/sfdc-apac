@@ -105,8 +105,9 @@
         <fields>TASK.WHAT_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -124,11 +125,10 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
         <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -136,14 +136,14 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
-        <fields>UsVIN__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
-        <fields>Purchase_Date__c</fields>
-        <fields>Vehicle_Model__c</fields>
         <fields>Status__c</fields>
-        <fields>TradeIn__c</fields>
-        <fields>Fleet__c</fields>
+        <fields>VIN_Search__c</fields>
+        <fields>Validity__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Purchase_Date__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -195,9 +195,12 @@
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
+        <fields>NAME</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Vehicle__c</fields>
-        <fields>CASES.RECORDTYPE</fields>
+        <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>

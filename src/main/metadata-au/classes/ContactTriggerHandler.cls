@@ -34,6 +34,7 @@ public class ContactTriggerHandler
             // Validate complaint manager and presales
             ContactHelper.ValidateManager(Trigger.new);
              ContactHelper.ValidateBusinessUnit(Trigger.new);
+            contactHelper.validateduplicategatekeeper(trigger.new);
            
         }
         if (trigger.isBefore && trigger.isUpdate) {
@@ -44,6 +45,7 @@ public class ContactTriggerHandler
             ContactHelper.ValidateManager(Trigger.new);
             ContactHelper.ValidateBusinessUnit(Trigger.new);
             ContactHelper.validateAccount(trigger.new,(Map<Id,Contact>)Trigger.newMap,(Map<Id,Contact>)Trigger.oldMap);
+            contactHelper.validateduplicategatekeeper(trigger.new);
         }
         
                      

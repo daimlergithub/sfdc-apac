@@ -78,7 +78,7 @@ public with sharing class UtilAccountTest
         testLead = new Lead__c();
         //testLead.Need_Assign_To_Dealer__c = 'Need';
         testLead.Contact__c = personAcc.id;
-        testLead.RecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+        testLead.RecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service Lead').getRecordTypeId();
         testLead.Lead_Type__c = 'New Car';
         testLead.Relation_With_The_Leads__c = 'I owner';
         testLead.Purchase_Time__c = '0 - 3 months';

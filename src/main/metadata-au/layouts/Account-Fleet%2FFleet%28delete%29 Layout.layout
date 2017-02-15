@@ -246,8 +246,9 @@
         <fields>TASK.WHAT_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -255,14 +256,14 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
-        <fields>UsVIN__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
-        <fields>Purchase_Date__c</fields>
-        <fields>Vehicle_Model__c</fields>
         <fields>Status__c</fields>
-        <fields>TradeIn__c</fields>
-        <fields>Fleet__c</fields>
+        <fields>VIN_Search__c</fields>
+        <fields>Validity__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Purchase_Date__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -272,13 +273,11 @@
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>
+        <fields>Vehicle_Model_Code__c</fields>
         <fields>Status__c</fields>
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
-        <fields>OWNER.ALIAS</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -291,47 +290,55 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>Nature_of_Request__c</fields>
         <fields>CAC_Lead_Status__c</fields>
-        <fields>Opportunity_Name__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>Attachment_Flag__c</fields>
+        <fields>Lead_Source__c</fields>
+        <fields>Sub_Source__c</fields>
+        <fields>Nature_of_Request__c</fields>
+        <fields>Business_Unit__c</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
+        <fields>NAME</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Vehicle__c</fields>
-        <fields>CASES.RECORDTYPE</fields>
+        <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
         <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>toRole__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Role__c</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>fromRole__c</fields>
-        <fields>Position__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Role__c</fields>
         <fields>CREATEDBY_USER</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>

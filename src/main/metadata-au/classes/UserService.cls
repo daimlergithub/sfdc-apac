@@ -231,7 +231,7 @@ public with sharing class UserService {
     **/
     private Map<String, Set<Id>> mapCrmCode2Users(Set<String> crmCodes){
         Map<String, Set<Id>> crmCode2Users = new Map<String, Set<Id>>();
-        for(User u: [select Id, Contact.Account.Dealer_DMS_CRM_Code__c from User where IsActive = true and Contact.Account.Dealer_DMS_CRM_Code__c in :crmCodes]) {
+        for(User u: [select Id, Contact.Account.Dealer_DMS_CRM_Code__c from User where IsActive = true and Contact.Account.Dealer_DMS_CRM_Code__c in :crmCodes and Profile.UserLicense.Name != 'Partner Community']) {
             if(crmCode2Users.get(u.Contact.Account.Dealer_DMS_CRM_Code__c) == null) {
                 crmCode2Users.put(u.Contact.Account.Dealer_DMS_CRM_Code__c, new Set<Id>{u.Id});
             } else {

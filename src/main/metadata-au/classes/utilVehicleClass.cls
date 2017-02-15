@@ -5,8 +5,7 @@ public class utilVehicleClass
 	
     public static map<string,Decimal> getVehicleclass()
     {
-        vehicleclasslist = [select Customer_Type__c,Vehicle_Class__c,Vehicle_Class_Score__c from 
-                            Vehicle_Class_Priority_Score__mdt where Customer_Type__c = 'Owner'];
+        vehicleclasslist = [select Customer_Type__c,Vehicle_Class__c,Vehicle_Class_Score__c from Vehicle_Class_Priority_Score__mdt];
         
     	if(!vehicleclasslist.isEmpty() && vehicleclasslist != null)
         {              

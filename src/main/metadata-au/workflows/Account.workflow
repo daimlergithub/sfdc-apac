@@ -74,6 +74,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Upd_Wholesale_Retail</fullName>
+        <description>created manually in Wholesale this field is to be set to “CRMone”, in case of SFDC DFE “Retail”.</description>
+        <field>System_Data_Source__c</field>
+        <formula>IF (ISPICKVAL($Profile.UserType,&quot;PowerPartner&quot;),&quot;Retail&quot;,&quot;CRMone&quot; )</formula>
+        <name>Upd Wholesale Retail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Account Frist Name Change Capital</fullName>
         <actions>
@@ -291,5 +301,32 @@ Modify Reason:
             <value>AU</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update System Data Source</fullName>
+        <actions>
+            <name>Upd_Wholesale_Retail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notEqual</operation>
+            <value>IntegrationAPI</value>
+        </criteriaItems>
+        <description>In case the record will be created manually in Wholesale this field is to be set to “CRMone”, in case of SFDC DFE “Retail” on account record of type “Person Account” or “Company” 
+</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

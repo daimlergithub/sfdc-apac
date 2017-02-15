@@ -77,10 +77,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Education__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Age_Range__c</field>
             </layoutItems>
             <layoutItems>
@@ -112,10 +108,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Industry</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Occupation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -277,15 +269,14 @@
         <fields>TASK.WHAT_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Type__c</fields>
-        <fields>Related_Dealer__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
         <fields>Status__c</fields>
@@ -319,23 +310,23 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
         <fields>toRole__c</fields>
         <fields>Sector__c</fields>
         <fields>Role__c</fields>
+        <fields>CREATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Status__c</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Start_Date__c</fields>
-        <fields>End_Date__c</fields>
         <fields>fromRole__c</fields>
         <fields>Sector__c</fields>
         <fields>Role__c</fields>
+        <fields>CREATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -345,10 +336,10 @@
         <customButtons>New_Service_Parts_Lead</customButtons>
         <customButtons>New_Finance_Fleet_Lead</customButtons>
         <customButtons>New_Fleet_Vans_Lead</customButtons>
+        <customButtons>New_Parts_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Assigned_Dealer__c</fields>
         <fields>CAC_Lead_Status__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
@@ -371,13 +362,11 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>
+        <fields>Vehicle_Model_Code__c</fields>
         <fields>Status__c</fields>
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
-        <fields>OWNER.ALIAS</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
     <relatedLists>
