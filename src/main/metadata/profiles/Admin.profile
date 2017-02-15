@@ -6193,11 +6193,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>CampaignMember.MD__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>CampaignMember.Member_Latest_Update_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19099,11 +19094,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Communication_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Communication_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

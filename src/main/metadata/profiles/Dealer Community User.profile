@@ -6197,11 +6197,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>CampaignMember.MD__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.Member_Latest_Update_Time__c</field>
         <readable>false</readable>
