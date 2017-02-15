@@ -23615,6 +23615,78 @@
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	    <tabVisibilities>
+        <tab>NttDataEpa__Picklist_Mapping__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Participating_Dealer__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Leads</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Opportunities</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Orders</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Products</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contacts</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Content</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contracts</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Reports</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Chatter</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Documents</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Service Contracts</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Entitlements</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Solutions</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Files</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Subscriptions</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Ideas</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Model__c</tab>
         <visibility>DefaultOn</visibility>
