@@ -4322,7 +4322,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Website</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23614,6 +23614,66 @@
     <tabVisibilities>
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	    <tabVisibilities>
+        <tab>NttDataEpa__Picklist_Mapping__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Participating_Dealer__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities> 
+	<tabVisibilities>
+       <tab>standard-Lead</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Opportunity</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Order</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contact</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contract</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Report</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Chatter</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+      <tab>standard-Product2</tab>
+     <visibility>DefaultOff</visibility>
+  </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Document</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-ServiceContract</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Entitlement</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Solution</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Idea</tab>
+       <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Model__c</tab>

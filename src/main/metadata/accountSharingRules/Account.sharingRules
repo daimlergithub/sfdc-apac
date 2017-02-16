@@ -172,11 +172,16 @@
             <field>RecordTypeId</field>
             <operation>notEqual</operation>
             <value>Person Account Soft Deleted</value>
-        </criteriaItems>		
+        </criteriaItems>
         <criteriaItems>
             <field>MB_Customer_Info_Remove__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing2__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>Edit</caseAccessLevel>
@@ -211,7 +216,7 @@
             <value>Company Soft Deleted</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
-		<booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
         <caseAccessLevel>Edit</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>MBK Account Sharing Rule</name>

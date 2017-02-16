@@ -587,13 +587,23 @@ public with sharing class VehicleRelationshipHelperJP
         }
         // END: Adding Similar GC Code related Account To Map which is sharing already. 
         
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListVCId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
+        
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListVCId.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListVCId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListVCId.get(usr.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListVCId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListVCId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Read';
-                    vehicleRelationShare.UserOrGroupId = usr.Id;
+                    vehicleRelationShare.UserOrGroupId = groupRec.Id;
                     vehicleRelationShare.ParentId = accountLinkId;
                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                     list_SharingRecord.add(vehicleRelationShare);
@@ -624,15 +634,27 @@ public with sharing class VehicleRelationshipHelperJP
             }
         }
         // Finish: Share with all Dealer Account with same GC Code
+        
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: DealerAccId];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
+        
         System.debug('DealerAccId  newList'+DealerAccId);
         
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
-        for(User usr : [SELECT Id, contact.AccountId,AccountId FROM User WHERE contact.AccountId IN: DealerAccId AND IsPortalEnabled = true]) {
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
             if(currentVrId != null) {
                 for(Id ids:currentVrId) {
                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                     vehicleRelationShare.AccessLevel = 'Edit';
-                    vehicleRelationShare.UserOrGroupId = usr.Id; 
+                    vehicleRelationShare.UserOrGroupId = groupRec.Id; 
                     vehicleRelationShare.ParentId =ids; 
                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                     list_SharingRecord.add(vehicleRelationShare);
