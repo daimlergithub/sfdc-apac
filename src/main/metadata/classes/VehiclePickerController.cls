@@ -1,5 +1,4 @@
 /**
-
 ** Controller class for the Vehicle Picker Page.
 ** 1. Provides the Brand, Class and Model values for the Vehicle Picker from Car Models.
 ** 2. Handles execution all the Vehicle Picker Operation like New, Edit and Clear.
@@ -23,18 +22,6 @@ global with sharing class VehiclePickerController {
     Map<String, Set<String>> classModelMap {get;set;}
     
     public List<Vehicle_Relationship__c> leadVehicleRelationships;
-    
-    public static user usr{
-        get
-        {
-            if (usr == null)
-            {
-                usr = [select id,Market__c from User where id=:userinfo.getuserId()];
-            }
-            return usr;
-        }
-        private set;
-    }
 
     /**
     *@Description : This method fetches all the vehicles that are associated with the Lead to pre-populate the values.
@@ -44,16 +31,8 @@ global with sharing class VehiclePickerController {
     *@return: This is a constructor method.
     *@see: VehiclePickerController
     */
-    Public string profileName;
-    Public boolean disableButtons{get;set;}
     public VehiclePickerController(ApexPages.StandardController controller) {
-        
-        //profileName = userinfo.getprofilename();
-        profile p = [select Name from profile where id =:userinfo.getprofileId()];
-        disableButtons = true;
-        //if(p.Name.contains('Dealer')){
-            //disableButtons = false;
-        //}
+                
         currentRecordId  = controller.getId();
         System.debug('Lead Vehicles Types...' +lead_Vehicles);
         Set<Id> lead_VehicleIds;
@@ -70,25 +49,15 @@ global with sharing class VehiclePickerController {
         try{
         
             /***************** QUERY THE VEHICLES ASSOCIATED WITH THE LEAD : START *******************/
-            lead_Vehicles = [Select Lead_Type__c, Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c, CAC_Lead_Status__c ,Dealer_Lead_Status__c ,Lead_Desired_Service__c,Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Lead__c Where Id =: currentRecordId  AND MD__c = :usr.Market__c];
+            lead_Vehicles = [Select Lead_Type__c, Interested_Vehicle__c, Interested_Competitor_Vehicle__c, Current_Vehicle_1__c, Current_Vehicle_2__c,Trade_In_Vehicle__c, Purchased_Vehicle__c From Lead__c Where Id =: currentRecordId];
             leadType = lead_Vehicles.Lead_Type__c;
-            system.debug('lead_Vehicles1:' +lead_Vehicles.Lead_Desired_Service__c);  
-             if((lead_Vehicles.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' || lead_Vehicles.Dealer_Lead_Status__c == 'Purchased(Only Non BDC)') && lead_Vehicles.Purchased_Vehicle__c == null){
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.purchased_vehicle_related_information+ '</font>'));               
-               
-             }     
-             if(lead_Vehicles.Lead_Desired_Service__c!= Null && lead_Vehicles.Lead_Desired_Service__c.contains('Trade-In') && lead_Vehicles.Trade_In_Vehicle__c == null){
-              system.debug('lead_Vehicles2:' +lead_Vehicles.Lead_Desired_Service__c);
-                ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.Trade_In_related_information+ '</font>'));          
-            
-             } 
             
             system.debug('@ Intial Lead vehicle record values :' +lead_Vehicles);                                              
             lead_VehicleIds = new Set<Id>{  lead_Vehicles.Interested_Vehicle__c, lead_Vehicles.Interested_Competitor_Vehicle__c,
                                             lead_Vehicles.Current_Vehicle_1__c, lead_Vehicles.Current_Vehicle_2__c,lead_Vehicles.Trade_In_Vehicle__c,
                                             lead_Vehicles.Purchased_Vehicle__c
                                          };
-            leadOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Contact__c from Lead__c where Id =:currentRecordId AND MD__c = :usr.Market__c)];           
+            leadOwnerVehiclesRelationships = [select Vehicle_Id__r.Id from Vehicle_Relationship__c where Contact__c  IN (Select Contact__c from Lead__c where Id =:currentRecordId)];           
             System.debug('Lead Vehicle Relationships...' +leadOwnerVehiclesRelationships.size());
             for (Integer i=0; i < leadOwnerVehiclesRelationships.size(); i++){
                 System.debug('In the For :' +leadOwnerVehiclesRelationships[i]);
@@ -96,7 +65,7 @@ global with sharing class VehiclePickerController {
             }
             if(!vehicleIds.isEmpty()){
                 System.debug('Vehicle Ids' +vehicleIds);
-                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
+                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds];
                 System.debug('Lead Owner vehicles...:' +leadOwnerVehicles);
                 System.debug('Each Lead Vehicle type...' +lead_Vehicles.Interested_Vehicle__c); 
             }
@@ -144,7 +113,7 @@ global with sharing class VehiclePickerController {
             system.debug('Lead Vehicle Ids :' +lead_VehicleIds);
             //Query all the Vehicle Fields
             if(!lead_VehicleIds.isEmpty()){
-                vehiclesForLead = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :lead_VehicleIds AND MD__c = :usr.Market__c];
+                vehiclesForLead = [Select RecordTypeId, Brand__c, Class__c, Colour__c, Model_Description__c, NextMileage__c, Trim__c From Vehicle__c Where Id IN :lead_VehicleIds];
                 System.debug('All Vehicle Ids for Leads...' +vehiclesForLead);
                 for (Vehicle__c vehicles : vehiclesForLead){
                     System.debug('Entered Loop...');
@@ -193,9 +162,6 @@ global with sharing class VehiclePickerController {
             List<Car_Model__c> carModels;
             Map<String, Set<String>> brandClassMap = new Map<String, Set<String>>();
             Map<String, Set<String>> classModelMap =  new Map<String, Set<String>>();
-             map<string, set<string>> classColorfinMap = new map<string, set<String>>();
-             map<string, List<string>> modelColourMap = new map<string,List<string>>();
-             map<string, set<string>> modelColourFinMap = new map<string, set<string>>();
             List<VehicleBrandsAndClasses> vBrandsAndClasses;
             String brandClassMapping; 
             String classModelMapping;
@@ -205,12 +171,12 @@ global with sharing class VehiclePickerController {
             List<Map<String, Set<String>>> brand_class_model = new List<Map<String, Set<String>>>();
             Set<String> tempSet = new Set<String>();
             UtilConstant utilConst = new UtilConstant();
-            system.debug('usr.Market__c '+ usr.Market__c);
+            
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c];
+                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
+                carModels = [SELECT Brand__c,Name,Series__c FROM Car_Model__c Where Status__c =:status_type];
             }
             
             System.debug('New @Shrinivas Car Models:' +carModels);
@@ -229,46 +195,14 @@ global with sharing class VehiclePickerController {
                 }else{
                     tempSet.add(cm.Name);
                 }
-                 if(cm.Colour__c !=null && cm.Colour__c != ''){
-                     List<string> tempLst = cm.Colour__c.split('\\|');
-                     set<string> tempSetColors = new set<string>();
-                      tempSetColors.addAll(tempLst);
-                      if(!classColorfinMap.containsKey(cm.Series__c+cm.Brand__c)){
-                          classColorfinMap.put(cm.Series__c+cm.Brand__c,tempSetColors);
-                      }
-                      if(!modelColourMap.containsKey(cm.Name)){
-                          List<string> tempColour = new List<string>();
-                          tempColour.add(cm.Colour__c);
-                          modelColourMap.put(cm.Name, tempColour);
-                      }else{
-                          modelColourMap.get(cm.Name).add(cm.Colour__c);
-                      }
-                  }    
-            } 
-            if(modelColourMap.size()>0){ 
-                for(string str: modelColourMap.keySet()){
-                      List<string> modelColourLst = modelColourMap.get(str);
-                      set<string> SetColors = new set<string>();
-                      for(string str1: modelColourLst){
-                          List<string> colours =  str1.split('\\|');
-                          SetColors.addAll(colours);
-                      }
-                      if(!modelColourFinMap.containsKey(str)){
-                        modelColourFinMap.put(str, SetColors);
-                      }
-                        modelColourFinMap.get(str).addAll(SetColors);
-                 }
-            }     
-            system.debug('classColorfinMap '+ classColorfinMap);
-            system.debug('modelColourMap '+ modelColourMap);
-            system.debug('modelColourFinMap '+ modelColourFinMap);
+            }           
+
             System.debug('@Shrinivas : The Brand Class Map3' +brandClassMap);
             brand_class_model.add(brandClassMap);
             brandClassMapping = JSON.serialize(brandClassMap);
             System.debug('@Shrinivas : The Class Model Map3' +classModelMap);
             brand_class_model.add(classModelMap);
-            brand_class_model.add(classColorfinMap);
-            brand_class_model.add(modelColourFinMap);
+            
             /*Work on the Picklist values here*/
             if (vBrandsAndClasses == null){
                 vBrandsAndClasses = new List<vehicleBrandsAndClasses>();
@@ -404,11 +338,11 @@ global with sharing class VehiclePickerController {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number];
             system.debug('Vehicle for If' +vehicle);
         }
         else{
-            Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c];
+            Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId')];
             system.debug('Lead Contact...' +leadAcc);
             leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC];
             system.debug('Lead Vehicle Relationships...' +leadVehicleRelationships);
@@ -423,7 +357,7 @@ global with sharing class VehiclePickerController {
             //Search for Self Registered:
             Id selfRegisteredRec_TypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.SELF_REGISTERED);
             system.debug('Self Registered Rec Id :' +selfRegisteredRec_TypeId);
-            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:leadAcc.Contact__c AND RecordTypeId =:selfRegisteredRec_TypeId AND MD__c = :usr.Market__c ORDER BY CreatedDate ASC];
+            selfRegisteredVehicles = [Select Id from Vehicle__c where Related_contact__c =:leadAcc.Contact__c AND RecordTypeId =:selfRegisteredRec_TypeId ORDER BY CreatedDate ASC];
             system.debug('Self Registered Vehicles :' +selfRegisteredVehicles);
             
             if (!selfRegisteredVehicles.isEmpty()){
@@ -434,11 +368,11 @@ global with sharing class VehiclePickerController {
                 system.debug('Default Vehicle Ids...' +defaultVehicleIds);
             }
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds];
                 system.debug('Default Vehicle Records...' +vehicle);
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number];
             }                 
             system.debug('Vehicle for else' +vehicle); 
         }
