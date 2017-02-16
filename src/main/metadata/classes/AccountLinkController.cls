@@ -1,4 +1,4 @@
-public class AccountLinkController 
+public with sharing class AccountLinkController
     {
       public Account_LInk__c acclnkdealer{get;set;}
       public Account acc{get;set;}
