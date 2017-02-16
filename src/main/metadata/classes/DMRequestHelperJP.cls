@@ -80,15 +80,17 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         
         Map<Id, List<Id>> mapDmrequest = new Map<Id, List<Id>>();
         Map<Id, List<Id>> mapCheckingType = new Map<Id, List<Id>>();
+        Set<Id> currentVrId=new Set<Id>();
         
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
         
         for(DM_Request__c vc : newList){
-            if (vc.Assigned_Dealer__c != null && vc.View_By_All__c == true ){
-                if(!mapCheckingType.containsKey(vc.Assigned_Dealer__c)){
-                      mapCheckingType.put(vc.Assigned_Dealer__c, new List<Id>());
+            if (vc.Customer_Name__c != null && vc.View_By_All__c == true && vc.Assigned_Dealer__c == null ){
+                if(!mapCheckingType.containsKey(vc.Customer_Name__c)){
+                      mapCheckingType.put(vc.Customer_Name__c, new List<Id>());
+                      currentVrId.add(vc.Id);
                   }
-                  mapCheckingType.get(vc.Assigned_Dealer__c).add(vc.Id);
+                  mapCheckingType.get(vc.Customer_Name__c).add(vc.Id);
             }else if(vc.Assigned_Dealer__c != null ){
                 if(!mapDmrequest.containsKey(vc.Assigned_Dealer__c)){
                       mapDmrequest.put(vc.Assigned_Dealer__c, new List<Id>());
@@ -102,7 +104,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
             list_SharingRecord.addAll(createDealerAccountSharing(mapDmrequest));
         }
         if(mapCheckingType.size() > 0){
-            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(mapCheckingType));
+            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(mapCheckingType,currentVrId));
         }
         
         
@@ -120,15 +122,26 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         Map<Id, List<Id>> mapDmrequest = new Map<Id, List<Id>>();
         Map<Id, List<Id>> mapCheckingType = new Map<Id, List<Id>>();
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
+        Set<Id> currentVrId=new Set<Id>();
+        List<Account_Link__c> ListAlk=new List<Account_Link__c>();
+        //List<User> list_User = new List<User>();
+        List<String> accNames=new List<String>();
         Set<Id> set_AccountId = new Set<Id>();
+        Set<Id> set_LinkId = new Set<Id>();
+        Set<Id> set_CustomerId = new Set<Id>();
         List<Id> list_DmrequestId = new List<Id>();
+        //List<Vehicle_Relationship__Share> list_SharingDele = new List<Vehicle_Relationship__Share>();
         
         for(DM_Request__c vc : newList){
-            if(vc.Assigned_Dealer__c != null  && vc.View_By_All__c == true &&vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c){
-                    if(!mapCheckingType.containsKey(vc.Assigned_Dealer__c)){
-                          mapCheckingType.put(vc.Assigned_Dealer__c, new List<Id>());
+            if(vc.Customer_Name__c != null  && vc.View_By_All__c == true &&vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c && vc.Assigned_Dealer__c == null){
+                    if(!mapCheckingType.containsKey(vc.Customer_Name__c)){
+                          mapCheckingType.put(vc.Customer_Name__c, new List<Id>());
                       }
-                      mapCheckingType.get(vc.Assigned_Dealer__c).add(vc.Id);
+                      mapCheckingType.get(vc.Customer_Name__c).add(vc.Id);
+                      currentVrId.add(vc.Id);
+                    set_CustomerId.add(oldMap.get(vc.Id).Customer_Name__c);
+                   list_DmrequestId.add(vc.Id);
+                      
                 
                 
         }else if(vc.Assigned_Dealer__c != null && vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c){
@@ -136,6 +149,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                       mapDmrequest.put(vc.Assigned_Dealer__c, new List<Id>());
                   }
                   mapDmrequest.get(vc.Assigned_Dealer__c).add(vc.Id);
+                  currentVrId.add(vc.Id);
                   set_AccountId.add(oldMap.get(vc.Id).Assigned_Dealer__c);
                   list_DmrequestId.add(vc.Id);
             }
@@ -143,21 +157,47 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
           
           system.debug('++++++++++++++++'+mapDmrequest );
             system.debug('++++++++++++++++'+ mapCheckingType );
-        
         if(set_AccountId.size() > 0){
-            List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_AccountId AND IsPortalEnabled = true]);
+             List<Account> accName = [select Name from Account where Id IN:set_AccountId];
+            for(Account acc : accName){
+               accNames.add(acc.Name);
+            
+            } 
+            } else if(set_CustomerId.size() >0){
+               ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_CustomerId];
+                if(ListAlk.size() > 0){
+         
+         for(Account_Link__c  alk:ListAlk)
+         {
+         if(alk.fromRole__c!=null && alk.toRole__c!=null)
+         {
+         set_LinkId.add(alk.fromRole__c);
+         } }
+         List<Account> accName = [select Name from Account where Id IN:set_LinkId];
+            for(Account acc : accName){
+               accNames.add(acc.Name);
+            
+            } }
+         
+
+            
+            
+            List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
+            system.debug('+++++++++++'+list_User);
            List<DM_Request__Share> list_SharingDele = new List<DM_Request__Share>([SELECT Id FROM DM_Request__Share 
                                                                                             WHERE ParentId IN:list_DmrequestId AND UserOrGroupId IN :list_User]);
             if(list_SharingDele.size() > 0){
                 delete list_SharingDele;
+                system.debug('+++++++++++'+list_SharingDele);
             } 
         }
+        
         if(mapDmrequest.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(mapDmrequest));
         }
         
         if(mapCheckingType.size() > 0){
-            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(mapCheckingType));
+            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(mapCheckingType,currentVrId));
         }
         
         if(list_SharingRecord.size() > 0){
@@ -178,7 +218,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
         if(dealerAccList.size() > 0) {
             List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
-                                                                    AND RecordTypeId =: Dealer_RecordTypeId AND Id NOT IN: gcCodeToDealerAccIdMap.values()];
+                                                                    AND RecordTypeId =: Dealer_RecordTypeId ];
                                                                     
                        system.debug('+++++++++++++++++++'+similarGCCodeDealerAccountList);
             for(Account accRec : similarGCCodeDealerAccountList) {
@@ -208,14 +248,23 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                 }
             }
         }
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: mapDmrequest.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+
         // END: Adding Similar GC Code related Account To Map which is sharing already.
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:mapDmrequest.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
-            if(mapDmrequest.containsKey(usr.AccountId)){
-                for(Id acId : mapDmrequest.get(usr.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && mapDmrequest.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id acId : mapDmrequest.get(accNameToAccIdMap.get(groupRec.Name))){
                     DM_Request__Share dmRequestShare = new DM_Request__Share();
                     dmRequestShare.AccessLevel = 'Edit';
-                    dmRequestShare.UserOrGroupId = usr.Id;
+                    dmRequestShare.UserOrGroupId = groupRec.Id;
                     dmRequestShare.ParentId = acId;
                     dmRequestShare.RowCause = Schema.DM_Request__Share.RowCause.Manual;
                     list_SharingRecord.add(dmRequestShare);
@@ -226,16 +275,47 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
     }
     
     
-    private static List<DM_Request__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> mapCheckingType){
+    private static List<DM_Request__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> mapCheckingType,Set<Id> currentVrId){
+    List<Account_Link__c> ListAlk=new List<Account_Link__c>();
+        Set<Id> DealerAccId=new Set<Id>();
+        Set<Id> VrID=new Set<Id>();
+        
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() ];
+        for(Account_Link__c alk:ListAlk) {
+            DealerAccId.add(alk.fromRole__c);
+        }
+        DealerAccId.remove(null);
+        
+        // Start: Share with all Dealer Account with same GC Code
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                DealerAccId.add(similarGCCodeDealerId);
+            }
+        }
+        // Finish: Share with all Dealer Account with same GC Code
+        
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: DealerAccId];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
+        
+        System.debug('DealerAccId  newList'+DealerAccId);
+
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:mapCheckingType.keySet() 
-                                            AND IsPortalEnabled = true AND (Account.RecordType.Name = 'Company' OR Account.RecordType.Name = 'Person')]){
-            if(mapCheckingType.containsKey(usr.AccountId)){
-                for(Id vcId : mapCheckingType.get(usr.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(currentVrId != null){
+                for(Id ids:currentVrId){
                     DM_Request__Share dmRequestShare = new DM_Request__Share();
                     dmRequestShare.AccessLevel = 'Edit';
-                    dmRequestShare.UserOrGroupId = usr.Id;
-                    dmRequestShare.ParentId = vcId;
+                    dmRequestShare.UserOrGroupId = groupRec.Id;
+                    dmRequestShare.ParentId = ids;
                     dmRequestShare.RowCause = Schema.DM_Request__Share.RowCause.Manual;
                     list_SharingRecord.add(dmRequestShare);
                 }

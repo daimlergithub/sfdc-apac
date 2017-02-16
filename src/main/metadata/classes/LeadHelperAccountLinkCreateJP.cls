@@ -11,7 +11,7 @@ public class LeadHelperAccountLinkCreateJP {
         
         for(Lead__c le : leadlst){
             if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
-                if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
+                if(isInsert || (isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c)) {
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
                 }
@@ -152,14 +152,17 @@ public class LeadHelperAccountLinkCreateJP {
   }
   public static void updatingleadcontactDetails(list<Lead__c> leadlst,boolean isInsert, boolean isUpdate ){
   set<String> contctid = new set<string>();
+  set<String> AssignedDealer = new set<string>();
   list<lead__c> leadupdate = new list<lead__c>();
   List<Account_Link__c> acclink = new List<Account_Link__c>();
   for(Lead__C led : leadlst){
-      if(led.Assigned_Dealer__c != null)
+      if(led.Assigned_Dealer__c != null){
+          AssignedDealer.add(led.Assigned_Dealer__c);
           contctid.add(led.contact__c);
+      }    
   }
   //if(!contctid.isempty()){
-   acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE toRole__c IN: contctid AND (RecordType.DeveloperName = 'Retail_Company' OR RecordType.DeveloperName = 'Retail_Person') limit 1];
+   acclink = [select id,Name, RecordType.DeveloperName,fromRole__c ,Torole__c from Account_Link__c WHERE fromRole__c IN: AssignedDealer and Torole__c=:contctid and  (RecordType.DeveloperName = 'Retail_Company' OR RecordType.DeveloperName = 'Retail_Person') limit 1];
   
   for(Lead__C led : leadlst){
       if(!acclink.isEmpty())
