@@ -3,6 +3,7 @@
     <customButtons>Delete_retail_copy</customButtons>
     <customButtons>Send_To_AutoLine</customButtons>
     <excludeButtons>Submit</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
