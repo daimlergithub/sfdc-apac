@@ -109,7 +109,9 @@ public class SurveyTakerHelperJP {
         }
         if(GCCode!=null)
         {
-            newacntlist=[select id,name,Dealer_GC_Code__c from account where Dealer_GC_Code__c IN:GCCode];
+            newacntlist=[select id,recordtypeid,name,Dealer_GC_Code__c from account where Dealer_GC_Code__c IN:GCCode and recordtypeid=:da ];
+
+			
             if(newacntlist!=null)
             {
                for(account a:newacntlist)
