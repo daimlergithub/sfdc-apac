@@ -342,7 +342,7 @@ public with sharing class LeadMergeController{
      * @returns "SelectSlaveAccount" page with choosen master and slave record Id as  parameters.     
      */  
     public PageReference previous() {      
-        PageReference pr = new PageReference(this.getParameter(system.Label.retURL));
+        PageReference pr = new PageReference('/'+Apexpages.currentPage().getParameters().get('id'));
         pr.setRedirect(true);
         return pr;
     }
