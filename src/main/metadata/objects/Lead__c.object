@@ -109090,7 +109090,7 @@ window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy;
         <displayType>massActionButton</displayType>
         <height>600</height>
         <linkType>page</linkType>
-        <masterLabel>Lead Assignment</masterLabel>
+        <masterLabel>Mass Assign Lead</masterLabel>
         <openType>sidebar</openType>
         <page>LeadAssignmentPage</page>
         <protected>false</protected>
@@ -109101,19 +109101,12 @@ window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy;
         <availability>online</availability>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
         <height>600</height>
-        <isResizable>true</isResizable>
         <linkType>url</linkType>
         <masterLabel>Merge</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>sidebar</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>{!Lead__c.Name}</url>
+        <url>/apex/SelectSlaveLead?Id={!Lead__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
