@@ -10,8 +10,8 @@ public class RetailCampaignTriggerHandlerJP
         }
 		 if(Trigger.isAfter && Trigger.isInsert)
         {
-           RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
-		   RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
+           //RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
+		   //RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
             
         } 
     }
