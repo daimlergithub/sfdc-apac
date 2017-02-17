@@ -21,7 +21,7 @@ public class RetailCampaignTriggerHandler
         if(Trigger.isBefore && Trigger.isDelete)
         {
            RetailCampaignHelper.beforeDeleteEvents(Trigger.old);
-            
+           RetailCampaignHelper.beforeDeleteRetailCampaignStatus(Trigger.old);  
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

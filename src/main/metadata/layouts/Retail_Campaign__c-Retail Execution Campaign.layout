@@ -14,11 +14,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Execution_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Segmentation_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Child_Campaign_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Execution_Type__c</field>
+                <field>Response_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -26,15 +34,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Survey__c</field>
+                <field>Total_Leads__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Add_Campaign_Member_ID__c</field>
+                <field>Total_Contacts__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Campaign_Member_Sharing_Rule__c</field>
+                <field>Total_Converted_Leads_in_Hierarchy__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Total_Responses__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -44,19 +56,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Execution_Start_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Execution_End_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Segmentation_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Response_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -64,7 +64,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Execution_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Final_List_Approved__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Survey__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -73,6 +81,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Add_Service_Staff__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_Campaign_Member_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Campaign_Member_Sharing_Rule__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -92,11 +108,12 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-		<customButtons>Upload_Campaign_Member</customButtons>
-		 <customButtons>Upload_Retail_Campaign_Member</customButtons>
+        <customButtons>Upload_Campaign_Member</customButtons>
+        <customButtons>Refresh</customButtons>
+        <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
-		<excludeButtons>New</excludeButtons>
+        <customButtons>Convert_To_Task</customButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Retail_Campaign_Id__c</relatedList>
     </relatedLists>
@@ -115,21 +132,15 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>Lead_Assignment</customButtons>
         <fields>NAME</fields>
-        <relatedList>Campaign_Lead__c.Retail_Campaign__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
-        <fields>Status__c</fields>
-        <fields>Expected_DM_Material1__c</fields>
-        <fields>Status1__c</fields>
-        <fields>Expected_DM_Material2__c</fields>
-        <fields>Status2__c</fields>
-        <fields>Expected_DM_Material3__c</fields>
-        <fields>Status3__c</fields>
-        <fields>Sent_Date__c</fields>
-        <relatedList>DM_Request__c.Retail_Campaign__c</relatedList>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>Lead__c.Retail_Campaign_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -142,17 +153,6 @@
         <relatedList>SurveyTaker__c.Retail_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>Lead_Assignment</customButtons>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contact__c</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>Lead__c.Retail_Campaign_Name__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -161,7 +161,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000OGxb</masterLabel>
+        <masterLabel>00hp0000000Jths</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

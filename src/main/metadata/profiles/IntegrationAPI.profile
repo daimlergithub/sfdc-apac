@@ -10873,6 +10873,11 @@
         <field>Duplicate_Merge_Info__c.EP_Transaction_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	  <fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
@@ -17676,6 +17681,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Related_Contact3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	  <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Contact4__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

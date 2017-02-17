@@ -144,8 +144,8 @@ MODIFICATION DETAILS:
         personAccountTestData();
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',personAcc.id);
-         ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
-         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer(sc);
+        // ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
+         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
           add.getSelectedAddress();
          add.getDealer();       
          add.CreateRetailCopy();
@@ -153,20 +153,20 @@ MODIFICATION DETAILS:
          system.assertNotEquals(personAcc,null);
   }
   
- public static testMethod void CompanyAccTestData()
+/* public static testMethod void CompanyAccTestData()
   {
   
-        CompanyAccTestData();
+      //  CompanyAccTestData();
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',companyacc.id);
-         ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
-         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer(sc);
+      //   ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
+         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
           add.getSelectedAddress();
          add.getDealer();       
          add.CreateRetailCopy();
          test.StopTest();
          system.assertNotEquals(companyacc,null);
-  }
+  } */
  
  
  public static testMethod void DealerTest()
@@ -253,8 +253,8 @@ MODIFICATION DETAILS:
         insert alkList;
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',companyacc.id);
-         ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
-         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer(sc);
+       //  ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
+         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
           add.getSelectedAddress();
          add.getDealer();       
          add.CreateRetailCopy();

@@ -17,7 +17,7 @@ MODIFICATION DETAILS:
    JIRA Number      :    SFDCJP-1134
 ************************************************************************************/
 
-public with sharing class AddressSelectionforExistingCustomer {
+public without sharing class AddressSelectionforExistingCustomer {
 
     public  Account account{get;set;}
     public  Account accList{get;set;}
@@ -33,7 +33,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     Public  Id DealeAccId{get;set;}
     public List<Contact> contactList{ get; set; }  
     public Account_Link__c newAlk;
-    public Map<id,Account_Link__c> InsertAlk; 
+    public List<Account_Link__c> InsertAlk; 
     public Account DealerID { get; set; }
     public User  CurrentUsr{set;get;}
     public List<Account> Dealeracc{set;get;}
@@ -43,18 +43,18 @@ public with sharing class AddressSelectionforExistingCustomer {
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
 
     // Constructor
-    public AddressSelectionforExistingCustomer(ApexPages.StandardController controller) {
+    public AddressSelectionforExistingCustomer() {
      AccId=ApexPages.currentPage().getParameters().get('id');
      ListAddress=new List<Address__c>();
      SelectedAdd=new List<Address__c>();
-     InsertAlk=new Map<id,Account_Link__c> ();
+     InsertAlk=new List<Account_Link__c> ();
      account=new Account();
        ShowHideError=false;
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
-     account = (Account)controller.getRecord();
+   //  account = (Account)controller.getRecord();
      if(AccId!=null)
      {
-      ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where  Customer__c =:AccId];
+      ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c,LastModifiedDate  FROM  Address__c where  Customer__c =:AccId];
      }
     
      system.debug('+++++++++++++'+account);
@@ -100,7 +100,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     System.debug('#################'+ AccId);
     if(addId !=null)
     {
-    SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
+    SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c,LastModifiedDate  FROM  Address__c where id =:addId Limit 1];
     }
     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
  
@@ -143,7 +143,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -155,12 +155,13 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=DealeAccId;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
     } else if(Accountlinklist !=null)
     {
+    ShowHideError=true;  
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
    
@@ -202,7 +203,7 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkPerson_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
      
     }
     if(accList.RecordtypeId == accCompany_RecordTypeId)
@@ -214,22 +215,29 @@ public with sharing class AddressSelectionforExistingCustomer {
     newAlk.Retail_Address_Reference__c=addId;
     newAlk.fromRole__c=account.Main_Dealer__c;
     newAlk.RecordTypeId=alkCompany_RecordTypeId;
-    InsertAlk.put(newAlk.id,newAlk);
+    InsertAlk.add(newAlk);
     System.debug('newAlk newAlk%%%%%%%'+newAlk);
      
     }
     } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
     {
-     ShowHideError=false;  
+     ShowHideError=true;  
     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
     }
     
     }  
     if(InsertAlk!=null && InsertAlk.size()>0)
     {
-    insert InsertAlk.values();
+    insert InsertAlk;
+    }
+    System.debug('InsertAlknewAlk%%%%%%%'+InsertAlk);
     }
     
-    }
+    
+    
+     public PageReference cancel() 
+      {
+        return new PageReference('{!URLFOR($Site.Prefix)}/' + AccId);
+      }
 
 }

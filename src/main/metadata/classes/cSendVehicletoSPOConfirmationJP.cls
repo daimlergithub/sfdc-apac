@@ -87,11 +87,13 @@ public Static Id accId {get; set;}
         vehId = ApexPages.currentPage().getParameters().get('vehicleid');
         accId = ApexPages.currentPage().getParameters().get('accountId');
         List<Account> accList = New List<Account>();
+         Id userId = userinfo.getuserid();
+         User u = [SELECT Id,Name,Dealer_ND_Code__c FROM User WHERE Id =:userId];
         set<Id> asetId = New set<Id>();
         system.debug('+++++++++++++++++'+vehId );
      list<Vehicle_Relationship__c> VehRelUpdated = new list<Vehicle_Relationship__c>();
          // updating a fields of a vehicle relation record who is a purchaser 
-         list<Vehicle_Relationship__c> VehRellist = [SELECT Id,Name,OwnerId,Vehicle_ID__c,Car_Relation__c, Contact__c,Contractor__c,New_Used__c,Warranty_Apply_Status__c,UsedWarranty_Apply_Status__c FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId AND Car_Relation__c = 'Purchaser'AND End_Date__c = null];         
+         list<Vehicle_Relationship__c> VehRellist = [SELECT Id,Name,OwnerId,Vehicle_ID__c,Car_Relation__c, Contact__c,Contractor__c,New_Used__c,Warranty_Apply_Status__c,UsedWarranty_Apply_Status__c,UsedWarranty_Apply_NDCode__c,Warranty_Apply_NDCode__c FROM Vehicle_Relationship__c where Vehicle_ID__c =:vehId AND Car_Relation__c = 'Purchaser'AND End_Date__c = null];         
          system.debug('+++++++++++++++++'+vehId );
          system.debug('++++++++++++++'+ VehRellist);  
          for(Vehicle_Relationship__c Ve: VehRellist  ){
@@ -108,6 +110,7 @@ public Static Id accId {get; set;}
          Ve.Warranty_Apply_Status__c = 'To be Sent';
          Ve.Warranty_Apply_Date__c = System.today();
          Ve.Warranty_Apply_User__c = userinfo.getuserid();
+             Ve.Warranty_Apply_NDCode__c = u.Dealer_ND_Code__c;
          
          }
          if(Ve.New_Used__c == 'Used'){
@@ -118,6 +121,7 @@ public Static Id accId {get; set;}
              Ve.Warranty_Apply_Date__c = System.today();
              Ve.Warranty_Apply_User__c = userinfo.getuserid();
              Ve.UsedWarranty_Apply_User__c = userinfo.getuserid();
+              ve.UsedWarranty_Apply_NDCode__c = u.Dealer_ND_Code__c; 
              
          }
          

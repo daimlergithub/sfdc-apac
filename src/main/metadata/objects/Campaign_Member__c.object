@@ -1171,6 +1171,19 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+	<validationRules>
+        <fullName>StatusChangingFromExecuted</fullName>
+        <active>true</active>
+        <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
+        <errorConditionFormula>AND(
+    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
+    OR(  
+      ISPICKVAL( Status__c , "Removed") ,
+      ISPICKVAL( Status__c , "Ready")
+    ) 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>campaign_locked</fullName>
         <active>true</active>
@@ -1195,6 +1208,19 @@
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
+    </webLinks>
+	 <webLinks>
+        <fullName>Convert_To_Task</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To Task</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_to_Lead</fullName>
@@ -1231,10 +1257,11 @@ window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
- var listId= window.sfdcPage.relatedLists;
-window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
+var campaignID = "{!Campaign.Id}";
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>

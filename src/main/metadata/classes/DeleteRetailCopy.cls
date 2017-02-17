@@ -14,13 +14,10 @@ public class DeleteRetailCopy{
         Account_Link__c acclnk = [select id,Retail_Delete_Flag__c, fromRole__c from  Account_Link__c WHERE Id = : ApexPages.currentPage().getParameters().get('id')];
         acclnk.Retail_Delete_Flag__c = true;
         update acclnk;
-        
+        system.debug('acclnk--->'+acclnk.Id);  
         //update new Account_Link__c(id = ApexPages.currentPage().getParameters().get('id'), Retail_Delete_Flag__c = true);
         
-        List<Account_Link__Share> sharesToDelete = [SELECT Id 
-                                                FROM Account_Link__Share
-                                                WHERE ParentId =: ApexPages.currentPage().getParameters().get('id') AND UserOrGroupId =: acclnk.fromRole__c];
-                                            //AND RowCause = 'Manual'];
+        List<Account_Link__Share> sharesToDelete = [SELECT Id FROM Account_Link__Share WHERE ParentId =: acclnk.Id ];
         system.debug('sharesToDelete --->'+sharesToDelete );   
         if(!sharesToDelete.isEmpty()){
             System.debug('Deleting the Share');

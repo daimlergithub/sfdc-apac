@@ -182,10 +182,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
             </values>

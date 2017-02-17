@@ -229,9 +229,9 @@
         <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
-		<customButtons>Convert_to_Lead</customButtons>
+        <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_DM_Request</customButtons>
-        <excludeButtons>New</excludeButtons>
+        <customButtons>Convert_To_Task</customButtons>
         <fields>NAME</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
     </relatedLists>
@@ -250,7 +250,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	<customButtons>Lead_Assignment</customButtons>
+        <customButtons>Lead_Assignment</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
@@ -287,7 +287,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Jtms</masterLabel>
+        <masterLabel>00hp0000000JuKB</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

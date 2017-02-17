@@ -41,7 +41,47 @@ public  class RetailCampaignHelper
             }
         }
     }
+   
+   
+   /* 
+    Description  : Retail Campaign Deletion- delete Parent and associated child.
+    SFDCJP-      : 1024
+    Date         :  13/02/2017
+        
+    */
     
+    Public static void beforeDeleteRetailCampaignStatus(List<Retail_Campaign__c> CampDel)
+{
+Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+List<Retail_Campaign__c> childcamp=new List<Retail_Campaign__c>();
+List<Retail_Campaign__c> Parentcamp=new List<Retail_Campaign__c>();
+Set<Id> parecamId=new Set<Id>();
+
+for(Retail_Campaign__c cmp: CampDel){
+if(cmp.RecordTypeId == parentCampaignId && cmp.Status__c == 'Draft'){
+  parecamId.add(cmp.id);
+   } 
+  }
+
+  if(parecamId!=null)
+  {
+childcamp=[select Id from Retail_Campaign__c where Parent_Campaign1__c  =:parecamId];
+}
+if(childcamp!=null)
+{
+delete childcamp;
+delete Parentcamp;
+}
+  
+ 
+}
+
+/*End of SFDCJP-1024  Retail Campaign */
+
+
+
+
     public static void updateParentCampaignQuarter(Set<Id> campaignIds)
     {
         List<Campaign> ParentCampaigns = new List<Campaign>();

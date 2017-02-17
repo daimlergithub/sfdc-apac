@@ -8,6 +8,12 @@ public class RetailCampaignTriggerHandlerJP
            RetailCampaignHelper.beforeDeleteEvents(Trigger.old);
             
         }
+		 if(Trigger.isAfter && Trigger.isInsert)
+        {
+           RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
+		   RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
+            
+        } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {

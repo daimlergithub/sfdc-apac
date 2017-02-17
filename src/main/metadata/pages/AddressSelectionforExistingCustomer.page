@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="AddressSelectionforExistingCustomer">
+<apex:page controller="AddressSelectionforExistingCustomer" >
   <apex:form >
   <apex:outputpanel id="jspanel">
   <script language="JavaScript" type="text/javascript">
@@ -6,7 +6,7 @@ function afterSave(){
 if({!ShowHideError} ==false)
 {
 alert('Sucessfully Created Retail Copy');
-window.location.href="/{!AccId}";      
+window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";      
   }
   else
 {
@@ -105,7 +105,7 @@ window.location.href="/{!AccId}";
                           </apex:column>
                           
                           
-                                                <apex:column headerValue="{!$ObjectType.Account.fields.Name.Label}">
+                          <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
                         <apex:outputField value="{!ad.Name}"/>
                         </apex:column>
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
@@ -165,6 +165,9 @@ window.location.href="/{!AccId}";
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}">
                         <apex:outputField value="{!ad.Temp_Address__c}"/>
                         </apex:column>  
+                       <apex:column headerValue="{!$ObjectType.Address__c.fields.LastModifiedDate .Label}">
+                        <apex:outputField value="{!ad.LastModifiedDate }"/>
+                        </apex:column>  
 
 
 </apex:pageBlockTable>
@@ -175,6 +178,5 @@ window.location.href="/{!AccId}";
 
 </apex:pageBlock>
                      
-  </apex:form>
+  </apex:form> 
 </apex:page>
-  

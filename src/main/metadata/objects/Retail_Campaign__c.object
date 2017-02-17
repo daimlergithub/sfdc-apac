@@ -13269,6 +13269,21 @@ $Profile.Name != 'IntegrationAPI'
         <url>/00O90000007UqL8?pv0={!Retail_Campaign__c.Id}</url>
     </webLinks>
     <webLinks>
+        <fullName>Refresh</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var campaignID = "{!Campaign.Id}";
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+location.reload();</url>
+    </webLinks>
+    <webLinks>
         <fullName>Generate_Retail_Campaign</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>

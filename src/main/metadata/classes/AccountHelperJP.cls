@@ -17,7 +17,7 @@ public class AccountHelperJP
 **/
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-	public static boolean persongroup1 = false;
+    public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
     public static boolean persongroup3 = false;
     public static boolean persongroup4 = false;
@@ -573,8 +573,8 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                     acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                     acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
                     //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
-                    //acclnk.Retail_Full_Name__c = (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName :'') + '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'').left(25); 
-                    //acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
+                    acclnk.Retail_Full_Name__c = (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName :'') + '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'').left(25); 
+                    acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+ '  '+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'')+ '  ' + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
                     acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
                     acclnk.Retail_FirstName_Native__c = acclnk.toRole__r.FirstName_Native_1__c; 
                     acclnk.Retail_Full_Name_Native__c = ((acclnk.toRole__r.LastName_Native_1__c!=null ? acclnk.toRole__r.LastName_Native_1__c : '')+ ' ' +(acclnk.toRole__r.FirstName_Native_1__c!=null ? acclnk.toRole__r.FirstName_Native_1__c:'')).left(50);
@@ -675,14 +675,25 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     //SFDCJP(2.0)-578 
  public static void handleAfterInsertEvent(list<Account>listDealerAccounts)
     {
+     Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        set<String> GCCode = new set<String>();
+        list<String> AccountNAme = new List<String>();
         list<account>aclist=new list<account>();
                         if(listDealerAccounts!=null && !listDealerAccounts.isempty())
                 {
-        aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
+        aclist=[select id,name,recordtypeId,Dealer_GC_Code__c from account where id IN :listDealerAccounts];
+        for(account a:aclist){
+            GCCode.add(a.Dealer_GC_Code__c);
+        
+        }
     }
+    list<account>accounts=[select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId ];
         list<accountshare>aslist=new list<accountshare>();
         map<string,id> assgroupMap = new map<string,id>();  
-
+      for(Account acc :accounts){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
         Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
                                 if( aclist!=null && !aclist.isempty())
                                 {
@@ -690,7 +701,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         {
                                                  if(a.recordtypeid==rpa)
             {
-              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name])
+              for(Group assg:[select id ,Name ,Type from Group where Name=:a.name OR Name IN: AccountNAme])
                {
                
                 assgroupMap.put(assg.Name, assg.id);
@@ -698,8 +709,22 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 
                }
             }
+             if(AccountNAme.size()>0)
+                 {
+                    for(id m:assgroupMap.values())
+                    {
+                       Accountshare acs=new Accountshare();
+                         acs.Accountid=a.id;
+                         acs.UserOrGroupId = m;
+                         acs.AccountAccessLevel='read';
+                         acs.OpportunityAccessLevel ='read';
+                         acs.RowCause = Schema.Accountshare.RowCause.Manual;
+                         aslist.add(acs);
+                    }
+                    
+                 }
                                                 
-            if(assgroupMap!=null && assgroupMap.containskey(a.name))
+          else if(assgroupMap!=null && assgroupMap.containskey(a.name))
             {
             
                 Accountshare acs=new Accountshare();
@@ -719,6 +744,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 
     
     }
+
  public static void handleAfterInsertUpdateEvent(list<Account>listDealerAccounts,Map<Id,Account>OldMap)
     {
         list<account>aclist=[select id,name,recordtypeId from account where id IN :listDealerAccounts];
@@ -902,7 +928,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             String origin = ApexPages.currentPage().getParameters().get('correlationID');
+             String origin = ApexPages.currentPage().getParameters().get('CLNID');
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -955,15 +981,15 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                                                         Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
                                                                         
                                                                         Retail_LastName__c = led.LastName, Retail_FirstName__c = led.FirstName, 
-                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + ' ' + (led.FirstName != null ? led.FirstName : '') + ' ' + (led.FirstName!= null ? led.FirstName : '')),
+                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '') + '  ' + (led.FirstName!= null ? led.FirstName : '')),
                                                                         Retail_LastName_Native__c = led.LastName_Native_1__c, Retail_FirstName_Native__c = led.FirstName_Native_1__c,
-																		Retail_UCID__c = led.UCID__c);
+                                                                        Retail_UCID__c = led.UCID__c);
                   }else if(led.RecordTypeId == AccountCompanyId){
                       acclnk = new Account_Link__c(  RecordTypeId = recordTypes.get('Retail_Company'), fromRole__c = ownermap.get(led.ownerid).Contact.AccountId, toRole__c = led.Id,          
                                                      Retail_Company_Name__c = led.Name, Retail_Company_Name_Native1__c = led.Company_Name_Native_1__c, 
                                                      Retail_Commercial_Reg_No__c = led.Commercial_Reg_No__c, Retail_Website__c = led.website,Retail_Company_Phone__c = led.Individual_Home_Phone__c,
                                                      Retail_Company_Other_Phone__c = led.Work_Phone__c, Retail_Vat_No__c = led.Vat_No__c,
-													 Retail_UCID__c = led.UCID__c); 
+                                                     Retail_UCID__c = led.UCID__c); 
                        if(led.Foundation_Date__c != null){
                            acclnk.Retail_Foundation_Month__c = String.ValueOf(led.Foundation_Date__c.month())+String.valueOf(led.Foundation_Date__c.year());
                        }
