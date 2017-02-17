@@ -9706,7 +9706,44 @@ Modify Reason:
     <fields>
         <fullName>Lead_Possibility__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c  =  DATEVALUE( NOW()) ) , "T1",  IF(AND( Order_Confirmation_Date__c  &lt; DATEVALUE( NOW()), Expected_Registration_Date__c   &gt;   DATEVALUE( NOW()) ), "T2",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  =   DATEVALUE( NOW()) ), "HOT1",  IF(AND( Order_Confirmation_Date__c  = DATEVALUE( NOW()), Expected_Registration_Date__c  &gt;   DATEVALUE( NOW()) ), "HOT2",  IF(AND( Expected_Close_Date__c  &gt;DATEVALUE( NOW()) , Expected_Registration_Date__c  &gt;DATEVALUE( NOW()) ), "HOT3", null) ) ) ) )</formula>
+        <formula>IF( 
+NOT(ISBLANK(Network_Registration_Date__c)) , 'Close' , 
+IF( 
+(MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
+&amp;&amp; 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), 'HOT1', 
+IF( 
+(MONTH(Expected_Close_Date__c)= MONTH(TODAY())) 
+&amp;&amp; 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'HOT2', 
+IF( 
+(MONTH(Expected_Close_Date__c)&gt; MONTH(TODAY())) 
+&amp;&amp; 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'HOT3', 
+IF( 
+(MONTH( Order_Confirmation_Date__c )&lt; MONTH(TODAY())) 
+&amp;&amp; 
+(MONTH(Expected_Registration_Date__c )= MONTH(TODAY())), 'T1', 
+IF( 
+(MONTH(Order_Confirmation_Date__c)&lt; MONTH(TODAY())) 
+&amp;&amp; 
+(MONTH(Expected_Registration_Date__c )&gt; MONTH(TODAY())), 'T2', 
+IF( 
+( 
+(ISBLANK(Expected_Close_Date__c)||ISBLANK(Expected_Registration_Date__c )) 
+&amp;&amp; 
+(ISBLANK(Order_Confirmation_Date__c)) 
+|| 
+(ISBLANK(Expected_Registration_Date__c ) &amp;&amp; 
+NOT(ISBLANK(Order_Confirmation_Date__c)) ) 
+), 'Uncalculated',' ' 
+) 
+) 
+) 
+) 
+) 
+) 
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Lead Possibility</label>
         <required>false</required>

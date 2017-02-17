@@ -458,7 +458,7 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           window.top.location="{!URLFOR($Site.Prefix)}/{!currentRecordId}";
                        }                            
               });
           };
@@ -484,7 +484,7 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           window.top.location="{!URLFOR($Site.Prefix)}/{!currentRecordId}";
                        }
               });
           };
@@ -657,7 +657,7 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           window.top.location="{!URLFOR($Site.Prefix)}/{!currentRecordId}";
                        }
               });
           }
