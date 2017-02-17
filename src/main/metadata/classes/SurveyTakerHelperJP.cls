@@ -111,7 +111,7 @@ public class SurveyTakerHelperJP {
         {
             newacntlist=[select id,recordtypeid,name,Dealer_GC_Code__c from account where Dealer_GC_Code__c IN:GCCode and recordtypeid=:da ];
 
-			
+            
             if(newacntlist!=null)
             {
                for(account a:newacntlist)
@@ -216,6 +216,25 @@ public class SurveyTakerHelperJP {
                 surveyShareList.add(surShare);
                 }
             }
+            if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == true)
+            {
+                
+                for(id m:assgroupMap.values()){
+                SurveyTaker__Share sharestaker = new SurveyTaker__Share();
+                sharestaker.ParentId = surtak.Id;
+                sharestaker.UserOrGroupId = m;
+                sharestaker.AccessLevel = 'Edit';
+                sharestaker.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                surveyTkrShareList.add(sharestaker);
+                Survey__Share surShare=new Survey__Share();
+                surShare.ParentId = surtak.survey__c;
+                System.debug('survey>>>>>>>>>>>>'+surtak.survey__c);
+                surShare.UserOrGroupId = m;
+                surShare.AccessLevel = 'Read';
+                surShare.RowCause = Schema.Survey__Share.RowCause.Manual;
+                surveyShareList.add(surShare);
+                     }
+            }      
         }
         
         if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
