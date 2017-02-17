@@ -9953,7 +9953,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Employee</fullName>
+                <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
