@@ -222,7 +222,7 @@
                                                    <sf:include name="MassUpdatenewAssignedusercontroller"/>
                                                    <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
                                                    <sf:include name="cSendVehicletoSPOConfirmationJP"/>
-                                                   <!--<sf:include name="cSendVehicletoSPOConfirmationJPTest"/>-->
+                                                 <!--  <sf:include name="cSendVehicletoSPOConfirmationJPTest"/> -->
                                                    <sf:include name="RetailtaskInlineEditController"/>
                                                    <sf:include name="RetailtaskInlineEditController_Test"/>
                                                     <sf:include name="RelatedDealerLease"/>
@@ -1088,8 +1088,8 @@
     </target>
                 <target name="deploy51">
                                <deploy runAllTests="${sfdc.runAllTests}">
-                                             <!--  <sf:typeset name="objectTranslations"/>
-                                                <sf:typeset name="translations"/>-->
+                                               <sf:typeset name="objectTranslations"/>
+                                                <sf:typeset name="translations"/>
                                 </deploy>
     </target>
                 <target name="deploy52">
