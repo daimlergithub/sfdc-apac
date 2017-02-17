@@ -9953,7 +9953,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Employee</fullName>
+                <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
@@ -10006,6 +10006,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -90279,7 +90299,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Daimler Employee</fullName>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90295,35 +90323,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gift Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>car care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>service contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>spare part</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>technical accessories</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>wear and tear</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -101587,31 +101599,51 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
-                <fullName>car care</fullName>
+                <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>collection</fullName>
+                <fullName>Company Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>others</fullName>
+                <fullName>Daimler Employee Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>service contract</fullName>
+                <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>spare part</fullName>
+                <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>technical accessories</fullName>
+                <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wear and tear</fullName>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
