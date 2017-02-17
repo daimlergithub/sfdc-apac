@@ -5888,11 +5888,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Daimler Employee  Car</fullName>
+                <fullName>Daimler Employee Car</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Daimler Employee  Lease</fullName>
+                <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
             </values>
             <values>
