@@ -7417,7 +7417,7 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <layouts>
+  <!--   <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -7429,10 +7429,10 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7530,7 +7530,7 @@ Allows up to 240 characters --></help>
             <section>Dealer Portal Information</section>
         </sections>
     </layouts>
-    <layouts>
+  <!--  <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -7662,22 +7662,22 @@ Allows up to 240 characters --></help>
         <layout>Person Account Read Only Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Contact Information --></label>
+            <label></label>
             <section>Contact Information</section>
         </sections>
         <sections>
-            <label><!-- Main Contact and Consent --></label>
+            <label></label>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
+            <label></label>
             <section>New Section</section>
         </sections>
         <sections>
-            <label><!-- Profile Information --></label>
+            <label></label>
             <section>Profile Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>
