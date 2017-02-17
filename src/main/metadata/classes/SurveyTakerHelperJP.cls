@@ -21,6 +21,7 @@ public class SurveyTakerHelperJP {
         set<String> GCCode = new set<String>();
         List<SurveyTaker__c> surveyTakerList = new List<SurveyTaker__c>();
         string query;
+		
         List<AccountShare> accShareList = new List<AccountShare>();
         List<AccountShare> dealerAccShareList = new List<AccountShare>();
         List<User> userShareList = new List<User>();
@@ -63,7 +64,7 @@ public class SurveyTakerHelperJP {
         
         if(!surveytakID.isEmpty() && surveytakID != null)
         {
-            surveyTakerList = [select id,Account__c,User__c,Dealer_Account__c,survey__c from SurveyTaker__c where id =:surveytakID ];
+            surveyTakerList = [select id,Account__c,User__c,Dealer_Account__c,survey__c,view_by_all__c from SurveyTaker__c where id =:surveytakID ];
         }
         
         if(!percomAccoID.isEmpty() && percomAccoID != null)
