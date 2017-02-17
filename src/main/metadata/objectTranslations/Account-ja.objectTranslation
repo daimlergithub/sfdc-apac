@@ -7373,15 +7373,15 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <layouts>
+  <!--  <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label></label>
             <section>Fields</section>
         </sections>
         <sections>
@@ -7389,10 +7389,10 @@ Allows up to 240 characters --></help>
             <section>Other information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7514,11 +7514,11 @@ Allows up to 240 characters --></help>
             <section>Description Information</section>
         </sections>
     </layouts>
-    <layouts>
+  <!--  <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Additional Information --></label>
+            <label></label>
             <section>Additional Information</section>
         </sections>
         <sections>
@@ -7538,19 +7538,19 @@ Allows up to 240 characters --></help>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Duplication Information --></label>
+            <label></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>
@@ -7558,7 +7558,7 @@ Allows up to 240 characters --></help>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label><!-- Whole activities --></label>
+            <label></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7610,7 +7610,7 @@ Allows up to 240 characters --></help>
             <section>System Information</section>
         </sections>
         <sections>
-            <label><!-- Whole activities --></label>
+            <label></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7618,7 +7618,7 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Additional Information --></label>
+            <label></label>
             <section>Additional Information</section>
         </sections>
         <sections>
@@ -7638,19 +7638,19 @@ Allows up to 240 characters --></help>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Duplication Information --></label>
+            <label></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>
@@ -7678,7 +7678,7 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
@@ -7698,7 +7698,7 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
+            <label></label>
             <section>New Section</section>
         </sections>
         <sections>
@@ -7713,7 +7713,7 @@ Allows up to 240 characters --></help>
             <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <recordTypes>
         <label>Company</label>
         <name>Company</name>
