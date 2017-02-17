@@ -109169,13 +109169,13 @@ window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy;
         <fullName>Merge</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Merge</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/SelectSlaveLead?Id={!Lead__c.Id}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}", "_parent","resizable=yes")</url>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
