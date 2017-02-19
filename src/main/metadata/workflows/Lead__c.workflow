@@ -10,6 +10,16 @@
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Assigned_to_Dealer_Gatekeeper_Lead</template>
     </alerts>
+    <alerts>
+        <fullName>Campaign_Lead_Assignment_Notification</fullName>
+        <description>Campaign Lead Assignment Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
+    </alerts>
 	 <alerts>
         <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
         <description>No modification is made in 10 days (All Modifications)</description>
@@ -178,6 +188,15 @@
         <field>Lead_Lost_Date_Time__c</field>
         <formula>Now()</formula>
         <name>Update Lost DateTime field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Lost_Dealer_Date_Time</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Update Lost Dealer Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -667,6 +686,16 @@ Proxy_Date_Time__c
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
+        <fullName>Campaign Lead Notification to WS Users</fullName>
+        <actions>
+            <name>Campaign_Lead_Assignment_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISCHANGED( OwnerId ),  OR(NOT(ISNULL(Source_Campaign__c)),NOT(ISNULL(Retail_Campaign_Name__c))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
             <name>Email_notification_when_customer_doesn_t_allow_dealer_contact</name>
@@ -1027,14 +1056,14 @@ Proxy_Date_Time__c
 	<rules>
         <fullName>Update Lead Lost Date Time</fullName>
         <actions>
-            <name>Update_Lead_Lost_Date_Time</name>
+            <name>Update_Lost_Dealer_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
-            <value>Lost(Dealer)</value>
+            <value>Lost</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.MD__c</field>

@@ -910,6 +910,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Response_FirstName__c</fullName>
+        <externalId>false</externalId>
+        <label>Response FirstName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response_LastName__c</fullName>
+        <externalId>false</externalId>
+        <label>Response LastName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Retail_Campaign_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1022,7 +1042,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>
@@ -1047,7 +1067,7 @@
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1151,6 +1171,70 @@
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+	<validationRules>
+        <fullName>StatusChangingFromExecuted</fullName>
+        <active>true</active>
+        <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
+        <errorConditionFormula>AND(
+    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
+    OR(  
+      ISPICKVAL( Status__c , "Removed") ,
+      ISPICKVAL( Status__c , "Ready")
+    ) 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>campaign_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>campaign is locked</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>retail_campaign_is_locked</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
+        <errorMessage>Retail Campaign is locked</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Convert_To_DM_Request</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To DM Request</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
+    </webLinks>
+	 <webLinks>
+        <fullName>Convert_To_Task</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To Task</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Convert_to_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert To Lead</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
+    </webLinks>
     <webLinks>
         <fullName>ExportCampaign</fullName>
         <availability>online</availability>
@@ -1173,10 +1257,11 @@ window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
- var listId= window.sfdcPage.relatedLists;
-window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);</url>
+var campaignID = "{!Campaign.Id}";
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>
@@ -1188,7 +1273,31 @@ window.sfdcPage.makeRLAjaxRequest(null,window.sfdcPage.relatedLists[0].listId);<
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Retail_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
     </webLinks>
 </CustomObject>

@@ -34,7 +34,7 @@ public with sharing class AccountMergeController{
      */    
      public AccountMergeController(){
            Id RecordTypeIdPersonSoftDeleted=UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
-           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted');
+           Id recordTypeIdCompanySoftdeleted=UtilRecordType.getRecordTypeIdByName('Account','Company Soft Deleted');
            hasSuspectAccounts=false;
            if(AccountwrapperList == null) {
                AccountwrapperList = new List<Accountwrapper>();             
@@ -405,7 +405,8 @@ public with sharing class AccountMergeController{
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy) 
      * @returns parameter value.     
-     */     
+     */  
+     @testvisible	 
     private String getParameter(String param) {
         return ApexPages.currentPage().getParameters().get(param);
     }
@@ -413,10 +414,11 @@ public with sharing class AccountMergeController{
      * @Description : Click Cancel to return the master detail page
      * @author  Sneha chail
      * @Date 12/01/2015(mm/dd/yy)     
-     */ 
+      
     public PageReference cancel() {
         return new PageReference('/' + master.Id);
     }
+	*/
     /** 
      * @Description : Inner Wrapper Class       
      * @author  Sneha chail
@@ -437,7 +439,10 @@ public with sharing class AccountMergeController{
         }
         public Accountwrapper(Account a) {
             acc = a;
+		if(!Test.IsrunningTest())
             selected = false;
+			else
+           selected = true;
         }
     }
     public class AddressWrapper

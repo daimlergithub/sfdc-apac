@@ -20,6 +20,13 @@ public class TriggerCampaignTriggerHandlerJP
         if(Trigger.isBefore && Trigger.isDelete)
         {
             CampaignHelper.beforeDeleteEvents(Trigger.old);
+            CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
+            
+        }
+        if(Trigger.isAfter && Trigger.isUpdate)
+        {
+            CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
+            CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
             
         }
     }

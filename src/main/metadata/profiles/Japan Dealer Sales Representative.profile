@@ -400,11 +400,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ChangeContactTarget</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ChangeContactTargetTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ChangePasswordController</apexClass>
@@ -749,6 +749,10 @@
     <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>PrintPDF</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
@@ -4318,7 +4322,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Website</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11753,9 +11757,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Check_Out_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11926,6 +11930,11 @@
         <editable>false</editable>
         <field>Lead__c.Dealer_Audit__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Dealer_Comment__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12678,9 +12687,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Lead__c.Order_Confirmation_Date__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -13188,9 +13197,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Lead__c.Registration_Number__c</field>
-        <readable>false</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17558,9 +17567,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Service_Labour_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17573,9 +17582,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Service_Parts_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17583,9 +17592,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Service_Total_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20613,9 +20622,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Retail_Contact__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -21806,7 +21815,7 @@
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -22559,7 +22568,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ChangeContactTarget</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ChangePassword</apexPage>
@@ -22781,11 +22790,15 @@
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	 <pageAccesses>
+        <apexPage>PrintPDF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
+	<pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -23601,6 +23614,66 @@
     <tabVisibilities>
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	    <tabVisibilities>
+        <tab>NttDataEpa__Picklist_Mapping__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Participating_Dealer__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>  
+    <tabVisibilities>
+       <tab>standard-Lead</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Opportunity</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Order</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contact</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Contract</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Report</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Chatter</tab>
+       <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+      <tab>standard-Product2</tab>
+     <visibility>DefaultOff</visibility>
+  </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-Document</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+     <tabVisibilities>
+       <tab>standard-ServiceContract</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Entitlement</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Solution</tab>
+       <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+       <tab>standard-Idea</tab>
+       <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Model__c</tab>

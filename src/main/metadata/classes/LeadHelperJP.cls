@@ -191,62 +191,109 @@ public class LeadHelperJP
      Created by:Surya Varma
      Date:1/12/2016
    */
-   
-    public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
- {
+     public static void handleAfterInsertOrUpdate(list<lead__c> leadlist1,Map<Id,Lead__C> leadOldMap)
+    {
+     Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
-     leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__c from Lead__c where Id IN:leadlist1];
+     set<String> GCCode = new set<String>();
+     set<id> leadIds = new set<id>();
+     for(Lead__c lead:leadlist1)
+        {
+          if((lead.RecordTypeId ==salesRecordTypeId )||(lead.RecordTypeId ==afterSalesRecordTypeId))
+            {
+                if((( Trigger.isinsert  && lead.CAC_Lead_Status__c=='approved') || (Trigger.Isupdate && lead.CAC_Lead_Status__c=='approved'&& lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c) )&& lead .Assigned_Dealer__c!=null)
+                { 
+                 leadIds.add(lead.id);
+                 
+               
+                }
+            }
+        }
+     leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
      list<Lead__share>  leadshare=new list<lead__share>();
      list<Lead__c> leads=new list<lead__c>();
       list<group>assgroupList=new list<group>();
      map<string,id> assgroupMap = new map<string,id>();
       Map<String,id>agroupmap=new Map<String,id>();
      list<string>asslist=new list<string>();
-     
-      Id rc=Schema.SObjectType.Lead__c.getRecordtypeInfosByName().get('Sales Leads').getRecordTypeId();
-      Id rc1=Schema.SObjectType.Lead__c.getRecordtypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+     list<String> AccountNAme = new List<String>();
+      
       Set<id> leadIdsSet = new Set<id>();
-      for(Lead__c lead:leadlist)
+        if(leadlist!=null)
         {
-          if((lead.RecordTypeId ==rc )||(lead.RecordTypeId == rc1))
+          for(lead__c l:leadlist )
             {
-                if((( Trigger.isinsert  && lead.CAC_Lead_Status__c=='approved') || (Trigger.Isupdate && lead.CAC_Lead_Status__c=='approved'&& lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c) ) && lead.Assigned_Dealer__c!=null)
-               { 
+          
                 // System.debug('lead.Assigned_Dealer__r.name'+lead.Assigned_Dealer__r.name);
-                  asslist.add(lead.Assigned_Dealer__r.name);
-                  leadIdsSet.add(lead.id);
-               }
+                asslist.add(l.Assigned_Dealer__r.name);
+                GCCode.add(l.Assigned_Dealer__r.Dealer_GC_Code__c );
+                leadIdsSet.add(l.id);          
+          
             }
+        
+        
         }
-        for(Group assg:[select id ,Name ,Type from Group where Name IN:asslist] ){
+        list<account>acl=new list<account>([select id, Name, RecordType.DeveloperName,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId]);
+       for(Account acc : acl){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+        list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:asslist OR Name IN: AccountNAme]);
+        for(Group assg:grplist)
+        {
                
-           assgroupMap.put(assg.Name, assg.id);
+            assgroupMap.put(assg.Name, assg.id);
+            system.debug('assg.Name'+assg.Name);
 
         }
        
-      for(Lead__c lead:leadlist) {
-          if(leadIdsSet.contains(Lead.id)) {
+      for(Lead__c lead:leadlist)  
+        {
+          
+                  if(AccountNAme.size()>0)
+                 {
+                    for(id m:assgroupMap.values()){
+                       
+                    Lead__share l=new Lead__share();
+                    l.ParentId=lead.id;
+                    l.UserOrGroupId = m;
+                    system.debug('mid'+m);
+                    l.AccessLevel='edit';
+                    leadshare.add(l);
+                    }
+                    Lead__c ld=new Lead__c();
+                    ld.Id = lead.id;
+                    ld.CAC_Lead_Status__c='Allocated';
+                    ld.Assigned_Date_Time__c=System.now();
+                    leads.add(ld);
                  
-              if(assgroupMap.containskey(lead.Assigned_Dealer__r.Name)){
-              //  system.debug('assgroupMap'+ assgroupMap);
-                Lead__share l=new Lead__share();
-                l.ParentId=lead.id;
-                l.UserOrGroupId = assgroupMap.get(lead.Assigned_Dealer__r.Name);
-                l.AccessLevel='edit';
-                leadshare.add(l);
-                Lead__c ld=new Lead__c();
-                ld.Id = lead.id;
-                ld.CAC_Lead_Status__c='Allocated';
-                ld.Assigned_Date_Time__c=System.now();
-                leads.add(ld);   
-              }            
-            }
+                   
+                   
+                 }
+                 
+                 else
+                 {
+                    Lead__share l=new Lead__share();
+                    l.ParentId=lead.id;
+                    l.UserOrGroupId = assgroupMap.get(lead.Assigned_Dealer__r.Name);
+                    l.AccessLevel='edit';
+                    leadshare.add(l);
+                    Lead__c ld=new Lead__c();
+                    ld.Id = lead.id;
+                    ld.CAC_Lead_Status__c='Allocated';
+                    ld.Assigned_Date_Time__c=System.now();
+                    leads.add(ld);   
+                    
+                    } 
+                            
+            
           }
         
         insert leadshare;
         update leads;
         
     }
+    
     /*DesCription : Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
     Created By : Ramana
     Created Date : 11/11/2016

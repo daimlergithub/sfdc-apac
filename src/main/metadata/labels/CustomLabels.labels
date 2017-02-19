@@ -29,6 +29,13 @@
         <value>AccountMergeFields</value>
     </labels>
     <labels>
+        <fullName>AccountRetailCopy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRetailCopy</shortDescription>
+        <value>Account Retail Copy</value>
+    </labels>
+    <labels>
         <fullName>Account_Cann_t_be_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -48,6 +55,13 @@
         <protected>false</protected>
         <shortDescription>Account Merge</shortDescription>
         <value>Account Merge</value>
+    </labels>
+    <labels>
+        <fullName>Account_Retail_Copy_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Retail Copy Filter</shortDescription>
+        <value>Account Retail Copy Filter</value>
     </labels>
     <labels>
         <fullName>Account_cannot_have_more_than_5_Address</fullName>
@@ -811,6 +825,69 @@
         <value>Other</value>
     </labels>
     <labels>
+        <fullName>Campaign_Notification1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification1</shortDescription>
+        <value>Dear admin, owner,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification2</shortDescription>
+        <value>The following campaign implementation day came.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification3</shortDescription>
+        <value>XXX (Campaign Name)</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification4</shortDescription>
+        <value>Please contact the customer.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification5</shortDescription>
+        <value>※ To check the list you will need to log in to sales force.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification6</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification7</shortDescription>
+        <value>If you have any questions about sales force operation,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification8</shortDescription>
+        <value>Please contact Sales Force Support Desk.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification9</shortDescription>
+        <value>Mercedes · Benz Japan XXX (TBD) Secretariat</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Planning_Page_Cancel_Button</fullName>
         <categories>Campaign</categories>
         <language>en_US</language>
@@ -923,6 +1000,20 @@
         <value>Participating Region/Province/City &amp; Dealer Selection</value>
     </labels>
     <labels>
+        <fullName>Campaign_Segmentation1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation1</shortDescription>
+        <value>I will extract the target customers of the following campaign today.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Segmentation2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation2</shortDescription>
+        <value>Please do it according to the campaign schedule after reviewing the list.</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Type</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -945,6 +1036,13 @@
         <protected>false</protected>
         <shortDescription>Retail Campaign Type - Media</shortDescription>
         <value>Media</value>
+    </labels>
+    <labels>
+        <fullName>Campaigns_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaigns_Filter</shortDescription>
+        <value>Campaigns Filter</value>
     </labels>
     <labels>
         <fullName>Campaing_Planning_Page_Title</fullName>
@@ -1226,6 +1324,13 @@
         <value>Error, Please contact the admin.</value>
     </labels>
     <labels>
+        <fullName>Contract_related</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract related</shortDescription>
+        <value>Contract related</value>
+    </labels>
+    <labels>
         <fullName>Convert_Lead</fullName>
         <categories>Convert Lead</categories>
         <language>en_US</language>
@@ -1240,6 +1345,13 @@
         <protected>false</protected>
         <shortDescription>Convert To Lead</shortDescription>
         <value>Convert To Lead</value>
+    </labels>
+    <labels>
+        <fullName>Convert_To_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Convert To Task</shortDescription>
+        <value>Convert To Task</value>
     </labels>
     <labels>
         <fullName>Copy</fullName>
@@ -2381,6 +2493,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>LeadTabId</shortDescription>
         <value>a13</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Filter</shortDescription>
+        <value>Lead Filter</value>
     </labels>
     <labels>
         <fullName>LimitQueries</fullName>
@@ -4096,7 +4215,7 @@ please contact the number below.</value>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>The filter count is greater than 15</shortDescription>
-        <value>The filter count is greater than 15</value>
+        <value>The filter count is greater than 20</value>
     </labels>
     <labels>
         <fullName>Title_Retail_Campaigns_Mass_Approve</fullName>
@@ -4439,11 +4558,25 @@ please contact the number below.</value>
         <value>Trade-in</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Relation_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle_Relation_Filter</shortDescription>
+        <value>Vehicle Relation Filter</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Relationship_overlap</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Time period for Vehicle Relationship should not overlap</shortDescription>
         <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Retail_copy_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Retail copy Filter</shortDescription>
+        <value>Vehicle Retail copy Filter</value>
     </labels>
     <labels>
         <fullName>ViewHierarchy</fullName>
@@ -4604,6 +4737,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Zipcode validation</shortDescription>
         <value>Zipcode :Please enter any  7 digit number</value>
+    </labels>
+	<labels>
+        <fullName>address_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Filter</shortDescription>
+        <value>Address Filters</value>
     </labels>
     <labels>
         <fullName>apex_AccountMerge_Id</fullName>

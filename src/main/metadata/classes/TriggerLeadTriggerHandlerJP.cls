@@ -22,7 +22,9 @@ public class TriggerLeadTriggerHandlerJP
         if(isBefore && isUpdate && usr.Profile.Name != 'IntegrationAPI')
         {
             LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
-            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);            
+            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);
+             LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
+                        
         }
         system.debug('LeadUtil.isCreated-->'+LeadUtil.isCreated);
         system.debug('insert-->'+isInsert);
@@ -37,7 +39,10 @@ public class TriggerLeadTriggerHandlerJP
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
+           
+            
         }
+        
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {

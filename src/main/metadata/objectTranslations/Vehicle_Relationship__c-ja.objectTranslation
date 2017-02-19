@@ -17,6 +17,14 @@
         <name>Add_User__c</name>
     </fields>
     <fields>
+        <label>MyM申請日</label>
+        <name>Portal_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label>住所（車両）</label>
+        <name>Vehicle_Address_Display__c</name>
+    </fields>
+    <fields>
         <label><!-- Additional Offer Others --></label>
         <name>Additional_Offer_Others__c</name>
     </fields>
@@ -1213,9 +1221,17 @@
             <masterLabel>Company Car</masterLabel>
             <translation>MBJ/MBFカンパニーカー</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>Daimler Employee Car</masterLabel>
+            <translation>販売店レンタカー</translation>
+        </picklistValues>
         <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
+            <masterLabel>Daimler Employee Lease</masterLabel>
             <translation>MBJ/MBF従業員リース</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Dealer Company Car</masterLabel>
+            <translation>販売店社有車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
@@ -1228,6 +1244,18 @@
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
             <translation>デモカー</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Fuso Company Car</masterLabel>
+            <translation>FUSO社有車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Car</masterLabel>
+            <translation>FUSO従業員販売</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Lease</masterLabel>
+            <translation>FUSO従業員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
@@ -2337,6 +2365,11 @@
         <relationshipLabel><!-- Vehicle Relationship (Previous Model) --></relationshipLabel>
     </fields>
     <fields>
+        <label>販売店顧客</label>
+        <name>Retail_Contact__c</name>
+        <relationshipLabel><!-- Vehicle Relationship (Retail Contact) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Previous Year --></label>
         <name>Previous_Year__c</name>
         <picklistValues>
@@ -3053,10 +3086,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>宛先コンタクト先住所（TEXT）</label>
-        <name>Vehicle_Address_Display__c</name>
-    </fields>
-    <fields>
         <label><!-- Vehicle Amount --></label>
         <name>Vehicle_Amount__c</name>
     </fields>
@@ -3256,7 +3285,11 @@
             <label>車検情報</label>
             <section>MOT Information</section>
         </sections>
-        <sections>
+		<sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+		<sections>
             <label>車両住所情報</label>
             <section>Vehicle Address Information</section>
         </sections>

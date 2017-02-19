@@ -11,13 +11,14 @@
 public class TriggerAccountLinkTriggerHandlerJP 
     implements TriggerHandlerIf
 {
+     User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
           if(Trigger.isAfter && Trigger.isInsert){
         Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
            AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
             AccountLinkHelper.afterInsertEvent(Trigger.new);
-			AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+            AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
         }
         if(Trigger.isAfter && Trigger.isDelete){
             
@@ -29,7 +30,7 @@ public class TriggerAccountLinkTriggerHandlerJP
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.afterUpdateEvent(Trigger.new, oldmap);
             AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
-			AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+            AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
         }
         if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert))
         {
@@ -37,11 +38,17 @@ public class TriggerAccountLinkTriggerHandlerJP
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelper.beforeInsertUpdateEvent(Trigger.new, oldMap);
         }
-         if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert) )
+         //if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert) )
+          if(Trigger.isBefore &&  Trigger.isInsert)
         {        
             
             AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
            
+        }
+          if(Trigger.isAfter && Trigger.isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+            System.debug('----->Is update is called');
+            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isAfter, trigger.new );
+            
         }
     }
         
@@ -56,7 +63,7 @@ public class TriggerAccountLinkTriggerHandlerJP
          if(Trigger.isAfter && Trigger.isInsert)
           {
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-			AccountLinkHelper.afterInsertEvent(Trigger.new);
+            AccountLinkHelper.afterInsertEvent(Trigger.new);
             AccountLinkHelper.afterInsertDeleteEvent(Trigger.new); 
           }
         if(Trigger.isAfter && Trigger.isDelete)

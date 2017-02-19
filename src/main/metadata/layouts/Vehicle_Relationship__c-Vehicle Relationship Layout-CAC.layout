@@ -233,10 +233,6 @@
                 <field>Vehicle_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Address_Display__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>vehicle_fax_picklist__c</field>
             </layoutItems>
@@ -247,7 +243,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -480,3 +477,5 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+
+

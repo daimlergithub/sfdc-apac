@@ -10,6 +10,12 @@
   Date : 2017-01-31
   Description : Update query where condition included few profiles in query 
   =================
+   ================
+  Modification : SFDCJP-SFDCJP-1337.
+  Modified my : Venky
+  Date : 2017-02-01
+  Description : On click of assign button current code is updating owner, Instead of user we have to update Assigned Service Advisor field .
+  =================
   
 */  
 public class LeadDealerAssignmentProcess{
@@ -94,7 +100,7 @@ public class LeadDealerAssignmentProcess{
   */
     public  Pagereference AssignLeadtoDealer()
     {
-        update  new Lead__c(id=leadid, ownerid=userid1 );    
+        update  new Lead__c(id=leadid, Service_Advisor__c=userid1 );    
         return null;        
     }
     

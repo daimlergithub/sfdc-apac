@@ -5,6 +5,8 @@ public class CaseHelperJP {
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
+    
+   public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map){
         system.debug('Trigger Old Map...' +case_Map);
@@ -398,7 +400,10 @@ List<Account> accUpdLst = new List<Account>();
     if(profileId!=null)
     {
     Profile profileName=[Select Id,Name from Profile where Id=:profileId];
-    }
+    } 
+    
+         Set<String> DealerGccode = new Set<String>();
+          List<Account> DealeAcc=new List<Account>();  
         Id caseRecId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
         List<CaseShare> CaseSharingRecord = new List<CaseShare>();
         List<Caseshare> shareList = new List<Caseshare>();
@@ -414,6 +419,7 @@ List<Account> accUpdLst = new List<Account>();
         List<User> pUser=new List<User>();
         List<User> CaseDealerUser=new List<User>();
         set<id> CaseDealerUserId = new set<id>();
+        
         if(shcaseList!=null && !shcaseList.isempty())
         {
         for(Case c : shcaseList)
@@ -436,13 +442,27 @@ List<Account> accUpdLst = new List<Account>();
                     {
                         Dealername.add(listca.Case_Dealer__r.Name);
                         userId.add(listca.Case_Dealer__c);  
-                        CaseDealerUserId.add(listca.Case_Dealer_User__c);                  
+                        CaseDealerUserId.add(listca.Case_Dealer_User__c);   
+                        if(listca.Case_Dealer__r.Dealer_GC_Code__c!=null)
+                        {
+                        DealerGccode.add(listca.Case_Dealer__r.Dealer_GC_Code__c); 
+                        }              
                     }
             }
-      
+            if(DealerGccode!=null)
+            {
+        DealeAcc=[Select id,Dealer_GC_Code__c from Account where RecordtypeId=:Dealer_RecordTypeId and Dealer_GC_Code__c=:DealerGccode];
+           
+           }
+           if(DealeAcc!=null)
+            for(Account dealerac:DealeAcc)
+            {
+            userId.add(dealerac.ID);
+            }     
+      System.debug('@@@@@@ userId venky'+userId);
       if(userId!=null)
       {
-      pUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
+      pUser=[Select Id,Name,Dealer_GC_Code__c,contactId,isactive,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and isactive=true and (profile.Name='Japan Dealer Company Manager' or profile.Name='Japan Dealer Sales Manager' OR profile.Name='Japan Dealer Service Manager')];
       } 
         if(!Dealername.isempty() && Dealername != null)
         {
@@ -537,7 +557,6 @@ List<Account> accUpdLst = new List<Account>();
         System.debug('$%$%$%$%$%$% CaseSharingRecord'+CaseSharingRecord);
         
     }
-    
     
     
       public static void countchildcase(List<Case> cases,List<case> oldcases){
@@ -638,13 +657,11 @@ List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_
       }     
  }
 
-         
-    public void updateGateKeaperforApprovedProcess(List<Case> lstCase){
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase){
        List<Id> caseIds = new List<Id>();
-       for(case cs: lstCase){
-           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true){
-               caseIds.add(cs.id);
-                
+       for(case cs: LstnewCase){
+           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
+               caseIds.add(cs.id);                
             }
        }        
        

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Submit_Survey</customButtons>
-    <customButtons>Select_Assigned_Dealer</customButtons>
+    <customButtons>Merge</customButtons>
+    <customButtons>New_Task</customButtons>
+    <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
+    <customButtons>Print_PDF</customButtons>
     <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -58,10 +60,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lost_Dealer_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -151,11 +149,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lost_To__c</field>
+                <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lost_CAC_Date_Time__c</field>
+                <field>Lost_To__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -224,10 +222,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Customer_Preferred_Rep__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Service_Advisor__c</field>
             </layoutItems>
             <layoutItems>
@@ -262,7 +256,7 @@
         <label>Lead Customer Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
@@ -282,10 +276,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Account__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -316,7 +306,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lodgment_Date__c</field>
+                <field>Lost_Dealer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -443,19 +433,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interested_Competitor_Vehicle_Text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Current_Vehicle_2_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Vehicle_Text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Trade_In_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -765,10 +747,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Quotation_No_History__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Invoice_Number_History__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

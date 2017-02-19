@@ -2069,7 +2069,7 @@
         <fullName>Parent_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Parent Campaign</label>
+        <label>Relevant Campaign </label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -13157,6 +13157,20 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Site Cost  plus Gift Expense cannot be greater than Actual Expense</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt; TODAY(), true,false)))</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Status_is_Ongoing_cant_change_Start_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( ISCHANGED( Start_Date__c ) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Status is ongoing you can not change Start date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Unlock_Application</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -13254,7 +13268,21 @@ $Profile.Name != 'IntegrationAPI'
         <showsStatus>false</showsStatus>
         <url>/00O90000007UqL8?pv0={!Retail_Campaign__c.Id}</url>
     </webLinks>
-	
+    <webLinks>
+        <fullName>Refresh</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var campaignID = "{!Campaign.Id}";
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+location.reload();</url>
+    </webLinks>
     <webLinks>
         <fullName>Generate_Retail_Campaign</fullName>
         <availability>online</availability>
@@ -13693,6 +13721,19 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>/apex/GenericUploader</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload</fullName>
+        <availability>online</availability>
+        <description>Retail Campaign response handling via File Updload</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>View_Report</fullName>

@@ -112,13 +112,12 @@ public class AccountLinkHelper
            epList.add(epe);
          
          }
-         }
+       }   
+    
+     }
+     if(epList.size()>0){
          insert epList;
-        
-    
-    
-    
-    }
+        }
     }
       /*
         * Added By: Siva Krishna
@@ -129,19 +128,45 @@ public class AccountLinkHelper
       
     public static void afterInsertEvent(List<Account_Link__c> list_AccountLink){
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> SharingVrsFromAlk = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_FromAccountIdAndListToAccountId = new Map<Id, List<Id>>();
         Set<Id> set_ToAccountId = new Set<Id>();
         Map<Id, List<Id>> map_DealerAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> CompanyPersonVehicleLinkALK = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = getRelatedIndividualCustomerRecordTypeAccountLink(list_AccountLink);
+        Set<Id> VehiclealkId = new Set<Id>();
+        Set<Id> VehicleExtaccountId = new Set<Id>();
+        Set<Id> contactSetorDealerIdSet = new Set<Id>();
+        Set<Id> dealerAccIdSetFromRetailPerson = new Set<Id>();
         
         for(Account_Link__c accountLink : list_AccountLink){
+        if(accountLink.Retail_Delete_Flag__c == false){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' && accountLink.fromRole__c != null){
               if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
                   map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
               }
               map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+              contactSetorDealerIdSet.add(accountLink.fromRole__c);
             }
             
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
+                if(accountLink.fromRole__c != null && accountLink.toRole__c != null){
+                    set_ToAccountId.add(accountLink.fromRole__c);
+                    if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
+                        map_AccountIdAndListAccountLinkId.put(accountLink.toRole__c, new List<Id>());
+                    }
+                    map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
+                    
+                    map_AccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+                    
+                    if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                        map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                    }
+                    map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                }
+            }
+             
             if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
                 if(accountLink.fromRole__c != null && accountLink.toRole__c != null){
                     set_ToAccountId.add(accountLink.fromRole__c);
@@ -152,24 +177,32 @@ public class AccountLinkHelper
                 }
             }
             
-            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId
-                || accountLink.RecordTypeId == AccountLink_VehicleExternalRecordTypeId){ 
+            //Share Account Link with VR's
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId  ){ 
                                    
-                if(accountLink.fromRole__c != null){
-                    if(!map_DealerAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                      map_DealerAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                if(accountLink.fromRole__c != null && accountLink.toRole__c!=null){
+                    set_ToAccountId.add(accountLink.fromRole__c);
+                    dealerAccIdSetFromRetailPerson.add(accountLink.fromRole__c);
+                    if(!SharingVrsFromAlk.containsKey(accountLink.toRole__c)){
+                        SharingVrsFromAlk.put(accountLink.toRole__c, new List<Id>());
                     }
-                    map_DealerAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                    SharingVrsFromAlk.get(accountLink.toRole__c).add(accountLink.Id);
                 }
             }
             
-            if(accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId
-                || accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId){
-                    
+            if(accountLink.RecordTypeId == AccountLink_IndividualCustomerRecordTypeId) {
                 if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
-                  map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
-              }
-              map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                    map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                }
+                map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                map_PersonCompanyAccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_CompanyCustomerRecordTypeId || accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId) {
+                if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                    map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                }
+                map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
             }
             
             if(accountLink.RecordTypeId == AccountLink_Contact2ContactRecordTypeId){
@@ -178,14 +211,96 @@ public class AccountLinkHelper
               }
               map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
+            
+            //If AccountLink record type person or company or Vehicle external link share records to Dealer User.
+            if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId ){
+                if(accountLink.fromRole__c !=null && accountLink.toRole__c!=null)
+                {
+                    
+                if(!CompanyPersonVehicleLinkALK.containsKey(accountLink.toRole__c)){
+                  CompanyPersonVehicleLinkALK.put(accountLink.toRole__c, new List<Id>());
+              }
+              CompanyPersonVehicleLinkALK.get(accountLink.toRole__c).add(accountLink.Id); 
+              set_ToAccountId.add(accountLink.fromRole__c);
+            }
+            
+            }
+            
+            if(accountLink.RecordTypeId == AccountLink_VehicleExternalRecordTypeId) {
+                if(accountLink.fromRole__c !=null && accountLink.Vehicle__c != null) {
+                    VehicleExtaccountId.add(accountLink.fromRole__c);
+                    VehiclealkId.add(accountLink.Vehicle__c);
+                    
+                    // Added for Vehicle external link sharing
+                    if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                        map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                    }
+                    map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                    map_AccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+                }
+            }
+        }
         }
         
+        // START: Adding Similar GC Code related Account To Map which is sharing already.
+        Set<Id> dealerAccIdSet = new Set<Id>();
+        for(Id dealerAccId : map_PersonCompanyAccountIdAndListAccountLinkId.keySet()) {
+            dealerAccIdSet.add(dealerAccId);
+        }
+        for(Id dealerAccId : map_AccountIdAndListAccountLinkId.keySet()) {
+            dealerAccIdSet.add(dealerAccId);
+        }
+        
+        //system.assert(false, dealerAccIdSet);
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSet);
+        //system.assert(false, map_AccountIdAndListAccountLinkId);
+        
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            if(map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(dealerId)) {
+                List<Id> accountLinkIdList = map_PersonCompanyAccountIdAndListAccountLinkId.get(dealerId);
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                    map_PersonCompanyAccountIdAndListAccountLinkId.put(similarGCCodeDealerId, accountLinkIdList);
+                }
+            }
+            
+            if(map_AccountIdAndListAccountLinkId.containsKey(dealerId)) {
+                List<Id> accountLinkIdList = map_AccountIdAndListAccountLinkId.get(dealerId);
+                for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                    if(contactSetorDealerIdSet.contains(dealerId)) {
+                        map_AccountIdAndListAccountLinkId.put(similarGCCodeDealerId, accountLinkIdList);
+                    } else {
+                        map_DealerAccountIdAndListAccountLinkId.put(similarGCCodeDealerId, accountLinkIdList);
+                    }
+                }
+                if(!contactSetorDealerIdSet.contains(dealerId)) {
+                    map_DealerAccountIdAndListAccountLinkId.put(dealerId, accountLinkIdList);
+                    map_AccountIdAndListAccountLinkId.remove(dealerId);
+                }
+            }
+        } 
+        //system.assert(false, map_DealerAccountIdAndListAccountLinkId);
+        
+        // END: Adding Similar GC Code related Account To Map which is sharing already.
+        //system.assert(false, map_DealerAccountIdAndListAccountLinkId);
+        
+        if(VehicleExtaccountId!=null && VehiclealkId!=null)
+        { 
+            ShareehicleALK(VehicleExtaccountId,VehiclealkId);
+        }
         if(map_AccountIdAndListAccountLinkId.size() > 0){
              createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
-        if(map_AccountIdAndListAccountLinkId.size() > 0){
-            createVehicleRelationship(map_AccountIdAndListAccountLinkId, set_ToAccountId);
+        if(SharingVrsFromAlk.size() > 0){
+            dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSetFromRetailPerson);
+            for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+                if(dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId).size() > 0) {
+                    dealerAccIdSetFromRetailPerson.addAll(dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId));
+                }
+            }
+            //system.assert(false, dealerAccIdSetFromRetailPerson + '\n\n' + set_ToAccountId);
+            createVehicleRelationship(SharingVrsFromAlk, dealerAccIdSetFromRetailPerson);
+            //createVehicleRelationship(SharingVrsFromAlk, set_ToAccountId);
         }
         
         if(map_DealerAccountIdAndListAccountLinkId.size() > 0){
@@ -195,17 +310,86 @@ public class AccountLinkHelper
         if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
         }
+        
+        //If Alk record type is person or company or vehicle external share alk records to Dealer user
+        if(CompanyPersonVehicleLinkALK.size() > 0){
+            SharePersonCompanyVehicleALK(CompanyPersonVehicleLinkALK,set_ToAccountId);
+        }
+    }
+    
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    
+    // Get all the Dealer Account with Same GC Code -
+    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
+        
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordType.DeveloperName = 'Dealer'];
+        Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        Set<Id> accIdSet = new Set<Id>();
+        for(Account accRec : dealerAccList) {
+            if(String.isNotBlank(accRec.Dealer_GC_Code__c)) {
+                gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+                accIdSet.add(accRec.Id);
+            }
+        }
+        system.debug('gcCodeToDealerAccIdMap \n\n' + gcCodeToDealerAccIdMap + '\n\n' + gcCodeToDealerAccIdMap.keySet());
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
+        if(dealerAccList.size() > 0) {
+            List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
+                                                                    AND RecordtypeId =: Dealer_RecordTypeId];
+            for(Account accRec : similarGCCodeDealerAccountList) {
+                if(!accIdSet.contains(accRec.Id) && accRec.Dealer_GC_Code__c != null) {
+                    if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                        dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                    }
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
+                }
+            }                                                       
+        }
+        return dealerIdToSimilarGCCodeDealerAccountIdsMap;
+    }
+    
+    // Get all the Account Link records of "Individual Customer External Link" record Type.
+    private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
+        Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = new Map<Id, List<Id>>();
+        Set<Id> accIdSet = new Set<Id>();
+        for(Account_Link__c accLinkRec : list_AccountLink) {
+            accIdSet.add(accLinkRec.toRole__c);
+        }
+        
+        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet];
+        for(Account accRec : accList) {
+            String dealerAccId;         
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+                if(accLinkRec.RecordType.DeveloperName == 'Retail_Person' || accLinkRec.RecordType.DeveloperName == 'Retail_Company' ||
+                        accLinkRec.RecordType.DeveloperName == 'Vehicle_External_Link') {
+                    dealerAccId = accLinkRec.fromRole__c;
+                } 
+            }
+            
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+                if(accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' && String.isNotBlank(dealerAccId)) {
+                    if(!map_FromAccountToListIndividualAccountLinkId.containsKey(dealerAccId)) {
+                        map_FromAccountToListIndividualAccountLinkId.put(dealerAccId, new List<Id>());
+                    }
+                    map_FromAccountToListIndividualAccountLinkId.get(dealerAccId).add(accLinkRec.Id);
+                } 
+            }
+        }
+        
+        return map_FromAccountToListIndividualAccountLinkId;
     }
     
     
     public static void afterUpdateEvent(List<Account_Link__c> list_AccountLink, Map<Id, Account_Link__c> map_AccountLinkIdAndRecord){
         
         Set<Id> set_accountId = new Set<Id>();
+         
         List<Id> list_SharingToDelete = new List<Id>();
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         
         for(Account_Link__c accountLink : list_AccountLink){
+        if(accountLink.Retail_Delete_Flag__c == false){
             if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
                 accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
                 accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c)){
@@ -261,7 +445,7 @@ public class AccountLinkHelper
                 map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
         }
-        
+        }
         if(set_accountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
             List<Account_Link__Share> list_SharingDele = new List<Account_Link__Share>([SELECT Id FROM Account_Link__Share 
@@ -280,16 +464,100 @@ public class AccountLinkHelper
         }
     }
     
-    
-    
-    private static void createSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+    private static void ShareehicleALK(Set<Id> set_ToAccountId,Set<Id> VehiclealkId)
+    {
+    List<Account_Link__C> Vehiclelist_AccountLink = new List<Account_Link__C>();
+    List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+    List<User> portaluser=new List<User>();
+    if(VehiclealkId !=null && set_ToAccountId!=null)
+    {
+     Vehiclelist_AccountLink =[SELECT Id,Retail_Delete_Flag__c,recordtypeID,Vehicle__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE fromRole__c=:set_ToAccountId and recordtypeID=:AccountLink_VehicleExternalRecordTypeId and Vehicle__c=:VehiclealkId] ;
+     }
+     if(set_ToAccountId!=null)
+     {
+         portaluser=[SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true];
+           }
+      
+      if(portaluser!=null)
+       {
+        for(User usr :portaluser){
+            
+            if(Vehiclelist_AccountLink!=null)
+            {
+                 for(Account_Link__c alk:Vehiclelist_AccountLink)
+                 {
+                 if(alk.recordtypeID ==AccountLink_VehicleExternalRecordTypeId && alk.Retail_Delete_Flag__c == false)
+                 {
+                    Account_Link__Share accountLinkShare = new Account_Link__Share();
+                    accountLinkShare.AccessLevel = 'Edit';
+                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.ParentId = alk.id;
+                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                    list_SharingRecord.add(accountLinkShare);
+                 }
+                
+             }
+             }
+        }
+        }
+        
+        
+        system.debug('list_SharingRecord@@@@'+list_SharingRecord);
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }
+    }
+    //If Alk record type is person or company or vehicle external share alk records to Dealer user
+    private static void SharePersonCompanyVehicleALK(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId,Set<Id> set_ToAccountId){
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true]){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.AccountId)){
+         List<Account_Link__C> list_AccountLink = new List<Account_Link__C>([SELECT Id,Retail_Delete_Flag__c, toRole__c, fromRole__c  FROM Account_Link__C   WHERE toRole__c IN: map_AccountIdAndListAccountLinkId.keySet() and fromRole__c=:set_ToAccountId] );
+         //for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            
+         List<Group> portaluser = new List<Group>([select Id, Name, Type from Group where Name IN: set_ToAccountId]);
+         //List<User> portaluser=new List<User>([SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId=:set_ToAccountId  AND IsPortalEnabled = true]);
+        if(portaluser!=null) {
+            for(Group usr :portaluser){
+                if(list_AccountLink!=null) {
+                    for(Account_Link__c alk:list_AccountLink) {
+                        if(alk.Retail_Delete_Flag__c == false){
+                            Account_Link__Share accountLinkShare = new Account_Link__Share();
+                            accountLinkShare.AccessLevel = 'Edit';
+                            accountLinkShare.UserOrGroupId = usr.Id;
+                            accountLinkShare.ParentId = alk.id;
+                            accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                            list_SharingRecord.add(accountLinkShare);
+                        }
+                    }
+                }
+            }
+        }
+        
+        system.debug('list_SharingRecord@@@@'+list_SharingRecord);
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }
+    }
+    
+     
+    
+    private static void createSharingRecord ( Map<Id, List<Id>> map_AccountIdAndListAccountLinkId) {
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
+        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -303,13 +571,22 @@ public class AccountLinkHelper
     
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Read';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -324,13 +601,23 @@ public class AccountLinkHelper
     
     
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
-        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:map_AccountIdAndListAccountLinkId.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-            if(map_AccountIdAndListAccountLinkId.containsKey(usr.Contact.AccountId)){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(usr.Contact.AccountId)){
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = usr.Id;
+                    accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     list_SharingRecord.add(accountLinkShare);
@@ -344,6 +631,15 @@ public class AccountLinkHelper
     
     
     private static void createVehicleRelationship(Map<Id, List<Id>> map_FromAccountIdAndListToAccountId, Set<Id> set_ToAccountId){
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name from Account where Id IN: set_ToAccountId];
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Name);
+            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        }
+        
         Map<Id, List<Id>> map_AccountIdListUser = new Map<Id, List<Id>>();
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
         
@@ -351,31 +647,22 @@ public class AccountLinkHelper
                                                                                                         FROM Vehicle_Relationship__c 
                                                                                                         WHERE Contact__c IN: map_FromAccountIdAndListToAccountId.keySet()]);
         if(list_VehicleRelationRecord.size() > 0){
-            for(User usr :  [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN :set_ToAccountId AND IsPortalEnabled = true AND Contact.Account.RecordType.Name = 'Dealer']){
-                if(!map_AccountIdListUser.containsKey(usr.Contact.AccountId)){
-                    map_AccountIdListUser.put(usr.Contact.AccountId, new List<Id>());
-                }
-                map_AccountIdListUser.get(usr.Contact.AccountId).add(usr.Id);
-            }
-            
-            if(map_AccountIdListUser.size() > 0){
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
                 for(Vehicle_Relationship__c vehicleR : list_VehicleRelationRecord){
                     if(map_FromAccountIdAndListToAccountId.containsKey(vehicleR.Contact__c)){
-                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){
-                            if(map_AccountIdListUser.containsKey(toAccId)){
-                                for(Id usrId : map_AccountIdListUser.get(toAccId)){
+                        for(Id toAccId : map_FromAccountIdAndListToAccountId.get(vehicleR.Contact__c)){                           
+                                 
                                     Vehicle_Relationship__Share vehicleRelationShare = new Vehicle_Relationship__Share();
                                     vehicleRelationShare.AccessLevel = 'Edit';
-                                    vehicleRelationShare.UserOrGroupId = usrId;
+                                    vehicleRelationShare.UserOrGroupId = groupRec.id;
                                     vehicleRelationShare.ParentId = vehicleR.Id;
                                     vehicleRelationShare.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
-                                    list_SharingRecord.add(vehicleRelationShare);
-                                }
-                            }
+                                    list_SharingRecord.add(vehicleRelationShare);                                
+                             
                         }
                     }
                 }
-            } 
+             }
             
             if(list_SharingRecord.size() > 0){
                 Database.insert(list_SharingRecord, false);
@@ -416,12 +703,19 @@ public class AccountLinkHelper
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+		Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
                 System.debug('AccountID--->'+acc.id);        
             }
             
+        }
+		 List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
+        for(Account_Link__c acclink : accLst ){
+            if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
+            acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
+           }     
         }
           string regexForNullValue ='null';
             string nullValue ='';                            
@@ -450,7 +744,7 @@ public class AccountLinkHelper
                 acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
                 //acclink.Retail_Salutation__c = accountMap.get(acclink.toRole__c).Salutation__c;
                 acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'')+ '  ' + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25);
-                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
+                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+ '  '+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + '  '+(accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
                 acclink.Retail_LastName_Native__c = accountMap.get(acclink.toRole__c).LastName_Native_1__c;
                 acclink.Retail_FirstName_Native__c = accountMap.get(acclink.toRole__c).FirstName_Native_1__c; 
                 acclink.Retail_Full_Name_Native__c = ((accountMap.get(acclink.toRole__c).LastName_Native_1__c != null ? accountMap.get(acclink.toRole__c).LastName_Native_1__c:'')+ ' ' +(accountMap.get(acclink.toRole__c).FirstName_Native_1__c != null ? accountMap.get(acclink.toRole__c).FirstName_Native_1__c:'')).left(50); 
@@ -531,18 +825,28 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-     
- 
- public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
  {
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+
+ 
+ 
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
+    set<id>fromroleidlist=new set<id>();
+    set<String> GCCode = new set<String>();
+    list<String> AccountNAme = new List<String>();
     for(Account_Link__c atl:allist)
     {
         toroleidlist.add(atl.toRole__r.id);
+        fromroleidlist.add(atl.fromRole__c);
+        GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
-     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>();
+    list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+    
+     Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
+     
+     
    for(SurveyTaker__c st: stlist){
         if(!newstmap.containsKey(st.account__c))
                 {
@@ -589,7 +893,11 @@ public class AccountLinkHelper
         } 
         
     }
-    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames];
+     for(Account acc :acolist){
+           system.debug('acc.Name'+acc.Name);
+           AccountNAme.add(acc.Name);   
+       }
+    list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
         for(Group assg:glist)
@@ -606,8 +914,37 @@ public class AccountLinkHelper
                  
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
+                  if(AccountNAme.size()>0)
+                    {
+                    for(id m:assgroupMap.values())
+                    {
                  system.debug('Inserting1');
                      Accountshare a=new Accountshare();
+                     a.Accountid=alnk.toRole__c;
+                     a.UserOrGroupId = m;
+                     a.AccountAccessLevel='edit';
+                     a.RowCause = Schema.Accountshare.RowCause.Manual;
+                     a.OpportunityAccessLevel ='edit';
+                     acclist.add(a);
+                    if(newstmap.containskey(alnk.toRole__c))
+                  {
+                      for(SurveyTaker__c sa:newstmap.get(alnk.toRole__c))
+                      {
+                          //checking match with current accountid with accountid in survey taker record
+                          system.debug('Inserting2');
+                                 SurveyTaker__share surt=new SurveyTaker__share();
+                                 surt.ParentId=sa.id;
+                                 surt.UserOrGroupId=m;
+                                 surt.AccessLevel='edit';
+                                 surt.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                                 sutlist.add(surt);
+                           
+                      }    
+                  }
+                  }
+                  }
+                  else {
+                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = assgroupMap.get(alnk.fromRole__r.name);
                      a.AccountAccessLevel='edit';
@@ -628,6 +965,7 @@ public class AccountLinkHelper
                                  sutlist.add(surt);
                            
                       }    
+                  }
                   }
         }
     }
@@ -769,7 +1107,8 @@ public class AccountLinkHelper
             }
     }
  }
-  public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
+ 
+   public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
      Set<Id> accountId = new Set<Id>();
      List<Account_Link__c> accountList = new List<Account_Link__c>();
      List<Account_Link__c> accountList1 = new List<Account_Link__c>();
@@ -794,10 +1133,10 @@ public class AccountLinkHelper
         if(accountList.size() > 0){
             for(Account_Link__c acc: accountList){            
                 acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
-                acc.Retail_City__c = acc.Retail_Address_Reference__r.City__c;
-                acc.Retail_Distinct__c = acc.Retail_Address_Reference__r.District__c + ' ' + acc.Retail_Address_Reference__r.Block__c ;
-                acc.Retail_Address_Line_1__c  = acc.Retail_Address_Reference__r.Address_Line_1__c;
-                acc.Retail_Address_Line_2__c =  acc.Retail_Address_Reference__r.Address_Line_2__c;
+                  acc.Retail_City__c = (acc.Retail_Address_Reference__r.City__c != null ? acc.Retail_Address_Reference__r.City__c : '').left(17);
+                acc.Retail_Distinct__c = ((acc.Retail_Address_Reference__r.District__c !=null ? acc.Retail_Address_Reference__r.District__c : '')+ (acc.Retail_Address_Reference__r.Block__c!=null ? acc.Retail_Address_Reference__r.Block__c : '')).left(17);               
+               acc.Retail_Address_Line_1__c  = (acc.Retail_Address_Reference__r.Address_Line_1__c !=null? acc.Retail_Address_Reference__r.Address_Line_1__c :'').left(17);
+               acc.Retail_Address_Line_2__c =  (acc.Retail_Address_Reference__r.Address_Line_2__c !=null? acc.Retail_Address_Reference__r.Address_Line_2__c :'').left(17);
                 acc.Retail_ZipCode__c = acc.Retail_Address_Reference__r.ZipCode__c;
                 if(addtrmap1.containsKey(acc.Retail_Address_Reference__r.Province__c) )
                 {
@@ -815,4 +1154,40 @@ public class AccountLinkHelper
                 update accountList1; 
             }
   }
+  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isAfter ,List<Account_Link__c> accLst){
+        string Position;
+        system.debug('------>Method is called');
+        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
+        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+       list<Account_Link__c>allist=[select id,name,recordtypeId,MD__c,Position__c,Retail_Position__c, fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordType.name,toRole__r.RecordType.name,toRole__r.id from Account_Link__c where id IN :accLst];
+        for(Account_Link__c acc : allist){         
+            if(isUpdate && acc.MD__c == label.MarketJp && acc.RecordtypeId == AccountLink_Contact2ContactRecordTypeId ){//Checking Market for updated account
+                    
+                if(acc.toRole__r.RecordType.Name == 'Person Account' || acc.toRole__r.RecordType.Name == 'Company'){
+               
+                    AccountIds.add(acc.toRole__c); //Adding accountId's to set
+                    position = acc.Position__c;
+                    System.debug('AccountID--->'+acc.id);   
+                }
+                 if (acc.fromRole__r.RecordType.Name == 'Person Account' || acc.fromRole__r.RecordType.Name == 'Company'){
+                    AccountIds.add(acc.fromRole__c); //Adding accountId's to set
+                    position = acc.Position__c;
+                    System.debug('AccountID--->'+acc.id);
+                }   
+            }            
+        }
+        if(AccountIds.size()>0){
+         List<Account_Link__c> Accountlinklist = [select id,Name,RecordTypeId,Retail_Position__c from Account_Link__c WHERE toRole__c IN :AccountIds OR fromRole__c IN :AccountIds];  
+           if(Accountlinklist.size()>0){
+               for(Account_Link__c acclnk : Accountlinklist ){
+                   if(acclnk.RecordtypeId == AccountLink_RetailPersonRecordTypeId || acclnk.RecordtypeId == AccountLink_RetailCompanyRecordTypeId ){
+                        acclnk.Retail_Position__c = position;
+                        AccountlnkUpdate.add(acclnk);
+                     }   
+                }   
+            }
+        }
+        if(!AccountlnkUpdate.isEmpty())
+            update AccountlnkUpdate;
+    }
 }

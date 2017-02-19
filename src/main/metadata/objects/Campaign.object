@@ -1267,6 +1267,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Consolidated_List_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Consolidated List Completed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Content_Preview__c</fullName>
         <description>Used only for Campaign Execution. To display the Message Detail of Template selected. Updated by workflow (because it's a long text not able to use formula).</description>
         <externalId>false</externalId>
@@ -19569,6 +19577,13 @@ Record Type =  CAS/Central Marketing campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
+	 <validationRules>
+        <fullName>Campaign_Status_Campleted</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED(  EndDate ) , IF( ISPICKVAL(Status, 'Completed') , true, false), false)))</errorConditionFormula>
+        <errorDisplayField>EndDate</errorDisplayField>
+        <errorMessage>Campaign status Completed you cant change End Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Validation_Rule</fullName>
         <active>true</active>
@@ -19698,6 +19713,14 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
     </validationRules>
+	 <validationRules>
+        <fullName>Parent_Campaign_Status_Ongoing</fullName>
+        <active>true</active>
+        <description>Parent Campaign Status ongoing you can not change start date</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( StartDate ) , IF( ISPICKVAL(Status, 'Ongoing') , true, false), false)))</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Parent Campaign Status ongoing you can not change start date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
@@ -19714,6 +19737,12 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
 )</errorConditionFormula>
         <errorDisplayField>Previous_Campaign_Execution__c</errorDisplayField>
         <errorMessage>Previous campaign execution only belong to this parent campaign.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Record_lock_on_campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Consolidated_List_Completed__c = true)</errorConditionFormula>
+        <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SMS_Task_Verified_is_True</fullName>
@@ -19736,6 +19765,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Start_date_can_not_be_equal_to_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
+        <errorDisplayField>StartDate</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
@@ -19747,7 +19783,7 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
-    <webLinks>
+	<webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -19979,6 +20015,19 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
         <showsStatus>false</showsStatus>
         <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
         <width>500</width>
+    </webLinks>
+	<webLinks>
+        <fullName>Upload</fullName>
+        <availability>online</availability>
+        <description>Campaign Response Handling via File Upload</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>View_Previous_Campaign_Members</fullName>

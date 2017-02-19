@@ -1,200 +1,217 @@
-public class createRetailCopy {
- 
-public Account account{get;set;}
-public Account abc {get;set;}
-public  Id addId{get;set;}
-//public string accId{get;set;}
-public List<Address__c> sample {set;get;}
-public List<Address__c> ress   {set;get;}
-public List<Address__c> sample1{set;get;}
-public List<Address__c> din  {set;get;}
-public List<Account> accc {set;get;}
+public without sharing class createRetailCopy {
 
+    public  Account account{get;set;}
+    public  Account accList{get;set;}
+    Public static String AccId{get;set;}
+    public List<Address__c> ListAddress{set;get;}
+    public List<Address__c> SelectedAdd{set;get;}
+    public Id addId{get;set;} 
+    public Id did{get;set;} 
+    public  Boolean ShowHideError{set;get;}
+    public List<Account_Link__c> Accountlinklist{get;set;}
+    Public User  Usr{get;set;} 
+    public List<Account> accc{set;get;}
+    Public  Id DealeAccId{get;set;}
+    public List<Contact> contactList{ get; set; }  
+    public Account_Link__c newAlk;
+    public List<Account_Link__c> InsertAlk; 
+    public Account DealerID { get; set; }
+    public User  CurrentUsr{set;get;}
+    public List<Account> Dealeracc{set;get;}
+    public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
 
- 
+    // Constructor
     public createRetailCopy(ApexPages.StandardController controller) {
+     AccId=ApexPages.currentPage().getParameters().get('id');
+     ListAddress=new List<Address__c>();
+     SelectedAdd=new List<Address__c>();
+     InsertAlk=new List<Account_Link__c> ();
+     account=new Account();
+       ShowHideError=false;
+     CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+     account = (Account)controller.getRecord();
+     if(AccId!=null)
+     {
+      ListAddress= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where  Customer__c =:AccId];
+     }
     
-                  account = (Account)controller.getRecord();
+     system.debug('+++++++++++++'+account);
+     system.debug('++++++++++++++'+AccId);
 
-   
-    sample = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where  Customer__c =: account.Id];
-     
-      system.debug('+++++++++'+sample );
-      
+    } // Constructor  end
     
-     
-   
-    }
-   
-        public pageReference getSelected (){ 
     
-           addId =ApexPages.currentPage().getParameters().get('idaddress');  
+    //Method to selected Address  record Id
+      public pageReference getSelectedAddress (){ 
+    
+           addId =ApexPages.currentPage().getParameters().get('idselected');  
            
            system.debug('+++++++++'+ addId );
-     //addId = System.currentPageReference().getParameters().get('Status');
-     
+         
     
       return null;
       
     }
-         
-           
-       public void  getAccount (){ 
     
-          
-     accc =[Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c from Addresses__r LIMIT 1) from Account where id =:account.Company__c];
-     
-          system.debug('+++++++++++'+accc); 
+  //Method to get selected dealer ID
+      public void  getDealer(){
+          Dealeracc=new List<Account>();
+          AccId=ApexPages.currentPage().getParameters().get('id'); 
+          // DealerID=ApexPages.currentPage().getParameters().get('DealerID');  
+           accc=[Select id from account where id=:account.Main_Dealer__c];  
+           System.debug('^&^&^&^&^&^&^&^ accc'+accc);
+            System.debug('^&^&^&^&^&^&^&^ AccId '+AccId);
+           System.debug('^&^&^ DealerID.Main_Dealer__c '+account.Main_Dealer__c);
+      } //Method end
       
+      
+      // Method to Create retail copy
+    Public void CreateRetailCopy()
+    { 
+     
+    AccId=ApexPages.currentPage().getParameters().get('id');
+    
+   accList=[Select Id,Main_Dealer__c ,RecordtypeId from account where id=:AccId];
+   accc=[Select id,Main_Dealer__c  from account where id=:account.Main_Dealer__c limit 1];
+    system.debug('+++++++++'+ addId );
+    System.debug('##################'+accc); 
+    System.debug('#################'+ AccId);
+    if(addId !=null)
+    {
+    SelectedAdd= [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId Limit 1];
     }
-     /*
-        # Description: update the Retail copy.  
-        # SFDCJP-730 & SFDCJP-731
-        # Release : JP-2.0
-        # Date: 19/12/2016
-        # Author : Kiran
-        */
-     //public void Save() //Kiran : Changed void to PageReference
-     public PageReference Save()
+    CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
+ 
+ 
+  // For Dealer User Creating retail copy
+    if(CurrentUsr.ContactId!=null)
+    {
+     Usr = [SELECT Market__c,contactid,IsPortalEnabled,Id,contact.AccountId FROM User WHERE Id = : UserInfo.getUserId() and User.Profile.UserLicense.Name='Partner Community']; 
+    
+    
+     if(Usr.ContactId!=null)
+     {
+     contactList=[Select id,AccountId from Contact where id=:usr.ContactId];
+     
+            If(contactList!=null)
+              {
+              for(Contact con:contactList)
+              {
+              DealeAccId=con.AccountId;
+              }
+              }
+    if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    }
+     if(accList.RecordtypeId == accCompany_RecordTypeId)
+    {
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    }
+    
+    
+     if(Accountlinklist ==null ||  Accountlinklist.isempty())
     {
     
-        
-        ID RAccType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-        
-        ID RDType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); 
-        
-        ID RD1Type = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); 
-        
-        system.debug('+++++++++++++++++++++'+addId);
-        
-         List<Address__c> button    = New List<Address__c>();
-         List<Account_Link__c> acclink = New List<Account_Link__c>();
-       List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Company__c AND RecordType.NAME = 'Retail Company'  ];  //SFDCJP-730
- 
-       Account_Link__c newals; //= new Account_Link__c();
-       if(Accountlinklist.isEmpty()){//SFDCJP-730
-        if(account.RecordTypeId == RAccType){
-       newals = new Account_Link__c();
-       newals.Retail_Address_Reference__c = addId ; 
-       newals.fromRole__c =  account.Company__c ;
-       newals.toRole__c = account.Id ;  
-       newals.RecordTypeId = RDType;
-            
-       insert newals;
-       } else {
-       
-       newals = new Account_Link__c();
-       newals.Retail_Address_Reference__c =addId ; 
-       newals.fromRole__c =  account.Company__c ;
-       newals.toRole__c = account.Id ;  
-       newals.RecordTypeId = RD1Type;
-       insert newals;
-       }
-       } 
-       //SFDCJP-730.Start
-       else if(!Accountlinklist.isEmpty()){
-           
-           for(Account_Link__c accountLink : Accountlinklist){           
-               accountLink.fromRole__c =account.Company__c;
-               accountLink.toRole__c =account.Id; 
-               acclink.add(accountLink);
-           }
-           
-           update acclink;
-       }//SFDCJP-730.End
-  system.debug('+++++++++++++'+newals);
-
-        
-        sample1  = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c  FROM  Address__c where id =:addId  Limit 1];
-        
-        system.debug('+++++++++++++++++++++'+sample1);
-        accc = New list<account>();
-        for(Account abc : accc)
-        {
-        
-        
-       for(Address__c ress : abc.Addresses__r)
-       {
-       
-          for(Address__c cdf : sample1   ){
-        if(ress.Address_Type__c != cdf.Address_Type__c){
-        ress.Address_Type__c = cdf.Address_Type__c ;
-        } else{
-           
-        }
-        ress.ZipCode__c = cdf.ZipCode__c ;  
-      ress.Province__c=cdf.Province__c;
-        ress.Province_Native__c=cdf.Province_Native__c;
-        ress.City_Native__c=cdf.City_Native__c;
-        ress.District__c=cdf.District__c;
-        ress.District_Native__c=cdf.District_Native__c;
-        ress.Block__c=cdf.Block__c;
-        ress.Block_Native__c=cdf.Block_Native__c;
-        ress.Address_Line_1__c=cdf.Address_Line_1__c;
-        ress.Address_Line_1_Native__c=cdf.Address_Line_1_Native__c;
-        ress.Address_Line_2__c=cdf.Address_Line_2__c;
-        ress.Address_Line_2_Native__c=cdf.Address_Line_2_Native__c;
-        ress.Company_Name__c=cdf.Company_Name__c;
-        ress.Company_Name_Native__c=cdf.Company_Name_Native__c;
-        ress.TitleOfHonor__c =cdf.TitleOfHonor__c;
-        ress.Status__c =cdf.Status__c;
-        ress.Temp_ZipCode__c =cdf.Temp_ZipCode__c;
-        ress.Temp_Address__c =cdf.Temp_Address__c;
-        ress.Customer__c = abc.Id;
-        button.add(ress);
-       } 
-       
-                     
-       update button;
-       
-     }      
-      
-       list<Account> accList = [SELECT Primary_Address_Reference__c,(select id from Addresses__r ORDER BY LastModifiedDate desc limit 1 )FROM Account where Id =:account.Company__c]; 
-       
-       for(Account aont : accList){
-       
-           for(Address__c aress : aont.Addresses__r){
-           
-           
-           aont.Primary_Address_Reference__c = aress.id;
-           
-           
-           
-           }
-           
-           update aont;
-           }
+     if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {     
      
-     /*Database.SaveResult[] srList = Database.Update(button, false) ;
-      integer i=0;
-      system.debug('+++++++++++++++++++'+button);
-     system.debug('+++++++++++++++++++++'+srList);
-     for(Database.SaveResult sr :srList ){
-       
-       accc[i].Primary_Address_Reference__c = sr.getId();
-       
-       system.debug('+++++++++++++'+sr.getId());
-      i++;
+    newAlk=new Account_Link__c ();
+    newAlk.toRole__c = AccId;
+    newAlk.Retail_Address_Reference__c=addId;
+    newAlk.fromRole__c=DealeAccId;
+    newAlk.RecordTypeId=alkPerson_RecordTypeId;
+    InsertAlk.add(newAlk);
+     
+    }
+    if(accList.RecordtypeId == accCompany_RecordTypeId)
+    {     
+     
+     
+    newAlk=new Account_Link__c ();
+    newAlk.toRole__c = AccId;
+    newAlk.Retail_Address_Reference__c=addId;
+    newAlk.fromRole__c=DealeAccId;
+    newAlk.RecordTypeId=alkCompany_RecordTypeId;
+    InsertAlk.add(newAlk);
+    System.debug('newAlk newAlk%%%%%%%'+newAlk);
+     
+    }
+    } else if(Accountlinklist !=null)
+    {
+    ShowHideError=true;  
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    }
+   
     
-    integer k=0;
-for(Account acco : accc){
-
-acco.Primary_Address_Reference__c=accc[k].Primary_Address_Reference__c;
-
-k++; */
-  string recordId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-}
-    PageReference page = new PageReference('/'+account.id);//SFDCJP-730
-    return page; //SFDCJP-730
+    }
     }
     
     
-    public PageReference Cancel()
-        {
-                PageReference page = new PageReference('/'+account.Id);//SFDCJP-730
-                //PageReference page = new PageReference('https://daimlerasia--asiadev9--c.cs5.visual.force.com/apex/RetailCopyButton');
-                //page.setRedirect(true);
-                return page;
-           }
- 
+    // For MBJ User Creating retail copy
+    if(CurrentUsr.ContactId==null)
+    { 
+    //For MBJ User if user not selected  Dealer Outlet display error message
+            if(account.Main_Dealer__c  ==null && account.Main_Dealer__c ==null)
+            {    
+              ShowHideError=true;                  
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Please select Dealer'));
+            }
+            System.debug('CurrentUsr %%%%%%%'+CurrentUsr);
+    if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    }
+     if(accList.RecordtypeId == accCompany_RecordTypeId)
+    {
+    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    }
+    
+   System.debug('#$#$#$####$'+account.Main_Dealer__c);
+   
+         
+    if(Accountlinklist ==null ||  Accountlinklist.isempty() && account.Main_Dealer__c  !=null)
+    {
+    
+     if(accList.RecordtypeId == accPerson_RecordTypeId)
+    {     
+     
+    newAlk=new Account_Link__c ();
+    newAlk.toRole__c = AccId;
+    newAlk.Retail_Address_Reference__c=addId;
+    newAlk.fromRole__c=account.Main_Dealer__c;
+    newAlk.RecordTypeId=alkPerson_RecordTypeId;
+    InsertAlk.add(newAlk);
+     
+    }
+    if(accList.RecordtypeId == accCompany_RecordTypeId)
+    {     
+     
+     
+    newAlk=new Account_Link__c ();
+    newAlk.toRole__c = AccId;
+    newAlk.Retail_Address_Reference__c=addId;
+    newAlk.fromRole__c=account.Main_Dealer__c;
+    newAlk.RecordTypeId=alkCompany_RecordTypeId;
+    InsertAlk.add(newAlk);
+    System.debug('newAlk newAlk%%%%%%%'+newAlk);
+     
+    }
+    } else if(Accountlinklist !=null && account.Main_Dealer__c !=null )
+    {
+     ShowHideError=true;  
+    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,'Retail copy is already present'));
+    }
+    
+    }  
+    if(InsertAlk!=null && InsertAlk.size()>0)
+    {
+    insert InsertAlk;
+    }
+    
+    }
+
 }

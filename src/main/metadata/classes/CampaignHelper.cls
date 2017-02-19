@@ -42,14 +42,291 @@ public class CampaignHelper {
     }
 }
     
+ /***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Created Date        :    30.01.2017
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to send email notification to the Dealer Sales Manager when List maintenance button is clicked 
+                         Business Conditions :
+                          * It sends Email Notification to dealer sales manager to start their list maintenance                           
+JIRA NO             :    SFDCJP-1026                                               
+************************************************************************************/
+ public static void emailNotificationToDealer (List<Campaign > campList,Map<id,Campaign > oldCampList)  {
+    
+    Set<Id> sid = New Set<Id>();
+  List<Id> userIds = new List<Id>();
+  List<String> sDealerEmails = New List<String>();
+  List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+  
+  For(Campaign camp : campList){
+  
+   if(Camp.Ready_for_List_Maintenance__c == true && Camp.Ready_for_List_Maintenance__c != oldCampList.get(camp.id).Ready_for_List_Maintenance__c ){
+   
+   
+        sid.add(Camp.Id);
+         }
+  
     
     
+  }
+  List<Campaign> CamList = [Select id,Name,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Name from Participating_Dealers__r) from Campaign Where Id =:sid];
+  System.Debug('++++++++++'+CamList );
+  
+  For(Campaign c : CamList){
+  
+     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
+     
+     if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c))
+   { 
+                
+                sDealerEmails.add(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c);
+                
+                System.Debug('++++++++++'+sDealerEmails);
+                List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : sDealerEmails];
+                 for(User u : userRecords){
+            userIds.add(u.id);
+        }
+        
+        String mailBody =  URL.getSalesforceBaseUrl().toExternalForm()+ '/'+parDealer.Id;
+        
+         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        mail.saveAsActivity = false;
+        //mail.setTargetObjectIds(userIds);
+        mail.setToAddresses(userIds);
+        
+        
+        mail.setUseSignature(false);
+        mail.setSaveAsActivity(false);
+        mail.setSubject('List Maintenance Notification');
+        String body = 'メルセデス・ベンツ　'+ parDealer.Dealer__r.Name  +'　店 ';
+      body += '<br>管理者様、ご担当者様';
+      body +=  '<p>';
+      body += '<br>以下のキャンペーンの対象顧客リストを展開しました。';
+      body += '<br>'+ c.Name           + '';
+      body += '<br>期日までにリスト確認を終え、提出してください。<br>';
+      body +=  '<p>';
+      body +=   '<p>';
+      body += '<a href='+mailBody+'>';
+      body +=  'Direct link URL to the detail page</a>';
+      body +=  '<p>';
+      body +=   '<p>';
+      body += '<br>※リストの確認にはセールスフォースへのログインが必要となります';
+      body += '<p>';
+      body += '<p>';
+      body += '<br>よろしくお願いいたします。';
+      body += '<p>';
+      body += '<br>セールスフォースの操作について、ご不明な点がございましたら、';
+      body += '<br>セールスフォース　サポートデスクまでお問い合わせください。';
+      body += '<p>';
+      body += '<br>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局';
+      body += '<p>';
+      body += '<br>-----------------------------------------------';
+      body += '<br>セールスフォースの操作、システムメンテナンスに関しての';
+      body += '<br>お問い合わせは下記の電話番号までお願いいたします。';
+      body += '<p>';
+      body += '<br>◆セールスフォースサポートデスク';
+      body += '<br>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）';
+      body += '<br>※本メールへは返信しないようにお願いいたします。';
+      body += '<br>-----------------------------------------------';
+      
+      
+         mail.setHtmlBody(body);       
+         //Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });       
+            
+               
+               
+               
+            mails.add(mail);   
+
+            }
+     
+     
+     
+     
+     }
+  
+  
+  }
+  
+  Messaging.sendEmail(mails);
+  
+  
+   }  
+   /* End Of SFDCJP-1026 */
+   
+   
+   
+   
+   
+  /*************************************************************************************************************************
+Created Date        :    31.01.2017
+Company             :    NTT Data,Inc.
+Usage               :   On clicking on the Delete button Parent Campaign and associated Child execution campaign will be deleted,
+                        if only child execution campaign will be in planning state else system will block the deletion process.
+JIRA NO             :    SFDCJP-1024 */
+/********************************************************************************************************************/
+   
+   Public static void beforeDeleteCampaignStatus(List<Campaign> CampDel)
+{
+Id parentCampaign = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+Id childCampaign= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+List<Campaign> childcamp=new List<Campaign>();
+List<Campaign> Parentcamp=new List<Campaign>();
+Set<Id> parecamId=new Set<Id>();
+
+for(Campaign cmp: CampDel){
+if(cmp.RecordTypeId == parentCampaign && cmp.Status == 'Draft'){
+  parecamId.add(cmp.id);
+   } 
+  }
+
+  if(parecamId!=null)
+  {
+childcamp=[select id from Campaign where ParentId=:parecamId];
+}
+if(childcamp!=null)
+{
+delete childcamp;
+}
+  
+  if(Parentcamp!=null && childcamp.size()==0)
+  {
+  Parentcamp=[select id from Campaign where ID=:parecamId];
+    delete Parentcamp;
+    }
     
+}
+
+/*End of SFDCJP-1024   */
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Created Date        :    8.01.2017
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class to make a copy of a campaign to Retail Campaign
+                         Business Conditions :
+                          Required For Joint Driven Campaign Implementaion                          
+JIRA NO             :    SFDCJP-1044                                              
+************************************************************************************/
+   public static void copyCampaignToRetailCampaign(List<Campaign> campaignIds){
+   
+   List<Campaign> camListCheck = New List<Campaign>();
+List<Retail_Campaign__c> retailCamParentList = New List<Retail_Campaign__c>();
+List<Retail_Campaign__c> ret   = New List<Retail_Campaign__c>();
+List<Retail_Campaign__c> tail    = New List<Retail_Campaign__c>();
+
+           
+Set<id> sid = New Set<id>();
+Set<id> aid = New Set<id>();
+    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    Id executionRetailRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordRetailId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+        For(Campaign campNew : campaignIds){
+            
+            if( campNew.Child_Campaign_Status__c =='Execution' && campNew.Set_List_Maintenance_Flag__c == false ){
+            
+                 sid.add(campNew.ParentId);
+                 aid.add(campNew.Id);  
+            
+        }else if (campNew.Child_Campaign_Status__c =='Execution' && campNew.Consolidated_List_Completed__c == true){
+        
+          sid.add(campNew.ParentId);
+                 aid.add(campNew.Id); 
+        
+        } 
+        
+        
+        
+        
+      List<Campaign> camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
+          
+        
+    for(Campaign cam : camList ){
+        
+       if(Cam.Campaign_Executer__c == 'Retail'){
+       Retail_Campaign__c newChildRetail = new Retail_Campaign__c();
+            newChildRetail.Name = campNew.Name;
+           newChildRetail.Parent_Campaign__c = campNew.Id;
+            newChildRetail.Execution_Start_Date__c = campNew.Execution_Start_Date__c;
+            newChildRetail.Execution_End_Date__c = campNew.Execution_End_Date__c;
+            newChildRetail.Segmentation_Date__c = campNew.Segmentation_Date__c;
+            newChildRetail.Child_Campaign_Status__c = campNew.Child_Campaign_Status__c;
+            newChildRetail.Response_Date__c = campNew.Response_Date__c;
+            newChildRetail.Execution_Type__c = campNew.Execution_Type__c;
+            newChildRetail.Segmentation_Base__c = campNew.Segmentation_Base__c;
+            newChildRetail.DM_Template__c = campNew.DM_Template__c;
+            newChildRetail.Final_List_Approved__c = campNew.Final_List_Approved__c;
+            newChildRetail.Survey__c = campNew.Survey__c;
+            newChildRetail.Add_Sales_Staff__c = campNew.Add_Sales_Staff__c;
+            newChildRetail.Add_Service_Staff__c = campNew.Add_Service_Staff__c;
+            newChildRetail.Add_Campaign_Member_ID__c = campNew.Add_Campaign_Member_ID__c;
+            newChildRetail.Campaign_Member_Sharing_Rule__c = campNew.Campaign_Member_Sharing_Rule__c;
+            newChildRetail.RecordTypeId = executionRetailRecordId;
+            newChildRetail.Campaign_Execution_Channels__c = 'DM';
+            
+            ret.add(newChildRetail);
+            
+         } 
+         if(ret.size() > 0){
+         insert ret;
+         }
+        if(Cam.Campaign_Executer__c == 'Retail'){          
+       Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
+        newRetail.Name = cam.Name; 
+        //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
+        newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
+        newRetail.Parent_Campaign__c = cam.Id;
+        newRetail.Start_Date__c = cam.StartDate; 
+        newRetail.Close_Date__c = cam.EndDate;  
+        newRetail.Status__c = cam.Status ; 
+        newRetail.Event_Type__c = cam.Event_Type__c  ;
+        newRetail.Description__c  = cam.Description ;
+        newRetail.Campaign_Execution_Channels__c = cam.Campaign_Execution_Channels__c ; 
+        newRetail.Actual_Cost__c = cam.ActualCost;  
+        newRetail.Brand__c  = cam.Brand__c ;
+        newRetail.Class__c = cam.Class__c ;
+        newRetail.Budgeted_Cost__c = cam.BudgetedCost;      
+        newRetail.RecordTypeId = planningRecordRetailId;
+      
+        retailCamParentList.add(newRetail);
+        }
+        }
+        
+     }
+     //insert retailCamParentList; 
+     Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
+     integer i=0;
+     for(Database.SaveResult sr :srList){
+     if(sr.isSuccess()){
+     
+     ret[i].Parent_Campaign1__c = sr.getId();
+     i++;
+     } 
+     
+     
+     }
+    system.debug('++++++++++++'+srList );
+     
+    integer k=0;
+    for(Retail_Campaign__c  cam : ret){
     
+    cam.Parent_Campaign1__c = ret[k].Parent_Campaign1__c ;
+    k++;
+    system.debug('++++++++++++'+cam.Parent_Campaign1__c );
+    update cam;
     
-    
-    
-    
+    }
+   
+   
+   
+   
+   
+   
+   
+   }
+
+
+   
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
  /**
