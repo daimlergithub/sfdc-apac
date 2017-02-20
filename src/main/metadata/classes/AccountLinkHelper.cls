@@ -703,12 +703,19 @@ public class AccountLinkHelper
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+		Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
                 System.debug('AccountID--->'+acc.id);        
             }
             
+        }
+		 List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
+        for(Account_Link__c acclink : accLst ){
+            if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
+            acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
+           }     
         }
           string regexForNullValue ='null';
             string nullValue ='';                            
@@ -737,7 +744,7 @@ public class AccountLinkHelper
                 acclink.Retail_FirstName__c = accountMap.get(acclink.toRole__c).FirstName;
                 //acclink.Retail_Salutation__c = accountMap.get(acclink.toRole__c).Salutation__c;
                 acclink.Retail_Full_Name__c = ((accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'')+ '  ' + (accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(25);
-                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+ ' '+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + ' '+(accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
+                acclink.Retail_Full_Name_Title__c = ((accountMap.get(acclink.toRole__c).Salutation__c!= null ? accountMap.get(acclink.toRole__c).Salutation__c: '')+ '  '+(accountMap.get(acclink.toRole__c).LastName != null ? accountMap.get(acclink.toRole__c).LastName:'') + '  '+(accountMap.get(acclink.toRole__c).FirstName != null ? accountMap.get(acclink.toRole__c).FirstName:'')).left(140);
                 acclink.Retail_LastName_Native__c = accountMap.get(acclink.toRole__c).LastName_Native_1__c;
                 acclink.Retail_FirstName_Native__c = accountMap.get(acclink.toRole__c).FirstName_Native_1__c; 
                 acclink.Retail_Full_Name_Native__c = ((accountMap.get(acclink.toRole__c).LastName_Native_1__c != null ? accountMap.get(acclink.toRole__c).LastName_Native_1__c:'')+ ' ' +(accountMap.get(acclink.toRole__c).FirstName_Native_1__c != null ? accountMap.get(acclink.toRole__c).FirstName_Native_1__c:'')).left(50); 
@@ -1162,7 +1169,7 @@ public class AccountLinkHelper
                     position = acc.Position__c;
                     System.debug('AccountID--->'+acc.id);   
                 }
-                else if (acc.fromRole__r.RecordType.Name == 'Person Account' || acc.fromRole__r.RecordType.Name == 'Company'){
+                 if (acc.fromRole__r.RecordType.Name == 'Person Account' || acc.fromRole__r.RecordType.Name == 'Company'){
                     AccountIds.add(acc.fromRole__c); //Adding accountId's to set
                     position = acc.Position__c;
                     System.debug('AccountID--->'+acc.id);
