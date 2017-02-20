@@ -41,7 +41,7 @@ Dev Item : P3
         <apex:pageBlockTable value="{!DealerAssignment}" var="dealer" id="myTable" >
              <apex:column id="Rdbtn"><input type="radio" name="selectRadio" onclick="fnbuttoncheck(this.id)" checked="{!dealer.isSelected }" id="{!dealer.usr.id}" /></apex:column>
             <apex:column value="{!dealer.usr.Name}"/>
-            <apex:column headerValue="Profile Name" value="{!$Profile.Name}">
+            <apex:column value="{!dealer.usr.ProfileID}">
             </apex:column>
             <apex:column value="{!dealer.usr.Title}"/>
             <apex:column value="{!dealer.usr.Dealer_Outlet_Name__c}"/>

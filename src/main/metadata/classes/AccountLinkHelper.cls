@@ -707,6 +707,7 @@ public class AccountLinkHelper
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
+				 FromAccountIds.add(acc.fromRole__c);  
                 System.debug('AccountID--->'+acc.id);        
             }
             
