@@ -11,7 +11,7 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
 
       init();
       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-    //  ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
+     
       TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
       // Start Test
         Test.startTest();
@@ -31,7 +31,6 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
      {
        init();
        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-      // ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
        TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
        // Start Test
        Test.startTest();
