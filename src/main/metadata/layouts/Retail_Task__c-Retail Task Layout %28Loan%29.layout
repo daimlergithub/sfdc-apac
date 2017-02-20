@@ -59,10 +59,6 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Payment_Cust_To_Shinpan__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contractor_Name_Native__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -105,16 +101,8 @@
                 <field>Payment_status_One_Month_Delay__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Latest_Sales_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contractor_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contractor_ZipCode1__c</field>
+                <behavior>Readonly</behavior>
+                <field>Interface_Valid_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -211,7 +199,7 @@
                 <height>800</height>
                 <page>RetailTaskLoan</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>1400</width>
             </layoutItems>
         </layoutColumns>
