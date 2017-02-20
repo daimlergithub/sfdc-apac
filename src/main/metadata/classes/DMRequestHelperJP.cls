@@ -344,17 +344,23 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         Map<String, String> addtrmapInsert = UtilAddressTranslation.addtrmap;
         UtilAddressTranslation.gettranslatedvalues('JP');
                  //get the accountIds 
+                 if(triggerNew!=null)
+                {
                 for(DM_Request__c lstDMR:triggerNew){
+                if(lstDMR.Customer_Name__c!=null)
+                    {
                     CustomerId.add(lstDMR.Customer_Name__c);
+                    }
                 }  
-              
+              }
                 //query for arelated addresses and create a nested map
                 for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
                 } 
-            
+            if(triggerNew!=null)
+                {
             for(DM_Request__c lstDMR:triggerNew){          
                 
                if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
@@ -386,6 +392,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                }
                 
             }  
+            }
         
     }
     
@@ -409,9 +416,15 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
             Usr = [SELECT Market__C,Id FROM User WHERE Id = : UserInfo.getUserId()];
             Map<Id,DM_Request__c> mapDMRequest=new Map<Id,DM_Request__c>();
             //get the accountIds 
+            if(triggerNew!=null)
+            {
                 for(DM_Request__c lstDMR:triggerNew){
+                if(lstDMR.Customer_Name__c !=null)
+                {
                     CustomerId.add(lstDMR.Customer_Name__c);
+                    }
                 }  
+             }   
               
         //query for DM_Request__c 
                 if(Usr.Market__C=='JP'){
@@ -420,9 +433,14 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                 else If(Usr.Market__C=='KR'){
                     DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
                 }  
+                if(DMList !=null)
+                {
              for(DM_Request__c lstDMR:DMList){
                   mapDMRequest.put(lstDMR.Customer_Name__c,lstDMR);
-              }     
+              }   
+              }  
+              if(triggerNew!=null)
+            {
             for(DM_Request__c lstDMR:triggerNew)
             {
                 if(isUpdate){
@@ -430,6 +448,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                    if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                      &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
                      ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
+                           if(mapDMRequest !=null && mapDMRequest.get(lstDMR.Customer_Name__c) !=null && mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
                            if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
                          if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
@@ -449,6 +468,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                                      lstDMR.Status3__c='Duplicate';
                                  }
                          }
+                         }
                     }               
                }
                    
@@ -457,7 +477,9 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                      if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
                      &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
                      ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
-                      if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
+                     
+                     
+                      if(mapDMRequest !=null && mapDMRequest.get(lstDMR.Customer_Name__c) !=null && mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
                       if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
                                 If(Usr.Market__C=='KR'){
                                      lstDMR.Status__c='Duplicate';
@@ -476,6 +498,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                           }
                 }
            }
+        }
         }
     
      }
