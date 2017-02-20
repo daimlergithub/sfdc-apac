@@ -65,7 +65,7 @@
             <field>OptionCode__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>        
+        </displayedFields>
         <displayedFields>
             <field>EngineNumber__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -318,7 +318,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1176,7 +1176,8 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>    <fields>
+    </fields>
+    <fields>
         <fullName>Comment__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -1909,7 +1910,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_DescriptionÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_DescriptionÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>100</length>
@@ -1931,7 +1932,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_EngineNumberÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_EngineNumberÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Engine No.</label>
         <length>20</length>
@@ -1953,7 +1954,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_EuroVINÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVINÃ¢â‚¬Å“</description>
         <externalId>true</externalId>
         <label>EuroVIN</label>
         <length>18</length>
@@ -1975,7 +1976,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_FinanceExpiryDateÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FinanceExpiryDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>FinanceExpiryDate</label>
         <required>false</required>
@@ -2023,7 +2024,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_FirstRegistrationDateÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstRegistrationDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>FirstRegistrationDate</label>
         <required>false</required>
@@ -2048,7 +2049,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_FirstRegis
                 <fullName>E</fullName>
                 <default>false</default>
             </picklistValues>
-		    <picklistValues>
+            <picklistValues>
                 <fullName>Methanol</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2451,7 +2452,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â LastServiceDateÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>LastServiceDate</label>
         <required>false</required>
@@ -2473,7 +2474,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â LastServiceDateÃ�
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_LatestSalesContractDateÃ¢â‚¬Å“</description>
+        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesContractDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Latest Contract Date</label>
         <required>false</required>
@@ -2483,7 +2484,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â LastServiceDateÃ�
     </fields>
     <fields>
         <fullName>Latest_Handover_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_LatestSalesDeliveryDateÃ¢â‚¬Å“</description>
+        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesDeliveryDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Latest Handover Date</label>
         <required>false</required>
@@ -2493,7 +2494,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â LastServiceDateÃ�
     </fields>
     <fields>
         <fullName>Latest_Invoice_Date__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_LatestSalesInvoiceDateÃ¢â‚¬Å“</description>
+        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesInvoiceDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Latest Invoice Date</label>
         <required>false</required>
@@ -2503,7 +2504,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â LastServiceDateÃ�
     </fields>
     <fields>
         <fullName>Latest_Sales_Person__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_LatestSalesPersonÃ¢â‚¬Å“</description>
+        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesPersonÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Latest Sales Person</label>
         <length>18</length>
@@ -2571,7 +2572,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_ModelYearÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelYearÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Year Of Manufacture</label>
         <picklist>
@@ -4850,7 +4851,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_NextMileageÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_NextMileageÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>NextMileage</label>
         <precision>18</precision>
@@ -4873,7 +4874,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂNextServiceDateÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;NextServiceDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>NextServiceDate</label>
         <required>false</required>
@@ -4893,7 +4894,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_OptionCodeÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_OptionCodeÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>OptionCode</label>
         <length>255</length>
@@ -4949,7 +4950,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_ProductionDateÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ProductionDateÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>ProductionDate</label>
         <required>false</required>
@@ -5017,7 +5018,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_RecallÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_RecallÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Recall</label>
         <trackHistory>false</trackHistory>
@@ -5132,7 +5133,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_SalesTypeÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_SalesTypeÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>SalesType</label>
         <picklist>
@@ -5329,7 +5330,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_TransmissionÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_TransmissionÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Transmission</label>
         <picklist>
@@ -5396,7 +5397,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is â€Vehicle_Trimâ€œ</description>
+Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Trimâ€œ</description>
         <externalId>false</externalId>
         <label>Trim</label>
         <length>100</length>
@@ -5406,7 +5407,7 @@ Attribute in Data Dictionary object Vehicle is â€Vehicle_Trimâ€œ</descr
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
         <externalId>false</externalId>
@@ -5431,7 +5432,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_UsVINÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_UsVINÃ¢â‚¬Å“</description>
         <externalId>true</externalId>
         <label>UsVIN</label>
         <length>17</length>
@@ -5453,7 +5454,7 @@ Modify History
 Modify By: Mouse Liu
 Modify Reason: Just change the field type to Picklist with LOV 'Unknown Yes No'
 */
-Attribute in Data Dictionary object Vehicle is Ã¢â‚¬ÂVehicle_ValidÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ValidÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Validity</label>
         <picklist>
@@ -5837,10 +5838,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>BMW</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>BMW Alpina</fullName>
                 <default>false</default>
@@ -6135,6 +6132,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Opel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7825,12 +7826,12 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Other</fullName>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8578,7 +8579,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-       <picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>ANG</fullName>
@@ -19809,7 +19810,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
-             <picklist>Fuel__c</picklist>
+            <picklist>Fuel__c</picklist>
             <values>
                 <fullName>ANG</fullName>
                 <default>false</default>
@@ -21695,8 +21696,7 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <masterLabel>Send to SPO</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 
 var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'"); 
