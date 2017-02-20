@@ -287,11 +287,22 @@
                 <behavior>Edit</behavior>
                 <field>Person_Assign_Notificaton_Done__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Leads__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -402,7 +413,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Delivery_Type__c</fields>
         <fields>Status__c</fields>
         <fields>Expected_DM_Material1__c</fields>
         <fields>Status1__c</fields>
@@ -410,6 +420,7 @@
         <fields>Status2__c</fields>
         <fields>Expected_DM_Material3__c</fields>
         <fields>Status3__c</fields>
+        <fields>Delivery_Type__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Lead__c</relatedList>
     </relatedLists>
@@ -417,9 +428,10 @@
         <fields>NAME</fields>
         <fields>Survey__c</fields>
         <fields>Survey_Taking_Status__c</fields>
-        <fields>Account__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
+        <fields>Account__c</fields>
+        <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Lead__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -431,7 +443,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000H8ja</masterLabel>
+        <masterLabel>00hN0000000HCRm</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -10027,6 +10027,10 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Daimler Employee Car</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -90307,6 +90311,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
@@ -101612,6 +101620,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Rental Car</fullName>
                 <default>false</default>
             </values>
             <values>
