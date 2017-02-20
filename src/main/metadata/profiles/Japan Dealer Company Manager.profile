@@ -4821,6 +4821,7 @@
         <field>Campaign_Member__c.Contract_Responsible_Person__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Service_Representative__c</field>
         <readable>true</readable>
