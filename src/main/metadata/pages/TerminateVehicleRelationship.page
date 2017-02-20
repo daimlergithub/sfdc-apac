@@ -1,5 +1,3 @@
-
-
 <apex:page controller="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c" docType="html-5.0">
 
  <apex:form id="Myform">
@@ -23,10 +21,13 @@
         </apex:pageBlockSection>
         <apex:pageBlockSection title="{!$Label.TerminateVehicleRelationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}" columns="2">
              
-             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label}">
-             <apex:input type="date"  value="{!End_Date}"  required="true"/>
+               
+             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label} (mm/dd/yyyy)">  
+
+             <apex:input type="date"  value="{!End_Date}"  required="true" title="Date Format MM/DD/YYYY"/> 
              </apex:outputLabel>
              <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Reason__c.Label}">
+            
               <apex:selectList value="{!selectedEndReason}" multiselect="false" size="1" label="Please enter End Reason" required="true" >
                 <apex:selectOptions value="{!EndReason}"/>
             </apex:selectList>
