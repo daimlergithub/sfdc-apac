@@ -3,6 +3,10 @@
 ** and update End Date ,End reason and comments for all Vehicle Relationship records
 ** Created By: Sneha Chail
 ** Date: 2015-10-11
+Modified by	: Venky
+Modification Date : 2017-2-12
+Description : Dealer USers are not able to select End Date,End Reason ,End Reason due to sharing security reason, given permission on updated code.
+Fix : End Date,End Reason ,End Reason Test fields are given permission to dealer user
 **/
 
 public class TerminateVehicleRelationshipExtension   

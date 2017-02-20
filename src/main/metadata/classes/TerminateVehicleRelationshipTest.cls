@@ -11,18 +11,18 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
 
       init();
       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-      ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
-      TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension(objSc);
+    //  ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
+      TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
       // Start Test
         Test.startTest();
         objVehicleRelship.End_Date__c=system.today(); 
         objVehicleRelship.End_Setting_User__c=UserInfo.getUserId();
         objVehicleRelship.End_Setting_DateTime__c=system.now();            
-        PageReference redirectSuccess=objVehicleController.Save();         
+        PageReference redirectSuccess=objVehicleController.SaveRecords();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
-       system.assertEquals(redirectSuccess.getURL(),'/'+vehicleId.substring(0,15));     
+       
        system.assertEquals(objVehicleRelship.End_Setting_User__c,UserInfo.getUserId());
        system.assertEquals(Date.valueOf(objVehicleRelship.End_Setting_DateTime__c),Date.valueOf(system.now()));
     }
@@ -31,15 +31,15 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
      {
        init();
        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-       ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
-       TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension(objSc);
+      // ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
+       TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
        // Start Test
        Test.startTest();
-       PageReference redirectSuccess=objVehicleController.Cancel();         
+       PageReference redirectSuccess=objVehicleController.cancelpage();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
-       system.assertEquals(redirectSuccess.getURL(),'/'+vehicleId.substring(0,15));      
+           
      }  
  // creating records 
   public static void init()
@@ -48,7 +48,7 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
          insert updatecustomsettings;
         // Create Account
         objAccount=new Account(RecordTypeId=personRecordtypeid,LastName='Pref chck test',Gender__c = 'Male',Occupation__c = 'Others',Phone = '09088767547',Province__c = 'Province1',Primary_Address__c = 'sdfsdfsdfsdf',
-                                City__c = 'asdfsf',ZipCode__c = '1234567',MBK_Data_Source__c='Email',Mobile__c = '00000009642');
+                                City__c = 'asdfsf',ZipCode__c = '1234567',MBK_Data_Source__c='Email',Mobile__c = '09908832174');
         //objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
         insert objAccount;
         // Create Vehicle 
