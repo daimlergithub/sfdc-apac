@@ -26,7 +26,7 @@
    </table>
   
   <apex:pageBlockButtons >
-        <apex:commandButton value="Update" onclick="Please check and modify if necessary the Sales responsible person for the new contact target" action="{!updateit}" />
+        <apex:commandButton value="Update" onclick="return confirm ('Please check and modify if necessary the Sales responsible person for the new contact target');" action="{!updateit}" />
         <apex:commandButton value="Cancel" action="{!cancel}"/>
         </apex:pageBlockButtons>
    </apex:pageBlock>
