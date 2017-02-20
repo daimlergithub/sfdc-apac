@@ -34,7 +34,7 @@ public class DeleteRetailCopy{
         }        
     }  
     public static void updateAccoutOwner(set<Id> dealerId){
-        
+        List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
         List<Account> accountupdateList = new List<Account>();
         //List<Account_Link__c> accountlink = [select id,fromRole__c from Account_Link__c WHERE fromRole__c = : dealerId];
         for(Account_Link__c acc : [select id,Retail_Delete_Flag__c, fromRole__c from Account_Link__c WHERE fromRole__c = : dealerId]){
@@ -52,9 +52,13 @@ public class DeleteRetailCopy{
                     act.OwnerID = integrationUser[0].id;
                    accountupdateList .add(act);
                 }
+				 AccountsharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId IN : dealerId ];
             }
     
         if(!accountupdateList.isEmpty())
         update accountupdateList;
+		
+		if(!AccountsharesToDelete.isEmpty())
+        database.delete(AccountsharesToDelete,false);
    }
 }
