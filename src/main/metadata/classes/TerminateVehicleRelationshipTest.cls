@@ -10,36 +10,32 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
      {
 
       init();
-     /* ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-    //  ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
-      TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
+       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);       
+      TerminateVehicleRelationshipExtension extveh=new TerminateVehicleRelationshipExtension();
       // Start Test
         Test.startTest();
-        objVehicleRelship.End_Date__c=system.today(); 
-        objVehicleRelship.End_Setting_User__c=UserInfo.getUserId();
-        objVehicleRelship.End_Setting_DateTime__c=system.now();            
-        PageReference redirectSuccess=objVehicleController.SaveRecords();         
+                   
+        PageReference redirectSuccess=extveh.SaveRecords();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
-       
-       system.assertEquals(objVehicleRelship.End_Setting_User__c,UserInfo.getUserId());
-       system.assertEquals(Date.valueOf(objVehicleRelship.End_Setting_DateTime__c),Date.valueOf(system.now())); */
+     system.assertNotequals(vehicleId,null);  
+     
     }
   // Calling "cancel method
     public static testMethod void cancelTest()
      {
        init();
-     /*  ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-      // ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
+        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
        TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
+       TerminateVehicleRelationshipExtension extob=new TerminateVehicleRelationshipExtension();
        // Start Test
        Test.startTest();
-       PageReference redirectSuccess=objVehicleController.cancelpage();         
+       PageReference redirectSuccess=extob.cancelpage();         
        // Stop Test 
        Test.stopTest();
-       String vehicleId=objVehicle.Id; */
-           
+       String vehicleId=objVehicle.Id;  
+            system.assertNotequals(vehicleId,null); 
      }  
  // creating records 
   public static void init()
