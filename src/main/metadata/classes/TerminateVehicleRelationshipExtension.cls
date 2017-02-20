@@ -3,23 +3,46 @@
 ** and update End Date ,End reason and comments for all Vehicle Relationship records
 ** Created By: Sneha Chail
 ** Date: 2015-10-11
-Modified by	: Venky
-Modification Date : 2017-2-12
-Description : Dealer USers are not able to select End Date,End Reason ,End Reason due to sharing security reason, given permission on updated code.
-Fix : End Date,End Reason ,End Reason Test fields are given permission to dealer user
 **/
 
-public class TerminateVehicleRelationshipExtension   
+public  class TerminateVehicleRelationshipExtension   
 {
     //Variable Declaration 
-    public Vehicle__c vehicle{get;set;}
+    public Vehicle__c vehiclerec{get;set;}
+    public String vehicleID{get;set;}
     public Vehicle_Relationship__c objVehicleRelation{get;set;} 
     private List<Vehicle_Relationship__c> listvehicleRelation=new List<Vehicle_Relationship__c>();
- 
-     public terminateVehicleRelationshipExtension(ApexPages.StandardController controller) {
-          objVehicleRelation= new Vehicle_Relationship__c();
-          this.vehicle= (Vehicle__c)controller.getRecord();
+   Public String End_Reason{get;set;} 
+    Public String End_ReasonText{get;set;} 
+   Public Date End_Date{get;set;} 
+   Public User us{get;set;}
+  public String selectedEndReason{get;set;}
+  
+     public terminateVehicleRelationshipExtension() {
+       us = [select id,ContactID,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
+         objVehicleRelation= new Vehicle_Relationship__c();  
+         // this.vehicle= (Vehicle__c)controller.getRecord();
+          
+          vehicleID=ApexPages.currentPage().getParameters().get('ID');
+          vehiclerec=[Select id,Name,UsVIN__c,Brand__c,Class__c,Model__c from Vehicle__c  where id=:vehicleID];
+        //  objVehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicle.Id limit 1];
     }
+    
+    public List<SelectOption> getEndReason() {
+        List<SelectOption> countryOptions = new List<SelectOption>();
+        countryOptions.add(new SelectOption('','-None-'));
+        countryOptions.add(new SelectOption('Replacement','Replacement'));
+        countryOptions.add(new SelectOption('Bought Competitors','Bought Competitors'));
+        countryOptions.add(new SelectOption('Sold','Sold'));
+        countryOptions.add(new SelectOption('Handover','Handover'));
+        countryOptions.add(new SelectOption('Warranty system','Warranty system'));
+         countryOptions.add(new SelectOption('MB Online','MB Online'));
+          countryOptions.add(new SelectOption('DMS','DMS'));
+          countryOptions.add(new SelectOption('Others','Others'));
+ 
+        return countryOptions;
+    }
+    
     /**  
      * @Description Gets all the records from Vehicle Relationship of the current associated Vehicle.  
      * @author  Sneha chail
@@ -27,8 +50,10 @@ public class TerminateVehicleRelationshipExtension
      * @return all records of VehicleRelationship having current VehicleID
      * @see   TerminateVehicleRelationship(Vf Page)
     */    
-    public List<Vehicle_Relationship__c> getlstVehicleRelation() {      
-          listvehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicle.Id];
+    public List<Vehicle_Relationship__c> getlstVehicleRelation() { 
+        us = [select id,ContactID,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];     
+          listvehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicleID];
+         
           return listvehicleRelation;
     }
     /**  
@@ -38,27 +63,31 @@ public class TerminateVehicleRelationshipExtension
      * @return Redirect to the parent page of Vehicle record.
      * @see   TerminateVehicleRelationship(Vf Page)
     */ 
-    public PageReference Save() {
+    public PageReference SaveRecords() {
+           
            
        List<Vehicle_Relationship__c> lstVehiRelation=new List<Vehicle_Relationship__c>();
        getlstVehicleRelation();
             for(Vehicle_Relationship__c veR:listvehicleRelation){
-               veR.End_Date__c=objVehicleRelation.End_Date__c;
-               veR.End_Reason__c=objVehicleRelation.End_Reason__c;
-               veR.Comments__c=objVehicleRelation.Comments__c;
+               veR.End_Date__c=End_Date;
+               veR.End_Reason__c=selectedEndReason;
+               veR.Comments__c=End_ReasonText;
                veR.End_Setting_User__c=UserInfo.getUserId();
                veR.End_Setting_DateTime__c=system.now();
                lstVehiRelation.add(veR);
             }
+            system.debug('###@@@@@ lstVehiRelation'+lstVehiRelation);
         try {   
             if(lstVehiRelation.size()>0)
-            update lstVehiRelation;
+            Database.SaveResult[] lsr = Database.update(lstVehiRelation,false);
+            
          } catch(System.DMLException e) {
             ApexPages.addMessages(e);          
          }
+          system.debug('###@@@@@ lstVehiRelation'+lstVehiRelation);
         //  After successful Save, navigate to the default view page
-        PageReference redirectSuccess = new ApexPages.StandardController(this.vehicle).view();
-        return (redirectSuccess);
+         
+        return new PageReference('/' + vehicleid);
     }
     /**  
      * @Description Redirect to the parent page of Vehicle record.
@@ -67,8 +96,9 @@ public class TerminateVehicleRelationshipExtension
      * @return Redirect to the parent page of Vehicle record.
      * @see   TerminateVehicleRelationship(Vf Page)
     */ 
-    public PageReference cancel() {
-        PageReference redirectSuccess = new ApexPages.StandardController(this.vehicle).view();
-        return (redirectSuccess);
+    public pageReference cancelpage() {
+    
+return new PageReference('/' + vehicleid);
+         
     } 
 }
