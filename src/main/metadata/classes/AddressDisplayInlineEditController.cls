@@ -20,6 +20,7 @@ public class AddressDisplayInlineEditController {
     public String provincepicklist{get;set;}
     Public Boolean Validation;
     Public Boolean profilename{get;set;}
+	
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');

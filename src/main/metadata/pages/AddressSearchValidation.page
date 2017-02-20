@@ -11,8 +11,9 @@
     }
     function unCheckOther(cb)
     {   
-   
-        var inputElem = document.getElementsByTagName("input");  
+        
+		
+		var inputElem = document.getElementsByTagName("input");  
         //var inputElem = document.getElementsByName("rdSelected");   
                   
         for(var i=0; i<inputElem.length; i++)
