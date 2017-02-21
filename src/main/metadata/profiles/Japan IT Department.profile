@@ -6612,7 +6612,7 @@
         <field>Campaign_Lead__c.Campaign_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.Campaign__c</field>
         <readable>true</readable>
@@ -6735,6 +6735,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.RegistrationDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
