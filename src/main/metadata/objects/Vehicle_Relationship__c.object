@@ -1456,6 +1456,14 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1468,15 +1476,11 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gift Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1492,7 +1496,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Employee Car</fullName>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4767,6 +4771,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
@@ -5893,6 +5901,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Rental Car</fullName>
                 <default>false</default>
             </values>
             <values>

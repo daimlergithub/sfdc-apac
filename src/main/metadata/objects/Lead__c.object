@@ -624,6 +624,21 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		<displayedFields>
+            <field>Service_Advisor__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lead_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>SuspectLeadFields</label>
     </fieldSets>
     <fields>
@@ -9935,6 +9950,14 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
@@ -9953,10 +9976,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
@@ -10006,26 +10045,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler Employee Car</fullName>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -90307,6 +90326,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
@@ -101612,6 +101635,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Rental Car</fullName>
                 <default>false</default>
             </values>
             <values>

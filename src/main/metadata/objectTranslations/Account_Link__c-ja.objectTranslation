@@ -840,6 +840,11 @@
         <label>車台番号</label>
         <name>VIN__c</name>
     </fields>
+	 <fields>
+        <label>車両</label>
+        <name>Vehicle__c</name>
+        <relationshipLabel>車両情報（自法人のみ参照可</relationshipLabel>
+    </fields>
     <fields>
         <label>サービス担当者</label>
         <name>Service_Advisor__c</name>
@@ -1153,11 +1158,6 @@
     <fields>
         <label>顧客名カナ（姓）</label>
         <name>Retail_LastName_Native__c</name>
-    </fields>
-    <fields>
-        <label>車両</label>
-        <name>Vehicle__c</name>
-        <relationshipLabel><!-- Account Links --></relationshipLabel>
     </fields>
     <fields>
         <label>関係者1</label>
