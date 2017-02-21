@@ -11,18 +11,20 @@ public  class TerminateVehicleRelationshipExtension
     public Vehicle__c vehiclerec{get;set;}
     public String vehicleID{get;set;}
     public Vehicle_Relationship__c objVehicleRelation{get;set;} 
+    public Account newacc{get;set;} 
     private List<Vehicle_Relationship__c> listvehicleRelation=new List<Vehicle_Relationship__c>();
    Public String End_Reason{get;set;} 
-    Public String End_ReasonText{get;set;} 
+    Public String End_ReasonText{get;set;}  
    Public Date End_Date{get;set;} 
    Public User us{get;set;}
   public String selectedEndReason{get;set;}
-  
+   public String datename {get; set;}
      public terminateVehicleRelationshipExtension() {
        us = [select id,ContactID,Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
          objVehicleRelation= new Vehicle_Relationship__c();  
          // this.vehicle= (Vehicle__c)controller.getRecord();
-          
+         // End_Date=objVehicleRelation.End_Date__c ; 
+         newacc=new Account();
           vehicleID=ApexPages.currentPage().getParameters().get('ID');
           vehiclerec=[Select id,Name,UsVIN__c,Brand__c,Class__c,Model__c from Vehicle__c  where id=:vehicleID];
         //  objVehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicle.Id limit 1];
@@ -69,7 +71,7 @@ public  class TerminateVehicleRelationshipExtension
        List<Vehicle_Relationship__c> lstVehiRelation=new List<Vehicle_Relationship__c>();
        getlstVehicleRelation();
             for(Vehicle_Relationship__c veR:listvehicleRelation){
-               veR.End_Date__c=End_Date;
+               veR.End_Date__c=newacc.Dealer_Active_to__c;
                veR.End_Reason__c=selectedEndReason;
                veR.Comments__c=End_ReasonText;
                veR.End_Setting_User__c=UserInfo.getUserId();
