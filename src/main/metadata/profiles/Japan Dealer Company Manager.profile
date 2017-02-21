@@ -10781,6 +10781,11 @@
         <field>DM_Request__c.Receipient_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Sales_Department__c</field>
@@ -19767,6 +19772,16 @@
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Question_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Survey_Taken_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>SurveyQuestionResponse__c.Updated_By_EP_Transactions__c</field>
@@ -19822,10 +19837,20 @@
         <field>SurveyTaker__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>SurveyTaker__c.SurveyTakenByVehicle__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Survey_Taken_Date__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
