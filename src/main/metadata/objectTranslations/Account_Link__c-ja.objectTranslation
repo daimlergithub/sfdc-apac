@@ -1160,11 +1160,6 @@
         <name>Retail_LastName_Native__c</name>
     </fields>
     <fields>
-        <label>車両</label>
-        <name>Vehicle__c</name>
-        <relationshipLabel><!-- Account Links --></relationshipLabel>
-    </fields>
-    <fields>
         <label>関係者1</label>
         <name>fromRole__c</name>
         <relationshipLabel>関係者1</relationshipLabel>
