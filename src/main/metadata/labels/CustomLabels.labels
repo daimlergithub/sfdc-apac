@@ -1508,6 +1508,13 @@
         <value>Dealer Person Name :</value>
     </labels>
     <labels>
+        <fullName>Dealer_Campaign_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Campaign Notification</shortDescription>
+        <value>Dealer Campaign Notification</value>
+    </labels>
+    <labels>
         <fullName>Dealer_Has_SR_Code_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
