@@ -39,9 +39,9 @@ public with sharing class LeadMergeController{
        // controller = con;
        dmstr =new  List<DM_Request__c>();
      surtake= new List<SurveyTaker__c>();
-        leads = [Select Id,name,Contact__c,Service_Advisor__c ,RecordtypeId  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
         slaves = new List<LeadWrapperclass>();     
-        for(Lead__c a: [select Id,Contact__c ,name from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
             slaves.add(new LeadWrapperclass(a));
           }
            
