@@ -1114,8 +1114,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void SelectedAddress(){
         
         for(addressSelectionWrapper cWrapper : mapAddressResponse){
-           
-            if(cWrapper.isSelected){
+               if(cWrapper.isSelected){
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
@@ -1123,8 +1122,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  
                 AddressObj.Temp_ZipCode__c = '';
-                AddressObj.Temp_Address__c = '';     
-				
+                AddressObj.Temp_Address__c = '';             
             }
         }           
     }    

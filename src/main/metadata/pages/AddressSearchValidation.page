@@ -11,9 +11,8 @@
     }
     function unCheckOther(cb)
     {   
-        
-		
-		var inputElem = document.getElementsByTagName("input");  
+   
+        var inputElem = document.getElementsByTagName("input");  
         //var inputElem = document.getElementsByName("rdSelected");   
                   
         for(var i=0; i<inputElem.length; i++)
@@ -106,7 +105,6 @@
                    
                     
                 </apex:pageBlockSection>
-               
                 
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'KR') ),true,false)}">

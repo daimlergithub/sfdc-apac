@@ -20,7 +20,8 @@
             <!--PageBlock starts here-->
             <apex:pageBlock title="{!$Label.Address}" id="pageBlock">
                 <apex:pageMessages id="pgmsg"/> 
-                                
+                
+                
                 <!--PageBlockTable  starts here-->
                 <apex:pageBlockTable id="acc_address" value="{!adds}" var="row" style="width:900px;">                                                                    
                     
@@ -212,7 +213,7 @@
                         </apex:outputText> 
                     </apex:outputPanel>                  
                     
-                    <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
+              <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
                     
                 </apex:pageBlockButtons> 
                 <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="addfrm"/>                               
