@@ -270,8 +270,16 @@
         <apexClass>AddressSelectionforExistingCustomer</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
         <apexClass>AddressSelectionforExistingCustomerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>AnnouncementController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AnnouncementController_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -23562,6 +23570,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>AnnouncementsPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
