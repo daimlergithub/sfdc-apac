@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>New_Case</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -89,8 +90,8 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lease_Remaining_Balance_Without_RV__c</field>
-			</layoutItems>
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
             </layoutItems>
@@ -115,6 +116,7 @@
                 <field>Contractor_Name__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
