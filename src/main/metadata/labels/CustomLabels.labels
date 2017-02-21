@@ -832,6 +832,20 @@
         <value>Dear admin, owner,</value>
     </labels>
     <labels>
+        <fullName>Campaign_Notification10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification10</shortDescription>
+        <value>We expanded the target customer list of the following campaigns.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification11</shortDescription>
+        <value>Please finish the list check by the due date and submit.</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Notification2</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2509,6 +2523,13 @@ please contact the number below.</value>
         <value>too many result, please narrow your search by adding more filters</value>
     </labels>
     <labels>
+        <fullName>List_Ready_Maintenance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List Ready Maintenance</shortDescription>
+        <value>List Maintenance Notification</value>
+    </labels>
+    <labels>
         <fullName>Logic_Error</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3853,6 +3874,13 @@ please contact the number below.</value>
         <value>Confirmed</value>
     </labels>
     <labels>
+        <fullName>Store</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Store</shortDescription>
+        <value>Store</value>
+    </labels>
+    <labels>
         <fullName>Subject</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4738,7 +4766,7 @@ please contact the number below.</value>
         <shortDescription>Zipcode validation</shortDescription>
         <value>Zipcode :Please enter any  7 digit number</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>address_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
