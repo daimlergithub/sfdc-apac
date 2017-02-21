@@ -21161,11 +21161,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Test_Article__kav.New_Custom_Field__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Tool_Kit__c.Actual_End_Date__c</field>
         <readable>true</readable>
@@ -23516,9 +23511,6 @@
         <layout>QuestionList__c-Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Question__c-Question Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Recall__c-Recall Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -23762,9 +23754,6 @@
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
         <recordType>Template__c.eDM</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Test_Article__kav-Test Article Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Event Tool Kit</layout>
