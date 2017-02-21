@@ -21,11 +21,18 @@
         </apex:pageBlockSection>
         <apex:pageBlockSection title="{!$Label.TerminateVehicleRelationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}" columns="2">
              
-               
+             
+             
+             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label}">   
+             <apex:inputfield value="{!newacc.Dealer_Active_to__c}" />
+             </apex:outputLabel>  
+                 <!--  Date: <apex:inputText value="{!datename}" size="10" id="demo" onfocus="DatePicker.pickDate(false, this , false);" />    
+    
              <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label} (mm/dd/yyyy)">  
 
              <apex:input type="date"  value="{!End_Date}"  required="true" title="Date Format MM/DD/YYYY"/> 
-             </apex:outputLabel>
+             </apex:outputLabel>  -->
+             
              <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Reason__c.Label}">
             
               <apex:selectList value="{!selectedEndReason}" multiselect="false" size="1" label="Please enter End Reason" required="true" >

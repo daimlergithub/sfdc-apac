@@ -41881,9 +41881,8 @@ alert('Error: Your Market Is Not defined ');
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+        <url> 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 
   
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
@@ -41945,9 +41944,8 @@ window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=OBJECT_CASE_
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}  
+        <url> 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}  
 	
  
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID')
