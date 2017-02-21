@@ -19734,7 +19734,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Survey_Question__c.Question_Ref__c</field>
+        <field>Survey_Question__c.Campaign_Question_Ref__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
