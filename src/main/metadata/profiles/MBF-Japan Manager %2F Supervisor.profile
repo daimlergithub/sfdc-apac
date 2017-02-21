@@ -10167,11 +10167,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.pkbgeolocalization__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>CaseDeadelineCalc__mdt.CaseDeadelineCalc10__c</field>
         <readable>false</readable>
     </fieldPermissions>
