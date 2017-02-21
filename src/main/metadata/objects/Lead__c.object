@@ -9935,6 +9935,14 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
@@ -9953,10 +9961,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
@@ -10006,30 +10030,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler Employee Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler Employee Rental Car</fullName>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>

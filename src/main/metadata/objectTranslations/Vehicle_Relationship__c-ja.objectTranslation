@@ -1219,7 +1219,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>MBJ/MBFカンパニーカー</translation>
+            <translation>MBJ/MBF社有車</translation>
         </picklistValues>
 		<picklistValues>
             <masterLabel>Daimler Employee Car</masterLabel>
