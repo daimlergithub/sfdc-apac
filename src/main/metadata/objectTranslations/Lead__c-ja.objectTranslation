@@ -15893,7 +15893,7 @@
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Cross Point Information --></label>
+            <label>クロスポイント情報</label>
             <section>Cross Point Information</section>
         </sections>
         <sections>
@@ -15956,7 +15956,7 @@
             <section>Activity Date Information</section>
         </sections>
         <sections>
-            <label>クロスポイント情報</label>
+            <label>審査詳細</label>
             <section>CA Details</section>
         </sections>
         <sections>
