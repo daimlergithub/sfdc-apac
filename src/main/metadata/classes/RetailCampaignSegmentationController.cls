@@ -123,6 +123,34 @@ public without sharing class RetailCampaignSegmentationController {
         set;
     }
     
+    //added by Lokes m
+    public List<SelectOption> status{
+        get{
+            status= new List<SelectOption>();
+            status.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.status__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return status;
+        }
+        set;
+    }
+    
+    //addred by lokesh M
+    public List<SelectOption> Customerphase{
+        get{
+            Customerphase= new List<SelectOption>();
+            Customerphase.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Customer_Lifecycle_Phase__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                Customerphase.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return Customerphase;
+        }
+        set;
+    }
+    
      public List<SelectOption> SpecialMarkonAccount{
         get{
             SpecialMarkonAccount= new List<SelectOption>();
@@ -675,7 +703,7 @@ public without sharing class RetailCampaignSegmentationController {
             'Occupation__c', 'Type', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c',
             'Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c',
             'Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c',
-            'Trade_In_Vehicle_Class__c', 'Brand__c', 'Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c'};
+            'Trade_In_Vehicle_Class__c', 'Brand__c', 'Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c','Customer_Lifecycle_Phase__c'};
         multiplePickListFields = new Set<String>{'Hobby__c', 'Lead_Desired_Service__c', 'Lead_Additional_Service__c'};
         
         vehicleFields = new Set<String>{'Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
