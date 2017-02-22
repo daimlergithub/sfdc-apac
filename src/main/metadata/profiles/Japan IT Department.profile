@@ -350,6 +350,14 @@
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	 <classAccesses>
+        <apexClass>CampaignMembersCustomHelperJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMembersCustomHelperJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CampaignOfferingHelper</apexClass>
         <enabled>true</enabled>
@@ -476,6 +484,22 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ConvertToDMRequest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToTaskController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToTaskControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1022,6 +1046,10 @@
         <apexClass>TaskHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>TaskMassAssignChangeOwnerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>true</enabled>
@@ -1096,6 +1124,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	 <classAccesses>
+        <apexClass>TriggerCampaignMembersCustomHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -22489,6 +22521,10 @@
         <layout>Campaign-Campaign Execution Simple layout-Activate%2FSuspend SMS Batch</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Campaign-Campaign Execution layout</layout>
+        <recordType>Campaign.Campaign_Executiono</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
     </layoutAssignments>
@@ -22511,6 +22547,10 @@
     <layoutAssignments>
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Campaign-Planning %26 Design Campaign</layout>
+        <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-S%26M Event Central Campaign</layout>
@@ -22906,6 +22946,14 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Retail_smart_Best_Practice</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
+        <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Campaign__c-Retail Parent Campaign</layout>
+        <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
@@ -23546,6 +23594,18 @@
         <apexPage>ContactTable</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	 <pageAccesses>
+        <apexPage>ConvertToDMRequest</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToLead</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToTask</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
         <enabled>true</enabled>
@@ -23596,6 +23656,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>InMaintenance</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>LeadAssignmentPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -23832,6 +23896,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskLink</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>TaskMassAssignChangeOwnerJP</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
