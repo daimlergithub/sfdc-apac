@@ -216,6 +216,7 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
   List<String> sDealerEmails = New List<String>();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
    Id retId; 
+   String mailSales ;
   For(Retail_Campaign__c  camp : retCampList){
   
    if(camp.Parent_Campaign__c != null ){
@@ -229,18 +230,29 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
     
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
-  List<Campaign> CamList = [Select id,Name,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
+  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
   System.Debug('++++++++++'+CamList );
   
   For(Campaign c : CamList){
   
      For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
      
-             
+           if(c.Parent.Campaign_Type__c == 'sales'){ 
+ 
+          if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
+                mailSales = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;    
+          }
+          } else if (c.Parent.Campaign_Type__c == 'After Sales'){
           
+          if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
+                mailSales = parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c;   
+          }
           
-          string[] toaddress = New String []{parDealer.Dealer__r.Dealer_Sales_Manager_Email__c};
-          system.debug('++++++++++'+toaddress );
+          }  
+          
+          if(mailSales != null){
+          string[] toaddress = New String []{mailSales};
+          
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
         mail.setTargetObjectId(parDealer.ownerId);
@@ -260,7 +272,7 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
      
      
      
-    
+    }
      
   
   
