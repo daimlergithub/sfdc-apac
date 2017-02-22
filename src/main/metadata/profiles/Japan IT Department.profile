@@ -668,7 +668,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadcustomClone</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
