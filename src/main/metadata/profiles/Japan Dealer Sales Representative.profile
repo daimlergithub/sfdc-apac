@@ -22812,7 +22812,7 @@
     </pageAccesses>
 	<pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCampaignSegmentation</apexPage>
