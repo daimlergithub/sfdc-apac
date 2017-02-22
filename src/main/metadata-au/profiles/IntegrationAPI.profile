@@ -23899,10 +23899,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
