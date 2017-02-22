@@ -42726,6 +42726,7 @@ window.open(&quot;{!URLFOR($Site.Prefix)}/a13/e?RecordType=012280000006I7q&amp;e
         <masterLabel>New Case</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
+		<encodingKey>UTF-8</encodingKey>
         <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
     </webLinks>
     <webLinks>
