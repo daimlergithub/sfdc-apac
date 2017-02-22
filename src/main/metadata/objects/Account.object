@@ -41373,10 +41373,8 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
     <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
- OR(
-	NOT(CONTAINS( $Profile.Name, &apos;Dealer&apos; )), NOT(CONTAINS( $Profile.Name, &apos;MBF&apos; ))
-	),$Profile.Name != &apos;IntegrationAPI&apos;, MD__c =&apos;JP&apos;, ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), &apos;Yes&apos;), ISPICKVAL(Allow_Data_Sharing2__c, &apos;No&apos;)
+        <errorConditionFormula>AND(NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' ))
+	, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -41392,9 +41390,9 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c=&quot;&quo
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
         <active>true</active>
-        <description>Once Allow Data Sharing has been set as &quot;Yes&quot;, it cannot be changed.</description>
-        <errorConditionFormula>AND(MD__c =&apos;JP&apos;,ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),&quot;Yes&quot;),NOT(ISPICKVAL((Allow_Data_Sharing__c),&quot;Yes&quot;)),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
-        <errorMessage>Once Allow Data Sharing has been set as &quot;Yes&quot;, it cannot be changed.</errorMessage>
+        <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
+        <errorConditionFormula>AND(MD__c ='JP',NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' )) ,ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
@@ -43021,3 +43019,5 @@ window.open(&quot;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Ac
 }</url>
     </webLinks>
 </CustomObject>
+
+
