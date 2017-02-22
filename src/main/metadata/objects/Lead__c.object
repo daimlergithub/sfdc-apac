@@ -10069,7 +10069,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             </picklistValues>
             <picklistValues>
                 <fullName>Service</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product</fullName>
