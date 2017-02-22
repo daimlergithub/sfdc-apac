@@ -182,7 +182,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                
             
             } 
-            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames];
+            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 for(Account accs : accGCode ){
                   accNames.add(accs.Name);  
                 
@@ -204,7 +204,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                GcNames.add(acc.Dealer_GC_Code__c );
             
             }
-            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames];
+            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 for(Account accs : accGCode ){
                   accNames.add(accs.Name);  
                 
