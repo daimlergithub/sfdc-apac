@@ -15211,6 +15211,11 @@
         <editable>true</editable>
         <field>Retail_Task__c.Related_Contact3__c</field>
         <readable>true</readable>
+    </fieldPermissions>	
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Contact4__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
