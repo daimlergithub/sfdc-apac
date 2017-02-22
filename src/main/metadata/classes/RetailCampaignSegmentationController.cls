@@ -123,16 +123,15 @@ public without sharing class RetailCampaignSegmentationController {
         set;
     }
     
-    //added by Lokes m
-    public List<SelectOption> status{
+    public List<SelectOption> SpecialMarkonAccount{
         get{
-            status= new List<SelectOption>();
-            status.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.status__c;
+            SpecialMarkonAccount= new List<SelectOption>();
+            SpecialMarkonAccount.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Special_Mark_on_Account__c;
             for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
             }
-            return status;
+            return SpecialMarkonAccount;
         }
         set;
     }
@@ -150,16 +149,16 @@ public without sharing class RetailCampaignSegmentationController {
         }
         set;
     }
-    
-     public List<SelectOption> SpecialMarkonAccount{
+     //added by lokesh m
+     public List<SelectOption> status{
         get{
-            SpecialMarkonAccount= new List<SelectOption>();
-            SpecialMarkonAccount.add(new SelectOption('', '--None--'));
-            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Special_Mark_on_Account__c;
+            status= new List<SelectOption>();
+            status.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
             for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
+                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
             }
-            return SpecialMarkonAccount;
+            return status;
         }
         set;
     }
@@ -699,11 +698,11 @@ public without sharing class RetailCampaignSegmentationController {
         dateTimeFields = new Set<String>{'Last_Successful_Call__c'};
         textFields = new Set<String>{'PersonEmail', 'FileName__c', 'ID_Number__c', 'Primary_Address__c', 'ZipCode__c', 'PersonMobilePhone', 'PersonHomePhone', 'Phone',
             'Retail_Campaign_Name__c',  'Registration_City__c', 'Selling_Dealer__c', 'File_Name__pc'};
-        pickListFields = new Set<String>{'Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 
+        pickListFields = new Set<String>{'Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 
             'Occupation__c', 'Type', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c',
             'Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c',
             'Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c',
-            'Trade_In_Vehicle_Class__c', 'Brand__c', 'Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c','Customer_Lifecycle_Phase__c'};
+            'Trade_In_Vehicle_Class__c', 'Brand__c', 'Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c'};
         multiplePickListFields = new Set<String>{'Hobby__c', 'Lead_Desired_Service__c', 'Lead_Additional_Service__c'};
         
         vehicleFields = new Set<String>{'Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
