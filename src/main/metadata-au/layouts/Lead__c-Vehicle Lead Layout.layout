@@ -413,6 +413,7 @@
         <fields>TASK.STATUS</fields>
         <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
         <fields>Reason__c</fields>
         <fields>Result__c</fields>
         <relatedList>RelatedHistoryList</relatedList>
