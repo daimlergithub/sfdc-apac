@@ -4,24 +4,30 @@
   Date: 2016-11-03
 */
 public class LeadLatestPhaseUpdateJP {
+    private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
+    private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
 
     public static void LeadLatestPhaseUpdate(list<Lead__c> rtlst, boolean isInsert, boolean isUpdate){
-        
-        for(Lead__c led:rtlst){
+    
+        for(Lead__c led: rtlst){
             if(led.MD__c == 'JP'){
+              system.debug('>>>>>>>>'+led.Invoice_Date__c);
+              system.debug('>>>>>>>>'+led.Recordtype.name);
                 if(led.Handover_Date__c != Null && led.Lead_Latest_Phase__c != 'Handover'){
                     led.Lead_Latest_Phase__c = 'Handover';
                 }
-                else if(led.Invoice_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced') && led.recordtype.Name == 'Sales Leads'){
+              
+                else if(led.Invoice_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced') && led.RecordtypeId == salesRecordTypeId){
+                      system.debug('>>>>>>>>1'+led.Invoice_Date__c);
                     led.Lead_Latest_Phase__c = 'Invoiced';
                 }
-                else if(led.Invoice_Date__c != Null && led.Lead_Latest_Phase__c != 'Invoiced' && led.recordtype.Name == 'After-Sales Leads'){
+                else if(led.Invoice_Date__c != Null && led.Lead_Latest_Phase__c != 'Invoiced' && led.RecordtypeId == afterSalesRecordTypeId){
                     led.Lead_Latest_Phase__c = 'Invoiced';
                 }
                 else if(led.Job_Card_Date__c != Null && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue')){
                     led.Lead_Latest_Phase__c = 'Job Card Issue';
                 }
-                else if(led.Quotation_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation')){
+                else if(led.Quotation_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation')){
                     led.Lead_Latest_Phase__c = 'Estimation';
                 }
                 else if(led.Network_Registration_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration')){
@@ -34,7 +40,7 @@ public class LeadLatestPhaseUpdateJP {
                                                                 || led.Lead_Latest_Phase__c != 'Order Placed')){
                     led.Lead_Latest_Phase__c = 'Order Placed';
                 }
-                else if(led.Quotation_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' 
+                else if(led.Quotation_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' 
                                                                                                     || led.Lead_Latest_Phase__c != 'Order Placed' || led.Lead_Latest_Phase__c != 'Quotation')){
                     led.Lead_Latest_Phase__c = 'Quotation';
                 }
@@ -58,20 +64,20 @@ public class LeadLatestPhaseUpdateJP {
                                                                     || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' || led.Lead_Latest_Phase__c != 'Test Drive' || led.Lead_Latest_Phase__c != 'Simple Estimation')){
                     led.Lead_Latest_Phase__c = 'Simple Estimation';
                 }
-                else if(led.ServiceProgram_Proposal_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
+                else if(led.ServiceProgram_Proposal_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
                                                                                                                 || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' || led.Lead_Latest_Phase__c != 'Test Drive' 
                                                                                                                 || led.Lead_Latest_Phase__c != 'Simple Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal')){
                     led.Lead_Latest_Phase__c = 'Service Program Proposal';
                 }
-                else if(led.ServiceProgram_Proposal_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal')){
+                else if(led.ServiceProgram_Proposal_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal')){
                     led.Lead_Latest_Phase__c = 'Service Program Proposal';
                 }
-                else if(led.Insurance_Proposal_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed'
+                else if(led.Insurance_Proposal_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed'
                                                                                                             || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' || led.Lead_Latest_Phase__c != 'Test Drive' 
                                                                                                             || led.Lead_Latest_Phase__c != 'Simple Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal')){
                     led.Lead_Latest_Phase__c = 'Insurance Proposal';
                 }
-                else if(led.Insurance_Proposal_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal')){
+                else if(led.Insurance_Proposal_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal')){
                     led.Lead_Latest_Phase__c = 'Insurance Proposal';
                 }
                 else if(led.Finance_Proposal_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
@@ -84,37 +90,40 @@ public class LeadLatestPhaseUpdateJP {
                                                                 || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Finance Proposal' || led.Lead_Latest_Phase__c != 'Product Proposal')){
                     led.Lead_Latest_Phase__c = 'Product Proposal';
                 }
-                else if(led.Needs_Check_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' 
+                else if(led.Needs_Check_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' 
                                                                                                     || led.Lead_Latest_Phase__c != 'Order Placed' || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' 
                                                                                                     || led.Lead_Latest_Phase__c != 'Test Drive' || led.Lead_Latest_Phase__c != 'Simple Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Finance Proposal' 
                                                                                                     || led.Lead_Latest_Phase__c != 'Product Proposal' || led.Lead_Latest_Phase__c != 'Needs Check')){
                     led.Lead_Latest_Phase__c = 'Needs Check';
                 }
-                else if(led.Needs_Check_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' 
+                else if(led.Needs_Check_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' 
                                                                                                             || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Needs Check')){
                     led.Lead_Latest_Phase__c = 'Needs Check';
                 }
-                else if(led.Visited_Showroom_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
+                else if(led.Visited_Showroom_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
                                                                                                         || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' || led.Lead_Latest_Phase__c != 'Test Drive' || led.Lead_Latest_Phase__c != 'Simple Estimation' 
                                                                                                         || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Finance Proposal' || led.Lead_Latest_Phase__c != 'Product Proposal' 
                                                                                                         || led.Lead_Latest_Phase__c != 'Needs Check' || led.Lead_Latest_Phase__c != 'Visited')){
                     led.Lead_Latest_Phase__c = 'Visited';
                 }
-                else if(led.Visited_Showroom_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' 
+                else if(led.Visited_Showroom_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' 
                                                                                                                 || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Needs Check' || led.Lead_Latest_Phase__c != 'Visited')){
                     led.Lead_Latest_Phase__c = 'Visited';
                 }
-                else if(led.Contact_Date__c != Null && led.recordtype.Name == 'Sales Leads' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
+                else if(led.Contact_Date__c != Null && led.RecordtypeId == salesRecordTypeId && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' || led.Lead_Latest_Phase__c != 'Order Placed' 
                                                                                                 || led.Lead_Latest_Phase__c != 'Quotation' || led.Lead_Latest_Phase__c != 'CA Submission' || led.Lead_Latest_Phase__c != 'Finance Quotation' || led.Lead_Latest_Phase__c != 'Trade-in' || led.Lead_Latest_Phase__c != 'Test Drive' || led.Lead_Latest_Phase__c != 'Simple Estimation' 
                                                                                                 || led.Lead_Latest_Phase__c != 'Service Program Proposal' || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Finance Proposal' || led.Lead_Latest_Phase__c != 'Product Proposal' || led.Lead_Latest_Phase__c != 'Needs Check' 
                                                                                                 || led.Lead_Latest_Phase__c != 'Visited' || led.Lead_Latest_Phase__c != 'Contact')){
                     led.Lead_Latest_Phase__c = 'Contact';
                 }
-                else if(led.Contact_Date__c != Null && led.recordtype.Name == 'After-Sales Leads' && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' 
+                else if(led.Contact_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation' || led.Lead_Latest_Phase__c != 'Service Program Proposal' 
                                                                                                         || led.Lead_Latest_Phase__c != 'Insurance Proposal' || led.Lead_Latest_Phase__c != 'Needs Check' || led.Lead_Latest_Phase__c != 'Visited' || led.Lead_Latest_Phase__c != 'Contact')){
                     led.Lead_Latest_Phase__c = 'Contact';
                 }
-            }   
-        }           
+              
+            } 
+            
+        }     
+         
     }
 }

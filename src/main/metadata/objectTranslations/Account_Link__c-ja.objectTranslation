@@ -843,7 +843,7 @@
 	 <fields>
         <label>車両</label>
         <name>Vehicle__c</name>
-        <relationshipLabel>車両情報（自法人のみ参照可</relationshipLabel>
+        <relationshipLabel> 車両情報（自法人のみ参照可）</relationshipLabel>
     </fields>
     <fields>
         <label>サービス担当者</label>

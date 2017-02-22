@@ -350,6 +350,14 @@
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	 <classAccesses>
+        <apexClass>CampaignMembersCustomHelperJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMembersCustomHelperJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CampaignOfferingHelper</apexClass>
         <enabled>true</enabled>
@@ -476,6 +484,22 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactTriggerHandlerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>ConvertToDMRequest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToTaskController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConvertToTaskControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -644,7 +668,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadcustomClone</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
@@ -1022,6 +1046,10 @@
         <apexClass>TaskHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>TaskMassAssignChangeOwnerJP</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>true</enabled>
@@ -1096,6 +1124,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	 <classAccesses>
+        <apexClass>TriggerCampaignMembersCustomHandlerJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -5013,7 +5045,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.VIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5941,12 +5973,7 @@
         <editable>true</editable>
         <field>Campaign.Share_Campaign_Participation_Flag__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign.Survey__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.EndDate</field>
@@ -6055,6 +6082,11 @@
 	 <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Final_List_Approved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Is_Sync__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -6265,6 +6297,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Ready_for_List_Maintenance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Response_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6988,9 +7030,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Car_Model__c.MD__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -10933,9 +10975,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.MD__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22313,7 +22355,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle__c.VehicleAge__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22479,6 +22521,10 @@
         <layout>Campaign-Campaign Execution Simple layout-Activate%2FSuspend SMS Batch</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Campaign-Campaign Execution layout</layout>
+        <recordType>Campaign.Campaign_Executiono</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
     </layoutAssignments>
@@ -22501,6 +22547,10 @@
     <layoutAssignments>
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Campaign-Planning %26 Design Campaign</layout>
+        <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-S%26M Event Central Campaign</layout>
@@ -22896,6 +22946,14 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Retail_smart_Best_Practice</recordType>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
+        <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Campaign__c-Retail Parent Campaign</layout>
+        <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
@@ -23536,6 +23594,18 @@
         <apexPage>ContactTable</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	 <pageAccesses>
+        <apexPage>ConvertToDMRequest</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToLead</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ConvertToTask</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
         <enabled>true</enabled>
@@ -23586,6 +23656,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>InMaintenance</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>LeadAssignmentPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -23822,6 +23896,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskLink</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>TaskMassAssignChangeOwnerJP</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

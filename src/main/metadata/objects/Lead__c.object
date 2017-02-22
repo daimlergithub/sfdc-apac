@@ -624,7 +624,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Service_Advisor__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -10069,7 +10069,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             </picklistValues>
             <picklistValues>
                 <fullName>Service</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product</fullName>
@@ -39714,7 +39714,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>TA%26C</fullName>
@@ -109156,8 +109156,8 @@ alert("This Lead is already converted");
 else{ 
 if (confirm('This will convert the record type of Leads.Please confirm')) { 
 var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'}); 
-var relatedId1='{!Lead__c.Related_Leads__c}'; 
-window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy; 
+var relatedId1='{!Lead__c.Related_Leads__c}';
+window.location.href={!URLFOR($Site.Prefix)} '/'+leadCopy;
 } 
 }</url>
     </webLinks>
