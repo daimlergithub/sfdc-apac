@@ -85,7 +85,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         List<DM_Request__Share> list_SharingRecord = new List<DM_Request__Share>();
         
         for(DM_Request__c vc : newList){
-            if (vc.Customer_Name__c != null && vc.View_By_All__c == true && vc.Assigned_Dealer__c == null ){
+            if (vc.Customer_Name__c != null && vc.View_By_All__c == true  ){
                 if(!mapCheckingType.containsKey(vc.Customer_Name__c)){
                       mapCheckingType.put(vc.Customer_Name__c, new List<Id>());
                       currentVrId.add(vc.Id);
@@ -126,44 +126,69 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         List<Account_Link__c> ListAlk=new List<Account_Link__c>();
         //List<User> list_User = new List<User>();
         List<String> accNames=new List<String>();
+        List<String> GcNames=new List<String>();
         Set<Id> set_AccountId = new Set<Id>();
         Set<Id> set_LinkId = new Set<Id>();
         Set<Id> set_CustomerId = new Set<Id>();
         List<Id> list_DmrequestId = new List<Id>();
-        //List<Vehicle_Relationship__Share> list_SharingDele = new List<Vehicle_Relationship__Share>();
+        
         
         for(DM_Request__c vc : newList){
-            if(vc.Customer_Name__c != null  && vc.View_By_All__c == true &&vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c && vc.Assigned_Dealer__c == null){
+            if(vc.Customer_Name__c != null  &&vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c && vc.View_By_All__c == true || vc.View_By_All__c == true ){
                     if(!mapCheckingType.containsKey(vc.Customer_Name__c)){
                           mapCheckingType.put(vc.Customer_Name__c, new List<Id>());
                       }
                       mapCheckingType.get(vc.Customer_Name__c).add(vc.Id);
                       currentVrId.add(vc.Id);
+                      if(vc.Customer_Name__c != oldMap.get(vc.Id).Customer_Name__c){
                     set_CustomerId.add(oldMap.get(vc.Id).Customer_Name__c);
+                    }
+                    if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == true){
+                    
+                    set_AccountId.add(vc.Assigned_Dealer__c);
+                    }
                    list_DmrequestId.add(vc.Id);
                       
+               
                 
-                
-        }else if(vc.Assigned_Dealer__c != null && vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c){
+        }else if(vc.Assigned_Dealer__c != null && vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c || vc.View_By_All__c == false ){
                 if(!mapDmrequest.containsKey(vc.Assigned_Dealer__c)){
                       mapDmrequest.put(vc.Assigned_Dealer__c, new List<Id>());
                   }
                   mapDmrequest.get(vc.Assigned_Dealer__c).add(vc.Id);
                   currentVrId.add(vc.Id);
+                  if(vc.Assigned_Dealer__c != oldMap.get(vc.Id).Assigned_Dealer__c){
                   set_AccountId.add(oldMap.get(vc.Id).Assigned_Dealer__c);
+                  }
+                  if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false){
+                    
+                    set_CustomerId.add(vc.Customer_Name__c);
+                    }
                   list_DmrequestId.add(vc.Id);
             }
           }  
           
           system.debug('++++++++++++++++'+mapDmrequest );
             system.debug('++++++++++++++++'+ mapCheckingType );
+            system.debug('++++++++++++++'+set_AccountId);
+            system.debug('++++++++++++++'+set_CustomerId);
+        
         if(set_AccountId.size() > 0){
-             List<Account> accName = [select Name from Account where Id IN:set_AccountId];
+             List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_AccountId];
             for(Account acc : accName){
-               accNames.add(acc.Name);
+               //accNames.add(acc.Name);
+               GcNames.add(acc.Dealer_GC_Code__c );
+               system.debug('++++++++++++++'+'True');
+               
             
             } 
+            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames];
+                for(Account accs : accGCode ){
+                  accNames.add(accs.Name);  
+                
+            }
             } else if(set_CustomerId.size() >0){
+                   system.debug('++++++++++++++'+'False');
                ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_CustomerId];
                 if(ListAlk.size() > 0){
          
@@ -173,13 +198,21 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
          {
          set_LinkId.add(alk.fromRole__c);
          } }
-         List<Account> accName = [select Name from Account where Id IN:set_LinkId];
+         List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_LinkId];
             for(Account acc : accName){
-               accNames.add(acc.Name);
+              // accNames.add(acc.Name);
+               GcNames.add(acc.Dealer_GC_Code__c );
             
-            } }
+            }
+            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames];
+                for(Account accs : accGCode ){
+                  accNames.add(accs.Name);  
+                
+            }
+            
+             } }
          
-
+              system.debug('++++++++++++++'+accNames);
             
             
             List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
@@ -190,7 +223,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                 delete list_SharingDele;
                 system.debug('+++++++++++'+list_SharingDele);
             } 
-        }
+        
         
         if(mapDmrequest.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(mapDmrequest));
