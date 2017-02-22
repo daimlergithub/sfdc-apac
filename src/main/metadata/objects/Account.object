@@ -42722,31 +42722,11 @@ window.open(&quot;{!URLFOR($Site.Prefix)}/a13/e?RecordType=012280000006I7q&amp;e
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <linkType>url</linkType>
         <masterLabel>New Case</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>replace</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
-
-
-var userid = &quot;{!$User.Id}&quot;;
-
-var myCase= sforce.connection.query(&quot;Select Id ,IsPortalEnabled From user where id=&apos;{!Account.OwnerId}&apos;&quot; ); 
-//var recordType1 = recordtypeResult1.getArray(&apos;myCase&apos;); 
-var records = myCase.getArray(&quot;records&quot;);
-
-if(records[0].IsPortalEnabled=true) 
-{ 
-
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;00N2800000A9Cty_lkid={!Account.OwnerId}&amp;00N2800000A9Cty ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};&quot; )
-
-} 
-else 
-{ 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&quot; )
-
-}</url>
+        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
     </webLinks>
     <webLinks>
         <fullName>New_Leads</fullName>
