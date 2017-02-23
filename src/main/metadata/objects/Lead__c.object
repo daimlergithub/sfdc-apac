@@ -109383,6 +109383,17 @@ else {
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var relatedId='{!Lead__c.ContactId__c}'; 
+
+if({!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , "Lost")} || relatedId =='' || {!ISPICKVAL( Lead__c.Dealer_Lead_Status__c , "Purchased(Only Non BDC)")}) 
+{ 
+alert("This Lead cannot be sent to Autoline"); 
+} 
+
+
+else 
+{ 
 var r = confirm("Are you sure want to send information to Auto Line interface?"); 
 if(r == true) 
 { 
@@ -109396,6 +109407,7 @@ alert("Successfully Sent Information to AutoLine");
 else 
 { 
 alert("Web service callout failed"); 
+} 
 } 
 }</url>
     </webLinks>
