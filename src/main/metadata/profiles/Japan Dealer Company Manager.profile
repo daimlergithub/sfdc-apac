@@ -23744,8 +23744,7 @@
         <apexPage>ConvertToTask</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
-    <pageAccesses>
+     <pageAccesses>
         <apexPage>Create_Vehicle</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
