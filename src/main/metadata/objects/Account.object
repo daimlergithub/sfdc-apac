@@ -42445,12 +42445,17 @@ else {
         <fullName>Check_Duplicates</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Check Duplicates</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var AccountId = '{!Account.Name}';
+alert('######'+AccountId);
+if(AccountId != ''){
+      var myWindow  =window.open("{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?Id={!Account.Id}","_blank","resizable=yes,top=1500,left=100,width=900,height=900");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Confirmed_match</fullName>
