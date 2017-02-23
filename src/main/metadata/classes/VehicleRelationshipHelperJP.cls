@@ -360,7 +360,8 @@ public with sharing class VehicleRelationshipHelperJP
                 system.debug('++++++++++++++++++++'+sid);
                 
             
-      List <Account> accls =[ select id,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Customer__c,Address_Type__c from Addresses__r),(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
+ List <Account> accls =[ select id,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,
+Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Addresses__r),(select id,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
       //List<Vehicle_Relationship__c> Vehiclepicklist =[ select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid ];
      
            system.debug('++++++++++++++++++'+accls);      
@@ -408,16 +409,34 @@ public with sharing class VehicleRelationshipHelperJP
                     }
                     
             for( Address__c add : acc.Addresses__r){
-            
-              if( vels.vehicle_address_picklist__c == add.Address_Type__c){
-              
+               //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
+               if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home'){
+                 
                 vels.vehicle_address__c = add.Id;
-              
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                
+                }else if( vels.vehicle_address_picklist__c == 'Work address' && add.Address_Type__c == 'Business'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                }
+                if( vels.vehicle_address_picklist__c == 'Other Address 1' && add.Address_Type__c == 'Other Address 1'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                }
+                if( vels.vehicle_address_picklist__c == 'Other Address 2' && add.Address_Type__c == 'Other Address 2'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                }
+                if( vels.vehicle_address_picklist__c == 'Other Address 3' && add.Address_Type__c == 'Other Address 3'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                }
               }
+              
             
             
             
-            }
+            
                                         
             Updatelist.add(Vels);
 
