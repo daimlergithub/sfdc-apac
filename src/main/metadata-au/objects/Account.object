@@ -4150,6 +4150,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Dealer_Manual_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Manual Create</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Dealer_Marketing_Manager_Email__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Marketing Manager Email</label>
