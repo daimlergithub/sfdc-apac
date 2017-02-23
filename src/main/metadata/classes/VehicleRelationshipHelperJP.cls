@@ -337,7 +337,7 @@ public with sharing class VehicleRelationshipHelperJP
 						for (Vehicle_Relationship__c Ve : veReList ) 
 					{
 							system.debug('+++++++++++++++++++'+veReList );
-							if (Ve.vehicle_fax_picklist__c != null || Ve.vehicle_mail_picklist__c != null || Ve.Vehicle_Phone_picklist__c != null || ve.	vehicle_address_picklist__c != null)
+		if (Ve.vehicle_fax_picklist__c != null || Ve.vehicle_mail_picklist__c != null || Ve.Vehicle_Phone_picklist__c != null || ve.vehicle_address_picklist__c !=null)
                         {
                         sid.add(Ve.Contact__c);
                         }
@@ -440,7 +440,7 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
 			                
     update Updatelist;
     }
-	}
+	
 
     
     /*
