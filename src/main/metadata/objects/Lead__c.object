@@ -109154,10 +109154,14 @@ if(relatedId !==''){
 alert("This Lead is already converted"); 
 } 
 else{ 
-if (confirm('This will convert the record type of Leads.Please confirm')) { 
-var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'}); 
+
+var r = confirm("This will convert the record type of Leads.Please confirm"); 
+if(r == true) 
+{ 
+var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:"{!Lead__c.Id}"}); 
+
 var relatedId1='{!Lead__c.Related_Leads__c}'; 
-window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy; 
+window.location.reload(); 
 } 
 }</url>
     </webLinks>

@@ -499,7 +499,7 @@ List<Account> accUpdLst = new List<Account>();
         //Apex share number AS-017,JIRA ticket SFDCJP-655
         if(CaseDealerUserId!=null)
         {
-          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
+          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,isactive,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and isactive=true and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
         }
         
          if(!caserecList.isEmpty() && caserecList != null && CaseDealerUser!=null)
