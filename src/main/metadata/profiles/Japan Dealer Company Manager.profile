@@ -23801,7 +23801,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-    <pageAccesses>
         <apexPage>LeadButtonContainerASLeads</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
