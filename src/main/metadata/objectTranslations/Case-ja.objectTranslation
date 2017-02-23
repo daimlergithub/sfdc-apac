@@ -11331,6 +11331,10 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GL SUV</masterLabel>
+            <translation>GL SUV</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS SUV</masterLabel>
             <translation>GLS SUV</translation>
         </picklistValues>
         <picklistValues>
@@ -11387,7 +11391,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class SUV</masterLabel>
-            <translation>GLE SUV</translation>
+            <translation>Mクラス SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MARCO POLO</masterLabel>
