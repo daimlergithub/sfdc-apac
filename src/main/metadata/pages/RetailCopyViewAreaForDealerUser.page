@@ -1,8 +1,13 @@
-<apex:page standardController="Account" extensions="AccountLinkController">
+<apex:page standardController="Account_Link__c" extensions="AccountLinkController">
     <apex:form >
-       <apex:pageBlock >
+       <apex:pageBlock>
+       
            <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
-                <apex:pageBlockSectionItem > 
+           
+            
+       
+           
+        <apex:pageBlockSectionItem > 
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Name.Label}"/>   
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.id}')">{!acclnkdealer.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
@@ -56,7 +61,12 @@
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Visit_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Visit_OptOut__c}"/> 
            </apex:pageBlockSectionItem>
-      </apex:pageBlockSection>
-    </apex:pageBlock>        
+        </apex:pageBlockSection>
+      <apex:pageblockButtons location="Top">
+        <apex:commandButton action="{!Edit}" value="Edit"/>
+        <apex:commandButton action="{!Delete}" value="Delete"/>
+    </apex:pageblockButtons>
+    </apex:pageBlock>
+            
   </apex:form>
 </apex:page>
