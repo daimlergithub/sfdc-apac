@@ -10531,17 +10531,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>EP_Export_Notification__c.Additional_Info1__c</field>
+        <field>EP_Export_Notification__c.AddInfo1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>EP_Export_Notification__c.Additional_Info2__c</field>
+        <field>EP_Export_Notification__c.AddInfo2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>EP_Export_Notification__c.Additional_Info3__c</field>
+        <field>EP_Export_Notification__c.AddInfo3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10556,7 +10556,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>EP_Export_Notification__c.SFDC_Record_ID__c</field>
+        <field>EP_Export_Notification__c.SFDC_object_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
