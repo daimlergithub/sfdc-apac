@@ -638,7 +638,7 @@
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>
                                     <option value="Special_Mark_on_Account__c">{!$ObjectType.Account.Fields.Special_Mark_on_Account__c.Label}</option>                                    
                                     <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>
-                                    <option value="status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
+                                    <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
                                     <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
                                 </select>
                             </td>
@@ -654,7 +654,7 @@
                                  <apex:inputField value="{!account.Occupation__c}" styleClass="Occupation__c" style="display:block;"/> 
                                  <apex:inputField value="{!account.Interest_Model__c}" styleClass="Interest_Model__c" style="display:block;"/> 
                                  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
-                                 <apex:selectList styleClass="status__c" size="1" multiselect="false">
+                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!status}"></apex:selectOptions>
                                 </apex:selectList>
                                 <apex:selectList styleClass="Customer_Lifecycle_Phase__c" size="1" multiselect="false">
