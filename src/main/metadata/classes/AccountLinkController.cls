@@ -10,6 +10,7 @@ public with sharing class AccountLinkController
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
      public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id accPersonAccountSoftDeleted_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
     
       public AccountLinkController (ApexPages.StandardController controller) 
       {
@@ -38,7 +39,7 @@ public with sharing class AccountLinkController
        
        }
        
-       if(acc.recordtypeid ==accPerson_RecordTypeId)
+       if(acc.recordtypeid ==accPerson_RecordTypeId || acc.recordtypeid ==accPersonAccountSoftDeleted_RecordTypeId)
        {
       acclnkrellist=[Select Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,toRole__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkPerson_RecordTypeId limit 1];
         
