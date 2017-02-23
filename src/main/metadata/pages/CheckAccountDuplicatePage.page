@@ -13,7 +13,6 @@ MODIFICATION DETAILS:
  
 -->
 <apex:page Controller="CheckAccountDuplicateController" action="{!onLineDeduplication}">
-{!$CurrentPage.Name}
   <apex:pageMessages ></apex:pageMessages>
   <apex:pageBlock title="{!$Label.Confirmed_Match}"  rendered="{!show}">
                 <apex:PageBlockTable Columns="8" value="{!objAccountDeDup}" var="cr" >
