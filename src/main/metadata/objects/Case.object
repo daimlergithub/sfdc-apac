@@ -10393,6 +10393,14 @@ Modify Reason:
                 <fullName>OB</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16947,6 +16955,11 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLS SUV</fullName>
+                <default>false</default>
+				<controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19267,6 +19280,7 @@ Modify Reason:
                 <fullName>X166</fullName>
                 <default>false</default>
                 <controllingFieldValues>GL SUV</controllingFieldValues>
+                <controllingFieldValues>GLS SUV</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>X156</fullName>
@@ -19297,15 +19311,18 @@ Modify Reason:
                 <fullName>W163</fullName>
                 <default>false</default>
                 <controllingFieldValues>M-Class SUV</controllingFieldValues>
+                <controllingFieldValues>R-Class MPV</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>W164</fullName>
                 <default>false</default>
                 <controllingFieldValues>M-Class SUV</controllingFieldValues>
+                <controllingFieldValues>R-Class MPV</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>W166</fullName>
                 <default>false</default>
+                <controllingFieldValues>GLE SUV</controllingFieldValues>
                 <controllingFieldValues>M-Class SUV</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -19377,6 +19394,7 @@ Modify Reason:
                 <fullName>R172</fullName>
                 <default>false</default>
                 <controllingFieldValues>SLC ROADSTER</controllingFieldValues>
+                <controllingFieldValues>SLK ROADSTER</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R199</fullName>
@@ -30799,6 +30817,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
@@ -33203,6 +33229,10 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS SUV</fullName>
                 <default>false</default>
             </values>
             <values>
