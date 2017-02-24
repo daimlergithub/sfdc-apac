@@ -1,6 +1,7 @@
 /*
     JIRA NO: SFDC-1416
     Last Modified By : Lokesh M
+    Last modified date : 24-Feb-2017
 */
 
 public with sharing class SendToMyMercController {
@@ -167,10 +168,15 @@ public with sharing class SendToMyMercController {
                     if(!myMercAcc.containsKey(eachAcc.Id)){
                         nonMyMercAcc.put(eachAcc.Id,eachAcc);        
                     }
-                    if(eachAcc.RecordTypeId == person && (eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c))){
+                    System.debug('SelectedAccountBirthdAte'+eachAcc.PersonBirthdate);
+                    System.debug('===='+eachAcc.LastName_Native_1__c);
+                    System.debug('===='+eachAcc.RecordTypeId);
+                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c)){
                         personBirthdate = true;    
                     }
+                    System.debug('===='+personBirthdate);
                 }
+                
                 if(personBirthdate == false){
                     for(Account acc : myMercAcc.values()){
                         acc.Email3__c = email3update.get(acc.Id);
@@ -198,11 +204,12 @@ public with sharing class SendToMyMercController {
                         }
                     }
                 }
-                else{
+                
+            }
+            if(personBirthdate){
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
-                }
             }        
-            if(accfinal != null && !accfinal.isEmpty()){
+            else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
                 if(accLinkFinal != NULL && !accLinkFinal.isEmpty()){
                     update accLinkFinal;
