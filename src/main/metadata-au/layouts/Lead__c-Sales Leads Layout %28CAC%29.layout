@@ -444,7 +444,7 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>Status__c</fields>
+        <fields>TASK.STATUS</fields>
         <fields>Priority__c</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>Reason__c</fields>
@@ -471,7 +471,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000InPa</masterLabel>
+        <masterLabel>00h1a000001fjYs</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
