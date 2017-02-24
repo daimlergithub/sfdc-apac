@@ -109,7 +109,7 @@ public with sharing class VehicleRelationshipHelperJP
             } 
            if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
                    
-              if((!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+              if(vr.Owner_Relation__c != NULL && (!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
                     VehicleIds.add(vr.Vehicle_ID__c);
                     VehicleRelationshipIds.add(vr.Id);
                     contactIdofVehicleRelationship.add(vr.Contact__c);
