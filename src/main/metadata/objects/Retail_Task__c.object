@@ -4110,7 +4110,11 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Forced Termination</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
+                <fullName>Change of Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
                 <fullName>Change Owner</fullName>
                 <default>false</default>
             </picklistValues>
@@ -5707,6 +5711,10 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Change of Owner</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Draft</fullName>
                 <default>false</default>
@@ -5755,6 +5763,10 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
             </values>
             <values>
                 <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
             <values>
