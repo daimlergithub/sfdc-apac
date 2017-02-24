@@ -257,6 +257,7 @@
 							   <sf:include name="createRetailCopyKR"/>
 							 <sf:include name="ScheduleCampCompletion"/>
 							 <sf:include name="ScheduleCampCompletionTest"/>
+							 <sf:include name="ScheduleRetailCampCompletion"/>
 							 <sf:include name="exportCampaignMembers"/>
 							</sf:typeset>
 							<sf:typeset name="pages">
