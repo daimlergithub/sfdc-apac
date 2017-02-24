@@ -432,6 +432,7 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                 if( vels.vehicle_address_picklist__c == 'Other Address 1' && add.Address_Type__c == 'Other Address 1'){
                  vels.vehicle_address__c = add.Id;
                 vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+				vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                 }
                 if( vels.vehicle_address_picklist__c == 'Other Address 2' && add.Address_Type__c == 'Other Address 2'){
                  vels.vehicle_address__c = add.Id;
