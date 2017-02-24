@@ -3,6 +3,11 @@ Modification: Changes related to SFDCJP-1270.VR Sharing Rule.
 Auther : Venky
 Date : 2017-02-1
 Description : Updated  afterUpdateEvent,afterInsertEvent, createPersonOrCompanyAccountSharing methods.
+------------------------------------------------------------------------------------------------------
+Modification: commenting updateVechileAmount method related to SFDCJP-1599.
+modified by : lokesh m
+Date : 2017-02-24
+Description : Vehicle_amount__c in account object should not be update from vehicleRelationship tigger.
 */
 
 public with sharing class VehicleRelationshipHelperJP 
@@ -120,7 +125,7 @@ public with sharing class VehicleRelationshipHelperJP
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
-         updateVehicleAmount(ContactIds);        
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);        
          createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
@@ -156,7 +161,7 @@ public with sharing class VehicleRelationshipHelperJP
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }                          
-        updateVehicleAmount(ContactIds);
+        //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
@@ -172,7 +177,7 @@ public with sharing class VehicleRelationshipHelperJP
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 
-        updateVehicleAmount(ContactIds);          
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);           
     } 
     
     Public static void updateAccountstatus(Set<Id> ContactIds){
@@ -188,6 +193,15 @@ public with sharing class VehicleRelationshipHelperJP
     
     
     //  UpdateVehicleAmount
+	/*   this method is commenting as per SFDCJP-1599
+       Cause : SFDCJP-1599
+       Description : As discussed, we have agreement with MBJ that by disabling this functionality,
+                       Vehicle Amount field will no longer have meaningful value, from UI or EP interface,
+                       to MBJ or to Dealer user, in every which case. MBJ agreed that for time being we basically disable
+                       the functionality to count the amount of vehicle in its entirity to all the cases,
+                       until we enable it again at some point in future.
+       Commented by : Lokesh M
+	   
     Public static void updateVehicleAmount(Set<Id> ContactIds){           
         system.debug('ContactIds>>>>'+ContactIds.size());      
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
@@ -224,7 +238,10 @@ public with sharing class VehicleRelationshipHelperJP
         }    
         if(!vehicleAmountToUpdate.isEmpty())
             update vehicleAmountToUpdate;         
-    }     
+    }  
+		*/
+		
+		
     //Create Account Link   
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
         Set<Id> ContactIds=new Set<Id>();        
