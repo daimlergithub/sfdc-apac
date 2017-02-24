@@ -1914,9 +1914,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.City__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22673,8 +22673,8 @@
     <layoutAssignments>
         <layout>Claim__c-Claim Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Claim__c-Claim Layout</layout>
+   <layoutAssignments>
+        <layout>Claim__c-Insurance Claim Layout</layout>
         <recordType>Claim__c.Insurance_Claim</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -22854,8 +22854,8 @@
         <layout>PersonAccount-Person Account Layout</layout>
         <recordType>PersonAccount.Person_Account_Retail</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+   <layoutAssignments>
+        <layout>PersonAccount-PA Layout-Soft Deleted</layout>
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
    <layoutAssignments>

@@ -1,6 +1,6 @@
 <apex:page standardController="Retail_Task__c" extensions="RelatedDealerLease"  showHeader="false" sidebar="false">
     <apex:form >
-   <apex:pageBlock >
+  <apex:pageBlock title="Related Dealer view for Lease">
          
          <apex:repeat value="{!rettsk}" var="a" >
              <apex:pageblockSection >

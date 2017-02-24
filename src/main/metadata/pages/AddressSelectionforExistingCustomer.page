@@ -120,6 +120,9 @@ window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.Province_Native__c.Label}">
                         <apex:outputField value="{!ad.Province_Native__c}"/>
                         </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
+                        <apex:outputField value="{!ad.City__c}"/>
+                        </apex:column>
                         <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}">
                         <apex:outputField value="{!ad.City_Native__c}"/>
                         </apex:column>
