@@ -22542,7 +22542,7 @@
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
 	 <layoutAssignments>
-        <layout>Campaign-Campaign Execution layout</layout>
+        <layout>Campaign-Campaign Execution</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
