@@ -901,9 +901,9 @@ public class TaskHelper {
           Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
          for(Task tsk : tasks){            
             if(tsk.WhatId != null){
-                if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
+              
                       leadId.add(tsk.WhatId);        
-                }
+               
             }   
         }
          if(leadId != Null && !leadId.isEmpty()){
@@ -913,7 +913,7 @@ public class TaskHelper {
         for(Task t : tasks)
         {
         if(t.WhatId != null){
-                if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
+               
                 for(Lead__c le : lstLead)
                 {
                 
@@ -925,7 +925,7 @@ public class TaskHelper {
                 }
                 }
                 
-                }
+                
           }
         }
        for(Lead__c led : lstLead){
@@ -940,6 +940,7 @@ public class TaskHelper {
         } 
         system.debug('#####$$$$$$'+updateLead);
         if(updlead.size()>0){ 
+          System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  
         }          
     } 
