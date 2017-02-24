@@ -11,6 +11,12 @@
     
     1. Sinow Created on 2013-04-28
     2. 17-July-2013 Sinow Zhang (NTTData) When a task ucid is not null, update interactionIds from Avato. US-CTI-001
+    ---------------------------------------------------------------
+    modified date : 24-feb-2017
+    modified method : UpdateLinkedLeads
+    issue : SFDCJP-1725
+    name : Lokesh m
+    desc : updating Task_Update_Flag__c field in lead__c object related to this task.
 */
 public class TaskHelper {
     // Get Task record type ids
@@ -889,7 +895,11 @@ public class TaskHelper {
   *@Date : 11/14/2016
   *@param: List of Tasks.new , Task Old Map , Indicators for Insert/Update.
   *@return:This mehtod does not return any value.
-
+----------------------------------------------------------
+   @issue : SFDCJP-1725
+   @modified date : 24-feb-2017
+   @name : Lokesh m
+   @desc : updating Task_Update_Flag__c field in lead__c object related to this task.
   */
     
     public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
@@ -955,6 +965,8 @@ public class TaskHelper {
             }
         } 
         system.debug('#####$$$$$$'+updateLead);
+        if(updateLead != NULL && !updateLead.isEmpty())
+            Update updateLead;
         if(updlead.size()>0){ 
           System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  

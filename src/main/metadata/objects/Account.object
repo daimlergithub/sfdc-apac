@@ -2026,13 +2026,21 @@
         </displayedFields>
         <label>SuspectAccountFields</label>
     </fieldSets>
-    <fields>
+      <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>ASLead Notification Timing</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 times a day</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -2042,7 +2050,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
+    </fields>  
     <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7640,13 +7648,21 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-    <fields>
+			   <fields>
         <fullName>FinanceLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>FinanceLead Notification Timing</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 times a day</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -7657,6 +7673,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+			
     <fields>
         <fullName>Finance_Sanction_Comment__c</fullName>
         <externalId>false</externalId>
@@ -13182,6 +13199,14 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 times a day</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -31584,6 +31609,17 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <active>true</active>
         <description>Record type for dealer</description>
         <label>Dealer</label>
+         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -33572,8 +33608,16 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		        <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -35802,6 +35846,22 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>none</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
             <values>

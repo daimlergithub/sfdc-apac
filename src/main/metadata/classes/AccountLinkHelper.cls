@@ -444,12 +444,33 @@ public class AccountLinkHelper
                 }
                 map_AccountIdAndListAccountLinkId.get(accountLink.toRole__c).add(accountLink.Id);
             }
+            
+             // Added for Retail Person - Account Link issue
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
+                if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
+                    set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
+                    list_SharingToDelete.add(accountLink.Id);
+                    if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)) {
+                        map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                    }
+                    map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                }
+            }
         }
         }
         if(set_accountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
+            List<Account> dealerAccList = [select Name from Account where Id IN: set_accountId];
+            Set<String> dealerAccNameSet = new Set<String>();
+            for(Account dealerRec : dealerAccList) {
+                dealerAccNameSet.add(dealerRec.Name);
+            }
+            List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
+            
             List<Account_Link__Share> list_SharingDele = new List<Account_Link__Share>([SELECT Id FROM Account_Link__Share 
-                                                                                            WHERE ParentId IN:list_SharingToDelete AND UserOrGroupId IN :list_User]);
+                                                                                            WHERE ParentId IN:list_SharingToDelete 
+                                                                                            AND (UserOrGroupId IN :list_User OR UserOrGroupId IN :groupList)]);
+            //system.assert(false, list_SharingDele);
             if(list_SharingDele.size() > 0){
                 delete list_SharingDele;
             }
@@ -703,16 +724,16 @@ public class AccountLinkHelper
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
-		Set<String> FromAccountIds = new set<String>();
+        Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
-				 FromAccountIds.add(acc.fromRole__c);  
+                 FromAccountIds.add(acc.fromRole__c);  
                 System.debug('AccountID--->'+acc.id);        
             }
             
         }
-		 List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
+         List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
         for(Account_Link__c acclink : accLst ){
             if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
             acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
