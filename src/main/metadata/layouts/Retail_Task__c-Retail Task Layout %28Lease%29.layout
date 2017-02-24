@@ -49,15 +49,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Contractor_Name_Native__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contractor_ZipCode1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contractor_Name__c</field>
+                <field>Interface_Valid_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -96,10 +88,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Latest_Sales_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Interface_Valid_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -211,15 +199,15 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
+            <layoutItems>
+                <height>400</height>
                 <page>RelatedDealerViewForLease</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedById</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
