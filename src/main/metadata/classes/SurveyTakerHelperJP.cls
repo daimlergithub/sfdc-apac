@@ -53,7 +53,7 @@ public class SurveyTakerHelperJP {
                 userId.add(sur.User__c);
                
             }
-            if(sur.Dealer_Account__c != null)
+            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false)
             {
                 dealerID.add(sur.Dealer_Account__c);
             }
@@ -448,4 +448,3 @@ public class SurveyTakerHelperJP {
         
 }
 }
-    
