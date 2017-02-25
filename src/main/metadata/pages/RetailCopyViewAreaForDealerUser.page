@@ -1,6 +1,16 @@
-<apex:page standardController="Account_Link__c" extensions="AccountLinkController">
+<apex:page standardController="Account" extensions="AccountLinkController">
     <apex:form >
-       <apex:pageBlock>
+       <script>
+function test(){
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!acclnkdealer.id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
+}
+</script>
+       
+       
+       
+       
+       
+       <apex:pageBlock >
        
            <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
            
@@ -63,8 +73,12 @@
            </apex:pageBlockSectionItem>
         </apex:pageBlockSection>
       <apex:pageblockButtons location="Top">
-        <apex:commandButton action="{!Edit}" value="Edit"/>
-        <apex:commandButton action="{!Delete}" value="Delete"/>
+   <!----< <apex:commandButton action="{!ab}" value="Edit" /> ------->
+        <!--<<apex:commandButton onclick="window.open('{!ab}');" value="Edit"/>-->
+        <apex:commandlink action="{!ab}" target="_blank">
+            <apex:commandButton value="Edit"/>
+        </apex:commandLink>
+        <apex:commandButton value="Delete" onclick="test();"/>
     </apex:pageblockButtons>
     </apex:pageBlock>
             
