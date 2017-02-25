@@ -87,13 +87,13 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
                 vrlist.add(vehiclewrpper.salescontactvr);
-				if(!VRid.isEmpty()){
+				if(VRid.isEmpty()){
                     VRid.add(vehiclewrpper.salescontactvr.id);  
                 }
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
             vrlist.add(vehiclewrpper.aftersalescontactvr);
-			if(!VRid.isEmpty()){
+			if(VRid.isEmpty()){
                 VRid.add(vehiclewrpper.aftersalescontactvr.id);    
             }
         
