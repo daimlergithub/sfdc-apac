@@ -523,6 +523,7 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
         List<String> GcNames=new List<String>();
          List<Account_Link__c> ListAlk=new List<Account_Link__c>();
          Set<Id> DealerAccId=new Set<Id>();
+         Set<Id> set_LinkId = new Set<Id>();
          //List<User> list_User = new List<User>();
           List<Vehicle_Relationship__Share> list_SharingDele = new List<Vehicle_Relationship__Share>();
           
@@ -559,21 +560,29 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
         
         if(set_AccountId!=null)
         {
-        system.debug('+++++++++++'+set_AccountId);
-         List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_AccountId];
+         
+         ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_AccountId];
+                if(ListAlk.size() > 0){
+         
+         for(Account_Link__c  alk:ListAlk)
+         {
+         if(alk.fromRole__c!=null && alk.toRole__c!=null)
+         {
+         set_LinkId.add(alk.fromRole__c);
+         } }
+         List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_LinkId];
             for(Account acc : accName){
-               //accNames.add(acc.Name);
+              // accNames.add(acc.Name);
                GcNames.add(acc.Dealer_GC_Code__c );
-               system.debug('++++++++++++++'+'True');
-               system.debug('++++++++++++++'+ GcNames);
             
-            } 
             }
             List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
                 for(Account accs : accGCode ){
                   accNames.add(accs.Name);  
                 
             }
+            
+             } }
          
            List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
           
