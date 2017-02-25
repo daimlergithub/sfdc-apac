@@ -15069,10 +15069,6 @@
             <translation><!-- UDNissanDiesel --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>VAUXHALL</masterLabel>
             <translation><!-- VAUXHALL --></translation>
         </picklistValues>
