@@ -446,7 +446,7 @@ public class AccountLinkHelper
             }
             
              // Added for Retail Person - Account Link issue
-            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
+            if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
                 if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
