@@ -159,7 +159,7 @@ public class LeadHelperJP
         
         List<Account_Link__c> AccountLinkList = new list<Account_Link__c>();
         List<Account_Link__c> AccountLinkInsert = new list<Account_Link__c>();
-        Id AclRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
+        Id AclRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('contact2contact').getRecordTypeId();
         AccountLinkList = [select id,fromRole__c,toRole__c from Account_Link__c where fromRole__c in :contactIds ];
         system.debug('!!!!!!!!!!!' + AccountLinkList);
         system.debug('!!!!!!!!!!!' + ContactDealerMap);
