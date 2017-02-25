@@ -811,7 +811,7 @@
         <name>Portal_Type__c</name>
         <picklistValues>
             <masterLabel>M-Care</masterLabel>
-            <translation>M-Care会員</translation>
+            <translation>Mケア会員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal</masterLabel>
