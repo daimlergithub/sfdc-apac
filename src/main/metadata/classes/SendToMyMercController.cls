@@ -207,7 +207,7 @@ public with sharing class SendToMyMercController {
                 
             }
             if(personBirthdate){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastNameNative'));    
             }        
             else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
