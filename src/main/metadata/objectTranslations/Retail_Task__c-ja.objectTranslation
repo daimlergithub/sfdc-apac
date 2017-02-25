@@ -2438,11 +2438,7 @@
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Loan)</layout>
-		    <sections>
-				<label>口座情報</label>
-				<section>Bank Account Information</section>
-			</sections>
-    </layouts>
+	</layouts>
     <layouts>
         <layout>Retail Task Layout(Contract)</layout>
     </layouts>
