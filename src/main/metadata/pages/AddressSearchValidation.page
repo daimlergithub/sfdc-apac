@@ -1,7 +1,6 @@
 <apex:page standardController="Account" extensions="AddressSearchValidationController" >
    
     <apex:pageMessages id="msgs" escape="False" />
-    <apex:pageMessages id="msgs1" escape="False" />
     <apex:includeScript value="/support/console/20.0/integration.js"/>
     <apex:includeScript value="{!$Resource.jQuery}" />
     <script type="text/javascript">
@@ -58,6 +57,10 @@
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >        
+                     <apex:outputLabel value="Touch Point" />       
+                  <apex:inputText value="{!TouchPoint}"  />             
+                  </apex:pageBlockSectionItem> 
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
@@ -70,7 +73,8 @@
                     <apex:inputField value="{!objAccount.Home_Phone_2__c}" />
                     <apex:inputField value="{!objAccount.Phone}" />
                     <apex:inputField value="{!objAccount.Email__c}" />
-                    <apex:inputField value="{!objAccount.Email2__c}" />                   
+                    <apex:inputField value="{!objAccount.Email2__c}" />
+                    <apex:inputField value="{!objPersonAccount.VIN__c}" />                  
                 </apex:pageBlockSection>
                
                 
@@ -89,6 +93,10 @@
                         <apex:inputText value="{!objPersonAccount.FirstName}" />
                         
                     </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Touch Point" />
+                  <apex:inputText value="{!TouchPoint}"  />        
+                  </apex:pageBlockSectionItem> 
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
 <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
@@ -102,6 +110,7 @@
                     <apex:inputField value="{!objPersonAccount.Email__c}" />
                     <apex:inputField value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
+                    <apex:inputField value="{!objPersonAccount.VIN__c}" />
                    
                     
                 </apex:pageBlockSection>
@@ -173,6 +182,7 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                   
+                  <apex:inputField value="{!objPersonAccount.VIN__c}" /> 
                     <apex:inputField value="{!objAccount.Company_Name__c}" />              
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
                     <apex:pageBlockSectionItem >
@@ -218,11 +228,10 @@
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
-                            <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
+                          <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:35%; white-space:none;">
                                 <apex:selectOptions value="{!AddressOptions}"/>
                             </apex:selectList>
-                        <!-- <apex:inputField value="{!AddressObj.Address_Type__c}"/> --> 
-                    </apex:pageBlockSectionItem>
+                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.ZipCode__c.Label}"/>
@@ -291,7 +300,15 @@
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR') ,true,false)}"/>
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,addressIds,msgs"/>
-                    <apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
+                    <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(RecordType == 'Person Account' || RecordType == 'Company',true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/> -->
+                    
+                    <apex:outputPanel rendered="{!firstsave}" >
+                        <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(Market =='JP',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!secondsave}">
+                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/>
+                    </apex:outputPanel>                                  
+                    
                     <apex:outputPanel id="redirectPanel">                  
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">
@@ -337,7 +354,7 @@
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
-                        <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
                         <apex:outputField value="{!cr.firstName}"/>
