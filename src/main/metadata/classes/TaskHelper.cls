@@ -24,6 +24,7 @@ public class TaskHelper {
     private static String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
     private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+    private static String SalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
     
     // Get QC__c record type ids
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
@@ -918,7 +919,9 @@ public class TaskHelper {
             }   
         }
          if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c from Lead__c where Id =:leadId];
+            lstLead = [Select Id,RecordTypeId,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c,Visited_Showroom_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c, 
+            Finance_Proposal_Date__c,Insurance_Proposal_Date__c,ServiceProgram_Proposal_Date__c,
+            Simple_Estimation_Date__c,Test_Drive_Date__c,Trade_in_Date__c from Lead__c where Id =:leadId];
         }
         
         for(Task t : tasks)
@@ -944,13 +947,57 @@ public class TaskHelper {
             {
                 if(le1.id == t1.whatId)
                 {
-                    if(t1.intention_status__c!=null && t1.Activity_Date__c!=NULL)
+                    if(t1.intention_status__c=='Contact' && t1.Activity_Date__c!=NULL)
                     {
                         le1.Contact_Date__c =t1.Activity_Date__c;
                         mainLead.add(le1);
-                        system.debug('+++++++++'+ mainLead );  
-                   }
-               }
+                    }
+                    else if(t1.intention_status__c=='Visited' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Visited_Showroom_Date__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Needs Check' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Needs_Check_Date__c = t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                    else if(t1.intention_status__c=='Product Proposal' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Product_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Finance Proposal' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Finance_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Insurance Proposal' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Insurance_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Service Program Proposal' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.ServiceProgram_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Simple Estimation' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Simple_Estimation_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Test Drive' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Test_Drive_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                    else if(t1.intention_status__c=='Trade In' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Trade_in_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                }
            }
         }
         update mainLead;
