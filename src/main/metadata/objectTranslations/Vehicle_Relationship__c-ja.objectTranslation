@@ -3075,7 +3075,18 @@
     <fields>
         <label>電話番号（車両）</label>
         <name>Vehicle_Phone_picklist__c</name>
-        
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation>自宅電話</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Phone 2</masterLabel>
+            <translation>その他電話番号1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Phone</masterLabel>
+            <translation>勤務先電話</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>UCP登録／申請ステータス</label>
@@ -3117,14 +3128,54 @@
     <fields>
         <label>メール（車両）</label>
         <name>vehicle_mail_picklist__c</name>
+		<picklistValues>
+            <masterLabel>Email Home</masterLabel>
+            <translation>Eメール(自宅）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Work</masterLabel>
+            <translation>Eメール(会社）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyMercedes Email</masterLabel>
+            <translation>MyMercedesメールアドレス</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>FAX（車両）</label>
         <name>vehicle_fax_picklist__c</name>
+		<picklistValues>
+            <masterLabel>FAX</masterLabel>
+            <translation>FAX</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work FAX</masterLabel>
+            <translation>勤務先 FAX</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>住所（車両）</label>
         <name>vehicle_address_picklist__c</name>
+		<picklistValues>
+            <masterLabel>Home Address</masterLabel>
+            <translation>自宅</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation>その他1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation>その他2</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation>その他3</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work address</masterLabel>
+            <translation>勤務先</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>SPO登録／申請ステータス</label>
