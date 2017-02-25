@@ -25,6 +25,7 @@ global class LeadcustomClone
                accCopy.Related_Leads__c = acc.Id;             
                insert accCopy;
                acc.Related_Leads__c = accCopy.Id;
+               acc.Dealer_Lead_Status__c = 'Lost';
                acc.Dealer_Lost_Reason__c = 'Other reasons';
                acc.Lost_Situation__c = 'Others';
                acc.Lost_Comment__c = 'Converted to After-Sales Leads';
