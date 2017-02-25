@@ -11,6 +11,12 @@
     
     1. Sinow Created on 2013-04-28
     2. 17-July-2013 Sinow Zhang (NTTData) When a task ucid is not null, update interactionIds from Avato. US-CTI-001
+    ---------------------------------------------------------------
+    modified date : 24-feb-2017
+    modified method : UpdateLinkedLeads
+    issue : SFDCJP-1725
+    name : Lokesh m
+    desc : updating Task_Update_Flag__c field in lead__c object related to this task.
 */
 public class TaskHelper {
     // Get Task record type ids
@@ -889,7 +895,11 @@ public class TaskHelper {
   *@Date : 11/14/2016
   *@param: List of Tasks.new , Task Old Map , Indicators for Insert/Update.
   *@return:This mehtod does not return any value.
-
+----------------------------------------------------------
+   @issue : SFDCJP-1725
+   @modified date : 24-feb-2017
+   @name : Lokesh m
+   @desc : updating Task_Update_Flag__c field in lead__c object related to this task.
   */
     
     public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
@@ -899,6 +909,7 @@ public class TaskHelper {
           List<Lead__c> lstLead = new List<Lead__c>();
           List<Lead__c> updateLead = new List<Lead__c>();
           Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
+          List<Lead__c> mainlead= new List<Lead__c>();
          for(Task tsk : tasks){            
             if(tsk.WhatId != null){
               
@@ -907,7 +918,7 @@ public class TaskHelper {
             }   
         }
          if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,Task_Update_Flag__c,Next_Contact_Customer_Date__c from Lead__c where Id =:leadId];
+            lstLead = [Select Id,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c from Lead__c where Id =:leadId];
         }
         
         for(Task t : tasks)
@@ -924,11 +935,26 @@ public class TaskHelper {
                 updlead.put(le.ID,le);
                 }
                 }
-                
-                
-          }
+                }
         }
-       for(Lead__c led : lstLead){
+        
+       for(Task t1 : tasks)
+        {
+        for(Lead__c le1 : lstLead)
+            {
+                if(le1.id == t1.whatId)
+                {
+                    if(t1.intention_status__c!=null && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Contact_Date__c =t1.Activity_Date__c;
+                        mainLead.add(le1);
+                        system.debug('+++++++++'+ mainLead );  
+                   }
+               }
+           }
+        }
+        update mainLead;
+        for(Lead__c led : lstLead){
             if(led.Task_Update_Flag__c == False){
                 led.Task_Update_Flag__c = True;
                 updateLead.add(led);
@@ -939,6 +965,8 @@ public class TaskHelper {
             }
         } 
         system.debug('#####$$$$$$'+updateLead);
+        if(updateLead != NULL && !updateLead.isEmpty())
+            Update updateLead;
         if(updlead.size()>0){ 
           System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  
