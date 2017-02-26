@@ -150,7 +150,6 @@
 						<apex:inputField value="{!addressobj.Address_Type__c}"/>
                     </apex:pageBlockSectionItem>
                    
-				   
                     <apex:inputField value="{!addressobj.ZipCode__c}"/>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Province__c.Label}"/>
