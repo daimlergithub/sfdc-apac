@@ -1140,7 +1140,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>My Shops</masterLabel>
-            <translation>マイショップ(複数)</translation>
+            <translation>マイショップ履歴対象</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Territory Dealer</masterLabel>
