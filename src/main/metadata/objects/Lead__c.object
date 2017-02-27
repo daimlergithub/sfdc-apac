@@ -108999,11 +108999,11 @@ Visit_Dealer__c = true &amp;&amp; (OR(ISNULL(Recommended_Dealer__c), ISBLANK( Re
         <errorDisplayField>Recommended_Dealer__c</errorDisplayField>
         <errorMessage>Please fill in the Recommended Dealer.</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>Service_Date_is_Mandatory</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
-ISPICKVAL(CAC_Lead_Status__c ,"Service Completed"),
+ISPICKVAL(Dealer_Lead_Status__c,"Service Completed"),
 ISNULL(Service_Date__c))</errorConditionFormula>
         <errorDisplayField>Service_Date__c</errorDisplayField>
         <errorMessage>Service Date Field is Mandatory</errorMessage>
