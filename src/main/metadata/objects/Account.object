@@ -42941,11 +42941,7 @@ if (sforce.console.isInConsole()) {
         <masterLabel>Testing</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
- 
-<<<<<<< HEAD
-}
-}</url>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBFS_Case</fullName>
