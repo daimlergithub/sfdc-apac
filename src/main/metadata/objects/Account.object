@@ -43178,48 +43178,6 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
-    </webLinks><webLinks>
-        <fullName>Send_to_Autoline</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to Autoline</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var r = confirm("Are you sure want to send information to Auto Line interface?"); 
-if(r == true) 
-{ 
-var resultMsg= 
-sforce.apex.execute("UtilWebservice","LeadIfnoSendToAL",{LeadId:"{!Account.Id}",DealerID:"
-{!$Organization.Id}",AccountLinkId:"{!Lead__c.MD__c}"}); 
-if(resultMsg!=null) 
-{ 
-alert("Successfully Sent Information to AutoLine"); 
-
-} 
-else 
-{ 
-alert("Web service callout failed"); 
-} 
-}</url>
-    </webLinks>
-</CustomObject>
-=======
-		// query the record
-		var qr = sforce.connection.query(&quot;SELECT Id,Dup_Reason__c FROM Account where Id=&apos;&quot; + &quot;{!Account.Id}&quot; + &quot;&apos;&quot;);
-		var records = qr.getArray(&quot;records&quot;); 
-		 
-		// display the field from the query
-		alert(&quot;Dup Reason: &quot; +qr.records.Dup_Reason__c);
-
-		if(qr.records.Dup_Reason__c==null){
-		   alert(&apos;No record found to be merged&apos;);
-		}
-		else{
-		window.open(&quot;/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);	
-		}</url>
     </webLinks>
     <webLinks>
         <fullName>View_Hierarchy</fullName>
