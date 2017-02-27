@@ -5,9 +5,9 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
-	<customButtons>New_Case</customButtons>
-	<customButtons>New_Leads</customButtons>
-	<customButtons>New_AfterSales_Leads</customButtons>
+    <customButtons>New_Case</customButtons>
+    <customButtons>New_Leads</customButtons>
+    <customButtons>New_AfterSales_Leads</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -138,7 +138,7 @@
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name_Native_2__c</field>
             </layoutItems>

@@ -274,6 +274,14 @@
         <apexClass>AddressSelectionforExistingCustomerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>AnnouncementController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AnnouncementController_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>false</enabled>
@@ -644,7 +652,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadcustomClone</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
@@ -21478,8 +21486,13 @@
     <layoutAssignments>
         <layout>Batch_Job__c-Batch Job Layout</layout>
     </layoutAssignments>
+ <layoutAssignments>
+        <layout>Campaign-CAC Campaign Layout</layout>
+        <recordType>Campaign.CAC_Campaign</recordType>
+    </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
+        <layout>Campaign-Campaign Execution Complex layout</layout>
+        <recordType>Campaign.Campaign_Execution_Complex</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
@@ -21491,10 +21504,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
-        <recordType>Campaign.CAC_Campaign</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
         <recordType>Campaign.CAS_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21503,15 +21512,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
-        <recordType>Campaign.Campaign_Execution_Complex</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-        <recordType>Campaign.Central_Marketing_Campaign</recordType>
+        <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+        <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
@@ -21528,6 +21537,13 @@
     <layoutAssignments>
         <layout>Campaign-Campaign Read Only Layout</layout>
         <recordType>Campaign.Campaign_Execution_Complex_Lock</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Central Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Central Campaign Layout</layout>
+        <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CampaignMember-Campaign Member Page Layout</layout>
@@ -21850,19 +21866,15 @@
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
-        <recordType>PersonAccount.Person_Account_Manual_Merge</recordType>
+     <layoutAssignments>
+        <layout>PersonAccount-PA Layout-Soft Deleted</layout>
+        <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>
         <recordType>PersonAccount.Person_Account_Retail</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
-        <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
+     <layoutAssignments>
         <layout>PersonAccount-Person Account Layout</layout>
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
@@ -22043,11 +22055,11 @@
     <layoutAssignments>
         <layout>Suburb_Zip_Mapping__c-Suburb Zip Mapping Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>SurveyQuestionResponse__c-Survey Question Response Layout</layout>
+   <layoutAssignments>
+        <layout>SurveyQuestionResponse__c-Survey Question Answer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>SurveyTaker__c-Survey Taken Layout</layout>
+        <layout>SurveyTaker__c-SurveyTaker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Survey_Question__c-Survey Question Layout</layout>
@@ -22536,6 +22548,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>AnnouncementsPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

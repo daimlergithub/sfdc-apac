@@ -123,7 +123,7 @@ public without sharing class RetailCampaignSegmentationController {
         set;
     }
     
-     public List<SelectOption> SpecialMarkonAccount{
+    public List<SelectOption> SpecialMarkonAccount{
         get{
             SpecialMarkonAccount= new List<SelectOption>();
             SpecialMarkonAccount.add(new SelectOption('', '--None--'));
@@ -132,6 +132,33 @@ public without sharing class RetailCampaignSegmentationController {
                 SpecialMarkonAccount.add(new SelectOption(entry.getValue(), entry.getLabel()));
             }
             return SpecialMarkonAccount;
+        }
+        set;
+    }
+    
+    //addred by lokesh M
+    public List<SelectOption> Customerphase{
+        get{
+            Customerphase= new List<SelectOption>();
+            Customerphase.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Customer_Lifecycle_Phase__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                Customerphase.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return Customerphase;
+        }
+        set;
+    }
+     //added by lokesh m
+     public List<SelectOption> status{
+        get{
+            status= new List<SelectOption>();
+            status.add(new SelectOption('', '--None--'));
+            Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Status__c;
+            for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
+                status.add(new SelectOption(entry.getValue(), entry.getLabel()));
+            }
+            return status;
         }
         set;
     }
@@ -671,7 +698,7 @@ public without sharing class RetailCampaignSegmentationController {
         dateTimeFields = new Set<String>{'Last_Successful_Call__c'};
         textFields = new Set<String>{'PersonEmail', 'FileName__c', 'ID_Number__c', 'Primary_Address__c', 'ZipCode__c', 'PersonMobilePhone', 'PersonHomePhone', 'Phone',
             'Retail_Campaign_Name__c',  'Registration_City__c', 'Selling_Dealer__c', 'File_Name__pc'};
-        pickListFields = new Set<String>{'Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 
+        pickListFields = new Set<String>{'Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 
             'Occupation__c', 'Type', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c',
             'Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c',
             'Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c',

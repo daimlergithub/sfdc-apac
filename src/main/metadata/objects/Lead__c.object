@@ -624,6 +624,21 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Service_Advisor__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lead_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>SuspectLeadFields</label>
     </fieldSets>
     <fields>
@@ -9935,6 +9950,14 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
@@ -9953,10 +9976,26 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <controllingFieldValues>Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
@@ -10007,26 +10046,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso Employee Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler Employee Car</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10050,7 +10069,7 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
             </picklistValues>
             <picklistValues>
                 <fullName>Service</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product</fullName>
@@ -39695,7 +39714,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>TA%26C</fullName>
@@ -90307,6 +90326,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
@@ -101615,6 +101638,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
             </values>
@@ -109129,8 +109156,8 @@ alert("This Lead is already converted");
 else{ 
 if (confirm('This will convert the record type of Leads.Please confirm')) { 
 var leadCopy=sforce.apex.execute("LeadcustomClone","cloneLead",{LeadId:'{!Lead__c.Id}'}); 
-var relatedId1='{!Lead__c.Related_Leads__c}'; 
-window.location.href={!URLFOR($Site.Prefix)}'/'+leadCopy; 
+var relatedId1='{!Lead__c.Related_Leads__c}';
+window.location.href={!URLFOR($Site.Prefix)} '/'+leadCopy;
 } 
 }</url>
     </webLinks>

@@ -434,7 +434,7 @@ List<Account> accUpdLst = new List<Account>();
         }
          if(!shrcaseId.isEmpty() && shrcaseId != null)
             {
-                caserecList = [select id,Case_Dealer__c,Case_Dealer_User__c,Case_Dealer__r.Name,Case_Dealer__r.Dealer_GC_Code__c from Case where ID =:shrcaseId];                
+                caserecList = [select id,Case_Dealer__c,Case_Dealer_User__c,Case_Dealer__r.Name,Case_Dealer_User__r.Dealer_GC_Code__c,Case_Dealer__r.Dealer_GC_Code__c from Case where ID =:shrcaseId];                
             }
             if(!caserecList.isEmpty() && caserecList != null)
             {
@@ -442,7 +442,11 @@ List<Account> accUpdLst = new List<Account>();
                     {
                         Dealername.add(listca.Case_Dealer__r.Name);
                         userId.add(listca.Case_Dealer__c);  
-                        CaseDealerUserId.add(listca.Case_Dealer_User__c);   
+                        CaseDealerUserId.add(listca.Case_Dealer_User__c); 
+						if(listca.Case_Dealer_User__r.Dealer_GC_Code__c !=null)
+						{
+						DealerGccode.add(listca.Case_Dealer_User__r.Dealer_GC_Code__c);
+						}						
                         if(listca.Case_Dealer__r.Dealer_GC_Code__c!=null)
                         {
                         DealerGccode.add(listca.Case_Dealer__r.Dealer_GC_Code__c); 
@@ -481,7 +485,7 @@ List<Account> accUpdLst = new List<Account>();
             
                // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
                 
-                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null && us.Contact.Accountid==shrcs.Case_Dealer__c && us.Dealer_GC_Code__c == shrcs.Case_Dealer__r.Dealer_GC_Code__c)
+                if(us.Contact.Accountid !=null && shrcs.Case_Dealer__c!=null)
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
@@ -495,7 +499,7 @@ List<Account> accUpdLst = new List<Account>();
         //Apex share number AS-017,JIRA ticket SFDCJP-655
         if(CaseDealerUserId!=null)
         {
-          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where id=:CaseDealerUserId and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
+          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
         }
         
          if(!caserecList.isEmpty() && caserecList != null && CaseDealerUser!=null)
@@ -508,7 +512,7 @@ List<Account> accUpdLst = new List<Account>();
             
                // if(!groupmap.isEmpty() && groupmap.get(shrcs.Case_Dealer__r.Name) != null && ((us.profile.Name=='Japan Dealer Sales Representative') || (us.profile.Name=='Japan Dealer Service Advisor') ))
                 
-                if(us.id !=null && shrcs.Case_Dealer_User__c!=null && us.id==shrcs.Case_Dealer_User__c )
+                if(us.id !=null && shrcs.Case_Dealer_User__c!=null )
                 {
                     CaseShare shrcase = new CaseShare();
                     shrcase.CaseId = shrcs.id;
