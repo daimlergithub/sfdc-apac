@@ -184,7 +184,7 @@ public class AddressDisplayInlineEditController {
         Validation = false;
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
-            AddressObj.Address_Type__c = addresspicklist;
+            //AddressObj.Address_Type__c = addresspicklist;
             if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  
