@@ -2971,10 +2971,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>My Shop</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>My Shops</fullName>
                 <default>false</default>
             </values>
