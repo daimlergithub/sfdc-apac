@@ -472,7 +472,7 @@ public class AccountLinkHelper
                                                                                             AND (UserOrGroupId IN :list_User OR UserOrGroupId IN :groupList)]);
             //system.assert(false, list_SharingDele);
             if(list_SharingDele.size() > 0){
-                delete list_SharingDele;
+                Database.delete(list_SharingDele, false);
             }
         }
         

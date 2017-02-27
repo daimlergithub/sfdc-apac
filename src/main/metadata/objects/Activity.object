@@ -2037,7 +2037,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
+	
     <fields>
         <fullName>eDM_Type__c</fullName>
         <description>eDM Type with 3 types of values: Brochure, Price List	, Brochure+Price List. Auto from trigger. Used by eDM Template ID field.</description>
