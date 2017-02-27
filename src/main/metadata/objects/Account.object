@@ -5276,7 +5276,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -16495,15 +16495,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16527,7 +16527,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21977,15 +21977,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22009,7 +22009,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22070,17 +22070,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>VQS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Dealership_Type__c</picklist>
-            <values>
-                <fullName>Independent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBAuP</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27580,15 +27569,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27612,7 +27601,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -32920,15 +32909,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -32952,7 +32941,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37681,15 +37670,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37713,7 +37702,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42998,3 +42987,4 @@ window.open(&quot;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Ac
 }</url>
     </webLinks>
 </CustomObject>
+
