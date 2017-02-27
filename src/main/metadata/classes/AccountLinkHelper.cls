@@ -446,7 +446,7 @@ public class AccountLinkHelper
             }
             
              // Added for Retail Person - Account Link issue
-            if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
+               if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
                 if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
@@ -1027,7 +1027,7 @@ public class AccountLinkHelper
    
    }
          
-    Map<Id,Account> fromAccountRecordTypeMap = new Map<Id,Account>();
+   Map<Id,Account> fromAccountRecordTypeMap = new Map<Id,Account>();
    for(Account acc:[Select id, Name,RecordtypeId From Account Where Id IN:fromRoleIdList]){      
       fromAccountRecordTypeMap.put(acc.id,acc);
    
@@ -1127,6 +1127,27 @@ public class AccountLinkHelper
             {
             insert sutlist;
             }
+    }
+    
+    
+    // Remove Sharing For Vehicle Relationship when Record is deleted
+    Id vehicleRelationRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+    Map<Id, Vehicle_Relationship__c> vehicleRelationshipMap = new Map<Id, Vehicle_Relationship__c>([select Id from Vehicle_Relationship__c where Contact__c IN: ToAccountRecordTypeMap.keyset()
+                                                                    AND RecordTypeId =: vehicleRelationRecordTypeId]);
+    
+    
+    Set<String> dealerAccNameSet = new Set<String>();
+    for(Account dealerRec : fromAccountRecordTypeMap.values()) {
+        dealerAccNameSet.add(dealerRec.Name);
+    }
+    List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
+    
+    List<Vehicle_Relationship__Share> list_SharingDele = [SELECT Id, ParentId FROM Vehicle_Relationship__Share 
+                                                                                            WHERE ParentId IN: vehicleRelationshipMap.keySet() 
+                                                                                            AND UserOrGroupId IN :groupList];
+    
+    if(list_SharingDele.size() > 0){
+        Database.delete(list_SharingDele, false);
     }
  }
  
