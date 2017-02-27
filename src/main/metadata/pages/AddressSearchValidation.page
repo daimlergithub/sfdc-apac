@@ -353,8 +353,11 @@
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
-                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}">{!cr.LastName}</apex:outputLink>    
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">  
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
                         <apex:outputField value="{!cr.firstName}"/>
