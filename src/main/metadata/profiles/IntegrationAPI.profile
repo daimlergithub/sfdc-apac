@@ -11443,11 +11443,6 @@
         <field>Event.QC_Quantity__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Related_Vehicle__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Reason__c</field>
@@ -19671,11 +19666,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.QC_Quantity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Related_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
