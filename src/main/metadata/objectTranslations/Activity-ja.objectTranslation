@@ -918,6 +918,66 @@
   <fields>
         <label><!-- Intention Status --></label> 
         <name>Intention_Status__c</name>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation>コンタクト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Proposal</masterLabel>
+            <translation>ファイナンス提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hand Back</masterLabel>
+            <translation><!-- Hand Back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Proposal</masterLabel>
+            <translation>自動車保険提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Check</masterLabel>
+            <translation>ニーズ把握</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Proposal</masterLabel>
+            <translation>商品説明提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quoted</masterLabel>
+            <translation><!-- Quoted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retain Payout</masterLabel>
+            <translation><!-- Retain Payout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retain Refinance</masterLabel>
+            <translation><!-- Retain Refinance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Program Proposal</masterLabel>
+            <translation>サービスプログラム提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple Estimation</masterLabel>
+            <translation>簡易見積</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>試乗</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade In</masterLabel>
+            <translation><!-- Trade In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade-in</masterLabel>
+            <translation>下取査定</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visited</masterLabel>
+            <translation>来店</translation>
+        </picklistValues>
     </fields> 
     <fields>  
         <label><!-- InteractionIds --></label>

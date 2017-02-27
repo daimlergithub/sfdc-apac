@@ -60,7 +60,11 @@
         }
         
         function refreshPage() {
-            window.top.location='/{!Account.id}';
+            try {
+            	window.parent.location = window.parent.location.href;
+        	} catch(e) {
+        		window.top.location='/{!Account.id}';
+        	} 
         }
     
     </script>
