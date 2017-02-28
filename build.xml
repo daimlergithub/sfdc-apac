@@ -496,6 +496,7 @@
 											<sf:include name="MBJ_FS_Case_Request_InlineController"/>
 											<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
 											<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
+											<sf:include name="MBJ_FS_Case_Intermediate_ControllerTest"/>
 											<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 											<sf:include name="FS_CaseInlineController"/>
 											<sf:include name="LeadDealerAssignmentProcess"/>
