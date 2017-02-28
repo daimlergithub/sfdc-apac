@@ -1184,18 +1184,6 @@
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>campaign_locked</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
-        <errorMessage>campaign is locked</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>retail_campaign_is_locked</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
-        <errorMessage>Retail Campaign is locked</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>
@@ -1262,24 +1250,6 @@ window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
 var campaignID = "{!Campaign.Id}";
 var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
 location.reload();</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Upload_Campaign_Member</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Upload Campaign Member</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
-if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
-}else
-{
-alert('You cannot create campaign members for this campaign status');
-}</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
