@@ -126,6 +126,7 @@
 											<sf:include name="External_Picklist__c"/>
 											<sf:include name="Car_Model__c"/>
 											<sf:include name="Trigger__c"/>
+											
 							</sf:typeset>
 			</deploy>
 </target>
@@ -141,7 +142,8 @@
 											<sf:include name="Address__c"/>
 											<sf:include name="Vehicle__c"/>
 											<sf:include name="Vehicle_Relationship__c"/>
-											<sf:include name="Retail_Task__c"/>
+											<sf:include name="Retail_Task__c"/>											
+											<sf:include name="Retail_Campaign__c"/>
 											<sf:include name="Account_Link__c"/>
 											<sf:include name="SSI__c"/>
 											<sf:include name="AreaCodeTranslation__mdt"/>
@@ -292,7 +294,6 @@
 											<sf:exclude name="Survey_Question__c"/>
 											<sf:exclude name="Contract_Relation__c"/>
 											<sf:exclude name="Participating_Dealer__c"/>
-											<sf:exclude name="Retail_Campaign__c"/>
 											<sf:exclude name="Dealer_List_Member__c"/>
 							</sf:typeset>
 			</deploy>
@@ -555,8 +556,7 @@
 											<sf:exclude name="Tasks"/>
 											<sf:exclude name="Retail_Campaigns"/>
 											<sf:exclude name="Central_Campaigns"/>
-											<sf:exclude name="Campaign_Calendar"/>
-											<sf:exclude name="Retail_Campaign__c"/>      
+											<sf:exclude name="Campaign_Calendar"/>      
 											<sf:exclude name="Retail_Campaign_Calender"/>
 											<sf:exclude name="Yearly_Target"/>
 							</sf:typeset>
@@ -1040,7 +1040,6 @@
 											<sf:include name="Retail_Campaigns"/>
 											<sf:include name="Central_Campaigns"/>
 											<sf:include name="Campaign_Calendar"/>
-											<sf:include name="Retail_Campaign__c"/>
 											<sf:include name="Retail_Campaign_Calender"/>                                                          
 											<sf:include name="Yearly_Target"/>                                                     
 							</sf:typeset>                   
