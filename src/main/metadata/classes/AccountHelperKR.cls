@@ -301,7 +301,7 @@ public class AccountHelperKR{
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
-            if(isUpdate && acc.MD__c == label.MarketJp ){ //Checking Market for updated account
+            if(isUpdate && acc.MD__c == 'KR'){ //Checking Market for updated account
                 if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c){
                      AccountIds.add(acc.id); //Adding accountId's to set
                        System.debug('AccountID--->'+acc.id);  
