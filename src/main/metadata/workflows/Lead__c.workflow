@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-	<alerts>
+    <alerts>
         <fullName>Assigned_to_Dealer_Gatekeeper_Lead</fullName>
         <description>Assigned to Dealer Gatekeeper Lead</description>
         <protected>false</protected>
@@ -9,36 +9,6 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Assigned_to_Dealer_Gatekeeper_Lead</template>
-    </alerts>
-	 <alerts>
-        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
-        <description>No modification is made in 10 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
-    </alerts>
-	<alerts>
-        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
-    </alerts>
-	<alerts>
-        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
-        <description>No modification is made in 5 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
     </alerts>
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
@@ -101,6 +71,36 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
+        <description>No modification is made in 10 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
+    </alerts>
+    <alerts>
+        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
+        <description>No modification is made in 5 days (All Modifications)</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
     </alerts>
     <alerts>
         <fullName>Send_Mail_to_Lead_Owner</fullName>
@@ -481,15 +481,6 @@ Proxy_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Service_Completed_Date_To_Today</fullName>
-        <field>Service_Date__c</field>
-        <formula>NOW()</formula>
-        <name>Update Service Date to Today</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>	
-    <fieldUpdates>
         <fullName>Update_Purchased_Date_Time_to_Now</fullName>
         <field>Purchased_CAC_Date_Time__c</field>
         <formula>Now()</formula>
@@ -503,6 +494,15 @@ Proxy_Date_Time__c
         <field>Qualified_Date_Time__c</field>
         <formula>NOW()</formula>
         <name>Update Qualified Date Time to Now</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Service_Completed_Date_To_Today</fullName>
+        <field>Service_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Update Service Date to Today</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -629,39 +629,6 @@ Proxy_Date_Time__c
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  Dealer_LMS__c = 'Salesforce', MD__c = 'KR' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<rules>
-        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_10_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
-        <formula>(LastActivityDate - today() == 10) &amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_15_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <formula>(LastActivityDate - today()  == 15) &amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_5_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
-        <formula>(LastActivityDate - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
     <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
         <active>true</active>
@@ -700,6 +667,39 @@ Proxy_Date_Time__c
         </actions>
         <active>false</active>
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
+        <actions>
+            <name>No_modification_is_made_in_10_days_All_Modifications</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
+        <formula>(LastActivityDate - today() == 10) &amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
+        <actions>
+            <name>No_modification_is_made_in_15_days_All_Modifications</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <formula>(LastActivityDate - today()  == 15) &amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
+        <actions>
+            <name>No_modification_is_made_in_5_days_All_Modifications</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
+        <formula>(LastActivityDate - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -933,6 +933,16 @@ Modify Reason:
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
+        <actions>
+            <name>Update_Purchased_Date_Time_to_Now</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Service Completed Date</fullName>
         <actions>
             <name>Update_Service_Completed_Date_To_Today</name>
@@ -949,16 +959,6 @@ Modify Reason:
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
-        <actions>
-            <name>Update_Purchased_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

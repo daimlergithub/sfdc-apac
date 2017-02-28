@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -319,7 +323,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2005,7 +2009,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FinanceExpiryDate“</
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2050,7 +2053,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
                 <fullName>E</fullName>
                 <default>false</default>
             </picklistValues>
-			            <picklistValues>
+            <picklistValues>
                 <fullName>Methanol</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2725,11 +2728,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>2016</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>2017</fullName>
                 <default>false</default>
             </picklistValues>
-			 <picklistValues>
+            <picklistValues>
                 <fullName>2018</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4814,7 +4817,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5839,10 +5841,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>BMW</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>BMW Alpina</fullName>
                 <default>false</default>
@@ -6137,6 +6135,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Opel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7507,11 +7509,11 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2018</fullName>
                 <default>false</default>
             </values>
@@ -7759,12 +7761,12 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Other</fullName>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8512,7 +8514,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-       <picklistValues>
+        <picklistValues>
             <picklist>Fuel__c</picklist>
             <values>
                 <fullName>ANG</fullName>
@@ -8975,7 +8977,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -12606,7 +12608,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -14453,6 +14455,21 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Valid__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>VehicleStatus__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -16278,7 +16295,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -18996,8 +19013,8 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>smart roadster</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
-		<picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>Competitor_Brand__c</picklist>
             <values>
                 <fullName>AMC</fullName>
@@ -19982,7 +19999,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>2016</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>2017</fullName>
                 <default>false</default>
             </values>
@@ -21191,7 +21208,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Valid__c</picklist>
             <values>

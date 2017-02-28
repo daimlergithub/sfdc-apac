@@ -195,6 +195,22 @@ public class AccountHelperJP
                         acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
                     }
+                    else If(acc.Primary_Address_Reference__c ==Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
+                    {   
+                        system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
+                        system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
+                        system.debug('*************Account 2222*********'+acc);
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
+                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
+                        {
+                            province = addtrmap1.get(add.Province__c);
+                        }
+                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
+                    }
+                
                     //Code commented by Srinivas Pendli for #SFDCKR-620
                     /*
                     else if(acc.Primary_Address_Reference__c ==Null)

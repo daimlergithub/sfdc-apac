@@ -306,7 +306,7 @@ public class AddressSearchValidationController{
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;                   
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
@@ -408,7 +408,7 @@ public class AddressSearchValidationController{
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
                     
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
@@ -417,7 +417,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         
                     }
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
                         insert objAccount ;
@@ -438,7 +438,7 @@ public class AddressSearchValidationController{
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('recordType 8:'+ objPersonAccount.Mobile__c);                    
                     system.debug('mobileAreaCode >>:'+mobileAreaCode);  
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = TRUE;
@@ -469,7 +469,7 @@ public class AddressSearchValidationController{
                         Validation = TRUE;
                     }  
                     */                 
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {   
                         if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                         {    
@@ -544,8 +544,8 @@ public class AddressSearchValidationController{
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('Enter JP Loop 2 :');
-                    /****************************************
-                    if(Address_Validated_Flag == false)
+                    /****************************************/
+                    if(!Address_Validated_Flag)
                     {   system.debug('Enter JP Loop 3 :');                    
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
@@ -554,23 +554,24 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         
                     }                    
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     { 
-                    *****************************************/  
+                    /*****************************************/  
                         system.debug('Enter JP Loop 5 :'); 
-                        if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
+                       /* if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
                            objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
                            objPersonAccount.Email__c == null && objPersonAccount.Email2__c == null)
                         {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                             Validation = true;
-                        }
+                        }*/
                         
                         system.debug('refreshPage 1:'+refreshPage );
-                        if(Validation = false){
+                        system.debug('Validation1:'+Validation );
+                        if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
                             upsert objPersonAccount ;
-                            if(AddressObj !=null && Address_Validated_Flag == true){
+                            if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
                                 AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                                 insert AddressObj;
@@ -579,7 +580,7 @@ public class AddressSearchValidationController{
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
                         return PageRef;
                         }
-                   // }
+                    }
                 }
                 
             }
@@ -710,7 +711,7 @@ EP/Tolerant for Validation.
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
             }*/
-            if(addressobj.Province__c == null)
+            if(AddressObj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
             }
@@ -718,38 +719,37 @@ EP/Tolerant for Validation.
             //if(addressobj.ZipCode__c != null)
             //{
             //Changes as part of SFDCKR-683
-            if(addressobj.Province__c != null)
+            if(AddressObj.Province__c != null)
             {
-                addressobj.MD__c = Market;
-                ValidateAddressSearchCallout(addressobj);
+                AddressObj.MD__c = Market;
+                ValidateAddressSearchCallout(AddressObj);
             }
             //} 
         }
         if(Market !='KR'){
-            if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
+            if(AddressObj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)  ))
             {
-                addressobj.Address_Code__c = '';
-                addressobj.Address_Line_1__c = '';
-                addressobj.Address_Line_2__c = '';
-                addressobj.Block__c = '';
-                addressobj.City__c = '';
-                addressobj.District__c = '';
-                addressobj.Province__c = ''; 
-                addressobj.MD__c ='';         
+                AddressObj.Address_Code__c = '';
+                AddressObj.Address_Line_1__c = '';
+                AddressObj.Address_Line_2__c = '';
+                AddressObj.Block__c = '';
+                AddressObj.City__c = '';
+                AddressObj.District__c = '';
+                AddressObj.Province__c = ''; 
+                AddressObj.MD__c ='';         
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
             }
-            if(addressobj.ZipCode__c != null){
-                addressobj.MD__c = Market;
-                ValidateAddressSearchCallout(addressobj);
+            if(AddressObj.ZipCode__c != null){
+                AddressObj.MD__c = Market;
+                ValidateAddressSearchCallout(AddressObj);
             } 
         }     
     }
     
     public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     
-    public void ValidateAddressSearchCallout(Address__c addressobj){ 
+    public void ValidateAddressSearchCallout(Address__c AddressObj){ 
         mapAddressResponse = new List<addressSelectionWrapper>();     
-        Address__c AddressObjtemp1 = new Address__c(); 
         system.debug('recordType 10:'+ objPersonAccount.Mobile__c);  
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(AddressObj);
@@ -770,27 +770,67 @@ EP/Tolerant for Validation.
                     if(addtrmapUpdate.containsKey(AddressObjtemp.Province__c)){
                         province = addtrmapUpdate.get(AddressObjtemp.Province__c);
                     }                   
-                    if(ValidStr.contains('Address_Line_1__c'))
-                    {   
-                        AddressObjtemp.Address_Line_1__c = response.Addresses[i].Address_Line_1;                       
+                    if(ValidStr.contains('Address_Line_1__c') && Market == 'JP')
+                    {
+                      Addressobj.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
-                    if(ValidStr.contains('Address_Line_2__c'))                    {   
-                        AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;                        
+                    else if(ValidStr.contains('Address_Line_1__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
-                    if(ValidStr.contains('Block__c'))
-                    {  
-                       AddressObjtemp.Block__c = response.Addresses[i].Block;                       
+                    
+                    if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
+                    {
+                      AddressObj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
-                    if(ValidStr.contains('City__c'))
-                    {  
-                        AddressObjtemp.City__c = response.Addresses[i].City;                      
+                    else if(ValidStr.contains('Address_Line_2__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
-                    if(ValidStr.contains('District__c'))                    {   
-                       AddressObjtemp.District__c = response.Addresses[i].District;                       
+                    if(ValidStr.contains('Block__c') && Market == 'JP')
+                    {
+                      AddressObj.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
                     }
-                    if(ValidStr.contains('Province__c'))
-                    {  
-                        AddressObjtemp.Province__c = response.Addresses[i].Province;                    
+                    else if(ValidStr.contains('Block__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
+                    }
+                    if(ValidStr.contains('City__c') && Market == 'JP')
+                    {
+                      AddressObj.City__c = response.Addresses[i].City;
+                        //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
+                    }
+                    else if(ValidStr.contains('City__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
+                    }
+                    if(ValidStr.contains('District__c') && Market == 'JP')
+                    {
+                      AddressObj.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
+                    }
+                    else if(ValidStr.contains('District__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
+                    }
+                    if(ValidStr.contains('Province__c') && Market == 'JP')
+                    {
+                      AddressObj.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
+                    }
+                    else if(ValidStr.contains('Province__c') && Market == 'KR')
+                    {
+                        AddressObjtemp.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
                 }
@@ -798,41 +838,41 @@ EP/Tolerant for Validation.
                     string province;  
                     Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
                     UtilAddressTranslation.gettranslatedvalues(Market);
-                    if(addtrmapUpdate.containsKey(addressobj.Province__c))
+                    if(addtrmapUpdate.containsKey(AddressObj.Province__c))
                     {
-                        province = addtrmapUpdate.get(addressobj.Province__c);
+                        province = addtrmapUpdate.get(AddressObj.Province__c);
                     }
-                    addressobj.Province__c =  province;
-                    addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
-                    addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
-                        ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
-                        ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
-                    addressobj.Address_Code__c = '';
-                    addressobj.Address_Line_1__c = '';
-                    addressobj.Address_Line_2__c = '';
-                    addressobj.Block__c = '';
-                    addressobj.City__c = '';
-                    addressobj.District__c = '';
-                    addressobj.Province__c = '';
-                    addressobj.ZipCode__C = '';  
+                    AddressObj.Province__c =  province;
+                    AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+                    AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
+                        ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
+                        ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
+                    AddressObj.Address_Code__c = '';
+                    AddressObj.Address_Line_1__c = '';
+                    AddressObj.Address_Line_2__c = '';
+                    AddressObj.Block__c = '';
+                    AddressObj.City__c = '';
+                    AddressObj.District__c = '';
+                    AddressObj.Province__c = '';
+                    AddressObj.ZipCode__C = '';  
                     //mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));                  
                 }
             }           
         }
         if(response != null && response.ValidationStatus == 'ERROR')
         {
-            addressobj.Address_Code__c = '';
-            addressobj.Address_Line_1__c = '';
-            addressobj.Address_Line_2__c = '';
-            addressobj.Block__c = '';
-            addressobj.City__c = '';
-            addressobj.District__c = '';
-            addressobj.Province__c = '';
-            addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
-            addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
-                    ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
-                    ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
-            //mapAddressResponse.add(new addressSelectionWrapper(addressobj));   
+            AddressObj.Address_Code__c = '';
+            AddressObj.Address_Line_1__c = '';
+            AddressObj.Address_Line_2__c = '';
+            AddressObj.Block__c = '';
+            AddressObj.City__c = '';
+            AddressObj.District__c = '';
+            AddressObj.Province__c = '';
+            AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
+            AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
+                    ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
+                    ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
+            //mapAddressResponse.add(new addressSelectionWrapper(AddressObj));   
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
             
         }

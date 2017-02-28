@@ -13,6 +13,34 @@
         <name>MD__c</name>
     </fields>
     <fields>
+        <label><!-- Mobile Code1 --></label>
+        <name>Mobile_Code1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code2 --></label>
+        <name>Mobile_Code2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code3 --></label>
+        <name>Mobile_Code3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code4 --></label>
+        <name>Mobile_Code4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code5 --></label>
+        <name>Mobile_Code5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code6 --></label>
+        <name>Mobile_Code6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile Code7 --></label>
+        <name>Mobile_Code7__c</name>
+    </fields>
+    <fields>
         <label><!-- Object --></label>
         <name>Object__c</name>
     </fields>
@@ -47,6 +75,14 @@
     <fields>
         <label><!-- Phone_EN17 --></label>
         <name>Phone_EN17__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone_EN18 --></label>
+        <name>Phone_EN18__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone_EN19 --></label>
+        <name>Phone_EN19__c</name>
     </fields>
     <fields>
         <label><!-- Phone_EN1 --></label>
@@ -152,5 +188,12 @@
         <label><!-- Phone_TR9 --></label>
         <name>Phone_TR9__c</name>
     </fields>
+    <layouts>
+        <layout>AreaCodeTranslation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

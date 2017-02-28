@@ -15,6 +15,30 @@
         <name>name_activity</name>
     </fields>
     <fields>
+        <label><!-- CallReference --></label>
+        <name>AES_CNTR__CallReference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Called --></label>
+        <name>AES_CNTR__Called__c</name>
+    </fields>
+    <fields>
+        <label><!-- Caller --></label>
+        <name>AES_CNTR__Caller__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queue --></label>
+        <name>AES_CNTR__Queue__c</name>
+    </fields>
+    <fields>
+        <label><!-- UCID --></label>
+        <name>AES_CNTR__UCID__c</name>
+    </fields>
+    <fields>
+        <label><!-- UUI --></label>
+        <name>AES_CNTR__UUI__c</name>
+    </fields>
+    <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
     </fields>
@@ -85,11 +109,6 @@
             <masterLabel>9=CSI Call</masterLabel>
             <translation><!-- 9=CSI Call --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- Activity Comment --></help>
-        <label><!-- Activity Comment --></label>
-        <name>Activity_Comment__c</name>
     </fields>
     <fields>
         <label>タッチポイント</label>
@@ -402,272 +421,6 @@
     <fields>
         <label>期日</label>
         <name>Activity_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Activity InboundCallNumber --></help>
-        <label><!-- Activity InboundCallNumber --></label>
-        <name>Activity_InboundCallNumber__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity InboundExtNumber --></label>
-        <name>Activity_InboundExtNumber__c</name>
-    </fields>
-    <fields>
-        <help><!-- Activity Info --></help>
-        <label><!-- Activity Info --></label>
-        <name>Activity_Info__c</name>
-    </fields>
-    <fields>
-        <label><!-- Activity LeadsData --></label>
-        <name>Activity_LeadsData__c</name>
-        <picklistValues>
-            <masterLabel>Autoshow</masterLabel>
-            <translation><!-- Autoshow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DMS</masterLabel>
-            <translation><!-- DMS --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Data marketing</masterLabel>
-            <translation><!-- Data marketing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>IB</masterLabel>
-            <translation><!-- IB --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB Magazine</masterLabel>
-            <translation><!-- MB Magazine --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Online Registration</masterLabel>
-            <translation><!-- Online Registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partnership Event</masterLabel>
-            <translation><!-- Partnership Event --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Activity OutboundCallSource --></label>
-        <name>Activity_OutboundCallSource__c</name>
-        <picklistValues>
-            <masterLabel>Activity</masterLabel>
-            <translation><!-- Activity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer Exhibition Hall</masterLabel>
-            <translation><!-- Dealer Exhibition Hall --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mail</masterLabel>
-            <translation><!-- Mail --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Message</masterLabel>
-            <translation><!-- Message --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Newspaper/Magazine</masterLabel>
-            <translation><!-- Newspaper/Magazine --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Outdoor Advertising</masterLabel>
-            <translation><!-- Outdoor Advertising --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partners</masterLabel>
-            <translation><!-- Partners --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Radio</masterLabel>
-            <translation><!-- Radio --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>TV Advertising</masterLabel>
-            <translation><!-- TV Advertising --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Telephone Contact</masterLabel>
-            <translation><!-- Telephone Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Web/Mobile Phone</masterLabel>
-            <translation><!-- Web/Mobile Phone --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Activity OutboundCallSubSource --></label>
-        <name>Activity_OutboundSubCallSource__c</name>
-        <picklistValues>
-            <masterLabel>AMG Website</masterLabel>
-            <translation><!-- AMG Website --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Advertising</masterLabel>
-            <translation><!-- Advertising --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Air China</masterLabel>
-            <translation><!-- Air China --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Artron</masterLabel>
-            <translation><!-- Artron --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Auto Show</masterLabel>
-            <translation><!-- Auto Show --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>B web special</masterLabel>
-            <translation><!-- B web special --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Brochure &amp; Price List</masterLabel>
-            <translation><!-- Brochure &amp; Price List --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>China Telecom/189 email</masterLabel>
-            <translation><!-- China Telecom/189 email --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chinese radio network</masterLabel>
-            <translation><!-- Chinese radio network --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer Show Room</masterLabel>
-            <translation><!-- Dealer Show Room --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer Website</masterLabel>
-            <translation><!-- Dealer Website --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer message contact</masterLabel>
-            <translation><!-- Dealer message contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer telephone contact</masterLabel>
-            <translation><!-- Dealer telephone contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Friend Recommendation</masterLabel>
-            <translation><!-- Friend Recommendation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB official website</masterLabel>
-            <translation><!-- MB official website --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ML web special</masterLabel>
-            <translation><!-- ML web special --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz E-brochure and price list</masterLabel>
-            <translation><!-- Mercedes-Benz E-brochure and price list --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz E-newsletter</masterLabel>
-            <translation><!-- Mercedes-Benz E-newsletter --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz Message Contact</masterLabel>
-            <translation><!-- Mercedes-Benz Message Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz Telephone Contact</masterLabel>
-            <translation><!-- Mercedes-Benz Telephone Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mobile Phone Web</masterLabel>
-            <translation><!-- Mobile Phone Web --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other Event</masterLabel>
-            <translation><!-- Other Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other Mail</masterLabel>
-            <translation><!-- Other Mail --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other Web, Community, Blog</masterLabel>
-            <translation><!-- Other Web, Community, Blog --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other websites, community, blog</masterLabel>
-            <translation><!-- Other websites, community, blog --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Products range cards</masterLabel>
-            <translation><!-- Products range cards --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sina Blog</masterLabel>
-            <translation><!-- Sina Blog --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sina Microblog</masterLabel>
-            <translation><!-- Sina Microblog --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Smart Official Website (incl. smart community)</masterLabel>
-            <translation><!-- Smart Official Website (incl. smart community) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Telephone Query Service</masterLabel>
-            <translation><!-- Telephone Query Service --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Third Party (Partner) Mail _Bank of Communication</masterLabel>
-            <translation><!-- Third Party (Partner) Mail _Bank of Communication --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Third Party (Partner) Mail_Minsheng Bank</masterLabel>
-            <translation><!-- Third Party (Partner) Mail_Minsheng Bank --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Third Party Message Contact</masterLabel>
-            <translation><!-- Third Party Message Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Third Party Telephone Contact</masterLabel>
-            <translation><!-- Third Party Telephone Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>User Guide</masterLabel>
-            <translation><!-- User Guide --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart community</masterLabel>
-            <translation><!-- smart community --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>smart official website</masterLabel>
-            <translation><!-- smart official website --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <help><!-- Activity Purpose --></help>
@@ -1015,16 +768,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Adhoc eDM Template ID --></label>
-        <name>Adhoc_eDM_Template_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- Assignment Status --></label>
         <name>Assignment_Status__c</name>
-    </fields>
-    <fields>
-        <label><!-- Blacklist Sensitive Word --></label>
-        <name>BlacklistSensitiveWord__c</name>
     </fields>
     <fields>
         <label><!-- Called --></label>
@@ -1125,6 +870,10 @@
             <masterLabel>Unknown</masterLabel>
             <translation><!-- Unknown --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Comm Date --></label>
+        <name>Communication_date__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -1231,8 +980,8 @@
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- More Than 2 OB Times --></label>
-        <name>More_Than_2_OB_Times__c</name>
+        <label><!-- Next Steps --></label>
+        <name>Next_Steps__c</name>
     </fields>
     <fields>
         <label><!-- Notification Email Flag --></label>
@@ -1321,21 +1070,6 @@
     <fields>
         <label><!-- Phone number --></label>
         <name>Phone_number__c</name>
-    </fields>
-    <fields>
-        <name>Priority</name>
-        <picklistValues>
-            <masterLabel>General</masterLabel>
-            <translation><!-- General --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>High</masterLabel>
-            <translation><!-- High --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Low</masterLabel>
-            <translation><!-- Low --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label>優先度</label>
@@ -1438,16 +1172,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Recording ID --></label>
-        <name>Recording_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
-    </fields>
-    <fields>
-        <label><!-- Resource Required --></label>
-        <name>Resource_Required__c</name>
     </fields>
     <fields>
         <label><!-- Result --></label>
@@ -1460,10 +1186,6 @@
             <masterLabel>Unsolved</masterLabel>
             <translation><!-- Unsolved --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- SMS Batch Number --></label>
-        <name>SMSBatchNumber__c</name>
     </fields>
     <fields>
         <label><!-- SMS/MMS Template ID --></label>
@@ -1618,17 +1340,6 @@
         <name>Start_Call_Time__c</name>
     </fields>
     <fields>
-        <name>Status</name>
-        <picklistValues>
-            <masterLabel>Closed</masterLabel>
-            <translation><!-- Closed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label>状況</label>
         <name>Status__c</name>
         <picklistValues>
@@ -1671,10 +1382,6 @@
     <fields>
         <label><!-- UniqueCampaignMobile --></label>
         <name>UniqueCampaignMobile__c</name>
-    </fields>
-    <fields>
-        <label><!-- Unique Code --></label>
-        <name>UniqueCode__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>

@@ -62,7 +62,7 @@
                         </apex:outputField>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" rendered="{!IF(market != 'JP', true, false)}">
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
@@ -90,21 +90,22 @@
                         <apex:outputText value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}"> 
                         <apex:outputText value="{!row.Company_Name__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
-                    </apex:column>                    
-                   <!--
-                   <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}" rendered="{!IF(market == 'KR', true, false)}">
+                    </apex:column> 
+                    
+                   <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}" rendered="{!IF(market != 'KR', true, false)}">
                             <apex:outputText value="{!row.Company_Name_Native__c}" style="width:10%; white-space:none;">
                         </apex:outputText>                        
-                    </apex:column>
-                                   
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}" rendered="{!IF(market == 'KR', true, false)}"> 
+                    </apex:column>        
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}" rendered="{!IF(market != 'KR', true, false)}"> 
                         <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%; white-space:none;">
                         </apex:outputField>                         
-                    </apex:column>                      
-                    -->
+                    </apex:column>      
+                    
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
                         <apex:outputField value="{!row.Status__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
@@ -177,7 +178,7 @@
                      <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      
                     <apex:inputField value="{!addressobj.Status__c}"/>
-                    <apex:inputField value="{!addressobj.Preferred__c}"/>
+                    <apex:inputField value="{!addressobj.Preferred__c}" rendered="{!IF(market != 'JP', true, false)}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
                     <apex:inputField value="{!addressobj.Temp_Address__c}"/>
                 </apex:pageBlockSection>
@@ -216,7 +217,7 @@
                     
                 </apex:pageBlockButtons> 
                 <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="addfrm"/>                               
-                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds">           
+                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">           
                     <apex:column >
                         <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
                     </apex:column>

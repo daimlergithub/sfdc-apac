@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Create_Complex_Execution</customButtons>
-	<customButtons>Create_Simple_Execution</customButtons>
+    <customButtons>Create_Simple_Execution</customButtons>
     <customButtons>Delete</customButtons>
     <excludeButtons>AdvancedSetup</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
@@ -39,7 +39,7 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Content_Preview__c</field>
             </layoutItems>

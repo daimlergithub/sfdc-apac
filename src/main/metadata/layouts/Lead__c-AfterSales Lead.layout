@@ -29,7 +29,7 @@
                 <behavior>Edit</behavior>
                 <field>MBK_Lead_DataSource__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Lead_DataSubSource__c</field>
             </layoutItems>

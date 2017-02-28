@@ -456,6 +456,10 @@
             <translation>オペル</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PGO</masterLabel>
             <translation>ＰＧＯ</translation>
         </picklistValues>
@@ -703,6 +707,10 @@
     <fields>
         <label>当時クラス</label>
         <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Colour --></label>
+        <name>Colour__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -1873,6 +1881,10 @@
         <name>System__c</name>
     </fields>
     <fields>
+        <label><!-- Trim --></label>
+        <name>Trim__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
@@ -2028,6 +2040,17 @@
         </sections>
         <sections>
             <label>セグメント情報</label>
+            <section>Segment Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Car Model Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Segment Information --></label>
             <section>Segment Information</section>
         </sections>
     </layouts>

@@ -7726,10 +7726,6 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>신규 섹션</label>
-            <section>New Section</section>
-        </sections>
-        <sections>
             <label>프로파일 정보</label>
             <section>Profile Information</section>
         </sections>

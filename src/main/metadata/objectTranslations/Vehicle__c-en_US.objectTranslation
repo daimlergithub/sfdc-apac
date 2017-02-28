@@ -460,6 +460,10 @@
             <translation><!-- Opel --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PGO</masterLabel>
             <translation><!-- PGO --></translation>
         </picklistValues>
@@ -790,6 +794,10 @@
             <translation><!-- GLK-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLS-Class</masterLabel>
+            <translation><!-- GLS-Class --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation><!-- M-Class --></translation>
         </picklistValues>
@@ -812,6 +820,10 @@
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
             <translation><!-- SL-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLC-Class</masterLabel>
+            <translation><!-- SLC-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -865,838 +877,6 @@
     <fields>
         <label><!-- Colour --></label>
         <name>Colour__c</name>
-        <picklistValues>
-            <masterLabel>0 Special paint</masterLabel>
-            <translation><!-- 0 Special paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>101 Black</masterLabel>
-            <translation><!-- 101 Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>104 Cashmere yellow</masterLabel>
-            <translation><!-- 104 Cashmere yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>108 Rocky gray</masterLabel>
-            <translation><!-- 108 Rocky gray --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>112 Paint, chromite Black metallic</masterLabel>
-            <translation><!-- 112 Paint, chromite Black metallic --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1216 BrightYellow</masterLabel>
-            <translation><!-- 1216 BrightYellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>149  North Pole White</masterLabel>
-            <translation><!-- 149  North Pole White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>162 Paint，South China Sea Blue（Metallic paint）</masterLabel>
-            <translation><!-- 162 Paint，South China Sea Blue（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1623 Shallow Ivory White</masterLabel>
-            <translation><!-- 1623 Shallow Ivory White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>170 Paint, CB-black, metallic paint</masterLabel>
-            <translation><!-- 170 Paint, CB-black, metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>182 Garnet and black</masterLabel>
-            <translation><!-- 182 Garnet and black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>183 Paint，Magnet Black ，Metallic paint</masterLabel>
-            <translation><!-- 183 Paint，Magnet Black ，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>185 Garnet and black</masterLabel>
-            <translation><!-- 185 Garnet and black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>187 Paint，Silver-Green smithsonite（Metallic paint）</masterLabel>
-            <translation><!-- 187 Paint，Silver-Green smithsonite（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>189 Dark green</masterLabel>
-            <translation><!-- 189 Dark green --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>19 designo Red</masterLabel>
-            <translation><!-- 19 designo Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>191 Paint，Universe Black （Metallic paint）</masterLabel>
-            <translation><!-- 191 Paint，Universe Black （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>197 Hard rock black</masterLabel>
-            <translation><!-- 197 Hard rock black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>230 Metallic paint，Electrical Stone Blue</masterLabel>
-            <translation><!-- 230 Metallic paint，Electrical Stone Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>240 Paint，Lotus Blue（Metallic paint）</masterLabel>
-            <translation><!-- 240 Paint，Lotus Blue（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>281 Matt  White GalenaGrey</masterLabel>
-            <translation><!-- 281 Matt  White GalenaGrey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>288 Basalt grey nappa leather</masterLabel>
-            <translation><!-- 288 Basalt grey nappa leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>295 fir treeGreen</masterLabel>
-            <translation><!-- 295 fir treeGreen --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>300 Periclase green, metallic paint</masterLabel>
-            <translation><!-- 300 Periclase green, metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>32 designo  Mystery Blue</masterLabel>
-            <translation><!-- 32 designo  Mystery Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>345 Blue</masterLabel>
-            <translation><!-- 345 Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>347 Chalcedony, blue</masterLabel>
-            <translation><!-- 347 Chalcedony, blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>349 Lapis Blue Metallic</masterLabel>
-            <translation><!-- 349 Lapis Blue Metallic --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>353 Mineral blue</masterLabel>
-            <translation><!-- 353 Mineral blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>354 Paint，Light red chalcedony，Metallic paint</masterLabel>
-            <translation><!-- 354 Paint，Light red chalcedony，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3544 Paint，Light red chalcedony，Metallic paint</masterLabel>
-            <translation><!-- 3544 Paint，Light red chalcedony，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>357 Luo Lite Blue</masterLabel>
-            <translation><!-- 357 Luo Lite Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>359 Sapphire blue</masterLabel>
-            <translation><!-- 359 Sapphire blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>367 France marine blue color</masterLabel>
-            <translation><!-- 367 France marine blue color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>368 Flint Grey</masterLabel>
-            <translation><!-- 368 Flint Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>370 Sulfur with lime</masterLabel>
-            <translation><!-- 370 Sulfur with lime --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>385 France marine blue light</masterLabel>
-            <translation><!-- 385 France marine blue light --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>39 designo  Mauritius Blue</masterLabel>
-            <translation><!-- 39 designo  Mauritius Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>391 Paint，Horizon Blue（Metallic paint）</masterLabel>
-            <translation><!-- 391 Paint，Horizon Blue（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>40 Black</masterLabel>
-            <translation><!-- 40 Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>41 designo Graphite colour</masterLabel>
-            <translation><!-- 41 designo Graphite colour --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>430 Paint, Grape Stone Green, Metallic paint</masterLabel>
-            <translation><!-- 430 Paint, Grape Stone Green, Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>434 AMG Le Mans  Red</masterLabel>
-            <translation><!-- 434 AMG Le Mans  Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>44 designoMatt Aranit fog Grey</masterLabel>
-            <translation><!-- 44 designoMatt Aranit fog Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>46 designo  Platinum BlackMetallic paint</masterLabel>
-            <translation><!-- 46 designo  Platinum BlackMetallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>47 designo Light silver paint</masterLabel>
-            <translation><!-- 47 designo Light silver paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>474 Jewel Brown metallic</masterLabel>
-            <translation><!-- 474 Jewel Brown metallic --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>478 M-Green（Metallic paint）</masterLabel>
-            <translation><!-- 478 M-Green（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>48  Mystery  White</masterLabel>
-            <translation><!-- 48  Mystery  White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>480 Asbestos-Green</masterLabel>
-            <translation><!-- 480 Asbestos-Green --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>487 Placer gold Orange</masterLabel>
-            <translation><!-- 487 Placer gold Orange --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>490 Paint，Meadow Brown（Metallic paint）</masterLabel>
-            <translation><!-- 490 Paint，Meadow Brown（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>491 Rocky Mountain Brown（Dark）</masterLabel>
-            <translation><!-- 491 Rocky Mountain Brown（Dark） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>492 Paint，Rutile-Brown</masterLabel>
-            <translation><!-- 492 Paint，Rutile-Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>494 Paint，Germanium-lime，Metallic paint</masterLabel>
-            <translation><!-- 494 Paint，Germanium-lime，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>497 Metallic paint，Copper Brown</masterLabel>
-            <translation><!-- 497 Metallic paint，Copper Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>51 designo, Platinum Grey</masterLabel>
-            <translation><!-- 51 designo, Platinum Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>52 designo  Mystery Brown</masterLabel>
-            <translation><!-- 52 designo  Mystery Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>526  White Cloud Stone Brown，Metallic paint</masterLabel>
-            <translation><!-- 526  White Cloud Stone Brown，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5353 Paint，Tin-lead-blue，Metallic paint</masterLabel>
-            <translation><!-- 5353 Paint，Tin-lead-blue，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5359 Paint，Sapphire blue，Metallic paint</masterLabel>
-            <translation><!-- 5359 Paint，Sapphire blue，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>54 AMGMatt Monza fog Grey</masterLabel>
-            <translation><!-- 54 AMGMatt Monza fog Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>541 East Red</masterLabel>
-            <translation><!-- 541 East Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>544 Jade Red</masterLabel>
-            <translation><!-- 544 Jade Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>548 Amber red</masterLabel>
-            <translation><!-- 548 Amber red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>555Sahara beige/Black Featured leather</masterLabel>
-            <translation><!-- 555Sahara beige/Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>558 Basalt grey/Black Featured leather</masterLabel>
-            <translation><!-- 558 Basalt grey/Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>56 designo Luminous black</masterLabel>
-            <translation><!-- 56 designo Luminous black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>567 TI Red</masterLabel>
-            <translation><!-- 567 TI Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>57 designo ZR-Red</masterLabel>
-            <translation><!-- 57 designo ZR-Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>58 designo Crystal SilverMetallic paint</masterLabel>
-            <translation><!-- 58 designo Crystal SilverMetallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>588 Ayers Rock Red</masterLabel>
-            <translation><!-- 588 Ayers Rock Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>589 Paint，Jupiter Red</masterLabel>
-            <translation><!-- 589 Paint，Jupiter Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>590 Fire opal</masterLabel>
-            <translation><!-- 590 Fire opal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>592  North Pole Light purple  Color</masterLabel>
-            <translation><!-- 592  North Pole Light purple  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>597 Paint，Saturn Red （Metallic paint）</masterLabel>
-            <translation><!-- 597 Paint，Saturn Red （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>6300 Paint，Garnet Green，Metallic paint</masterLabel>
-            <translation><!-- 6300 Paint，Garnet Green，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>650 Chalk white，Metallic paint</masterLabel>
-            <translation><!-- 650 Chalk white，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>662 designo magno Matt MountainGrey</masterLabel>
-            <translation><!-- 662 designo magno Matt MountainGrey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>693 Beige</masterLabel>
-            <translation><!-- 693 Beige --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>696 Paint，Night Black</masterLabel>
-            <translation><!-- 696 Paint，Night Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>697 Rocky Mountain Brown（Light）</masterLabel>
-            <translation><!-- 697 Rocky Mountain Brown（Light） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>723 Cuban silver</masterLabel>
-            <translation><!-- 723 Cuban silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>725 Himalaya grey（Dark）</masterLabel>
-            <translation><!-- 725 Himalaya grey（Dark） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>728 Paint，Mountain Veined grey （Metallic paint）</masterLabel>
-            <translation><!-- 728 Paint，Mountain Veined grey （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>7360 Paint，Flint Grey，Metallic paint</masterLabel>
-            <translation><!-- 7360 Paint，Flint Grey，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>744 Bright silver</masterLabel>
-            <translation><!-- 744 Bright silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>747 Pearl ash</masterLabel>
-            <translation><!-- 747 Pearl ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>755 Black copper grey</masterLabel>
-            <translation><!-- 755 Black copper grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>756 Himalaya grey（color）</masterLabel>
-            <translation><!-- 756 Himalaya grey（color） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>761 Paint，Polar silver （Metallic paint）</masterLabel>
-            <translation><!-- 761 Paint，Polar silver （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>762 Silver-tellurium</masterLabel>
-            <translation><!-- 762 Silver-tellurium --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>766 Nayaruite silver</masterLabel>
-            <translation><!-- 766 Nayaruite silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>768 Diamond black</masterLabel>
-            <translation><!-- 768 Diamond black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>770 Himalaya grey（Light）</masterLabel>
-            <translation><!-- 770 Himalaya grey（Light） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>773 Di Yi flute gray（Light）</masterLabel>
-            <translation><!-- 773 Di Yi flute gray（Light） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>7747 Paint，Pearl ash，Metallic paint</masterLabel>
-            <translation><!-- 7747 Paint，Pearl ash，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>775 Iridium silver</masterLabel>
-            <translation><!-- 775 Iridium silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>779 White resin grey</masterLabel>
-            <translation><!-- 779 White resin grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>780 Alaska white</masterLabel>
-            <translation><!-- 780 Alaska white --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>781 Di Yi flute gray（color）</masterLabel>
-            <translation><!-- 781 Di Yi flute gray（color） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>786TinGrey,Metallic paint</masterLabel>
-            <translation><!-- 786TinGrey,Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>787 Paint，Mountain Veined grey （Metallic paint）</masterLabel>
-            <translation><!-- 787 Paint，Mountain Veined grey （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>792 Paint，Palladium silver，Metallic paint</masterLabel>
-            <translation><!-- 792 Paint，Palladium silver，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>792 Paint，Palladium-silver</masterLabel>
-            <translation><!-- 792 Paint，Palladium-silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>794 Metallic paint，Pearl yellow</masterLabel>
-            <translation><!-- 794 Metallic paint，Pearl yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>795 Matt Manganese ore Grey</masterLabel>
-            <translation><!-- 795 Matt Manganese ore Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>796 Lemon Brown， Metallic paint</masterLabel>
-            <translation><!-- 796 Lemon Brown， Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>798 Long on high-class</masterLabel>
-            <translation><!-- 798 Long on high-class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>799 Paint，Diamond White high color，Metallic paint</masterLabel>
-            <translation><!-- 799 Paint，Diamond White high color，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>805 Pebble m</masterLabel>
-            <translation><!-- 805 Pebble m --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>808 Ireland Green（Dark）</masterLabel>
-            <translation><!-- 808 Ireland Green（Dark） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>816 Garnet Green</masterLabel>
-            <translation><!-- 816 Garnet Green --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>886 Ireland Green（color）</masterLabel>
-            <translation><!-- 886 Ireland Green（color） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>890 Water-Silicon vanadium Blue</masterLabel>
-            <translation><!-- 890 Water-Silicon vanadium Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>893 Paint，Giant Stone Ash（Metallic paint）</masterLabel>
-            <translation><!-- 893 Paint，Giant Stone Ash（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>894 Paint，UniverseBlue（Metallic paint）</masterLabel>
-            <translation><!-- 894 Paint，UniverseBlue（Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>895 Paint，Canyon M  Color （Metallic paint）</masterLabel>
-            <translation><!-- 895 Paint，Canyon M  Color （Metallic paint） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>904 Dark blue</masterLabel>
-            <translation><!-- 904 Dark blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9197 Paint，Hard rock black，Metallic paint</masterLabel>
-            <translation><!-- 9197 Paint，Hard rock black，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>941 Aragonite blue</masterLabel>
-            <translation><!-- 941 Aragonite blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>946 Huang Yulan</masterLabel>
-            <translation><!-- 946 Huang Yulan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>947 France coast blue（Dark）</masterLabel>
-            <translation><!-- 947 France coast blue（Dark） --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>950 Blue cone</masterLabel>
-            <translation><!-- 950 Blue cone --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>960 Alabaster white</masterLabel>
-            <translation><!-- 960 Alabaster white --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>963 Ash</masterLabel>
-            <translation><!-- 963 Ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>967 Party Galena Silver，Metallic paint</masterLabel>
-            <translation><!-- 967 Party Galena Silver，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>972 Caspian Black</masterLabel>
-            <translation><!-- 972 Caspian Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9723 Paint，Cuban silver，Metallic paint</masterLabel>
-            <translation><!-- 9723 Paint，Cuban silver，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9744 Grey</masterLabel>
-            <translation><!-- 9744 Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>975 Ke Krauss-Maffei</masterLabel>
-            <translation><!-- 975 Ke Krauss-Maffei --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9775 Paint，Iridium silver，Metallic paint</masterLabel>
-            <translation><!-- 9775 Paint，Iridium silver，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>986 Sulfur-copper-arsenic Stone Ash，Metallic paint</masterLabel>
-            <translation><!-- 986 Sulfur-copper-arsenic Stone Ash，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>988 Diamond Silver，Metallic paint</masterLabel>
-            <translation><!-- 988 Diamond Silver，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>996 ZirconRed</masterLabel>
-            <translation><!-- 996 ZirconRed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>996 ZirconRed，Metallic paint</masterLabel>
-            <translation><!-- 996 ZirconRed，Metallic paint --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DUMMY Mercedes-Benz standard colors</masterLabel>
-            <translation><!-- DUMMY Mercedes-Benz standard colors --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAB1 Metallic paint，Light blue / tridion Frame，Black</masterLabel>
-            <translation><!-- EAAB1 Metallic paint，Light blue / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAB2 Metallic paint，Light blue / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAAB2 Metallic paint，Light blue / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAB3 Metallic paint，Light blue / tridion Frame，White</masterLabel>
-            <translation><!-- EAAB3 Metallic paint，Light blue / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAN1 Metallic paint，Light blue / tridion Frame，Black</masterLabel>
-            <translation><!-- EAAN1 Metallic paint，Light blue / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAN2 Metallic paint，Light blue / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAAN2 Metallic paint，Light blue / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAAN3 Metallic paint，Light blue / tridion Frame，White</masterLabel>
-            <translation><!-- EAAN3 Metallic paint，Light blue / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EACB3 Paint， Deep Black/Tridion Frame，Silver</masterLabel>
-            <translation><!-- EACB3 Paint， Deep Black/Tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAD Metallic paint，Silver</masterLabel>
-            <translation><!-- EAD Metallic paint，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADB1 Metallic paint，Silver / tridion Frame，Black</masterLabel>
-            <translation><!-- EADB1 Metallic paint，Silver / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADB2 Metallic paint，Silver / tridion Frame，Silver</masterLabel>
-            <translation><!-- EADB2 Metallic paint，Silver / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADB3 Metallic paint，Silver / tridion Frame，White</masterLabel>
-            <translation><!-- EADB3 Metallic paint，Silver / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADN1 Metallic paint，Silver / tridion Frame，Black</masterLabel>
-            <translation><!-- EADN1 Metallic paint，Silver / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADN2 Metallic paint，Silver / tridion Frame，Silver</masterLabel>
-            <translation><!-- EADN2 Metallic paint，Silver / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EADN3 Metallic paint，Silver / tridion Frame，White</masterLabel>
-            <translation><!-- EADN3 Metallic paint，Silver / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIB1 Matte painting， Deep Ash / tridion Frame，Black</masterLabel>
-            <translation><!-- EAIB1 Matte painting， Deep Ash / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIB2 Matte painting， Deep Ash / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAIB2 Matte painting， Deep Ash / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIB3 Matte painting， Deep Ash / tridion Frame，White</masterLabel>
-            <translation><!-- EAIB3 Matte painting， Deep Ash / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIN1 Matte painting， Deep Ash / tridion Frame，Black</masterLabel>
-            <translation><!-- EAIN1 Matte painting， Deep Ash / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIN2 Matte painting， Deep Ash / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAIN2 Matte painting， Deep Ash / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAIN3 Matte painting， Deep Ash / tridion Frame，White</masterLabel>
-            <translation><!-- EAIN3 Matte painting， Deep Ash / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAK Metallic paint，Orange/Tridion Frame，Black</masterLabel>
-            <translation><!-- EAK Metallic paint，Orange/Tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAL Light yellow</masterLabel>
-            <translation><!-- EAL Light yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EALB1 Paint，Yellow / tridion Frame，Black</masterLabel>
-            <translation><!-- EALB1 Paint，Yellow / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EALB2 Paint，Yellow/Tridion，Silver</masterLabel>
-            <translation><!-- EALB2 Paint，Yellow/Tridion，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EALB3 Paint，White/Tridion，Silver</masterLabel>
-            <translation><!-- EALB3 Paint，White/Tridion，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZ Paint，Crystal white</masterLabel>
-            <translation><!-- EAZ Paint，Crystal white --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZB1 Paint，Crystal white / tridion Frame，Black</masterLabel>
-            <translation><!-- EAZB1 Paint，Crystal white / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZB2 Paint，Crystal white / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAZB2 Paint，Crystal white / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZB3 Paint，Crystal white / tridion Frame，White</masterLabel>
-            <translation><!-- EAZB3 Paint，Crystal white / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZN1 Paint，Crystal white / tridion Frame，Black</masterLabel>
-            <translation><!-- EAZN1 Paint，Crystal white / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZN2 Paint，Crystal white / tridion Frame，Silver</masterLabel>
-            <translation><!-- EAZN2 Paint，Crystal white / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EAZN3 Paint，Crystal white / tridion Frame，White</masterLabel>
-            <translation><!-- EAZN3 Paint，Crystal white / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EB1 Tridion Frame，Black</masterLabel>
-            <translation><!-- EB1 Tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EB2 Tridion Frame，Silver</masterLabel>
-            <translation><!-- EB2 Tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>EBAN1 Metallic paint，Chocolate / tridion Frame，Black</masterLabel>
-            <translation><!-- EBAN1 Metallic paint，Chocolate / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECA Paint， Deep Black</masterLabel>
-            <translation><!-- ECA Paint， Deep Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAB1 Paint， Deep Black / tridion Frame，Black</masterLabel>
-            <translation><!-- ECAB1 Paint， Deep Black / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAB2 Paint， Deep Black / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECAB2 Paint， Deep Black / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAB3 Paint， Deep Black / tridion Frame，White</masterLabel>
-            <translation><!-- ECAB3 Paint， Deep Black / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAB6 Paint， Deep Black / tridion Frame，Red</masterLabel>
-            <translation><!-- ECAB6 Paint， Deep Black / tridion Frame，Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAN1 Paint， Deep Black / tridion Frame，Black</masterLabel>
-            <translation><!-- ECAN1 Paint， Deep Black / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAN2 Paint， Deep Black / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECAN2 Paint， Deep Black / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECAN3 Paint， Deep Black / tridion Frame，White</masterLabel>
-            <translation><!-- ECAN3 Paint， Deep Black / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECC Metallic paint，Blue</masterLabel>
-            <translation><!-- ECC Metallic paint，Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECCB1 Metallic paint，Blue/Tridion Frame，Black</masterLabel>
-            <translation><!-- ECCB1 Metallic paint，Blue/Tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECCB2 Metallic paint，Blue/Tridion Frame，Silver</masterLabel>
-            <translation><!-- ECCB2 Metallic paint，Blue/Tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECDB1 Matte painting，Green / tridion Frame，Black</masterLabel>
-            <translation><!-- ECDB1 Matte painting，Green / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECDB2 Matte painting，Green / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECDB2 Matte painting，Green / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECDB3 Matte painting，Green / tridion Frame，White</masterLabel>
-            <translation><!-- ECDB3 Matte painting，Green / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECF Paint，Racing Red</masterLabel>
-            <translation><!-- ECF Paint，Racing Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFB0 Paint，Racing Red/Tridion Frame，Golden</masterLabel>
-            <translation><!-- ECFB0 Paint，Racing Red/Tridion Frame，Golden --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFB1 Paint，Racing Red / tridion Frame，Black</masterLabel>
-            <translation><!-- ECFB1 Paint，Racing Red / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFB2 Paint，Racing Red / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECFB2 Paint，Racing Red / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFB3 Paint，Racing Red / tridion Frame，White</masterLabel>
-            <translation><!-- ECFB3 Paint，Racing Red / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFN1 Paint，Racing Red / tridion Frame，Black</masterLabel>
-            <translation><!-- ECFN1 Paint，Racing Red / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFN2 Paint，Racing Red / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECFN2 Paint，Racing Red / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECFN3 Paint，Racing Red / tridion Frame，White</masterLabel>
-            <translation><!-- ECFN3 Paint，Racing Red / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECG Metallic paint，Grey</masterLabel>
-            <translation><!-- ECG Metallic paint，Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGB1 Metallic paint，Grey / tridion Frame，Black</masterLabel>
-            <translation><!-- ECGB1 Metallic paint，Grey / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGB2 Metallic paint，Grey / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECGB2 Metallic paint，Grey / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGB3 Metallic paint，Grey / tridion Frame，White</masterLabel>
-            <translation><!-- ECGB3 Metallic paint，Grey / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGN1 Metallic paint，Grey / tridion Frame，Black</masterLabel>
-            <translation><!-- ECGN1 Metallic paint，Grey / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGN2 Metallic paint，Grey / tridion Frame，Silver</masterLabel>
-            <translation><!-- ECGN2 Metallic paint，Grey / tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECGN3 Metallic paint，Grey / tridion Frame，White</masterLabel>
-            <translation><!-- ECGN3 Metallic paint，Grey / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECHB2 Metallic paint， Deep AshBlue/Tridion Frame，Silver</masterLabel>
-            <translation><!-- ECHB2 Metallic paint， Deep AshBlue/Tridion Frame，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECIB3 Paint，Blue / tridion Frame，White</masterLabel>
-            <translation><!-- ECIB3 Paint，Blue / tridion Frame，White --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECJN1 Metallic paint， Orange Yellow / tridion Frame，Black</masterLabel>
-            <translation><!-- ECJN1 Metallic paint， Orange Yellow / tridion Frame，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECZB0 Personalized body / Personalized safety car-body structure</masterLabel>
-            <translation><!-- ECZB0 Personalized body / Personalized safety car-body structure --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECZG0 Personalized body / Personalized safety car-body structure，Varnished</masterLabel>
-            <translation><!-- ECZG0 Personalized body / Personalized safety car-body structure，Varnished --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ECZM0 Personalized body / Personalized safety car-body structure，Matt</masterLabel>
-            <translation><!-- ECZM0 Personalized body / Personalized safety car-body structure，Matt --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>OTH Other</masterLabel>
-            <translation><!-- OTH Other --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Comment --></label>
@@ -2336,6 +1516,14 @@
         <name>FinanceType__c</name>
     </fields>
     <fields>
+        <label><!-- Finance Method --></label>
+        <name>Finance_Method__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- FirstRegistrationDate --></label>
         <name>FirstRegistrationDate__c</name>
     </fields>
@@ -2343,8 +1531,80 @@
         <label><!-- Fuel --></label>
         <name>Fuel__c</name>
         <picklistValues>
+            <masterLabel>ANG</masterLabel>
+            <translation><!-- ANG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CNG</masterLabel>
+            <translation><!-- CNG --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>D</masterLabel>
             <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity</masterLabel>
+            <translation><!-- Electricity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ethanol</masterLabel>
+            <translation><!-- Ethanol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline</masterLabel>
+            <translation><!-- Gasoline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/Electricity</masterLabel>
+            <translation><!-- Gasoline/Electricity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/Kerosene</masterLabel>
+            <translation><!-- Gasoline/Kerosene --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasoline/LPG</masterLabel>
+            <translation><!-- Gasoline/LPG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hydrogen</masterLabel>
+            <translation><!-- Hydrogen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kerosene</masterLabel>
+            <translation><!-- Kerosene --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LNG</masterLabel>
+            <translation><!-- LNG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LPG</masterLabel>
+            <translation><!-- LPG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LPG/Electricity</masterLabel>
+            <translation><!-- LPG/Electricity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light Oil</masterLabel>
+            <translation><!-- Light Oil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light Oil/Electricity</masterLabel>
+            <translation><!-- Light Oil/Electricity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methanol</masterLabel>
+            <translation><!-- Methanol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>U</masterLabel>
@@ -2596,6 +1856,10 @@
         <name>LastServiceDate__c</name>
     </fields>
     <fields>
+        <label><!-- LastServiceMileage --></label>
+        <name>LastServiceMileage__c</name>
+    </fields>
+    <fields>
         <label><!-- Latest Contract Date --></label>
         <name>Latest_Contract_Date__c</name>
     </fields>
@@ -2622,6 +1886,10 @@
     <fields>
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- MOT Expired Date --></label>
+        <name>MOT_Expired_Date__c</name>
     </fields>
     <fields>
         <label><!-- Year Of Manufacture --></label>
@@ -2769,6 +2037,14 @@
         <picklistValues>
             <masterLabel>2016</masterLabel>
             <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;1980</masterLabel>
@@ -4468,6 +3744,22 @@
         <name>National_Model__c</name>
     </fields>
     <fields>
+        <label><!-- New Used --></label>
+        <name>New_Used__c</name>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation><!-- Used --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- NextEmissionsCheckDate --></label>
         <name>NextEmissionsCheckDate__c</name>
     </fields>
@@ -4526,6 +3818,11 @@
     <fields>
         <label><!-- RegistrationNo --></label>
         <name>RegistrationNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Dealer --></label>
+        <name>Related_Dealer__c</name>
+        <relationshipLabel><!-- Vehicles (Related Dealer) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Start Date --></label>
@@ -4727,650 +4024,6 @@
     <fields>
         <label><!-- Trim --></label>
         <name>Trim__c</name>
-        <picklistValues>
-            <masterLabel>125A MB-TEX / LEATHER TWIN/ARTICO - BEIGE</masterLabel>
-            <translation><!-- 125A MB-TEX / LEATHER TWIN/ARTICO - BEIGE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ARTICO/Alpaca grey Fabric</masterLabel>
-            <translation><!-- ARTICO/Alpaca grey Fabric --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ARTICO/BlackFabric</masterLabel>
-            <translation><!-- ARTICO/BlackFabric --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ARTICO/Pearl gloss meter Color Fabric</masterLabel>
-            <translation><!-- ARTICO/Pearl gloss meter Color Fabric --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ARTICOLeather upholstery, Yellow</masterLabel>
-            <translation><!-- ARTICOLeather upholstery, Yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca Grey/Basalt grey Featured  Leather</masterLabel>
-            <translation><!-- Alpaca Grey/Basalt grey Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca Grey/Basalt grey Featured leather</masterLabel>
-            <translation><!-- Alpaca Grey/Basalt grey Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca Grey/Basalt grey Leather</masterLabel>
-            <translation><!-- Alpaca Grey/Basalt grey Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca Grey/BlackLeather</masterLabel>
-            <translation><!-- Alpaca Grey/BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca grey</masterLabel>
-            <translation><!-- Alpaca grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca grey  ARTICO Skin</masterLabel>
-            <translation><!-- Alpaca grey  ARTICO Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca grey / Deep  Carbon Grey</masterLabel>
-            <translation><!-- Alpaca grey / Deep  Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Alpaca grey ARTICOLeather upholstery</masterLabel>
-            <translation><!-- Alpaca grey ARTICOLeather upholstery --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BRABUSLeather upholstery Kit</masterLabel>
-            <translation><!-- BRABUSLeather upholstery Kit --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Basalt GreyNAPPA Skin</masterLabel>
-            <translation><!-- Basalt GreyNAPPA Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Basalt grey/Black Featured leather</masterLabel>
-            <translation><!-- Basalt grey/Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Basalt grey/Xuan Wu  Deep Grey Featured  Leather</masterLabel>
-            <translation><!-- Basalt grey/Xuan Wu  Deep Grey Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Basalt grey/Xuan Wu  Deep Grey Featured leather</masterLabel>
-            <translation><!-- Basalt grey/Xuan Wu  Deep Grey Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black</masterLabel>
-            <translation><!-- Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black ARTICO Skin</masterLabel>
-            <translation><!-- Black ARTICO Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black Featured  Leather</masterLabel>
-            <translation><!-- Black Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black Featured leather</masterLabel>
-            <translation><!-- Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black/Black Featured  Leather</masterLabel>
-            <translation><!-- Black/Black Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black/Black Featured leather</masterLabel>
-            <translation><!-- Black/Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black/Sahara M  Yellow Leather</masterLabel>
-            <translation><!-- Black/Sahara M  Yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BlackARTICOLeather upholstery</masterLabel>
-            <translation><!-- BlackARTICOLeather upholstery --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BlackAlcantara Car roof lining</masterLabel>
-            <translation><!-- BlackAlcantara Car roof lining --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BlackLeather</masterLabel>
-            <translation><!-- BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Black， ARTICO Skin</masterLabel>
-            <translation><!-- Black， ARTICO Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>California Shallow  Brown</masterLabel>
-            <translation><!-- California Shallow  Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cappuccino Brown</masterLabel>
-            <translation><!-- Cappuccino Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey /  Carbon Grey</masterLabel>
-            <translation><!-- Carbon Grey /  Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey /  Elegant  Red</masterLabel>
-            <translation><!-- Carbon Grey /  Elegant  Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey / Dark blue</masterLabel>
-            <translation><!-- Carbon Grey / Dark blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey/ Berry Red</masterLabel>
-            <translation><!-- Carbon Grey/ Berry Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey/ Deep  Carbon Grey</masterLabel>
-            <translation><!-- Carbon Grey/ Deep  Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Carbon Grey/Dark blue</masterLabel>
-            <translation><!-- Carbon Grey/Dark blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow /BlackLeather</masterLabel>
-            <translation><!-- Cashmere yellow /BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow ARTICO Skin</masterLabel>
-            <translation><!-- Cashmere yellow ARTICO Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow Color   Nappa leather</masterLabel>
-            <translation><!-- Cashmere yellow Color   Nappa leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow Color  Nappa leather</masterLabel>
-            <translation><!-- Cashmere yellow Color  Nappa leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow Color ARTICOLeather upholstery</masterLabel>
-            <translation><!-- Cashmere yellow Color ARTICOLeather upholstery --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow Color Leather</masterLabel>
-            <translation><!-- Cashmere yellow Color Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow, ARTICO Skin</masterLabel>
-            <translation><!-- Cashmere yellow, ARTICO Skin --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cashmere yellow-ARTICO</masterLabel>
-            <translation><!-- Cashmere yellow-ARTICO --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chestnut Wood  Brown  Color  Leather</masterLabel>
-            <translation><!-- Chestnut Wood  Brown  Color  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chestnut Wood Brown/Black Featured  Leather</masterLabel>
-            <translation><!-- Chestnut Wood Brown/Black Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chestnut Wood Brown/Black Featured leather</masterLabel>
-            <translation><!-- Chestnut Wood Brown/Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ChestnutBrown/Black Featured  Leather</masterLabel>
-            <translation><!-- ChestnutBrown/Black Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ChestnutBrown/Black Leather</masterLabel>
-            <translation><!-- ChestnutBrown/Black Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ChestnutBrownLeather</masterLabel>
-            <translation><!-- ChestnutBrownLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Coral Red</masterLabel>
-            <translation><!-- Coral Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Crystal GreyLeather upholstery Kit</masterLabel>
-            <translation><!-- Crystal GreyLeather upholstery Kit --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dark RedLeather</masterLabel>
-            <translation><!-- Dark RedLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Interior trim， Elegant Red</masterLabel>
-            <translation><!-- Designo Interior trim， Elegant Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Interior trim，Black</masterLabel>
-            <translation><!-- Designo Interior trim，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Interior trim，Chestnut Color</masterLabel>
-            <translation><!-- Designo Interior trim，Chestnut Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Nappa leather ，Black and White， With special Black</masterLabel>
-            <translation><!-- Designo Nappa leather ，Black and White， With special Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Style  Steering wheel  and  Shift lever ,  Piano lacquer  Black</masterLabel>
-            <translation><!-- Designo Style  Steering wheel  and  Shift lever ,  Piano lacquer  Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Style  Steering wheel  and  Shift lever ， Carbon Grey</masterLabel>
-            <translation><!-- Designo Style  Steering wheel  and  Shift lever ， Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Style  Steering wheel  and  Shift lever ， Natural  Color</masterLabel>
-            <translation><!-- Designo Style  Steering wheel  and  Shift lever ， Natural  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Style  Wood trim ,  Piano lacquer  Black</masterLabel>
-            <translation><!-- Designo Style  Wood trim ,  Piano lacquer  Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Designo Wood trim ， Carbon Grey</masterLabel>
-            <translation><!-- Designo Wood trim ， Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Carbon Grey</masterLabel>
-            <translation><!-- DesignoInterior trim， Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Mauritius Blue</masterLabel>
-            <translation><!-- DesignoInterior trim， Mauritius Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Mystery  Red</masterLabel>
-            <translation><!-- DesignoInterior trim， Mystery  Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Mystery Blue</masterLabel>
-            <translation><!-- DesignoInterior trim， Mystery Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Natural  Color</masterLabel>
-            <translation><!-- DesignoInterior trim， Natural  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Sha Grey</masterLabel>
-            <translation><!-- DesignoInterior trim， Sha Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Shallow Brown</masterLabel>
-            <translation><!-- DesignoInterior trim， Shallow Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim， Stone Dark green</masterLabel>
-            <translation><!-- DesignoInterior trim， Stone Dark green --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoInterior trim，Silver</masterLabel>
-            <translation><!-- DesignoInterior trim，Silver --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DesignoLeather upholstery,Porcelain yellow/ Black</masterLabel>
-            <translation><!-- DesignoLeather upholstery,Porcelain yellow/ Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Design，Beige</masterLabel>
-            <translation><!-- Design，Beige --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Design，Black</masterLabel>
-            <translation><!-- Design，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Design，Grey</masterLabel>
-            <translation><!-- Design，Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Design，Red</masterLabel>
-            <translation><!-- Design，Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable  designo  Classic Red Leather</masterLabel>
-            <translation><!-- Double Color  Adjustable  designo  Classic Red Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable  designo  Porcelain Yellow Leather</masterLabel>
-            <translation><!-- Double Color  Adjustable  designo  Porcelain Yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable  designo  Sha Grey Leather</masterLabel>
-            <translation><!-- Double Color  Adjustable  designo  Sha Grey Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable designo Premier Edition  Classic  Red /BlackLeather</masterLabel>
-            <translation><!-- Double Color  Adjustable designo Premier Edition  Classic  Red /BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable designo Premier Edition  Sha Ash/BlackLeather</masterLabel>
-            <translation><!-- Double Color  Adjustable designo Premier Edition  Sha Ash/BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Double Color  Adjustable designo Premier Edition Porcelain yellow/BlackLeather</masterLabel>
-            <translation><!-- Double Color  Adjustable designo Premier Edition Porcelain yellow/BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Egg Stone  Color ARTICOLeather upholstery</masterLabel>
-            <translation><!-- Egg Stone  Color ARTICOLeather upholstery --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Flamengo Red</masterLabel>
-            <translation><!-- Flamengo Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GalapagosAsh</masterLabel>
-            <translation><!-- GalapagosAsh --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Goose Egg Stone Yellow With special  smoke Brown Leather</masterLabel>
-            <translation><!-- Goose Egg Stone Yellow With special  smoke Brown Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Grey Leather</masterLabel>
-            <translation><!-- Grey Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GreyAlcantara Car roof lining</masterLabel>
-            <translation><!-- GreyAlcantara Car roof lining --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GreyLeather</masterLabel>
-            <translation><!-- GreyLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gull wing Red  Nappa leather</masterLabel>
-            <translation><!-- Gull wing Red  Nappa leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Labrador Retriever Carbon Ash</masterLabel>
-            <translation><!-- Labrador Retriever Carbon Ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather Exclusive brown</masterLabel>
-            <translation><!-- Leather Exclusive brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Alpaca grey</masterLabel>
-            <translation><!-- Leather ，Alpaca grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Black</masterLabel>
-            <translation><!-- Leather ，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Egg Stone  Yellow</masterLabel>
-            <translation><!-- Leather ，Egg Stone  Yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Pebble m</masterLabel>
-            <translation><!-- Leather ，Pebble m --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Sahara M  Yellow /Black</masterLabel>
-            <translation><!-- Leather ，Sahara M  Yellow /Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Xuan Wu Ash/ Deep Grey</masterLabel>
-            <translation><!-- Leather ，Xuan Wu Ash/ Deep Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather ，Xuan Wu Ash/Black</masterLabel>
-            <translation><!-- Leather ，Xuan Wu Ash/Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Carbon Ash</masterLabel>
-            <translation><!-- Leather， Carbon Ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Graphite colour</masterLabel>
-            <translation><!-- Leather， Graphite colour --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Nappa leather ，AshRed</masterLabel>
-            <translation><!-- Leather， Nappa leather ，AshRed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Nappa leather ，Bao Stone Gold</masterLabel>
-            <translation><!-- Leather， Nappa leather ，Bao Stone Gold --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Nappa leather ，Black</masterLabel>
-            <translation><!-- Leather， Nappa leather ，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Pacific Blue</masterLabel>
-            <translation><!-- Leather， Pacific Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Sierra Ash</masterLabel>
-            <translation><!-- Leather， Sierra Ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， Tropical Prairie  Yellow /Cashmere yellow</masterLabel>
-            <translation><!-- Leather， Tropical Prairie  Yellow /Cashmere yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather， grandeur Blue</masterLabel>
-            <translation><!-- Leather， grandeur Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Alpaca grey</masterLabel>
-            <translation><!-- Leather，Alpaca grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，AshRed</masterLabel>
-            <translation><!-- Leather，AshRed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Bao Stone Gold</masterLabel>
-            <translation><!-- Leather，Bao Stone Gold --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Berry Red</masterLabel>
-            <translation><!-- Leather，Berry Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Black</masterLabel>
-            <translation><!-- Leather，Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Delta Blue</masterLabel>
-            <translation><!-- Leather，Delta Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Egg Stone  Color</masterLabel>
-            <translation><!-- Leather，Egg Stone  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Egg Stone  Yellow</masterLabel>
-            <translation><!-- Leather，Egg Stone  Yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Flame Red</masterLabel>
-            <translation><!-- Leather，Flame Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Twin Black</masterLabel>
-            <translation><!-- Leather，Twin Black --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，Twin grandeur Blue</masterLabel>
-            <translation><!-- Leather，Twin grandeur Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，TwinAlpaca grey</masterLabel>
-            <translation><!-- Leather，TwinAlpaca grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，TwinEgg Stone  Color</masterLabel>
-            <translation><!-- Leather，TwinEgg Stone  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leather，UniverseBlue</masterLabel>
-            <translation><!-- Leather，UniverseBlue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>M  Color Alcantara Car roof lining</masterLabel>
-            <translation><!-- M  Color Alcantara Car roof lining --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB-TEX / LEATHER TWIN/ARTICO - BLACK / ANTHRACITE</masterLabel>
-            <translation><!-- MB-TEX / LEATHER TWIN/ARTICO - BLACK / ANTHRACITE --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB-TEX / LEATHER TWIN/ARTICO - GREY</masterLabel>
-            <translation><!-- MB-TEX / LEATHER TWIN/ARTICO - GREY --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maldives Blue</masterLabel>
-            <translation><!-- Maldives Blue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Matt Ash Limited Edition Interior trim</masterLabel>
-            <translation><!-- Matt Ash Limited Edition Interior trim --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maui Pearl Color</masterLabel>
-            <translation><!-- Maui Pearl Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz standard Interior trim</masterLabel>
-            <translation><!-- Mercedes-Benz standard Interior trim --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>NAPPA Natural  M  Color Leather</masterLabel>
-            <translation><!-- NAPPA Natural  M  Color Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open Division  M  Color /Prairie Yellow Featured  Leather</masterLabel>
-            <translation><!-- Open Division  M  Color /Prairie Yellow Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open Division  M  Color /Prairie Yellow Featured leather</masterLabel>
-            <translation><!-- Open Division  M  Color /Prairie Yellow Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open Division  M  Color /Prairie Yellow Leather</masterLabel>
-            <translation><!-- Open Division  M  Color /Prairie Yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pebble m</masterLabel>
-            <translation><!-- Pebble m --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Prairie Yellow/Open Division  M  Color  Featured leather</masterLabel>
-            <translation><!-- Prairie Yellow/Open Division  M  Color  Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pure White aniline Leather</masterLabel>
-            <translation><!-- Pure White aniline Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rocky gray-Artico</masterLabel>
-            <translation><!-- Rocky gray-Artico --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sahara M  Color /Black Featured  Leather</masterLabel>
-            <translation><!-- Sahara M  Color /Black Featured  Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sahara M  Color /Black Featured leather</masterLabel>
-            <translation><!-- Sahara M  Color /Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sahara M  Color /Black Leather</masterLabel>
-            <translation><!-- Sahara M  Color /Black Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Senior Nappa leather ， Carbon Grey</masterLabel>
-            <translation><!-- Senior Nappa leather ， Carbon Grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Senior Nappa leather ，Alpaca grey</masterLabel>
-            <translation><!-- Senior Nappa leather ，Alpaca grey --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Senior Nappa leather ，Egg Stone  Color</masterLabel>
-            <translation><!-- Senior Nappa leather ，Egg Stone  Color --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Senior Nappa leather ，Java Yellow</masterLabel>
-            <translation><!-- Senior Nappa leather ，Java Yellow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Shallow Browndesigno Premier Edition Natural Leather/Weave Leather</masterLabel>
-            <translation><!-- Shallow Browndesigno Premier Edition Natural Leather/Weave Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable  designo  Classic Red Leather</masterLabel>
-            <translation><!-- Single Color  Adjustable  designo  Classic Red Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable  designo  Porcelain Yellow Leather</masterLabel>
-            <translation><!-- Single Color  Adjustable  designo  Porcelain Yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable  designo  Sha Grey Leather</masterLabel>
-            <translation><!-- Single Color  Adjustable  designo  Sha Grey Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable  designo Black Leather</masterLabel>
-            <translation><!-- Single Color  Adjustable  designo Black Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable designo Premier Edition  Classic RedLeather</masterLabel>
-            <translation><!-- Single Color  Adjustable designo Premier Edition  Classic RedLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</masterLabel>
-            <translation><!-- Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</masterLabel>
-            <translation><!-- Single Color  Adjustable designo Premier Edition  Sha GreyLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Single Color  Adjustable designo Premier Edition BlackLeather</masterLabel>
-            <translation><!-- Single Color  Adjustable designo Premier Edition BlackLeather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tropical Prairie  Yellow /Cashmere yellow Leather</masterLabel>
-            <translation><!-- Tropical Prairie  Yellow /Cashmere yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tundra Brown</masterLabel>
-            <translation><!-- Tundra Brown --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>White Brandy Brown  Color /Black Featured leather</masterLabel>
-            <translation><!-- White Brandy Brown  Color /Black Featured leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>White Brandy Brown  Color Leather</masterLabel>
-            <translation><!-- White Brandy Brown  Color Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Xuan Wu Ash</masterLabel>
-            <translation><!-- Xuan Wu Ash --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yellow Leather</masterLabel>
-            <translation><!-- Yellow Leather --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yellow/Black Leather</masterLabel>
-            <translation><!-- Yellow/Black Leather --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <help><!-- The integration layer (EP) needs this field for defect handling and debugging: --></help>
@@ -5676,6 +4329,10 @@
     <validationRules>
         <errorMessage><!-- End date should not before Start date. --></errorMessage>
         <name>Invalid_Start_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The marked fields are required. --></errorMessage>
+        <name>RequiredFields</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- US VIN Has Invalid Syntax. --></errorMessage>

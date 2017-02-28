@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -633,6 +637,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -718,7 +723,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1675,7 +1680,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
     </validationRules>
     <validationRules>
         <fullName>Province_is_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',

@@ -1060,7 +1060,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>

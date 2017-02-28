@@ -321,7 +321,7 @@
             
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" >    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
@@ -364,4 +364,3 @@
         
     </apex:form>
 </apex:page>
-               

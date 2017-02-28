@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Lead_DataSource__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Drop_off_Time__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Lead_Desired_Service__c</field>
+    </columns>
+    <description>Report for checking number of leads (MyM-NewCRM-LocalSF)</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Lead_DataSource__c</column>
+            <operator>equals</operator>
+            <value>My Mercedes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Lead_Desired_Service__c</column>
+            <operator>excludes</operator>
+            <value>Campaign</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Tabular</format>
+    <name>NumLeadChk</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c.Drop_off_Time__c</dateColumn>
+        <endDate>2017-01-24</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-01-24</startDate>
+    </timeFrameFilter>
+</Report>

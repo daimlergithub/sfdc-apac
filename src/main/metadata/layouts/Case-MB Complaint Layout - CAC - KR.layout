@@ -125,15 +125,15 @@
                 <behavior>Edit</behavior>
                 <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Case_Class__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Case_Type__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Case_Sub_Type__c</field>
             </layoutItems>

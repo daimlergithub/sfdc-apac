@@ -21369,6 +21369,48 @@ Company_Account__r.Work_Phone__c  ,
     </fields>
     <label>Leads</label>
     <listViews>
+        <fullName>AMG_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>AMGセントラルDM2016</value>
+        </filters>
+        <label>AMGセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>AMG_DM2016_GTR</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>E&amp;SクラスセントラルDM2016</value>
+        </filters>
+        <label>E・SセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>All_Lead</fullName>
         <columns>RECORDTYPE</columns>
         <columns>Contact__c</columns>
@@ -21626,6 +21668,100 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>E_S_DM_Amex_2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>E&amp;SクラスセントラルDM（Amex）2016</value>
+        </filters>
+        <label>E&amp;SクラスセントラルDM（Amex）2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <label>GDO</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO1</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Approving</value>
+        </filters>
+        <label>GDO承認中</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO2</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <label>GDO新規</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>MBJ_ALL</fullName>
         <columns>NAME</columns>
         <columns>CAC_Lead_Status__c</columns>
@@ -21847,6 +21983,27 @@ Company_Account__r.Work_Phone__c  ,
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View3</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>メルセデス・ベンツ体感キャンペーンプラス</value>
+        </filters>
+        <label>カレコ</label>
+        <language>ja</language>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
@@ -36436,6 +36593,25 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Insurance_Type__c</picklist>
+            <values>
+                <fullName>No insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Body_Type__c</picklist>
             <values>
                 <fullName>JEEP</fullName>
@@ -49225,6 +49401,25 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special Programme</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Type__c</picklist>
+            <values>
+                <fullName>No insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -96923,7 +97118,10 @@ ISNULL(Visited_Showroom_Date__c)
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
 
+if(userMarket.records.Market__c == 'KR') 
+{ 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -96948,6 +97146,9 @@ else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_I
 { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
+}
+}else{
+      alert('You do not have sufficient access for this button');
 }</url>
     </webLinks>
     <webLinks>

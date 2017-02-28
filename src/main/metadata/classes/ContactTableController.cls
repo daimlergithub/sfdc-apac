@@ -35,7 +35,7 @@ public class ContactTableController
 
   */ 
    Public boolean disableButtons{get;set;}
-    
+     
     public  ContactTableController(ApexPages.StandardController stdController)
     {
         editMode = false;
@@ -66,6 +66,7 @@ public class ContactTableController
              //editMode = true;
              editMode1 = true;
         }
+       
      }
      
     
@@ -159,6 +160,8 @@ public class ContactTableController
     
     public void UpdateAccount()  
     {
+     if(ParAcc != null && ParAcc.Md__c =='KR' )
+            {
        if((String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3)))
        {
            ParAcc.Individual_Home_Phone__c='';
@@ -208,7 +211,7 @@ public class ContactTableController
         { 
              ParAcc.Mobile__c='';
         }
-      
+      }
         try
         {
             if(ParAcc != null)

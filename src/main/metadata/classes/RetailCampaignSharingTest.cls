@@ -31,7 +31,7 @@ private class RetailCampaignSharingTest {
             User portalAccountOwner1 = new User(
                 UserRoleId = portalRole.Id,
                 ProfileId = profile1.Id,
-                Username = System.now().millisecond() + 'test2@test.com',
+                Username = 'test-daimler-APAC'+System.now().millisecond()+'@test.com',
                 Alias = 'batman',
                 Email='bruce.wayne@wayneenterprises.com',
                 EmailEncodingKey='UTF-8',
@@ -158,7 +158,7 @@ private class RetailCampaignSharingTest {
     static void testWrapRetailCampaigns() {
         
 
- 	 string strSubject;
+    string strSubject;
     User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
     System.runAs(thisUser ){
         Set<Id> campaignIDS = new Set<Id>(); 
@@ -205,19 +205,19 @@ insert updatecustomsettings;
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();        
             List<SharingWrapper> wrapRetailCampaigns=wrapService.wrapRetailCampaigns(retailCampaigns);
             RetailCampaignHelper RetailCampaigntest = new RetailCampaignHelper();
-        	RetailCampaignHelper.updateParentCampaignStatus(campaignIDS);
-        	RetailCampaignHelper.updateParentCampaignQuarter(campaignIDS);
-        	RetailCampaignHelper.ShareRecordToDealer_BeforeInsert(retailCampaignck);
-        	RetailCampaignHelper.ShareRecordToDealer_AfterUpdate(retailCampaignck, retailCampaignMap, retailCampaignMaps, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, true);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	
-        	
+          RetailCampaignHelper.updateParentCampaignStatus(campaignIDS);
+          RetailCampaignHelper.updateParentCampaignQuarter(campaignIDS);
+          RetailCampaignHelper.ShareRecordToDealer_BeforeInsert(retailCampaignck);
+          RetailCampaignHelper.ShareRecordToDealer_AfterUpdate(retailCampaignck, retailCampaignMap, retailCampaignMaps, false);
+          RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+          RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+          RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+          RetailCampaignHelper.afterInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, true);
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+          
+          
              RetailCampaignHelper.generateTask(thisUser, retailCampaign, strSubject);
            RetailCampaignHelper.generateHighPrioTask(thisUser, retailCampaign, strSubject);
         
@@ -233,7 +233,7 @@ insert updatecustomsettings;
     static void testWrapRetailCampaigns2() {
         
 
- 	 string strSubject;
+    string strSubject;
     User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
     System.runAs(thisUser ){
         Set<Id> campaignIDS = new Set<Id>(); 
@@ -270,11 +270,11 @@ insert updatecustomsettings;
             Test.startTest();
             RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();        
             
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
-        	RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-        	
-        	
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
+          RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
+          
+          
              RetailCampaignHelper.generateTask(thisUser, retailCampaign, strSubject);
            RetailCampaignHelper.generateHighPrioTask(thisUser, retailCampaign, strSubject);
         

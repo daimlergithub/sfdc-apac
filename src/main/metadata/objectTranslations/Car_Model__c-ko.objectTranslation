@@ -2055,8 +2055,4 @@
         </sections>
     </layouts>
     <nameFieldLabel><!-- Car Model Name --></nameFieldLabel>
-    <validationRules>
-        <errorMessage><!-- Model is Mandatory. --></errorMessage>
-        <name>Model_Required</name>
-    </validationRules>
 </CustomObjectTranslation>

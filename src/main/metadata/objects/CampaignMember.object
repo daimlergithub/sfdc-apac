@@ -90,6 +90,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -227,6 +228,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -240,6 +242,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -744,6 +747,14 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Unsuccessful communication</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>レスポンスあり</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>送信</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>

@@ -902,7 +902,6 @@
         <label><!-- Is Parent Campaign Active --></label>
         <name>Is_Parent_Campaign_Active__c</name>
     </fields>
-    
     <fields>
         <label><!-- LastRunDate --></label>
         <name>Last_Run_Date__c</name>
@@ -959,7 +958,6 @@
         <label>最少車齢</label>
         <name>Min_Car_Age__c</name>
     </fields>
- 
     <fields>
         <label><!-- NextRunDate --></label>
         <name>Next_Run_Date__c</name>
@@ -1213,37 +1211,6 @@
         <name>Segmentation_Report_ID__c</name>
     </fields>
     <fields>
-        <name>Status</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation>承認済み</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cancelled</masterLabel>
-            <translation>キャンセル</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Closed</masterLabel>
-            <translation>終了</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Confirmed</masterLabel>
-            <translation>計画済み</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Planned</masterLabel>
-            <translation>準備中</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Published</masterLabel>
-            <translation><!-- Published --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Started</masterLabel>
-            <translation>進行中</translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Submission Due Date --></label>
         <name>Submission_Due_Date__c</name>
     </fields>
@@ -1320,21 +1287,6 @@
         <name>Total_Budget__c</name>
     </fields>
     <fields>
-        <name>Type</name>
-        <picklistValues>
-            <masterLabel>CRM Acquisition Program</masterLabel>
-            <translation><!-- CRM Acquisition Program --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CRM Loyalty Program</masterLabel>
-            <translation><!-- CRM Loyalty Program --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
@@ -1376,6 +1328,37 @@
         </sections>
         <sections>
             <label>セグメンテーション設定</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Complex layout Lock</layout>
+        <sections>
+            <label><!-- Campaign Statistics --></label>
+            <section>Campaign Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- SQL Statement --></label>
+            <section>SQL Statement</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1442,6 +1425,33 @@
         </sections>
         <sections>
             <label>セグメンテーション設定</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Simple layout  MBK</layout>
+        <sections>
+            <label><!-- Campaign Statistics --></label>
+            <section>Campaign Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1539,6 +1549,13 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Campaign Read Only Layout</layout>
+        <sections>
+            <label><!-- Expected Outcome --></label>
+            <section>Expected Outcome</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Central Campaign Layout</layout>
         <sections>
             <label>期待される結果</label>
@@ -1622,6 +1639,10 @@
         <name>Campaign_Execution_Complex</name>
     </recordTypes>
     <recordTypes>
+        <label><!-- Campaign Execution-Complex Lock --></label>
+        <name>Campaign_Execution_Complex_Lock</name>
+    </recordTypes>
+    <recordTypes>
         <label>Central Marketing Campaign</label>
         <name>Central_Marketing_Campaign</name>
     </recordTypes>
@@ -1641,6 +1662,10 @@
         <label><!-- smart Best Practice --></label>
         <name>smart_Best_Practice</name>
     </recordTypes>
+    <validationRules>
+        <errorMessage><!-- CAC Campaign can&apos;t be active when it is being created. --></errorMessage>
+        <name>CAC_Marketing_Active</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- CAS Marketing Campaign can&apos;t be active when it is being created. --></errorMessage>
         <name>CAS_Marketing_Active</name>

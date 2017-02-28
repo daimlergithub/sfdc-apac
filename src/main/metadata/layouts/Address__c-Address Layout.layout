@@ -38,7 +38,7 @@
                 <behavior>Edit</behavior>
                 <field>Temp_ZipCode__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Created_By_EP_Transaction__c</field>
             </layoutItems>
@@ -84,11 +84,11 @@
                 <behavior>Edit</behavior>
                 <field>Temp_Address__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>HouseNumber__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>

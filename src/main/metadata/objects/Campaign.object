@@ -25,6 +25,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -4911,7 +4915,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
@@ -6997,14 +7001,19 @@
                 <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
-        </picklistValues><picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7016,7 +7025,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eDM</fullName>
+                <fullName>Segmentation Only</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7187,11 +7196,23 @@
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
+                <fullName>Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>true</default>
             </values>
             <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8398,7 +8419,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
@@ -8579,10 +8600,6 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-            <values>
-                <fullName>Published</fullName>
-                <default>false</default>
             </values>
             <values>
                 <fullName>Started</fullName>
@@ -12240,14 +12257,14 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'&amp;&amp; ISNEW()</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'KR',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAS_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAS_Marketing_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -12458,7 +12475,7 @@ IsActive = True
         <masterLabel>Create Child Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -12469,7 +12486,7 @@ IsActive = True
         <masterLabel>Create Complex Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>
@@ -12479,7 +12496,8 @@ IsActive = True
         <linkType>url</linkType>
         <masterLabel>Create Simple Execution</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <protected>false</protected>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>

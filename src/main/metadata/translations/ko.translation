@@ -2468,7 +2468,7 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>master</name>
     </customLabels>
     <customLabels>
-        <label><!-- purchased vehicle related information --></label>
+        <label>거부 사유를 비고 란에 입력하여 주십시오</label>
         <name>purchased_vehicle_related_information</name>
     </customLabels>
     <customLabels>
@@ -2875,6 +2875,27 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- Happy Calls Report for aftersales Lead --></description>
+        <label><!-- Happy Calls Report for aftersales Lead --></label>
+        <name>Happy_Calls_Report_for_aftersales_Lead</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Other_Vehicles --></label>
+            <name>Other_Vehicles</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <label>해피콜 (CS) 보고서</label>
         <name>Happy_Calls_Reports</name>
         <sections>
@@ -2892,8 +2913,7 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Leads with  VR --></description>
-        <label><!-- Leads with  VR --></label>
+        <label>Leads with VR</label>
         <name>Leads_with_VR</name>
         <sections>
             <label><!-- Leads --></label>
@@ -3125,6 +3145,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <label><!-- MBJ Retail Task --></label>
         <name>MBJ_Retail_Task</name>
         <sections>
+            <label><!-- Contractor --></label>
+            <name>Contractor</name>
+        </sections>
+        <sections>
             <label><!-- Related Dealer --></label>
             <name>Related Dealer</name>
         </sections>
@@ -3235,6 +3259,32 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- MBK Account with Address and Contacts --></description>
+        <label><!-- MBK Account with Address and Contacts --></label>
+        <name>MBK_Account_with_Address_and_Contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Case with task --></description>
+        <label><!-- MBK Case with task --></label>
+        <name>MBK_Case_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></description>
         <label><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></label>
         <name>MBK_Lead_vehicle</name>
@@ -3281,6 +3331,19 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <sections>
             <label><!-- Personal Account --></label>
             <name>Personal Account</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Lead with task --></description>
+        <label><!-- MBK Lead with task --></label>
+        <name>MBK_Lead_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
         </sections>
     </reportTypes>
     <reportTypes>

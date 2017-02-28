@@ -21,7 +21,7 @@
                 <behavior>Edit</behavior>
                 <field>Duplicate_Reason_Code__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DUPNumber__c</field>
             </layoutItems>

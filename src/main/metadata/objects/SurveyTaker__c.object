@@ -185,7 +185,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Survey_Taken_Date__c</fullName>
         <externalId>false</externalId>
         <label>Survey Taken Date</label>
@@ -345,6 +345,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             <value>TODAY</value>
         </filters>
         <label>今日作成のセントラルDM_コピー</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>E_S_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Survey__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Lead__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Survey__c</field>
+            <operation>equals</operation>
+            <value>E&amp;SクラスセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>Lead__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>E&amp;SセントラルDM2016</label>
         <language>ja</language>
     </listViews>
     <listViews>

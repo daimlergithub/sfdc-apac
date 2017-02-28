@@ -62,6 +62,9 @@
         <fullName>Email</fullName>
     </fields>
     <fields>
+        <fullName>IsRecurrence</fullName>
+    </fields>
+    <fields>
         <fullName>IsVisibleInSelfService</fullName>
     </fields>
     <fields>
@@ -1411,7 +1414,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>     
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -2295,7 +2298,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>          
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -3456,7 +3459,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -4320,7 +4323,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>      
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -5460,7 +5463,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>     
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -6601,7 +6604,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>       
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -7502,7 +7505,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>       
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -9312,7 +9315,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>       
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -10296,7 +10299,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>    
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -11169,7 +11172,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>     
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -12077,7 +12080,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>     
+        </picklistValues>
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
