@@ -16,12 +16,12 @@ ApexPages.currentPage().getParameters().put('recordID', vehicalrelobj.Id);
 sendmerobj.showPopup();
 /*SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true,true);
 accwrapins.isSelect = true;
-sendmerobj.lstAccountWrapper.add(accwrapins);*/
+sendmerobj.lstAccountWrapper.add(accwrapins);
 sendmerobj.Submit();
 sendmerobj.closePopup();
 sendmerobj.savepop();
 sendmerobj.cancel();
-
+*/
 }
     
 }
