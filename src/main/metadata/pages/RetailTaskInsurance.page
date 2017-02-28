@@ -20,7 +20,7 @@
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Company_Name__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Company_Name__c}"/>  
+                       <apex:outputField value="{!displayInsurance.Company_Name__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_BirthDate__c.Label}"/>
@@ -40,40 +40,7 @@
               </apex:pageBlockSectionItem> 
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outlet_Name__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Outlet_Name__c}"/>  
-              </apex:pageBlockSectionItem> 
-              <apex:pageBlockSectionItem>                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Contractor_Name__c}"/>  
-              </apex:pageBlockSectionItem> 
-              <apex:pageBlockSectionItem>                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name_Native__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Contractor_Name_Native__c}"/>  
-              </apex:pageBlockSectionItem>  
-              <apex:pageBlockSectionItem>                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode1__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Contractor_ZipCode1__c}"/>  
-              </apex:pageBlockSectionItem>
-              <apex:pageBlockSectionItem>                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Condition_Change_Date__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Condition_Change_Date__c}"/>  
-              </apex:pageBlockSectionItem>
-			   
-             <apex:pageBlockSectionItem>                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Insurance_Company__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Insurance_Company__c}"/>  
-              </apex:pageBlockSectionItem>
-              <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Non_MB_Insurance__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Non_MB_Insurance__c}"/>  
-              </apex:pageBlockSectionItem>
-              <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Vehicle_Registration_No__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Vehicle_Registration_No__c}"/>  
-              </apex:pageBlockSectionItem>
-              <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Insured_Name_Native__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Insured_Name_Native__c}"/>  
+                       <apex:outputField value="{!displayInsurance.Outlet_Name__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Method__c.Label}"/>
@@ -98,4 +65,4 @@
           </apex:pageBlockSection> 
         </apex:pageBlock>
     </apex:form>
-</apex:page>
+  </apex:page>
