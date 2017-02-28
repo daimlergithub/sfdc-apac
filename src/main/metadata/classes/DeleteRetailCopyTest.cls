@@ -13,7 +13,7 @@ public class DeleteRetailCopyTest{
         insert alklink;
         ApexPages.currentPage().getParameters().put('id',alklink.id);
         DeleteRetailCopy obj = new DeleteRetailCopy();
-        obj.updateRetailCopy();
+        DeleteRetailCopy.updateRetailCopy();
         
     }
 }

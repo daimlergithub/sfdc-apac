@@ -364,7 +364,7 @@
 							   <sf:include name="AccountMergeKR"/>
 							   <sf:include name="TaskDeleting"/>							
 							   <sf:include name="Tasks"/>
-								  <sf:include name="ConvertToLead"/>
+								<sf:include name="ConvertToLead"/>
 								  <sf:include name="ConvertToDMRequest"/>
 								  <sf:include name="ConvertToTask"/>
 								<sf:include name="ALKDeleteConformationpage"/>
@@ -530,7 +530,7 @@
 			</deploy>
 </target>   
 
-<target name="deploy21">
+								<target name="deploy21">
 									<deploy transformations="transformations29.xml">
 										<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
 									</deploy>
