@@ -184,7 +184,7 @@ public class AccountHelperKR{
         Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
         Set<String> UsrAccountIds = new set<String>();   
         for(Account acc : accLst){
-            if(isInsert && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+            if(isInsert && acc.MD__c == 'KR'){ //Checking Market for updated account
                 AccountIds.add(acc.id); //Adding accountId's to set
                 OwnerIds.add(acc.Ownerid);//Adding Owner Id's to set
                 System.debug('AccountID--->'+acc.id);        
