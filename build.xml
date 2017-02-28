@@ -363,7 +363,6 @@
 							   <sf:include name="AccountMerge"/>
 							   <sf:include name="AccountMergeKR"/>
 							   <sf:include name="TaskDeleting"/>
-							<sf:include name="TaskMassAssignChangeOwnerJP"/>
 							
 							   <sf:include name="Tasks"/>
 								  <sf:include name="ConvertToLead"/>
@@ -519,7 +518,6 @@
 											<sf:include name="ParticipateDealerHandlerJP"/>
 											<sf:include name="TriggerParticipateDealerHandlerJP"/>
 											<sf:include name="ParticipateDealerHandlerTestJP"/>
-											<sf:include name="TaskMassAssignChangeOwnerJP"/>
 											 <sf:include name="ConvertToLeadController"/>
 
 										
