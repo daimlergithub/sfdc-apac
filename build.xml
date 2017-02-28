@@ -365,10 +365,10 @@
 							   <sf:include name="TaskDeleting"/>							
 							   <sf:include name="Tasks"/>
 								<sf:include name="ConvertToLead"/>
-								  <sf:include name="ConvertToDMRequest"/>
+								  <!--<sf:include name="ConvertToDMRequest"/> commented by Rakesh -->
 								  <sf:include name="ConvertToTask"/>
 								<sf:include name="ALKDeleteConformationpage"/>
-							   <sf:include name="TaskMassAssignChangeOwnerJP"/>
+							   <!--<sf:include name="TaskMassAssignChangeOwnerJP"/> commented by Rakesh -->
 							   <sf:include name="Tasks"/>
 							   <sf:include name="RetailTaskdealerviewForContract"/>
 							   <!-- Added by Naga Start-->
