@@ -332,12 +332,8 @@
 			</deploy>
 </target>       
 
-								<target name="deploy20">
-									<deploy transformations="transformations29.xml">
-										<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
-									</deploy>
-								</target>
-							<target name="deploy21">
+								
+							<target name="deploy20">
 									<deploy  runAllTests="${sfdc.runAllTests}">
 										<sf:typeset name="objects">
 											<sf:include name="Case"/>
@@ -547,7 +543,14 @@
 											
 							</sf:typeset>
 			</deploy>
-</target>       
+</target>   
+
+<target name="deploy21">
+									<deploy transformations="transformations29.xml">
+										<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
+									</deploy>
+								</target>
+								
 <target name="deploy25">
 			<deploy runAllTests="${sfdc.runAllTests}">
 							<sf:typeset name="letterhead"/>                                          
