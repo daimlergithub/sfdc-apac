@@ -260,9 +260,9 @@
 							 <sf:include name="ScheduleRetailCampCompletion"/>
 							 <!--<sf:include name="exportCampaignMembers"/>-->
 							</sf:typeset>
-							<sf:typeset name="pages">
+							<!--<sf:typeset name="pages">
 									 <sf:include name="ExportAsCsvCampaign"/>
-							</sf:typeset>
+							</sf:typeset>-->
 			</deploy>
 </target>
 
@@ -689,7 +689,7 @@
 			<sf:typeset name="pages">
 											<sf:include name="NewVehicleRelationship"/>
 											<sf:include name="Retail_Campaigns"/>
-											<!--<sf:include name="ExportAsCsvCampaign"/>-->
+											<sf:include name="ExportAsCsvCampaign"/>
 			</sf:typeset>                    
 			</deploy>                                                                          
 </target>
