@@ -2992,7 +2992,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <picklist>
             <picklistValues>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Approving</fullName>
@@ -3934,7 +3934,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <picklist>
             <picklistValues>
                 <fullName>Not Started</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>On-going</fullName>

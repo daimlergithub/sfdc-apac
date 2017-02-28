@@ -57,7 +57,7 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Case.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
     <changetext>

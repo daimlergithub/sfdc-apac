@@ -21,7 +21,7 @@ public Boolean show {get;set;}
 public List<Account> cResult{get;set;}
 public void onLineDeduplication(){  
         objPersonAccount1 = new Account();
-        objPersonAccount= [select id,MD__c,Phone,Mobile2__c,Email__c,Email2__c,Email3__c,Salutation,Name,Work_Phone__c,Home_Phone_2__c,LastName,PersonEmail,Mobile__c,Loyalty_Card_No__c,LastName_Native_1__c,PersonBirthdate,FirstName_Native_1__c,FirstName,Individual_Home_Phone__c,PersonMobilePhone from Account WHERE Id =: apexpages.currentpage().getparameters().get('id')];
+        objPersonAccount= [select id,MD__c,Phone,Mobile2__c,Email__c,Email2__c,RecordTypeID,Email3__c,Salutation,Name,Work_Phone__c,Home_Phone_2__c,LastName,PersonEmail,Mobile__c,Loyalty_Card_No__c,LastName_Native_1__c,PersonBirthdate,FirstName_Native_1__c,FirstName,Individual_Home_Phone__c,PersonMobilePhone from Account WHERE Id =: apexpages.currentpage().getparameters().get('id')];
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();    
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
@@ -33,15 +33,15 @@ public void onLineDeduplication(){
            
             String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            if(recordType !=null && recordType=='Company')
-            {
-                objPersonAccount.Recordtypeid=companyRecordTypeId;
-            }
+           
             system.debug('recordType------------:'+recordType);
-            if(recordType !=null && recordType== 'Person Account')
-            {             
-                objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
-            }
+                         
+                if(objPersonAccount.Recordtypeid == PersonAccountRecordTypeID){
+                objPersonAccount1.Recordtypeid=PersonAccountRecordTypeID ;
+                }else if(objPersonAccount.Recordtypeid == companyRecordTypeId ){
+                    objPersonAccount1.Recordtypeid = companyRecordTypeId; 
+                }
+           
             if(objPersonAccount.MD__c == 'JP')
             {
                 if(objPersonAccount.Email__c != null )
@@ -49,19 +49,57 @@ public void onLineDeduplication(){
                     objPersonAccount1.Email__c= objPersonAccount.Email__c;
                 }
                 
-                /*system.debug('>>>>>>> :'+objPersonAccount.Individual_Home_Phone__c);
-                if(objPersonAccount.Individual_Home_Phone__c != null && objPersonAccount.Individual_Home_Phone__c != '')
-                {                         
-                    objPersonAccount1.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c ;
+                if(objPersonAccount.MD__c != null && objPersonAccount.MD__c == 'JP')
+                {                      
+                    objPersonAccount1.MD__c = objPersonAccount.MD__c;
                 }
-                */
+                if(objPersonAccount.Recordtypeid == PersonAccountRecordTypeID){
+                    objPersonAccount1.LastName = objPersonAccount.LastName;
+                    if(objPersonAccount.FirstName != null){
+                        objPersonAccount1.FirstName = objPersonAccount.FirstName;
+                    }
+                    
+                }else if(objPersonAccount.Recordtypeid ==companyRecordTypeId){
+                     objPersonAccount1.Name =  objPersonAccount.Name; 
+                }
+                if(objPersonAccount.LastName_Native_1__c !=  null){
+                    objPersonAccount1.LastName_Native_1__c = objPersonAccount.LastName_Native_1__c;   
+                }
+                if(objPersonAccount.LastName_Native_1__c !=  null){
+                    objPersonAccount1.LastName_Native_1__c = objPersonAccount.LastName_Native_1__c;   
+                }
+                if(objPersonAccount.FirstName_Native_1__c !=  null){
+                    objPersonAccount1.FirstName_Native_1__c = objPersonAccount.FirstName_Native_1__c;
+                }
+                if(objPersonAccount.Individual_Home_Phone__c !=  null){
+                    objPersonAccount1.Individual_Home_Phone__c = objPersonAccount.Individual_Home_Phone__c;
+                }
+                if(objPersonAccount.Home_Phone_2__c !=  null){
+                    objPersonAccount1.Home_Phone_2__c = objPersonAccount.Home_Phone_2__c ;
+                }
+                if(objPersonAccount.Work_Phone__c !=  null){
+                    objPersonAccount1.Work_Phone__c = objPersonAccount.Work_Phone__c;
+                }
+                if(objPersonAccount.Phone!=  null){
+                    objPersonAccount1.Phone= objPersonAccount.Phone;
+                }
+                if(objPersonAccount.Mobile2__c !=  null){
+                    objPersonAccount1.Mobile2__c = objPersonAccount.Mobile2__c;
+                }
+                if(objPersonAccount.Email2__c !=  null){
+                    objPersonAccount1.Email2__c = objPersonAccount.Email2__c;
+                }
+                if(objPersonAccount.Email3__c !=  null){
+                    objPersonAccount1.Email3__c = objPersonAccount.Email3__c;
+                }
+                
                 if(objPersonAccount.Mobile__c!= null )
                 {              
                     objPersonAccount1.Mobile__c= objPersonAccount.Mobile__c;
                 }
                                
             }
-            
+            system.debug('objPersonAccount1%%%%%%%' + objPersonAccount1);
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount1); 
             
             System.debug('@@@@@@@@@@ response '+response);

@@ -178,7 +178,7 @@ public class AccountLinkHelper
             }
             
             //Share Account Link with VR's
-            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId  ){ 
+            if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId ){ 
                                    
                 if(accountLink.fromRole__c != null && accountLink.toRole__c!=null){
                     set_ToAccountId.add(accountLink.fromRole__c);
@@ -291,6 +291,7 @@ public class AccountLinkHelper
              createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
+        //system.assert(false, SharingVrsFromAlk);
         if(SharingVrsFromAlk.size() > 0){
             dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSetFromRetailPerson);
             for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
@@ -482,6 +483,32 @@ public class AccountLinkHelper
         
         if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
+        }
+        
+        
+        
+        // Delete Vehicle Related sharing if Retail Person or Retail Company is deleted from button - "Delete Retail Copy"
+        Set<Id> toRoleIdSet = new Set<Id>();
+        Set<Id> fromRoleIdSet = new Set<Id>();
+        for(Account_Link__c accountLink : list_AccountLink){
+            if((accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId)
+                && accountLink.Retail_Delete_Flag__c && !map_AccountLinkIdAndRecord.get(accountLink.Id).Retail_Delete_Flag__c) {
+                toRoleIdSet.add(accountLink.toRole__c);
+                fromRoleIdSet.add(accountLink.fromRole__c);
+            }
+        }
+        
+        if(fromRoleIdSet.size() > 0 && toRoleIdSet.size() > 0) {  
+            Map<Id, Account> fromAccountRecordTypeMap = new Map<Id,Account>();
+            Map<Id, Account> toAccountRecordTypeMap = new Map<Id,Account>();
+            for(Account acc : [Select Name, RecordTypeId From Account Where Id IN: fromRoleIdSet OR Id IN: toRoleIdSet]) {   
+                if(toRoleIdSet.contains(acc.Id)) {
+                    toAccountRecordTypeMap.put(acc.Id, acc);
+                } else if(fromRoleIdSet.contains(acc.Id)) {
+                    fromAccountRecordTypeMap.put(acc.Id, acc);
+                }      
+            }
+            deleteVehicleSharing(toAccountRecordTypeMap, fromAccountRecordTypeMap);
         }
     }
     
@@ -1129,27 +1156,34 @@ public class AccountLinkHelper
             }
     }
     
+    // Remove Sharing For Vehicle Relationship when Record is deleted
+    deleteVehicleSharing(ToAccountRecordTypeMap, fromAccountRecordTypeMap);
+    
+    
+ }
+ 
     
     // Remove Sharing For Vehicle Relationship when Record is deleted
-    Id vehicleRelationRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-    Map<Id, Vehicle_Relationship__c> vehicleRelationshipMap = new Map<Id, Vehicle_Relationship__c>([select Id from Vehicle_Relationship__c where Contact__c IN: ToAccountRecordTypeMap.keyset()
-                                                                    AND RecordTypeId =: vehicleRelationRecordTypeId]);
-    
-    
-    Set<String> dealerAccNameSet = new Set<String>();
-    for(Account dealerRec : fromAccountRecordTypeMap.values()) {
-        dealerAccNameSet.add(dealerRec.Name);
+    private static void deleteVehicleSharing(Map<Id, Account> ToAccountRecordTypeMap, Map<Id, Account> fromAccountRecordTypeMap) {
+        Id vehicleRelationRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+        Map<Id, Vehicle_Relationship__c> vehicleRelationshipMap = new Map<Id, Vehicle_Relationship__c>([select Id from Vehicle_Relationship__c where Contact__c IN: ToAccountRecordTypeMap.keyset()
+                                                                        AND RecordTypeId =: vehicleRelationRecordTypeId]);
+        
+        
+        Set<String> dealerAccNameSet = new Set<String>();
+        for(Account dealerRec : fromAccountRecordTypeMap.values()) {
+            dealerAccNameSet.add(dealerRec.Name);
+        }
+        List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
+        
+        List<Vehicle_Relationship__Share> list_SharingDele = [SELECT Id, ParentId FROM Vehicle_Relationship__Share 
+                                                                                                WHERE ParentId IN: vehicleRelationshipMap.keySet() 
+                                                                                                AND UserOrGroupId IN :groupList];
+        
+        if(list_SharingDele.size() > 0){
+            Database.delete(list_SharingDele, false);
+        }
     }
-    List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
-    
-    List<Vehicle_Relationship__Share> list_SharingDele = [SELECT Id, ParentId FROM Vehicle_Relationship__Share 
-                                                                                            WHERE ParentId IN: vehicleRelationshipMap.keySet() 
-                                                                                            AND UserOrGroupId IN :groupList];
-    
-    if(list_SharingDele.size() > 0){
-        Database.delete(list_SharingDele, false);
-    }
- }
  
    public static void updateAccountlinksonPrimaryAddress(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap,boolean isUpdate, boolean isinsert){
      Set<Id> accountId = new Set<Id>();
