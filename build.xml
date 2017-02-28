@@ -798,7 +798,11 @@
 							<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 							<sf:include name="TriggerVehicleRelationshipTest"/>
 							<sf:include name="UtilVehicleRelationship"/>
-							<!--<sf:include name="VehicleRelationshipHelper"/>                    -->
+							<!--<sf:include name="VehicleRelationshipHelper"/> 
+							-->
+							<!-- below 2 classes added by Rakesh -->
+							<sf:include name="TaskMassAssignChangeOwnerJP"/>
+							<sf:include name="ConvertToDMRequest"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 							<sf:include name="TriggerAccount"/>
