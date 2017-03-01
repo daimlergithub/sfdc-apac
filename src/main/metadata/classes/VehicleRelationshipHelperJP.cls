@@ -340,7 +340,7 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList)
+      public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList)
     {
      string regexForNullValue ='null';
                  string nullValue ='';
@@ -476,7 +476,6 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                             
     update Updatelist;
     }
-    
 
     
     /*
