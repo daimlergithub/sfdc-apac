@@ -15644,10 +15644,10 @@
             <section>Reference Information</section>
         </sections>
     </layouts>
-    <layouts>
+<layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
-        <sections>
-            <label><!-- Activity Date Information --></label>
+       <sections>
+            <label>アクティビティ日付情報</label>
             <section>Activity Date Information</section>
         </sections>
         <sections>
@@ -15655,39 +15655,39 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Dealer Information --></label>
+             <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Description Information --></label>
+             <label>販売店情報</label>
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Customer Information --></label>
+             <label>リード顧客情報</label>
             <section>Lead Customer Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Information --></label>
+            <label>リード情報</label>
             <section>Lead Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Processing Information --></label>
+            <label>リード処理情報</label>
             <section>Lead Processing Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Request Information --></label>
+            <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Lost Information --></label>
+            <label>敗戦情報</label>
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label><!-- New Fields --></label>
+            <label>新しい項目</label>
             <section>New Fields</section>
         </sections>
         <sections>
-            <label><!-- Reference Information --></label>
+           <label>参照情報</label>
             <section>Reference Information</section>
         </sections>
     </layouts>
@@ -15742,14 +15742,14 @@
             <section>Vehicle Select</section>
         </sections>
     </layouts>
-    <layouts>
+   <layouts>
         <layout>AfterSales Lead</layout>
         <sections>
             <label>カスタム リンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Date Information --></label>
+            <label>アクティビティ日付情報</label>
             <section>Date Information</section>
         </sections>
         <sections>
@@ -15775,6 +15775,18 @@
         <sections>
             <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>System Information</section>
         </sections>
         <sections>
             <label>車両情報</label>
@@ -15933,7 +15945,7 @@
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Cross Point Information --></label>
+            <label>クロスポイント情報</label>
             <section>Cross Point Information</section>
         </sections>
         <sections>
@@ -15973,7 +15985,7 @@
             <section>Miscelleneous Section</section>
         </sections>
         <sections>
-            <label><!-- New Fields --></label>
+            <label>新しい項目</label>
             <section>New Fields</section>
         </sections>
         <sections>
@@ -15992,15 +16004,15 @@
     <layouts>
         <layout>Sales Leads Layout (Dealer)</layout>
         <sections>
-            <label><!-- Activity Date Information --></label>
+            <label>アクティビティ日付情報</label>
             <section>Activity Date Information</section>
         </sections>
         <sections>
-            <label><!-- CA Details --></label>
+            <label>審査詳細</label>
             <section>CA Details</section>
         </sections>
         <sections>
-            <label><!-- Cross-point information --></label>
+            <label>クロスポイント情報</label>
             <section>Cross-point information</section>
         </sections>
         <sections>
@@ -16008,11 +16020,11 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- DSC Request Information --></label>
+            <label>中古車リクエスト情報（DSC）</label>
             <section>DSC Request Information</section>
         </sections>
         <sections>
-            <label><!-- Dealer Information --></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -16020,7 +16032,7 @@
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Customer Information --></label>
+            <label>リード顧客情報</label>
             <section>Lead Customer Information</section>
         </sections>
         <sections>
@@ -16028,23 +16040,23 @@
             <section>Lead Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Processing Information --></label>
+            <label>リード処理情報</label>
             <section>Lead Processing Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Request Information --></label>
+            <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Lost Information --></label>
+            <label>敗戦情報</label>
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label><!-- Order Confirmed Information --></label>
+            <label>成約情報</label>
             <section>Order Confirmed Information</section>
         </sections>
         <sections>
-            <label><!-- Reference Information --></label>
+            <label>参照情報</label>
             <section>Reference Information</section>
         </sections>
         <sections>
