@@ -16250,7 +16250,7 @@
         <name>Visited_Showroom_Required_Check</name>
     </validationRules>
     <webLinks>
-        <label><!-- Assign_to_Leads --></label>
+        <label>担当者設定</label>
         <name>Assign_to_Leads</name>
     </webLinks>
     <webLinks>
@@ -16278,7 +16278,7 @@
         <name>New_Task</name>
     </webLinks>
     <webLinks>
-        <label><!-- Print_PDF --></label>
+        <label>PDF印刷</label>
         <name>Print_PDF</name>
     </webLinks>
     <webLinks>
@@ -16290,7 +16290,7 @@
         <name>Select_Assigned_Dealer</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_Autoline --></label>
+        <label>Autoline送信</label>
         <name>Send_to_Autoline</name>
     </webLinks>
     <webLinks>
