@@ -43,7 +43,7 @@ public without sharing class createRetailCopy {
      system.debug('++++++++++++++'+AccId);
     MarketDiscriminator = 'JP';
     if(CurrentUsr.Market__c== 'KR'){
-        MarketDiscriminator = Usr.Market__c; 
+        MarketDiscriminator = CurrentUsr.Market__c; 
     }       
 
     } // Constructor  end
