@@ -340,7 +340,7 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList)
+      public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList)
     {
      string regexForNullValue ='null';
                  string nullValue ='';
@@ -354,10 +354,10 @@ public with sharing class VehicleRelationshipHelperJP
                         for (Vehicle_Relationship__c Ve : veReList ) 
                     {
                             system.debug('+++++++++++++++++++'+veReList );
-        if (Ve.vehicle_fax_picklist__c != null || Ve.vehicle_mail_picklist__c != null || Ve.Vehicle_Phone_picklist__c != null || ve.vehicle_address_picklist__c !=null)
-                        {
+        
+                        
                         sid.add(Ve.Contact__c);
-                        }
+                        
                     }
                 
                 }
@@ -365,7 +365,7 @@ public with sharing class VehicleRelationshipHelperJP
                 system.debug('++++++++++++++++++++'+sid);
                 
             
-      List <Account> accls =[ select id,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,
+      List <Account> accls =[ select id,Sales_Address_Type__c,Primary_Address_Display__c,Primary_Email_Display__c,Primary_Fax_Display__c,Primary_Phone_Display__c,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,
 Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Addresses__r),(select id,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
       //List<Vehicle_Relationship__c> Vehiclepicklist =[ select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid ];
      
@@ -375,7 +375,10 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
             
                     for(Vehicle_Relationship__c Vels  : acc.Vehicle_Relationships2__r )
                 {
-                
+                                    if (vels.Vehicle_Phone_picklist__c == Null)
+                                        {
+                                            Vels.Vehicle_Phone__c = acc.Primary_Phone_Display__c;
+                                        }
                                     if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
                                     {
                                             vels.Vehicle_Phone__c = acc.Individual_Home_Phone__c;
@@ -388,7 +391,11 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                                     {
                                             vels.Vehicle_Phone__c = acc.Home_Phone_2__c;
                                     }
-                     
+                                     
+                                         if (vels.vehicle_fax_picklist__c == Null)
+                                         {
+                                          Vels.vehicle_fax__c = acc.Primary_Fax_Display__c;
+                                        }  
                      
                                         if (vels.vehicle_fax_picklist__c == 'FAX')
                                         {
@@ -398,8 +405,12 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                                         {
                                             vels.vehicle_fax__c = acc.Fax2__c;
                                         }
-                
-                    
+                                   
+                                        
+                                          if (vels.vehicle_mail_picklist__c == Null)
+                                        {
+                                            vels.vehicle_mail__c = acc.Primary_Email_Display__c;
+                                        }
                                         if (vels.vehicle_mail_picklist__c == 'Email Home')
                                         {
                                             vels.vehicle_mail__c =  acc.Email__c;
@@ -412,10 +423,17 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                                         {
                                             vels.vehicle_mail__c = acc.Email3__c;
                                         }
-                    
+                                   
                                         for( Address__c add : acc.Addresses__r)
                                         {
-            
+                                            system.debug('+++++++++++++ vels.vehicle_address_picklist__c'+vels.vehicle_address_picklist__c);
+                                               if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
+                                               {
+                                                  //  vels.vehicle_address__c = acc.Sales_Address_Type__c;
+                                                    vels.Vehicle_Address_Display__c  = acc.Primary_Address_Display__c;
+                                                    system.debug('+++++++++++++'+acc.Primary_Address_Display__c);
+                                                    system.debug('+++++++++++++ vels'+ vels);
+                                               }
                                                     //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
                                                     if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')
                                                     {
@@ -445,10 +463,10 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                 }
               }
-              
+          
             
             
-            
+        
             
                                         
             Updatelist.add(Vels);
@@ -458,7 +476,6 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                             
     update Updatelist;
     }
-    
 
     
     /*
