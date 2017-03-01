@@ -256,7 +256,10 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     return returnURL;
                 }
             }
-            return Null;
+			returnURL = new pagereference('/500/e?retURL=%2F500%2Fo&nooverride=0');
+            returnURL.setredirect(false);
+            return returnURL;
+       //   return Null;
         }        
     }
 }
