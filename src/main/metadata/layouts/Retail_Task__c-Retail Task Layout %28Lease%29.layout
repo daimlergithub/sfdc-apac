@@ -204,11 +204,11 @@
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
-                <height>400</height>
+                <height>800</height>
                 <page>RelatedDealerViewForLease</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
+                <showScrollbars>true</showScrollbars>
+                <width>1400</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

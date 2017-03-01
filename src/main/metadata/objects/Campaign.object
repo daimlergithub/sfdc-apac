@@ -19699,7 +19699,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Make_segementation_date_inactive</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( Use_Segmentation_Criteria__c = TRUE,NOT(ISBLANK(Segmentation_Date__c ) ) )</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),( Use_Segmentation_Criteria__c = TRUE),(NOT(ISBLANK(Segmentation_Date__c ) )))</errorConditionFormula>
         <errorMessage>Segmentation criteria is on</errorMessage>
     </validationRules>
     <validationRules>
@@ -19741,7 +19741,8 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
     <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( Consolidated_List_Completed__c = true)</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),NOT(ISNEW()), 
+PRIORVALUE(Consolidated_List_Completed__c) = TRUE)</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
