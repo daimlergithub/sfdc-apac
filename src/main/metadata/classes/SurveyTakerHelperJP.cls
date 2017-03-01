@@ -21,7 +21,7 @@ public class SurveyTakerHelperJP {
         set<String> GCCode = new set<String>();
         List<SurveyTaker__c> surveyTakerList = new List<SurveyTaker__c>();
         string query;
-        
+        set<string>vnames = new set<string>();
         List<AccountShare> accShareList = new List<AccountShare>();
         List<AccountShare> dealerAccShareList = new List<AccountShare>();
         List<User> userShareList = new List<User>();
@@ -39,11 +39,11 @@ public class SurveyTakerHelperJP {
         Map<id,id> userMap = new Map<id,id>();
         for(SurveyTaker__c sur : surTakList)
         {
-            if(sur.Account__c != null || sur.User__c != null || sur.Dealer_Account__c != null)
+            if(sur.Account__c != null || sur.User__c != null || sur.Dealer_Account__c != null || sur.View_By_All__c == true)
             {
                 surveytakID.add(sur.Id);
             }
-            if(sur.Account__c != null && sur.View_By_All__c == true)
+            if(sur.Account__c != null && sur.Dealer_Account__c == null && sur.View_By_All__c == false)
             {
                 percomAccoID.add(sur.Account__c);
                
@@ -57,6 +57,7 @@ public class SurveyTakerHelperJP {
             {
                 dealerID.add(sur.Dealer_Account__c);
             }
+            
         }
         system.debug('percomAccoID>>>>' + percomAccoID);
         system.debug('userId>>>>' + userId);
@@ -123,6 +124,8 @@ public class SurveyTakerHelperJP {
               }
             }
         }
+        
+        
          list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:assignlist OR Name IN: AccountNAme]);
         for(Group assg:grplist)
         {
@@ -154,7 +157,7 @@ public class SurveyTakerHelperJP {
         for(SurveyTaker__c surtak : surveyTakerList)
         {
                       
-            if(surtak.Dealer_Account__c != null || surtak.Account__c != null || surtak.View_By_All__c == false)
+            if(surtak.Dealer_Account__c != null || surtak.Account__c != null && surtak.View_By_All__c == false)
             {  
                 for(id m:assgroupMap.values())
                 {
@@ -164,6 +167,8 @@ public class SurveyTakerHelperJP {
                     sharestaker.AccessLevel = 'Edit';
                     sharestaker.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
                     surveyTkrShareList.add(sharestaker);
+                    if(surtak.Survey__c != null)
+                        {
                     Survey__Share surShare=new Survey__Share();
                     surShare.ParentId = surtak.survey__c;
                     System.debug('survey>>>>>>>>>>>>'+surtak.survey__c);
@@ -171,10 +176,11 @@ public class SurveyTakerHelperJP {
                     surShare.AccessLevel = 'Read';
                     surShare.RowCause = Schema.Survey__Share.RowCause.Manual;
                     surveyShareList.add(surShare);
+                   }
                 }
             }
            
-            if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == true || surtak.Dealer_Account__c != null)
+            if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == false && surtak.Dealer_Account__c == null)
             {
                 
                 for(id m:assgroupMap.values()){
@@ -184,6 +190,8 @@ public class SurveyTakerHelperJP {
                 sharestaker.AccessLevel = 'Edit';
                 sharestaker.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
                 surveyTkrShareList.add(sharestaker);
+                    if(surtak.Survey__c != null)
+                        {
                 Survey__Share surShare=new Survey__Share();
                 surShare.ParentId = surtak.survey__c;
                 System.debug('survey>>>>>>>>>>>>'+surtak.survey__c);
@@ -191,20 +199,49 @@ public class SurveyTakerHelperJP {
                 surShare.AccessLevel = 'Read';
                 surShare.RowCause = Schema.Survey__Share.RowCause.Manual;
                 surveyShareList.add(surShare);
+                        }
                      }
-            }      
+            }
+            if(surtak.view_by_all__c == true)
+            {
+                 List<Account>aclist = [select id,name,recordtypeid,MD__c from account where  recordtypeid=:da and MD__c ='JP'];
+                for(account a:aclist)
+                {
+                   vnames.add(a.name);
+                }
+                list<Group>grouplist=new list<Group>([select id ,Name ,Type from Group where Name IN:vnames]);
+                for(group g:grouplist)
+                {
+                   SurveyTaker__Share sharestaker = new SurveyTaker__Share();
+                   sharestaker.ParentId = surtak.Id;
+                   sharestaker.UserOrGroupId = g.id;
+                   sharestaker.AccessLevel = 'Edit';
+                   sharestaker.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                   surveyTkrShareList.add(sharestaker);
+                   if(surtak.survey__c != null)
+                   {
+                     Survey__Share surShare=new Survey__Share();
+                     surShare.ParentId = surtak.survey__c;
+                     System.debug('survey>>>>>>>>>>>>'+surtak.survey__c);
+                     surShare.UserOrGroupId = g.id;
+                     surShare.AccessLevel = 'Read';
+                     surShare.RowCause = Schema.Survey__Share.RowCause.Manual;
+                     surveyShareList.add(surShare);
+                   }
+                }      
         }
         
         if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
         {
             if(!surveyShareList.isEmpty() && surveyShareList != null)
             {
-            insert surveyShareList;
+            Database.insert (surveyShareList);
             }
             system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
             insert surveyTkrShareList;
         }
         
+    }
     }
        public static void afterUpdateEvent(List<SurveyTaker__c> newList, Map<Id, SurveyTaker__c> oldMap){
         
@@ -216,14 +253,18 @@ public class SurveyTakerHelperJP {
         //List<User> list_User = new List<User>();
         List<String> accNames=new List<String>();
         List<String> GcNames=new List<String>();
+        set<string> vnames = new set<string>();
         Set<Id> set_AccountId = new Set<Id>();
         Set<Id> set_LinkId = new Set<Id>();
         Set<Id> set_CustomerId = new Set<Id>();
         List<Id> list_SurveyTakerId = new List<Id>();
-        
+        List<SurveyTaker__Share> sharesToDelete = new List<SurveyTaker__Share>();
+        List<SurveyTaker__Share> surveyTkrShareList = new List<SurveyTaker__Share>();
+        List<Survey__Share> surveyShareList = new List<Survey__Share>();
+          
         
         for(SurveyTaker__c vc : newList){
-            if(vc.account__c != null  &&vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == true || vc.View_By_All__c == true ){
+            if(vc.account__c != null  &&  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null){
                     if(!mapCheckingType.containsKey(vc.account__c)){
                           mapCheckingType.put(vc.account__c, new List<Id>());
                       }
@@ -232,15 +273,18 @@ public class SurveyTakerHelperJP {
                       if(vc.account__c != oldMap.get(vc.Id).account__c){
                     set_CustomerId.add(oldMap.get(vc.Id).account__c);
                     }
-                    if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == true){
-                    
-                    set_AccountId.add(vc.Dealer_Account__c);
+                    if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false)
+                    {
+                        list_SurveyTakerId.add(vc.Id);
+                         
                     }
-                   list_SurveyTakerId.add(vc.Id);
+                   
                       
                
                 
-        }else if(vc.Dealer_Account__c != null && vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c || vc.View_By_All__c == false ){
+        }
+            
+            else if(vc.Dealer_Account__c != null || vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c && vc.View_By_All__c == false ){
                 if(!mapSurvery.containsKey(vc.Dealer_Account__c)){
                       mapSurvery.put(vc.Dealer_Account__c, new List<Id>());
                   }
@@ -251,12 +295,49 @@ public class SurveyTakerHelperJP {
                   }
                   if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false){
                     
-                    set_CustomerId.add(vc.account__c);
+                   // set_CustomerId.add(vc.account__c);
+                    list_SurveyTakerId.add(vc.Id);
                     }
-                  list_SurveyTakerId.add(vc.Id);
+                 
+            }
+            else if(vc.View_By_All__c == true && vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c)
+            {
+                    List<Account>aclist = [select id,name,recordtypeid,MD__c from account where  recordtypeid=:da and MD__c ='JP'];
+                for(account a:aclist)
+                {
+                   vnames.add(a.name);
+                }
+                list<Group>grouplist=new list<Group>([select id ,Name ,Type from Group where Name IN:vnames]);
+                for(group g:grouplist)
+                {
+                   SurveyTaker__Share sharestaker = new SurveyTaker__Share();
+                   sharestaker.ParentId = vc.Id;
+                   sharestaker.UserOrGroupId = g.id;
+                   sharestaker.AccessLevel = 'Edit';
+                   sharestaker.RowCause = Schema.SurveyTaker__share.RowCause.Manual;
+                   surveyTkrShareList.add(sharestaker);
+                   if(vc.survey__c != null)
+                   {
+                     Survey__Share surShare=new Survey__Share();
+                     surShare.ParentId = vc.survey__c;
+                     System.debug('survey>>>>>>>>>>>>'+vc.survey__c);
+                     surShare.UserOrGroupId = g.id;
+                     surShare.AccessLevel = 'Read';
+                     surShare.RowCause = Schema.Survey__Share.RowCause.Manual;
+                     surveyShareList.add(surShare);
+                   }
+                }  
             }
           }  
-          
+           if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
+        {
+            if(!surveyShareList.isEmpty() && surveyShareList != null)
+            {
+            insert surveyShareList;
+            }
+            system.debug('surveyTkrShareList>>>>' + surveyTkrShareList);
+            insert surveyTkrShareList;
+        }
           system.debug('++++++++++++++++'+mapSurvery );
             system.debug('++++++++++++++++'+ mapCheckingType );
             system.debug('++++++++++++++'+set_AccountId);
@@ -307,12 +388,12 @@ public class SurveyTakerHelperJP {
             List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
             system.debug('+++++++++++'+list_User);
            List<SurveyTaker__Share> list_SharingDele = new List<SurveyTaker__Share>([SELECT Id FROM SurveyTaker__Share 
-                                                                                            WHERE ParentId IN:list_SurveyTakerId AND UserOrGroupId IN :list_User]);
+                                                                                            WHERE (ParentId IN:list_SurveyTakerId AND RowCause ='Manual') OR UserOrGroupId IN :list_User  ]);
             if(list_SharingDele.size() > 0){
                 delete list_SharingDele;
                 system.debug('+++++++++++'+list_SharingDele);
             } 
-        
+          
         
         if(mapSurvery.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(mapSurvery));

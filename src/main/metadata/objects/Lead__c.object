@@ -2992,7 +2992,7 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
         <picklist>
             <picklistValues>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Approving</fullName>
@@ -3934,7 +3934,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <picklist>
             <picklistValues>
                 <fullName>Not Started</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>On-going</fullName>
@@ -108665,12 +108665,13 @@ ISNULL(Contact_Failed_For_3_Days_Date__c)
         <fullName>Dealer_Lead_Status_Manual_Check</fullName>
         <active>true</active>
         <errorConditionFormula>OR(
-	AND(
-		ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'),	 NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
+AND( OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Lead_Latest_Phase__c)),
+ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Registration')),RecordType.DeveloperName = 'Sales_Leads',MD__c ='JP',
 $Profile.Name != 'IntegrationAPI'),
-	AND(ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
+AND(OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Lead_Latest_Phase__c)),
+ISPICKVAL( Dealer_Lead_Status__c , 'Purchased(Only Non BDC)'), NOT(ISPICKVAL(Lead_Latest_Phase__c, 'Invoiced')),RecordType.DeveloperName = 'Aftersales_Leads',MD__c ='JP',
 $Profile.Name != 'IntegrationAPI')
-  )</errorConditionFormula>
+)</errorConditionFormula>
         <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>"Dealer Lead Status" can change into "Purchased" only if ("Lead Latest Phase" is "Registration" and Leads record type is "Sales Lead") or ("Lead Latest Phase" is "Invoiced" and Leads record type if "After-Sales Lead").</errorMessage>
     </validationRules>

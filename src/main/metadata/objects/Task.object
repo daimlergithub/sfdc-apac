@@ -2752,7 +2752,7 @@
                 <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Trade-in</fullName>
                 <default>false</default>
             </values>
