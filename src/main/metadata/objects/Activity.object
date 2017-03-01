@@ -1262,6 +1262,10 @@
                 <fullName>Quoted</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Trade-in</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
