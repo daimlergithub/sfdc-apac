@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-	<customButtons>New_Case</customButtons>
+	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -204,11 +204,11 @@
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
-                <height>400</height>
+                <height>800</height>
                 <page>RelatedDealerViewForLease</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
+                <showScrollbars>true</showScrollbars>
+                <width>1400</width>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
