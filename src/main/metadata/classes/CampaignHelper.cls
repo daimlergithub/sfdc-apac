@@ -211,11 +211,11 @@ Set<id> aid = New Set<id>();
         } 
         
         
-        
+       } 
         
       List<Campaign> camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
-          
-        
+     If(camList.size() >0 && !camList.isEmpty()){     
+    For(Campaign campNew : campaignIds){    
     for(Campaign cam : camList ){
         
        if(Cam.Campaign_Executer__c == 'Retail'){
@@ -266,8 +266,10 @@ Set<id> aid = New Set<id>();
         retailCamParentList.add(newRetail);
         }
         }
+        }
+        }
         
-     }
+     
      //insert retailCamParentList; 
      Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
      integer i=0;

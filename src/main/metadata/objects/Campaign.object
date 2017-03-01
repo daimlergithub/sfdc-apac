@@ -19740,7 +19740,7 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
     </validationRules>
     <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( Consolidated_List_Completed__c = true)</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
