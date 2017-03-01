@@ -1243,10 +1243,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Trade-in</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hand Back</fullName>
                 <default>false</default>
             </picklistValues>

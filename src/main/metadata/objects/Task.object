@@ -2753,10 +2753,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Visited</fullName>
                 <default>false</default>
             </values>
