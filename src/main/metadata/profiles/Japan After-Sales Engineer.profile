@@ -182,6 +182,10 @@
         <apexClass>AccountHelperJPTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	 <classAccesses>
+        <apexClass>CheckAccountDuplicateController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelperKR</apexClass>
         <enabled>false</enabled>
@@ -22546,6 +22550,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>CheckAccountDuplicatePage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
