@@ -1550,17 +1550,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Related_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Related Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Activities</relationshipLabel>
-        <relationshipName>Activities</relationshipName>
-        <required>false</required>
-        <type>Lookup</type>
-	</fields>
     <fields>
         <fullName>Reason__c</fullName>
         <externalId>false</externalId>
