@@ -19,6 +19,10 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bonus_Month1__c.Label}"/>
                         <apex:outputField value="{!rettsk.Bonus_Month1__c}"/>  
               </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                   
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bonus_Month2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Bonus_Month2__c}"/>  
+              </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contact_Date__c.Label}"/>
                         <apex:outputField value="{!rettsk.Contact_Date__c}"/>  
