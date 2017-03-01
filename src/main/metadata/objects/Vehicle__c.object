@@ -1153,17 +1153,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
     </fields>
     <fields>
         <fullName>Colour__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Vehicle Colour 
-Used in: Pagelayouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
+        <description>Attribute in Data Dictionary object Vehicle is Vehicle_Colour</description>
         <externalId>false</externalId>
         <label>Colour</label>
         <picklist>

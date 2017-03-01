@@ -1432,21 +1432,6 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Name</picklist>
-            <values>
-                <fullName>Mr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Permission_Set_Settings__c</picklist>
             <values>
                 <fullName>AS_Retail_Campaign</fullName>
@@ -1929,21 +1914,6 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Name</picklist>
-            <values>
-                <fullName>Mr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Permission_Set_Settings__c</picklist>
             <values>
                 <fullName>AS_Retail_Campaign</fullName>
@@ -2422,21 +2392,6 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Tertiary</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Name</picklist>
-            <values>
-                <fullName>Mr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
