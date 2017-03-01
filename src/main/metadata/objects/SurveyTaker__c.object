@@ -54,7 +54,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -119,6 +119,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dealer_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Surveys Taken (Dealer Account)</relationshipLabel>
+        <relationshipName>Surveys_Taken1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Last_Answered_Question__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -147,8 +160,9 @@
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -172,6 +186,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Survey_Taken_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Taken Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Survey_Taking_Status__c</fullName>
         <externalId>false</externalId>
         <label>Survey Taking Status</label>
@@ -186,6 +209,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -226,6 +250,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -249,11 +282,108 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>View_By_All__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>View By All</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Survey Taken</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DM</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Survey__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Survey__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>今日作成のセントラルDM</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>DM1</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Survey__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Survey__c</field>
+            <operation>equals</operation>
+            <value>新型Sクラス カブリオレ／新型SL／新型SLCセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>今日作成のセントラルDM_コピー</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>E_S_DM2016</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Survey__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Lead__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Survey__c</field>
+            <operation>equals</operation>
+            <value>E&amp;SクラスセントラルDM2016</value>
+        </filters>
+        <filters>
+            <field>Lead__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>E&amp;SセントラルDM2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>MBK_Surveys_Taken</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK Surveys Taken</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>{0000000}</displayFormat>
@@ -282,5 +412,5 @@
         <searchResultsAdditionalFields>Lead__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

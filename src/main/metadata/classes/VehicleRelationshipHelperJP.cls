@@ -1,6 +1,6 @@
 public with sharing class VehicleRelationshipHelperJP 
 {  
-    Public String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
+    Public static String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static String[] ignoredAccount = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static Set<Id> setIgnoredAccounts=new Set<Id>();     
         
@@ -9,12 +9,12 @@ public with sharing class VehicleRelationshipHelperJP
                 setIgnoredAccounts.add(acc.Id);
             } 
      }
-    Public void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){       
+    Public static void validateOverlappingVehicleRelationshiponInsert(List<Vehicle_Relationship__c> vehicleRel){       
        Set<Id> accountIds = new Set<Id>();
        List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
        Set<date> setStartDate=new Set<date>();
        Set<date> setEndDate=new Set<date>();       
-       Set<Id> ignoredAcct=new Set<Id>();         
+       Set<Id> ignoredAcct=new Set<Id>();
           for(Account acc:[select id from Account Where Name Like :ignoredAccounts ]){
                 ignoredAcct.add(acc.Id);
             }
@@ -47,13 +47,12 @@ public with sharing class VehicleRelationshipHelperJP
             }
           }     
      }
-    Public void validateOverlappingVehicleRelationshiponUpdate(List<Vehicle_Relationship__c> newVehicleRel,Map<Id,Vehicle_Relationship__c> oldVehicleRel){ 
+    Public static void validateOverlappingVehicleRelationshiponUpdate(List<Vehicle_Relationship__c> newVehicleRel,Map<Id,Vehicle_Relationship__c> oldVehicleRel){ 
          Set<Id> accountIds = new Set<Id>();
          List<Vehicle_Relationship__c> vehicle_relationship = new List<Vehicle_Relationship__c>(); 
          Set<date> setStartDate=new Set<date>();
          Set<date> setEndDate=new Set<date>();
          Set<Id> ignoredAcct=new Set<Id>();
-         
           for(Account acc:[select id from Account Where Name Like :ignoredAccounts ]){
                 ignoredAcct.add(acc.Id);
             }
@@ -114,7 +113,7 @@ public with sharing class VehicleRelationshipHelperJP
           }
         }  
          updateVehicleAmount(ContactIds);        
-         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
+       //  createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
     
@@ -150,7 +149,7 @@ public with sharing class VehicleRelationshipHelperJP
             }  
         }                          
         updateVehicleAmount(ContactIds);
-        createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
+       // createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
     Public static void OnAfterDelete(List<Vehicle_Relationship__c> oldVehicleRelRecords){ 
@@ -219,12 +218,13 @@ public with sharing class VehicleRelationshipHelperJP
             update vehicleAmountToUpdate;         
     }     
     //Create Account Link   
+    /*
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
         Set<Id> ContactIds=new Set<Id>();        
         Map<Id,Vehicle_Relationship__c> mapOfContact=new Map<Id,Vehicle_Relationship__c>();
         IgnoredAccounts();      
-        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*/ AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];
-        for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*//* AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];*/
+    /*    for(Vehicle_Relationship__c  vr:lstVehicleRelationship){
             if((vr.Vehicle_ID__c!=Null && vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
             }
@@ -271,4 +271,5 @@ public with sharing class VehicleRelationshipHelperJP
           if(!lstAccLink.isEmpty())
             insert lstAccLink;
     }
+    */
 }

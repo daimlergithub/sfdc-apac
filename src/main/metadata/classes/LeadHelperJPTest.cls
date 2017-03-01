@@ -17,7 +17,7 @@ public class LeadHelperJPTest
     
     public static testMethod void test_updateCustomerStage1()
     {  
-      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+      Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI'];
       User u = new User(Alias = 'standt', Email='test@mbj.com', 
       EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
       LocaleSidKey='en_US', ProfileId = p.Id, 
@@ -78,7 +78,7 @@ public class LeadHelperJPTest
         update lead1;
         
         
-        Account_Link__c testAccLink = [Select id from Account_Link__c Where fromRole__c =: objAccount3.id and toRole__c =: DealerAccount.id];
+        Account_Link__c testAccLink = [Select id from Account_Link__c Where fromRole__c =: objAccount3.id and toRole__c =: DealerAccount.id LIMIT 1];
         test.stopTest();
         system.assertNotEquals(null, testAccLink);
         }
@@ -120,6 +120,12 @@ public class LeadHelperJPTest
         objAccount.Customer_Lifecycle_Phase__c = 'Care';
         
         insert objAccount;
+        //inserted new address record
+        Address__c addr = new Address__c(Customer__c = objAccount.id, Address_Type__c = 'Home', Province__c = 'Hokkaido');
+        insert addr;
+        //added address reference to address 
+        Account objacc = new Account(id = objAccount.id, Primary_Address_Reference__c = addr.id); 
+        update objacc;
         
         objAccount2= new Account();
         objAccount2.RecordtypeId=personAccRecordTypeId;

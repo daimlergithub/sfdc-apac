@@ -119,7 +119,7 @@ public class UtilTask {
                               WHERE WhatId IN :camIds
                               AND WhoId IN :contactIds
                               AND RecordType.Name IN :new List<String> {
-                              TASK_RT_SMS, TASK_RT_EDM, TASK_RT_DM, TASK_RT_OB} and CreatedDate > :Date.Today().addDays(-7) limit 10000];
+                              TASK_RT_SMS, TASK_RT_EDM, TASK_RT_DM, TASK_RT_OB} limit 10000];
         }else{
             tasklst =[SELECT Id, WhatId, WhoId FROM Task 
                               WHERE WhatId IN :camIds
@@ -139,7 +139,7 @@ public class UtilTask {
                 relatedTasksAmountMap.put(taskWhatId + taskWhoId, ++count);
             }
         }
-        System.debug('Debug Output:updateCampaignMemberStatus ======> {' + relatedTasksAmountMap + '}');
+        System.debug('Debug Output:updateCampaignMemberStatus relatedTasksAmountMap======> {' + relatedTasksAmountMap + '}');
 
         // Update Campaign Members
         List<CampaignMember> membersNeedToUpdate = new List<CampaignMember>();
@@ -183,7 +183,7 @@ public class UtilTask {
         }
 
         try {
-            System.debug('Debug Output ======> {' + membersNeedToUpdate + '}');
+            System.debug('Debug Output membersNeedToUpdate======> {' + membersNeedToUpdate + '}');
             update membersNeedToUpdate;
         }
         catch (DMLException e) {

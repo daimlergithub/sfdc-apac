@@ -1,16 +1,18 @@
-public with sharing class CaseHelperJP {
+public class CaseHelperJP {
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+    public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-        
+    public List<Account> accUpdLst = new List<Account>();    
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map){
         system.debug('Trigger Old Map...' +case_Map);
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
+        List<Id> newAccoutIds = new List<Id>();
         for (Case c : cases){
-            if (c.MD__c == 'JP'){
+            if (c.MD__c == 'JP' || c.MD__c == 'KR'){
                 Case caseRec = (Case)case_Map.get(c.Id);
                 if (c.AccountId != caseRec.AccountId){
                     List<Integer> count = acc_Count.get(caseRec.AccountId);
@@ -20,6 +22,8 @@ public with sharing class CaseHelperJP {
                         count[0]++;
                     }
                     accounts.add(caseRec.AccountId);               
+                }else{
+                    newAccoutIds.add(c.AccountId);
                 }
              }
         }
@@ -27,8 +31,23 @@ public with sharing class CaseHelperJP {
         System.debug('Count of the Accounts changed...' +acc_Count);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id 
-                                      AND Case_Class__c = 'Complaint'];           
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND (MD__c = 'JP' OR MD__c = 'KR')
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];  
+        List<Account> accLst = new List<Account>([select id, Complaint_Amount__c from Account where id in: newAccoutIds]);
+        for(Account acc: accLst){
+            if(acc.Complaint_Amount__c > 0){
+                acc.Complaint_Amount__c = acc.Complaint_Amount__c+1;
+            }else{
+                acc.Complaint_Amount__c = 1;
+            }
+                accUpdLst.add(acc);
+        }
+        if(accUpdLst.size()>0){
+            update accUpdLst;
+        }
+        
+                   
         for(Case c : case_acc){
             tmpCaseIds = accountCaseMap.get(c.AccountId);
             if (tmpCaseIds == null){
@@ -44,11 +63,14 @@ public with sharing class CaseHelperJP {
         for (Account acc : accRecords){
            List<Id> caseIds = accountCaseMap.get(acc.Id);
            List<Integer> caseCount = acc_Count.get(acc.Id);
-           acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
-           updateAccount.add(acc);
+                acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
+                updateAccount.add(acc);
+           
         }
         system.debug('Accounts to be updated...' +updateAccount);
-        update updateAccount;
+        if(updateAccount.size()>0){
+            update updateAccount;
+        }
     }
     
     public void calculateComplaintAmount(List<Case> cases){
@@ -56,15 +78,16 @@ public with sharing class CaseHelperJP {
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
         for(Case c : cases){
-            if(c.MD__c == 'JP'){
+            if(c.MD__c == 'JP' || c.MD__c == 'KR'){
                 accounts.add (c.AccountId);
             } 
         }                       
         system.debug('Accounts...' +accounts);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                          Where AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id 
-                                          AND Case_Class__c = 'Complaint'];                                  
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')]; 
         
         system.debug('Case_acc...' +case_acc);
         if (case_acc != null && !case_acc.isEmpty()){                                         
@@ -151,7 +174,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Complaint'){
+            if (c.Case_Class__c == 'Complaint' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc6__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -169,7 +192,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Claim'){
+            if (c.Case_Class__c == 'Claim' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc11__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -187,7 +210,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Inquiry'){
+            if (c.Case_Class__c == 'Inquiry' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc16__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -205,7 +228,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Request'){
+            if (c.Case_Class__c == 'Request' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc21__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -223,7 +246,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Touring Support'){
+            if (c.Case_Class__c == 'Touring Support' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc26__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -241,7 +264,7 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-            if (c.Case_Class__c == 'Finance'){
+            if (c.Case_Class__c == 'Finance' && c.MD__c == 'JP'){
                 if(c.Priority == 'A'){
                     days = (Integer)caseDeadline.CaseDeadelineCalc31__c;
                     c.DeadLine__c = todayDate.addDays(days);
@@ -259,6 +282,55 @@ public with sharing class CaseHelperJP {
                     c.DeadLine__c = todayDate.addDays(days);
                 }
             }
-        }
+          if ((c.Priority == 'A' || c.Priority == 'Red >= 4') && c.MD__c == 'KR'){
+               c.DeadLine__c=System.Now() + 1;         
+            }
+          if ((c.Priority == 'B' || c.Priority == 'Yellow = 3') && c.MD__c == 'KR'){
+              c.DeadLine__c= System.Now() + 3;
+           }
+          if ((c.Priority == 'C' || c.Priority == 'Green <= 2') && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 10;          
+           }  
+        }        
     }
-}
+   public void updateCaseDeadline(List<Case> cases, Map<Id,SObject> case_Map){     
+         for (Case c : cases){ 
+               Case caseRec = (Case)case_Map.get(c.Id);
+            if ((c.Priority == 'A' || c.Priority =='Red >= 4') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               
+                c.DeadLine__c=System.Now() + 1;         
+             }
+           if ((c.Priority == 'B' || c.Priority =='Yellow = 3') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 3;
+            }
+           if ((c.Priority == 'C' || c.Priority =='Green <= 2') && c.Priority!=caseRec.Priority && c.MD__c == 'KR'){
+               c.DeadLine__c= System.Now() + 10;          
+            } 
+          }      
+       }
+    
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
+       List<Id> caseIds = new List<Id>();
+         if(action == 'isUpdate'){
+           for(case cs: LstnewCase){
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
+                   caseIds.add(cs.id);                
+                }
+           }        
+       }
+        if(action == 'isInsert'){
+           for(case cs: LstnewCase){
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null){
+                   caseIds.add(cs.id);                
+                }
+           }        
+       }       
+       
+       if(caseIds.size()>0){
+           
+           shareAccountRecord.shareAccountRecordNow(caseIds);
+       }
+    }
+    
+    
+ }

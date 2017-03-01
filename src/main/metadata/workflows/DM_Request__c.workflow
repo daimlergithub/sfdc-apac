@@ -2,7 +2,7 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
         <fullName>Change_Cat_Print_Check_1</fullName>
-        <field>Status2__c</field>
+        <field>Status__c</field>
         <literalValue>to be sent</literalValue>
         <name>Change Cat Print Check 1</name>
         <notifyAssignee>false</notifyAssignee>
@@ -11,7 +11,7 @@
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Change_Cat_Print_Check_2</fullName>
-        <field>Status3__c</field>
+        <field>Status__c</field>
         <literalValue>to be sent</literalValue>
         <name>Change Cat Print Check 2</name>
         <notifyAssignee>false</notifyAssignee>
@@ -47,8 +47,17 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Change_Status1_To_Be_Sent</fullName>
+        <fullName>Change_Status1_ToBe_Sent</fullName>
         <field>Status1__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status1 To Be Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status1_To_Be_Sent</fullName>
+        <field>Status__c</field>
         <literalValue>to be sent</literalValue>
         <name>Change Status1 To Be Sent</name>
         <notifyAssignee>false</notifyAssignee>
@@ -60,6 +69,24 @@
         <field>Status1__c</field>
         <literalValue>Not send</literalValue>
         <name>Change Status1 to Not Send</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status2_To_Be_Sent</fullName>
+        <field>Status2__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status2 To Be Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status3_To_Be_Sent</fullName>
+        <field>Status3__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status3 To Be Sent</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -100,6 +127,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Change_Status_to_Approving</fullName>
+        <field>Status__c</field>
+        <literalValue>Approving</literalValue>
+        <name>Change Status to Approving</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status_to_Not_Send</fullName>
         <field>Status__c</field>
         <literalValue>Not send</literalValue>
@@ -116,6 +153,16 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Manager_Approval</fullName>
+        <field>Status__c</field>
+        <literalValue>Approving</literalValue>
+        <name>Manager Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_DM_Request_External_Id</fullName>

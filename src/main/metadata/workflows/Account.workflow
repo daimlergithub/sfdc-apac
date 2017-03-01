@@ -19,6 +19,42 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Country_Field_JP</fullName>
+        <field>Country__c</field>
+        <literalValue>Japan</literalValue>
+        <name>Update Country Field JP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Country_Field_KR</fullName>
+        <field>Country__c</field>
+        <literalValue>South Korea</literalValue>
+        <name>Update Country Field KR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Preferred_Language_Field_JP</fullName>
+        <field>Preferred_Language__c</field>
+        <literalValue>Japanese</literalValue>
+        <name>Update Preferred Language Field JP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Preferred_Language_Field_KR</fullName>
+        <field>Preferred_Language__c</field>
+        <literalValue>Korean</literalValue>
+        <name>Update Preferred Language Field KR</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -49,5 +85,35 @@ Modify Reason:
 */</description>
         <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Preferred Language and Country JP</fullName>
+        <actions>
+            <name>Update_Country_Field_JP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Preferred_Language_Field_JP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
+        <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Preferred Language and Country KR</fullName>
+        <actions>
+            <name>Update_Country_Field_KR</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Preferred_Language_Field_KR</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for KR</description>
+        <formula>ISPICKVAL($User.Market__c,&apos;KR&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

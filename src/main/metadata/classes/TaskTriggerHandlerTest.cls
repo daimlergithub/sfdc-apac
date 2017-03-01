@@ -22,7 +22,7 @@ private static Lead__c lead1;
 private static Campaign cam;
 private static Campaign_Lead__c cl2;
 private static String successful='successful';
-
+public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
 
   public static void preparedUserProfile()
   {
@@ -34,18 +34,21 @@ private static String successful='successful';
 public static void preparedTestData()
 {
                                 
-                 customer = new Account(
+            customer = new Account(
                 PersonMobilePhone = '1130111111',
                 PersonOtherPhone = '1302222222', 
                 Phone = '01234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569',
+                MBK_Data_Source__c = 'Email',
+                Mobile__c = '000-0000-9842',
                Last_Successful_Call__c =DateTime.now().addMinutes(10)
             );
+            
      customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
      
       // cover autoUpdateAccountOBTaskMessage
-      
+
             accobTask = new Task(RecordTypeId = obtrtid, WhatId = customer.Id);
             insert accobTask;  
             endCallTime = DateTime.now();
@@ -71,6 +74,7 @@ public static void preparedTestData()
         {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
+            
                  preparedTestData();                      
             Test.startTest();
            
@@ -124,6 +128,10 @@ public static void preparedTestData()
             Test.stopTest();
             //System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
            //System.assertEquals(customer.Last_Successful_Call_Office_Phone__c, endCallTime);
+           
+           /*TaskTriggerHandlerKR ttr = new TaskTriggerHandlerKR();
+           ttr.handleTrigger(false,false,false,false,false);
+           ttr.handleIntegrationTrigger(false,false,false,false,false);*/
         }    
     }
     

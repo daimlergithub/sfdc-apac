@@ -65,6 +65,7 @@ public with sharing class LeadHelperTest {
         dealer.Status__c = '0=contac1';
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
+        system.debug('$$$$$$$$$$$$$$$$$'+dealer.Id);
         //insert dealer;
         accList.add(dealer);
         perAcc= new Account();
@@ -86,6 +87,7 @@ public with sharing class LeadHelperTest {
         accList.add(perAcc);
         insert accList;
         lead = new Lead__c();
+        system.debug('$$$$$$$$$$$$$$$$$'+perAcc.Id);
         lead.Contact__c = perAcc.Id;
         lead.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
         lead.CAC_Lead_Status__c = 'Qualified';
@@ -130,6 +132,7 @@ public with sharing class LeadHelperTest {
     public static testMethod void testUpdateLeadOwner() {       
        List<Lead__c> leadsForUpdate= new List<Lead__c>(); 
        Set<id> setDealerId = new Set<id>();
+	    map<id,Lead__c> leadMap = new map<id, Lead__c>();
        createuserrecord('System Administrator');     
          system.runAs(user1) {
          preparedTestData();  
@@ -139,14 +142,16 @@ public with sharing class LeadHelperTest {
          con.AccountId=dealer.id;       
          insert con;
          usr.Contact = con; 
+         usr.isActive = true;
          lead.Assigned_Dealer__c = usr.AccountId;
          lead.Assigned_Dealer__c = dealer.Id;
          update lead;
          update usr;
              
-       
+        leadMap.put(lead.id, lead);
          leadsForUpdate.add(lead); 
           LeadHelper.UpdateLeadOwner(setDealerId,leadsForUpdate);
+          LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(setDealerId,leadsForUpdate,leadMap);
       }
     }
      public static testMethod void testUpdateLeadOwnerFromContact() {       
@@ -161,7 +166,31 @@ public with sharing class LeadHelperTest {
          insert con;
          usr.Contact = con;         
          usr.Contact.Dealer_Lead_Gate_Keeper__c = true;
+         system.debug('*************'+usr.AccountId);
          lead.Assigned_Dealer__c = usr.AccountId;
+         system.debug('*************'+dealer.Id);
+         lead.Assigned_Dealer__c = dealer.Id;
+         update lead;
+         update usr; 
+         leadsForUpdate.add(lead); 
+          LeadHelper.UpdateLeadOwnerFromContact(setDealerId,leadsForUpdate);
+      }
+    }
+    public static testMethod void testUpdateLeadOwnerFromContact1() {       
+       List<Lead__c> leadsForUpdate= new List<Lead__c>(); 
+       Set<id> setDealerId = new Set<id>();
+       createuserrecord('System Administrator');     
+         system.runAs(user1) {
+         preparedTestData();  
+         User usr=createUser('MBJ IT Department','CAC IB CSR');     
+         setDealerId.add(dealer.id);          
+         Contact con = new Contact(Dealer_Lead_Gate_Keeper__c = true,LastName='testL',Federation_ID__c='test federation',Email='test001@daimler.com.full',Phone='12332116');
+         insert con;
+         usr.Contact = con;         
+         usr.Contact.Dealer_Lead_Gate_Keeper__c = true;
+         system.debug('$$$$$$$$$$$$$$$$$'+usr.AccountId);
+         lead.Assigned_Dealer__c = usr.AccountId;
+         system.debug('$$$$$$$$$$$$$$$$$'+dealer.Id);
          lead.Assigned_Dealer__c = dealer.Id;
          update lead;
          update usr; 
@@ -257,7 +286,13 @@ public with sharing class LeadHelperTest {
      
     public static testMethod void testEPIntegrationUser() { 
        createuserrecord('IntegrationAPI'); 
-       system.runAs(user1){        
+       system.runAs(user1){     
+              Profile prof = [select Id from Profile where Name = 'IntegrationAPI'];
+               User use21 = new User(ProfileId = prof.Id, isActive = true, Username = 'lai12@nttdata.com', LastName = 'ep.user1',
+                                  Email = 'sichao.lai@test.com', Alias = 'laisc', CommunityNickname = 'barney12',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+              insert use21;
         LeadHelper.getEPIntegrationUser();
        }
  }

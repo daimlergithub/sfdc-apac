@@ -46,7 +46,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             createCampaign_Case('OB Call');
             createCampaign_Member();
             createBatchJob();
-            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList,batchJob.Id);
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
             Database.executeBatch(batcher);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
@@ -71,7 +71,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             createCampaign_Case('SMS');
             createCampaign_Member();
             createBatchJob();
-            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList,batchJob.Id);
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
             Database.executeBatch(batcher);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
@@ -95,7 +95,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             createCampaign_Case('MMS');
             createCampaign_Member();
             createBatchJob();
-            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList,batchJob.Id);
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
             Database.executeBatch(batcher);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
@@ -120,7 +120,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             createCampaign_Case('eDM');
             createCampaign_Member();
             createBatchJob();
-            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList,batchJob.Id);
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
             Database.executeBatch(batcher);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
@@ -142,7 +142,7 @@ public with sharing class UtilCampaignTaskGenerationByAccountTest
             createAccount_Contact();
             createCampaign_Member();
             createBatchJob();
-            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList,batchJob.Id);
+            UtilCampaignTaskGenerationByAccount  batcher= new UtilCampaignTaskGenerationByAccount(campaignList);
             Database.executeBatch(batcher);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];

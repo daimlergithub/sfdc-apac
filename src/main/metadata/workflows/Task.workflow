@@ -18,6 +18,24 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_RecordType_for_CTI_OB_Field_Updat</fullName>
+        <description>This workflow field update would update the recordtype of the Task to OB Call if the &quot;Call Type&quot; is set as &quot;Outbound via the CTI.</description>
+        <field>RecordTypeId</field>
+        <lookupValue>OB_Call</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update RecordType for CTI OB Field Updat</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Auto Populate Phone and Email</fullName>
+        <active>false</active>
+        <description>Autopopulate the phone and email fields based on the selected customer information</description>
+        <formula>AND(OR(WhoId  &lt;&gt; Null,WhoId  &lt;&gt; &apos;&apos;),MD__c == &apos;KR&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>Update Call Start%2FEnd Time</fullName>
         <actions>
@@ -29,11 +47,37 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
             <value>Inbound,Outbound</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update RecordType for CTI OB</fullName>
+        <actions>
+            <name>Update_RecordType_for_CTI_OB_Field_Updat</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.CallType</field>
+            <operation>equals</operation>
+            <value>Outbound</value>
+        </criteriaItems>
+        <description>This workflow will update the recordtype of the task to OP Call of the Call type is set to Outbound.</description>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

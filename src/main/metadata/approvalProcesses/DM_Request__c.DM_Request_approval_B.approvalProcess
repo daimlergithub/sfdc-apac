@@ -37,15 +37,15 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -95,11 +95,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -152,11 +152,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -171,6 +171,10 @@
             </approver>
             <approver>
                 <name>Supervisor_Team_B</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -209,11 +213,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -228,6 +232,10 @@
             </approver>
             <approver>
                 <name>Supervisor_Team_B</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -266,7 +274,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -275,6 +283,10 @@
             </action>
         </approvalActions>
         <assignedApprover>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <approver>
                 <name>Supervisor_Team_B</name>
                 <type>queue</type>
@@ -319,7 +331,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -329,11 +341,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
+                <name>Supervisor_Team_B</name>
+                <type>queue</type>
+            </approver>
+            <approver>
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -372,7 +388,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -381,6 +397,10 @@
             </action>
         </approvalActions>
         <assignedApprover>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <approver>
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
@@ -423,16 +443,18 @@
     <description>Call center operator submitting the approval for dm request to surpervisor</description>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>(ISPICKVAL( Status__c , &apos;Open&apos;) ||
-ISPICKVAL( Status__c , &apos;Sent&apos;) ||
-ISPICKVAL( Status__c , &apos;Failed&apos;) ||
-ISPICKVAL( Status__c , &apos;Returned&apos;) ||
-ISPICKVAL( Status__c , &apos;Success&apos;) ||
-ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp;
-(ISPICKVAL(Delivery_Type__c, &apos;1&apos;) ||
-ISPICKVAL(Delivery_Type__c, &apos;2&apos;)||
+        <formula>(ISPICKVAL( Status__c , &apos;Open&apos;) || 
+ISPICKVAL( Status__c , &apos;Sent&apos;) || 
+ISPICKVAL( Status__c , &apos;Failed&apos;) || 
+ISPICKVAL( Status__c , &apos;Returned&apos;) || 
+ISPICKVAL( Status__c , &apos;Success&apos;) || 
+ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp; 
+(ISPICKVAL(Delivery_Type__c, &apos;1&apos;) || 
+ISPICKVAL(Delivery_Type__c, &apos;2&apos;)|| 
 ISPICKVAL(Delivery_Type__c, &apos;3&apos;)) &amp;&amp; 
-(NOT(ISNULL(Expected_DM_Material1__c)) || NOT(ISNULL(Expected_DM_Material2__c)) ||
+ISPICKVAL( $User.Market__c , &apos;JP&apos;) &amp;&amp; 
+ISPICKVAL( CreatedBy.Market__c , &apos;JP&apos;) &amp;&amp; 
+(NOT(ISNULL(Expected_DM_Material1__c)) || NOT(ISNULL(Expected_DM_Material2__c)) || 
 NOT(ISNULL(Expected_DM_Material3__c)))</formula>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>

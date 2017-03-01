@@ -1,12 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
-        <fullName>Case_handing_level_email_to_Notification</fullName>
-        <description>Case handing level email Notification</description>
+        <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_24_Hour</fullName>
+        <description>Case Deadline Dealer Manager Notification KR after 24 Hour</description>
         <protected>false</protected>
         <recipients>
-            <field>Previous_Owner__c</field>
-            <type>userLookup</type>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/X24_hours_before_deadline</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</fullName>
+        <description>Case Deadline : Dealer Manager Notification KR after 72 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityAccountPartnerExecutive</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <recipients>
+            <recipient>CommunityAccountPartnerManager</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Dealer_Notification_KR_before_24_Hour</fullName>
+        <description>Case Deadline Dealer Notification KR before 24 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/X24_hours_before_deadline</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_168_Hours_Before_Case_DeadLine</fullName>
+        <description>168 Hours Before Case: DeadLine</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_17_Hours_Before_Case_DeadLine</fullName>
+        <description>17 Hours Before Case: DeadLine</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_240_Hours</fullName>
+        <description>Case Deadline Notification KR after 240 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_24_Hour</fullName>
+        <description>Case Deadline Notification KR after 24 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Notification_KR_after_72_Hour</fullName>
+        <description>Case Deadline Notification KR after 72 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Call_Center_Supervisor</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_handing_level_email_to_Notification</fullName>
+        <description>Case handing level email Notification to Dealer</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Send_Email_Support_Dealer1_Keeper_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Send_Email_Support_Dealer2_Keeper_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Send_Email_Support_Dealer3_Keeper_Email__c</field>
+            <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Handling_level_Notification</template>
@@ -14,6 +110,16 @@
     <alerts>
         <fullName>Case_need_to_be_handle_before_deadline</fullName>
         <description>Case need to be handle before deadline.</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_need_to_be_handle_before_deadline_KR</fullName>
+        <description>Case need to be handle before deadline KR</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
@@ -49,6 +155,16 @@
         <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
     <alerts>
+        <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
+        <description>Email to Dealer Gatekeeper Case</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Assign_to_Dealer_Gatekeeper_Case</template>
+    </alerts>
+    <alerts>
         <fullName>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</fullName>
         <description>Email to Dealer when Retail Campaign Case is assigned</description>
         <protected>false</protected>
@@ -57,6 +173,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Retail_Campaign_Inquiry_Assignment_To_Dealer_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_To_Case_Owner</fullName>
+        <description>Send Email To Case Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/Case_owner_is_updated</template>
     </alerts>
     <alerts>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
@@ -100,6 +226,21 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</fullName>
+        <description>ase Deadline : Dealer Manager Notification KR after 240 Hours</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CommunityAccountPartnerExecutive</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <recipients>
+            <recipient>CommunityAccountPartnerManager</recipient>
+            <type>portalRole</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <fieldUpdates>
         <fullName>ChangeStatus</fullName>
@@ -190,6 +331,294 @@
         <field>Status</field>
         <literalValue>Waiting for final approval</literalValue>
         <name>Change Status to &apos;Waiting for final appr</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_1</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_10</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_11</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_12</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_13</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_14</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 14</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_15</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 15</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_16</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 16</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_2</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_3</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_4</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_5</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_6</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_7</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_8</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Approval_9</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Final Approval 9</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_10</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_11</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_12</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_13</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_16</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 16</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_17</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 17</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_2</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_3</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_4</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_5</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_6</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_7</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_8</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Final_Rejected_9</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Final Rejected 9</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -341,6 +770,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Creator_Department_to_Dealer</fullName>
@@ -383,6 +813,150 @@
         <field>Send_Email_Support_Dealer3_Keeper__c</field>
         <literalValue>0</literalValue>
         <name>Update Support Dealer3 Email FlgToFalse</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_For_Response</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Waiting For Response</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Ap</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Ap</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_App</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final App</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_1</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_10</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 10</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_11</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 11</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_12</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 12</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_13</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 13</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_2</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_3</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_4</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_5</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 5</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_6</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 6</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_7</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 7</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_8</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 8</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Waiting_for_Final_Approval_9</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for final approval</literalValue>
+        <name>Waiting for Final Approval 9</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -453,8 +1027,40 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Case Deadline Notification</fullName>
+        <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
         <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Dealer_Manager_Notification_KR_after_72_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline %3ADealer Notification KR Before 24 Hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 24 hours before  the deadline.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL(Status,&apos;Closed&apos;))), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Dealer_Notification_KR_before_24_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification</fullName>
+        <active>false</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -471,12 +1077,243 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case Deadline Notification JP</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners 15 mins before the deadline.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_need_to_be_handle_before_deadline</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.X15_Minutes_Before_Deadline__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>B</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Yellow = 3</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours before the deadline,If the case Priority is B and Yellow = 3.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_need_to_be_handle_before_deadline_KR</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-50</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR After 240 hours</fullName>
+        <active>false</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_240_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>240</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR after 24 Hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_24_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR after 72 Hour</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;B&apos;),ISPICKVAL( Priority , &apos;Yellow = 3&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_KR_after_72_Hour</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR before 168 hours</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>C</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Green &lt;= 2</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 168 hours before the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_168_Hours_Before_Case_DeadLine</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-168</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification KR before 17 hours</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Red &gt;= 4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 17 hours before the deadline,If the Priority is Red &gt;= 4.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Deadline_Notification_17_Hours_Before_Case_DeadLine</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-17</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>240</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Email To Dealer GateKeeper</fullName>
+        <actions>
+            <name>Email_to_Dealer_Gatekeeper_Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This flow is used to send email to dealer gatekeper. This is on case object when dealer account associated with the case and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
+        <formula>NOT(ISNULL(Case_Dealer__c))  &amp;&amp;  ISCHANGED(Case_Dealer__c) &amp;&amp;  PRIORVALUE(OwnerId) != OwnerId &amp;&amp; MD__c == &apos;KR&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case Owner Changed</fullName>
+        <actions>
+            <name>Send_Email_To_Case_Owner</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>If Case Owner changed, email need to send to case owner.</description>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Case handling level Assignment Notification to Dealer</fullName>
         <actions>
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
@@ -484,12 +1321,23 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>BMBS Regional CRM Manager</value>
+            <operation>startsWith</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Case.Previous_Owner__c</field>
-            <operation>notEqual</operation>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
         </criteriaItems>
         <description>When RO change handling level to Dealer, send a email to Dealer.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -500,20 +1348,42 @@
             <name>Case_handing_level_email_to_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3 AND 4 AND (5 OR 6 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
             <value>Regional Office</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.ProfileId</field>
+            <field>Case.Handling_Level__c</field>
             <operation>equals</operation>
-            <value>BMBS Service Technical Manager</value>
+            <value>Central Office</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Case.Previous_Owner__c</field>
-            <operation>notEqual</operation>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.User_Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Dealer Community User</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Dealer Delegate Admin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>System Administrator</value>
         </criteriaItems>
         <description>When RO change handling level to RO, send a email to RO.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -572,7 +1442,7 @@
             <name>Update_Creator_Department_to_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -583,6 +1453,11 @@
             <operation>startsWith</operation>
             <value>Dealer</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
@@ -592,8 +1467,8 @@
             <name>Update_Creator_Department_To_ROCO</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -601,16 +1476,32 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>BMBS Regional CRM Manager</value>
+            <operation>startsWith</operation>
+            <value>Korea</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
             <operation>equals</operation>
-            <value>BMBS Service Technical Manager</value>
+            <value>System Administrator</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case-Set overdue as Yes</fullName>
+        <actions>
+            <name>Update_Overdue_to_Yes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the Overdue as Yes When the Case deadline has missed out</description>
+        <formula>IF(DeadLine__c&lt;Now(), true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Complaint Update Notification</fullName>
@@ -665,11 +1556,17 @@
             <name>Send_Email_to_Gate_Keeper</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
             <field>Case.SendEmailToGateKeeper__c</field>
             <operation>equals</operation>
             <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -733,11 +1630,32 @@
             <name>Update_Overdue_to_Yes</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
         </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>

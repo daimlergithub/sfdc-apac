@@ -20,6 +20,19 @@
         <name>JP_MarketLeads_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBK_Leads_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MBK Leads Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>SoftDelete_Leads_Only_for_IT</fullName>
         <sharedTo>
             <role>MBJ_IT_Department</role>

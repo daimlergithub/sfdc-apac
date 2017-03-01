@@ -460,6 +460,10 @@
             <translation><!-- Opel --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>PGO</masterLabel>
             <translation><!-- PGO --></translation>
         </picklistValues>
@@ -707,6 +711,10 @@
     <fields>
         <label><!-- Past Class --></label>
         <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Colour --></label>
+        <name>Colour__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -1772,6 +1780,10 @@
             <translation><!-- GLK-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLS-Class</masterLabel>
+            <translation><!-- GLS-Class --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation><!-- M-Class --></translation>
         </picklistValues>
@@ -1794,6 +1806,10 @@
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
             <translation><!-- SL-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLC-Class</masterLabel>
+            <translation><!-- SLC-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -1867,6 +1883,10 @@
     <fields>
         <label><!-- System --></label>
         <name>System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trim --></label>
+        <name>Trim__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
@@ -2027,6 +2047,16 @@
             <section>Segment Information</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised Car Model Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Segment Information --></label>
+            <section>Segment Information</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

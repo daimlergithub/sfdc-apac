@@ -109,11 +109,11 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -165,6 +165,10 @@
             </action>
         </approvalActions>
         <assignedApprover>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <approver>
                 <name>Supervisor_Team_B</name>
                 <type>queue</type>
@@ -230,6 +234,10 @@
                 <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -281,6 +289,10 @@
             </approver>
             <approver>
                 <name>Supervisor_Team_B</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -336,6 +348,10 @@
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <entryCriteria>
@@ -382,11 +398,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
                 <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -423,14 +443,16 @@
     <description>Call center operator submitting the approval for dm request (no send) to surpervisor</description>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>(ISPICKVAL( Status__c , &apos;Open&apos;) ||
-ISPICKVAL( Status__c , &apos;Sent&apos;) ||
-ISPICKVAL( Status__c , &apos;Failed&apos;) ||
-ISPICKVAL( Status__c , &apos;Returned&apos;) ||
-ISPICKVAL( Status__c , &apos;Success&apos;) ||
-ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp;
-ISPICKVAL(Delivery_Type__c, &apos;4&apos;)  &amp;&amp; 
-(NOT(ISNULL(Expected_DM_Material1__c)) || NOT(ISNULL(Expected_DM_Material2__c)) ||
+        <formula>(ISPICKVAL( Status__c , &apos;Open&apos;) || 
+ISPICKVAL( Status__c , &apos;Sent&apos;) || 
+ISPICKVAL( Status__c , &apos;Failed&apos;) || 
+ISPICKVAL( Status__c , &apos;Returned&apos;) || 
+ISPICKVAL( Status__c , &apos;Success&apos;) || 
+ISPICKVAL( Status__c , &apos;Rejected&apos;)) &amp;&amp; 
+ISPICKVAL(Delivery_Type__c, &apos;4&apos;) &amp;&amp; 
+ISPICKVAL( $User.Market__c , &apos;JP&apos;) &amp;&amp; 
+ISPICKVAL( CreatedBy.Market__c , &apos;JP&apos;) &amp;&amp; 
+(NOT(ISNULL(Expected_DM_Material1__c)) || NOT(ISNULL(Expected_DM_Material2__c)) || 
 NOT(ISNULL(Expected_DM_Material3__c)))</formula>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>

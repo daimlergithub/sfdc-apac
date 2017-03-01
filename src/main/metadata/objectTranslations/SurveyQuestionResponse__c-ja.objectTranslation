@@ -28,12 +28,22 @@
     <fields>
         <label>関連サーベイ</label>
         <name>SurveyTaker__c</name>
-        <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
+        <relationshipLabel><!-- Survey Question Responses (SurveyTaker) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey Question Id --></label>
+        <name>Survey_Question_Id__c</name>
+        <relationshipLabel><!-- Survey Question Responses (Survey Question Id) --></relationshipLabel>
     </fields>
     <fields>
         <label>質問</label>
         <name>Survey_Question__c</name>
-        <relationshipLabel><!-- Survey Question Responses --></relationshipLabel>
+        <relationshipLabel><!-- Survey Question Responses (Survey Question) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken Id --></label>
+        <name>Survey_Taken_Id__c</name>
+        <relationshipLabel><!-- Survey Question Responses (Survey Taken Id) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>

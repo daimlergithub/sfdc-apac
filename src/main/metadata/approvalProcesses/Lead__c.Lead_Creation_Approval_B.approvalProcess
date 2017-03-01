@@ -56,6 +56,11 @@
             <operation>equals</operation>
             <value>Aftersales Leads,Sales Leads</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
         <action>

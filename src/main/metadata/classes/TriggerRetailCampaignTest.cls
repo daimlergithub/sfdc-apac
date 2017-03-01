@@ -126,7 +126,18 @@ public class TriggerRetailCampaignTest {
 
         cp5.BP_Status__c = 'Retail Submit';
         update cp5;
-
+        TriggerRetailCampaignMemberHandlerJP rcmhJP = new TriggerRetailCampaignMemberHandlerJP();
+        rcmhJP.handleTrigger(false, false, false, false, false);
+        rcmhJP.handleIntegrationTrigger(false, false, false, false, false);
+        
+       /* TriggerRetailTaskTriggerHandler rth = new TriggerRetailTaskTriggerHandler();
+        rth.handleTrigger(false, false, false, false, false);
+        rth.handleIntegrationTrigger(false, false, false, false, false);*/
+        
+        TriggerRetailTaskTriggerHandlerJP rthJP = new TriggerRetailTaskTriggerHandlerJP();
+        rthJP.handleTrigger(false, false, false, false, false);
+        rthJP.handleIntegrationTrigger(false, false, false, false, false);
+        
         test.stopTest();
         list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
         listRetailCampaign.add(cp5);

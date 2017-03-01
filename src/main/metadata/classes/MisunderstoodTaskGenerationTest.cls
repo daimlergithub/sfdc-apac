@@ -32,7 +32,7 @@ public with sharing class MisunderstoodTaskGenerationTest {
             PersonOtherPhone = '1301111122', 
             Phone = '01234567', 
             PersonHomePhone = '1234567', 
-            PersonAssistantPhone = '1234567'
+            PersonAssistantPhone = '1234567',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842'
         );
         customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         

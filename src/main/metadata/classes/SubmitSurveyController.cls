@@ -19,13 +19,13 @@ public without sharing class SubmitSurveyController{
     public SubmitSurveyController(){
         init();
     }
-	/**@Description  Based on surveyID,it checks for Survey_Taking_Status__c in SurveyTaker__c object.Based on survey taken status field it starts the surveytaking process.
-	  *				 If Survey_Taking_Status__c is "finish" it completes the survey or if finishsurvey is false it will set some questions for survey.		
-	  *@author
+    /**@Description  Based on surveyID,it checks for Survey_Taking_Status__c in SurveyTaker__c object.Based on survey taken status field it starts the surveytaking process.
+      *              If Survey_Taking_Status__c is "finish" it completes the survey or if finishsurvey is false it will set some questions for survey.      
+      *@author
       *@Date 11/03/2015
-	*/
-	
-	
+    */
+    
+    
     private void init(){
         finishSurvey = false;
         operationType = Apexpages.currentPage().getParameters().get('type');
@@ -43,31 +43,32 @@ public without sharing class SubmitSurveyController{
                 }
                 if (surveyTaker != null) {
                     if (surveyTaker.Survey_Taking_Status__c == 'Finish') {
-                    	
-                    	 finishSurvey = true;
+                        
+                         finishSurvey = true;
                         showPreviousButton = false;
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, System.Label.VF_SubmitSurvey_FinishSurvey_Msg));
-                    	
+                        
                         
                     } else {
-                    	for (SurveyQuestionResponse__c sqr : [SELECT id, Response__c, Survey_Question__c, SurveyTaker__c, Note__c FROM SurveyQuestionResponse__c
+                        for (SurveyQuestionResponse__c sqr : [SELECT id, Response__c, Survey_Question__c, SurveyTaker__c, Note__c FROM SurveyQuestionResponse__c
                                                                WHERE SurveyTaker__c =: surveyTaker.id]) {
                             answeredQuestion.put(sqr.Survey_Question__c, sqr.Response__c == null ? '':sqr.Response__c);
                             reponseNotes.put(sqr.Survey_Question__c, sqr.Note__c == null ? '':sqr.Note__c);
                             QAIdMapping.put(sqr.Survey_Question__c, sqr.id);
-                        }                    	
+                        }                       
                        
                     }
                 }
             }
         }
-        if (surveyID instanceOf id){
-            if (!finishSurvey) {
-                survey = [SELECT id, Survey_Header__c, Name, Thank_You_Text__c FROM Survey__c WHERE id =:surveyID Limit 1];
-                List<Survey_Question__c> questionList = [SELECT Type__c, Id, Survey__c, Required__c, Question__c, Need_Free_TextBox__c,
+       survey = [SELECT id, Survey_Header__c, Name, Thank_You_Text__c FROM Survey__c WHERE id =:surveyID Limit 1];
+       List<Survey_Question__c> questionList = [SELECT Type__c, Id, Survey__c, Required__c, Question__c, Need_Free_TextBox__c,
                                                                 OrderNumber__c, Name, Choices__c, Redirect_Question_Number__c, Single_FreeText_Next_Question_No__c
                                                          FROM   Survey_Question__c
-                                                         WHERE  Survey__c =:surveyID ORDER BY OrderNumber__c];
+                                                         WHERE  Survey__c =:surveyID AND Choices__c!=Null ORDER BY OrderNumber__c];
+         system.debug('+++++++'+questionList);                                                
+        if (surveyID instanceOf id && (!questionList.isEmpty())){
+            if (!finishSurvey) {               
                 List<Question> customQuestionList = new List<Question>();
                 Integer showQuestionOrder = 1;
                 for (Survey_Question__c q : questionList){
@@ -84,26 +85,26 @@ public without sharing class SubmitSurveyController{
                 }
                 allQuestions = customQuestionList;
                 if ( surveyTaker==null || surveyTaker.Last_Answered_Question__c == null) {
-                	
-                	 if (survey.Survey_Header__c == null || survey.Survey_Header__c == '') {
-                	 	
-                	 	 //as the survey header is blank, we will set one question.
+                    
+                     if (survey.Survey_Header__c == null || survey.Survey_Header__c == '') {
+                        
+                         //as the survey header is blank, we will set one question.
                         OneQuestion = getQuestion(1,false,nextString);
-                	 	
+                        
                        
                     } else {
-                    	
-                    	 //Get the 0 question to show the welcome page
+                        
+                         //Get the 0 question to show the welcome page
                         OneQuestion = getQuestion(0,false,nextString);
-                    	
+                        
                        
                     }
-                	
-                	
+                    
+                    
                     
                 } else {
-                	
-                	//Get the question which usered answered in previous operation
+                    
+                    //Get the question which usered answered in previous operation
                     OneQuestion = getQuestion(Integer.valueOf(surveyTaker.Last_Answered_Question__r.OrderNumber__c),true,nextString);                   
                     
                     
@@ -233,7 +234,7 @@ public without sharing class SubmitSurveyController{
         /**@Description  once user answered the questions, when they answer again will show the value which they answered before
           *@author
           *@Date 11/03/2015
-          *  Param Options-List of Selectoption	
+          *  Param Options-List of Selectoption 
           *  returns list of String
           */
         private List<String> getOptionValue(List<SelectOption> options, String response){
@@ -414,7 +415,7 @@ public without sharing class SubmitSurveyController{
     }
 
     /** @Description insert the survey response result and survey taken information
-   	   *@author
+       *@author
        *@Date 11/03/2015
       */
    @TestVisible private Boolean upsertSurveyData(Question q){
@@ -516,7 +517,7 @@ public without sharing class SubmitSurveyController{
         return result;
     }
     /**@Description Clicking break button the survey will jump to last page(end page).
-	  *@author
+      *@author
       *@Date 11/03/2015
      */ 
     //click break button function

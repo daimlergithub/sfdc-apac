@@ -29,6 +29,14 @@
 		<echo message="Git version is ${git.version}."/>
 	</target>
 	
+	<target name="proxy">
+		 <property name="proxy.host" value="${proxy.host}" />  
+         <property name="proxy.port" value="${proxy.port}" />  
+         <property name="proxy.username" value="${proxy.username}" />  
+         <property name="proxy.password" value="${proxy.password}"/>
+         <setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" proxyuser="${sfdc.proxy.username}" proxypassword="${sfdc.proxy.password}" />
+	</target>
+	
 	<target name="deployAll">
 		<delete file="${file.checksums.local}" quiet="true"/>
 		<property name="skip.checksum.retrieval" value="true"/>
@@ -42,7 +50,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy18,deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,deploy53,postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
 	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
@@ -75,7 +83,7 @@
 	</target>
 	<target name="deploy01">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="installedPackages"/>
+			<!-- <sf:typeset name="installedPackages"/> -->
 		</deploy>
     </target>
 	<target name="deploy05">
@@ -113,7 +121,6 @@
 	<target name="deploy09">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
-				<sf:include name="User"/>
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
@@ -128,6 +135,7 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="Account"/>
+				<sf:include name="User"/>				
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Address__c"/>
 				<sf:include name="Vehicle__c"/>
@@ -135,6 +143,7 @@
 				<sf:include name="Retail_Task__c"/>
 				<sf:include name="Account_Link__c"/>
 				<sf:include name="SSI__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
@@ -142,6 +151,7 @@
 			   <sf:include name="AddressSearchValidation"/>
 			   <sf:include name="Create_Vehicle"/>
 			   <sf:include name="TrialCustomerPortalHomePage"/>
+			   <sf:include name="createRetailCopyKRButton"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
 			   <sf:include name="UtilConstant"/>
@@ -152,6 +162,8 @@
 			   <sf:include name="ViewHierarchyController"/>
 			   <sf:include name="ViewHierarchyControllerTest"/>
 			   <sf:include name="AddressSearchValidationController"/>
+			   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
+			   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 			   <sf:include name="UtilWebservice"/>
 			   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 			   <sf:include name="AddressSearchValidationControllerTest"/>
@@ -159,6 +171,8 @@
 			   <sf:include name="UtilwebserviceTest"/>
 			   <sf:include name="DealerLocatorHttpResponseGenerator"/>
 			   <sf:include name="WebServiceMockImpl"/>
+			   <sf:include name="WebServiceMockImpl2"/>
+			   <sf:include name="WebServiceMockImpl3"/>
 			   <sf:include name="VehicleExtension"/>
 			   <sf:include name="VehicleExtensionTest"/>
 			   <sf:include name="UtilCustomSettingsKernel"/>
@@ -171,6 +185,10 @@
 			   <sf:include name="CommunitiesLandingController"/>
 			   <sf:include name="CommunitiesLandingControllerTest"/>
 			   <sf:include name="UtilCustomSettings"/>
+			   <sf:include name="VehicleRelationshipHelper"/>
+			   <sf:include name="createRetailCopyKR"/>
+			   <sf:include name="createRetailCopyKRTest"/>
+			   <sf:include name="TriggerVehicleRelationshipTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -213,8 +231,9 @@
 		</deploy>
     </target>
 	
-	<target name="deploy20">
+	<target name="deploy18">
 		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="queues"/>
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -230,17 +249,17 @@
 				<sf:exclude name="Account_Link__c"/>
 				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
-			</sf:typeset>
-			<sf:typeset name="queues"/>
-			
+			</sf:typeset>			
 		</deploy>
     </target>	
-	<target name="deploy21">
-		<deploy  runAllTests="${sfdc.runAllTests}" transformations="transformations29.xml">
+	
+	<target name="deploy20">
+		<deploy  runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
-				<sf:include name="Activity"/>
+				<!--<sf:include name="Activity"/>-->
+				<sf:exclude name="Activity"/>
 				<sf:include name="ContentVersion"/>
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -249,8 +268,8 @@
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
-			</sf:typeset>
-			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
+				<sf:include name="AreaCodeTranslation__mdt"/>
+			</sf:typeset>			
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -260,7 +279,9 @@
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
+			   <sf:include name="SelectSlaveAccountKR"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="AccountMergeKR"/>
 			   <sf:include name="TaskDeleting"/>
 			   <sf:include name="Tasks"/>			   
 			</sf:typeset>
@@ -273,12 +294,22 @@
 				<sf:include name="TestUserCreate"/>
 				<sf:include name="CaseHelperJP"/>
 				<sf:include name="CaseHelperJPTest"/>
+				<sf:include name="CaseHelper"/>
+				<sf:include name="CaseHelperTest"/>
+				<sf:include name="CaseEscalationController"/>
+				<sf:include name="CaseEscalationControllerTest"/>
+				<sf:include name="GenerateCatalogueCsv"/>
+				<sf:include name="GenerateCatalogueCsvTest"/>
+				<sf:include name="TaskHelperKR"/>
+				<sf:include name="TaskHelperKRTest"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
-				<sf:include name="AccountMergeController"/>
+				<sf:include name="AccountMergeController"/>		
+				<sf:include name="AccountMergeControllerKR"/>
 				<sf:include name="AccountMergeControllerTest"/>
+				<sf:include name="AccountMergeControllerKRTest"/>
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
@@ -290,9 +321,14 @@
 				<sf:include name="UtilTaskTest"/>
 				<sf:include name="TriggerAccountTriggerHandlerJP"/>
 				<sf:include name="TriggerCaseTriggerHandlerJP"/>
+				<sf:include name="TriggerCaseTriggerHandlerKR"/>
+				<sf:include name="shareAccountRecord"/>
+				<sf:include name="shareAccountRecordTest"/>
 				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 				<sf:include name="DMRequestHelperJP"/>
 				<sf:include name="DMRequestHelperJPTest"/>
+				<sf:include name="LeadUtil"/>
+				<sf:include name="TriggerLeadTriggerHandlerKR"/>
 				<sf:include name="TriggerLeadTriggerHandlerJP"/>
 				<sf:include name="TriggerLeadTriggerHandler"/>
 				<sf:include name="LeadSharingTest"/>
@@ -301,6 +337,8 @@
 				<sf:include name="SharingWrapperService"/>
 				<sf:include name="SharingWrapper"/>
 				<sf:include name="SharingWrapperTest"/>
+				<sf:include name="LeadHelperAccountLinkCreateJP"/>
+				<sf:include name="LeadHelperAccountLinkCreateJPTest"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="LeadHelperTest"/>
 				<sf:include name="ReservationMessageTemplate"/>
@@ -311,8 +349,12 @@
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 				<sf:include name="VehicleRelationshipHelperJP"/>
 				<sf:include name="VehicleRelationshipHelperJPTest"/>
+				<sf:include name="VehiclePickerController"/>
+				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="CaseTriggerHandlerJP"/>
 				<sf:include name="TaskTriggerHandlerJP"/>
+				<sf:include name="TaskTriggerHandlerKR"/>
+				<sf:include name="TaskTriggerHandlerKRTest"/>
 				<sf:include name="LeadHelperJP"/>
 				<sf:include name="LeadHelperJPTest"/>
 				<sf:include name="TestTriggerHandler"/>
@@ -322,6 +364,7 @@
 				<sf:include name="UtilLeadTest"/>
 				<sf:include name="VehicleDataSharingHandlerTest"/>
 				<sf:include name="VehicleDataSharingHandler"/>
+				<sf:include name="VehicleRelationshipSharingTest"/>
 				<sf:include name="CustomLogUtil"/>
 				<sf:include name="CustomLogUtilTest"/>
 				<sf:include name="SharingDataHandlerBase"/>
@@ -334,15 +377,38 @@
 				<sf:include name="AccountSharingDataHandlerTest"/>
 				<sf:include name="AccountLinkHelper"/>
 				<sf:include name="AccountLinkHelperTest"/>
+				<sf:include name="TriggerAccountTriggerHandlerKR"/>
+				<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+				<sf:include name="AccountHelperKR"/>
+				<sf:include name="AccountHelperKRTest"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>
+				<sf:include name="RetailTaskTriggerHandlerJP"/>
+				<sf:include name="RetailTaskTriggerHandlerKR"/>
+				<sf:include name="RetailTaskHelperJP"/>						
+				<sf:include name="RetailTaskHelperJPTest"/>
+				<sf:include name="UtilShare"/>
+				<sf:include name="UtilShareTest"/>
+				<sf:include name="LeadSharingforDealerJP"/>
+				<sf:include name="LeadSharingforDealerJPTest"/>
+				<sf:include name="WSMockAddressValidationRespInvalidAddr"/>
+				<sf:include name="WSMockAddressValidationResponseFailure"/>
+				<sf:include name="WSMockCustomerIdenticationResp"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 				<sf:include name="TriggerUtilTestTrigger"/>
 				<sf:include name="CaseTrigger"/>
 				<sf:include name="TriggerDMRequest"/>
 				<sf:include name="TriggerLead"/>
+				<sf:include name="RetailTaskTrigger"/>				
 			</sf:typeset>
 		</deploy>
     </target>
+	<target name="deploy21">
+		<deploy transformations="transformations29.xml">
+			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
+		</deploy>
+	</target>
 	
 	<target name="deploy25">
 		<deploy runAllTests="${sfdc.runAllTests}">
@@ -398,6 +464,9 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="pages">
 				<sf:include name="VehiclePicker"/>
+				<sf:include name="VehiclePickerForCase"/>
+				<sf:include name="LeadVehiclePickerKR"/>
+				<sf:include name="MarketCheckOnVehiclePicker"/>
 		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="MisunderstoodTaskGeneration"/>
@@ -413,15 +482,18 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="VehiclePickerController"/>
-			<sf:include name="VehiclePickerControllerTests"/>
-			<sf:include name="GenerateCatalogueCsv"/>
-			<sf:include name="GenerateCatalogueCsvTest"/>
+			<sf:include name="VehiclePickerForCaseController"/>
+			<sf:include name="VehiclePickerForCaseControllerTest"/>
+			<sf:include name="LeadVehiclePickerKRController"/>
+			<sf:include name="LeadVehiclePickerKRControllerTests"/>
+			<sf:include name="MarketCheckOnVehiclePickerCon"/>
+			<sf:include name="MarketCheckOnVehiclePickerConTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
 			<sf:include name="TriggerCampaignTriggerHandlerJP"/>
+			<sf:include name="TriggerCampaignTriggerHandlerKR"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -504,7 +576,7 @@
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccountLink"/>
-			<sf:include name="TaskTrigger"/>
+			<sf:include name="TaskTrigger"/>			
 		</sf:typeset>	
 		</deploy>				
     </target>
@@ -536,10 +608,12 @@
 			<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
 			<sf:include name="TriggerCampaignLeadTriggerHandler"/>
 			<sf:include name="UtilCampaignLead"/>
+			<sf:include name="UtilCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
 			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="UtilCampaignCityTest"/>
 			<sf:include name="AddressHelperJP"/>
 			<sf:include name="AddressHelperJPTest"/>
 			<sf:include name="TriggerAddressTriggerHandlerJP"/>
@@ -589,7 +663,7 @@
 			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>
-			<sf:include name="VehicleRelationshipHelper"/>		
+			<!--<sf:include name="VehicleRelationshipHelper"/>		-->
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>
@@ -627,7 +701,6 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="VehicleRelationshipHelperTest"/>
-			<sf:include name="VehicleRelationshipSharingTest"/>
 			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
@@ -647,6 +720,7 @@
 			<sf:include name="TookKitSharingWrapService"/>
 			<sf:include name="ToolKitTriggerHandler"/>
 			<sf:include name="ToolKitTriggerHelper"/>
+			<sf:include name="ToolKitTriggerHelperTest"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -668,6 +742,7 @@
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="AttachmentAfterTriggerHandlerTest"/>
 			<sf:include name="AttachmentAfterTriggerHandlerJP"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
@@ -695,9 +770,8 @@
 			<sf:include name="LeadConvertingControllerTest"/>
 			<sf:include name="TriggerCampaignMembers_TestClass"/>
 			<sf:include name="CampaignMemberAfterTriggerHandler"/>
+			<sf:include name="CampaignMemberAfterTriggerHandlerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>
-			<sf:include name="CaseEscalationController"/>
-			<sf:include name="CaseEscalationControllerTest"/>
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
 			<sf:include name="MassApproveToolKitController"/>
@@ -722,6 +796,7 @@
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
 		<sf:typeset name="workflows"/>
+		<sf:typeset name="flows"/>
 		</deploy>					
     </target>
 	
@@ -752,9 +827,8 @@
 			<sf:include name="AddToRetailCampaignControllerTet"/>
 			<sf:include name="AssignCaseToDealerController"/>
 			<sf:include name="AssignCaseToDealerControllerTest"/>
-			<sf:include name="CaseHelper"/>
-			<sf:include name="CaseHelperTest"/>
 			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseTest"/>
 			<sf:include name="UtilCaseShare"/>
 			<sf:include name="UtilCaseShareTest"/>
 			<sf:include name="CaseTriggerHandler"/>
@@ -762,8 +836,8 @@
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
-				<sf:include name="ContactTableController"/>
-		    <sf:include name="ContactTableControllerTest"/>
+			<sf:include name="ContactTableController"/>
+		    <sf:include name="contactTableControllerTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
@@ -854,15 +928,31 @@
 		</deploy>
     </target>
 	<target name="deploy51">
-		<deploy runAllTests="${sfdc.runAllTests}">
+		<deploy>
+			<sf:typeset name="reports"/>
+			<sf:typeset name="reportTypes"/>
+		</deploy>
+    </target>
+	<target name="deploy52">
+		<deploy>
 			<sf:typeset name="objectTranslations"/>
 			<sf:typeset name="translations"/>
 		</deploy>
     </target>
-	<target name="deploy52">
+	<target name="deploy53">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="reports"/>
-			<sf:typeset name="reportTypes"/>
+			<sf:typeset name="objects">
+				<sf:include name="Information__kav"/>
+				<sf:include name="Script__kav"/>
+				<sf:include name="Manual__kav"/>
+			</sf:typeset>
+			<sf:typeset name="layouts">
+				<sf:include name="Information__kav.*"/>
+				<sf:include name="Script__kav.*"/>
+				<sf:include name="Manual__kav.*"/>
+			</sf:typeset>
+			<sf:typeset name="datacategorygroups"/>
+			<sf:typeset name="permissionsets"/>
 		</deploy>
     </target>
 	<target name="loaddata-oliver">
@@ -881,9 +971,9 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,Report,ReportType,DataCategoryGroup,
 
-		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow
 	</property>
 	
 	<property name="typesets.not-ready">
@@ -927,4 +1017,8 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</target>
 </project>
+
+
+
+
 

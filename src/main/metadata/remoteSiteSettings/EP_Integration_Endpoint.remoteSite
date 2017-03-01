@@ -3,5 +3,5 @@
     <description>https://crm.mercedes-benz.com.cn/webservices</description>
     <disableProtocolSecurity>true</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>https://crm-salesforce-int.mercedes-benz.com</url>
+    <url>https://crm-salesforce.mercedes-benz.com</url>
 </RemoteSiteSetting>

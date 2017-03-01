@@ -206,10 +206,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Company_Account__c</field>
             </layoutItems>
         </layoutColumns>
@@ -536,6 +532,8 @@
         <fields>Status3__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>DM_Request__c.Lead__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -546,6 +544,8 @@
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>SurveyTaker__c.Lead__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
