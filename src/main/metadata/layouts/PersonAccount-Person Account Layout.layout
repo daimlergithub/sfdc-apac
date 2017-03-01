@@ -11,7 +11,6 @@
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>New_Case</customButtons>
-    <customButtons>Create_Retail_Copy_kr</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -535,10 +534,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Email_Last_Modified_By__c</field>
             </layoutItems>
             <layoutItems>
@@ -636,10 +631,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Special_Needs_Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Car_Owner_Club__c</field>
             </layoutItems>
             <layoutItems>
@@ -705,10 +696,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Buy_Cycle__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>UpsellOpportunity__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -935,7 +922,6 @@
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
         <customButtons>New_MB_Complaint</customButtons>
-        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
         <fields>Case_Class__c</fields>
