@@ -908,7 +908,7 @@ public class TaskHelper {
         Set<ID> leadId = new Set<ID>();
         System.debug('@@@@@@@@@@'+leadId );
           List<Lead__c> lstLead = new List<Lead__c>();
-          List<Lead__c> updateLead = new List<Lead__c>();
+          set<Lead__c> updateLead = new set<Lead__c>();
           Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
           List<Lead__c> mainlead= new List<Lead__c>();
          for(Task tsk : tasks){            
@@ -1013,7 +1013,11 @@ public class TaskHelper {
         } 
         system.debug('#####$$$$$$'+updateLead);
         if(updateLead != NULL && !updateLead.isEmpty())
-            Update updateLead;
+        {
+            list<lead__c>wupdateLead = new list<lead__c>(updateLead);
+            Update wupdateLead;
+        }
+            
         if(updlead.size()>0){ 
           System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  
