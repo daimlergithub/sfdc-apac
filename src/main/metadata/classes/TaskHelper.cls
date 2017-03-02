@@ -25,8 +25,7 @@ public class TaskHelper {
     private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
     private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     private static String SalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
-    private static String AfterSalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-
+    
     // Get QC__c record type ids
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
     private static String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
@@ -909,7 +908,8 @@ public class TaskHelper {
         Set<ID> leadId = new Set<ID>();
         System.debug('@@@@@@@@@@'+leadId );
           List<Lead__c> lstLead = new List<Lead__c>();
-          List<Lead__c> updateLead = new List<Lead__c>();
+         // set<Lead__c> updateLead = new set<Lead__c>();
+		  Map<Id,Lead__c> updateLead=new Map<Id,Lead__C>();
           Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
           List<Lead__c> mainlead= new List<Lead__c>();
          for(Task tsk : tasks){            
@@ -935,13 +935,13 @@ public class TaskHelper {
                 if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
                 {
                 le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
-                updateLead.add(le);
+                updateLead.put(le.ID,le);
                 updlead.put(le.ID,le);
                 }
                 }
                 }
         }
-       
+        
        for(Task t1 : tasks)
         {
         for(Lead__c le1 : lstLead)
@@ -998,26 +998,27 @@ public class TaskHelper {
                         le1.Trade_in_Date__c= t1.Activity_Date__c;
                         mainLead.add(le1); 
                     }
-                    else if(t1.intention_status__c=='Trade In' || t1.intention_status__c=='Test Drive' || t1.intention_status__c=='Simple Estimation' || t1.intention_status__c=='Finance Proposal' || t1.intention_status__c=='Product Proposal' && le1.RecordTypeID == AfterSalesLeadRectypeID)
-                    
-                     t1.addError('Please select appropriate activity for the Leads');
-                    }
                 }
            }
+        }
         update mainLead;
-           for(Lead__c led : lstLead){
+        for(Lead__c led : lstLead){
             if(led.Task_Update_Flag__c == False){
                 led.Task_Update_Flag__c = True;
-                updateLead.add(led);
+                updateLead.put(led.id,led);
             }
             else if(led.Task_Update_Flag__c == True){
                 led.Task_Update_Flag__c = False;
-                updateLead.add(led);
+                updateLead.put(led.id,led);
             }
         } 
         system.debug('#####$$$$$$'+updateLead);
         if(updateLead != NULL && !updateLead.isEmpty())
-            Update updateLead;
+        {
+           // list<lead__c>wupdateLead = new list<lead__c>(updateLead);
+            Update updateLead.Values();
+        }
+            
         if(updlead.size()>0){ 
           System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  
