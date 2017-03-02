@@ -908,7 +908,8 @@ public class TaskHelper {
         Set<ID> leadId = new Set<ID>();
         System.debug('@@@@@@@@@@'+leadId );
           List<Lead__c> lstLead = new List<Lead__c>();
-          List<Lead__c> updateLead = new List<Lead__c>();
+         // set<Lead__c> updateLead = new set<Lead__c>();
+		  Map<Id,Lead__c> updateLead=new Map<Id,Lead__C>();
           Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
           List<Lead__c> mainlead= new List<Lead__c>();
          for(Task tsk : tasks){            
@@ -934,7 +935,7 @@ public class TaskHelper {
                 if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
                 {
                 le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
-                updateLead.add(le);
+                updateLead.put(le.ID,le);
                 updlead.put(le.ID,le);
                 }
                 }
@@ -1004,16 +1005,20 @@ public class TaskHelper {
         for(Lead__c led : lstLead){
             if(led.Task_Update_Flag__c == False){
                 led.Task_Update_Flag__c = True;
-                updateLead.add(led);
+                updateLead.put(led.id,led);
             }
             else if(led.Task_Update_Flag__c == True){
                 led.Task_Update_Flag__c = False;
-                updateLead.add(led);
+                updateLead.put(led.id,led);
             }
         } 
         system.debug('#####$$$$$$'+updateLead);
         if(updateLead != NULL && !updateLead.isEmpty())
-            Update updateLead;
+        {
+           // list<lead__c>wupdateLead = new list<lead__c>(updateLead);
+            Update updateLead.Values();
+        }
+            
         if(updlead.size()>0){ 
           System.debug('updlead.size()>>>>>>>'+updlead.size());
             update  updlead.Values();  
