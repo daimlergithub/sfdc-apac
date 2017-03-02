@@ -978,7 +978,8 @@
             <masterLabel>Visited</masterLabel>
             <translation>来店</translation>
         </picklistValues>
-    </fields> 
+    </fields>
+	
     <fields>  
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
