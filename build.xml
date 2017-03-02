@@ -341,8 +341,8 @@
 									<deploy  runAllTests="${sfdc.runAllTests}">
 										<sf:typeset name="objects">
 											<sf:include name="Case"/>
-											<!--<sf:exclude name="Activity"/>
-											<sf:include name="Task"/> -->
+											<sf:include name="Activity"/>
+											<sf:include name="Task"/> 
 											<sf:include name="ContentVersion"/>
 											<sf:include name="Tasks"/>
 											<sf:exclude name="Account"/>
