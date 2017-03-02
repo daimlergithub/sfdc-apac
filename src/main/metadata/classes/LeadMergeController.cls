@@ -10,7 +10,7 @@
     2. Modified on 1-dec-2015    
 */
 
-public with sharing class LeadMergeController{
+public class LeadMergeController{
     // AccountMerge Page Variable
     public Lead__c master                   {get; set;}
     public Lead__c slave                    {get; set;}

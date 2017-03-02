@@ -25,7 +25,8 @@ public class TaskHelper {
     private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
     private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     private static String SalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
-    
+    private static String AfterSalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+
     // Get QC__c record type ids
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
     private static String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
@@ -940,7 +941,7 @@ public class TaskHelper {
                 }
                 }
         }
-        
+       
        for(Task t1 : tasks)
         {
         for(Lead__c le1 : lstLead)
@@ -997,11 +998,14 @@ public class TaskHelper {
                         le1.Trade_in_Date__c= t1.Activity_Date__c;
                         mainLead.add(le1); 
                     }
+                    else if(t1.intention_status__c=='Trade In' || t1.intention_status__c=='Test Drive' || t1.intention_status__c=='Simple Estimation' || t1.intention_status__c=='Finance Proposal' || t1.intention_status__c=='Product Proposal' && le1.RecordTypeID == AfterSalesLeadRectypeID)
+                    
+                     t1.addError('Please select appropriate activity for the Leads');
+                    }
                 }
            }
-        }
         update mainLead;
-        for(Lead__c led : lstLead){
+           for(Lead__c led : lstLead){
             if(led.Task_Update_Flag__c == False){
                 led.Task_Update_Flag__c = True;
                 updateLead.add(led);
