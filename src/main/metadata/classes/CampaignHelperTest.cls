@@ -44,7 +44,9 @@
             Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            RecordTypeId = topCampRecordTypeId
+            RecordTypeId = topCampRecordTypeId,
+            Child_Campaign_Status__c = 'Execution' ,
+            Set_List_Maintenance_Flag__c = false
         );
         insert top1;
                     
@@ -103,7 +105,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -159,12 +161,12 @@
         update objcampaign;
       
        /*Create Participating Dealer*/
-       Participating_Dealer__c pd = new Participating_Dealer__c (
+      /* Participating_Dealer__c pd = new Participating_Dealer__c (
            Dealer__c = dealer.Id,
            Campaign__c = objcampaign.Id
        );
        insert pd;
-      
+      */
 
         CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
         listcampaigns.add(objcampaign);

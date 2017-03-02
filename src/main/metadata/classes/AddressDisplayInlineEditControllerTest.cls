@@ -171,6 +171,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddressDisplayInlineEditController.addressobj=editadds[0];
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         objAddressDisplayInlineEditController.ValidateAddressSearch();
+        objAddressDisplayInlineEditController.SelectedAddress();
         test.stopTest();    
         system.assert(objAddressDisplayInlineEditController.addressobj!=Null);     
     }
@@ -223,7 +224,8 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
-        objAccount.Mobile__c = '999-999-9999';
+        objAccount.MD__c = 'JP';
+        //objAccount.Mobile__c = '999-999-9999';
         
         
         insert objAccount;
@@ -237,7 +239,9 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.Address_Type__c = 'Home';  
         objAddress.ZipCode__c ='1234567'; 
            objAddress.Address_Line_1__c = 'Banglore';
+            objAddress.MD__c = 'JP';
         insert objAddress;
+        
         system.debug('objAddress>>>>>'+objAddress.Id);
         
         editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,

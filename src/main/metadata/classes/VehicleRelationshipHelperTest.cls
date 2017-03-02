@@ -18,7 +18,7 @@ private class VehicleRelationshipHelperTest {
                                     Phone = '080801010',
                                     Area_Code__c = '010',
                                     LastName = 'Beijing XING Limited', MBK_Data_Source__c ='Email',
-                                     Mobile__c ='000-123-4567',                                   
+                                     Mobile__c ='0001234567',                                   
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
     static Account account2 = new Account(Dealer_Default_Flag__c=true,
@@ -28,7 +28,7 @@ private class VehicleRelationshipHelperTest {
                                     Phone = '080801011',
                                     Area_Code__c = '010',            
                                     Name = 'Test',MBK_Data_Source__c ='Email',
-                                     Mobile__c ='000-123-4567',                                  
+                                     Mobile__c ='0001234567',                                  
                                     RecordTypeId=accPerson_RecordTypeId);
     static Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = VRRecordTypeId);
     // CR-000119
@@ -67,7 +67,10 @@ private class VehicleRelationshipHelperTest {
        system.runAs(userObj){
        Test.StartTest();
             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;
+            //insert updatecustomsettings;
+       Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccount',Trigger_Name__c = 'TriggerAccount',Trigger_Handler__c = 'TriggerAccountTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
             List<Account> accList = new List<Account>();
             insert vehicles;
             accList.add(account1);
@@ -85,6 +88,7 @@ private class VehicleRelationshipHelperTest {
              insert vehiclelst;
            
             VehicleRelationshipHelper.shareVR(vehiclelst);
+            VehicleRelationshipHelper.updateRecall(vehiclelst);
             
         
          Test.stopTest();
