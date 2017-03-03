@@ -7811,10 +7811,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Colour__c</picklist>
             <values>
-                <fullName>182 Garnet and black</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>185 Garnet and black</fullName>
                 <default>false</default>
             </values>
@@ -10110,10 +10106,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>108 Rocky gray</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1216 BrightYellow</fullName>
                 <default>false</default>
@@ -15153,10 +15145,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>108 Rocky gray</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>112 Paint%2C chromite Black metallic</fullName>
                 <default>false</default>
@@ -20284,10 +20272,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-			<values>
-                <fullName>108 Rocky gray</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>112 Paint%2C chromite Black metallic</fullName>
                 <default>false</default>
@@ -25432,10 +25416,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>108 Rocky gray</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1216 BrightYellow</fullName>
                 <default>false</default>
