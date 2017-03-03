@@ -2043,9 +2043,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <label>SuspectAccountFields</label>
-    </fieldSets>
-    <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -4002,18 +3999,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
                 <fullName>QQ</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Alliance_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Alliance Offered Service</label>
-        <picklist>
             <picklistValues>
                 <fullName>NetEase</fullName>
                 <default>false</default>
@@ -4038,19 +4023,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
                 <fullName>Energy source</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Allmakes_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Allmakes Offered Service</label>
-        <picklist>
             <picklistValues>
                 <fullName>Central</fullName>
                 <default>false</default>
@@ -4260,19 +4232,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
                 <fullName>Hexun</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Allow_Data_Sharing2__c</fullName>
-        <externalId>false</externalId>
-        <label>Allow Data Sharing</label>
-        <picklist>
             <picklistValues>
                 <fullName>C 63 AMG web special</fullName>
                 <default>false</default>
@@ -4285,29 +4244,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
                 <fullName>A web special</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Allow_Data_Sharing__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to allow data sharing 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
-        <externalId>false</externalId>
-        <label>Allow Data Sharing</label>
-        <picklist>
             <picklistValues>
                 <fullName>Online Event Registration</fullName>
                 <default>false</default>
@@ -4322,29 +4258,6 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
                 <default>false</default>
                 <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Allow_Marketing_Info__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to allow sending marketing information 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
-        <externalId>false</externalId>
-        <label>Allow Marketing Info</label>
-        <picklist>
             <picklistValues>
                 <fullName>Loan data</fullName>
                 <default>false</default>
@@ -4359,119 +4272,6 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
                 <default>false</default>
                 <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>AnnualRevenue</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Annual_Mileage__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Number of kilometres the individual drives per year 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</description>
-        <externalId>false</externalId>
-        <label>Annual Mileage</label>
-        <precision>10</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Area_Code__c</fullName>
-        <description>Required by business during the workshop, which exists in current avarto system ( 区号).</description>
-        <externalId>false</externalId>
-        <label>Area Code</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Assigned_Lead_Amount_of_Everyday__c</fullName>
-        <description>/* 
-Created by: Mouse Liu 
-Used by: Lead__c (US-Lead-15) 
-Function: Caculate Amount of assigned leads every day
-
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <externalId>false</externalId>
-        <label>*Assigned Lead Amount of Everyday</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>At_Least_One_Phone__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR
-(
-LEN(PersonMobilePhone) &lt;&gt; 0,
-LEN( PersonOtherPhone ) &lt;&gt; 0,
-LEN( PersonHomePhone ) &lt;&gt; 0,
-LEN( Phone ) &lt;&gt; 0
-), "Yes","No")</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>At Least One Phone</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Base_Flex__c</fullName>
-        <externalId>false</externalId>
-        <label>Base Flex</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>Batch_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Batch No.</label>
-        <length>2560</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>2</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Behavioural_Group__c</fullName>
-        <externalId>false</externalId>
-        <label>Behavioural Group</label>
-        <picklist>
             <picklistValues>
                 <fullName>mymb</fullName>
                 <default>false</default>
@@ -4502,56 +4302,6 @@ LEN( Phone ) &lt;&gt; 0
                 <default>false</default>
                 <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>BillingAddress</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Branch_name_ENG__c</fullName>
-        <externalId>false</externalId>
-        <label>Branch Name ENG</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Branch_name_Native__c</fullName>
-        <externalId>false</externalId>
-        <label>Branch Name Native</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Branch_name__c</fullName>
-        <externalId>false</externalId>
-        <label>Branch name (CHS)</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Bus_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Bus Offered Service</label>
-        <picklist>
             <picklistValues>
                 <fullName>MB Arena</fullName>
                 <default>false</default>
@@ -4577,19 +4327,6 @@ LEN( Phone ) &lt;&gt; 0
                 <fullName>iQiyi</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Business_Unit__c</fullName>
-        <externalId>false</externalId>
-        <label>Business Unit</label>
-        <picklist>
             <picklistValues>
                 <fullName>Google</fullName>
                 <default>false</default>
@@ -4939,90 +4676,6 @@ Allows up to 240 characters</inlineHelpText>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Anti Bribery Confirmation</label>
-        <fullName>Car_Owner_Club__c</fullName>
-        <externalId>false</externalId>
-        <label>Car Owner Club</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AMG Private Lounge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK Club</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG Club</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Club</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Car_Sales_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Car Sales Region</label>
-        <picklist>
-            <picklistValues>
-                <fullName>STHN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NTHN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Eastern Region</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Cars_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars Offered Service</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance &amp; Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -5330,84 +4983,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
                 <fullName>Hino</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Company__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Company</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Accounts (Company)</relationshipLabel>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Complaint_Amount__c</fullName>
-        <defaultValue>0</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Complaint_Priority__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Complaint Priority</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Contact_Background__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Background information on the customer the customer's or any family member's background is with the government 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</description>
-        <externalId>false</externalId>
-        <label>Contact Background</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Corporate_Program__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Corporate Program</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Country__c</fullName>
-        <externalId>false</externalId>
-        <label>Country</label>
-        <picklist>
             <picklistValues>
                 <fullName>Holden</fullName>
                 <default>false</default>
@@ -5500,42 +5075,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Created_By_EP_Transaction__c</fullName>
-        <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The integration layer (EP) needs this field for defect handling and debugging:</inlineHelpText>
-        <label>Created By EP Transaction</label>
-        <length>20</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Credit_License_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Credit License Number</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Credit_License__c</fullName>
-        <externalId>false</externalId>
-        <label>Credit License</label>
-        <picklist>
             <picklistValues>
                 <fullName>New Holland</fullName>
                 <default>false</default>
@@ -5548,18 +5087,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Peugeot</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>CustomerPriority__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Priority</label>
-        <picklist>
             <picklistValues>
                 <fullName>Porsche</fullName>
                 <default>false</default>
@@ -5572,18 +5099,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <fullName>Renault Cars</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Customer_Lifecycle_Phase__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer phase</label>
-        <picklist>
             <picklistValues>
                 <fullName>Renault Trucks</fullName>
                 <default>false</default>
@@ -6283,14 +5798,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>MBC POS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Special lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8268,19 +7775,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Rental</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Cars_Dlr_Class_After_Sales__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars Dlr Class After Sales</label>
-        <picklist>
-           <picklistValues>
+            <picklistValues>
                 <fullName>Taxis</fullName>
                 <default>false</default>
             </picklistValues>
@@ -8300,18 +7795,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Large Fleet</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Cars_Dlr_Class_Sales__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars Dlr Class Sales</label>
-        <picklist>
             <picklistValues>
                 <fullName>Fleet Buyer</fullName>
                 <default>false</default>
@@ -8336,67 +7819,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <fullName>Sprinter Body Builder</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Cars_OES_Survey_Targets_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars OES Survey Targets - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Cars_PES_Targets_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars PES Targets - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Cars_POV_Targets_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars POV Targets - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_City_EN__c</fullName>
-        <description>Changed from the name city
-Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
-        <externalId>false</externalId>
-        <label>Dealer City EN</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Competitors__c</fullName>
-        <externalId>false</externalId>
-        <label>Competitors</label>
-        <picklist>
             <picklistValues>
                 <fullName>Internal</fullName>
                 <default>false</default>
@@ -8847,114 +8269,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Music (popular)</fullName>
                 <default>false</default>
             </picklistValues>
-                <fullName>Western Star</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Complaint_Manager_Email__c</fullName>
-        <description>Email of Complaint Manager from GSSN</description>
-        <externalId>false</externalId>
-        <label>Dealer Complaint Manager Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Complaint_Manager__c</fullName>
-        <description>Dealer Sales Contact - updated by the GSSN system 
-Read only in SFDC 
-Rich text field with : Name (Chinese + English), Phone and Email</description>
-        <externalId>false</externalId>
-        <label>Dealer Complaint Manager</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>10</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_AS_Code_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer DMS AS Code 2</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_AS_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer DMS AS Code 1</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_CRM_Code_2__c</fullName>
-        <description>Used for dealer mapping</description>
-        <externalId>false</externalId>
-        <label>Dealer DMS CRM Code 2</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_CRM_Code__c</fullName>
-        <description>Used for dealer mapping</description>
-        <externalId>false</externalId>
-        <label>Dealer DMS CRM Code 1</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_SR_Code_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer DMS SR Code 2</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS_SR_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer DMS SR Code 1</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_DMS__c</fullName>
-        <externalId>false</externalId>
-        <label>DMS</label>
-        <picklist>
             <picklistValues>
                 <fullName>Music (classical)</fullName>
                 <default>false</default>
@@ -9063,40 +8377,6 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <fullName>Collecting (watches)</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Dated_Started_Fuso__c</fullName>
-        <externalId>false</externalId>
-        <label>Dated Started Fuso</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Dated_Started_MBAuP__c</fullName>
-        <externalId>false</externalId>
-        <label>Dated Started MBAuP</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Dealership_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealership Type</label>
-        <picklist>
             <picklistValues>
                 <fullName>Collecting (Cigars)</fullName>
                 <default>false</default>
@@ -9165,111 +8445,6 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <fullName>Dinner</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Default_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Function:  Indicates that this dealer is unique and should be visible in SFDC.  Defined by the GSSN interface. 
-
-Feb18-2013-  Rob and Falk - based on GSSN interface requirements</description>
-        <externalId>false</externalId>
-        <label>Dealer Default Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Due_Diligence__c</fullName>
-        <externalId>false</externalId>
-        <label>Due Diligence</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Email_System__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Email System</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Email__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Dealer's general email address 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_Email"</description>
-        <externalId>false</externalId>
-        <label>Dealer Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Emergency_Number__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: A phone number provided by the dealer for emergency cases outside of business hours 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_EmergencyNumber"</description>
-        <externalId>false</externalId>
-        <label>Dealer Emergency Number</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Fax_Parts__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Fax (Parts)</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Fax_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Fax (Service)</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Financial_Service_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Financial Service Region</label>
-        <picklist>
             <picklistValues>
                 <fullName>Flying</fullName>
                 <default>false</default>
@@ -9363,25 +8538,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_EmergencyNumber"</descript
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Floor_Plan_Partner__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Floor Plan Partner</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Floor_Plan_Value__c</fullName>
-        <externalId>false</externalId>
-        <label>Floor Plan Value</label>
-        <precision>18</precision>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -9457,49 +8613,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_EmergencyNumber"</descript
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_ICC_Dealer_Code_Cars__c</fullName>
-        <externalId>false</externalId>
-        <label>ICC Dealer Code Cars</label>
-        <length>25</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_ICC_Dealer_Code_Freightliner__c</fullName>
-        <externalId>false</externalId>
-        <label>ICC Dealer Code Freightliner</label>
-        <length>25</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_ICC_Dealer_Code_Fuso__c</fullName>
-        <externalId>false</externalId>
-        <label>ICC Dealer Code Fuso</label>
-        <length>25</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_ICC_Dealer_Code_MB_Trucks__c</fullName>
-        <externalId>false</externalId>
-        <label>ICC Dealer Code MB Trucks</label>
-        <length>25</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9856,7 +8969,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -9880,47 +8992,6 @@ Modify Reason:
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Parent_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Parent Dealer</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Phone_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Phone (Service)</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Phone</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Portal_Modules__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Portal Modules</label>
-        <picklist>
             <picklistValues>
                 <fullName>Partners</fullName>
                 <default>false</default>
@@ -9937,54 +9008,6 @@ Modify Reason:
                 <fullName>Newspaper/Magazine</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Presales_Email__c</fullName>
-        <description>Email of Presales inquiry responsible person from GSSN</description>
-        <externalId>false</externalId>
-        <label>Dealer Presales Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Presales__c</fullName>
-        <description>Dealer PreSales Contact - updated by the GSSN system 
-Read only in SFDC 
-Rich text field with : Name (Chinese + English), Phone and Email</description>
-        <externalId>false</externalId>
-        <label>Dealer Presales</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>10</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Province__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Province</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Reason_for_Inactivation__c</fullName>
-        <externalId>false</externalId>
-        <label>MB Reason for Inactivation</label>
-        <picklist>
             <picklistValues>
                 <fullName>Activity</fullName>
                 <default>false</default>
@@ -10064,126 +9087,6 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Representative__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Representative</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_SAP_MB_Trucks_Freightliner__c</fullName>
-        <externalId>false</externalId>
-        <label>SAP MB Trucks/Freightliner</label>
-        <length>8</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_SPICS_II_Cars__c</fullName>
-        <externalId>false</externalId>
-        <label>SPICS II Cars</label>
-        <length>8</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_SPICS_II_MB_Trucks_Freigthliner__c</fullName>
-        <externalId>false</externalId>
-        <label>SPICS II MB Trucks/Freigthliner</label>
-        <length>8</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_SPICS_II_Vans__c</fullName>
-        <externalId>false</externalId>
-        <label>SPICS II Vans</label>
-        <length>8</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_SSI_Participation__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Status of dealer's participation in the SSI program 
-Used in: Page Layouts, Reports 
-
-Modify History March 03, 2013
-Modify By: Lio Huang
-Modify Reason: Added the prefix "Dealer", which indicates this field will only be used at dealer
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_NoSSI"</description>
-        <externalId>false</externalId>
-        <label>Dealer SSI Participation</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Sales_Manager_Email__c</fullName>
-        <description>Email of Sales Manager from GSSN</description>
-        <externalId>false</externalId>
-        <label>Dealer Sales Manager Email</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Sales_Manager__c</fullName>
-        <description>Dealer Sales Contact - updated by the GSSN system
-Read only in SFDC
-Textbox field with : Name (Chinese + English), Phone and Email</description>
-        <externalId>false</externalId>
-        <label>Dealer Sales Manager</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Sales_Type__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: The sales type of dealer 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_SalesType"</description>
-        <externalId>false</externalId>
-        <label>Dealer Sales Type</label>
-        <picklist>
             <picklistValues>
                 <fullName>User Guide</fullName>
                 <default>false</default>
@@ -10214,32 +9117,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_SalesType"</description>
                 <controllingFieldValues>Radio</controllingFieldValues>
                 <controllingFieldValues>TV Advertising</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Sales_func__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Dealer Sales Function</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Service_Codes__c</fullName>
-        <description>Dealer Services - based on the GSSN interface for the Dealer ActivityDefCodes
-
-Feb-18-2012: Added by Rob and Falk
-Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
-        <externalId>false</externalId>
-        <label>Dealer Service Codes</label>
-        <picklist>
             <picklistValues>
                 <fullName>Other Activity</fullName>
                 <default>false</default>
@@ -10360,59 +9237,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Service_Func__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Dealer Service Function</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Suburb__c</fullName>
-        <externalId>false</externalId>
-        <label>Suburb</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trading_Hours_Parts__c</fullName>
-        <externalId>false</externalId>
-        <label>Trading Hours Parts</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trading_Hours_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Trading Hours Service</label>
-        <length>500</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trucks_Dlr_Class_Sales__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks Dlr Class Sales</label>
-        <picklist>
             <picklistValues>
                 <fullName>MB official website</fullName>
                 <default>false</default>
@@ -10428,42 +9252,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trucks_OES_Survey_Targets_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks OES Survey Targets - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trucks_PES_Target_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks PES Target - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trucks_Sales_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks Sales Region</label>
-        <picklist>
             <picklistValues>
                 <fullName>smart official website</fullName>
                 <default>false</default>
@@ -10479,18 +9267,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Trucks_Service_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks Service Region</label>
-        <picklist>
             <picklistValues>
                 <fullName>Sina Blog</fullName>
                 <default>false</default>
@@ -10530,42 +9306,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Vans_OES_Survey_Targets_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Vans OES Survey Targets - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Vans_PES_Target_Yearly__c</fullName>
-        <externalId>false</externalId>
-        <label>Vans PES Target - Yearly</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Vans_Sales_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Vans Sales Region</label>
-        <picklist>
             <picklistValues>
                 <fullName>B-Class</fullName>
                 <default>false</default>
@@ -10574,18 +9314,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>C-Class</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Vans_Service_Region__c</fullName>
-        <externalId>false</externalId>
-        <label>Vans Service Region</label>
-        <picklist>
             <picklistValues>
                 <fullName>C-Class Coupe</fullName>
                 <default>false</default>
@@ -10598,18 +9326,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>C-Class Stationwagon</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_Vehicle_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Products</label>
-        <picklist>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
@@ -10646,51 +9362,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>E-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Warranty_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Warranty Code</label>
-        <length>5</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Website__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Website</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Dealer_smart_Sub_Region__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Subregion of Smart dealer 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</description>
-        <externalId>false</externalId>
-        <label>Dealer smart Sub-Region</label>
-        <picklist>
-            <controllingField>Dealer_Region__c</controllingField>
             <picklistValues>
                 <fullName>E-Class Sedan</fullName>
                 <default>false</default>
@@ -10723,161 +9394,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Deceased__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to identify if contact is still alive 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
-        <externalId>false</externalId>
-        <label>Deceased</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Description</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Display_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Display Name</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Driver_License_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Driver License Number</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Driver_License_Validity_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Driver License Valid_date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Driver_License_Year__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Year the contact got driver's license 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_DriversLicenseYear"</description>
-        <externalId>false</externalId>
-        <label>Driver License Year</label>
-        <length>4</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Driver_License__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Whether the person has driver's license or not 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_DriversLicenseFlag"</description>
-        <externalId>false</externalId>
-        <label>Driver License</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Dup_Reason__c</fullName>
-        <description>Duplication reason for suspected duplication to be filled by EP</description>
-        <externalId>false</externalId>
-        <label>Dup Reason</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dupe_Merge__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)),   HYPERLINK('/apex/AccountMerge?id=' +  Id , 'Merge ' + DUP_Number__pc ), '' )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Dupe Merge</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dupe_Reject__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)), HYPERLINK('/apex/AccountMerge?id=' + Id , 'Reject ' + DUP_Number__pc ), '' )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Dupe Reject</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Education__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: The education level of the person 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_Education"</description>
-        <externalId>false</externalId>
-        <label>Education</label>
-        <picklist>
             <picklistValues>
                 <fullName>Maybach</fullName>
                 <default>false</default>
@@ -10934,98 +9450,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
                 <fullName>smart Electric Car</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Email2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-Mail</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified By 2</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-mail ModifiedBy</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified Date 2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date3__c</fullName>
-        <externalId>false</externalId>
-        <label>Other E-mail ModifiedDate</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Last Modified Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Email_Status_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Status 2</label>
-        <picklist>
             <picklistValues>
                 <fullName>V-Class</fullName>
                 <default>false</default>
@@ -11063,19 +9487,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
                 <fullName>Concert/Event</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Email_Status__c</fullName>
-        <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
-        <externalId>false</externalId>
-        <label>Email Status</label>
-        <picklist>
             <picklistValues>
                 <fullName>New Vehicle Lunch event</fullName>
                 <default>false</default>
@@ -11092,18 +9503,6 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
                 <fullName>Test Drive promotion</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Email_Validity__c</fullName>
-        <externalId>false</externalId>
-        <label>Email Validity</label>
-        <picklist>
             <picklistValues>
                 <fullName>Finance&amp;Investment technology seminar</fullName>
                 <default>false</default>
@@ -11781,49 +10180,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <fullName>Pilot</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Finance_Sanction_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>YH memo</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Finance_Sanction__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>YH Flag(Finance)</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>FirstName_Native_1__c</fullName>
-        <externalId>false</externalId>
-        <label>First Name Native</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Fleet_Category__c</fullName>
-        <externalId>false</externalId>
-        <label>Fleet Category</label>
-        <picklist>
             <picklistValues>
                 <fullName>Politician</fullName>
                 <default>false</default>
@@ -12021,74 +10377,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <fullName>Neighbor</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>GPS_Coordinates__c</fullName>
-        <displayLocationInDecimal>false</displayLocationInDecimal>
-        <externalId>false</externalId>
-        <label>Dealer GPS</label>
-        <required>false</required>
-        <scale>1</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Location</type>
-    </fields>
-    <fields>
-        <fullName>GSSN_Brand_Code_Sub_B__c</fullName>
-        <externalId>false</externalId>
-        <label>GSSN Brand Code Sub "B"</label>
-        <length>35</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GSSN_Brand_Code_Sub_C_D__c</fullName>
-        <externalId>false</externalId>
-        <label>GSSN Brand Code Sub "C"/ "D"</label>
-        <length>47</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GSSN_Brand_Main_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>GSSN Brand Main Code</label>
-        <length>6</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Gender__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Gender of the person 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
-        <externalId>false</externalId>
-        <label>Gender</label>
-        <picklist>
             <picklistValues>
                 <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
@@ -12129,40 +10417,6 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <fullName>Golf Digest</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Gov_Background__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag if the customer or any family members 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_BackgroundGov"</description>
-        <externalId>false</externalId>
-        <label>Gov Background</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Hobby__c</fullName>
-        <description>Hobbies of the customer
-Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
-        <externalId>false</externalId>
-        <label>Hobby</label>
-        <picklist>
             <picklistValues>
                 <fullName>Golf Herald</fullName>
                 <default>false</default>
@@ -13000,7 +11254,6 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -14337,20 +12590,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Account + Code</label>
         <required>false</required>
-        <label>Legal Form Position</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pre</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -14388,12 +12627,11 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Last Successful Call Check</label>
         <required>false</required>
-		<scale>0</scale>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>R_NO_HouseHold__c</fullName>
         <externalId>false</externalId>
         <formula>if(Household_Amount__c  &gt; 9,'Y','N')</formula>
@@ -14438,36 +12676,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <label>MBFS Truck Offered Service</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance &amp; Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
@@ -14526,7 +12734,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -15129,16 +13336,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>PC_Tenure__c</fullName>
-        <externalId>false</externalId>
-        <label>PC Tenure</label>
-        <precision>2</precision>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -15655,17 +13852,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Preferred_Contact_Time__c</fullName>
-        <description>Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</description>
-        <externalId>false</externalId>
-        <label>Preferred Contact Time</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -15779,58 +13965,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Media</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Magazine__c</fullName>
-        <externalId>false</externalId>
-        <label>Prefered magazine</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Preferred_Mobile_1__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Preferred Mobile 1</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Mobile_2__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Preferred Mobile 2</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Newspaper__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Newspaper</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Preferred_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Phone</label>
-        <picklist>
             <picklistValues>
                 <fullName>Benz employee's lineal relative</fullName>
                 <default>false</default>
@@ -15849,7 +13983,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -16113,47 +14246,17 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
     </fields>
     <fields>
         <fullName>Vehicle_Amount__c</fullName>
-        <description>/*Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
-        <externalId>false</externalId>
-        <label>Province</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Province1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>R_Account18ID__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASESAFEID(Id)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Account18ID</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Car_Owner_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c,'Customer'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Car Owner Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_Address__c</fullName>
+        <description>/* 
+Created by: Tony Li 
+Used by: Tony Li 
+Function: Number of cars in household 
+Used in: Page Layouts, Reports 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/
+Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
         <externalId>false</externalId>
         <label>Vehicle Amount</label>
         <precision>3</precision>
@@ -17949,97 +16052,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SoHu</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Star_Elite_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Retail Star Elite Owner</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>RetailStarEliteOwner</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Work_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Work Phone</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_ZipCode__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail ZipCode</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_smart_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Retail smart Owner</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>RetailsmartOwner</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>SF_Dealer_ID__c</fullName>
-        <displayFormat>SF-{00000}</displayFormat>
-        <externalId>false</externalId>
-        <label>SF Dealer ID</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
-    </fields>
-    <fields>
-        <fullName>SLAExpirationDate__c</fullName>
-        <externalId>false</externalId>
-        <label>SLA Expiration Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>SLASerialNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>SLA Serial Number</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SLA__c</fullName>
-        <externalId>false</externalId>
-        <label>SLA</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Gold</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18056,63 +16068,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Tmall Sina Alipay</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SMS_Last_Modified_By2__c</fullName>
-        <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified By 2</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SMS_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SMS_Last_Modified_Date2__c</fullName>
-        <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified Date 2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>SMS_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>SMS/MMS/IM Last Modified Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>SMS_MMS_IM_Status_2__c</fullName>
-        <externalId>false</externalId>
-        <label>SMS / MMS / IM Status 2</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18121,46 +16076,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>VVIP</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Sales_Address_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sales Address Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Sales_Sanction_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Memo</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Sales_Sanction__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Flag</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>A</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18185,24 +16100,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>XCP</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SelecTrucks_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>SelecTrucks Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18246,45 +16143,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Dealer_Allocation__c</picklist>
             <values>
                 <fullName>Both</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>ShippingAddress</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Sic</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>SicDesc</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Site</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Smarts_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Smarts Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18315,79 +16173,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Dealer_Cars_Dlr_Class_After_Sales__c</picklist>
             <values>
                 <fullName>Authorized</fullName>
-				<default>false</default>
-			</values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Social_Media_Parameter__c</fullName>
-        <description>Social Media Account Paramenter</description>
-        <externalId>false</externalId>
-        <label>Social Media Parameter</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Southpac_Dealer_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Southpac Dealer Code</label>
-        <length>7</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Southpac_SAP_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Southpac SAP No</label>
-        <length>7</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Special_Care__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Special requirement of the individual if any 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</description>
-        <externalId>false</externalId>
-        <label>Special Care</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Special_Mark_on_Account__c</fullName>
-        <externalId>false</externalId>
-        <label>Special Mark on Account</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18442,24 +16227,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </values>
             <values>
                 <fullName>Audi</fullName>
-				<default>false</default>
-			</values>
-        </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Special_Needs_Class__c</fullName>
-        <externalId>false</externalId>
-        <label>Special Needs Class</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18484,33 +16251,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </values>
             <values>
                 <fullName>Dodge</fullName>
-				 <default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Special_Needs_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Reference number (welfare vehicle) Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Special_Vehicle_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Special Vehicle Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18535,62 +16275,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </values>
             <values>
                 <fullName>Great Wall</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Star_Elite_Account_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Star Elite Account Owner</label>
-        <lookupFilter>
-            <active>false</active>
-            <filterItems>
-                <field>User.IsActive</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <filterItems>
-                <field>User.UserRole.Name</field>
-                <operation>contains</operation>
-                <value>Used Car DM</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Accounts1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Status__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Current status of the person in relation to Daimler 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
-        <externalId>false</externalId>
-        <label>Status</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Customer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18615,25 +16299,6 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </values>
             <values>
                 <fullName>Hummer</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Suffix__c</fullName>
-        <description>Suffix - shall be displayed together with Title Fist Name &amp; Surname</description>
-        <externalId>false</externalId>
-        <label>Suffix</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>jr.</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18670,174 +16335,6 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </values>
             <values>
                 <fullName>Kenworth</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>System_Data_Source__c</fullName>
-        <description>/*
-Created by: Lio Huang
-Used by: Integration
-Function: This field will not be in any page layout, read only for all profile as it is updated by integration.
-Used in: Integration
-
-Modify History
-Modify By:
-Modify Reason:
-*/</description>
-        <externalId>false</externalId>
-        <label>System Data Source</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TSP_Account_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>TSP Account Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>TSP_Account_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>TSP Account Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>TSP_Address__c</fullName>
-        <externalId>false</externalId>
-        <label>TSP Address</label>
-        <length>80</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TSP_Closed_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>TSP Closed Reason</label>
-        <length>80</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TSP_Esa_Flg__c</fullName>
-        <externalId>false</externalId>
-        <label>TSP Esa Flg</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>TickerSymbol</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Tier_1__c</fullName>
-        <externalId>false</externalId>
-        <label>Tier 1</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Tier_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Tier 2</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Tier_3__c</fullName>
-        <externalId>false</externalId>
-        <label>Tier 3</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Timestamps__c</fullName>
-        <externalId>false</externalId>
-        <label>Timestamps</label>
-        <length>2048</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>2</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Title__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Salutation to client (in personal contact or via mail) 
-Used in: Page Layouts, Reports 
-
-Modify History: March 1st
-Modify By: Lio Huang
-Modify Reason: Changed the values between Title and salutation, also removed the prefix "Contact_"
-*/
-Attribute in Data Dictionary object Contact is "Contact_Salutation"</description>
-        <externalId>false</externalId>
-        <label>Title</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Dear</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18858,45 +16355,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Mack</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Total_Flex__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Flex</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>TransTest__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(Primary_Address_Reference__r.Province__c)</formula>
-        <label>TransTest</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Trucks_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Trucks Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18921,23 +16379,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Mitsubishi</fullName>
-				<default>false</default>
-            </values>
-           </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Type</fullName>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Company</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19045,39 +16486,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Updated_By_EP_Transactions__c</fullName>
-        <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The integration layer (EP) needs this field for defect handling and debugging:</inlineHelpText>
-        <label>Updated By EP Transactions</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>UpsellOpportunity__c</fullName>
-        <externalId>false</externalId>
-        <label>Upsell Opportunity</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Maybe</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Auto Mac</fullName>
@@ -19101,35 +16510,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>VAN_No_Brand_Purchases__c</fullName>
-        <externalId>false</externalId>
-        <label>VAN No. Brand Purchases</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>VAN_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>VAN Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Prospect</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19142,45 +16522,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Leading Hand</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>VAN_Tenure__c</fullName>
-        <externalId>false</externalId>
-        <label>VAN Tenure</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>VIP__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>VIP Indicator</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Vans_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Vans Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19205,117 +16546,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             </values>
             <values>
                 <fullName>Quick Books</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Vat_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Vat No</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Amount__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Number of cars in household 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
-        <externalId>false</externalId>
-        <label>Vehicle Amount</label>
-        <precision>3</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vendor_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Vendor Code</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Visit_Opt_Out__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Visit Opt Out</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Vol_NAF_Bonus1__c</fullName>
-        <externalId>false</externalId>
-        <label>Vol NAF Bonus</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vol_NAF_Bonus2__c</fullName>
-        <externalId>false</externalId>
-        <label>Vol NAF Bonus</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vol_NAF_Bonus3__c</fullName>
-        <externalId>false</externalId>
-        <label>Vol NAF Bonus</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Website</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Western_Star_Offered_Service__c</fullName>
-        <externalId>false</externalId>
-        <label>Western Star Offered Service</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19340,96 +16570,6 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
             </values>
             <values>
                 <fullName>VQS</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Wholesale_Offset__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Wholesale Offset</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Winbeat_Dealer_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Winbeat Dealer Code</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Winbeat_SAP_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Winbeat SAP No</label>
-        <length>16</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Last_Modified_By2__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone Last Modified By 2</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Last_Modified_Date2__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone Last Modified Date 2</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone Last Modified Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Status_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone Status 2</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Duplicate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19452,25 +16592,6 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
             </values>
             <values>
                 <fullName>STHN</fullName>
-				<default>false</default>
-            </values>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Work_Phone_Status__c</fullName>
-        <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
-        <externalId>false</externalId>
-        <label>Work Phone Status</label>
-        <picklist>
-            <picklistValues>
-			<values>
-                <fullName>Duplicate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19504,202 +16625,6 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
                 <default>false</default>
             </values>
         </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Work_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Work Phone</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>ZipCode__c</fullName>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Zip Code (Post Code) of customer's address 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
-        <externalId>false</externalId>
-        <label>ZipCode</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>smart_Account_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is only required if Dealer also sell Smart Car. This field can only be updated by dedicated user.smart DM</description>
-        <externalId>false</externalId>
-        <label>smart Account Owner</label>
-        <lookupFilter>
-            <active>false</active>
-            <filterItems>
-                <field>User.IsActive</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <filterItems>
-                <field>User.UserRole.Name</field>
-                <operation>contains</operation>
-                <value>smart DM</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <listViews>
-        <fullName>AllAccounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>ZipCode__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CREATEDBY_USER.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>Primary_Address__c</columns>
-        <columns>Primary_Address_Validity__c</columns>
-        <columns>Customer_Number__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.PersonAccount</value>
-        </filters>
-        <label>All Customer Accounts</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>WholeSale_CallCenter</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>AllDealerAccounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Dealer_ND_Code__c</columns>
-        <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_Lead_System__c</columns>
-        <columns>Dealer_DMS_CRM_Code__c</columns>
-        <columns>Dealer_DMS_SR_Code__c</columns>
-        <columns>Dealer_DMS_AS_Code__c</columns>
-        <columns>Dealer_Region__c</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>Dealer_City_EN__c</columns>
-        <columns>Dealer_Active__c</columns>
-        <columns>ACCOUNT.LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>All dealers</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>All_3rd_Party_Data</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>PC_SALUTATION</columns>
-        <columns>PC_BIRTHDATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>PC_FIRST_NAME</columns>
-        <columns>PC_LEAD_SOURCE</columns>
-        <columns>PC_LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.ThirdParty</value>
-        </filters>
-        <label>All third-party data</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>MBDA_DM</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Status__c</field>
-            <operation>equals</operation>
-            <value>Driving Academy</value>
-        </filters>
-        <label>MBDA_Personal account_DM</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>MyAccounts</fullName>
-        <filterScope>Mine</filterScope>
-        <label>My Accounts</label>
-    </listViews>
-    <listViews>
-        <fullName>NewLastWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>LAST_WEEK</value>
-        </filters>
-        <label>New Last Week</label>
-    </listViews>
-    <listViews>
-        <fullName>NewThisWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>THIS_WEEK</value>
-        </filters>
-        <label>New This Week</label>
-    </listViews>
-    <listViews>
-        <fullName>PlatinumandGoldSLACustomers</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <label>Platinum and Gold SLA Customers</label>
-    </listViews>
-    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <recordTypes>
-        <fullName>Company</fullName>
-        <active>true</active>
-        <label>Company</label>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
             <values>
@@ -20538,18 +17463,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Special lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special lease for employees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-				<default>false</default>
-            </values>
-			<values>
                 <fullName>Golf</fullName>
                 <default>false</default>
             </values>
@@ -30076,18 +26989,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Special lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special lease for employees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Survey</fullName>
-				<default>false</default>
-            </values>
-			<values>
                 <fullName>Holden</fullName>
                 <default>false</default>
             </values>
@@ -35246,5 +32147,3 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
-
-
