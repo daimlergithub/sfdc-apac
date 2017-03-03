@@ -639,8 +639,7 @@
                                     <option value="Special_Mark_on_Account__c">{!$ObjectType.Account.Fields.Special_Mark_on_Account__c.Label}</option>
                                     <option value="PersonBirthdate">{!$ObjectType.Account.Fields.PersonBirthdate.Label}</option>
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
-                                    <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>
-                                    <option value="Special_Mark_on_Account__c">{!$ObjectType.Account.Fields.Special_Mark_on_Account__c.Label}</option>                                    
+                                    <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
                                     <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
                                     <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
@@ -681,11 +680,7 @@
                     </table>
                     <div class="criteriaLink">
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'AND', false);">{!$Label.And_Criteria}</a>
-                        <!--
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'OR', false);">Or Criteria</a>
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'AND', true);">And (Bracket)</a>
-                        <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('customerTable', 'OR', true);">Or (Bracket)</a>
-                        -->
+                        
                     </div>
                 </div>
                 <hr style="margin-left:20px; width:650px;"/>
@@ -724,19 +719,14 @@
                                 </select>
                             </td>
                             <td class="criteria">
-                                <!--<input class="inputText" type="text"/>-->
+                               
                                 <input class="inputText" type="text" style="display:block;"/>
-                               <!-- <apex:inputField value="{!AlkRec.Sales_Representative__c}" styleClass="Sales_Representative__c" style="display:block;"/>   -->                            
+                                                        
                                
                               <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailSalesSanction}"></apex:selectOptions>
                                 </apex:selectList>                                                              
-                              <!--<apex:inputField value="{!AlkRec.Retail_Sales_Sanction__c}" styleClass="Retail_Sales_Sanction__c" />
-                              <apex:inputField value="{!AlkRec.Retail_Visit_OptOut__c}" styleClass="Retail_Visit_OptOut__c" />   
-                              <apex:inputField value="{!AlkRec.Retail_Postal_OptOut__c}" styleClass="Retail_Postal_OptOut__c"/>
-                              <apex:inputField value="{!AlkRec.Retail_Phone_OptOut__c}" styleClass="Retail_Phone_OptOut__c"  />
-                              <apex:inputField value="{!AlkRec.Retail_Fax_OptOut__c}" styleClass="Retail_Fax_OptOut__c"  />
-                              <apex:inputField value="{!AlkRec.Retail_Email_OptOut__c}" styleClass="Retail_Email_OptOut__c" />-->
+                             
                               <apex:inputField value="{!AlkRec.Portal_ID__c}" styleClass="Portal_ID__c" /> 
                               
                                <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="1" multiselect="false">
@@ -1094,7 +1084,7 @@
             <hr/>
             
             <apex:outputPanel layout="block" id="searchingResult">
-                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult" status="loadingStatus"
+                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;"/>
                 <apex:actionStatus id="loadingStatus">
@@ -1104,19 +1094,22 @@
                 </apex:actionStatus>
                 
                 <div style="margin:6px;">Records: {!IF(accounts == null, 0, accounts.size)}</div>
-                <apex:outputPanel >
+                <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>
-                    <apex:pageBlockTable value="{!limitAccounts}" var="account" rows="100" rendered="{!limitAccounts != null && limitAccounts.size > 0}">
-                        <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
-                            <apex:outputLink value="/{!account.Id}">{!account.Name}</apex:outputLink>
+                    
+                    <apex:pageBlockTable value="{!wrapAccountList}" var="wrapAcc" rows="100" rendered="{!wrapAccountList != null && wrapAccountList.size > 0}">
+                        <apex:column headerValue="Select">
+                            <apex:inputCheckbox value="{!wrapAcc.isSelected}"/>
                         </apex:column>
-                        <apex:column value="{!account.PersonHomePhone}"/>
-                        <apex:column value="{!account.PersonMobilePhone}"/>
-                        <apex:column value="{!account.Phone}"/>
-                        <apex:column value="{!account.PersonEmail}"/>
+                        <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                            <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!wrapAcc.acc.PersonHomePhone}"/>
+                        <apex:column value="{!wrapAcc.acc.PersonMobilePhone}"/>
+                        <apex:column value="{!wrapAcc.acc.Phone}"/>
+                        <apex:column value="{!wrapAcc.acc.PersonEmail}"/>
                        
                     </apex:pageBlockTable>
-  
                 </apex:outputPanel>
             </apex:outputPanel>
         </apex:pageBlock>

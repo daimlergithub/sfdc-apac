@@ -393,7 +393,7 @@ public without sharing class RetailCampaignSegmentationController {
                         indexs.add(acc.name + phone);
                     }
                 }
-                
+                system.debug('test 1'+accountMap);
                 // Has Referral Record filter
                 if(accountMap.isEmpty()){ return null; }
                 
@@ -405,7 +405,7 @@ public without sharing class RetailCampaignSegmentationController {
                         accountMap.put(lead.Referal_Referee_Name__r.AccountId, clonedAccountMap.get(lead.Referal_Referee_Name__r.AccountId));
                     }
                 }
-                
+                system.debug('test 1'+accountMap);
                 // No Complaint filter
                 if(accountMap.isEmpty()){ return null; }
                 
@@ -422,14 +422,17 @@ public without sharing class RetailCampaignSegmentationController {
                     return null;
                 }
                 
+                
                 // Total Amount Spend On Car Service filter
                 if(accountMap.isEmpty() || Contact == null){ 
                 for(String id : accountMap.keyset()) {
                     addAccountIds.add(id);
                 }
-                accounts = accountMap.values(); 
+                accounts = accountMap.values();
+                system.debug('calling load wrapper'); 
+                loadWrapAccounts();
                 return null; }
-                
+                system.debug('near loadwrapper');
                 if(carServiceAmount != null){
                 
                     Map<String, Decimal> totalAmountMap = new Map<String, Decimal>();
@@ -460,7 +463,7 @@ public without sharing class RetailCampaignSegmentationController {
     
     public Account[] getlimitAccounts()
     {
-        
+       
         integer counter = 0;
         integer loopCount = 0;
         limitAccounts = new list<Account>();
@@ -469,7 +472,8 @@ public without sharing class RetailCampaignSegmentationController {
         if(accounts != null){     
             for(Account a : accounts){
                 if(counter < listLimit){
-                    limitAccounts.add(a);
+       
+                        limitAccounts.add(a);
                     counter++;
                 }else{
                     break;
@@ -479,25 +483,70 @@ public without sharing class RetailCampaignSegmentationController {
         return limitAccounts;
     }
     
+    public List<wrapperAccount> wrapAccountList {set;get;}
+    // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
+    public void loadWrapAccounts()
+    {
+        wrapAccountList = new  List<wrapperAccount>();
+        integer counter = 0;
+        integer loopCount = 0;
+        if(accounts != null){     
+            for(Account a : accounts){
+                if(counter < listLimit){
+                        wrapperAccount wrapAcc = new wrapperAccount();
+                        wrapAcc.acc = a;               // Holding Account
+                        wrapAcc.isSelected = false;    // Used as Checkbox in vf page, default is not selected
+                        wrapAccountList.add(wrapAcc);
+                    counter++;
+                }else{
+                    break;
+                }
+            }
+        }
+        system.debug('Called Wrapper method ---- '+wrapAccountList);
+    }
+    
+    // Wrapper class will be to used to have list of accounts with checkbox to Add to Campaign
+    public class wrapperAccount{
+        public Account acc {set;get;}
+        public Boolean isSelected {set;get;}
+    }
+    
     public PageReference addToCampaign(){
+    System.debug('retailCampaignId === '+retailCampaignId+'addAccountIds'+addAccountIds.size());
         if(retailCampaignId == null || addAccountIds.size()== 0) return null;
         
-        Map<String, Retail_Campaign_Member__c> retailCampaignMembers = new Map<String, Retail_Campaign_Member__c>();
+        Map<String, Campaign_Member__c> retailCampaignMembers = new Map<String, Campaign_Member__c>();
         Set<String> accountIds = new Set<String>();
-        
-        for(Id id: addAccountIds){
-            Retail_Campaign_Member__c member = new Retail_Campaign_Member__c(Status__c = 'New', Retail_Campaign__c = retailCampaignId);
-            member.Contact__c = id;
-            retailCampaignMembers.put(member.Contact__c + ':' + member.Retail_Campaign__c, member);
+        List<Id> selectedAccoundIds = new List<Id>();
+        Map<Id,String> accName = new Map<Id,String>();
+         System.debug('wrapAccountList==='+wrapAccountList);
+        // Filtering seletced accounts
+        for(wrapperAccount temp : wrapAccountList){
+            if(temp.isSelected)
+                selectedAccoundIds.add(temp.acc.Id);
+                accName.put(temp.acc.Id,temp.acc.name);
         }
-        
+        system.debug('selectedAccoundIds==='+selectedAccoundIds);
+        for(Id id: selectedAccoundIds){
+            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+            member.Name = accName.get(id);
+            member.Contact_Id__c= id;
+            retailCampaignMembers.put(member.Contact_Id__c+ ':' + member.Retail_Campaign_Id__c, member);
+           
+        }
+        System.debug('retailCampaignMembersBefore'+retailCampaignMembers);
         // Removes the exsitent member
-        for(Retail_Campaign_Member__c rcm : [select Contact__c, Retail_Campaign__c from Retail_Campaign_Member__c 
-                                            where Contact__c in :accountIds and Retail_Campaign__c = :retailCampaignId]){
-            retailCampaignMembers.remove(rcm.Contact__c + ':' + rcm.Retail_Campaign__c);
+        for(Campaign_Member__c rcm : [select Contact_Id__c, Retail_Campaign_Id__c from Campaign_Member__c
+                                            where Contact_Id__c in :selectedAccoundIds and Retail_Campaign_Id__c = :retailCampaignId]){
+            retailCampaignMembers.remove(rcm.Contact_Id__c + ':' + rcm.Retail_Campaign_Id__c );
+           // retailCampaignMembers.remove(rcm.Contact__c,rcm.Retail_Campaign__c);
         }
-        
+        System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
+        System.debug('retailCampaignMembersAftervalues'+retailCampaignMembers.values());
+
         try {
+            if(retailCampaignMembers != NULL && !retailCampaignMembers.isEmpty())
             insert retailCampaignMembers.values();
         }
         catch(Exception ex){
