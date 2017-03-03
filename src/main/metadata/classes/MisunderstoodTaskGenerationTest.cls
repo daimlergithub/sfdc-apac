@@ -4,9 +4,11 @@ public with sharing class MisunderstoodTaskGenerationTest {
     public static testMethod void testMyController() {
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+       // insert updatecustomsettings;
 
-
+    Trigger__c newtrg = new Trigger__c(Name= 'TriggerDMRequest1',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
 
         Id cca_RecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();         // Central Campaign
 
@@ -32,7 +34,7 @@ public with sharing class MisunderstoodTaskGenerationTest {
             PersonOtherPhone = '1301111122', 
             Phone = '01234567', 
             PersonHomePhone = '1234567', 
-            PersonAssistantPhone = '1234567',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842'
+            PersonAssistantPhone = '1234567',MBK_Data_Source__c='Email',Mobile__c='00000009842'
         );
         customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         

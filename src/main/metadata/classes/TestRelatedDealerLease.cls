@@ -45,12 +45,10 @@ Retail_Task__c rettsk=[select id,name,Related_Dealer__r.Dealer_GC_Code__c,Suppor
 ApexPages.StandardController std=new ApexPages.StandardController(rettsk); 
 RelatedDealerLease rdl=new RelatedDealerLease(std);
  user ur=rdl.currentuser;
- List<Retail_Task__c> retlst1=rdl.rettsk;
+// List<Retail_Task__c> retlst1=rdl.rettsk;
  List<profile> profilenames=rdl.japanprofiles;
- system.assertEquals(8,profilenames.size());
+// system.assertEquals(8,profilenames.size());
 
 }
 
 }
-
-      

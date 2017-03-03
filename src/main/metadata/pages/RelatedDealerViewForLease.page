@@ -3,9 +3,25 @@
   <apex:pageBlock title="Related Dealer view for Lease">
          
          <apex:pageBlockSection columns="2">
-             <apex:pageBlockSectionItem >                 
+             <apex:pageBlockSectionItem >                  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payments__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Payments__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                   
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Start_Date__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Payment_Start_Date__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_End_Date__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Payment_End_Date__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                   
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bonus_Month1__c.Label}"/>
                         <apex:outputField value="{!rettsk.Bonus_Month1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                   
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bonus_Month2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Bonus_Month2__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contact_Date__c.Label}"/>
@@ -80,8 +96,16 @@
                         <apex:outputField value="{!rettsk.Voluntary_Insurance_Type__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Voluntary_Insurance_Premium__c.Label}"/>
-                        <apex:outputField value="{!rettsk.Voluntary_Insurance_Premium__c}"/>  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Voluntary_Insurance_Premium_Dealer__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Voluntary_Insurance_Premium_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Voluntary_Insurance_Company__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Voluntary_Insurance_Company__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Delinquency__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Delinquency__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bank_Code__c.Label}"/>
@@ -108,6 +132,14 @@
                         <apex:outputField value="{!rettsk.Bank_Name_Native__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Branch_Name__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Branch_Name__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Branch_Name_Native__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Branch_Name_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bank_Account_Type__c.Label}"/>
                         <apex:outputField value="{!rettsk.Bank_Account_Type__c}"/>  
               </apex:pageBlockSectionItem>
@@ -132,6 +164,22 @@
                         <apex:outputField value="{!rettsk.Contractor_Name_Native__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode1__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_ZipCode1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Address1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1_Native__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Address1_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone1__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Phone1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone1__c.Label}"/>
                         <apex:outputField value="{!rettsk.Contractor_MobilePhone1__c}"/>  
               </apex:pageBlockSectionItem>
@@ -150,6 +198,10 @@
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address2_Native__c.Label}"/>
                         <apex:outputField value="{!rettsk.Contractor_Address2_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Phone2__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone2__c.Label}"/>
@@ -350,6 +402,14 @@
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_ZipCode__c.Label}"/>
                         <apex:outputField value="{!rettsk.Guarantor3_ZipCode__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Guarantor3_Address__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address_Native__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Guarantor3_Address_Native__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Phone__c.Label}"/>

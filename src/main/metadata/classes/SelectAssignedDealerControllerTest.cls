@@ -23,6 +23,12 @@ private with sharing class SelectAssignedDealerControllerTest
     private static string pageRef = '/apex/SelectAssignedDealer?Id=';
     private static string provinceValue = 'Anhui';
     
+    public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id DealercRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public static Id centralRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    public static Id camexecuRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Simple').getRecordTypeId();
+    public static Id salesleadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+    
     public static testMethod void testSelectAssignedDealerController()
     {
         Test.startTest();
@@ -144,79 +150,59 @@ private with sharing class SelectAssignedDealerControllerTest
         Test.stopTest();
         system.assertequals(personAccount.Id,expectedID);
     }
-    
-    static void prepareTestdata(string leadType)
-    {
-    
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-    insert updatecustomsettings;
+     
+    static void prepareTestdata(string leadType) {
+   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+   //insert updatecustomsettings;
+Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccountLink',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
+   dealer = new Account(RecordTypeId=DealercRecordTypeId,Dealer_Sales_Type__c ='MB', Province__c = provinceValue, City__c = 'anyang', 
+                        Dealer_Active__c = true, Dealer_Service_Codes__c = 'Sales',Name = 'Beijing Test',Mobile__c='0000000000'); 
+   insert dealer;       
 
-        // Two Account: one Dealer and one Person Account
-        dealer = (Account)UtilTestData.createSobject(
-            new Account(
-                Dealer_Sales_Type__c ='MB',
-                Province__c = provinceValue,
-                City__c = 'anyang',
-                Dealer_Active__c = true,
-                Dealer_Service_Codes__c = 'Sales',
-                Name = 'Beijing Test',MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'
-            ), 
-            UtilTestData.ACCOUNT_RT_DEALER);
-
-        personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Advertisement',Mobile__c='000-000-0000'), 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-personAccount.Email__c='test@mbau.com';
-                    personAccount.Email2__c = 'testemail2@test.com';
-                    personAccount.Home_Phone_2__c = '98765413';  
-        // One Lead which has a reference to this person account
-        lead = new Lead__c(Contact__c = personAccount.Id);
-        lead = (Lead__c)UtilTestData.createSobject(lead,
-            leadType);
-
-        // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
-        // and one Participating Dealer of Central Marketing Campaign
-        centralMKTCampaign = (Campaign)UtilTestData.createSobject(
-            new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
-
-        // Create Campaign Package for Central MKT Campaign
-        camPackage = new Campaign_Package__c(
-            Campaign__c = centralMKTCampaign.Id);
-        camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);
-
-        // Create Package Item for this Central MKT Campaign
-        // Because Campaign Offer is the Master Object of Package Item, 
-        // so we need to create campaign offering firstly
-        offering = (Campaign_Offering__c)UtilTestData.createSobject(
-            new Campaign_Offering__c(Campaign__c = centralMKTCampaign.Id), null);
-
-       
-        packageItem= (Package_Item__c)UtilTestData.createSobject(
-            new Package_Item__c(
-                Offering__c = offering.Id,
-                Package_Name__c = camPackage.Id), null);
-
-        // Create Participating_Dealer__c for centralMKTCampaign
-        partDealer = new Participating_Dealer__c(
-            Campaign__c = centralMKTCampaign.Id,
-            Dealer__c = dealer.Id,
-            Campaign_Package__c = camPackage.Id);
+   personAccount = new Account();
+   personAccount.RecordTypeId=personAccRecordTypeId;
+   personAccount.Lastname='testlastname';
+   personAccount.Mobile__c='0000000000';
+   personAccount.Email__c='test@mbau.com';
+   personAccount.Email2__c = 'testemail2@test.com';
+   personAccount.Home_Phone_2__c = '0000009842';  
         
-        cacCampaign = new Campaign(
-            ParentId = centralMKTCampaign.Id);
-        cacCampaign = (Campaign)UtilTestData.createSobject(
-            cacCampaign, UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
-
-        campaignExecution = new Campaign(
-            ParentId = cacCampaign.Id);
-        campaignExecution = (Campaign)UtilTestData.createSobject(
-            campaignExecution, UtilTestData.CAMPAIGN_RT_CAMPAIGN_EXECUTION);
-
-      
-        camLead = new Campaign_Lead__c(
-            Lead__c = lead.Id,
-            Campaign__c = campaignExecution.Id);
-        camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
-        system.assertNotEquals(null,packageItem);
-        system.assertNotEquals(null,partDealer);
-    }
+   insert personAccount;
+        
+   // One Lead which has a reference to this person account
+        
+   lead = new Lead__c();
+   lead.Contact__c = personAccount.Id;
+   lead.RecordTypeId=salesleadRecordTypeId;
+   insert lead;
+        
+   centralMKTCampaign = new Campaign(RecordTypeId=centralRecordTypeId,Name='Testnamecampaign');
+   insert centralMKTCampaign;
+    
+   camPackage = new Campaign_Package__c(Campaign__c = centralMKTCampaign.Id);
+   insert camPackage;
+        
+   offering = new Campaign_Offering__c(Campaign__c = centralMKTCampaign.Id);
+   insert offering;
+        
+   packageItem= new Package_Item__c(Offering__c = offering.Id,Package_Name__c = camPackage.Id);
+   insert packageItem;
+    
+   partDealer = new Participating_Dealer__c(Campaign__c = centralMKTCampaign.Id,Dealer__c = dealer.Id,Campaign_Package__c = camPackage.Id);
+   insert partDealer;
+        
+   cacCampaign = new Campaign(Name = 'TYest Rec',RecordTypeId=centralRecordTypeId,ParentId = centralMKTCampaign.Id);
+   insert cacCampaign;
+        
+   campaignExecution = new Campaign(Name = 'TYest Rec1',RecordTypeId=camexecuRecordTypeId,ParentId = cacCampaign.Id);
+   insert campaignExecution;
+        
+   camLead = new Campaign_Lead__c(Lead__c = lead.Id,Campaign__c = campaignExecution.Id);
+   insert camLead;
+        
+   system.assertNotEquals(null,packageItem);
+   system.assertNotEquals(null,partDealer);
+ }
 }

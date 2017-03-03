@@ -143,19 +143,22 @@ public class ConvertToTaskControllerTest
             
                 
              Campaign_Member__c cmm = new Campaign_Member__c(     
-             Status__c='Not Responded',
-             Retail_Campaign_Id__c=rtChildCamp.id);
+             Status__c='Not Responded'
+            // Retail_Campaign_Id__c=rtparentCamp.id
+            );
              insert cmm;
              
                List<Campaign_Member__c> cmmembers=new List<Campaign_Member__c>();
              Campaign_Member__c cmm1=new Campaign_Member__c(     
-             Status__c='Not Responded',
-             Retail_Campaign_Id__c=rtChildCamp.id);
+             Status__c='Not Responded'
+             //Retail_Campaign_Id__c=rtChildCamp.id
+             );
              cmmembers.add(cmm1);
              
              Campaign_Member__c cmm2=new Campaign_Member__c(     
-             Status__c='Not Responded',
-             Retail_Campaign_Id__c=rtChildCamp.id);
+             Status__c='Not Responded'            
+             //Retail_Campaign_Id__c=rtChildCamp.id
+             );
                cmmembers.add(cmm2);
             insert   cmmembers;     
             
