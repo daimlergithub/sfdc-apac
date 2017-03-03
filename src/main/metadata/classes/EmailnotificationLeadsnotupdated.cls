@@ -1,4 +1,4 @@
-/***********************************************************************************
+***********************************************************************************
 Created By          :    Srinivas Pendli    
 Created Date        :    07.10.2016
 Company             :    NTT Data,Inc.
@@ -17,13 +17,19 @@ MODIFICATION DETAILS:
 1. Modified By      :    Srinivas Pendli
    Modifide Date    :    07.10.2016
 ************************************************************************************/
-global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObject>{
-    //START METHOD 
+global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObject>,Schedulable{
+    //START METHOD
+     Date pastdatdate = system.today().addDays(-30);   
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
-                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c FROM Lead__c where Lead_Assignment_Notification_Done__c =: false
-                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Approved']);            
+          
+                    
+                    
+                    
+             return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
+                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c FROM Lead__c where ( LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Sales Leads') AND (Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost') AND (Lead_Latest_Phase__c != 'Vehicle Registration' AND 
+                       Lead_Latest_Phase__c != 'Invoiced')) OR ( RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null)  ]);          
     }
+    
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
         system.debug('Lead Scope :'+Scope);
@@ -53,5 +59,8 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
+    }
+    global void execute(SchedulableContext ctx) {
+        Database.executeBatch(new EmailnotificationLeadsnotupdated());
     }
 }
