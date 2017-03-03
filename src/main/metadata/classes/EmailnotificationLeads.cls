@@ -17,41 +17,58 @@ MODIFICATION DETAILS:
 1. Modified By      :    Srinivas Pendli
    Modifide Date    :    05.10.2016
 ************************************************************************************/
-global class EmailnotificationLeads implements Database.Batchable<sObject>{
+global class EmailnotificationLeads implements Database.Batchable<sObject>,Schedulable{
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
                     Assigned_Dealer__r.Dealer_Sales_Manager_Email__c FROM Lead__c where Lead_Assignment_Notification_Done__c =: false
-                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Approved']);            
+                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Allocated']);            
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
         system.debug('Lead Scope :'+Scope);
+        
+        
         Set<String> accountIds = new Set<String>();
+        Id leadId ;
         for(Lead__c led : Scope){
             accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
+            leadId = led.id;
         }
         List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
-        sendMail(userRecords);
+        sendMail(userRecords,leadId );
         
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(List<User> userRecords){        
+    public void sendMail(List<User> userRecords,Id leadId  ){        
         List<Id> userIds = new List<Id>();
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME = : 'Lead assignment to dealer outlet' limit 1];
+        
+        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
         for(User u : userRecords){
             userIds.add(u.id);
-        }
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME = : 'Lead assignment to dealer outlet' limit 1];
-        Messaging.MassEmailMessage mail = new Messaging.MassEmailMessage();
+        
+        
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectIds(userIds);
+        mail.setTargetObjectId(u.id);
         mail.setTemplateId(e.Id);
         mail.setUseSignature(false);
         mail.setSaveAsActivity(false);
-        Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+        mail.setWhatId(leadId);
+        //Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+        mails.add(mail); 
+        }
+        Messaging.sendEmail(mails);
     }
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
+    }
+   
+   
+   
+    global void execute(SchedulableContext ctx) {
+        Database.executeBatch(new EmailnotificationLeads());
     }
 }
