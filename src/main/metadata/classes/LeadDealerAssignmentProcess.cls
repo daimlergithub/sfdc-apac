@@ -38,7 +38,8 @@ public class LeadDealerAssignmentProcess{
       
         UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
                                     ,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from User WHERE IsActive=true  AND Contact.AccountId=:leadslist.Assigned_Dealer__c AND (Profile.Name ='Japan Dealer Sales Manager' OR Profile.Name ='Japan Dealer Sales Representative' OR Profile.Name ='Japan Dealer Service Manager' OR Profile.Name ='Japan Dealer Service Advisor')];
-              try
+				userid1 = leadslist.Retail_Contact__r.Retail_Sales_Consultant__c;
+			 /*try
         {
            Account_Link__c accLink = [select id, Name, Retail_Sales_Consultant__c,Sales_Representative__c,toRole__c,fromRole__c from Account_Link__c WHERE toRole__c =: leadslist.Contact__c  LIMIT 1];
             if (accLink != null && acclink.Retail_Sales_Consultant__c!= null){
@@ -48,7 +49,7 @@ public class LeadDealerAssignmentProcess{
         catch(Exception ex)
         {
             
-        }
+        }*/
         }
         else if(leadslist.RecordType.DeveloperName == 'Aftersales_Leads'){
             UserDealers  = [select Id, Name, Title, Dealer_Title__c, Dealer_Outlet_Name__c,IsActive, CompanyName, Email 
