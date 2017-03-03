@@ -13527,7 +13527,7 @@ alert('Does not match the request status, You cannot add active members.');
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Segment</masterLabel>
+        <masterLabel>Add Campaign Member</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}</url>

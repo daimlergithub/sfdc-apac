@@ -4,6 +4,7 @@
     <customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customButtons>Notify_to_Dealer</customButtons>
+    <customButtons>Print_Dealer_PDF</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
