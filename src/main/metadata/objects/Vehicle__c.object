@@ -7811,10 +7811,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Colour__c</picklist>
             <values>
-                <fullName>185 Garnet and black</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>189 Dark green</fullName>
                 <default>false</default>
             </values>
@@ -10106,10 +10102,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>1216 BrightYellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
@@ -15145,14 +15137,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>112 Paint%2C chromite Black metallic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1216 BrightYellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
@@ -20272,14 +20256,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>112 Paint%2C chromite Black metallic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>1216 BrightYellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
@@ -25416,10 +25392,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>1216 BrightYellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>149  North Pole White</fullName>
                 <default>false</default>
