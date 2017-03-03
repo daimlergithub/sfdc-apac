@@ -19072,7 +19072,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
         <editable>false</editable>
         <field>Task.Account_Name__c</field>
         <readable>false</readable>
