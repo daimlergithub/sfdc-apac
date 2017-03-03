@@ -9003,11 +9003,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>CaseDeadelineCalc__mdt.CaseDeadelineCalc25__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>CaseDeadelineCalc__mdt.CaseDeadelineCalc26__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -19099,11 +19094,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Activity_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_Purpose__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

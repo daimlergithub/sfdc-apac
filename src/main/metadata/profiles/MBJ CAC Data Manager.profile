@@ -9234,6 +9234,8 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Comment__c</field>
+        <editable>true</editable>
+        <field>Event.Activity_CommChannel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9274,11 +9276,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Dealer_Lead_Gate_Keeper__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Dealer_Marketing_Manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19099,11 +19096,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Activity_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Activity_Purpose__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

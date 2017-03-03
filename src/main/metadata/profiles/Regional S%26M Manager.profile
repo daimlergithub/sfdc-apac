@@ -9234,6 +9234,12 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Comment__c</field>
+        <editable>true</editable>
+        <field>Event.Activity_CommChannel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

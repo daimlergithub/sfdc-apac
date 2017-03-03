@@ -19103,11 +19103,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.Activity_Purpose__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Task.Activity_Resolution__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23556,6 +23551,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditMyDashboards</name>
+	</userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

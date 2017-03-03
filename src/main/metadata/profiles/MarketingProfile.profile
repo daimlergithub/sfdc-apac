@@ -9508,11 +9508,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ContentVersion.Comments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ContentVersion.Document_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -19099,11 +19094,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Activity_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_Purpose__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
