@@ -326,7 +326,7 @@ public class LeadHelperJP
     */
 //Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
 
-    public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate){
+     public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate){
         Set<String> EmailAddress = new Set<String>();
         Set<Id> LeadId = new Set<Id>();
         for(Lead__C lead : listNewLeads){
@@ -338,9 +338,9 @@ public class LeadHelperJP
         {
             if(lead.MD__c == 'JP')
             {                
-                if(isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.id).Assigned_Dealer__c)){
+                if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Allocated' ))){
                                     
-                    if(lead.Assigned_Dealer__c != NULL && lead.CAC_Lead_Status__c == 'Approved' && lead.Lead_Assignment_Notification_Done__c == false)
+                    if(lead.Assigned_Dealer__c != NULL && lead.CAC_Lead_Status__c == 'Allocated' && lead.Lead_Assignment_Notification_Done__c == false)
                         {                       
                         if(lead.RecordTypeId == salesRecordTypeId){                       
                          EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
@@ -354,6 +354,7 @@ public class LeadHelperJP
                 if((isinsert || isupdate && lead.Assigned_Dealer__c != LeadOldMap.get(lead.id).Assigned_Dealer__c) && lead.MD__c== 'JP' && lead.Assigned_Dealer__c != null && lead.CAC_Lead_Status__c == 'Approved' && lead.Service_Advisor__c != null && !lead.Person_Assign_Notificaton_Done__c){
                 EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
                 lead.Person_Assign_Notificaton_Done__c = true; 
+                lead.Lead_Assignment_Notification_Done__c = true;
                 //userIds.add(led.Service_Advisor__c);
                 }
             }          

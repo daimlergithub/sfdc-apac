@@ -18,13 +18,13 @@ MODIFICATION DETAILS:
    Modifide Date    :    07.10.2016
 ************************************************************************************/
 
-global class EmailnotificationLeadsnotassigned implements Database.Batchable<sObject>{
+global class EmailnotificationLeadsnotassigned implements Database.Batchable<sObject>,Schedulable{
     //START METHOD 
     Date pastdatdate = system.today().addDays(-1);    
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,CAC_Lead_Status__c,Last_Nonassign_Notification_Date__c,
-                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c,Service_Advisor__c FROM Lead__c where Last_Nonassign_Notification_Date__c =: pastdatdate
-                    and Service_Advisor__c = NULL and CAC_Lead_Status__c = 'Approved']);            
+                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c,Service_Advisor__c FROM Lead__c where (Last_Nonassign_Notification_Date__c =: pastdatdate OR Last_Nonassign_Notification_Date__c = null)
+                    and Service_Advisor__c = NULL and CAC_Lead_Status__c = 'Allocated']);            
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
@@ -60,5 +60,9 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
+    }
+    
+    global void execute(SchedulableContext ctx) {
+        Database.executeBatch(new EmailnotificationLeadsnotassigned());
     }
 }
