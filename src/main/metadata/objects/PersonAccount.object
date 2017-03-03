@@ -749,10 +749,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Special lease</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
@@ -6130,10 +6126,6 @@
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special lease</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15893,10 +15885,6 @@
             </values>
             <values>
                 <fullName>Road Assistant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special lease</fullName>
                 <default>false</default>
             </values>
             <values>
