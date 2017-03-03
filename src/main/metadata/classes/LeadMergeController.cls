@@ -130,7 +130,7 @@ public class LeadMergeController{
            soql += 'Service_Advisor__c, ';
         }
         return Database.query(soql + 
-            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\''+' AND Service_Advisor__c=\''+leads.Service_Advisor__c+'\'');
+            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 

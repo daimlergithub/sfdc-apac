@@ -2817,6 +2817,13 @@ please contact the number below.</value>
         <shortDescription>Lead creation/Assign Date</shortDescription>
         <value>Lead creation/Assign Date</value>
     </labels>
+<labels>
+   <fullName>Lead_to_be_Merged</fullName>
+   <language>en_US</language>
+   <protected>false</protected>
+   <shortDescription>Lead to be Merged</shortDescription>
+   <value>Lead to be Merged</value>
+</labels>
     <labels>
         <fullName>Leagl_Owner</fullName>
         <language>en_US</language>
