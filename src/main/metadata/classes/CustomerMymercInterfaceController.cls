@@ -36,7 +36,7 @@ public with sharing class CustomerMymercInterfaceController {
         aclsize  = [select id, toRole__c  from Account_Link__c where toRole__c =: Accid ];
         if(aclsize.size() >0)
             accl = [select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Link__c where toRole__c =: Accid ];
-        accont = [select id,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
+        accont = [select id,Gender__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
         if(accl != null && !accl.isEmpty())
         {
             for(Account_Link__c acc: accl){
@@ -138,7 +138,7 @@ public with sharing class CustomerMymercInterfaceController {
             accont.Email3__c  = MyMercEmail;
         }
         if(accont.recordtypeid == System.Label.PersonAccount_Record_Type_From_Account ) {
-              if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL){
+              if(accont.PersonBirthdate != NUll && accont.LastName_Native_1__c != NULL && accont.Gender__c!= NULL){
                  accont.Portal_Apply_Date__c = system.today();
                  accont.Portal_Apply_Status__c = 'To be Sent';
                  accont.Portal_Apply_User__c = userinfo.getUserid();
@@ -146,7 +146,7 @@ public with sharing class CustomerMymercInterfaceController {
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,'Records Updated'));
              }
             else{
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Mandate Fields In Accounts'));
+                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please enter Mandatory fields on Account - Birthdate, LastNameNative, Gender'));
                  return null; 
             }
         }
