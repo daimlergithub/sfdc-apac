@@ -69,11 +69,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Product_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Voluntary_Insurance_Company__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Vehicle__c</field>
@@ -89,11 +85,7 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Latest_Sales_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Lease_Remaining_Balance_Without_RV__c</field>
-            </layoutItems>
+            </layoutItems> 
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -228,11 +220,7 @@
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
-    </layoutSections>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Claim__c.Related_Contract__c</relatedList>
-    </relatedLists>
+    </layoutSections> 
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
