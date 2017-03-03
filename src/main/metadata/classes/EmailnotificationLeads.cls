@@ -31,12 +31,18 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
         
         Set<String> accountIds = new Set<String>();
         Id leadId ;
+		Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
         for(Lead__c led : Scope){
             accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
             leadId = led.id;
+			led.Lead_Assignment_Notification_Done__c = true;
+            updateLeadMap.put(led.id,led);
         }
         List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
         sendMail(userRecords,leadId );
+		if(updateLeadMap.size() > 0){
+            update updateLeadMap.values();
+        }
         
     } 
     //SENDING EMAILS TO SALES MANAGERS  
