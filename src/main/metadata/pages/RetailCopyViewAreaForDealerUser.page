@@ -1,6 +1,13 @@
 <apex:page standardController="Account" extensions="AccountLinkController" sidebar="false" showHeader="false">
     <apex:form >
-           
+     <script>
+         function ConfirmDeletionfn(){
+             var conf = confirm('This will delete the retail copy and the Account will not be viewable anymore, is this ok?');
+             if(conf == false){
+                 location.reload();
+             }
+         }
+     </script> 
        
        
        
@@ -73,7 +80,7 @@
             <apex:commandButton value="Edit"/>
         </apex:commandLink>
         
-        <apex:commandButton value="Delete" action="{!DeleteRetailCopy}" oncomplete="window.top.location.reload(); return false"/> 
+        <apex:commandButton value="Delete" onclick="ConfirmDeletionfn();" action="{!DeleteRetailCopy}" oncomplete="window.top.location.reload(); return false"/> 
                 
     </apex:pageblockButtons>
     </apex:pageBlock>
