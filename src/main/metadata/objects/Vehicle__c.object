@@ -7811,10 +7811,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <picklistValues>
             <picklist>Colour__c</picklist>
             <values>
-                <fullName>108 Rocky gray</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>182 Garnet and black</fullName>
                 <default>false</default>
             </values>
@@ -10114,10 +10110,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>104 Cashmere yellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>108 Rocky gray</fullName>
                 <default>false</default>
@@ -15161,10 +15153,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>104 Cashmere yellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>108 Rocky gray</fullName>
                 <default>false</default>
@@ -20296,11 +20284,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>104 Cashmere yellow</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>108 Rocky gray</fullName>
                 <default>false</default>
             </values>
@@ -25448,10 +25431,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
-            <values>
-                <fullName>104 Cashmere yellow</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>108 Rocky gray</fullName>
                 <default>false</default>
