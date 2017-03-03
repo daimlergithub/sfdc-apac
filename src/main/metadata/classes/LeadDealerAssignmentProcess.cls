@@ -41,7 +41,7 @@ public class LeadDealerAssignmentProcess{
               try
         {
            Account_Link__c accLink = [select id, Name, Retail_Sales_Consultant__c,Sales_Representative__c,toRole__c,fromRole__c from Account_Link__c WHERE toRole__c =: leadslist.Contact__c  LIMIT 1];
-            if (!accLink != null && acclink.Retail_Sales_Consultant__c!= null){
+            if (accLink != null && acclink.Retail_Sales_Consultant__c!= null){
                 userid1 = acclink.Retail_Sales_Consultant__c;
             }
         }
