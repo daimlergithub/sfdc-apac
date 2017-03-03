@@ -20284,6 +20284,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Colour__c</picklist>
+			<values>
                 <fullName>108 Rocky gray</fullName>
                 <default>false</default>
             </values>
