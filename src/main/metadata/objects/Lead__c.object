@@ -20877,27 +20877,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Vehicle_Year_Current__c</fullName>
         <externalId>false</externalId>
-        <label>Vehicle Use</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Business</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Year_Current__c</fullName>
-        <externalId>false</externalId>
         <label>Vehicle Year - Current</label>
         <picklist>
             <picklistValues>
@@ -21071,61 +21050,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Year__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(Existing_Contract__r.Related_Vehicle__r.ModelYear__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Vehicle Year</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Visit_Dealer__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Visit Dealer</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Visited_Showroom_Date_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Visited Showroom Date Time</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Visited_Showroom_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Visited Showroom Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Volume__c</fullName>
-        <externalId>false</externalId>
-        <label>Volume</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Waived_Reason__c</fullName>
@@ -21407,31 +21331,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Waived_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Waived Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Existing Relationship</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Loyalty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Competitive Reasons</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Wholesale_Comment__c</fullName>
@@ -21800,57 +21699,6 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>DM_S_DM_20161</fullName>
-        <columns>NAME</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>Lead_DataSource__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>自動車誕生130周年記念キャンペーン2016</value>
-        </filters>
-        <label>自動車誕生130周年記念キャンペーン2016</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>DM_S_DM_20162</fullName>
-        <columns>NAME</columns>
-        <columns>Lead_Desired_Service__c</columns>
-        <columns>Lead_DataSource__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Contact__c</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Source_Campaign__c</field>
-            <operation>equals</operation>
-            <value>SクラスセントラルDM2016</value>
-        </filters>
-        <filters>
-            <field>CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Allocated</value>
-        </filters>
-        <label>DM_SクラスセントラルDM 2016_展開済</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>E_S_DM_Amex_2016</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>
@@ -21943,31 +21791,6 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>GDO新規</label>
         <language>ja</language>
-    </listViews>
-    <listViews>
-        <fullName>MBJ_ALL</fullName>
-        <columns>NAME</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Source_Campaign__c</columns>
-        <columns>Lead_DataSource__c</columns>
-        <columns>Lead_DataSubSource__c</columns>
-        <columns>Dealer_Lead_Status__c</columns>
-        <columns>Drop_off_Time__c</columns>
-        <columns>Contact__c</columns>
-        <columns>Vehicle_Model_Interest__c</columns>
-        <columns>MB_Vehicle_Interest__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CAC_Lead_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Not Allocated</value>
-        </filters>
-        <label>未展開リード</label>
-        <language>ja</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
@@ -34525,10 +34348,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
@@ -47338,10 +47157,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
             <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>1981</fullName>
                 <default>false</default>
             </values>
@@ -60149,10 +59964,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
@@ -73261,10 +73072,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
