@@ -3,6 +3,7 @@
     <customButtons>Upload</customButtons>
     <customButtons>OPR_Label_Print</customButtons>
     <customButtons>OPRO_Label_Print_PDF</customButtons>
+    <customButtons>Segment</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
