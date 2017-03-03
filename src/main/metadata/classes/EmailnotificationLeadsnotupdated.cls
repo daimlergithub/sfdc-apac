@@ -33,28 +33,37 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
         system.debug('Lead Scope :'+Scope);
+        Id leadId ;
         Set<String> accountIds = new Set<String>();
         for(Lead__c led : Scope){
+         leadId = led.id;
             accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
         }
         List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
-        sendMail(userRecords);
+        sendMail(userRecords,leadId );
         
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(List<User> userRecords){        
+    public void sendMail(List<User> userRecords,Id leadId){        
         List<Id> userIds = new List<Id>();
+        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
         for(User u : userRecords){
             userIds.add(u.id);
-        }
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
-        Messaging.MassEmailMessage mail = new Messaging.MassEmailMessage();
+        
+        
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectIds(userIds);
+        mail.setTargetObjectId(u.Id);
         mail.setTemplateId(e.Id);
         mail.setUseSignature(false);
+        mail.setWhatId(leadId);
         mail.setSaveAsActivity(false);
-        Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+       // Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+       mails.add(mail); 
+        }
+        Messaging.sendEmail(mails);
+        
     }
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
