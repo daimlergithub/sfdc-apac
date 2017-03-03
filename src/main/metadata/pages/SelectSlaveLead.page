@@ -27,7 +27,7 @@
     <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
     <apex:pageMessages />     
     <apex:form id="theForm">
-    <apex:pageBlock title="Current Record">
+    <apex:pageBlock title="Current Lead">
         <table>
             <tr>
                 <th id= "Name"> Lea No.</th>
@@ -46,7 +46,7 @@
             </tr>
         </table>
     </apex:pageBlock>
-        <apex:pageBlock title="{!$Label.Suspected_Duplicates}" id="resultBlock">
+        <apex:pageBlock title="{!$Label.Lead_to_be_Merged}" id="resultBlock">
             <apex:pageblockTable value="{!slaves}" var="slave1" styleclass="compare_table" id="a">  
                   <apex:column headerValue="Slave Record">
          <input type="radio" name="Letters" value="{!slave1.acc.Id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');">
