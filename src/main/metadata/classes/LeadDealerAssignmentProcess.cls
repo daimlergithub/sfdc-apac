@@ -32,7 +32,7 @@ public class LeadDealerAssignmentProcess{
     public list<Wrapperuser> getDealerAssignment(){
         isAvailable = true;
        List<Wrapperuser> listwrapperuser= new list<Wrapperuser>();
-        Lead__c leadslist = [select id, Name, Assigned_Dealer__c,Service_Advisor__c,etail_Contact__r.Retail_Sales_Consultant__c,Retail_Contact__c,Contact__c, Assigned_Dealer__r.Dealer_Sales_Manager__c,RecordType.DeveloperName from Lead__c WHERE id = : leadid LIMIT 1];
+        Lead__c leadslist = [select id, Name, Assigned_Dealer__c,Service_Advisor__c,Retail_Contact__r.Retail_Sales_Consultant__c,Retail_Contact__c,Contact__c, Assigned_Dealer__r.Dealer_Sales_Manager__c,RecordType.DeveloperName from Lead__c WHERE id = : leadid LIMIT 1];
         System.debug('Record Type Name>>>>>>' + leadslist.RecordType.DeveloperName);
        if(leadslist.RecordType.DeveloperName == 'Sales_Leads') {
       
