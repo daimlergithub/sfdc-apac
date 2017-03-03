@@ -148,6 +148,31 @@ public class LeadHelperJP
         createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         
     }
+	
+     /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
+       Created By: Sivaramakrishna Aduri
+       Date: 27th Feb, 2017**/
+   
+    
+    public static void createContactToContactAccounlink(list<Lead__C> leadList){
+    LeadUtil.iscreated = false;
+        Id aclConttoContId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+        List<Account_Link__c> accountLinkInsert = new List<Account_Link__C>();
+        for(Lead__C curLead : leadList){
+            if(curLead.Company_Account__c != NULL && curLead.Contact__c != NULL){
+                accountLinkInsert.add(new Account_Link__c(Name = curLead.id,RecordTypeId = aclConttoContId, fromRole__c = curLead.Company_Account__c, toRole__c = curLead.Contact__c,Role__c = 'Parent',Role2__c = 'Child'));
+            
+            }
+        }
+        try{
+            if(accountLinkInsert != NULL && !accountLinkInsert.isEmpty()){
+                insert accountLinkInsert;
+            }
+        }
+        catch(exception e){
+            System.debug('Role is Same');
+        }
+    }
     
   /** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
 **  Created By: Narasimha  
@@ -301,7 +326,7 @@ public class LeadHelperJP
     */
 //Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
 
-    public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate){
+     public static void  EmailnotificationforLeads(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,boolean isInsert, boolean isUpdate){
         Set<String> EmailAddress = new Set<String>();
         Set<Id> LeadId = new Set<Id>();
         for(Lead__C lead : listNewLeads){
@@ -313,9 +338,9 @@ public class LeadHelperJP
         {
             if(lead.MD__c == 'JP')
             {                
-                if(isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.id).Assigned_Dealer__c)){
+                if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Allocated' ))){
                                     
-                    if(lead.Assigned_Dealer__c != NULL && lead.CAC_Lead_Status__c == 'Approved' && lead.Lead_Assignment_Notification_Done__c == false)
+                    if(lead.Assigned_Dealer__c != NULL && lead.CAC_Lead_Status__c == 'Allocated' && lead.Lead_Assignment_Notification_Done__c == false)
                         {                       
                         if(lead.RecordTypeId == salesRecordTypeId){                       
                          EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
@@ -329,6 +354,7 @@ public class LeadHelperJP
                 if((isinsert || isupdate && lead.Assigned_Dealer__c != LeadOldMap.get(lead.id).Assigned_Dealer__c) && lead.MD__c== 'JP' && lead.Assigned_Dealer__c != null && lead.CAC_Lead_Status__c == 'Approved' && lead.Service_Advisor__c != null && !lead.Person_Assign_Notificaton_Done__c){
                 EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
                 lead.Person_Assign_Notificaton_Done__c = true; 
+                lead.Lead_Assignment_Notification_Done__c = true;
                 //userIds.add(led.Service_Advisor__c);
                 }
             }          

@@ -17,12 +17,12 @@ MODIFICATION DETAILS:
 1. Modified By      :    Srinivas Pendli
    Modifide Date    :    05.10.2016
 ************************************************************************************/
-global class EmailnotificationLeads implements Database.Batchable<sObject>{
+global class EmailnotificationLeads implements Database.Batchable<sObject>,Schedulable{
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
                     Assigned_Dealer__r.Dealer_Sales_Manager_Email__c FROM Lead__c where Lead_Assignment_Notification_Done__c =: false
-                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Approved']);            
+                    and Assigned_Dealer__c !=: NULL and CAC_Lead_Status__c = 'Allocated']);            
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
@@ -53,5 +53,11 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>{
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
+    }
+   
+   
+   
+    global void execute(SchedulableContext ctx) {
+        Database.executeBatch(new EmailnotificationLeads());
     }
 }
