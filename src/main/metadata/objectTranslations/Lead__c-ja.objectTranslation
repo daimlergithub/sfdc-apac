@@ -15730,15 +15730,15 @@
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label>新しい項目</label>
             <section>New Fields</section>
         </sections>
         <sections>
-            <label>車両情報</label>
+            <label>参照情報</label>
             <section>Reference Information</section>
         </sections>
         <sections>
-            <label>車両情報</label>
+            <label>システム情報</label>
             <section>System Information</section>
         </sections>
         <sections>
