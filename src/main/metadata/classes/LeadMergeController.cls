@@ -299,6 +299,9 @@ public with sharing class LeadMergeController{
            slave.OwnerId = usr.Id; 
          slave.Lead_Lost_Date_Time__c=date.today();
          slave.Related_Leads__c=leads.id;
+		 slave.Dealer_Lead_Status__c = 'Lost';
+         slave.Dealer_Lost_Reason__c = 'Lead Merge';
+         slave.Lost_Situation__c = 'Lead Merge';
         
          for(DM_Request__C dm:[Select id,Lead__c from DM_Request__c Where Lead__C=:slave.Id]){
              dm.Lead__c=leads.id;
