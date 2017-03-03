@@ -304,8 +304,8 @@
                         <apex:outputField value="{!rettsk.Guarantor1_Name_Native__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Phone__c.Label}"/>
-                        <apex:outputField value="{!rettsk.Guarantor1_Phone__c}"/>  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Guarantor1_ZipCode__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Address__c.Label}"/>

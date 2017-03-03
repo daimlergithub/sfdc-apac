@@ -368,7 +368,8 @@ public class AccountLinkHelper
             }
             
             for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
-                if(accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' && String.isNotBlank(dealerAccId)) {
+                if((accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' || accLinkRec.RecordType.DeveloperName == 'Contact2Contact' 
+                    || accLinkRec.RecordType.DeveloperName == 'CompanyExternalLink') && String.isNotBlank(dealerAccId)) {
                     if(!map_FromAccountToListIndividualAccountLinkId.containsKey(dealerAccId)) {
                         map_FromAccountToListIndividualAccountLinkId.put(dealerAccId, new List<Id>());
                     }
@@ -388,6 +389,7 @@ public class AccountLinkHelper
         List<Id> list_SharingToDelete = new List<Id>();
         Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
         Map<Id, List<Id>> map_PersonCompanyAccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = getRelatedIndividualCustomerRecordTypeAccountLink(list_AccountLink);
         
         for(Account_Link__c accountLink : list_AccountLink){
         if(accountLink.Retail_Delete_Flag__c == false){
@@ -455,6 +457,21 @@ public class AccountLinkHelper
                         map_PersonCompanyAccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
                     }
                     map_PersonCompanyAccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+                    
+                    // For Individual
+                    for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) {
+                        if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(fromAccId)) {
+                            map_PersonCompanyAccountIdAndListAccountLinkId.putAll(map_FromAccountToListIndividualAccountLinkId);
+                        } else {
+                            map_PersonCompanyAccountIdAndListAccountLinkId.get(fromAccId).addAll(map_FromAccountToListIndividualAccountLinkId.get(fromAccId));
+                        }
+                    }
+                    for(Id fromAccId : map_FromAccountToListIndividualAccountLinkId.keySet()) {
+                        for(Id accLinkId : map_FromAccountToListIndividualAccountLinkId.get(fromAccId)) {
+                            list_SharingToDelete.add(accLinkId);
+                        }
+                    }
+                    
                 }
             }
         }
@@ -509,6 +526,7 @@ public class AccountLinkHelper
                 }      
             }
             deleteVehicleSharing(toAccountRecordTypeMap, fromAccountRecordTypeMap);
+            deleteIndividualSharing(toAccountRecordTypeMap, fromAccountRecordTypeMap);
         }
     }
     
@@ -1158,7 +1176,7 @@ public class AccountLinkHelper
     
     // Remove Sharing For Vehicle Relationship when Record is deleted
     deleteVehicleSharing(ToAccountRecordTypeMap, fromAccountRecordTypeMap);
-    
+    deleteIndividualSharing(toAccountRecordTypeMap, fromAccountRecordTypeMap);
     
  }
  
@@ -1179,6 +1197,33 @@ public class AccountLinkHelper
         List<Vehicle_Relationship__Share> list_SharingDele = [SELECT Id, ParentId FROM Vehicle_Relationship__Share 
                                                                                                 WHERE ParentId IN: vehicleRelationshipMap.keySet() 
                                                                                                 AND UserOrGroupId IN :groupList];
+        
+        if(list_SharingDele.size() > 0){
+            Database.delete(list_SharingDele, false);
+        }
+    }
+    
+    
+    // Remove Sharing For Individual External Link when dealer Record is deleted
+    private static void deleteIndividualSharing(Map<Id, Account> ToAccountRecordTypeMap, Map<Id, Account> fromAccountRecordTypeMap) {
+        Id indiLinkRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+        Id comapnyExternalLinkRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
+        Id c2cRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+        List<Id> validRecordTypeId = new List<Id>{indiLinkRecordTypeId, comapnyExternalLinkRecordTypeId, c2cRecordTypeId};
+        
+        Map<Id, Account_Link__c> indiAccoutLinkMap = new Map<Id, Account_Link__c>([select Id from Account_Link__c where toRole__c IN: ToAccountRecordTypeMap.keyset()
+                                                                        AND RecordTypeId IN: validRecordTypeId]);
+        
+        
+        Set<String> dealerAccNameSet = new Set<String>();
+        for(Account dealerRec : fromAccountRecordTypeMap.values()) {
+            dealerAccNameSet.add(dealerRec.Name);
+        }
+        List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
+        
+        List<Account_Link__Share> list_SharingDele = [SELECT Id, ParentId FROM Account_Link__Share 
+                                                                            WHERE ParentId IN: indiAccoutLinkMap.keySet() 
+                                                                            AND UserOrGroupId IN :groupList];
         
         if(list_SharingDele.size() > 0){
             Database.delete(list_SharingDele, false);
