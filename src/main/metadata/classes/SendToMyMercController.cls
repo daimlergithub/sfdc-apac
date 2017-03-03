@@ -158,7 +158,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
-                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
                         if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
                             myMercAcc.put(eachAcc.Id,eachAcc);
@@ -171,7 +171,7 @@ public with sharing class SendToMyMercController {
                     System.debug('SelectedAccountBirthdAte'+eachAcc.PersonBirthdate);
                     System.debug('===='+eachAcc.LastName_Native_1__c);
                     System.debug('===='+eachAcc.RecordTypeId);
-                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c)){
+                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c) || eachAcc.Gender__c == NULL){
                         personBirthdate = true;    
                     }
                     System.debug('===='+personBirthdate);
@@ -207,7 +207,7 @@ public with sharing class SendToMyMercController {
                 
             }
             if(personBirthdate){
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastNameNative'));    
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastNameNative,Gender'));    
             }        
             else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();

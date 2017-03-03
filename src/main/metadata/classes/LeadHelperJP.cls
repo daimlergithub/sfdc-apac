@@ -148,6 +148,31 @@ public class LeadHelperJP
         createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         
     }
+	
+     /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
+       Created By: Sivaramakrishna Aduri
+       Date: 27th Feb, 2017**/
+   
+    
+    public static void createContactToContactAccounlink(list<Lead__C> leadList){
+    LeadUtil.iscreated = false;
+        Id aclConttoContId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+        List<Account_Link__c> accountLinkInsert = new List<Account_Link__C>();
+        for(Lead__C curLead : leadList){
+            if(curLead.Company_Account__c != NULL && curLead.Contact__c != NULL){
+                accountLinkInsert.add(new Account_Link__c(Name = curLead.id,RecordTypeId = aclConttoContId, fromRole__c = curLead.Company_Account__c, toRole__c = curLead.Contact__c,Role__c = 'Parent',Role2__c = 'Child'));
+            
+            }
+        }
+        try{
+            if(accountLinkInsert != NULL && !accountLinkInsert.isEmpty()){
+                insert accountLinkInsert;
+            }
+        }
+        catch(exception e){
+            System.debug('Role is Same');
+        }
+    }
     
   /** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
 **  Created By: Narasimha  
