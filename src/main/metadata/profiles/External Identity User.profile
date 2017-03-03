@@ -8539,6 +8539,7 @@
         <field>Event.Activity_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Event.Activity_Info__c</field>
         <readable>false</readable>
