@@ -13,10 +13,10 @@ public with sharing class AnnouncementController{
     public AnnouncementController(){        
         isVisible =true;
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
-        String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
+        //String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
        // Dealer profiles can not Post  Announcements
-         if(usr.profile.Name.Contains('Dealer') && usr.Market__c != 'JP')
-           isVisible = false; 
+         /*if(usr.profile.Name.Contains('Dealer') && usr.Market__c != 'JP')
+           isVisible = false;*/ 
     }
     public PageReference doPost() {
         FeedItem fItem = new FeedItem();
