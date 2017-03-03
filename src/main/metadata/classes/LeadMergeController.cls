@@ -10,7 +10,7 @@
     2. Modified on 1-dec-2015    
 */
 
-public with sharing class LeadMergeController{
+public class LeadMergeController{
     // AccountMerge Page Variable
     public Lead__c master                   {get; set;}
     public Lead__c slave                    {get; set;}
@@ -130,7 +130,7 @@ public with sharing class LeadMergeController{
            soql += 'Service_Advisor__c, ';
         }
         return Database.query(soql + 
-            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\''+' AND Service_Advisor__c=\''+leads.Service_Advisor__c+'\'');
+            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 

@@ -19,7 +19,7 @@
             
             <!--PageBlock starts here-->
             <apex:pageBlock title="{!$Label.Address}" id="pageBlock">
-                <apex:pageMessages id="pgmsg"/> 
+                <apex:pageMessages id="pgmsg" escape="false"/> 
                 
                 
                 <!--PageBlockTable  starts here-->

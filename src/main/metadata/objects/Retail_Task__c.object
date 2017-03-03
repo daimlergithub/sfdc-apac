@@ -3631,63 +3631,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <label>Service Code</label>
         <picklist>
             <picklistValues>
-                <fullName>Service Maintenance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General Repair</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electrical Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Body Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Paint Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wear &amp; Tear Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Predelivery inspection</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Return Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Contract</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warranty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New car/used car sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Free</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3707,7 +3651,19 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Outside Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint Jobs</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3727,11 +3683,55 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>MB 1year inspection</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>First MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Body Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wear &amp; Tear Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New car/used car sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
