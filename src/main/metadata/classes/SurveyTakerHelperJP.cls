@@ -34,21 +34,14 @@ public class SurveyTakerHelperJP {
         Map<id,id> userMap = new Map<id,id>();
         for(SurveyTaker__c sur : surTakList)
         {
-            if(sur.Account__c != null || sur.User__c != null || sur.Dealer_Account__c != null || sur.View_By_All__c == true)
-            {
-                surveytakID.add(sur.Id);
-            }
+            surveytakID.add(sur.Id);
+           
             if(sur.Account__c != null && sur.Dealer_Account__c == null && sur.View_By_All__c == false)
             {
                 percomAccoID.add(sur.Account__c);
                
             }
-            if(sur.User__c != null)
-            {
-                userId.add(sur.User__c);
-               
-            }
-            if(sur.Dealer_Account__c != null && sur.View_By_All__c == false)
+           else if(sur.Dealer_Account__c != null && sur.View_By_All__c == false)
             {
                 dealerID.add(sur.Dealer_Account__c);
             }
@@ -75,15 +68,7 @@ public class SurveyTakerHelperJP {
             }
             }
         }
-       else if(!userId.isEmpty() && userId != null)
-        {
-            userShareList = [select id,AccountId from User where Id =:userId];
-            for(User ucs:userShareList)
-            {
-                accntid.add(ucs.accountid);
-            }
-        }
-       else if(!dealerID.isEmpty() && dealerID != null)
+        else if(!dealerID.isEmpty() && dealerID != null)
         {
             dealerAccShareList = [select id,AccountId,AccountAccessLevel,userorGroupId from AccountShare where AccountID =:dealerID];
             for(AccountShare a:dealerAccShareList)
@@ -121,7 +106,7 @@ public class SurveyTakerHelperJP {
         }
         
         
-         list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:assignlist OR Name IN: AccountNAme]);
+         list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:assignlist AND Name IN: AccountNAme]);
         for(Group assg:grplist)
         {
             system.debug('grplist>>>>>>>>'+grplist);
@@ -152,7 +137,7 @@ public class SurveyTakerHelperJP {
         for(SurveyTaker__c surtak : surveyTakerList)
         {
                       
-            if(surtak.Dealer_Account__c != null || surtak.Account__c != null && surtak.View_By_All__c == false)
+            if(surtak.Dealer_Account__c != null && surtak.View_By_All__c == false)
             {  
                 for(id m:assgroupMap.values())
                 {
@@ -175,7 +160,7 @@ public class SurveyTakerHelperJP {
                 }
             }
            
-            if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == false && surtak.Dealer_Account__c == null)
+           else if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == false && surtak.Dealer_Account__c == null)
             {
                 
                 for(id m:assgroupMap.values()){
@@ -224,7 +209,7 @@ public class SurveyTakerHelperJP {
                      surveyShareList.add(surShare);
                    }
                 }      
-        }
+            }
         
         if(!surveyTkrShareList.isEmpty() && surveyTkrShareList != null)
         {
@@ -253,13 +238,14 @@ public class SurveyTakerHelperJP {
         Set<Id> set_LinkId = new Set<Id>();
         Set<Id> set_CustomerId = new Set<Id>();
         List<Id> list_SurveyTakerId = new List<Id>();
+        List<Id> list_SSurveyTakerId = new List<Id>();
         List<SurveyTaker__Share> sharesToDelete = new List<SurveyTaker__Share>();
         List<SurveyTaker__Share> surveyTkrShareList = new List<SurveyTaker__Share>();
         List<Survey__Share> surveyShareList = new List<Survey__Share>();
           
         
         for(SurveyTaker__c vc : newList){
-            if(vc.account__c != null  ||  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null){
+            if(vc.account__c != null  &&  vc.account__c != oldMap.get(vc.Id).account__c && vc.View_By_All__c == false && vc.Dealer_Account__c == null){
                     if(!mapCheckingType.containsKey(vc.account__c)){
                           mapCheckingType.put(vc.account__c, new List<Id>());
                       }
@@ -269,24 +255,25 @@ public class SurveyTakerHelperJP {
                       System.debug('set_CustomerId>>>>>>>'+set_CustomerId);
                     set_CustomerId.add(oldMap.get(vc.Id).account__c);
                     }
-                    if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false)
+                  /*  if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false)
                     {
-                    
+                        System.debug('inser>>>');
                         list_SurveyTakerId.add(vc.Id);
                          
-                    }
+                    }*/
                    if(vc.Dealer_Account__c == null && oldMap.get(vc.Id).Dealer_Account__c != null)
                    { 
                      System.debug('set_AccountId>>>>>>>'+set_AccountId);
                      set_AccountId.add(oldMap.get(vc.Id).Dealer_Account__c);
                    }
                       
-               
+                list_SurveyTakerId.add(vc.Id);
+
                 
                }
            // if(vc.View_By_All__c == false && vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c){list_SurveyTakerId.add(vc.Id);}
             
-             if(vc.Dealer_Account__c != null || vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c && vc.View_By_All__c == false ){
+             if(vc.Dealer_Account__c != null && vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c && vc.View_By_All__c == false ){
                 if(!mapSurvery.containsKey(vc.Dealer_Account__c)){
                       mapSurvery.put(vc.Dealer_Account__c, new List<Id>());
                   }
@@ -295,15 +282,19 @@ public class SurveyTakerHelperJP {
                   if(vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c){
                   set_AccountId.add(oldMap.get(vc.Id).Dealer_Account__c);
                   }
-                  if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false){
+               /*   if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false){
                     
                    // set_CustomerId.add(vc.account__c);
-                    list_SurveyTakerId.add(vc.Id);
-                    }
-                 
+                   System.debug('inser1>>>');
+
+                    
+                    }*/
+                    
+               list_SurveyTakerId.add(vc.Id);  
             }
              if(vc.View_By_All__c == true && vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c)
             {
+                list_SurveyTakerId.add(vc.Id);  
                     List<Account>aclist = [select id,name,recordtypeid,MD__c from account where  recordtypeid=:da and MD__c ='JP'];
                 for(account a:aclist)
                 {
@@ -329,6 +320,12 @@ public class SurveyTakerHelperJP {
                      surveyShareList.add(surShare);
                    }
                 }  
+            }
+            if(vc.View_By_All__c == false && vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c)
+            {
+              System.debug('Inserting>>>>>');
+              list_SSurveyTakerId.add(vc.Id);
+            
             }
              
           }  
@@ -395,17 +392,26 @@ public class SurveyTakerHelperJP {
              } }
          
               system.debug('++++++++++++++'+accNames);
-            
-            
+              System.debug('lstlist>>>>'+list_SurveyTakerId );
+            //  System.debug('ullist>>>>'+list_User);
             List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
             system.debug('+++++++++++'+list_User);
-           List<SurveyTaker__Share> list_SharingDele = new List<SurveyTaker__Share>([SELECT Id FROM SurveyTaker__Share 
-                                                                                            WHERE (ParentId IN:list_SurveyTakerId AND RowCause ='Manual') OR UserOrGroupId IN :list_User  ]);
+           List<SurveyTaker__Share> list_SharingDele = new List<SurveyTaker__Share>([SELECT Id,ParentId FROM SurveyTaker__Share 
+                                                                                            WHERE (ParentId IN:list_SurveyTakerId AND RowCause ='Manual') AND UserOrGroupId IN :list_User]);
+          
             if(list_SharingDele.size() > 0){
+                for(SurveyTaker__Share s:list_SharingDele){system.debug('parentIds>>>>>>>>'+s.parentid);}
                 delete list_SharingDele;
                 system.debug('+++++++++++SD'+list_SharingDele);
             } 
-          
+        if(list_SSurveyTakerId.size()>0 ){
+          System.debug('Delet5ecopy>>>>>>>>>');
+           List<SurveyTaker__Share> list_SharingDeele = new List<SurveyTaker__Share>([SELECT Id,ParentId FROM SurveyTaker__Share 
+                                                                                            WHERE ParentId IN:list_SSurveyTakerId AND RowCause ='Manual']);
+               delete list_SharingDeele;
+            System.debug('Delet5ecopy@@>>>>>>>>>');
+        
+        }  
         
         if(mapSurvery.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(mapSurvery));

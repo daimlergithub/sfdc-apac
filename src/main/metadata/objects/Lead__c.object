@@ -24072,10 +24072,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -26235,35 +26231,35 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
-                <fullName>Buy</fullName>
+                <fullName>1 Year Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car Wash</fullName>
+                <fullName>6 month Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>General Car Care</fullName>
+                <fullName>General Repair</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Inspection</fullName>
+                <fullName>MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Participate</fullName>
+                <fullName>Paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Repair</fullName>
+                <fullName>Plus Check</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Retrofit</fullName>
+                <fullName>Recall</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26840,10 +26836,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
-                <fullName>Book-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
@@ -26852,23 +26844,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Leasing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-In</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36193,10 +36173,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -39189,10 +39165,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
-                <fullName>Book-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Broucher</fullName>
                 <default>false</default>
             </values>
@@ -39202,10 +39174,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39225,15 +39193,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-In</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89789,26 +89749,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -89817,15 +89757,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Service Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98402,7 +98334,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Lead Merge</fullName>
                 <default>false</default>
             </values>
@@ -101113,27 +101045,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>

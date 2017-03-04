@@ -1,12 +1,13 @@
-<apex:page standardController="Account" extensions="AccountLinkController">
+<apex:page standardController="Account" extensions="AccountLinkController" sidebar="false" showHeader="false">
     <apex:form >
-       <script>
-function test(){
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!acclnkdealer.id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
-}
-</script>
-       
-       
+     <script>
+         function ConfirmDeletionfn(){
+             var conf = confirm('This will delete the retail copy and the Account will not be viewable anymore, is this ok?');
+             if(conf == false){
+                 location.reload();
+             }
+         }
+     </script> 
        
        
        
@@ -78,7 +79,9 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpa
         <apex:commandlink action="{!ab}" target="_blank">
             <apex:commandButton value="Edit"/>
         </apex:commandLink>
-        <apex:commandButton value="Delete" onclick="test();"/>
+        
+        <apex:commandButton value="Delete" onclick="ConfirmDeletionfn();" action="{!DeleteRetailCopy}" oncomplete="window.top.location.reload(); return false"/> 
+                
     </apex:pageblockButtons>
     </apex:pageBlock>
             

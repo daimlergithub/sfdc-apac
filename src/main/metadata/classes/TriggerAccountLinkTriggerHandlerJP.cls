@@ -43,12 +43,10 @@ public class TriggerAccountLinkTriggerHandlerJP
         {        
             
             AccountLinkHelper.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
-           
+            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
         }
-          if(Trigger.isAfter && Trigger.isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
-            System.debug('----->Is update is called');
-            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isAfter, trigger.new );
-            
+          if(Trigger.isBefore && Trigger.isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
+			AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
         }
     }
         

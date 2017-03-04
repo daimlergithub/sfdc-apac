@@ -1276,40 +1276,46 @@ public class AccountLinkHelper
                 update accountList1; 
             }
   }
-  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isAfter ,List<Account_Link__c> accLst){
-        string Position;
-        system.debug('------>Method is called');
-        Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
-        List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
-       list<Account_Link__c>allist=[select id,name,recordtypeId,MD__c,Position__c,Retail_Position__c, fromRole__c,toRole__c,fromRole__r.name,fromRole__r.RecordType.name,toRole__r.RecordType.name,toRole__r.id from Account_Link__c where id IN :accLst];
-        for(Account_Link__c acc : allist){         
-            if(isUpdate && acc.MD__c == label.MarketJp && acc.RecordtypeId == AccountLink_Contact2ContactRecordTypeId ){//Checking Market for updated account
-                    
-                if(acc.toRole__r.RecordType.Name == 'Person Account' || acc.toRole__r.RecordType.Name == 'Company'){
-               
-                    AccountIds.add(acc.toRole__c); //Adding accountId's to set
-                    position = acc.Position__c;
-                    System.debug('AccountID--->'+acc.id);   
+  
+  /*
+    LastModifiedDate : 3rd Mar, 2017
+    LastModifedBY    : Lokesh M
+    JIRA No          : SFDCJP-1893
+    Method           : updateRetailCopyfromC2C
+    Event            : Before Update
+  */
+  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst){
+        Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
+        Set<Id> comId = new Set<Id>();
+        Set<Id> perAccIdSet = new Set<Id>();
+        Set<Id> comAccIdSet = new Set<Id>();
+        Map<Id,Id> retComAccLinkMap = new Map<Id,Id>();
+        if((isInsert || isUpdate) && isBefore){
+            for(Account_Link__c accLink : accLst){
+                if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
+                    comId.add(accLInk.Retail_Related_Company__c);
+                    perAccIdSet.add(accLink.toRole__c);
+                    updateMap.put(accLink.Retail_Related_Company__c,accLink);
                 }
-                 if (acc.fromRole__r.RecordType.Name == 'Person Account' || acc.fromRole__r.RecordType.Name == 'Company'){
-                    AccountIds.add(acc.fromRole__c); //Adding accountId's to set
-                    position = acc.Position__c;
-                    System.debug('AccountID--->'+acc.id);
-                }   
-            }            
-        }
-        if(AccountIds.size()>0){
-         List<Account_Link__c> Accountlinklist = [select id,Name,RecordTypeId,Retail_Position__c from Account_Link__c WHERE toRole__c IN :AccountIds OR fromRole__c IN :AccountIds];  
-           if(Accountlinklist.size()>0){
-               for(Account_Link__c acclnk : Accountlinklist ){
-                   if(acclnk.RecordtypeId == AccountLink_RetailPersonRecordTypeId || acclnk.RecordtypeId == AccountLink_RetailCompanyRecordTypeId ){
-                        acclnk.Retail_Position__c = position;
-                        AccountlnkUpdate.add(acclnk);
-                     }   
-                }   
             }
-        }
-        if(!AccountlnkUpdate.isEmpty())
-            update AccountlnkUpdate;
+            List<Account_Link__c> accLinkList = [SELECT Id,Position__c,fromRole__c,toRole__c FROM Account_Link__c WHERE ID IN: comId AND RecordTypeId =: AccountLink_RetailCompanyRecordTypeId];
+            if(accLinkList != NULL && !accLinkList.isEmpty()){
+                for(Account_Link__c accl : accLinkList){
+                    comAccIdSet.add(accl.toRole__c);
+                    retComAccLinkMap.put(accl.toRole__c,accl.Id);      
+                }
+            }
+            List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,toRole__C  FROM Account_Link__c WHERE (fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet) OR (fromRole__c IN: comAccIdSet AND toRole__c IN: perAccIdSet)];
+            if(accLinkConToCon != NULL && !accLinkConToCon.isEmpty()){
+                for(Account_Link__c acLink : accLinkConToCon){
+                    if(!String.isBlank(acLink.Position__c)){
+                        if(retComAccLinkMap.get(acLInk.toRole__c) != NULL)
+                        updateMap.get(retComAccLinkMap.get(acLInk.toRole__c)).Retail_Position__c = acLink.Position__c;
+                        else if(retComAccLinkMap.get(acLInk.fromRole__c) != NULL)
+                        updateMap.get(retComAccLinkMap.get(acLInk.fromRole__c)).Retail_Position__c = acLink.Position__c;
+                    }
+                }    
+            }
+        }        
     }
 }
