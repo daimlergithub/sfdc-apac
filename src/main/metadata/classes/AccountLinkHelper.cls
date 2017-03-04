@@ -1294,15 +1294,15 @@ public class AccountLinkHelper
             for(Account_Link__c accLink : accLst){
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);
-                    perAccIdSet.add(accLink.fromRole__c);
+                    perAccIdSet.add(accLink.toRole__c);
                     updateMap.put(accLink.Retail_Related_Company__c,accLink);
                 }
             }
-            List<Account_Link__c> accLinkList = [SELECT Id,Position__c,fromRole__c FROM Account_Link__c WHERE ID IN: comId AND RecordTypeId =: AccountLink_RetailCompanyRecordTypeId];
+            List<Account_Link__c> accLinkList = [SELECT Id,Position__c,fromRole__c,toRole__c FROM Account_Link__c WHERE ID IN: comId AND RecordTypeId =: AccountLink_RetailCompanyRecordTypeId];
             if(accLinkList != NULL && !accLinkList.isEmpty()){
                 for(Account_Link__c accl : accLinkList){
-                    comAccIdSet.add(accl.fromRole__C);
-                    retComAccLinkMap.put(accl.fromRole__c,accl.Id);      
+                    comAccIdSet.add(accl.toRole__c);
+                    retComAccLinkMap.put(accl.toRole__c,accl.Id);      
                 }
             }
             List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,toRole__C  FROM Account_Link__c WHERE fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet];
