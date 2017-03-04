@@ -12959,10 +12959,6 @@
             <translation>GL SUV</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLS SUV</masterLabel>
-            <translation>GLS SUV</translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>GL-Class</masterLabel>
             <translation><!-- GL-Class --></translation>
         </picklistValues>
