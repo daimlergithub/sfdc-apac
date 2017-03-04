@@ -1284,13 +1284,13 @@ public class AccountLinkHelper
     Method           : updateRetailCopyfromC2C
     Event            : Before Update
   */
-  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore ,List<Account_Link__c> accLst){
+  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst){
         Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
         Set<Id> comId = new Set<Id>();
         Set<Id> perAccIdSet = new Set<Id>();
         Set<Id> comAccIdSet = new Set<Id>();
         Map<Id,Id> retComAccLinkMap = new Map<Id,Id>();
-        if(isUpdate && isBefore){
+        if((isInsert || isUpdate) && isBefore){
             for(Account_Link__c accLink : accLst){
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);
