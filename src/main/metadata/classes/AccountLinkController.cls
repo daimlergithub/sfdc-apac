@@ -4,9 +4,11 @@ public with sharing class AccountLinkController
       public Account acc{get;set;}
       public Account_LInk__c acclnkrellist{get;set;}
       public List<Account_LInk__c> listalk{get;set;}
+       public String redirectUrl {public get; private set;}
+      public Boolean shouldRedirect {public get; private set;}
       //public Account ab{get;set;}
       private ApexPages.StandardController stdController;   
-       public String aid;
+       public static String aid;
        public Id sid;
      public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -17,6 +19,7 @@ public with sharing class AccountLinkController
       public AccountLinkController (ApexPages.StandardController controller) 
       {
         this.stdController = stdController;
+        shouldRedirect = false;
       acc=new Account();
         acclnkdealer=new Account_LInk__c();
         acclnkrellist=new Account_LInk__c();
@@ -71,6 +74,19 @@ public with sharing class AccountLinkController
           pg.setRedirect(true);
            return pg ;
                  }
-      
-     
+                 
+          public PageReference DeleteRetailCopy(){
+                                        system.debug('#######'+aid);
+                                        system.debug('#######'+acclnkdealer.id);
+                                delete [select id from Account_link__c WHERE id = : acclnkdealer.id];
+                                PageReference redirectUrl= new PageReference('{!URLFOR($Site.Prefix)}/'+aid + '_parent');
+                                shouldRedirect = true;
+                                redirectUrl.setRedirect(true);
+                                return null;
+                               
+                                               
+            }       
+                 
+                 
+          
 }
