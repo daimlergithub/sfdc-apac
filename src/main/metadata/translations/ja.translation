@@ -2388,11 +2388,7 @@
     <customLabels>
         <label>販売店担当者</label>
         <name>After_Sales_Contact_Target_Sales_Responsible_Person</name>
-    </customLabels>
-    <customLabels>
-        <label>販売拠点</label>
-        <name>SellingDealer</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label>サービス拠点</label>
         <name>Service_responsible_Outlet</name>
