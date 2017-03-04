@@ -5753,14 +5753,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>After Sales Contact Target</shortDescription>
         <value>After Sales Contact Target</value>
-    </labels>
-    <labels>
-        <fullName>SalesContactTarget</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>SalesContactTarget</shortDescription>
-        <value>Sales Contact Target</value>
-    </labels>	
+    </labels> 	
     <labels>
         <fullName>Owner_Sales_Responsible_Person</fullName>
         <language>en_US</language>
