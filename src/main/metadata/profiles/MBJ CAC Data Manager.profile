@@ -8053,6 +8053,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Place_of_vehicle_repossession__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Payment_term__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8064,11 +8069,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Perferred_Contact_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Place_of_vehicle_repossession__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

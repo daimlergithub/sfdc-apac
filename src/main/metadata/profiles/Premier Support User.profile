@@ -17933,11 +17933,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>SSI_Cleansing_Result__c.Same_contact_and_same_contact_name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>SSI_Cleansing_Result__c.Same_contact_info_of_current_period__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -23952,10 +23947,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditActivatedOrders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditBillingInfo</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
