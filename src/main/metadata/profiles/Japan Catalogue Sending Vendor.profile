@@ -8012,7 +8012,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Payer_Company_Person_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -8067,7 +8067,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Place_of_vehicle_repossession__c</field>
         <readable>true</readable>
     </fieldPermissions>
