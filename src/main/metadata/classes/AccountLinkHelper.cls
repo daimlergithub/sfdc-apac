@@ -1278,11 +1278,11 @@ public class AccountLinkHelper
   }
   
   /*
-	LastModifiedDate : 3rd Mar, 2017
-	LastModifedBY 	 : Lokesh M
-	JIRA No			 : SFDCJP-1893
-	Method 			 : updateRetailCopyfromC2C
-	Event 			 : Before Update
+    LastModifiedDate : 3rd Mar, 2017
+    LastModifedBY    : Lokesh M
+    JIRA No          : SFDCJP-1893
+    Method           : updateRetailCopyfromC2C
+    Event            : Before Update
   */
   public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore ,List<Account_Link__c> accLst){
         Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
@@ -1294,10 +1294,10 @@ public class AccountLinkHelper
                     updateMap.put(accLink.Retail_Related_Company__c,accLink);
                 }
             }
-            List<Account_Link__c> accLinkList = [SELECT Id,Position__c FROM Account_Link__c WHERE ID IN: comId AND RecordTypeId =: AccountLink_Contact2ContactRecordTypeId];
+            List<Account_Link__c> accLinkList = [SELECT Id,Position__c,fromRole__c FROM Account_Link__c WHERE ID IN: comId AND RecordTypeId =: AccountLink_Contact2ContactRecordTypeId];
             if(accLinkList != NULL && !accLinkList.isEmpty()){
                 for(Account_Link__c accl : accLinkList){
-                    if(!String.isBlank(accl.Position__c)){
+                    if(!String.isBlank(accl.Position__c) && updateMap.get(accl.Id).fromRole__c == accl.fromRole__c){
                         updateMap.get(accl.Id).Retail_Position__c = accl.Position__c;
                     }      
                 }
