@@ -608,7 +608,7 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
           list_SharingDele=[SELECT Id FROM Vehicle_Relationship__Share WHERE ParentId IN:list_VehicleRelationId AND UserOrGroupId IN :list_User];
             } 
             if(list_SharingDele.size() > 0){
-                delete list_SharingDele;
+                 Database.delete(list_SharingDele, false);
                 system.debug('+++++++++++'+list_SharingDele);
             }
        
