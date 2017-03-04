@@ -24227,10 +24227,7 @@
         <name>EditPublicFilters</name>
     </userPermissions>
     <userPermissions>
-        <name>EditPublicTemplates</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>EditPublicTemplates</name>
     </userPermissions>
     <userPermissions>

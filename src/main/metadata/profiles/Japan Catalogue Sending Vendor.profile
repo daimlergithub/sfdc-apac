@@ -9179,7 +9179,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Complaint_Description__c.Description__c</field>
-        <field>Event.Activity_Purpose__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
