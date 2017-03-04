@@ -24746,10 +24746,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Retail_Campaign__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -24759,6 +24755,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Dealer_List_Member__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>QuestionList__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
