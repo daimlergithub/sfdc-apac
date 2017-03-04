@@ -98,7 +98,7 @@
         <name>Car_Relation__c</name>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 1</masterLabel>
-            <translation>アフターセールスコンタクト1</translation>
+            <translation>アフターセールスコンタクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 2</masterLabel>
