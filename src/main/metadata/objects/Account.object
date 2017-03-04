@@ -25890,9 +25890,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>CompanyManualMerge</fullName>
+        <fullName>Company_Manual_Merge</fullName>
         <active>true</active>
-        <label>Company_Manual_Merge</label>
+        <label>Company Manual Merge</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
             <values>
