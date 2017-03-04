@@ -13675,7 +13675,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </picklistValues>
             <picklistValues>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>VIP</fullName>
@@ -13683,7 +13683,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
