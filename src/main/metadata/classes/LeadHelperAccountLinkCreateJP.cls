@@ -66,7 +66,7 @@ public class LeadHelperAccountLinkCreateJP {
 		 /*
          Author : Siva A
          */
-         List<Account_Link__c> acclinkupdate = new list<Account_Link__c>();
+        /* List<Account_Link__c> acclinkupdate = new list<Account_Link__c>();
          //Integer dealercount1 = [select count() from Account_Link__c WHERE fromRole__c IN : AcclinkContactId AND toRole__c IN : CompanyId AND RecordTypeId = :recordTypes.get('Contact2Contact')];
          List<Account_Link__c> Accountlist = [select id,Role__c,Role2__c from Account_Link__c WHERE fromRole__c IN : AcclinkContactId AND toRole__c IN : CompanyId AND RecordTypeId = :recordTypes.get('Contact2Contact')];
          for(Lead__c led1 : leadlst){
@@ -82,7 +82,7 @@ public class LeadHelperAccountLinkCreateJP {
                      acclinkupdate.add(acclnk1);
                  }
              }
-         }
+         }*/
          //end
          //Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (fromRole__c IN : AcclinkContactId OR fromRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
          Integer dealercount = [select count() from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
@@ -154,9 +154,9 @@ public class LeadHelperAccountLinkCreateJP {
                   
          }
     }
-	if(!acclinkupdate.isempty()){
+	/*if(!acclinkupdate.isempty()){
         insert acclinkupdate;    
-		}
+		}*/
     if(! actlnkids.isEmpty() ){
                LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
            }       

@@ -27,28 +27,45 @@ global class EmailnotificationLeads implements Database.Batchable<sObject>,Sched
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
         system.debug('Lead Scope :'+Scope);
+        
+        
         Set<String> accountIds = new Set<String>();
+        Id leadId ;
+		Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
         for(Lead__c led : Scope){
             accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
+            leadId = led.id;
+			led.Lead_Assignment_Notification_Done__c = true;
+            updateLeadMap.put(led.id,led);
         }
         List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
-        sendMail(userRecords);
+        sendMail(userRecords,leadId );
+		if(updateLeadMap.size() > 0){
+            update updateLeadMap.values();
+        }
         
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(List<User> userRecords){        
+    public void sendMail(List<User> userRecords,Id leadId  ){        
         List<Id> userIds = new List<Id>();
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME = : 'Lead assignment to dealer outlet' limit 1];
+        
+        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
         for(User u : userRecords){
             userIds.add(u.id);
-        }
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME = : 'Lead assignment to dealer outlet' limit 1];
-        Messaging.MassEmailMessage mail = new Messaging.MassEmailMessage();
+        
+        
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectIds(userIds);
+        mail.setTargetObjectId(u.id);
         mail.setTemplateId(e.Id);
         mail.setUseSignature(false);
         mail.setSaveAsActivity(false);
-        Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+        mail.setWhatId(leadId);
+        //Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+        mails.add(mail); 
+        }
+        Messaging.sendEmail(mails);
     }
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
