@@ -1284,7 +1284,7 @@ public class AccountLinkHelper
     Method           : updateRetailCopyfromC2C
     Event            : Before Update
   */
-    public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore ,List<Account_Link__c> accLst){
+  public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore ,List<Account_Link__c> accLst){
         Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
         Set<Id> comId = new Set<Id>();
         Set<Id> perAccIdSet = new Set<Id>();
@@ -1305,11 +1305,14 @@ public class AccountLinkHelper
                     retComAccLinkMap.put(accl.toRole__c,accl.Id);      
                 }
             }
-            List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,toRole__C  FROM Account_Link__c WHERE fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet];
+            List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,toRole__C  FROM Account_Link__c WHERE (fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet) OR (fromRole__c IN: comAccIdSet AND toRole__c IN: perAccIdSet)];
             if(accLinkConToCon != NULL && !accLinkConToCon.isEmpty()){
                 for(Account_Link__c acLink : accLinkConToCon){
                     if(!String.isBlank(acLink.Position__c)){
+                        if(retComAccLinkMap.get(acLInk.toRole__c) != NULL)
                         updateMap.get(retComAccLinkMap.get(acLInk.toRole__c)).Retail_Position__c = acLink.Position__c;
+                        else if(retComAccLinkMap.get(acLInk.fromRole__c) != NULL)
+                        updateMap.get(retComAccLinkMap.get(acLInk.fromRole__c)).Retail_Position__c = acLink.Position__c;
                     }
                 }    
             }
