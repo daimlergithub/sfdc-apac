@@ -24754,10 +24754,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>QuestionList__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
