@@ -2346,6 +2346,66 @@
         <name>rcc_TV</name>
     </customLabels>
     <customLabels>
+        <label>項目</label>
+        <name>Field</name>
+    </customLabels>
+    <customLabels>
+        <label>現在の値</label>
+        <name>Old_Value</name>
+    </customLabels>
+    <customLabels>
+        <label>新しい値</label>
+        <name>New_Value</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者</label>
+        <name>Owner</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>Owner_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label>連絡先セールス関連</label>
+        <name>SalesContactTarget</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者との関係</label>
+        <name>Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label>連絡先アフターセールス関連</label>
+        <name>After_Sales_Contact_Target</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者との関係</label>
+        <name>After_Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>After_Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels> 
+    <customLabels>
+        <label>サービス拠点</label>
+        <name>Service_responsible_Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label>サービス担当者</label>
+        <name>Service_responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label>更新</label>
+        <name>Update</name>
+    </customLabels>
+    <customLabels>
+        <label>キャンセル</label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Test Drive --></label>
         <name>rcc_Test_Drive</name>
     </customLabels>

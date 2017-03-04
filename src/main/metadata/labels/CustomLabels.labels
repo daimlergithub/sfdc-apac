@@ -1116,6 +1116,20 @@
         <shortDescription>Campaing Planning Page Title</shortDescription>
         <value>Campaign</value>
     </labels>
+	<labels>
+        <fullName>Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update</shortDescription>
+        <value>Update</value>
+    </labels>	
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
     <labels>
         <fullName>Cancel_Button</fullName>
         <language>en_US</language>
@@ -3246,6 +3260,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>New Customer Acquisition</value>
     </labels>
     <labels>
+        <fullName>New_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Value</shortDescription>
+        <value>New Value</value>
+    </labels>
+    <labels>
         <fullName>Next_Activity</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3323,6 +3344,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Occupation</shortDescription>
         <value>Occupation</value>
+    </labels>
+    <labels>
+        <fullName>Old_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Old Value</shortDescription>
+        <value>Old Value</value>
     </labels>
     <labels>
         <fullName>OnLine_Deduplication</fullName>
@@ -4277,6 +4305,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>SellingDealer</shortDescription>
         <value>Selling Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Service_responsible_Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Outlet</shortDescription>
+        <value>Service responsible Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Service_responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Person</shortDescription>
+        <value>Service responsible Person</value>
     </labels>
     <labels>
         <fullName>Send_to_spo_translate</fullName>
@@ -5669,5 +5711,54 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
+    </labels>	
+    <labels>
+        <fullName>Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Purchaser Relation</shortDescription>
+        <value>Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>Sales Contact Target Sales Responsible Person</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Purchaser Relation</shortDescription>
+        <value>After Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>After Sales Contact Target Sales Responsible Person</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target</shortDescription>
+        <value>After Sales Contact Target</value>
+    </labels> 	
+    <labels>
+        <fullName>Owner_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner Sales Responsible Person</shortDescription>
+        <value>Owner Sales Responsible Person</value>
     </labels>
 </CustomLabels>
