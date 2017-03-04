@@ -24754,10 +24754,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Dealer_List_Member__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>QuestionList__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
