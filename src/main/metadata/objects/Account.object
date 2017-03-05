@@ -2461,7 +2461,7 @@ Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</descript
     </fields>
     <fields>
         <fullName>Area_Code__c</fullName>
-        <description>Required by business during the workshop, which exists in current avarto system ( 区号).</description>
+        <description>Required by business during the workshop, which exists in current avarto system ( åŒºå·).</description>
         <externalId>false</externalId>
         <label>Area Code</label>
         <length>10</length>
@@ -3673,50 +3673,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
         <label>Data Source</label>
         <picklist>
             <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>English Customer Desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Owner Hotline</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Model-Year Reference desk</fullName>
-				<default>false</default>
-            </picklistValues>
-			<picklistValues>
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3765,34 +3721,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz School of Excelence</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Call Catalogue</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Mercedes</fullName>
-				<default>false</default>
-            </picklistValues>
-			<picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3824,7 +3752,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3898,10 +3826,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             </picklistValues>
             <picklistValues>
                 <fullName>Cataloue Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Connection</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5372,7 +5296,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto IT PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5400,7 +5324,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Gateway Solutions – Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6378,12 +6302,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
     <fields>
         <fullName>Dealer_SSI_Participation__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>
-		/* 
+        <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
 Function: Status of dealer's participation in the SSI program 
-Used in: Page Layouts, Reports
+Used in: Page Layouts, Reports 
+
 Modify History March 03, 2013
 Modify By: Lio Huang
 Modify Reason: Added the prefix "Dealer", which indicates this field will only be used at dealer
@@ -10491,31 +10415,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Avenue L (롯데)</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Style H (현대)</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Galleria (겔러리아)</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>The Lotte (롯데_면세점)</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Noblian (신라)</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>JJ Magazine (하얏트)</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PreVillage (롯데)</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10607,7 +10531,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chronos (홀수,시계)</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10623,15 +10547,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Morning Calm (대한_국내외선)</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Beyond (대한_국제선)</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignHouse (행가집)</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11878,8 +11802,8 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Portal Apply Status</label>
         <picklist>
-			<picklistValues>
-            <fullName>To be Sent</fullName>
+            <picklistValues>
+                <fullName>To be Sent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -12639,7 +12563,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>R_Check_Household_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>If (  Household_Amount__c  &gt; 10  , '是','否')</formula>
+        <formula>If (  Household_Amount__c  &gt; 10  , 'æ˜¯','å¦')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Household Amount</label>
         <required>false</required>
@@ -13307,7 +13231,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>Sales_Address_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
+        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "è‡ªå®…", "Business", "å‹¤å‹™å…ˆ","Other Address 1","ãã®ä»–1","Other Address 2","ãã®ä»–2","Other Address 3","ãã®ä»–3","")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Address Type</label>
         <required>false</required>
@@ -16607,15 +16531,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18829,7 +18753,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18837,7 +18761,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18849,7 +18773,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18857,7 +18781,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18885,7 +18809,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18909,7 +18833,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18941,7 +18865,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18961,7 +18885,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18969,15 +18893,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22089,15 +22013,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24397,7 +24321,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24405,7 +24329,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24417,7 +24341,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24425,7 +24349,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24453,7 +24377,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24477,7 +24401,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24509,7 +24433,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24529,7 +24453,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24537,15 +24461,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30278,7 +30202,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30286,7 +30210,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30298,7 +30222,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30306,7 +30230,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30342,7 +30266,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30366,7 +30290,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30398,7 +30322,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30418,7 +30342,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30426,15 +30350,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -33336,7 +33260,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-			<fullName>XCP</fullName>
+                <fullName>XCP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -33714,15 +33638,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto IT (Units)</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
@@ -35169,10 +35084,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
@@ -35260,7 +35171,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-   <fullName>Mercedes-Benz DrivingAcademy</fullName>
+                <fullName>Mercedes-Benz DrivingAcademy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35498,10 +35409,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Sedan</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>C-Class Stationwagon</fullName>
                 <default>false</default>
             </values>
@@ -35539,10 +35446,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>E-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35590,11 +35493,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S-Class Sedan</fullName>
                 <fullName>S-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
@@ -36078,7 +35976,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36086,7 +35984,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36098,7 +35996,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36106,7 +36004,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36130,19 +36028,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GQ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36166,7 +36056,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36198,7 +36088,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36218,7 +36108,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36226,15 +36116,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36865,10 +36755,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>French</fullName>
                 <default>false</default>
             </values>
@@ -36966,10 +36852,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Primary_Email__c</picklist>
             <values>
-                <fullName>E-mail2</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
@@ -37756,14 +37638,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Dealer1</fullName>
-        <active>true</active>
-        <description>Recordtype for dealer</description>
-        <label>Dealer1</label>
-        <picklistValues>
-            <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
         <fullName>Dealer</fullName>
         <active>true</active>
         <description>Record type for dealer</description>
@@ -37937,10 +37811,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Allow_Data_Sharing2__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Choice Yet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38386,10 +38256,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </values>
@@ -38402,23 +38268,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Connection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MCare</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mercedes Call Catalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39135,15 +38989,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39414,10 +39268,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Not Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -40037,58 +39887,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
-                <fullName>Art%28painting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Baseball</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bicycle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Camping</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cinema</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Climbing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Collecting %28wine%2Fgin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cooking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diving</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Food</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Football</fullName>
-				<default>false</default>
-            </values>
-			<values>
                 <fullName>Bar</fullName>
                 <default>false</default>
             </values>
@@ -40133,122 +39931,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese tradicional opera</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marathon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Motorcycle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28classical%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28jazz%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music %28popular%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Personal finance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pets%28Dogs%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pets%28others%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Photography</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Playing musical instruments</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Racing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reading</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Running</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shopping</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Skiing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Snowboarding</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Surfin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swimming</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tennis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel%28Domestic%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tri-athlon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Video games</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Volleyball</fullName>
-				<default>false</default>
-            </values>
-              <values>			
                 <fullName>Humanity</fullName>
                 <default>false</default>
             </values>
@@ -40614,10 +40296,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class Cabriolet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>C-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -40686,23 +40364,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLE-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLS-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New E-Class Sedan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40718,10 +40384,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>S-Class Cabriolet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>S-Class Coupe</fullName>
                 <default>false</default>
             </values>
@@ -40731,10 +40393,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>SL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-               <fullName>SLC-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41058,70 +40716,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>MBK_Occupation__c</picklist>
             <values>
-                <fullName>Accounting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Adviser</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Artist%2FPainter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Athlete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Automotive related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer%2FIT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dentist</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Doctor</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Freelancers</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government employees</fullName>
                 <default>false</default>
             </values>
@@ -41269,7 +40863,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41277,7 +40871,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41289,7 +40883,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41297,7 +40891,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41333,7 +40927,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41357,7 +40951,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41389,7 +40983,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41409,7 +41003,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41417,15 +41011,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-               <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41959,10 +41553,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Waiting for confirmation</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Portal_Email__c</picklist>
@@ -42028,13 +41618,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Language__c</picklist>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>SMS</fullName>
                 <default>false</default>
@@ -42047,62 +41630,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hindhi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portuguese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spanish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tagalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
@@ -42764,13 +42291,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes %28Used Car%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>UsedLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46299,7 +45819,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46307,7 +45827,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46319,7 +45839,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46327,7 +45847,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46363,7 +45883,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46387,7 +45907,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46419,7 +45939,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46439,7 +45959,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian %28ì‹ ë¼%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46447,15 +45967,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H %28í˜„ëŒ€%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47938,9 +47458,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-		ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP')</errorConditionFormula>
+ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
-        <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
+        <errorMessage>If customer has no vehicle relationship, Status must not be â€˜Customerâ€™.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
@@ -47953,11 +47473,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     <validationRules>
         <fullName>Allow_Data_Sharing_Comments</fullName>
         <active>true</active>
-        <description>When the value of Allow data sharing is “No“ .</description>
+        <description>When the value of Allow data sharing is â€œNoâ€œ .</description>
         <errorConditionFormula>AND(MD__c ='KR',$Profile.Name != 'IntegrationAPI',   ISPICKVAL(Allow_Data_Sharing__c, "No"),
 OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</errorConditionFormula>
         <errorDisplayField>Allow_Data_Sharing_Comment__c</errorDisplayField>
-        <errorMessage>Please enter “Allow Data Comments“</errorMessage>
+        <errorMessage>Please enter â€œAllow Data Commentsâ€œ</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
@@ -47982,7 +47502,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'KR'))</e
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
  OR(LEN(Branch_name_Native__c)=1,
- NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
+ NOT(REGEX( Branch_name_Native__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
@@ -48091,7 +47611,7 @@ RecordType.DeveloperName = 'ThirdParty'
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Company_Name_Native_1__c),
-REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(Company_Name_Native_1__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
@@ -48120,7 +47640,7 @@ NOT(Dealer_Active__c)
         <errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
 &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Status__c , 'Customer') &amp;&amp;(MD__c = 'KR')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
-        <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
+        <errorMessage>If customer has no vehicle relationship, Status must not be â€˜Customerâ€™.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Data_Source_is_mandatory</fullName>
@@ -48339,7 +47859,7 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(FirstName_Native_1__c),
-REGEX(FirstName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(FirstName_Native_1__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be KANA Chaarcters</errorMessage>
@@ -48573,7 +48093,7 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(LastName_Native_1__c),
-REGEX(LastName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(LastName_Native_1__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>
@@ -48791,7 +48311,7 @@ OR(Postal_Opt_Out_Reason__c=null,Postal_Opt_Out_Reason__c=""))</errorConditionFo
       ))
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
-        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to “Phone”.</errorMessage>
+        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to â€œPhoneâ€.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Sales_Sanction_Comment_required</fullName>
@@ -48818,12 +48338,12 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     <validationRules>
         <fullName>Social_ID</fullName>
         <active>false</active>
-        <description>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
+        <description>If ID Type is â€˜ID card/Driving Cardâ€™, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, "^[A-Za-z0-9]+$"))), FALSE), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
+        <errorMessage>If ID Type is â€˜ID card/Driving Cardâ€™, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>URL_format_validation</fullName>
@@ -48908,7 +48428,7 @@ REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"),
 REGEX(Work_Phone__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
 REGEX(Work_Phone__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
-REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}")
+REGEX(Work_Phone__c, "[0-9]{4}-[0-9]{4}") 
 )
 )
 )</errorConditionFormula>
@@ -49224,7 +48744,9 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+
+
  sforce.connection.sessionId = "{!$Api.Session_ID}";
 var userDetails = sforce.connection.query("SELECT Id, Market__c from User WHERE id ='" + sforce.connection.getUserInfo().userId + "'");
 var userMarket = userDetails.getArray("records");
@@ -49467,7 +48989,8 @@ else {
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+
 if (sforce.console.isInConsole()) {
  javascript:
    var showTabId = function showTabId(result) {
@@ -49555,7 +49078,7 @@ var showTabId = function showTabId(result) {
 var tabid = result.id; 
 sforce.console.openSubtab(tabid , 
 '/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&amp;tabId='+tabid, 
-true, 'eDM');
+true, 'eDM'); 
  }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 
