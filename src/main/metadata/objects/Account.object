@@ -36969,6 +36969,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>E-mail2</fullName>
                 <default>false</default>
             </values>
+			<values>
                 <fullName>E-mail1</fullName>
                 <default>false</default>
             </values>
@@ -40087,6 +40088,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Football</fullName>
 				<default>false</default>
             </values>
+			<values>
                 <fullName>Bar</fullName>
                 <default>false</default>
             </values>
@@ -40245,7 +40247,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Volleyball</fullName>
 				<default>false</default>
-            </values>		
+            </values>
+              <values>			
                 <fullName>Humanity</fullName>
                 <default>false</default>
             </values>
