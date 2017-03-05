@@ -36868,6 +36868,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
+			<values>
                 <fullName>French</fullName>
                 <default>false</default>
             </values>
