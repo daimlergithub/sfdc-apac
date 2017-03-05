@@ -42102,6 +42102,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
+			<values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
