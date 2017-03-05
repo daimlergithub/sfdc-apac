@@ -24134,11 +24134,31 @@
         <recordType>Account.Company</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Campaign.Campaign_Executiono</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+        <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Planning_Design_Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+     <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Dealer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+       <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
+        <visible>true</visible>
+		</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
@@ -24242,7 +24262,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
