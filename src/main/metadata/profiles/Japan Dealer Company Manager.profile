@@ -24776,10 +24776,6 @@
     <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>Participating_Dealer__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>   
 	<tabVisibilities>
        <tab>standard-Lead</tab>
