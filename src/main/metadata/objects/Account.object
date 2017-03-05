@@ -11878,6 +11878,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Portal Apply Status</label>
         <picklist>
+			<picklistValues>
             <fullName>To be Sent</fullName>
                 <default>false</default>
             </picklistValues>
