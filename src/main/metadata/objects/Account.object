@@ -3714,8 +3714,9 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             </picklistValues>
             <picklistValues>
                 <fullName>Model-Year Reference desk</fullName>
-			<default>false</default>
+				<default>false</default>
             </picklistValues>
+			<picklistValues>
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3791,6 +3792,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>My Mercedes</fullName>
 				<default>false</default>
             </picklistValues>
+			<picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3822,6 +3824,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
             </picklistValues>
