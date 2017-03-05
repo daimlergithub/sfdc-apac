@@ -101,6 +101,13 @@
         <value>Add</value>
     </labels>
     <labels>
+        <fullName>Add_Participating_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Participating Dealer</shortDescription>
+        <value>Add Participating Dealer</value>
+    </labels>
+    <labels>
         <fullName>Add_to_Campaign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -193,6 +200,27 @@
         <protected>false</protected>
         <shortDescription>Address validation</shortDescription>
         <value>Address is not Validated ,Please click on Validate by entering proper Zipcode</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target</shortDescription>
+        <value>After Sales Contact Target</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Purchaser Relation</shortDescription>
+        <value>After Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>After Sales Contact Target Sales Responsible Person</value>
     </labels>
     <labels>
         <fullName>Aftersales</fullName>
@@ -1116,13 +1144,6 @@
         <shortDescription>Campaing Planning Page Title</shortDescription>
         <value>Campaign</value>
     </labels>
-	<labels>
-        <fullName>Update</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Update</shortDescription>
-        <value>Update</value>
-    </labels>	
     <labels>
         <fullName>Cancel</fullName>
         <language>en_US</language>
@@ -1870,6 +1891,20 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Email_LeadDealerAssign2</shortDescription>
         <value>Shop</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssign20</shortDescription>
+        <value>I trust you are well.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssign21</shortDescription>
+        <value>We send you this message as we see that the lead is still not assigned to the person from your company yet.</value>
     </labels>
     <labels>
         <fullName>Email_LeadDealerAssign3</fullName>
@@ -2831,13 +2866,13 @@ please contact the number below.</value>
         <shortDescription>Lead creation/Assign Date</shortDescription>
         <value>Lead creation/Assign Date</value>
     </labels>
-<labels>
-   <fullName>Lead_to_be_Merged</fullName>
-   <language>en_US</language>
-   <protected>false</protected>
-   <shortDescription>Lead to be Merged</shortDescription>
-   <value>Lead to be Merged</value>
-</labels>
+    <labels>
+        <fullName>Lead_to_be_Merged</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to be Merged</shortDescription>
+        <value>Lead to be Merged</value>
+    </labels>
     <labels>
         <fullName>Leagl_Owner</fullName>
         <language>en_US</language>
@@ -3423,6 +3458,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Others</shortDescription>
         <value>Others</value>
+    </labels>
+    <labels>
+        <fullName>Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>Owner_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner Sales Responsible Person</shortDescription>
+        <value>Owner Sales Responsible Person</value>
     </labels>
     <labels>
         <fullName>POM_advertisement</fullName>
@@ -4170,6 +4219,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Customer Sales TEL</value>
     </labels>
     <labels>
+        <fullName>Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Purchaser Relation</shortDescription>
+        <value>Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>Sales Contact Target Sales Responsible Person</value>
+    </labels>
+    <labels>
         <fullName>Sales_Mail</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4307,20 +4370,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Selling Dealer</value>
     </labels>
     <labels>
-        <fullName>Service_responsible_Outlet</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Service responsible Outlet</shortDescription>
-        <value>Service responsible Outlet</value>
-    </labels>
-    <labels>
-        <fullName>Service_responsible_Person</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Service responsible Person</shortDescription>
-        <value>Service responsible Person</value>
-    </labels>
-    <labels>
         <fullName>Send_to_spo_translate</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4376,6 +4425,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Service Work:</shortDescription>
         <value>Service Work:</value>
+    </labels>
+    <labels>
+        <fullName>Service_responsible_Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Outlet</shortDescription>
+        <value>Service responsible Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Service_responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Person</shortDescription>
+        <value>Service responsible Person</value>
     </labels>
     <labels>
         <fullName>Share</fullName>
@@ -4934,6 +4997,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Unknown</shortDescription>
         <value>Unknown</value>
+    </labels>
+    <labels>
+        <fullName>Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update</shortDescription>
+        <value>Update</value>
     </labels>
     <labels>
         <fullName>Update_Address</fullName>
@@ -5711,54 +5781,5 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
-    </labels>	
-    <labels>
-        <fullName>Owner</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Owner</shortDescription>
-        <value>Owner</value>
-    </labels>
-    <labels>
-        <fullName>Sales_Contact_Target_Purchaser_Relation</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Sales Contact Target Purchaser Relation</shortDescription>
-        <value>Sales Contact Target Purchaser Relation</value>
-    </labels>
-    <labels>
-        <fullName>Sales_Contact_Target_Sales_Responsible_Person</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Sales Contact Target Sales Responsible Person</shortDescription>
-        <value>Sales Contact Target Sales Responsible Person</value>
-    </labels>
-    <labels>
-        <fullName>After_Sales_Contact_Target_Purchaser_Relation</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>After Sales Contact Target Purchaser Relation</shortDescription>
-        <value>After Sales Contact Target Purchaser Relation</value>
-    </labels>
-    <labels>
-        <fullName>After_Sales_Contact_Target_Sales_Responsible_Person</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>After Sales Contact Target Sales Responsible Person</shortDescription>
-        <value>After Sales Contact Target Sales Responsible Person</value>
-    </labels>
-    <labels>
-        <fullName>After_Sales_Contact_Target</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>After Sales Contact Target</shortDescription>
-        <value>After Sales Contact Target</value>
-    </labels> 	
-    <labels>
-        <fullName>Owner_Sales_Responsible_Person</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Owner Sales Responsible Person</shortDescription>
-        <value>Owner Sales Responsible Person</value>
     </labels>
 </CustomLabels>

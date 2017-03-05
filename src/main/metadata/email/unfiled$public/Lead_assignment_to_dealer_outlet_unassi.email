@@ -1,0 +1,47 @@
+<messaging:emailTemplate subject="Lead assignment to dealer outlet" recipientType="User" relatedToType="Lead__c">
+<messaging:htmlEmailBody > 
+
+   <html>
+   <style type="text/css">
+   </style>
+   <body>
+    <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}</p>
+    
+     <p> {!$Label.Email_LeadDealerAssign3}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign20}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign21}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign9}</p>
+     
+     <a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.Id}">
+        Direct link URL to the Lead detail page
+    </a>
+     <!--<apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Lead detail page</apex:outputLink>-->
+     
+     <!--<a href="/{!relatedTo.id}">Lead detail page</a>-->
+     
+      <p> {!$Label.Email_LeadDealerAssign10}</p>
+      
+     
+     <p> {!$Label.Email_LeadDealerAssign11} </p>
+     
+     <p> {!$Label.Email_LeadDealerAssign12} </p>
+     
+     
+     <p> {!$Label.Email_LeadDealerAssign13} </p>
+     
+     <p> {!$Label.Email_LeadDealerAssign14} </p>
+     
+     ----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign15}</p>
+     <p> {!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}</p>
+     <p> {!$Label.Email_LeadDealerAssign18}</p>
+    -----------------------------------------------
+   </body>
+   </html>
+     
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
