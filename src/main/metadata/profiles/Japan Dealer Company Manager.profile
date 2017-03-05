@@ -732,11 +732,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontrollerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MisunderstoodTaskGeneration</apexClass>
@@ -20939,7 +20939,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.DMS_UserID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23902,7 +23902,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MassUpdate_new_Assigned_User</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
@@ -24776,10 +24776,6 @@
     <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>Participating_Dealer__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>   
 	<tabVisibilities>
        <tab>standard-Lead</tab>
