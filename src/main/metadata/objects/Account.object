@@ -35172,6 +35172,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
+			<values>
                 <fullName>Petroleum processing industry</fullName>
                 <default>false</default>
             </values>
