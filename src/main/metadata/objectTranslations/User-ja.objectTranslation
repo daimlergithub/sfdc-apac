@@ -53,139 +53,139 @@
         <name>MBJ_Title__c</name>
         <picklistValues>
             <masterLabel>Auditor</masterLabel>
-            <translation><!-- Auditor --></translation>
+            <translation>監査役</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>BP Mechanic</masterLabel>
-            <translation><!-- BP Mechanic --></translation>
+            <translation>ＢＰメカニック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CS Manager</masterLabel>
-            <translation><!-- CS Manager --></translation>
+            <translation>ＣＳマネージャー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cleaning Representative</masterLabel>
-            <translation><!-- Cleaning Representative --></translation>
+            <translation>清掃担当者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Clerk/Service Operation</masterLabel>
-            <translation><!-- Clerk/Service Operation --></translation>
+            <translation>クラーク/サービス業務</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Environtment Management Executive</masterLabel>
-            <translation><!-- Environtment Management Executive --></translation>
+            <translation>環境管理責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Executive</masterLabel>
-            <translation><!-- Executive --></translation>
+            <translation>取締役・執行役員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance Executive</masterLabel>
-            <translation><!-- Finance Executive --></translation>
+            <translation>ファイナンス責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Foreman</masterLabel>
-            <translation><!-- Foreman --></translation>
+            <translation>フォアマン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IT Engineer</masterLabel>
-            <translation><!-- IT Engineer --></translation>
+            <translation>情報システム担当者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IT Manager</masterLabel>
-            <translation><!-- IT Manager --></translation>
+            <translation>情報システム責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Representative</masterLabel>
-            <translation><!-- Maintenance Representative --></translation>
+            <translation>メンテナンス担当者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mechanic</masterLabel>
-            <translation><!-- Mechanic --></translation>
+            <translation>メカニック</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New Car Sales Representative</masterLabel>
-            <translation><!-- New Car Sales Representative --></translation>
+            <translation>新車セールスマン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Operation Management(HR/Finance/Admin)</masterLabel>
-            <translation><!-- Operation Management(HR/Finance/Admin) --></translation>
+            <translation>管理業務（人事・経理・総務）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Outlet Managing Director</masterLabel>
-            <translation><!-- Outlet Managing Director --></translation>
+            <translation>拠点責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parts Clerk</masterLabel>
-            <translation><!-- Parts Clerk --></translation>
+            <translation>部品担当者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parts Manager</masterLabel>
-            <translation><!-- Parts Manager --></translation>
+            <translation>部品マネージャー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Personal Information Manager</masterLabel>
-            <translation><!-- Personal Information Manager --></translation>
+            <translation>個人情報管理責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Picker/Service Operation</masterLabel>
-            <translation><!-- Picker/Service Operation --></translation>
+            <translation>ピッカー/サービス業務</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Expert</masterLabel>
-            <translation><!-- Product Expert --></translation>
+            <translation>プロダクトエキスパート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quality Management Executive</masterLabel>
-            <translation><!-- Quality Management Executive --></translation>
+            <translation>品質管理責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Representative</masterLabel>
-            <translation><!-- Representative --></translation>
+            <translation>代表者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales Executive</masterLabel>
-            <translation><!-- Sales Executive --></translation>
+            <translation>営業責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales Manager</masterLabel>
-            <translation><!-- Sales Manager --></translation>
+            <translation>セールスマネージャー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Advisor</masterLabel>
-            <translation><!-- Service Advisor --></translation>
+            <translation>サービスアドバイザー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Executive</masterLabel>
-            <translation><!-- Service Executive --></translation>
+            <translation>サービス責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Manager</masterLabel>
-            <translation><!-- Service Manager --></translation>
+            <translation>サービスマネージャー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Showroom Staff</masterLabel>
-            <translation><!-- Showroom Staff --></translation>
+            <translation>ショールームスタッフ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Training Manager</masterLabel>
-            <translation><!-- Training Manager --></translation>
+            <translation>トレーニング責任者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used Car Manager</masterLabel>
-            <translation><!-- Used Car Manager --></translation>
+            <translation>中古車マネージャー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used Car Sales Representative</masterLabel>
-            <translation><!-- Used Car Sales Representative --></translation>
+            <translation>中古車セールスマン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Management</masterLabel>
-            <translation><!-- Vehicle Management --></translation>
+            <translation>車両業務</translation>
         </picklistValues>
     </fields>
     <fields>

@@ -10,7 +10,7 @@
     2. Modified on 1-dec-2015    
 */
 
-public with sharing class LeadMergeController{
+public class LeadMergeController{
     // AccountMerge Page Variable
     public Lead__c master                   {get; set;}
     public Lead__c slave                    {get; set;}
@@ -130,7 +130,7 @@ public with sharing class LeadMergeController{
            soql += 'Service_Advisor__c, ';
         }
         return Database.query(soql + 
-            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\''+' AND Service_Advisor__c=\''+leads.Service_Advisor__c+'\'');
+            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
@@ -299,6 +299,9 @@ public with sharing class LeadMergeController{
            slave.OwnerId = usr.Id; 
          slave.Lead_Lost_Date_Time__c=date.today();
          slave.Related_Leads__c=leads.id;
+		 slave.Dealer_Lead_Status__c = 'Lost';
+         slave.Dealer_Lost_Reason__c = 'Lead Merge';
+         slave.Lost_Situation__c = 'Lead Merge';
         
          for(DM_Request__C dm:[Select id,Lead__c from DM_Request__c Where Lead__C=:slave.Id]){
              dm.Lead__c=leads.id;

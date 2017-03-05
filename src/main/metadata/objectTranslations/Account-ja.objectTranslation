@@ -372,6 +372,14 @@
         <label>サービススリード通知タイミング</label>
         <name>ASLead_Notification_Timing__c</name>
         <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
         </picklistValues>
@@ -3589,9 +3597,17 @@ Allows up to 240 characters --></help>
             <translation>有効</translation>
         </picklistValues>
     </fields>
-    <fields>
+ 	    <fields>
         <label>ファイナンスリード通知タイミング</label>
         <name>FinanceLead_Notification_Timing__c</name>
+        <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
@@ -5931,20 +5947,20 @@ Allows up to 240 characters --></help>
         <label>My Mercedes申請日</label>
         <name>Portal_Apply_Date__c</name>
     </fields>
-    <fields>
+ 	    <fields>
         <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送付済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送付待</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
-            <translation><!-- Waiting for confirmation --></translation>
+            <translation>要確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -6641,6 +6657,14 @@ Allows up to 240 characters --></help>
         <label>セールスリード通知タイミング</label>
         <name>SalesLead_Notification_Timing__c</name>
         <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
         </picklistValues>
@@ -7248,11 +7272,11 @@ Allows up to 240 characters --></help>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送付済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送付待</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>

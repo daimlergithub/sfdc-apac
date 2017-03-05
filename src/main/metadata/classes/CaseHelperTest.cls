@@ -265,7 +265,7 @@ public With Sharing class CaseHelperTest {
         newAccount.City__c = 'asdfsf';
         newAccount.ZipCode__c = '1234567';
         newAccount.MBK_Data_Source__c='Email';
-        newAccount.Mobile__c = '000-0000-9642';
+       
         insert newAccount;
         
         testCase.Car_Owner__c = newAccount.Id;

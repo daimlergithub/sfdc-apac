@@ -29,7 +29,8 @@
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date__c.Label}">
                         
-                        <apex:outputText value="{!ser.Service_Date__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
+                        <apex:param value="{!ser.Service_Date__c}"/>
                         </apex:outputText>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Details__c.Label}">
@@ -39,12 +40,14 @@
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_In__c.Label}">
                        
-                        <apex:outputText value="{!ser.Service_Date_In__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
+                        <apex:param value="{!ser.Service_Date_In__c}"/>
                         </apex:outputText>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_Out__c.Label}">
-                
-                        <apex:outputText value="{!ser.Service_Date_Out__c}" style="width:9%; white-space:nowrap;">
+                 
+                        <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
+                        <apex:param value="{!ser.Service_Date_Out__c}"/>
                         </apex:outputText>
                     </apex:column>
                     

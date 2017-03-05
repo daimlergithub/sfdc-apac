@@ -11,17 +11,15 @@ public class TriggerSurveyTakerTriggerHandlerJP implements TriggerHandlerIf {
          if(Trigger.isAfter && Trigger.isInsert){
              
         Map<Id,SurveyTaker__c> oldmap = (Map<Id,SurveyTaker__c>)Trigger.oldmap;
-          SurveyTakerHelperJP.afterInsertOrUpdateEvent(trigger.new,NULL);
+          SurveyTakerHelperJP.afterInsertEvent(trigger.new);
         }
        
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,SurveyTaker__c> oldmap = (Map<Id,SurveyTaker__c>)Trigger.oldmap;
-           SurveyTakerHelperJP.afterInsertOrUpdateEvent(trigger.new,NULL);
+           SurveyTakerHelperJP.afterUpdateEvent(trigger.new,oldmap);
 
         }
-        if(Trigger.isAfter && Trigger.isDelete){
-          SurveyTakerHelperJP.afterDeleteEvent(trigger.old);
-        }
+        
        
     }
         
@@ -30,18 +28,15 @@ public class TriggerSurveyTakerTriggerHandlerJP implements TriggerHandlerIf {
         // Implementation to addedd as required in market
         if(Trigger.isAfter && Trigger.isUpdate){
             Map<Id,SurveyTaker__c> oldmap = (Map<Id,SurveyTaker__c>)Trigger.oldmap;
-             SurveyTakerHelperJP.afterInsertOrUpdateEvent(trigger.new,NULL);
+           SurveyTakerHelperJP.afterUpdateEvent(trigger.new,oldmap);
             
         }
          if(Trigger.isAfter && Trigger.isInsert)
           {
             Map<Id,SurveyTaker__c> oldmap = (Map<Id,SurveyTaker__c>)Trigger.oldmap;
-            SurveyTakerHelperJP.afterInsertOrUpdateEvent(trigger.new,NULL);
+            SurveyTakerHelperJP.afterInsertEvent(trigger.new);
           }
-          if(Trigger.isAfter && Trigger.isDelete)
-          {
-         SurveyTakerHelperJP.afterDeleteEvent(trigger.old);
-          }
+          
         
 
     }

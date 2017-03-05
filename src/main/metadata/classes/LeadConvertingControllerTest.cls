@@ -23,32 +23,36 @@ public with sharing class LeadConvertingControllerTest
   Private static String ids='id';
   static{
     Profile p = [select id from profile where name='System Administrator' limit 1];
-    currentUser = new User(alias = 'usrTest', email='usrTesting@testingorg.com',
+    currentUser = new User(alias = 'usrTest', email='usrTesting614@testingorg.com',
       emailencodingkey='UTF-8', lastname='Apex', languagelocalekey='en_US',
       localesidkey='en_US', profileid = p.Id, country='United States',
-      timezonesidkey='America/Los_Angeles', username='usrTestingclasses@testing.org',isActive = true);
+      timezonesidkey='America/Los_Angeles', username='usrTestingclasses6114@testing.org',isActive = true);
     insert currentUser;
 
   }
 
   private static void init() {
+ 
+      Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccount16',Trigger_Name__c = 'TriggerAccount',Trigger_Handler__c = 'TriggerAccountTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
       
-      
-       List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerRetailCampaignMember'];
-       if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-           upsert new Trigger__c(Name = 'TriggerRetailCampaignMember',Market__c='JP',Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
-       }
-       thirdParty = new Account(LastName = 'Test Amit', RecordTypeId =thirdPartyRTID, Phone ='0123456789',PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989',Retail_Mobile__c='0231456949',Retail_Work_Phone__c='0231056989');
+       //List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerRetailCampaignMember'];
+       //if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
+           insert new Trigger__c(Name = 'TriggerRetailCampaignMember',Market__c='JP',Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+       //}
+       thirdParty = new Account(LastName = 'TestAmit216', RecordTypeId =thirdPartyRTID);
        insert thirdParty;
        dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
        insert dealer;
-       rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
+       rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Campaign_Execution_Channels__c = 'DM');
        insert rc;      
        rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
-       insert rtm;       
+       insert rtm;    
+        
    }
    private static void set_Lead_ASRETAILCAMPAIGN() {
-       init();    
+       //init();    
        leadConverting = Page.LeadConverting;
        leadConverting.getParameters().put(ids,rc.id);
        leadConverting.getParameters().put('rt',UtilConstant.AS_RETAIL_CAMPAIGN); 
@@ -56,7 +60,7 @@ public with sharing class LeadConvertingControllerTest
        extension = new LeadConvertingController();  
    }
    private static void LeadRT_Segmentation() {
-       init();           
+       //init();           
        leadConverting = Page.LeadConverting;
        leadConverting.getParameters().put(ids,rc.id);
        leadConverting.getParameters().put('rt',segmentation); 
@@ -64,7 +68,7 @@ public with sharing class LeadConvertingControllerTest
        extension = new LeadConvertingController();  
    }
    private static void LeadRT_notSegmentation() {
-       init();           
+       //init();           
        leadConverting = Page.LeadConverting;
        leadConverting.getParameters().put(ids,rc.id);
        leadConverting.getParameters().put('rt','Not Segmentation Only'); 
@@ -74,8 +78,8 @@ public with sharing class LeadConvertingControllerTest
     
   public static testMethod void test_Converttolead_isConvertedtrue()
   {
-      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+      //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
     init();
     set_Lead_ASRETAILCAMPAIGN();
@@ -92,8 +96,8 @@ public with sharing class LeadConvertingControllerTest
     
     public static testMethod void test_Converttolead_LeadType_Product()
        {
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+           //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
         init();
         set_Lead_ASRETAILCAMPAIGN();
@@ -110,8 +114,8 @@ public with sharing class LeadConvertingControllerTest
       }  
       public static testMethod void test_Converttolead_Additional_Service_Null()
        {
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+           //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
         init();
         set_Lead_ASRETAILCAMPAIGN();
@@ -132,8 +136,8 @@ public with sharing class LeadConvertingControllerTest
       }   
       public static testMethod void test_Converttolead_Collectioner_Notes_Null()
        {
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+          // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
         init();
         set_Lead_ASRETAILCAMPAIGN();
@@ -155,8 +159,8 @@ public with sharing class LeadConvertingControllerTest
       } 
      public static testMethod void test_Converttolead_RTSegmentation()
        {
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+           //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
         init();
         LeadRT_Segmentation();
@@ -176,8 +180,8 @@ public with sharing class LeadConvertingControllerTest
      } 
     public static testMethod void test_Converttolead_Lead_Desired_Service()
          {
-             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+            // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
             init();
             LeadRT_notSegmentation();
@@ -194,8 +198,8 @@ public with sharing class LeadConvertingControllerTest
       }      
     public static testMethod void test_Converttolead_Retail_Purchase_Time()
           {
-              List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+             // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
             init();
             LeadRT_notSegmentation();
@@ -213,8 +217,8 @@ public with sharing class LeadConvertingControllerTest
       } 
      public static testMethod void test_Converttolead_Lead_Type()
          {
-             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+             //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
             init();
             LeadRT_notSegmentation();
@@ -233,8 +237,8 @@ public with sharing class LeadConvertingControllerTest
       }
       public static testMethod void test_Cancel()
        {    
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+          // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     // insert updatecustomsettings;
 
         init();
         set_Lead_ASRETAILCAMPAIGN();
@@ -246,8 +250,8 @@ public with sharing class LeadConvertingControllerTest
       } 
       public static testMethod void test_VehicleLooking()
        {
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-      insert updatecustomsettings;
+          // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      //insert updatecustomsettings;
 
         init();
         set_Lead_ASRETAILCAMPAIGN();

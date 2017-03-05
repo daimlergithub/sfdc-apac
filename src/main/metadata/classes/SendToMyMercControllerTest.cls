@@ -2,7 +2,7 @@
 private class   SendToMyMercControllerTest{
 static testMethod void InvokeMeth(){
 RecordType recCom = [select id from RecordType where sObjecttype = 'Account' AND Name = 'Company' limit 1];
-Account acc = new Account(name='TestAcc',phone='0123456789',RecordtypeId = recCom.Id,Portal_Email__c='test@gmail.com',LastName_Native_1__c = 'TestLastnamenative',Email2__c = 'testemail2@test1.com');
+Account acc = new Account(name='TestAcc',phone='0123456789',RecordtypeId = recCom.Id,Portal_Email__c='test@gmail.com',LastName_Native_1__c = 'ァアィイゥウェエォオカガ',Email2__c = 'testemail2@test1.com');
 Insert acc;
 Account_Link__c acclinkobj = new Account_Link__c(toRole__c = acc.Id,System__c = 'My Mercedes',Primary__c = True);
 insert acclinkobj;
@@ -19,9 +19,10 @@ accwrapins.isSelect = true;
 sendmerobj.lstAccountWrapper.add(accwrapins);
 sendmerobj.Submit();
 sendmerobj.closePopup();
+<<<<<<< HEAD
 sendmerobj.savepop();
 sendmerobj.cancel();
 */
-}    
+
 }
 

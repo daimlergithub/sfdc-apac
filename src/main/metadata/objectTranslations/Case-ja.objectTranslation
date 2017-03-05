@@ -6184,6 +6184,10 @@
             <masterLabel>CSI</masterLabel>
             <translation><!-- CSI --></translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>Certificat of Comfort</masterLabel>
+            <translation>CoC書類</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Certification</masterLabel>
             <translation>各種車両（データ/ツール）/証明書/メンテナンス（Gr00/Gr99）</translation>
@@ -7699,9 +7703,17 @@
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>DSC</masterLabel>
+            <translation>DSC</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
             <translation>販売店/サービス工場</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Dealer Outlet</masterLabel>
+            <translation>販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -7730,6 +7742,10 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Letter to Executive</masterLabel>
+            <translation>役員宛て書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Connection</masterLabel>
@@ -9055,7 +9071,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CPM</masterLabel>
-            <translation>MS/商品企画統括課</translation>
+            <translation>MS/商品戦略・市場分析課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/HML</masterLabel>
@@ -9457,6 +9473,30 @@
         <picklistValues>
             <masterLabel>Concern</masterLabel>
             <translation><!-- Concern --></translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Magazine Number Change</masterLabel>
+            <translation>マガジン冊数変更</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine Opt In</masterLabel>
+            <translation>マガジン除外解除申請（拒否アクティビティ解除）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine Opt Out</masterLabel>
+            <translation>マガジン除外申請（拒否アクティビティ）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Opt In</masterLabel>
+            <translation>マーケティング活動除外解除申請（拒否アクティビティ解除）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Opt Out</masterLabel>
+            <translation>マーケティング活動除外申請（拒否アクティビティ）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall Address Chage</masterLabel>
+            <translation>リコール宛先変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Resolution</masterLabel>
@@ -10416,7 +10456,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/CPM</masterLabel>
-            <translation>MS/商品企画統括課</translation>
+            <translation>MS/商品戦略・市場分析課</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MS/HML</masterLabel>

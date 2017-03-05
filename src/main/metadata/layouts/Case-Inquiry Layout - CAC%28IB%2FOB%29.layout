@@ -186,6 +186,9 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Contact__c</field>
             </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle__c</field>
@@ -242,15 +245,15 @@
                 <behavior>Edit</behavior>
                 <field>Improvement_Department__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Recall_ID__c</field>
-            </layoutItems>
-        </layoutColumns>
+            </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Car_Type__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Call_Duration__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -490,6 +493,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Recall_ID__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Station__c</field>
