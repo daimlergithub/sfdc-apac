@@ -2465,7 +2465,6 @@
             <label>新しい</label>
             <section>New</section>
         </sections>
-        <layout>Retail Task Layout (Loan)</layout>
 	</layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>

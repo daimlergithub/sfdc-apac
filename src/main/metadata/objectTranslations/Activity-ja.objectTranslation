@@ -967,10 +967,6 @@
             <translation>試乗</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Trade In</masterLabel>
-            <translation><!-- Trade In --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Trade-in</masterLabel>
             <translation>下取査定</translation>
         </picklistValues>
