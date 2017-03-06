@@ -3,7 +3,7 @@ public class LeadUtil {
     public static boolean accountTrigger = true;
     public static boolean vrTrigger = true;
     public static boolean verTrigger = true;
-
+    public static boolean LeadTrigger = true;
     
     
 

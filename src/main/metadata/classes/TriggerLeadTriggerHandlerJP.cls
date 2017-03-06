@@ -40,12 +40,12 @@ public class TriggerLeadTriggerHandlerJP
            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
         }
 
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI'&& LeadUtil.LeadTrigger ){
             system.debug('Isafter is');
             //LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            LeadUtil.isCreated = false;
-           
+           // LeadUtil.isCreated = false;
+           LeadUtil.LeadTrigger = false;
             
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI'){
