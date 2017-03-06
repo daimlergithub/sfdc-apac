@@ -42,10 +42,13 @@ public class LeadMergeController{
      surtake= new List<SurveyTaker__c>();
         leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
           MasterRecordTypeName = leads.Recordtype.Name;
+           if(leads.Service_Advisor__c != NULL)
+        { 
         slaves = new List<LeadWrapperclass>();     
         for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
             slaves.add(new LeadWrapperclass(a));
           }
+        }
            
         SoqlFieldset = new set<string>();
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('LeadMergeFieldsSet'));    
@@ -307,7 +310,7 @@ public class LeadMergeController{
            slave.OwnerId = usr.Id; 
          slave.Lead_Lost_Date_Time__c=date.today();
          slave.Related_Leads__c=leads.id;
-		 slave.Dealer_Lead_Status__c = 'Lost';
+         slave.Dealer_Lead_Status__c = 'Lost';
          slave.Dealer_Lost_Reason__c = 'Lead Merge';
          slave.Lost_Situation__c = 'Lead Merge';
         
