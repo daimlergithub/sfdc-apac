@@ -3878,11 +3878,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5057,11 +5057,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6208,11 +6208,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7391,11 +7391,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8382,11 +8382,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9393,11 +9393,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10391,11 +10391,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11481,11 +11481,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12751,11 +12751,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13750,11 +13750,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15028,11 +15028,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16246,11 +16246,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17445,11 +17445,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18631,11 +18631,11 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Finance - %3E  Prematurity</fullName>
+                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales -%3E Crosspoint</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
