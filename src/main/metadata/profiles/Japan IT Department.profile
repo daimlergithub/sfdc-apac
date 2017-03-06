@@ -24707,7 +24707,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey_Question__c</tab>
-        <visibility>DefaultOFF</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey__c</tab>
