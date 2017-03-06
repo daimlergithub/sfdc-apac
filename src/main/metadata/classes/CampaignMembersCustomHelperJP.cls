@@ -145,6 +145,7 @@ public with sharing class CampaignMembersCustomHelperJP {
          if(updateCampList != NULL && !updateCampList.isEmpty()){
                 update updateCampList;
          }
+		 LeadUtil.Campaigntrigger = false;
      }
      
      /*trigger  : After Update Campaign Members
