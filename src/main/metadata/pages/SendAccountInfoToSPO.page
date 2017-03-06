@@ -7,7 +7,7 @@ function afterSave(){
 if({!ShowHideError} ==false)
 {
 alert('Sucessfully Sent Information to SPO');
-window.location.href="/{!AccId}"; 
+window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}"; 
 }
 else
 {
