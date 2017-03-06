@@ -21576,7 +21576,7 @@
     <layoutAssignments>
         <layout>Car_Model__c-Car Model Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
+     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Chrysler_Complaint</recordType>
     </layoutAssignments>
@@ -21631,9 +21631,6 @@
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Touring_Support</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
