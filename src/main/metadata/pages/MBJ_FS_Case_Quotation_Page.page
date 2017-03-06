@@ -22,11 +22,11 @@
                 <apex:inputField value="{!Case.ownerId}"/>
                 <apex:inputField value="{!Case.Lead__c}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
-                <apex:inputField value="{!Case.Inquiry_Comments__c}"/>
+                <apex:inputField value="{!Case.Inquiry_Comments__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Case_Type__c}">
                     <apex:actionSupport event="onchange" action="{!nullifyCaseQuotationPageSection}" reRender="panelFirstid,panelSecondid,panelThirdid,panelFourthid,panelFifthid,WOCA1id,WOCA2id,docReqid,panelLastid"/>
                 </apex:inputField>
-                <apex:inputField value="{!Case.Internal_Comments__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
             </apex:pageblockSection>
             
             <apex:outputPanel id="panelFirstid">
@@ -122,7 +122,7 @@
                 <apex:inputField id="rcvSprtDlrId" value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
                 <apex:inputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Receiver_address_type__c}"/>
-                <apex:inputField value="{!Case.Receiver_address__c}"/>
+                <apex:inputField value="{!Case.Receiver_address__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
             </apex:pageblockSection>
             
@@ -140,7 +140,7 @@
                 <apex:inputField id="pyrSprtDlrId" value="{!Case.Payer_Supporting_Dealer__c}" rendered="{!IF(Case.Payer__c == 'Supporting dealer',true,false)}"/>
                 <apex:inputField value="{!Case.Payer_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Payer_address_type__c}"/>
-                <apex:inputField value="{!Case.Payer_address__c}"/>
+                <apex:inputField value="{!Case.Payer_address__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Payer_Fax_Email_address__c}"/>
             </apex:pageblockSection>
             
