@@ -475,15 +475,7 @@
     </fields>
     <fields>
         <label>キャンペーン種別</label>
-        <name>Campaign_Sub_Type__c</name>
-        <picklistValues>
-            <masterLabel>Prematurity</masterLabel>
-            <translation><!-- Finance - &gt;  Prematurity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Crosspoint</masterLabel>
-            <translation><!-- Sales -&gt; Crosspoint --></translation>
-        </picklistValues>
+        <name>Campaign_Sub_Type__c</name>        
     </fields>
     <fields>
         <label>キャンペーンタイプ</label>
