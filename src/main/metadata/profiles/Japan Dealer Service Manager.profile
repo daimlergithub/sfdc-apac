@@ -21576,10 +21576,6 @@
     <layoutAssignments>
         <layout>Car_Model__c-Car Model Layout</layout>
     </layoutAssignments>
-  <layoutAssignments>
-        <layout>Case-Dealer-Inquiry Layout-CAC%28IB%2FOB%29</layout>
-        <recordType>Case.Inquiry</recordType>
-    </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Chrysler_Complaint</recordType>
