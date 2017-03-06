@@ -5,6 +5,6 @@ public class LeadUtil {
     public static boolean verTrigger = true;
     public static boolean LeadTrigger = true;
     public static boolean leadAccountlnktrigger = true;
-    
+    public static boolean Campaigntrigger = true;
 
 }

@@ -359,6 +359,18 @@
             <translation>試乗</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>販売店アサインルール</label>
+        <name>Campaign_Member_Sharing_Rule__c</name>
+        <picklistValues>
+            <masterLabel>One Account Multiple Dealer</masterLabel>
+            <translation><!-- One Account Multiple Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Account One Dealer</masterLabel>
+            <translation><!-- One Account One Dealer --></translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label>目的</label>
         <name>Campaign_Objectives__c</name>
@@ -1560,6 +1572,10 @@
             <masterLabel>Started</masterLabel>
             <translation>進行中</translation>
         </picklistValues>
+    </fields>
+	<fields>
+        <label>リスト確認</label>
+        <name>Set_List_Maintenance_Flag__c</name>
     </fields>
 	<fields>
         <label>販売店共有</label>
