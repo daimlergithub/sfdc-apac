@@ -45,9 +45,13 @@ public class LeadHelperJP
                 if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Approved' )
                 {
                     system.debug('!!!!!!!!'+ 'in trigger.new loop');
-                    contactIdsUpd.add(lead.Contact__c);         // ids of account(Contact__C) with new lead status "Approved"
-                    DealerIds.add(lead.Assigned_Dealer__c);     // Ids of Acccount(Assigned_Dealer__c) with new lead status "Approved"
-                    ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
+                    if(lead.Contact__c != null){
+						contactIdsUpd.add(lead.Contact__c);         // ids of account(Contact__C) with new lead status "Approved"
+                    }
+					if(lead.Assigned_Dealer__c != null){
+						DealerIds.add(lead.Assigned_Dealer__c);     // Ids of Acccount(Assigned_Dealer__c) with new lead status "Approved"
+                    }
+					ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
                 }
                 
                 if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && (lead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' ||
@@ -55,8 +59,9 @@ public class LeadHelperJP
                                                                              lead.CAC_Lead_Status__c == 'Not Allocated'))
                 {
                     system.debug('!!!!!!!!'+'inside 2nd case loop trigger.new');
-                    contactIdsIns.add(lead.Contact__c);
-                    
+                    if(lead.Contact__c != null){
+						contactIdsIns.add(lead.Contact__c);
+                    }
                     
                 }
             }
@@ -145,8 +150,9 @@ public class LeadHelperJP
             
             update AccountsToBeUpdated;
         }
-        createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
-        
+		if(!contactIdsUpd.isEmpty()){
+			createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
+        }
     }
     
      /** Create AccountLink with reocrdtype contact2contact wherever lead is created with contact and company account field is not null
