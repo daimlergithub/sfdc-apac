@@ -25,10 +25,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Execution_End_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Segmentation_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -41,15 +37,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DM_Material__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Use_Segmentation_Criteria__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SegWorkingDay__c</field>
+                <field>SegWorkingMonth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SegWorkingMonth__c</field>
+                <field>SegWorkingDay__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -62,10 +62,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Survey__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Is_Sync__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -150,26 +146,8 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Campaign Statistics</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>NumberOfLeads</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>NumberOfContacts</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>NumberOfConvertedLeads</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>NumberOfResponses</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -234,10 +212,14 @@
         <customButtons>Convert_To_DM_Request</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <fields>NAME</fields>
+        <fields>Status__c</fields>
+        <fields>RespondedDate__c</fields>
         <relatedList>Campaign_Member__c.Campaign_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Dealer__c</fields>
+        <fields>ND_Code__c</fields>
         <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>

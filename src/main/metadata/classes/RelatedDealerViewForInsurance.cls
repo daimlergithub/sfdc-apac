@@ -11,7 +11,7 @@ public RelatedDealerViewForInsurance(ApexPages.StandardController controller)
      alkID=ApexPages.currentPage().getParameters().get('id');
      if(alkID!=null)
      {
-        Insurance= [select id,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Balance_Update_Date__c,Account__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
+        Insurance= [select id,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Contractor_Name_Native__c,Insurance_Company__c,Non_MB_Insurance__c,Insured_Name_Native__c,Condition_Change_Date__c,Contractor_ZipCode1__c,Vehicle_Registration_No__c,Balance_Update_Date__c,Account__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
      }
         us1 = [select id, Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
    

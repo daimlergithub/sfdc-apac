@@ -55,7 +55,7 @@ implements TriggerHandlerIf
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
-            if(usr.Profile.Name.contains('Dealer')){
+            if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
           }
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
