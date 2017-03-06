@@ -20994,7 +20994,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.DMS_UserID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24019,7 +24019,22 @@
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Company</recordType>
         <visible>true</visible>
+		</recordTypeVisibilities>
+        <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Campaign.Planning_Design_Campaign</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
+     <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+       <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
+        <visible>true</visible>
+		 </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Company_Soft_Deleted</recordType>
@@ -24145,11 +24160,6 @@
         <default>false</default>
         <recordType>Campaign.MB_Best_Practice</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
