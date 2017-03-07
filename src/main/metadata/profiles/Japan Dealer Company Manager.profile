@@ -16669,14 +16669,14 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Campaign__c.Parent_Campaign1__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Parent_Campaign__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
