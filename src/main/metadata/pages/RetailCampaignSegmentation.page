@@ -485,7 +485,7 @@
 
         function checkFilterItemAdded(tableId, bracket){
             var size = ($("#customerTable tr").length + $("#interestTable tr").length + $("#vehicleTable tr").length + $("#AccountRetailCopyTable tr").length) - 4;
-            if(size > 14){
+            if(size > 20){
                 alert('{!$Label.The_filter_count_is_greater_than_15}');
                 return false;
             }
@@ -1099,6 +1099,9 @@
                     
                     <apex:pageBlockTable value="{!wrapAccountList}" var="wrapAcc" rows="100" rendered="{!wrapAccountList != null && wrapAccountList.size > 0}">
                         <apex:column headerValue="Select">
+							 <apex:facet name="header">
+                                <c:selectAllChkBox />
+                            </apex:facet>
                             <apex:inputCheckbox value="{!wrapAcc.isSelected}"/>
                         </apex:column>
                         <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
