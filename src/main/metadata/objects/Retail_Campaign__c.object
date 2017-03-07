@@ -13864,12 +13864,12 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
         <url>/apex/GenericUploader</url>
     </webLinks>
     <webLinks>
-        <fullName>Upload Campaign Member Response</fullName>
+        <fullName>Upload</fullName>
         <availability>online</availability>
         <description>Retail Campaign response handling via File Updload</description>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Upload</masterLabel>
+        <masterLabel>Upload Campaign Member Response</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
