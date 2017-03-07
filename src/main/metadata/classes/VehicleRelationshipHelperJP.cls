@@ -188,7 +188,9 @@ public with sharing class VehicleRelationshipHelperJP
             lstAccount.add(acct);
         }         
         if(!lstAccount.isEmpty())
-            update lstAccount;
+         //   update lstAccount;
+            
+ Database.update (lstAccount, false);
     }
     
     
@@ -291,10 +293,15 @@ public with sharing class VehicleRelationshipHelperJP
                 } 
                 
                 lstAccLink.add(accLink);
-            }
-          if(!lstAccLink.isEmpty())
-            insert lstAccLink;
+            }try{
+       
+          if(!lstAccLink.isEmpty())  
+        insert lstAccLink;      
+   }
+   catch(exception e){
+   system.debug(e.getmessage()); }
     }
+    
     /*Update Portal Apply Status on create/update of the VR for MyMercedes User
     Japan 2.0 SFDCJP-629
     Created by Sivaram
@@ -456,7 +463,10 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
                  vels.vehicle_address__c = add.Id;
                 vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
                vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+               vels.End_Reason__c = 'Updated EndDate';
+
                 }
+               
                 if( vels.vehicle_address_picklist__c == 'Other Address 3' && add.Address_Type__c == 'Other Address 3'){
                  vels.vehicle_address__c = add.Id;
                 vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
@@ -474,7 +484,10 @@ Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Add
             }
         }       
                             
-    update Updatelist;
+  // update Updatelist;
+  
+ Database.update(Updatelist, false);
+
     }
 
     
