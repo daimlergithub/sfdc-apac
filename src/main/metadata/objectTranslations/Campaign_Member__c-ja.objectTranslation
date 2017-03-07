@@ -401,27 +401,27 @@
         <name>Status__c</name>
         <picklistValues>
             <masterLabel>Bounced</masterLabel>
-            <translation><!-- Bounced --></translation>
+            <translation>不着・不通</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Executed</masterLabel>
-            <translation><!-- Executed --></translation>
+            <translation>実行済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not Responded</masterLabel>
-            <translation><!-- Not Responded --></translation>
+            <translation>レスポンスなし</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ready</masterLabel>
-            <translation><!-- Ready --></translation>
+            <translation>準備中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Removed</masterLabel>
-            <translation><!-- Removed --></translation>
+            <translation>除外</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Responded</masterLabel>
-            <translation><!-- Responded --></translation>
+            <translation>レスポンスあり</translation>
         </picklistValues>
     </fields>
     <fields>
