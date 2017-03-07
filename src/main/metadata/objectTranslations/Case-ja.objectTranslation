@@ -12959,6 +12959,10 @@
             <translation>GL SUV</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLS SUV</masterLabel>
+            <translation>GLS SUV</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GL-Class</masterLabel>
             <translation><!-- GL-Class --></translation>
         </picklistValues>
@@ -14672,7 +14676,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>R172</masterLabel>
-            <translation><!-- R172 --></translation>
+            <translation>R172</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R197</masterLabel>
@@ -15076,15 +15080,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>W163</masterLabel>
-            <translation><!-- W163 --></translation>
+            <translation>W163</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W164</masterLabel>
-            <translation><!-- W164 --></translation>
+            <translation>W164</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W166</masterLabel>
-            <translation><!-- W166 --></translation>
+            <translation>W166</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W168</masterLabel>
@@ -15156,11 +15160,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>X164</masterLabel>
-            <translation><!-- X164 --></translation>
+            <translation>X164</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>X166</masterLabel>
-            <translation><!-- X166 --></translation>
+            <translation>X166</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>X204</masterLabel>
