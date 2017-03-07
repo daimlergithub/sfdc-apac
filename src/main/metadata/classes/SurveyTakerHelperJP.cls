@@ -19,6 +19,7 @@ public class SurveyTakerHelperJP {
         set<string>vnames = new set<string>();
         List<AccountShare> accShareList = new List<AccountShare>();
         List<AccountShare> dealerAccShareList = new List<AccountShare>();
+        List<Account> dAccountList = new List<Account>();
         List<User> userShareList = new List<User>();
         List<Account_Link__c>accountLinkList=new List<Account_Link__c>();
         list<account>alist=new list<account>();
@@ -70,10 +71,11 @@ public class SurveyTakerHelperJP {
         }
         else if(!dealerID.isEmpty() && dealerID != null)
         {
-            dealerAccShareList = [select id,AccountId,AccountAccessLevel,userorGroupId from AccountShare where AccountID =:dealerID];
-            for(AccountShare a:dealerAccShareList)
+           // dealerAccShareList = [select id,AccountId,AccountAccessLevel,userorGroupId from AccountShare where AccountID =:dealerID];
+            dAccountList = [select id,name from account where id IN:dealerID and recordtypeid=:da];
+            for(Account a:dAccountList)
             {
-                accntid.add(a.accountid);
+                accntid.add(a.id);
             }
         }
         if(accntid!=null)
@@ -86,7 +88,7 @@ public class SurveyTakerHelperJP {
             { 
                 System.debug('DGCCode>>>>>'+a.Dealer_GC_Code__c);
                 GCCode.add(a.Dealer_GC_Code__c);
-                assignlist.add(a.name);
+               // assignlist.add(a.name);
             }
         }
         if(GCCode!=null)
@@ -106,7 +108,7 @@ public class SurveyTakerHelperJP {
         }
         
         
-         list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:assignlist AND Name IN: AccountNAme]);
+         list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where  Name IN: AccountNAme]);
         for(Group assg:grplist)
         {
             system.debug('grplist>>>>>>>>'+grplist);
@@ -114,7 +116,7 @@ public class SurveyTakerHelperJP {
             system.debug('assg.Name'+assg.Name);
 
         }
-        if(!accountLinkList.isEmpty() && accountLinkList != null)
+      /*  if(!accountLinkList.isEmpty() && accountLinkList != null)
         {
             System.debug('aclist'+accountLinkList);
             for(Account_link__c accshre : accountLinkList)
@@ -123,13 +125,13 @@ public class SurveyTakerHelperJP {
                 accountMap.put(accshre.torole__c , accshre.fromrole__c);
             }
         }
-        if(!dealerAccShareList.isEmpty() && dealerAccShareList != null)
+        if(!dAccountList.isEmpty() && dAccountList != null)
         {
-            for(AccountShare daccshre : dealerAccShareList)
+            for(Account daccshre : dAccountList)
             {
                 dealerAccountMap.put(daccshre.AccountId , daccshre.UserOrGroupId);
             }
-        }
+        }*/
        
         system.debug('accountMap>>>' + accountMap);
         system.debug('dealerAccountMap>>>' + dealerAccountMap);
@@ -160,7 +162,7 @@ public class SurveyTakerHelperJP {
                 }
             }
            
-           else if(surtak.Account__c != null && !accountMap.isEmpty() && accountMap.get(surtak.Account__c) != null && surtak.view_by_all__c == false && surtak.Dealer_Account__c == null)
+           else if(surtak.Account__c != null  && surtak.view_by_all__c == false && surtak.Dealer_Account__c == null)
             {
                 
                 for(id m:assgroupMap.values()){
@@ -282,14 +284,15 @@ public class SurveyTakerHelperJP {
                   if(vc.Dealer_Account__c != oldMap.get(vc.Id).Dealer_Account__c){
                   set_AccountId.add(oldMap.get(vc.Id).Dealer_Account__c);
                   }
+                  if(vc.Dealer_Account__c != null && oldMap.get(vc.Id).Dealer_Account__c == null){set_CustomerId.add(vc.account__c);}
                /*   if(vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c  && vc.View_By_All__c == false){
                     
                    // set_CustomerId.add(vc.account__c);
-                   System.debug('inser1>>>');
+                   
 
                     
                     }*/
-                    
+                  System.debug('inser1>>>');
                list_SurveyTakerId.add(vc.Id);  
             }
              if(vc.View_By_All__c == true && vc.View_By_All__c != oldMap.get(vc.Id).View_By_All__c)
