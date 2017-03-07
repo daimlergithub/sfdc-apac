@@ -91,7 +91,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
