@@ -22817,7 +22817,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>
