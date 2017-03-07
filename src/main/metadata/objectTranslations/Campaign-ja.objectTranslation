@@ -3,14 +3,28 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用(実績)</value>
+            <value>費用</value>
         </caseValues>
         <name>actual_cost_campaign</name>
+    </fields>
+	<fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>詳細</value>
+        </caseValues>
+        <name>description_campaign</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用(計画)</value>
+            <value>キャンペーンステータス</value>
+        </caseValues>
+        <name>status_campaign</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>予算</value>
         </caseValues>
         <name>budgeted_cost_campaign</name>
     </fields>
@@ -20,6 +34,13 @@
             <value>返答数</value>
         </caseValues>
         <name>total_responses_campaign</name>
+    </fields>
+	<fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>キャンペーンタイプ</value>
+        </caseValues>
+        <name>type_campaign</name>
     </fields>
     <fields>
         <label><!-- ATL/BTL --></label>
@@ -456,11 +477,11 @@
         <label>キャンペーン種別</label>
         <name>Campaign_Sub_Type__c</name>
         <picklistValues>
-            <masterLabel>Finance - &gt;  Prematurity</masterLabel>
+            <masterLabel>Prematurity</masterLabel>
             <translation><!-- Finance - &gt;  Prematurity --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Sales -&gt; Crosspoint</masterLabel>
+            <masterLabel>Crosspoint</masterLabel>
             <translation><!-- Sales -&gt; Crosspoint --></translation>
         </picklistValues>
     </fields>
