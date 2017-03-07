@@ -224,8 +224,8 @@
         <relatedList>Participating_Dealer__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>Task.Bulk_Assign</customButtons>
         <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>TASK.STATUS</fields>
@@ -241,7 +241,8 @@
         <fields>Assigned_Dealer__c</fields>
         <fields>CAC_Lead_Status__c</fields>
         <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
+        <fields>OWNER.FIRST_NAME</fields>
+        <fields>OWNER.LAST_NAME</fields>
         <relatedList>Lead__c.Source_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -271,7 +272,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000M2b1</masterLabel>
+        <masterLabel>00hp0000000Jtms</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
