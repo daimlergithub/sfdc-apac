@@ -6,10 +6,8 @@
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
-    <excludeButtons>ChangeOwnerOne</excludeButtons>
-    <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Clone</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -384,29 +382,7 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Reference Information</label>
-        <layoutColumns/>
-        <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>New Fields</label>
-        <layoutColumns/>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
+    </layoutSections> 
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

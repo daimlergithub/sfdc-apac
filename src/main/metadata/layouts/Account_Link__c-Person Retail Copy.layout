@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Send_To_AutoLine</customButtons>
-    <customButtons>Delete_retail_copy</customButtons>
-    <excludeButtons>ChangeOwnerOne</excludeButtons>
-    <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Clone</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
+    <customButtons>Delete_retail_copy</customButtons> 
+    <excludeButtons>Edit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
