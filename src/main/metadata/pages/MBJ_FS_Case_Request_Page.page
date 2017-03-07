@@ -21,11 +21,11 @@
                 <apex:inputField value="{!Case.ownerId}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
                 <apex:inputField value="{!Case.Lead__c}"/>
-                <apex:inputField value="{!Case.Internal_Comments__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Case_Type__c}">
                     <apex:actionSupport event="onchange" action="{!nullifyRequestPageSection}" reRender="WOCAid,DocReqid,WCAid"/>
                 </apex:inputField>
-                <apex:inputField value="{!Case.Inquiry_Comments__c}"/>
+                <apex:inputField value="{!Case.Inquiry_Comments__c}" style="width:300px; height:100px"/>
             </apex:pageblockSection>
                
             <apex:outputPanel id="WOCAid"> 
@@ -35,11 +35,11 @@
                 <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
                     <apex:inputField value="{!Case.Name__c}"/>
                     <apex:inputField value="{!Case.Company_Name__c}"/>
-                    <apex:inputField value="{!Case.Registered_Address__c}"/>
+                    <apex:inputField value="{!Case.Registered_Address__c}" style="width:300px; height:100px"/>
                     <apex:inputField value="{!Case.Registered_Phone_Number__c}"/>
-                    <apex:inputField value="{!Case.Mailing_Address__c}"/>
+                    <apex:inputField value="{!Case.Mailing_Address__c}" style="width:300px; height:100px"/>
                     <apex:inputField value="{!Case.Mailing_Phone_Number__c}"/>
-                    <apex:inputField value="{!Case.Present_Address__c}"/>
+                    <apex:inputField value="{!Case.Present_Address__c}" style="width:300px; height:100px"/>
                     <apex:inputField value="{!Case.Present_Phone_Number__c}"/>
                     <apex:inputField value="{!Case.New_Bank_Name__c}"/> 
                     <apex:inputField value="{!Case.Bank_Account_of_Change_Date__c}"/>
@@ -47,7 +47,7 @@
                 </apex:pageblockSection>
                 <apex:pageblockSection columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
                     <apex:inputField value="{!Case.Vehicle_Inspection_Certificate_Change__c}"/>
-                    <apex:inputField value="{!Case.Reason__c}"/> 
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/> 
                 </apex:pageblockSection>
             </apex:outputPanel>
                
@@ -60,14 +60,14 @@
                     <apex:inputField value="{!Case.Account_Closing_Month__c}"/>
                     <apex:inputField value="{!Case.Required_Period__c}"/>
                     <apex:inputField value="{!Case.DeadLine__c}"/>
-                    <apex:inputField value="{!Case.Reason__c}"/>
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/>
                 </apex:pageblockSection>
             </apex:outputPanel>
             
             <apex:outputPanel id="WCAid">    
                 <apex:pageblockSection title="MBF Change Request (W CA)" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
                     <apex:inputField value="{!Case.Narrative_of_Type__c}"/>
-                    <apex:inputField value="{!Case.Reason__c}"/> 
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/> 
                 </apex:pageblockSection>
             </apex:outputPanel>
             
@@ -111,7 +111,7 @@
                 <apex:inputField id="rcvSprtDlrId" value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
                 <apex:inputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Receiver_address_type__c}"/>
-                <apex:inputField value="{!Case.Receiver_address__c}"/>
+                <apex:inputField value="{!Case.Receiver_address__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
                 <apex:inputField value="{!Case.Document_sending_date__c}"/>
                 <apex:inputField value="{!Case.TL_Reviewed__c}"/>

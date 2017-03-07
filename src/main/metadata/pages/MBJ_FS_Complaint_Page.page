@@ -23,7 +23,7 @@
                 <apex:inputField value="{!Case.Case_Department__c}"/>
                 <apex:inputField value="{!Case.Cause__c}"/>
                 <apex:inputField value="{!Case.Result__c}"/>
-                <apex:inputField value="{!Case.Internal_Comments__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Customer_Satisfaction__c}"/>
             </apex:pageblockSection>
             
