@@ -21400,6 +21400,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>AMGセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AMG_DM2016_GTR</fullName>
@@ -21421,6 +21424,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>E・SセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Lead</fullName>
@@ -21550,7 +21556,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All aftermarket sales leads</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_presales_leads</fullName>
@@ -21568,7 +21576,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All pre sales cue</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_smart_Lead</fullName>
@@ -21587,6 +21597,9 @@ Company_Account__r.Work_Phone__c  ,
             <field>Interested_Vehicle_Brand__c</field>
             <operation>equals</operation>
             <value>smart</value>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
         </filters>
         <filters>
             <field>Lead_Type__c</field>
@@ -21596,7 +21609,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>All smart Lead</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
             <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
@@ -21624,6 +21637,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016_承認中</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM_S_DM_20161</fullName>
@@ -21644,6 +21660,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>DM_S_DM_20162</fullName>
@@ -21669,6 +21688,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>DM_SクラスセントラルDM 2016_展開済</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_ALL</fullName>
@@ -21718,6 +21740,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>E&amp;SクラスセントラルDM（Amex）2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>GDO</fullName>
@@ -21739,6 +21764,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>GDO</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>GDO1</fullName>
@@ -21765,6 +21793,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>GDO承認中</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>GDO2</fullName>
@@ -21791,6 +21822,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>GDO新規</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_CRM_Department_Lead</fullName>
@@ -22010,6 +22044,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>カレコ</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
@@ -22101,7 +22138,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>iShowroom Leads</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>

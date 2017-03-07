@@ -1881,7 +1881,7 @@ Modify Reason:
         <label>Low inventory of direct mail information</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>

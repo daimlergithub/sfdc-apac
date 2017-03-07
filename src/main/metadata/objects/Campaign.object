@@ -2290,6 +2290,9 @@
             <value>1</value>
         </filters>
         <label>All Active CAS Campaigns</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
@@ -2330,6 +2333,9 @@
             <value>1</value>
         </filters>
         <label>All Active Central Campaigns</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Active_Campaign_Execution</fullName>
@@ -2379,7 +2385,7 @@
         <label>After sale Joint Market activities</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2404,7 +2410,7 @@
         <label>Central AS Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2429,7 +2435,7 @@
         <label>Central SM Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2454,7 +2460,7 @@
         <label>Central SM Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2476,7 +2482,7 @@
         <label>MB Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2498,7 +2504,7 @@
         <label>MB Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2530,7 +2536,7 @@
         <label>smart Best Activities</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2552,7 +2558,7 @@
         <label>smart Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>

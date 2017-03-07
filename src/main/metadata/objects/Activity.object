@@ -2328,6 +2328,9 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My General  Task</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_Open_OB_Task</fullName>

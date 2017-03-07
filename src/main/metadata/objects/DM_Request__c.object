@@ -1119,7 +1119,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1139,6 +1139,9 @@ Modify Reason:
         </filters>
         <label>All_temp</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
@@ -1159,7 +1162,7 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1168,7 +1171,7 @@ Modify Reason:
         <label>MBJ Supervisor</label>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1177,7 +1180,7 @@ Modify Reason:
         <label>MBJ Supervisor</label>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1361,6 +1364,9 @@ Modify Reason:
         </filters>
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -1383,7 +1389,7 @@ Modify Reason:
         <label>Open mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1407,7 +1413,7 @@ Modify Reason:
         <label>Rejected requests for direct mail</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1451,7 +1457,7 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1460,7 +1466,7 @@ Modify Reason:
         <label>Supervisor Team A</label>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
