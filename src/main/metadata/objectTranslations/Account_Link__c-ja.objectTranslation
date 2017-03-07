@@ -38,7 +38,7 @@
         <name>Retail_FirstName__c</name>
     </fields>
     <fields>
-        <label>関連会社</label>
+        <label>会社（Autoline送信用）</label>
         <name>Retail_Related_Company__c</name>
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
@@ -605,7 +605,7 @@
         <name>Retail_Phone_OptOut__c</name>
     </fields>
     <fields>
-        <label>セールス電話</label>
+        <label>優先連絡先電話</label>
         <name>Retail_Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
@@ -705,11 +705,11 @@
         <name>Retail_Address_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label>住所１</label>
+        <label>Autoline用住所 4行目</label>
         <name>Retail_Address_Line_1__c</name>
     </fields>
     <fields>
-        <label>市区郡町村</label>
+        <label>Autoline用住所 2行目</label>
         <name>Retail_City__c</name>
     </fields>
     <fields>
@@ -733,11 +733,11 @@
         <name>Retail_Company_Phone__c</name>
     </fields>
     <fields>
-        <label>住所２</label>
+        <label>Autoline用住所 5行目</label>
         <name>Retail_Address_Line_2__c</name>
     </fields>
     <fields>
-        <label>大字・通称名・字名・丁目</label>
+        <label>Autoline用住所 3行目</label>
         <name>Retail_Distinct__c</name>
     </fields>
     <fields>
@@ -746,11 +746,11 @@
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
-        <label>都道府県</label>
+        <label>Autoline用住所 1行目</label>
         <name>Retail_Province__c</name>
     </fields>
     <fields>
-        <label>メール</label>
+        <label>Eメール</label>
         <name>Retail_Email__c</name>
     </fields>
     <fields>
@@ -823,7 +823,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>コメント</label>
+        <label>（ブランク）</label>
         <name>Position__c</name>
     </fields>
     <fields>
@@ -832,7 +832,7 @@
         <relationshipLabel><!-- Account Link (Sales Representative) --></relationshipLabel>
     </fields>
     <fields>
-        <label>販売拠点</label>
+        <label>販売担当拠点</label>
         <name>Selling_Dealer__c</name>
         <relationshipLabel><!-- Account Link (Selling Dealer) --></relationshipLabel>
     </fields>
@@ -1160,12 +1160,12 @@
         <name>Retail_LastName_Native__c</name>
     </fields>
     <fields>
-        <label>関係者1</label>
+        <label>アカウントリンク1</label>
         <name>fromRole__c</name>
         <relationshipLabel>関係者1</relationshipLabel>
     </fields>
     <fields>
-        <label>関係者2</label>
+        <label>アカウントリンク2</label>
         <name>toRole__c</name>
         <relationshipLabel>関係者2</relationshipLabel>
     </fields>
