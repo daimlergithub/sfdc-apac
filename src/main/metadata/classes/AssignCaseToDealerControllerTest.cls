@@ -20,7 +20,10 @@ public Without Sharing class AssignCaseToDealerControllerTest {
     public static void preparedTestData()
     {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+        //insert updatecustomsettings;
+        Trigger__c newtrg = new Trigger__c(Name= 'TriggerDMRequest1',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
        //Creating User   
         user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
         user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin'); 

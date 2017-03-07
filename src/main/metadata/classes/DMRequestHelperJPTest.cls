@@ -38,7 +38,7 @@ public class DMRequestHelperJPTest {
         account.RecordTypeId = personRecordtypeid;
         account.Phone='09844650654';
         account.MBK_Data_Source__c ='Email';
-        account.Mobile__c ='000-0000-9784';
+        account.Mobile__c ='00000009784';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);  
         system.debug('$$$$$$$$$$$$$'+account.id);      
         

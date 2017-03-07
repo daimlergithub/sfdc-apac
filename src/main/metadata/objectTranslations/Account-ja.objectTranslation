@@ -372,6 +372,14 @@
         <label>サービススリード通知タイミング</label>
         <name>ASLead_Notification_Timing__c</name>
         <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
         </picklistValues>
@@ -3589,9 +3597,17 @@ Allows up to 240 characters --></help>
             <translation>有効</translation>
         </picklistValues>
     </fields>
-    <fields>
+ 	    <fields>
         <label>ファイナンスリード通知タイミング</label>
         <name>FinanceLead_Notification_Timing__c</name>
+        <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
@@ -5931,20 +5947,20 @@ Allows up to 240 characters --></help>
         <label>My Mercedes申請日</label>
         <name>Portal_Apply_Date__c</name>
     </fields>
-    <fields>
+ 	    <fields>
         <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送付済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送付待</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Waiting for confirmation</masterLabel>
-            <translation><!-- Waiting for confirmation --></translation>
+            <translation>要確認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -6641,6 +6657,14 @@ Allows up to 240 characters --></help>
         <label>セールスリード通知タイミング</label>
         <name>SalesLead_Notification_Timing__c</name>
         <picklistValues>
+            <masterLabel>3 times a day</masterLabel>
+            <translation>即時</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediately</masterLabel>
+            <translation>３回／日</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
         </picklistValues>
@@ -7248,11 +7272,11 @@ Allows up to 240 characters --></help>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送付済</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送付待</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>none</masterLabel>
@@ -7373,15 +7397,15 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <layouts>
+  <!--  <layouts>
         <layout>3rd Pary Layout</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label></label>
             <section>Fields</section>
         </sections>
         <sections>
@@ -7389,10 +7413,10 @@ Allows up to 240 characters --></help>
             <section>Other information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7514,11 +7538,11 @@ Allows up to 240 characters --></help>
             <section>Description Information</section>
         </sections>
     </layouts>
-    <layouts>
+  <!--  <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Additional Information --></label>
+            <label></label>
             <section>Additional Information</section>
         </sections>
         <sections>
@@ -7538,19 +7562,19 @@ Allows up to 240 characters --></help>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Duplication Information --></label>
+            <label></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>
@@ -7558,7 +7582,7 @@ Allows up to 240 characters --></help>
             <section>Telematics Related Information</section>
         </sections>
         <sections>
-            <label><!-- Whole activities --></label>
+            <label></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7610,7 +7634,7 @@ Allows up to 240 characters --></help>
             <section>System Information</section>
         </sections>
         <sections>
-            <label><!-- Whole activities --></label>
+            <label></label>
             <section>Whole activities</section>
         </sections>
     </layouts>
@@ -7618,7 +7642,7 @@ Allows up to 240 characters --></help>
         <layout>PA Layout-Other User</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
-            <label><!-- Additional Information --></label>
+            <label></label>
             <section>Additional Information</section>
         </sections>
         <sections>
@@ -7638,19 +7662,19 @@ Allows up to 240 characters --></help>
             <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Duplication Information --></label>
+            <label></label>
             <section>Duplication Information</section>
         </sections>
         <sections>
-            <label><!-- Other Information --></label>
+            <label></label>
             <section>Other Information</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
-            <label><!-- Retail Information --></label>
+            <label></label>
             <section>Retail Information</section>
         </sections>
         <sections>
@@ -7678,7 +7702,7 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- Person Account Basic Information --></label>
+            <label></label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
@@ -7698,7 +7722,7 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label><!-- New Section --></label>
+            <label></label>
             <section>New Section</section>
         </sections>
         <sections>
@@ -7713,7 +7737,7 @@ Allows up to 240 characters --></help>
             <label>サービス履歴情報</label>
             <section>Service History Information</section>
         </sections>
-    </layouts>
+    </layouts> -->
     <recordTypes>
         <label>Company</label>
         <name>Company</name>

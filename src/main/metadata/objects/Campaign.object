@@ -19577,7 +19577,7 @@ Record Type =  CAS/Central Marketing campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
-	 <validationRules>
+    <validationRules>
         <fullName>Campaign_Status_Campleted</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED(  EndDate ) , IF( ISPICKVAL(Status, 'Completed') , true, false), false)))</errorConditionFormula>
@@ -19699,7 +19699,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Make_segementation_date_inactive</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( Use_Segmentation_Criteria__c = TRUE,NOT(ISBLANK(Segmentation_Date__c ) ) )</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),( Use_Segmentation_Criteria__c = TRUE),(NOT(ISBLANK(Segmentation_Date__c ) )))</errorConditionFormula>
         <errorMessage>Segmentation criteria is on</errorMessage>
     </validationRules>
     <validationRules>
@@ -19713,7 +19713,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
     </validationRules>
-	 <validationRules>
+    <validationRules>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
         <active>true</active>
         <description>Parent Campaign Status ongoing you can not change start date</description>
@@ -19741,7 +19741,8 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
     <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( Consolidated_List_Completed__c = true)</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),NOT(ISNEW()), 
+PRIORVALUE(Consolidated_List_Completed__c) = TRUE)</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
@@ -19765,7 +19766,7 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Start_date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
@@ -19783,7 +19784,7 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
-	<webLinks>
+    <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -19977,6 +19978,163 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
      }</url>
     </webLinks>
     <webLinks>
+        <fullName>OPRO_Label_Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+
+
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}
+
+var tpArray = (function () { 
+var dmTemplate= sforce.connection.query("SELECT id,DM_Material__r.Type__c FROM campaign WHERE ID ='{!Campaign.Id}' LIMIT 1");
+records = dmTemplate.getArray("records");
+var dmmaterial_type = records[0].DM_Material__r.Type__c;
+switch(dmmaterial_type){ 
+case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
+case 'smart manual': return 'p03_DirectMailPrint';brak; 
+case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
+case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting';brak; 
+} 
+}()); 
+
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
+
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Campaign.Id)}', 
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffb/action").pdf(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPR_Label_Print</fullName>
+        <availability>online</availability>
+        <description>OPROARTS</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPR]Label Print</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+
+
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}  
+
+var tpArray = (function () { 
+var dmTemplate= sforce.connection.query("SELECT id,DM_Material__r.Type__c FROM campaign WHERE ID ='{!Campaign.Id}' LIMIT 1");
+records = dmTemplate.getArray("records");
+var dmmaterial_type = records[0].DM_Material__r.Type__c; 
+alert('dmmaterial_type '+dmmaterial_type )
+switch(dmmaterial_type){ 
+case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
+case 'smart manual': return 'p03_DirectMailPrint';brak; 
+case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
+case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting';brak; 
+} 
+}()); 
+
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
+
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Campaign.Id)}', 
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload</fullName>
+        <availability>online</availability>
+        <description>Campaign Response Handling via File Upload</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+    </webLinks>
+    <webLinks>
         <fullName>ViewAllCampaignMembers</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
@@ -20015,19 +20173,6 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
         <showsStatus>false</showsStatus>
         <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
         <width>500</width>
-    </webLinks>
-	<webLinks>
-        <fullName>Upload</fullName>
-        <availability>online</availability>
-        <description>Campaign Response Handling via File Upload</description>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Upload</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>View_Previous_Campaign_Members</fullName>

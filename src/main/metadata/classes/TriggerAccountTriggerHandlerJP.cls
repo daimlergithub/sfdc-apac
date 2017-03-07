@@ -35,7 +35,7 @@ implements TriggerHandlerIf
         
          if(isAfter && isUpdate )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+          AccountHelperJP.handleAfterInsertEvent(Trigger.new);
           if(LeadUtil.accountTrigger){
           LeadUtil.vrTrigger = false;
 
@@ -55,7 +55,7 @@ implements TriggerHandlerIf
         {
             serializedObject=json.serialize(ListAccNew);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
-			if(usr.Profile.Name.contains('Dealer')){
+            if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
           }
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
@@ -135,7 +135,7 @@ implements TriggerHandlerIf
         
          if(isAfter && isUpdate )
         {
-          AccountHelperJP.handleAfterInsertUpdateEvent(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+          AccountHelperJP.handleAfterInsertEvent(Trigger.new);
             //AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
         }
 

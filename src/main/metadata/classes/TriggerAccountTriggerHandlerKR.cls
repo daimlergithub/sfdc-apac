@@ -43,12 +43,16 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            //Creating Retailcopy from dealer #SFDCKR-696
+            AccountHelperKR.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
+            //#SFDCKR-846
+            AccountHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new,(Map<Id,Account>)Trigger.OldMap); 
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -100,3 +104,4 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
         
     }
 }
+

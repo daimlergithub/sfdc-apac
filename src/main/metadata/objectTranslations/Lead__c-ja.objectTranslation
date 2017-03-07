@@ -1763,7 +1763,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation>承認済</translation>
+            <translation>承認済（展開済）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Approved (Waiting)</masterLabel>
@@ -1771,7 +1771,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Approving</masterLabel>
-            <translation>承認中</translation>
+            <translation>承認依頼</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Assigned</masterLabel>
@@ -1892,15 +1892,15 @@
         <name>CA_Lead_Status__c</name>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
+            <translation>承認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <translation>キャンセル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Conditionally Approved</masterLabel>
-            <translation><!-- Conditionally Approved --></translation>
+            <translation>条件付承認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -1908,15 +1908,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>否決/謝絶</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Suspended</masterLabel>
-            <translation><!-- Suspended --></translation>
+            <translation>保留</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Under Credit Assessment</masterLabel>
-            <translation><!-- Under Credit Assessment --></translation>
+            <translation>審査中</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2144,11 +2144,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Sales</masterLabel>
-            <translation>法人営業</translation>
+            <translation>法人購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Existing Customer</masterLabel>
-            <translation>既存顧客</translation>
+            <translation>削除</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fleet</masterLabel>
@@ -2160,7 +2160,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>New Customer</masterLabel>
-            <translation>新規顧客</translation>
+            <translation>個人購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New Customer(Used Car)</masterLabel>
@@ -2343,6 +2343,10 @@
             <translation><!-- Invalid customer data --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lead Merge</masterLabel>
+            <translation>マージ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>No serious interest</masterLabel>
             <translation>興味</translation>
         </picklistValues>
@@ -2369,6 +2373,10 @@
         <picklistValues>
             <masterLabel>Purchase plan postponed</masterLabel>
             <translation><!-- Purchase plan postponed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased Vehicle</masterLabel>
+            <translation>車両購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quotation request from other dealer</masterLabel>
@@ -2549,23 +2557,23 @@
         <name>Finance_Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
-            <translation><!-- Close End Lease --></translation>
+            <translation>クローズエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select Plus) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan) --></translation>
+            <translation>クローズエンドリース（マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dual Auto Loan</masterLabel>
-            <translation><!-- Dual Auto Loan --></translation>
+            <translation>デュアルオートローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -2573,55 +2581,55 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal Loan</masterLabel>
-            <translation><!-- Normal Loan --></translation>
+            <translation>通常ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease</masterLabel>
-            <translation><!-- Open End Lease --></translation>
+            <translation>オープンエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select Plus)</masterLabel>
-            <translation><!-- Open End Lease (Select Plus) --></translation>
+            <translation>オープンエンドリース（セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select)</masterLabel>
-            <translation><!-- Open End Lease (Select) --></translation>
+            <translation>オープンエンドリース（セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
-            <translation><!-- Re-lease (Close End Mileage Plan) --></translation>
+            <translation>再リース（クローズエンド　マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End)</masterLabel>
-            <translation><!-- Re-lease (Close End) --></translation>
+            <translation>再リース（クローズエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Open End)</masterLabel>
-            <translation><!-- Re-lease (Open End) --></translation>
+            <translation>再リース（オープンエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-loan</masterLabel>
-            <translation><!-- Re-loan --></translation>
+            <translation>再ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Start Up Plan</masterLabel>
-            <translation><!-- Start Up Plan --></translation>
+            <translation>スタートアッププラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan</masterLabel>
-            <translation><!-- Super Welcome Plan --></translation>
+            <translation>スーパーウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan Plus</masterLabel>
-            <translation><!-- Super Welcome Plan Plus --></translation>
+            <translation>スーパーウェルカムプランプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan</masterLabel>
-            <translation><!-- Welcome Plan --></translation>
+            <translation>ウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan Plus</masterLabel>
-            <translation><!-- Welcome Plan Plus --></translation>
+            <translation>ウェルカムプランプラス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5430,11 +5438,11 @@
             <masterLabel>Campaign</masterLabel>
             <translation>キャンペーン</translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>DSC</masterLabel>
-            <translation><!-- DSC --></translation>
+            <translation>DSC</translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Dealer Outlet</masterLabel>
             <translation>販売店</translation>
         </picklistValues>
@@ -5466,7 +5474,7 @@
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Letter to Executive</masterLabel>
             <translation>役員宛て書面</translation>
         </picklistValues>
@@ -6164,7 +6172,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
+            <translation>保険</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leasing</masterLabel>
@@ -6424,7 +6432,7 @@
         <name>Lead_Latest_Phase__c</name>
         <picklistValues>
             <masterLabel>CA Submission</masterLabel>
-            <translation><!-- CA Submission --></translation>
+            <translation>審査申込</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Check Out</masterLabel>
@@ -6436,31 +6444,35 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Contact</masterLabel>
-            <translation><!-- Contact --></translation>
+            <translation>コンタクト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estimation</masterLabel>
+            <translation>見積書印刷</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance Proposal</masterLabel>
-            <translation><!-- Finance Proposal --></translation>
+            <translation>ファイナンス提案</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance Quotation</masterLabel>
-            <translation><!-- Finance Quotation --></translation>
+            <translation>ファイナンス見積</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Handover</masterLabel>
-            <translation><!-- Handover --></translation>
+            <translation>納車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance Proposal</masterLabel>
-            <translation><!-- Insurance Proposal --></translation>
+            <translation>自動車保険提案</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Invoiced</masterLabel>
-            <translation><!-- Invoiced --></translation>
+            <translation>請求</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Job Card Issue</masterLabel>
-            <translation><!-- Job Card Issue --></translation>
+            <translation>リペアオーダー印刷</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost</masterLabel>
@@ -6468,7 +6480,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Needs Check</masterLabel>
-            <translation><!-- Needs Check --></translation>
+            <translation>ニーズ把握</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -6476,19 +6488,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Order Confirmed</masterLabel>
-            <translation><!-- Order Confirmed --></translation>
+            <translation>受注確定</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Order Placed</masterLabel>
-            <translation><!-- Order Placed --></translation>
+            <translation>注文書印刷</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Proposal</masterLabel>
-            <translation><!-- Product Proposal --></translation>
+            <translation>商品説明提案</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quotation</masterLabel>
-            <translation><!-- Quotation --></translation>
+            <translation>見積書印刷</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Registration</masterLabel>
@@ -6496,27 +6508,27 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Program Proposal</masterLabel>
-            <translation><!-- Service Program Proposal --></translation>
+            <translation>サービスプログラム提案</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Simple Estimation</masterLabel>
-            <translation><!-- Simple Estimation --></translation>
+            <translation>簡易見積</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
+            <translation>試乗</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Trade-in</masterLabel>
-            <translation><!-- Trade-in --></translation>
+            <translation>下取査定</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vehicle Registration</masterLabel>
-            <translation><!-- Vehicle Registration --></translation>
+            <translation>登録</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Visited</masterLabel>
-            <translation><!-- Visited --></translation>
+            <translation>来店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>WIP Linkage</masterLabel>
@@ -6668,11 +6680,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>MBJ/MBFカンパニーカー</translation>
+            <translation>MBJ/MBF社有車</translation>
         </picklistValues>
 		<picklistValues>
             <masterLabel>Daimler Employee Car</masterLabel>
-            <translation>販売店レンタカー</translation>
+            <translation>MBJ/MBF従業員販売</translation>
         </picklistValues>
 		<picklistValues>
             <masterLabel>Dealer Company Car</masterLabel>
@@ -6903,8 +6915,16 @@
             <translation>車の保有を断念</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lead Merge</masterLabel>
+            <translation>マージ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他理由</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Change</masterLabel>
+            <translation>オーナー変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Competitor&apos;s Car</masterLabel>
@@ -6913,6 +6933,10 @@
         <picklistValues>
             <masterLabel>Purchased MB at normal Used Car store</masterLabel>
             <translation>一般中古車店でMB購入</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased Vehicle</masterLabel>
+            <translation>車両購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purhcased MB from other importer</masterLabel>
@@ -6925,6 +6949,14 @@
         <picklistValues>
             <masterLabel>Sales not appropriate</masterLabel>
             <translation>販売不適</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service at other shops (other Company)</masterLabel>
+            <translation>他店入庫（ネットワーク外）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service at other shops (within Company)</masterLabel>
+            <translation>他店入庫（ネットワーク内）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Stopped activity</masterLabel>
@@ -6941,6 +6973,10 @@
         <picklistValues>
             <masterLabel>Transferred for house moving</masterLabel>
             <translation>転居による引継</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -11642,27 +11678,31 @@
         <name>Service_Program__c</name>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
+            <translation>保険サービス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Plus</masterLabel>
-            <translation><!-- Maintenance Plus --></translation>
+            <translation>メンテナンスプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Plus Lite</masterLabel>
-            <translation><!-- Maintenance Plus Lite --></translation>
+            <translation>メンテナンスプラスライト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Touring Support Plus</masterLabel>
-            <translation><!-- Touring Support Plus --></translation>
+            <translation>ツーリングサポートプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty Plus</masterLabel>
-            <translation><!-- Warranty Plus --></translation>
+            <translation>保障プラス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -15604,54 +15644,7 @@
             <section>Reference Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>After-Sales Leads Layout for Dealer Users</layout>
-        <sections>
-            <label><!-- Activity Date Information --></label>
-            <section>Activity Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Information --></label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Customer Information --></label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Processing Information --></label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Request Information --></label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lost Information --></label>
-            <section>Lost Information</section>
-        </sections>
-        <sections>
-            <label><!-- New Fields --></label>
-            <section>New Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Reference Information --></label>
-            <section>Reference Information</section>
-        </sections>
-    </layouts>
-    <layouts>
+   <layouts>
         <layout>After-Sales Leads Soft Deleted</layout>
         <sections>
             <label>アクティビティ日付情報</label>
@@ -15702,14 +15695,14 @@
             <section>Vehicle Select</section>
         </sections>
     </layouts>
-    <layouts>
+   <layouts>
         <layout>AfterSales Lead</layout>
         <sections>
             <label>カスタム リンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Date Information --></label>
+            <label>アクティビティ日付情報</label>
             <section>Date Information</section>
         </sections>
         <sections>
@@ -15735,6 +15728,18 @@
         <sections>
             <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>参照情報</label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
         </sections>
         <sections>
             <label>車両情報</label>
@@ -15893,7 +15898,7 @@
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Cross Point Information --></label>
+            <label>クロスポイント情報</label>
             <section>Cross Point Information</section>
         </sections>
         <sections>
@@ -15933,7 +15938,7 @@
             <section>Miscelleneous Section</section>
         </sections>
         <sections>
-            <label><!-- New Fields --></label>
+            <label>新しい項目</label>
             <section>New Fields</section>
         </sections>
         <sections>
@@ -15952,15 +15957,15 @@
     <layouts>
         <layout>Sales Leads Layout (Dealer)</layout>
         <sections>
-            <label><!-- Activity Date Information --></label>
+            <label>アクティビティ日付情報</label>
             <section>Activity Date Information</section>
         </sections>
         <sections>
-            <label><!-- CA Details --></label>
+            <label>審査詳細</label>
             <section>CA Details</section>
         </sections>
         <sections>
-            <label><!-- Cross-point information --></label>
+            <label>クロスポイント情報</label>
             <section>Cross-point information</section>
         </sections>
         <sections>
@@ -15968,11 +15973,11 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- DSC Request Information --></label>
+            <label>中古車リクエスト情報（DSC）</label>
             <section>DSC Request Information</section>
         </sections>
         <sections>
-            <label><!-- Dealer Information --></label>
+            <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
         <sections>
@@ -15980,7 +15985,7 @@
             <section>Description Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Customer Information --></label>
+            <label>リード顧客情報</label>
             <section>Lead Customer Information</section>
         </sections>
         <sections>
@@ -15988,23 +15993,23 @@
             <section>Lead Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Processing Information --></label>
+            <label>リード処理情報</label>
             <section>Lead Processing Information</section>
         </sections>
         <sections>
-            <label><!-- Lead Request Information --></label>
+            <label>リードリクエスト情報</label>
             <section>Lead Request Information</section>
         </sections>
         <sections>
-            <label><!-- Lost Information --></label>
+            <label>敗戦情報</label>
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label><!-- Order Confirmed Information --></label>
+            <label>成約情報</label>
             <section>Order Confirmed Information</section>
         </sections>
         <sections>
-            <label><!-- Reference Information --></label>
+            <label>参照情報</label>
             <section>Reference Information</section>
         </sections>
         <sections>
@@ -16245,7 +16250,7 @@
         <name>Visited_Showroom_Required_Check</name>
     </validationRules>
     <webLinks>
-        <label><!-- Assign_to_Leads --></label>
+        <label>担当者設定</label>
         <name>Assign_to_Leads</name>
     </webLinks>
     <webLinks>
@@ -16273,7 +16278,7 @@
         <name>New_Task</name>
     </webLinks>
     <webLinks>
-        <label><!-- Print_PDF --></label>
+        <label>PDF印刷</label>
         <name>Print_PDF</name>
     </webLinks>
     <webLinks>
@@ -16285,7 +16290,7 @@
         <name>Select_Assigned_Dealer</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_Autoline --></label>
+        <label>Autoline送信</label>
         <name>Send_to_Autoline</name>
     </webLinks>
     <webLinks>

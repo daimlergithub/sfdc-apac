@@ -71,7 +71,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
     
     public pagereference updateit()
     {
-       
+		set<String> VRid = new set<String>();
        list<vehicle_relationship__c> vrlist= new list<vehicle_relationship__c>();
        list<account_link__c> acclinklist= new list<account_link__c>();
        
@@ -79,7 +79,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             if (vehiclewrpper.purchaservr.id!=null)
             {
                 vrlist.add(vehiclewrpper.purchaservr);
-        
+				VRid.add(vehiclewrpper.purchaservr.id);
             }
             
             if (vehiclewrpper.salescontactvr.id!=null)
@@ -87,10 +87,15 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
                 vrlist.add(vehiclewrpper.salescontactvr);
+				if(VRid.isEmpty()){
+                    VRid.add(vehiclewrpper.salescontactvr.id);  
+                }
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
             vrlist.add(vehiclewrpper.aftersalescontactvr);
-        
+			if(VRid.isEmpty()){
+                VRid.add(vehiclewrpper.aftersalescontactvr.id);    
+            }
         
             }
             update vrlist;
@@ -111,6 +116,10 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             }
         
         update acclinklist;
+		
+		if(!VRid.isEmpty()){
+            CreateVehicleRecord(VRid);
+        }
         String str = ApexPages.currentPage().getParameters().get('id');
         PageReference pageref = new pageReference ('/'+str);
        //PageReference pageref=  ApexPages.currentPage();
@@ -118,6 +127,53 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
     //pageref.setRedirect(true);
 
         return pageref;
+    }
+	
+	/*
+		Description : Added new Method to Create new Vehicle Relationship records.
+		Author : Kiran
+		JIRA : SFDCJP-1709
+	*/
+    public void CreateVehicleRecord(set<String> VehicleRelationID){
+        List<Vehicle_Relationship__c> VRUpdate = new List<Vehicle_Relationship__c>();
+        for(Vehicle_Relationship__c VR : [select Id, Name,Vehicle_ID__c,End_Date__c from Vehicle_Relationship__c WHERE Vehicle_ID__c =: apexpages.currentpage().getparameters().get('id') AND End_Date__c = null]){
+            VR.End_Date__c = date.today(); 
+            VR.End_Reason__c = 'Updated EndDate';
+            VRUpdate.add(VR);
+      
+        } 
+        update VRUpdate; 
+        String selects = '';
+        list<string> selectFields = new list<string>();
+        Map<String, Schema.SObjectField> fMap = Schema.getGlobalDescribe().get('Vehicle_Relationship__c'.toLowerCase()).getDescribe().Fields.getMap();   
+        system.debug('$$$$$$$$$$$$'+fMap);
+        if (fMap != null){
+            for (Schema.SObjectField ft : fMap.values()){ // loop through all field tokens (ft)
+                Schema.DescribeFieldResult fd = ft.getDescribe(); // describe each field (fd)
+                if (fd.isCreateable()){ // field is creatable
+                    selectFields.add(fd.getName());
+                }
+            }
+        }
+        if (!selectFields.isEmpty()){
+            for (string s:selectFields){
+                selects += s + ',';
+                
+            }
+            system.debug('%%%%%%%%%'+selects);
+            if (selects.endsWith(',')){selects = selects.substring(0,selects.lastIndexOf(','));}
+            system.debug('%%%%%333333333%%%%'+selects);
+             
+        }
+        string abc = 'Vehicle_Relationship__c';
+        String extension = ':VehicleRelationID LIMIT 1';
+        String Soql =  'SELECT ' + selects + ' FROM ' + abc + ' WHERE ' + 'ID IN'+extension  ;
+        Vehicle_Relationship__c  l = Database.query(soql);
+        Vehicle_Relationship__c  l2 = l.clone(false, true);
+        l2.Start_Date__c = Date.today();
+        l2.End_Date__c = null;
+        insert l2;
+        
     }
     
     public class vehicledataWrpper

@@ -10,7 +10,7 @@
     2. Modified on 1-dec-2015    
 */
 
-public with sharing class LeadMergeController{
+public class LeadMergeController{
     // AccountMerge Page Variable
     public Lead__c master                   {get; set;}
     public Lead__c slave                    {get; set;}
@@ -26,6 +26,7 @@ public with sharing class LeadMergeController{
     public  List<SurveyTaker__c> surtake{set;get;}
      List<DM_Request__c> dmstr{set;get;}
     public String selectedValue { get; set; } 
+    public String MasterRecordTypeName;
     // Get All Account fields Describe
     private Map<String, Schema.SObjectField> fieldNamesMap = Lead__c.sObjectType.getDescribe().fields.getMap(); 
             
@@ -39,11 +40,15 @@ public with sharing class LeadMergeController{
        // controller = con;
        dmstr =new  List<DM_Request__c>();
      surtake= new List<SurveyTaker__c>();
-        leads = [Select Id,name,Contact__c,Service_Advisor__c ,RecordtypeId  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,CAC_Lead_Status__c  from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+          MasterRecordTypeName = leads.Recordtype.Name;
+           if(leads.Service_Advisor__c != NULL)
+        { 
         slaves = new List<LeadWrapperclass>();     
-        for(Lead__c a: [select Id,Contact__c ,name from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId]){
             slaves.add(new LeadWrapperclass(a));
           }
+        }
            
         SoqlFieldset = new set<string>();
         SoqlFieldset.addAll(this.getFieldsListByFieldSet('LeadMergeFieldsSet'));    
@@ -130,7 +135,7 @@ public with sharing class LeadMergeController{
            soql += 'Service_Advisor__c, ';
         }
         return Database.query(soql + 
-            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\''+' AND Service_Advisor__c=\''+leads.Service_Advisor__c+'\'');
+            ' Id,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
@@ -294,11 +299,20 @@ public with sharing class LeadMergeController{
                 master.put(wrap.fieldAPI, slave.get(wrap.fieldAPI));
             }
         }
+         
+         if(MasterRecordTypeName== 'Sales Leads'){              
           slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 
            UtilConstant.RECORDTYPE_SALES_LEAD_SOFT_DELETED); 
+         }else{
+          slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 
+           UtilConstant.RECORDTYPE_AFTERSALES_LEAD_SOFT_DELETED); 
+         } 
            slave.OwnerId = usr.Id; 
          slave.Lead_Lost_Date_Time__c=date.today();
          slave.Related_Leads__c=leads.id;
+         slave.Dealer_Lead_Status__c = 'Lost';
+         slave.Dealer_Lost_Reason__c = 'Lead Merge';
+         slave.Lost_Situation__c = 'Lead Merge';
         
          for(DM_Request__C dm:[Select id,Lead__c from DM_Request__c Where Lead__C=:slave.Id]){
              dm.Lead__c=leads.id;

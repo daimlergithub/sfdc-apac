@@ -225,7 +225,7 @@
         <label>契約番号</label>
         <name>ContractNumber__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>解約日</label>
         <name>Contract_Cancellation_Date__c</name>
     </fields>
@@ -1257,7 +1257,7 @@
         <label>MBFコメント</label>
         <name>MBF_Comments__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>MBFベース金利</label>
         <name>MBF_base_interest_rate__c</name>
     </fields>
@@ -1269,7 +1269,7 @@
         <label>車検証所有者住所</label>
         <name>MOT_Owner_Address__c</name>
     </fields>
-    <fields>
+   <fields>
         <label>車検証所有者氏名</label>
         <name>MOT_Owner_Name__c</name>
     </fields>
@@ -1285,8 +1285,8 @@
         <label>リース契約可能年月</label>
         <name>Maximum_lease_extention_Date__c</name>
     </fields>
-	<fields>
-       <label>会員証受領日</label>
+    <fields>
+        <label>会員証受領日</label>
         <name>Membership_Accept_Date__c</name>
     </fields>
     <fields>
@@ -1433,8 +1433,8 @@
         <label>親契約フラグ</label>
         <name>Parent_Flag__c</name>
     </fields>
-    <fields> 
-	    <help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help> 
+    <fields>
+        <help><!-- 関連契約番号がある場合、2契約で1契約の扱いとなります。上記契約との合算が必要ですのでご注意ください。 --></help>
         <label>関連契約番号</label>
         <name>Parent_Number__c</name>
     </fields>
@@ -1558,6 +1558,18 @@
             <translation>デュアルオートローン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Maintenance Plus</masterLabel>
+            <translation>メンテナンスプラス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance Plus Light</masterLabel>
+            <translation>メンテナンスプラスライト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyMercedes Support</masterLabel>
+            <translation>MyMercedesサポート</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Normal Loan</masterLabel>
             <translation>通常ローン</translation>
         </picklistValues>
@@ -1602,12 +1614,60 @@
             <translation>スーパーウェルカムプランプラス</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Touring support Plus</masterLabel>
+            <translation>ツーリングサポートプラス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty Plus</masterLabel>
+            <translation>保証プラス</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Welcome Plan</masterLabel>
             <translation>ウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan Plus</masterLabel>
             <translation>ウェルカムプランプラス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance</masterLabel>
+            <translation>smartメンテナンス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Pack EV Plan</masterLabel>
+            <translation>smart メンテパック EV専用プラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Pack EV Second Plan</masterLabel>
+            <translation>smart メンテパック EVセカンドプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Pack EV Start Plan</masterLabel>
+            <translation>smart メンテパック EVスタートプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Pack Second Plan</masterLabel>
+            <translation>smart メンテパック セカンドプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Pack Start Plan</masterLabel>
+            <translation>smart メンテパック スタートプラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Maintenance Plus</masterLabel>
+            <translation>smartメンテナンスプラス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart touring support 2 years Plan</masterLabel>
+            <translation>smart ツーリングサポート 2年プラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart touring support 3 years Plan</masterLabel>
+            <translation>smart ツーリングサポート 3年プラン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart touring support 6 years Plan</masterLabel>
+            <translation>smart ツーリングサポート 6年プラン</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1658,8 +1718,8 @@
         <name>Related_Dealer__c</name>
         <relationshipLabel>保証/契約</relationshipLabel>
     </fields>
-	<fields>
-         <label>関連リード</label>
+    <fields>
+        <label>関連リード</label>
         <name>Related_Lead__c</name>
         <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
@@ -1754,12 +1814,28 @@
         <label>サービス区分</label>
         <name>Service_Code__c</name>
         <picklistValues>
+            <masterLabel>1year inspection</masterLabel>
+            <translation>1年点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accessories</masterLabel>
+            <translation>ｱｸｾｻﾘ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Body Jobs</masterLabel>
             <translation><!-- Body Jobs --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Dealer Campaign</masterLabel>
+            <translation>ﾃﾞｨｰﾗｰｷｬﾝﾍﾟｰﾝ</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Electrical Jobs</masterLabel>
             <translation><!-- Electrical Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First MOT</masterLabel>
+            <translation>初回車検/MB2年点検</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Free</masterLabel>
@@ -1767,7 +1843,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>General Repair</masterLabel>
-            <translation><!-- General Repair --></translation>
+            <translation>一般修理</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB 1year inspection</masterLabel>
+            <translation>M-Care/MB1年点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Safety check</masterLabel>
+            <translation>MBｾｰﾌﾃｨﾁｪｯｸ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOT</masterLabel>
+            <translation>車検/2年点検</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New car/used car sales</masterLabel>
@@ -1778,12 +1866,24 @@
             <translation><!-- Other Jobs --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Outside Order</masterLabel>
+            <translation>外注修理</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Paint Jobs</masterLabel>
-            <translation><!-- Paint Jobs --></translation>
+            <translation>板金塗装</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Predelivery inspection</masterLabel>
-            <translation><!-- Predelivery inspection --></translation>
+            <translation>納車点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quick Service</masterLabel>
+            <translation>ｸｲｯｸｻｰﾋﾞｽ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Repair</masterLabel>
+            <translation>再修理</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Return Jobs</masterLabel>
@@ -1795,7 +1895,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Maintenance</masterLabel>
-            <translation><!-- Service Maintenance --></translation>
+            <translation>ﾒﾝﾃﾅﾝｽ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Transfer</masterLabel>
+            <translation>ｻｰﾋﾞｽ振替</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Jobs</masterLabel>
@@ -1807,7 +1911,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty</masterLabel>
-            <translation><!-- Warranty --></translation>
+            <translation>保証修理</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wear &amp; Tear Jobs</masterLabel>
@@ -1819,7 +1923,7 @@
         <name>Service_Contact_Name__c</name>
     </fields>
     <fields>
-         <label>入庫日</label>
+        <label>入庫日</label>
         <name>Service_Date_In__c</name>
     </fields>
     <fields>
@@ -1836,7 +1940,7 @@
         <relationshipLabel><!-- Retail Tasks (Service Dealer) --></relationshipLabel>
     </fields>
     <fields>
-         <label>サービス詳細</label>
+        <label>サービス詳細</label>
         <name>Service_Details__c</name>
     </fields>
     <fields>
@@ -1848,18 +1952,18 @@
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
-         <label>サービス番号</label>
+        <label>サービス番号</label>
         <name>Service_Number__c</name>
     </fields>
     <fields>
         <label><!-- Service Position --></label>
         <name>Service_Position__c</name>
     </fields>
-	<fields>
-         <label>車台番号</label>
+    <fields>
+        <label>車台番号</label>
         <name>Service_Vehicle_VIN__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>サービス対象車両</label>
         <name>Service_Vehicle__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Vehicle) --></relationshipLabel>
@@ -1915,6 +2019,10 @@
         <picklistValues>
             <masterLabel>Cancelled2</masterLabel>
             <translation><!-- Cancelled2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change of Owner</masterLabel>
+            <translation>契約者変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Consent Termination</masterLabel>
@@ -2166,6 +2274,10 @@
             <translation><!-- Service Invoice --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Service Program</masterLabel>
+            <translation>サービスプログラム</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Showroom visit by customer</masterLabel>
             <translation><!-- Showroom visit by customer --></translation>
         </picklistValues>
@@ -2353,13 +2465,13 @@
             <label>新しい</label>
             <section>New</section>
         </sections>
-    </layouts>
+	</layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
-   </layouts>
+    </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
-  </layouts>
+    </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
         <label>Contract</label>

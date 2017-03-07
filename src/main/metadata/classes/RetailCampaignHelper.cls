@@ -41,9 +41,27 @@ public  class RetailCampaignHelper
             }
         }
     }
-   
-   
-   /* 
+    
+    public static void updateParentCampaignQuarter(Set<Id> campaignIds)
+    {
+        List<Campaign> ParentCampaigns = new List<Campaign>();
+        
+        for(Campaign cam : [select Id, BP_Quarter__c from Campaign where Id in :campaignIds])
+        {
+            cam.BP_Quarter__c = cam.BP_Quarter__c >=0 ? cam.BP_Quarter__c + 1 : 1;
+            ParentCampaigns.add(cam);
+        }
+        if(!ParentCampaigns.IsEmpty())
+        {
+            try {
+                update ParentCampaigns;
+            }
+            catch(Exception ex) {
+                System.debug(ExceptionMsg + ex.getMessage());
+            }
+        }
+    }
+    /* 
     Description  : Retail Campaign Deletion- delete Parent and associated child.
     SFDCJP-      : 1024
     Date         :  13/02/2017
@@ -78,29 +96,6 @@ delete Parentcamp;
 }
 
 /*End of SFDCJP-1024  Retail Campaign */
-
-
-
-
-    public static void updateParentCampaignQuarter(Set<Id> campaignIds)
-    {
-        List<Campaign> ParentCampaigns = new List<Campaign>();
-        
-        for(Campaign cam : [select Id, BP_Quarter__c from Campaign where Id in :campaignIds])
-        {
-            cam.BP_Quarter__c = cam.BP_Quarter__c >=0 ? cam.BP_Quarter__c + 1 : 1;
-            ParentCampaigns.add(cam);
-        }
-        if(!ParentCampaigns.IsEmpty())
-        {
-            try {
-                update ParentCampaigns;
-            }
-            catch(Exception ex) {
-                System.debug(ExceptionMsg + ex.getMessage());
-            }
-        }
-    }
     public static Task generateTask(User user ,Retail_Campaign__c rc,String strSubject)
     {
         Map<String, Schema.RecordTypeInfo> RecordTypeMap = Schema.SObjectType.task.getRecordTypeInfosByName();
@@ -204,6 +199,184 @@ delete Parentcamp;
     
     }
 }
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Created Date        :    30.01.2017
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to send email notification to the Dealer Sales Manager when a new retail campaign is created 
+                         Business Conditions :
+                          * It sends Email Notification to dealer sales manager to start their retail execution  
+                          * It Adds Campaign Members and participating dealers to respective child retail campaign                         
+JIRA NO             :    SFDCJP-1044                                              
+************************************************************************************/
+public static void emailNotificationRetail (List<Retail_Campaign__c > retCampList)  {
+    
+    Set<Id> sid = New Set<Id>();
+  List<Id> userIds = new List<Id>();
+  List<String> sDealerEmails = New List<String>();
+  List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+   Id retId; 
+   String mailSales ;
+  For(Retail_Campaign__c  camp : retCampList){
+  
+   if(camp.Parent_Campaign__c != null ){
+   
+   
+        sid.add(camp.Parent_Campaign__c);
+        retId = camp.Id;
+         }
+  
+    
+    
+  }
+  EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
+  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
+  System.Debug('++++++++++'+CamList );
+  
+  For(Campaign c : CamList){
+  
+     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
+     
+           if(c.Parent.Campaign_Type__c == 'sales'){ 
+ 
+          if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
+                mailSales = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;    
+          }
+          } else if (c.Parent.Campaign_Type__c == 'After Sales'){
+          
+          if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
+                mailSales = parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c;   
+          }
+          
+          }  
+          
+          if(mailSales != null){
+          string[] toaddress = New String []{mailSales};
+          
+         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        mail.saveAsActivity = false;
+        mail.setTargetObjectId(parDealer.ownerId);
+        mail.setToAddresses(toaddress);
+        mail.setWhatId(parDealer.Id);
+        
+        mail.setTemplateID(templateId.Id); 
+        mail.setUseSignature(false);
+        mail.setSaveAsActivity(false);
+            
+               
+               
+               
+            mails.add(mail);   
+
+            }
+     
+     
+     
+    }
+     
+  
+  
+  }
+  
+  Messaging.sendEmail(mails);
+  
+  
+   }  
+   
+   
+    public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
+    
+    List<Participating_Dealer__c> newRetail = New List<Participating_Dealer__c>();
+    List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
+
+     Id retailId;       
+    Set<id> sid = New Set<id>();    
+        
+        for(Retail_Campaign__c retcam : retCamp){
+            
+            if(retcam.Parent_Campaign__c != null){
+                
+                    sid.add(retcam.Parent_Campaign__c);
+                    retailId = retcam.Id;
+            }
+            
+            
+            
+        }
+    
+    
+    
+      List<Campaign> camList =[Select id,Name,Consolidated_List_Completed__c,Set_List_Maintenance_Flag__c ,(Select Id,Name,Retail_Campaign__c From Participating_Dealers__r) From Campaign Where Id =: sid ];
+      
+      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
+      
+      
+      
+      For(Campaign campMain : camList){
+          
+          
+          if(campMain.Consolidated_List_Completed__c == true){
+          
+          For(Participating_Dealer__c partiDealer : campMain.Participating_Dealers__r){
+              
+              
+              partiDealer.Retail_Campaign__c = retailId ;
+              
+             newRetail.add(partiDealer); 
+          }
+          
+          }
+          
+          
+      }
+    
+            if(newRetail.size() > 0){
+             update newRetail;
+            }  
+            
+            For(Campaign caMem : caMemList ){
+            
+            if(caMem.Set_List_Maintenance_Flag__c == false){
+                
+              For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
+                  
+                 Campaign_Member__c newCamRetail = new Campaign_Member__c();
+                 newCamRetail.Name = camo.Name;
+                 newCamRetail.Retail_Campaign_Id__c = retailId;
+                 newCamRetail.Status__c = camo.Status__c;
+                 newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;
+                 newCamRetail.contact_Id__c = camo.contact_Id__c;
+                  retailMem.add(newCamRetail);               
+                  
+                  
+              }
+
+
+                                                  
+                
+            }
+            
+            
+        }  
+        if(retailMem.size() >0 && !retailMem.isEmpty()){
+            insert retailMem;   
+            
+            } 
+                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    /* End Of SFDCJP-1044 */
+    
     
     public static void ShareRecordToDealer_AfterUpdate(list<Retail_Campaign__c> retailCampainsNew,map<id,Retail_Campaign__c> retailCampainsNewMap,map<id,Retail_Campaign__c> retailCampainsOldMap, boolean isUpdate)
     {

@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="SelectAddressController" rendered="{!IF(market == 'KR', true, false)}">
+<apex:page standardController="Account" extensions="SelectAddressController" rendered="{!IF(market == 'KR',false,true)}">
     <apex:form id="addfrm" >
         <apex:outputPanel layout="block" style="overflow:auto;">
             <apex:pageBlock title="{!$Label.Address_Select}" id="pageBlock">
@@ -60,7 +60,11 @@
         }
         
         function refreshPage() {
-            window.top.location='/{!Account.id}';
+            try {
+            	window.parent.location = window.parent.location.href;
+        	} catch(e) {
+        		window.top.location='/{!Account.id}';
+        	} 
         }
     
     </script>

@@ -27,9 +27,7 @@ public class AddressDisplayInlineEditController {
         system.debug('######'+ aid); 
         if(ApexPages.currentPage().getParameters().get('id')!=Null){            
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                    Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,
-                    Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,
-                    Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,
+                    Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,        
                     Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: aid ];        
             system.debug('@Account Information :' +adds);
         }                     
@@ -87,9 +85,8 @@ public class AddressDisplayInlineEditController {
     @TestVisible private void loadData() {
         system.debug('@Loading Addresses...' +aid);
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,
-                Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,
-                Address_Line_2_Native__c,LastModifiedDate  from Address__c where Customer__c =: aid];
+                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,       
+                Address_Line_2_Native__c  from Address__c where Customer__c =: aid];
     }
     
     /**    
@@ -126,11 +123,9 @@ public class AddressDisplayInlineEditController {
     
     public void addEditOptions(){    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c, 
-               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,
-               Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,
-               Address_Line_2_Native__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];  
-                if(adds.size()>=5){ 
+        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
+               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c=:acc.id];
+        if(adds.size()>=5){
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
         }
@@ -147,10 +142,9 @@ public class AddressDisplayInlineEditController {
     public void EditOptions(){
         Address__c editadds;
         if (editaddressId != null){
-            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c, 
-                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,
-                        Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,
-                        LastModifiedDate from Address__c where Id =: editaddressId]; 
+            editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
+                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Id =: editaddressId];
+            // if for any reason we are missing the reference           
         }
         
         // find the address record within the collection
@@ -171,11 +165,11 @@ public class AddressDisplayInlineEditController {
             addressobj.Preferred__c = editadds.Preferred__c;
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
-            addressobj.Block_Native__c = editadds.Block_Native__c;
-            addressobj.City_Native__c = editadds.City_Native__c;
-            addressobj.Province_Native__c = editadds.Province_Native__c;
-            addressobj.District_Native__c = editadds.District_Native__c;
-            addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;
+            addressobj.Block_Native__c = editadds.Block_Native__c;      
+            addressobj.City_Native__c = editadds.City_Native__c;        
+            addressobj.Province_Native__c = editadds.Province_Native__c;        
+            addressobj.District_Native__c = editadds.District_Native__c;        
+            addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
             addressobj.Address_Line_2_Native__c = editadds.Address_Line_2_Native__c;
         }      
         ShowpageBlockFlag = true;        
@@ -186,22 +180,20 @@ public class AddressDisplayInlineEditController {
         * @Date        : 11/3/2015    
     **/  
     
-   public void saveAddress(){
+    public void saveAddress(){
         Validation = false;
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
-            AddressObj.Address_Type__c = addresspicklist; 
-           //AddressObj.Province__c = provincepicklist;
-            system.debug('ACCid>>>>>'+acc);            
-            if(editaddressId ==null){ 
+            //AddressObj.Address_Type__c = addresspicklist;
+            if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  
                     if(Address_Validated_Flag == false)
-                    {
+          {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
-                        //Validation = true;
+                        Validation = true;
                     }
-                      /* if((market != 'KR') && addressobj.ZipCode__c == null)
+                    if((market != 'KR') && addressobj.ZipCode__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
                         Validation = true;
@@ -211,16 +203,17 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;
                     }
-                 if((market == 'KR') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
+                    /*if((market == 'KR') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = true;
                     }*/  
-                    if(Address_Validated_Flag == true) //&& Validation == False)
-                    {
-                        refreshPage= true;
-                        addressObj.Address_Code__c = ValidateAddressCode(addressObj);
-                        insert addressobj;
-                    }
+          if(Address_Validated_Flag == true && Validation == False)
+          {
+            refreshPage= true;
+            addressObj.Id = null;
+            addressObj.Address_Code__c = ValidateAddressCode(addressObj);
+            insert addressobj;
+          }
                 }
                 catch (DmlException e){
                     refreshPage = false;
@@ -233,12 +226,12 @@ public class AddressDisplayInlineEditController {
                     if(Address_Validated_Flag == false)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
-                        //Validation = true;
+                        Validation = true;
                     }
                     /*if((market == 'KR') && (addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))){       
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));   
                         Validation = true;
-                    }
+                    }*/
                     if((market != 'KR') && addressobj.ZipCode__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
@@ -248,13 +241,13 @@ public class AddressDisplayInlineEditController {
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;
-                    } */                   
+                    }                    
                     else 
-                    {   //if(Validation == False){
+                    {   if(Validation == False){
                             refreshPage= true;
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                             update addressobj;
-                        //}
+                        }
                     }
                 }
                 catch (DmlException e) 
@@ -263,15 +256,15 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                    
                     system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
                 }
-        }       
+            }    
+        }  
     }
- }
     
     /**  Address Search based on Zip code.
         Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
         **  Created By: Sudhir  
         **  Date: 2016-1-19
-    **/    
+        **/
     public void AddressSearch()
     {
         if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)  ))
@@ -279,12 +272,8 @@ public class AddressDisplayInlineEditController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
         }
         
-        if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_2_Native__c != null || 
-            AddressObj.Address_Line_1__c != null || AddressObj.Address_Line_1_Native__c != null || 
-            AddressObj.Block__c != null || AddressObj.Block_Native__c != null || 
-            AddressObj.City__c != null || AddressObj.City_Native__c != null ||
-            AddressObj.District__c != null || AddressObj.District_Native__c != null ||
-            AddressObj.Province__c != null || AddressObj.Province_Native__c != null)
+        if(AddressObj.Address_Line_2__c != null ||  AddressObj.Address_Line_2_Native__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Address_Line_1_Native__c != null || AddressObj.Block__c != null || AddressObj.Block_Native__c != null ||  AddressObj.City__c != null || AddressObj.City_Native__c != null ||
+           AddressObj.District__c != null || AddressObj.District_Native__c != null || AddressObj.Province__c != null || AddressObj.Province_Native__c != null )
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null)); 
             
@@ -306,30 +295,34 @@ public class AddressDisplayInlineEditController {
                     system.debug('valid string ------'+ ValidStr );
                     
                     if(ValidStr.contains('Address_Line_1__c'))
-                    {
-                        
+                    {                        
                         AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
+                        system.debug(' *$*$*$* 123  AddressObj.Address_Line_1__c   ' + AddressObj.Address_Line_1__c);
                     }
                     if(ValidStr.contains('Address_Line_2__c'))
                     {
-                        
                         AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
+                        system.debug(' *$*$*$* 123 AddressObj.Address_Line_2__c   ' + AddressObj.Address_Line_2__c);
                     }
                     if(ValidStr.contains('Block__c'))
-                    {                        
+                    {
                         AddressObj.Block__c = response.Addresses[0].Block;
+                        system.debug(' *$*$*$* 123 AddressObj.Block__c   ' + AddressObj.Block__c);
                     }
                     if(ValidStr.contains('City__c'))
                     {
                         AddressObj.City__c = response.Addresses[0].City;
+                        system.debug(' *$*$*$* 123 AddressObj.City__c   ' + AddressObj.City__c);
                     }
                     if(ValidStr.contains('District__c'))
                     {
                         AddressObj.District__c = response.Addresses[0].District;
+                        system.debug(' *$*$*$* 123 AddressObj.District__c   ' + AddressObj.District__c);
                     }
                     if(ValidStr.contains('Province__c'))
                     {
                         AddressObj.Province__c = response.Addresses[0].Province;
+                        system.debug(' *$*$*$* 123 AddressObj.Province__c   ' + AddressObj.Province__c);
                     }
                     
                 }
@@ -340,16 +333,36 @@ public class AddressDisplayInlineEditController {
                 
             }            
         } 
-    }
+    } 
     /**  Address Validation based on Zip code.
         After Address is searched using Address Search button and if user enters additional address information, It sends information to 
         EP/Tolerant for Validation.
         **  Created By: Sudhir  
         **  Date: 2016-1-19
     **/
-   public void ValidateAddressSearch(){
+    public void ValidateAddressSearch(){
         system.debug('addresspicklist 4 :'+addresspicklist);
-        if(Market =='KR'){          
+        system.debug('Market 1 :'+Market);
+        if(Market =='KR'){         
+           /* if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){               
+                addressobj.Address_Code__c = '';
+                addressobj.Address_Line_1__c = '';
+                addressobj.Address_Line_2__c = '';
+                addressobj.Block__c = '';
+                addressobj.City__c = '';
+                addressobj.District__c = '';
+                addressobj.Province__c = '';
+                addressobj.MD__c = ''; 
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));                 
+            }
+            if(addressobj.ZipCode__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));  
+            }
+            if(addressobj.Address_Line_1__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));  
+            }*/
             if(addressobj.Province__c == null)
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
@@ -357,15 +370,15 @@ public class AddressDisplayInlineEditController {
              //Commented the IF condition as address can be searched without postcode as well for MBK. As confirmed by Enriko, Falk and Andrew.
             //if(addressobj.ZipCode__c != null)
             //{
-              //Changes as part of SFDCKR-683
-              if(addressobj.Province__c != null)
-              {
-                        addressobj.MD__c = Market;
-                        ValidateAddressSearchCallout(addressobj);
-              }
-                    //}           
+      //Changes as part of SFDCKR-683
+      if(addressobj.Province__c != null)
+      {
+                addressobj.MD__c = Market;
+                ValidateAddressSearchCallout(addressobj);
+      }
+            //}           
         }
-        if(Market =='JP'){
+        if(Market !='KR' && Market !='' ){
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c))){
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -373,112 +386,26 @@ public class AddressDisplayInlineEditController {
                 addressobj.Block__c = '';
                 addressobj.City__c = '';
                 addressobj.District__c = '';
-                addressobj.Province__c = ''; 
+                addressobj.Province__c = '';  
                 addressobj.Block_Native__c = '';
                 addressobj.City_Native__c = '';
-                addressobj.Province_Native__c = '';
-                addressobj.District_Native__c = '';
-                addressobj.Address_Line_1_Native__c = '';
+                addressobj.Province_Native__c = '';     
+                addressobj.District_Native__c = '';     
+                addressobj.Address_Line_1_Native__c = '';       
                 addressobj.Address_Line_2_Native__c = '';
-                addressobj.MD__c = Market;        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation)); 
-                              
+                addressobj.MD__c = '';              
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));                              
             }
-            if(addressobj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c)))
-            {
-                crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-                response =  UtilWebservice.validateAddressByZipCode(addressobj);
-                if(response != null && response.ValidationStatus == 'OK')
-                {
-                    Address_Validated_Flag = true;
-                    AddressObj.ZipCode__c =  response.Addresses[0].ZipCode;
-                    //AddressObj.Address_Code__c = response.Addresses[0].Address_Code;
-                    
-                    
-                    if(response.Addresses[0].ValidFields != null &&  response.Addresses[0].ValidFields != '' && response.Addresses[0].Valid )
-                    {
-                        
-                        String ValidStr = response.Addresses[0].ValidFields;
-                        system.debug('valid string ------'+ ValidStr );
-                        
-                        if(ValidStr.contains('Address_Line_1__c'))
-                        {
-                            
-                            AddressObj.Address_Line_1__c = response.Addresses[0].Address_Line_1;
-                        }
-                        if(ValidStr.contains('Address_Line_2__c'))
-                        {
-                            
-                            AddressObj.Address_Line_2__c = response.Addresses[0].Address_Line_2;
-                        }
-                        if(ValidStr.contains('Block__c'))
-                        {
-                            
-                            AddressObj.Block__c = response.Addresses[0].Block;
-                        }
-                        if(ValidStr.contains('City__c'))
-                        {
-                            AddressObj.City__c = response.Addresses[0].City;
-                        }
-                        if(ValidStr.contains('District__c'))
-                        {
-                            AddressObj.District__c = response.Addresses[0].District;
-                        }
-                        if(ValidStr.contains('Province__c'))
-                        {
-                            AddressObj.Province__c = response.Addresses[0].Province;
-                        }
-                        
-                    }
-                    else if(!response.Addresses[0].Valid)
-                    {
-                        
-                        string province;   
-                        Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-                        UtilAddressTranslation.gettranslatedvalues('JP');
-                        if(addtrmapUpdate.containsKey(AddressObj.Province__c))
-                        {
-                            province = addtrmapUpdate.get(AddressObj.Province__c);
-                        }
-                        AddressObj.Province__c =  province;
-                        
-                        AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
-                        
-                        AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
-                            ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
-                            ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
-                        
-                        AddressObj.Address_Code__c = '';
-                        AddressObj.Address_Line_1__c = '';
-                        AddressObj.Address_Line_2__c = '';
-                        AddressObj.Block__c = '';
-                        AddressObj.City__c = '';
-                        AddressObj.District__c = '';
-                        AddressObj.Province__c = '';
-                        
-                    }
-                    
-                }
-                if(response != null && response.ValidationStatus == 'ERROR')
-                {
-                    addressobj.Address_Code__c = '';
-                    addressobj.Address_Line_1__c = '';
-                    addressobj.Address_Line_2__c = '';
-                    addressobj.Block__c = '';
-                    addressobj.City__c = '';
-                    addressobj.District__c = '';
-                    addressobj.Province__c = '';
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_not_found));
-                    
-                }
-            }
+            if(addressobj.ZipCode__c != null){
+                addressobj.MD__c = Market;
+                ValidateAddressSearchCallout(addressobj);
+            }  
         }
     }
-      
- public List<addressSelectionWrapper> mapAddressResponse{get; set;}
+    public List<addressSelectionWrapper> mapAddressResponse{get; set;}
     public void ValidateAddressSearchCallout(Address__c addressobj){       
         mapAddressResponse = new List<addressSelectionWrapper>();      
-        Address__c AddressObjtemp1 = new Address__c();       
+        //Address__c AddressObjtemp1 = new Address__c();       
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(addressobj);
         system.debug('*$*$*$*$ response   ' + response);
@@ -497,23 +424,67 @@ public class AddressDisplayInlineEditController {
                     if(addtrmapUpdate.containsKey(AddressObjtemp.Province__c)){
                         province = addtrmapUpdate.get(AddressObjtemp.Province__c);
                     }
-                    if(ValidStr.contains('Address_Line_1__c')){
+                    if(ValidStr.contains('Address_Line_1__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
+                    }
+                    else if(ValidStr.contains('Address_Line_1__c') && Market == 'KR')
+                    {
                         AddressObjtemp.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
-                    if(ValidStr.contains('Address_Line_2__c')){
+                    
+                    if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
+                    }
+                    else if(ValidStr.contains('Address_Line_2__c') && Market == 'KR')
+                    {
                         AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
-                    if(ValidStr.contains('Block__c')){
+                    if(ValidStr.contains('Block__c') && Market == 'JP')
+                    {
+                      addressobj.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
+                    }
+                    else if(ValidStr.contains('Block__c') && Market == 'KR')
+                    {
                         AddressObjtemp.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
                     }
-                    if(ValidStr.contains('City__c')){
+                    if(ValidStr.contains('City__c') && Market == 'JP')
+                    {
+                      addressobj.City__c = response.Addresses[i].City;
+                        //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
+                    }
+                    else if(ValidStr.contains('City__c') && Market == 'KR')
+                    {
                         AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
-                    if(ValidStr.contains('District__c')){
+                    if(ValidStr.contains('District__c') && Market == 'JP')
+                    {
+                      addressobj.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
+                    }
+                    else if(ValidStr.contains('District__c') && Market == 'KR')
+                    {
                         AddressObjtemp.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
-                    if(ValidStr.contains('Province__c')){
+                    if(ValidStr.contains('Province__c') && Market == 'JP')
+                    {
+                      addressobj.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
+                    }
+                    else if(ValidStr.contains('Province__c') && Market == 'KR')
+                    {
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
                 }
@@ -558,6 +529,8 @@ public class AddressDisplayInlineEditController {
         }                
     }
     
+    
+    
     /**  Address Code Validation.
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
@@ -587,7 +560,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         Public boolean isSelected{get;set;}
        
         Public Address__c add{get;set;} 
-        addressSelectionWrapper(Address__c add){
+        public addressSelectionWrapper(Address__c add){
             this.add = add;
             //isSelected = false;
         }         

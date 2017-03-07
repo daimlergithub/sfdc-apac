@@ -1,8 +1,24 @@
-<apex:page standardController="Account" extensions="AccountLinkController">
+<apex:page standardController="Account" extensions="AccountLinkController" sidebar="false" showHeader="false">
     <apex:form >
+     <script>
+         function ConfirmDeletionfn(){
+             var conf = confirm('This will delete the retail copy and the Account will not be viewable anymore, is this ok?');
+             if(conf == false){
+                 location.reload();
+             }
+         }
+     </script> 
+       
+       
+       
        <apex:pageBlock >
+       
            <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
-                <apex:pageBlockSectionItem > 
+           
+            
+       
+           
+        <apex:pageBlockSectionItem > 
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Name.Label}"/>   
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.id}')">{!acclnkdealer.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
@@ -56,7 +72,18 @@
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Visit_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Visit_OptOut__c}"/> 
            </apex:pageBlockSectionItem>
-      </apex:pageBlockSection>
-    </apex:pageBlock>        
+        </apex:pageBlockSection>
+      <apex:pageblockButtons location="Top">
+   <!----< <apex:commandButton action="{!ab}" value="Edit" /> ------->
+        <!--<<apex:commandButton onclick="window.open('{!ab}');" value="Edit"/>-->
+        <apex:commandlink action="{!ab}" target="_blank">
+            <apex:commandButton value="Edit"/>
+        </apex:commandLink>
+        
+        <apex:commandButton value="Delete" onclick="ConfirmDeletionfn();" action="{!DeleteRetailCopy}" oncomplete="window.top.location.reload(); return false"/> 
+                
+    </apex:pageblockButtons>
+    </apex:pageBlock>
+            
   </apex:form>
 </apex:page>

@@ -22,7 +22,7 @@ public without sharing class createRetailCopy {
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-
+    public String MarketDiscriminator;
     // Constructor
     public createRetailCopy(ApexPages.StandardController controller) {
      AccId=ApexPages.currentPage().getParameters().get('id');
@@ -30,7 +30,8 @@ public without sharing class createRetailCopy {
      SelectedAdd=new List<Address__c>();
      InsertAlk=new List<Account_Link__c> ();
      account=new Account();
-       ShowHideError=false;
+     ShowHideError=false; 
+     
      CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId()];
      account = (Account)controller.getRecord();
      if(AccId!=null)
@@ -40,6 +41,10 @@ public without sharing class createRetailCopy {
     
      system.debug('+++++++++++++'+account);
      system.debug('++++++++++++++'+AccId);
+    MarketDiscriminator = 'JP';
+    if(CurrentUsr.Market__c== 'KR'){
+        MarketDiscriminator = CurrentUsr.Market__c; 
+    }       
 
     } // Constructor  end
     
@@ -61,7 +66,7 @@ public without sharing class createRetailCopy {
           Dealeracc=new List<Account>();
           AccId=ApexPages.currentPage().getParameters().get('id'); 
           // DealerID=ApexPages.currentPage().getParameters().get('DealerID');  
-           accc=[Select id from account where id=:account.Main_Dealer__c];  
+           accc=[Select id from account where id=:account.Main_Dealer__c and MD__c =: MarketDiscriminator];  
            System.debug('^&^&^&^&^&^&^&^ accc'+accc);
             System.debug('^&^&^&^&^&^&^&^ AccId '+AccId);
            System.debug('^&^&^ DealerID.Main_Dealer__c '+account.Main_Dealer__c);
@@ -105,11 +110,11 @@ public without sharing class createRetailCopy {
               }
     if(accList.RecordtypeId == accPerson_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c,Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false];
     }
      if(accList.RecordtypeId == accCompany_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c,Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c=:DealeAccId and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false];
     }
     
     
@@ -163,11 +168,11 @@ public without sharing class createRetailCopy {
             System.debug('CurrentUsr %%%%%%%'+CurrentUsr);
     if(accList.RecordtypeId == accPerson_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c,Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false];
     }
      if(accList.RecordtypeId == accCompany_RecordTypeId)
     {
-    Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId];
+    Accountlinklist = [select id, fromRole__c, toRole__c,Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false];
     }
     
    System.debug('#$#$#$####$'+account.Main_Dealer__c);

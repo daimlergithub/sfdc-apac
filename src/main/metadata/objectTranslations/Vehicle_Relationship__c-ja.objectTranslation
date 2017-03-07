@@ -98,7 +98,7 @@
         <name>Car_Relation__c</name>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 1</masterLabel>
-            <translation>アフターセールスコンタクト1</translation>
+            <translation>アフターセールスコンタクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 2</masterLabel>
@@ -1219,15 +1219,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>MBJ/MBFカンパニーカー</translation>
+            <translation>MBJ/MBF社有車</translation>
         </picklistValues>
 		<picklistValues>
             <masterLabel>Daimler Employee Car</masterLabel>
-            <translation>販売店レンタカー</translation>
+            <translation>MBJ/MBF従業員販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler Employee Lease</masterLabel>
             <translation>MBJ/MBF従業員リース</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Daimler Employee Rental Car</masterLabel>
+            <translation>販売店レンタカー</translation>
         </picklistValues>
 		<picklistValues>
             <masterLabel>Dealer Company Car</masterLabel>
@@ -3069,11 +3073,6 @@
         <relationshipLabel><!-- Vehicle Relationship (UsedWarranty Apply User) --></relationshipLabel>
     </fields>
     <fields>
-        <label>電話番号（車両）</label>
-        <name>Vehicle_Phone_picklist__c</name>
-        
-    </fields>
-    <fields>
         <label>UCP登録／申請ステータス</label>
         <name>UsedWarranty_Apply_Status__c</name>
         <picklistValues>
@@ -3113,14 +3112,54 @@
     <fields>
         <label>メール（車両）</label>
         <name>vehicle_mail_picklist__c</name>
+		<picklistValues>
+            <masterLabel>Email Home</masterLabel>
+            <translation>Eメール(自宅）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Work</masterLabel>
+            <translation>Eメール(会社）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyMercedes Email</masterLabel>
+            <translation>MyMercedesメールアドレス</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>FAX（車両）</label>
         <name>vehicle_fax_picklist__c</name>
+		<picklistValues>
+            <masterLabel>FAX</masterLabel>
+            <translation>FAX</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work FAX</masterLabel>
+            <translation>勤務先 FAX</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>住所（車両）</label>
         <name>vehicle_address_picklist__c</name>
+		<picklistValues>
+            <masterLabel>Home Address</masterLabel>
+            <translation>自宅</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation>その他1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation>その他2</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation>その他3</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work address</masterLabel>
+            <translation>勤務先</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>SPO登録／申請ステータス</label>

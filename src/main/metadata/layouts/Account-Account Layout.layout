@@ -291,15 +291,15 @@
                 <behavior>Edit</behavior>
                 <field>Main_Dealer__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Sales_Address_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_Out_Portal_Reason__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_Contact_Reason_Details__c</field>
             </layoutItems>

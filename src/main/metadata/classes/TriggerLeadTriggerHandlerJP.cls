@@ -17,31 +17,42 @@ public class TriggerLeadTriggerHandlerJP
         
         if(isBefore && isInsert && usr.Profile.Name != 'IntegrationAPI')
         {           
-            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);            
+            LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
+              LeadHelperJP.createContactToContactAccounlink(trigger.new);               
         }
         if(isBefore && isUpdate && usr.Profile.Name != 'IntegrationAPI')
         {
             LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);
              LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
+             LeadHelperJP.createContactToContactAccounlink(trigger.new);  
                         
         }
         system.debug('LeadUtil.isCreated-->'+LeadUtil.isCreated);
         system.debug('insert-->'+isInsert);
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            //LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
         }
-        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
+        if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI'){
+           LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+        }
+
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI'&& LeadUtil.LeadTrigger ){
             system.debug('Isafter is');
-            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            //LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperJP.EmailnotificationforLeads(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-            LeadUtil.isCreated = false;
-           
+           // LeadUtil.isCreated = false;
+           LeadUtil.LeadTrigger = false;
             
         }
+        if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI'&& LeadUtil.leadAccountlnktrigger ){
+            LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+            LeadUtil.leadAccountlnktrigger = false;
+         }
+
         
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

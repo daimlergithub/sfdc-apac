@@ -81,6 +81,13 @@ public class crmasiaDaimlerApacComCustomeridentif {
         public String Salutation;
         public String RecordType;
         public String Vin;
+        public String Name;
+        public String Company_Name_xc;
+        public String Company_Name_Native_1_xc;
+        public String Foundation_date_xc;
+        public String Commercial_reg_no_xc;
+        public String Vat_No_xc;
+        
         public crmasiaDaimlerApacComCustomeridentif.Address[] Address_xc;
         private String[] Id_type_info = new String[]{'Id','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] FirstName_type_info = new String[]{'FirstName','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
@@ -101,6 +108,15 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] Salutation_type_info = new String[]{'Salutation','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] RecordType_type_info = new String[]{'RecordType','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'1','1','false'};
         private String[] Vin_type_info = new String[]{'Vin','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        
+        private String[] Name_type_info = new String[]{'Name','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Company_Name_xc_type_info = new String[]{'Company_Name__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Company_Name_Native_1_xc_type_info = new String[]{'Company_Name_Native_1__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Foundation_date_xc_type_info = new String[]{'Foundation_date__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Commercial_reg_no_xc_type_info = new String[]{'Commercial_reg_no__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Vat_No_xc_type_info = new String[]{'Vat_No__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+               
+        
         private String[] Address_xc_type_info = new String[]{'Address__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','-1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0','true','false'};
         private String[] field_order_type_info = new String[]{'Id','FirstName','LastName','LastName_Native_1_xc','FirstName_Native_1_xc','PersonBirthdate','LoyaltyCardNo','Individual_Home_Phone_xc','Home_Phone_2_xc','Work_Phone_xc','Phone','Mobile_xc','Mobile2_xc','Email_xc','Email2_xc','Email3_xc','Salutation','RecordType','Vin','Address_xc'};
@@ -165,7 +181,7 @@ public class crmasiaDaimlerApacComCustomeridentif {
               'crmasiaDaimlerApacComCustomeridentif.IdentifyCustomerResponse'}
             );
             response_x = response_map_x.get('response_x');
-             System.debug('$%$%$%$%$$  %^%^%%^ '+response_x.CustomerIdentificationResponse  );
+             System.debug('$%$%$%$%$$  %^%^%%^ '+response_x.CustomerIdentificationResponse);
             return response_x.CustomerIdentificationResponse;
         }
     }

@@ -27,7 +27,26 @@
     <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
     <apex:pageMessages />     
     <apex:form id="theForm">
-        <apex:pageBlock title="{!$Label.Suspected_Duplicates}" id="resultBlock">
+    <apex:pageBlock title="Current Lead">
+        <table>
+            <tr>
+                <th id= "Name"> Lea No.</th>
+                <th id= "Contact"> Contact</th>
+                <th id= "Advisor"> Service Advisor</th>
+                <th id= "RTName"> Record Type</th>
+                <th id= "Status">CAC Lead Status </th>
+            </tr>
+            <tr>
+                <td headers = "Name" width="23%">{!leads.Name}</td>
+                <td headers = "Contact" width="23%">{!leads.Contact__r.Name}</td>
+                <td headers = "Advisor" width="23%">{!leads.Service_Advisor__r.Name }</td>
+                <td headers = "RTName" width="23%">{!leads.RecordType.Name}</td>
+                <td headers = "Status" width="23%">{!leads.CAC_Lead_Status__c}</td>
+                
+            </tr>
+        </table>
+    </apex:pageBlock>
+        <apex:pageBlock title="{!$Label.Lead_to_be_Merged}" id="resultBlock">
             <apex:pageblockTable value="{!slaves}" var="slave1" styleclass="compare_table" id="a">  
                   <apex:column headerValue="Slave Record">
          <input type="radio" name="Letters" value="{!slave1.acc.Id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');">

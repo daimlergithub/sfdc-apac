@@ -1,7 +1,7 @@
 /**
     *@Description : This class is implemented to post the chatter to private group.
     *@Author : Kiran P.
-    *@Date : 4/12/2017
+    *@Date : 4/12/2016
     *@Refered: Announcement page
     *@Release : Japan J4
     */
@@ -14,8 +14,9 @@ public with sharing class AnnouncementController{
         isVisible =true;
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         //String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
-        if(usr.profile.Name.Contains('Dealer') && usr.Market__c != 'JP')
-           isVisible = false; 
+       // Dealer profiles can not Post  Announcements
+         /*if(usr.profile.Name.Contains('Dealer') && usr.Market__c != 'JP')
+           isVisible = false;*/ 
     }
     public PageReference doPost() {
         FeedItem fItem = new FeedItem();

@@ -915,10 +915,6 @@
             <translation><!-- Valid --></translation>
         </picklistValues> 
     </fields>
-  <fields>
-        <label><!-- Intention Status --></label> 
-        <name>Intention_Status__c</name>
-    </fields> 
     <fields>  
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>

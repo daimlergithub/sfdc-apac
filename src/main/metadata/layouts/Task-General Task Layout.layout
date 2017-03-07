@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>View_Account</customButtons>
     <excludeButtons>DeleteSeries</excludeButtons>
     <excludeButtons>FollowupEvent</excludeButtons>
     <excludeButtons>FollowupTask</excludeButtons>
@@ -33,6 +32,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Source_System__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Activity_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

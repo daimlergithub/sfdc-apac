@@ -1697,7 +1697,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>Owner:Queue.QueueName  =&quot;Supervisor Team B&quot;</formula>
+        <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

@@ -3,14 +3,28 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用(実績)</value>
+            <value>費用</value>
         </caseValues>
         <name>actual_cost_campaign</name>
+    </fields>
+	<fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>詳細</value>
+        </caseValues>
+        <name>description_campaign</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用(計画)</value>
+            <value>キャンペーンステータス</value>
+        </caseValues>
+        <name>status_campaign</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>予算</value>
         </caseValues>
         <name>budgeted_cost_campaign</name>
     </fields>
@@ -20,6 +34,13 @@
             <value>返答数</value>
         </caseValues>
         <name>total_responses_campaign</name>
+    </fields>
+	<fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>キャンペーンタイプ</value>
+        </caseValues>
+        <name>type_campaign</name>
     </fields>
     <fields>
         <label><!-- ATL/BTL --></label>
@@ -36,6 +57,18 @@
     <fields>
         <label><!-- Actual Region Expense --></label>
         <name>Actual_Region_Expense__c</name>
+    </fields>
+	<fields>
+        <label>キャンペーン対象者ID</label>
+        <name>Add_Campaign_Member_ID__c</name>
+    </fields>
+    <fields>
+        <label>販売担当者印字</label>
+        <name>Add_Sales_Staff__c</name>
+    </fields>
+    <fields>
+        <label>サービス担当者印字</label>
+        <name>Add_Service_Staff__c</name>
     </fields>
     <fields>
         <label><!-- Approval Due Date --></label>
@@ -262,6 +295,11 @@
             <translation><!-- PbP --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>コールセンター管理者</label>
+        <name>Campaign_CCC_Manager__c</name>
+        <relationshipLabel><!-- Campaigns (Campaign CCC Manager) --></relationshipLabel>
+    </fields>
     <fields>
         <label>チャネル</label>
         <name>Campaign_Channels__c</name>
@@ -293,6 +331,18 @@
     <fields>
         <label>キャンペーンコード</label>
         <name>Campaign_Code__c</name>
+    </fields>
+	<fields>
+        <label>実行者</label>
+        <name>Campaign_Executer__c</name>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeSale</masterLabel>
+            <translation><!-- WholeSale --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>フォーマット</label>
@@ -328,6 +378,18 @@
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation>試乗</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label>販売店アサインルール</label>
+        <name>Campaign_Member_Sharing_Rule__c</name>
+        <picklistValues>
+            <masterLabel>One Account Multiple Dealer</masterLabel>
+            <translation><!-- One Account Multiple Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Account One Dealer</masterLabel>
+            <translation><!-- One Account One Dealer --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -386,6 +448,34 @@
             <masterLabel>Visit Dealer</masterLabel>
             <translation><!-- Visit Dealer --></translation>
         </picklistValues>
+    </fields>
+	<fields>
+        <label><!-- Campaign Status --></label>
+        <name>Campaign_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execution</masterLabel>
+            <translation><!-- Execution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response collection</masterLabel>
+            <translation><!-- Response collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segmentation</masterLabel>
+            <translation><!-- Segmentation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>キャンペーン種別</label>
+        <name>Campaign_Sub_Type__c</name>        
     </fields>
     <fields>
         <label>キャンペーンタイプ</label>
@@ -643,6 +733,30 @@
             <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>実行ステータス</label>
+        <name>Child_Campaign_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execution</masterLabel>
+            <translation><!-- Execution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response collection</masterLabel>
+            <translation><!-- Response collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segmentation</masterLabel>
+            <translation><!-- Segmentation --></translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label>クラス</label>
         <name>Class__c</name>
@@ -753,10 +867,27 @@
         <name>DM_Material__c</name>
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
+	<fields>
+        <label>DMテンプレート</label>
+        <name>DM_Template__c</name>
+        <relationshipLabel><!-- Campaigns (DM Template) --></relationshipLabel>
+    </fields>
     <fields>
         <help><!-- System sum up from Retail Campaign. --></help>
         <label><!-- Dealer Budget --></label>
         <name>Dealer_Budget__c</name>
+    </fields>
+	<fields>
+        <label>主管</label>
+        <name>Driven_Type__c</name>
+        <picklistValues>
+            <masterLabel>Joint</masterLabel>
+            <translation><!-- Joint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WholeSale</masterLabel>
+            <translation><!-- WholeSale --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Driven --></label>
@@ -830,6 +961,10 @@
             <translation><!-- Test Drive --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>実行日</label>
+        <name>Execution_Start_Date__c</name>
+    </fields>
     <fields>
         <label>実行タイプ</label>
         <name>Execution_Type__c</name>
@@ -881,6 +1016,10 @@
     <fields>
         <label>返答確度</label>
         <name>Expected_Response_Rate__c</name>
+    </fields>
+	<fields>
+        <label>リスト確認済</label>
+        <name>Final_List_Approved__c</name>
     </fields>
     <fields>
         <label><!-- Flow URL --></label>
@@ -1031,6 +1170,10 @@
         <label>アンケート</label>
         <name>Questionnaire__c</name>
         <relationshipLabel>キャンペーン</relationshipLabel>
+    </fields>
+	<fields>
+        <label>確認リスト配信可</label>
+        <name>Ready_for_List_Maintenance__c</name>
     </fields>
     <fields>
         <label>実行可能</label>
@@ -1208,6 +1351,206 @@
         <label><!-- Scale/Volume --></label>
         <name>Scale_Volume__c</name>
     </fields>
+	<fields>
+        <label>稼動日</label>
+        <name>SegWorkingDay__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation><!-- 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation><!-- 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation><!-- 15 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation><!-- 16 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation><!-- 17 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation><!-- 18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation><!-- 19 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation><!-- 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation><!-- 21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation><!-- 22 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation><!-- 23 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation><!-- 24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25</masterLabel>
+            <translation><!-- 25 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26</masterLabel>
+            <translation><!-- 26 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>27</masterLabel>
+            <translation><!-- 27 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28</masterLabel>
+            <translation><!-- 28 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>29</masterLabel>
+            <translation><!-- 29 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30</masterLabel>
+            <translation><!-- 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31</masterLabel>
+            <translation><!-- 31 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7</masterLabel>
+            <translation><!-- 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8</masterLabel>
+            <translation><!-- 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9</masterLabel>
+            <translation><!-- 9 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>稼動月</label>
+        <name>SegWorkingMonth__c</name>
+        <picklistValues>
+            <masterLabel>Apr</masterLabel>
+            <translation><!-- Apr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aug</masterLabel>
+            <translation><!-- Aug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dec</masterLabel>
+            <translation><!-- Dec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feb</masterLabel>
+            <translation><!-- Feb --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jan</masterLabel>
+            <translation><!-- Jan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jul</masterLabel>
+            <translation><!-- Jul --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jun</masterLabel>
+            <translation><!-- Jun --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mar</masterLabel>
+            <translation><!-- Mar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>May</masterLabel>
+            <translation><!-- May --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nov</masterLabel>
+            <translation><!-- Nov --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oct</masterLabel>
+            <translation><!-- Oct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sep</masterLabel>
+            <translation><!-- Sep --></translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label>活動単位</label>
+        <name>Segmentation_Base__c</name>
+        <picklistValues>
+            <masterLabel>Contract</masterLabel>
+            <translation><!-- Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle</masterLabel>
+            <translation><!-- Vehicle --></translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label>抽出日</label>
+        <name>Segmentation_Date__c</name>
+    </fields>
     <fields>
         <label>セグメンテーションレポートID</label>
         <name>Segmentation_Report_ID__c</name>
@@ -1243,9 +1586,22 @@
             <translation>進行中</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>リスト確認</label>
+        <name>Set_List_Maintenance_Flag__c</name>
+    </fields>
+	<fields>
+        <label>販売店共有</label>
+        <name>Share_Campaign_Participation_Flag__c</name>
+    </fields>
     <fields>
         <label><!-- Submission Due Date --></label>
         <name>Submission_Due_Date__c</name>
+    </fields>
+	<fields>
+        <label>サーベイID</label>
+        <name>Survey__c</name>
+        <relationshipLabel><!-- Campaigns (Survey) --></relationshipLabel>
     </fields>
     <fields>
         <label>タスク作成者</label>
@@ -1337,6 +1693,15 @@
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+	<fields>
+        <label>稼動日抽出</label>
+        <name>Use_Segmentation_Criteria__c</name>
+    </fields>
+    <fields>
+        <label>親キャンペーン</label>
+        <name>parentcampaign__c</name>
+        <relationshipLabel><!-- Campaigns (Parent Campaign) --></relationshipLabel>
     </fields>
     <layouts>
         <layout>CAC CRM Campaign Layout</layout>
