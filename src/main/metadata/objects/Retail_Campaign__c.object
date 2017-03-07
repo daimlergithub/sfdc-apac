@@ -13865,7 +13865,7 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
         <url>/apex/GenericUploader</url>
     </webLinks>
     <webLinks>
-        <fullName>Upload</fullName>
+        <fullName>Upload Campaign Member Response</fullName>
         <availability>online</availability>
         <description>Retail Campaign response handling via File Updload</description>
         <displayType>button</displayType>
@@ -13875,7 +13875,7 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>View_Report</fullName>
