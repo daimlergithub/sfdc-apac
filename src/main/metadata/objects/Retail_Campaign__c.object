@@ -13233,20 +13233,19 @@ $Profile.Name != 'IntegrationAPI'
         <availability>online</availability>
         <description>It will create child campaign</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Create Child Retail Campaign</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{
+
+
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id};
+
+
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
