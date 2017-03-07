@@ -33,3 +33,4 @@ RetailTaskTriggerJP,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTr
 RetailTaskTriggerKR,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTriggerHandlerKR,KR
 CaseTriggerKR,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,TriggerCaseTriggerHandlerKR,KR
 TriggerDMRequestKR,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,KR
+UserTriggerKR,TRUE,TRUE,TRUE,UserTrigger,TRUE,TRUE,TRUE,UserTriggerHandlerKR,KR
