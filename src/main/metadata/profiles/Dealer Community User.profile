@@ -13392,7 +13392,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.WIP_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
