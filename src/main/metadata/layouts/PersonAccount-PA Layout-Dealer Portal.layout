@@ -5,20 +5,9 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>
-    <excludeButtons>ChangeOwnerOne</excludeButtons>
-    <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
-    <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
-    <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
-    <excludeButtons>EnableCustomerPortalUser</excludeButtons>
-    <excludeButtons>IncludeOffline</excludeButtons>
-    <excludeButtons>RequestUpdate</excludeButtons>
-    <excludeButtons>SendEmail</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
-    <excludeButtons>ViewCustomerPortalUser</excludeButtons>
-    <excludeButtons>XClean</excludeButtons>
+	<customButtons>Merge</customButtons>
+    <excludeButtons>Edit</excludeButtons> 
+    <excludeButtons>EnableCustomerPortalUser</excludeButtons>   
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -306,12 +295,12 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
+    </layoutSections> 
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Contact Method</label>
+        <label>Contact Method</label> 
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -540,7 +529,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Service History Information</label>
+        <label>Service History Information</label> 
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
@@ -551,7 +540,7 @@
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
-    </layoutSections>
+    </layoutSections> 
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

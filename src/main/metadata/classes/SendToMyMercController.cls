@@ -1,6 +1,7 @@
 /*
     JIRA NO: SFDC-1416
     Last Modified By : Lokesh M
+    Last modified date : 24-Feb-2017
 */
 
 public with sharing class SendToMyMercController {
@@ -157,7 +158,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
-                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
                         if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
                             myMercAcc.put(eachAcc.Id,eachAcc);
@@ -167,10 +168,15 @@ public with sharing class SendToMyMercController {
                     if(!myMercAcc.containsKey(eachAcc.Id)){
                         nonMyMercAcc.put(eachAcc.Id,eachAcc);        
                     }
-                    if(eachAcc.RecordTypeId == person && (eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c))){
+                    System.debug('SelectedAccountBirthdAte'+eachAcc.PersonBirthdate);
+                    System.debug('===='+eachAcc.LastName_Native_1__c);
+                    System.debug('===='+eachAcc.RecordTypeId);
+                    if(eachAcc.PersonBirthdate == null || String.isBlank(eachAcc.LastName_Native_1__c) || eachAcc.Gender__c == NULL){
                         personBirthdate = true;    
                     }
+                    System.debug('===='+personBirthdate);
                 }
+                
                 if(personBirthdate == false){
                     for(Account acc : myMercAcc.values()){
                         acc.Email3__c = email3update.get(acc.Id);
@@ -198,11 +204,12 @@ public with sharing class SendToMyMercController {
                         }
                     }
                 }
-                else{
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastName'));    
-                }
+                
+            }
+            if(personBirthdate){
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Please enter Mandatory fields on Account - Birthdate,LastNameNative,Gender'));    
             }        
-            if(accfinal != null && !accfinal.isEmpty()){
+            else if(accfinal != null && !accfinal.isEmpty()){
                 update accfinal.values();
                 if(accLinkFinal != NULL && !accLinkFinal.isEmpty()){
                     update accLinkFinal;

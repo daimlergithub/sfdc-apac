@@ -20,7 +20,7 @@
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Company_Name__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Company_Name__c}"/>  
+                       <apex:outputField value="{!displayInsurance.Company_Name__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_BirthDate__c.Label}"/>
@@ -40,7 +40,7 @@
               </apex:pageBlockSectionItem> 
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outlet_Name__c.Label}"/>
-                        <apex:outputField value="{!displayInsurance.Outlet_Name__c}"/>  
+                       <apex:outputField value="{!displayInsurance.Outlet_Name__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Method__c.Label}"/>
@@ -65,4 +65,4 @@
           </apex:pageBlockSection> 
         </apex:pageBlock>
     </apex:form>
-</apex:page>
+  </apex:page>

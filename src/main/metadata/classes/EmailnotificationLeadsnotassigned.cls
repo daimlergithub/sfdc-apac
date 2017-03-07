@@ -18,47 +18,60 @@ MODIFICATION DETAILS:
    Modifide Date    :    07.10.2016
 ************************************************************************************/
 
-global class EmailnotificationLeadsnotassigned implements Database.Batchable<sObject>{
+global class EmailnotificationLeadsnotassigned implements Database.Batchable<sObject>,Schedulable{
     //START METHOD 
     Date pastdatdate = system.today().addDays(-1);    
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id,Name,CAC_Lead_Status__c,Last_Nonassign_Notification_Date__c,
-                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c,Service_Advisor__c FROM Lead__c where Last_Nonassign_Notification_Date__c =: pastdatdate
-                    and Service_Advisor__c = NULL and CAC_Lead_Status__c = 'Approved']);            
+                    Assigned_Dealer__r.Dealer_Sales_Manager_Email__c,Service_Advisor__c FROM Lead__c where (Last_Nonassign_Notification_Date__c =: pastdatdate OR Last_Nonassign_Notification_Date__c = null)
+                    and Service_Advisor__c = NULL and CAC_Lead_Status__c = 'Allocated']);            
     }
     //EXECUTE METHOD
     global void execute(Database.BatchableContext BC, List<Lead__c> scope){
         system.debug('Lead Scope :'+Scope);
+        Id leadId ;
         Set<String> accountIds = new Set<String>();
         Map<Id,Lead__c> updateLeadMap = new Map<id,Lead__c>();
         for(Lead__c led : Scope){
+             leadId = led.id;
             accountIds.add(led.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
             led.Last_Nonassign_Notification_Date__c = system.today();
             updateLeadMap.put(led.id,led);
         }
         List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : accountIds];
-        sendMail(userRecords);
+        sendMail(userRecords,leadId );
         if(updateLeadMap.size() > 0){
             update updateLeadMap.values();
         }
     } 
     //SENDING EMAILS TO SALES MANAGERS  
-    public void sendMail(List<User> userRecords){        
+    public void sendMail(List<User> userRecords,Id leadId){        
         List<Id> userIds = new List<Id>();
+        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
         for(User u : userRecords){
             userIds.add(u.id);
-        }
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
-        Messaging.MassEmailMessage mail = new Messaging.MassEmailMessage();
+        
+        
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectIds(userIds);
+        mail.setTargetObjectId(u.Id);
         mail.setTemplateId(e.Id);
         mail.setUseSignature(false);
         mail.setSaveAsActivity(false);
-        Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+        mail.setWhatId(leadId);
+        //Messaging.sendEmail(new Messaging.MassEmailMessage[] { mail });
+        mails.add(mail); 
+        }
+        Messaging.sendEmail(mails);
+        
     }
     //FINISH METHOD
     global void finish(Database.BatchableContext BC){
        
+    }
+    
+    global void execute(SchedulableContext ctx) {
+        Database.executeBatch(new EmailnotificationLeadsnotassigned());
     }
 }

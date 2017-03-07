@@ -237,19 +237,15 @@ Modify Reason:
         <label>Touch Point</label>
         <picklist>
             <picklistValues>
-                <fullName>Event</fullName>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Campaign</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -262,6 +258,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -281,7 +281,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -289,15 +301,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -305,7 +313,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Call Catalogue</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -313,11 +321,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MCare</fullName>
+                <fullName>DSC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -330,6 +334,14 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -749,7 +761,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Retail_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

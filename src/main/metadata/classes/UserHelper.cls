@@ -956,7 +956,7 @@ public with sharing class UserHelper {
         map<string,id> assgroupMap = new map<string,id>();
         list<string>assignlist=new list<string>();
         list<String> AccountNAme = new List<String>();
-        if (Trigger.isInsert) 
+        if (Trigger.isInsert || Trigger.isUpdate) 
         {
             List<User> userList = new List<User>();
             Set<Id> userAcc = new Set<Id>();
@@ -1024,7 +1024,7 @@ public with sharing class UserHelper {
                             userShr.UserOrGroupId = m;
                             if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
                                 
-                                userShr.UserAccessLevel = 'edit';
+                                userShr.UserAccessLevel = 'Read';
                             }
                             else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
                                 userShr.UserAccessLevel = 'Read';
@@ -1042,7 +1042,7 @@ public with sharing class UserHelper {
                 usershare(JSONStr);
             }
         }                   
-        else if (isUpdate) 
+        else 
         {    
             List<UserShare> sharesToCreate = new List<UserShare>();
             List<ID> shareIdsToDelete = new List<ID>();
@@ -1051,6 +1051,7 @@ public with sharing class UserHelper {
             for (User Led : usrList) {
                 User oldlead = UserOldMap.get(Led.id);                  
                 if (Led.Contact.AccountId != Null && Led.Contact.AccountId != oldlead.Contact.AccountId) {
+                    System.debug('Led.Contact.AccountId>>>>>>>>>'+Led.Contact.AccountId);
                     shareIdsToDelete.add(oldlead.Contact.AccountId);  
                     shareIdsToCreate.add(Led.Contact.AccountId);  
                 }
@@ -1069,7 +1070,7 @@ public with sharing class UserHelper {
                         userShr.UserId = u.id;
                         userShr.UserOrGroupId = ur.id;
                         if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
-                            userShr.UserAccessLevel = 'edit';
+                            userShr.UserAccessLevel = 'Read';
                         }
                         else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
                             userShr.UserAccessLevel = 'Read';
@@ -1080,6 +1081,7 @@ public with sharing class UserHelper {
             }
             if(!sharesToCreate.isEmpty() && sharesToCreate != null)
             {
+                System.debug('upd>>>>');
                 String JSONString = JSON.serialize(sharesToCreate);
                 System.debug('Serialized list of invoices into JSON format: ' + JSONString);
                 usershare(JSONString);

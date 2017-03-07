@@ -14,7 +14,6 @@ public class MBJ_FS_Case_Intermediate_Controller{
     public PageReference Redirect(){
         PageReference returnURL;
         RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
-        
         retailTaskID = Apexpages.currentpage().getparameters().get('retailTaskID');
         if(retailTaskID != null){
             Retail_Task__c rtlTask = [Select id,Account__r.id from Retail_Task__c where id=:retailTaskID limit 1];
@@ -31,7 +30,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
               
             if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Inquiry Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Inquiry_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                 returnURL.getParameters().put('retURL',retailTaskID);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
@@ -43,7 +42,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Customer Request Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Request_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Request_Page');
                 returnURL.getParameters().put('retURL',retailTaskID);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
@@ -55,7 +54,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Contract Closing Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_ContractClosing_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_ContractClosing_Page');
                 returnURL.getParameters().put('retURL',retailTaskID);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
@@ -67,7 +66,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Quotation Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Quotation_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Quotation_Page');
                 returnURL.getParameters().put('retURL',retailTaskID);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
@@ -79,7 +78,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Complaint Management Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Complaint_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
                 returnURL.getParameters().put('retURL',retailTaskID);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
@@ -91,7 +90,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else
             {  
-                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
                 returnURL.setredirect(false);
                 return returnURL;
             }
@@ -103,7 +102,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
               
             if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Inquiry Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Inquiry_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('AccountID', fromAccountId);
@@ -114,7 +113,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Customer Request Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Request_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Request_Page');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('AccountID', fromAccountId);
@@ -125,7 +124,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Contract Closing Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_ContractClosing_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_ContractClosing_Page');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('AccountID', fromAccountId);
@@ -136,7 +135,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Quotation Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Case_Quotation_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Quotation_Page');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('AccountID', fromAccountId);
@@ -147,7 +146,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Complaint Management Case'){
             
-                returnURL = new PageReference('/apex/MBJ_FS_Complaint_Page');
+                returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('AccountID', fromAccountId);
@@ -159,7 +158,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
             else if( rt!=Null && rt.Name != Null && rt.Name == 'Inquiry'){
                     
-                returnURL = new pagereference('/500/e');
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
@@ -170,7 +169,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MB Complaint'){
                     
-                returnURL = new pagereference('/500/e');
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                 returnURL.getParameters().put('retURL',fromAccountId);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
@@ -181,7 +180,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else
             {  
-                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
                 returnURL.setredirect(false);
                 return returnURL;
             }
@@ -190,17 +189,17 @@ public class MBJ_FS_Case_Intermediate_Controller{
         /****** If Case is created directly from "New" button *****/
         else
         {
-            returnURL = new PageReference('/setup/ui/recordtypeselect.jsp?ent=Case&retURL=/500/o&save_new_url=/500/e?&retURL=%2F500%2Fo');
+            returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/setup/ui/recordtypeselect.jsp?ent=Case&retURL=/500/o&save_new_url=/500/e?&retURL=%2F500%2Fo');
             RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
             Schema.DescribeSObjectResult result = Case.SObjectType.getDescribe();
             String retURL = result.getKeyPrefix()+'/o';
             
             If(RecordTypeid!=Null){
                 RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
-                
+         
                 if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Inquiry Case'){
             
-                    returnURL = new PageReference('/apex/MBJ_FS_Case_Inquiry_Page');
+                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
                     returnURL.getParameters().put('ownerid', userid);
@@ -210,7 +209,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Customer Request Case'){
             
-                    returnURL = new PageReference('/apex/MBJ_FS_Case_Request_Page');
+                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Request_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
                     returnURL.getParameters().put('ownerid', userid);
@@ -220,7 +219,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Contract Closing Case'){
             
-                    returnURL = new PageReference('/apex/MBJ_FS_Case_ContractClosing_Page');
+                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_ContractClosing_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
                     returnURL.getParameters().put('ownerid', userid);
@@ -230,7 +229,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Quotation Case'){
             
-                    returnURL = new PageReference('/apex/MBJ_FS_Case_Quotation_Page');
+                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Quotation_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
                     returnURL.getParameters().put('ownerid', userid);
@@ -240,7 +239,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Complaint Management Case'){
             
-                    returnURL = new PageReference('/apex/MBJ_FS_Complaint_Page');
+                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
                     returnURL.getParameters().put('ownerid', userid);
@@ -251,12 +250,17 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else
                 {  
-                    returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                    System.debug('=====1' + RecordTypeid);
+                    returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
                     returnURL.setredirect(false);
                     return returnURL;
                 }
             }
-            return Null;
+            System.debug('=====2' + RecordTypeid);
+            returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
+            returnURL.setredirect(false);
+            return returnURL;
+        //  return Null;
         }        
     }
 }

@@ -3,12 +3,11 @@ Modification: Changes related to SFDCJP-1270.VR Sharing Rule.
 Auther : Venky
 Date : 2017-02-1
 Description : Updated  afterUpdateEvent,afterInsertEvent, createPersonOrCompanyAccountSharing methods.
-
+------------------------------------------------------------------------------------------------------
 Modification: commenting updateVechileAmount method related to SFDCJP-1599.
 modified by : lokesh m
-Date : 2017-02-20
+Date : 2017-02-24
 Description : Vehicle_amount__c in account object should not be update from vehicleRelationship tigger.
-
 */
 
 public with sharing class VehicleRelationshipHelperJP 
@@ -115,7 +114,7 @@ public with sharing class VehicleRelationshipHelperJP
             } 
            if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
                    
-              if((!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+              if(vr.Owner_Relation__c != NULL && (!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
                     VehicleIds.add(vr.Vehicle_ID__c);
                     VehicleRelationshipIds.add(vr.Id);
                     contactIdofVehicleRelationship.add(vr.Contact__c);
@@ -126,7 +125,7 @@ public with sharing class VehicleRelationshipHelperJP
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
-         // this line is commenting as per SFDCJP-1599 ----- updateVehicleAmount(ContactIds);        
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);        
          createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
@@ -162,7 +161,7 @@ public with sharing class VehicleRelationshipHelperJP
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }                          
-        //this line is commenting as per SFDCJP-1599 ----- updateVehicleAmount(ContactIds);
+        //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
@@ -178,7 +177,7 @@ public with sharing class VehicleRelationshipHelperJP
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 
-        //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);          
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);           
     } 
     
     Public static void updateAccountstatus(Set<Id> ContactIds){
@@ -189,19 +188,22 @@ public with sharing class VehicleRelationshipHelperJP
             lstAccount.add(acct);
         }         
         if(!lstAccount.isEmpty())
-            update lstAccount;
+         //   update lstAccount;
+            
+ Database.update (lstAccount, false);
     }
     
-    /*   this method is commenting as per SFDCJP-1599
-         Cause : SFDCJP-1599
-         Description : As discussed, we have agreement with MBJ that by disabling this functionality,
-                       Vehicle Amount field will no longer have meaningful value, from UI or EP interface,
-                       to MBJ or to Dealer user, in every which case. MBJ agreed that for time being we basically disable 
-                       the functionality to count the amount of vehicle in its entirity to all the cases, 
-                       until we enable it again at some point in future.
-         Commented by : Lokesh M
-    //  UpdateVehicleAmount
     
+    //  UpdateVehicleAmount
+    /*   this method is commenting as per SFDCJP-1599
+       Cause : SFDCJP-1599
+       Description : As discussed, we have agreement with MBJ that by disabling this functionality,
+                       Vehicle Amount field will no longer have meaningful value, from UI or EP interface,
+                       to MBJ or to Dealer user, in every which case. MBJ agreed that for time being we basically disable
+                       the functionality to count the amount of vehicle in its entirity to all the cases,
+                       until we enable it again at some point in future.
+       Commented by : Lokesh M
+       
     Public static void updateVehicleAmount(Set<Id> ContactIds){           
         system.debug('ContactIds>>>>'+ContactIds.size());      
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
@@ -238,10 +240,10 @@ public with sharing class VehicleRelationshipHelperJP
         }    
         if(!vehicleAmountToUpdate.isEmpty())
             update vehicleAmountToUpdate;         
-    }     
-    */
-    
-    
+    }  
+        */
+        
+        
     //Create Account Link   
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
         Set<Id> ContactIds=new Set<Id>();        
@@ -291,10 +293,15 @@ public with sharing class VehicleRelationshipHelperJP
                 } 
                 
                 lstAccLink.add(accLink);
-            }
-          if(!lstAccLink.isEmpty())
-            insert lstAccLink;
+            }try{
+       
+          if(!lstAccLink.isEmpty())  
+        insert lstAccLink;      
+   }
+   catch(exception e){
+   system.debug(e.getmessage()); }
     }
+    
     /*Update Portal Apply Status on create/update of the VR for MyMercedes User
     Japan 2.0 SFDCJP-629
     Created by Sivaram
@@ -340,92 +347,149 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList){
+      public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList)
+    {
+     string regexForNullValue ='null';
+                 string nullValue ='';
+
     set<id> sid = new set<id>();
            
         List<Vehicle_Relationship__c> Updatelist = new List<Vehicle_Relationship__c> ();
             
-            if(LeadUtil.verTrigger){ 
-            for (Vehicle_Relationship__c Ve : veReList ) 
-                {
-                system.debug('+++++++++++++++++++'+veReList );
-                        if (Ve.vehicle_fax_picklist__c != null || Ve.vehicle_mail_picklist__c != null || Ve.Vehicle_Phone_picklist__c != null || ve.vehicle_address_picklist__c != null)
-                        {
+            if(LeadUtil.verTrigger)
+            { 
+                        for (Vehicle_Relationship__c Ve : veReList ) 
+                    {
+                            system.debug('+++++++++++++++++++'+veReList );
+        
+                        
                         sid.add(Ve.Contact__c);
-                        }
-                }
+                        
+                    }
                 
                 }
                 LeadUtil.verTrigger = false;
                 system.debug('++++++++++++++++++++'+sid);
                 
             
-      List <Account> accls =[ select id,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Customer__c,Address_Type__c from Addresses__r),(select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
+      List <Account> accls =[ select id,Sales_Address_Type__c,Primary_Address_Display__c,Primary_Email_Display__c,Primary_Fax_Display__c,Primary_Phone_Display__c,Individual_Home_Phone__c,Work_Phone__c,Home_Phone_2__c,FAX,Fax2__c,Email__c,Email2__c,Email3__c,(Select id,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,
+Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Addresses__r),(select id,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationships2__r) From Account where id =:sid ];
       //List<Vehicle_Relationship__c> Vehiclepicklist =[ select id,vehicle_address__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid ];
      
            system.debug('++++++++++++++++++'+accls);      
             for (Account acc : accls)
             {
             
-            for(Vehicle_Relationship__c Vels  : acc.Vehicle_Relationships2__r )
-           {
-                
-                    if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
-                    {
-                            vels.Vehicle_Phone__c = acc.Individual_Home_Phone__c;
-                    } 
-                    else if (Vels.Vehicle_Phone_picklist__c == 'work phone')
-                    {
-                            vels.Vehicle_Phone__c = acc.Work_Phone__c;
-                    }
-                    else if (vels.Vehicle_Phone_picklist__c ==  'Home Phone 2')
-                    {
-                            vels.Vehicle_Phone__c = acc.Home_Phone_2__c;
-                    }
+                    for(Vehicle_Relationship__c Vels  : acc.Vehicle_Relationships2__r )
+                {
+                                    if (vels.Vehicle_Phone_picklist__c == Null)
+                                        {
+                                            Vels.Vehicle_Phone__c = acc.Primary_Phone_Display__c;
+                                        }
+                                    if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
+                                    {
+                                            vels.Vehicle_Phone__c = acc.Individual_Home_Phone__c;
+                                    } 
+                                        else if (Vels.Vehicle_Phone_picklist__c == 'work phone')
+                                    {
+                                        vels.Vehicle_Phone__c = acc.Work_Phone__c;
+                                    }
+                                        else if (vels.Vehicle_Phone_picklist__c ==  'Home Phone 2')
+                                    {
+                                            vels.Vehicle_Phone__c = acc.Home_Phone_2__c;
+                                    }
+                                     
+                                         if (vels.vehicle_fax_picklist__c == Null)
+                                         {
+                                          Vels.vehicle_fax__c = acc.Primary_Fax_Display__c;
+                                        }  
                      
-                     
-                     if (vels.vehicle_fax_picklist__c == 'FAX')
-                     {
-                        vels.vehicle_fax__c = acc.Fax;
-                     }
-                    else if (vels.vehicle_fax_picklist__c == 'Work FAX')
-                    {
-                        vels.vehicle_fax__c = acc.Fax2__c;
-                    }
-                
-                    
-                    if (vels.vehicle_mail_picklist__c == 'Email Home')
-                    {
-                        vels.vehicle_mail__c =  acc.Email__c;
-                    }
-                    else if (vels.vehicle_mail_picklist__c == 'Email Work')
-                    {
-                        vels.vehicle_mail__c = acc.Email2__c;
-                    }
-                    else if (vels.vehicle_mail_picklist__c == 'MyMercedes Email')
-                    {
-                        vels.vehicle_mail__c = acc.Email3__c;
-                    }
-                    
-            for( Address__c add : acc.Addresses__r){
-            
-              if( vels.vehicle_address_picklist__c == add.Address_Type__c){
-              
-                vels.vehicle_address__c = add.Id;
-              
+                                        if (vels.vehicle_fax_picklist__c == 'FAX')
+                                        {
+                                            vels.vehicle_fax__c = acc.Fax;
+                                        }
+                                        else if (vels.vehicle_fax_picklist__c == 'Work FAX')
+                                        {
+                                            vels.vehicle_fax__c = acc.Fax2__c;
+                                        }
+                                   
+                                        
+                                          if (vels.vehicle_mail_picklist__c == Null)
+                                        {
+                                            vels.vehicle_mail__c = acc.Primary_Email_Display__c;
+                                        }
+                                        if (vels.vehicle_mail_picklist__c == 'Email Home')
+                                        {
+                                            vels.vehicle_mail__c =  acc.Email__c;
+                                        }
+                                        else if (vels.vehicle_mail_picklist__c == 'Email Work')
+                                        {
+                                            vels.vehicle_mail__c = acc.Email2__c;
+                                        }
+                                        else if (vels.vehicle_mail_picklist__c == 'MyMercedes Email')
+                                        {
+                                            vels.vehicle_mail__c = acc.Email3__c;
+                                        }
+                                   
+                                        for( Address__c add : acc.Addresses__r)
+                                        {
+                                            system.debug('+++++++++++++ vels.vehicle_address_picklist__c'+vels.vehicle_address_picklist__c);
+                                               if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
+                                               {
+                                                  //  vels.vehicle_address__c = acc.Sales_Address_Type__c;
+                                                    vels.Vehicle_Address_Display__c  = acc.Primary_Address_Display__c;
+                                                    system.debug('+++++++++++++'+acc.Primary_Address_Display__c);
+                                                    system.debug('+++++++++++++ vels'+ vels);
+                                               }
+                                                    //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
+                                                    if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')
+                                                    {
+                 
+                                                        vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                  vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+
+                }else if( vels.vehicle_address_picklist__c == 'Work address' && add.Address_Type__c == 'Business'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                }
+                if( vels.vehicle_address_picklist__c == 'Other Address 1' && add.Address_Type__c == 'Other Address 1'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+                vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                }
+                if( vels.vehicle_address_picklist__c == 'Other Address 2' && add.Address_Type__c == 'Other Address 2'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' +add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+               vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+               vels.End_Reason__c = 'Updated EndDate';
+
+                }
+               
+                if( vels.vehicle_address_picklist__c == 'Other Address 3' && add.Address_Type__c == 'Other Address 3'){
+                 vels.vehicle_address__c = add.Id;
+                vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
+               vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                }
               }
+          
             
             
+        
             
-            }
                                         
             Updatelist.add(Vels);
 
             }
         }       
-                        
-    update Updatelist;
+                            
+  // update Updatelist;
+  
+ Database.update(Updatelist, false);
+
     }
+
     
     /*
     * Added By: SivaKrishna
@@ -485,12 +549,18 @@ public with sharing class VehicleRelationshipHelperJP
         List<Vehicle_Relationship__Share> list_SharingRecord = new List<Vehicle_Relationship__Share>();
         Set<Id> set_AccountId = new Set<Id>();
         List<Id> list_VehicleRelationId = new List<Id>();
+        List<String> accNames=new List<String>();
+        List<String> GcNames=new List<String>();
          List<Account_Link__c> ListAlk=new List<Account_Link__c>();
          Set<Id> DealerAccId=new Set<Id>();
-         List<User> list_User = new List<User>();
+         Set<Id> set_LinkId = new Set<Id>();
+         //List<User> list_User = new List<User>();
           List<Vehicle_Relationship__Share> list_SharingDele = new List<Vehicle_Relationship__Share>();
           
         for(Vehicle_Relationship__c vc : newList){
+            system.debug('+++++++++++'+vehicleRelationship_VRRRecordTypeId );
+            system.debug('+++++++++++'+vehicleRelationship_VRRecordTypeId  );
+            
             if(vc.Owner_Dealer__c != null && vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId && vc.Owner_Dealer__c != oldMap.get(vc.Id).Owner_Dealer__c){
                 if(!map_AccountIdAndListVCId.containsKey(vc.Owner_Dealer__c)){
                       map_AccountIdAndListVCId.put(vc.Owner_Dealer__c, new List<Id>());
@@ -500,9 +570,10 @@ public with sharing class VehicleRelationshipHelperJP
                   currentVrId.add(vc.Id);
                   set_AccountId.add(oldMap.get(vc.Id).Owner_Dealer__c);
                   list_VehicleRelationId.add(vc.Id);
-            }
+            } 
             else 
                 if(vc.Contact__c != null && vc.RecordTypeId == vehicleRelationship_VRRecordTypeId  && vc.Contact__c != oldMap.get(vc.Id).Contact__c){ 
+                    system.debug('+++++++++++'+'working');
                     if(!map_AccountIdAndListVCwithVRrecordtypeId.containsKey(vc.Contact__c)){
                           map_AccountIdAndListVCwithVRrecordtypeId.put(vc.Contact__c, new List<Id>());
                       }
@@ -513,34 +584,47 @@ public with sharing class VehicleRelationshipHelperJP
                       currentVrId.add(vc.Id);
                 
                 set_AccountId.add(oldMap.get(vc.Id).Contact__c);
+                system.debug('+++++++++++'+set_AccountId);
                 list_VehicleRelationId.add(vc.Id);
-                }
-        }
+                } }
+        
         if(set_AccountId!=null)
         {
+         
          ListAlk=[select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:set_AccountId];
-        }
-        if(ListAlk.size() > 0){
+                if(ListAlk.size() > 0){
          
          for(Account_Link__c  alk:ListAlk)
          {
          if(alk.fromRole__c!=null && alk.toRole__c!=null)
          {
-         DealerAccId.add(alk.fromRole__c);
-         }
-         }
-         if(DealerAccId!=null)
-         {
-           list_User=[SELECT Id, AccountId FROM User WHERE AccountId=: DealerAccId AND IsPortalEnabled = true];
-          }
+         set_LinkId.add(alk.fromRole__c);
+         } }
+         List<Account> accName = [select Name,Dealer_GC_Code__c from Account where Id IN:set_LinkId];
+            for(Account acc : accName){
+              // accNames.add(acc.Name);
+               GcNames.add(acc.Dealer_GC_Code__c );
+            
+            }
+            List<Account> accGCode = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c  IN: GcNames AND RecordTypeId =: Dealer_RecordTypeId];
+                for(Account accs : accGCode ){
+                  accNames.add(accs.Name);  
+                
+            }
+            
+             } }
+         
+           List<Group> list_User = new List<Group>( [select Id, Name, Type from Group where Name IN:accNames]);
+          
           if(list_User!=null)
           {
           list_SharingDele=[SELECT Id FROM Vehicle_Relationship__Share WHERE ParentId IN:list_VehicleRelationId AND UserOrGroupId IN :list_User];
             } 
             if(list_SharingDele.size() > 0){
-                delete list_SharingDele;
+                 Database.delete(list_SharingDele, false);
+                system.debug('+++++++++++'+list_SharingDele);
             }
-        }
+       
         
         if(map_AccountIdAndListVCId.size() > 0){
             list_SharingRecord.addAll(createDealerAccountSharing(map_AccountIdAndListVCId));

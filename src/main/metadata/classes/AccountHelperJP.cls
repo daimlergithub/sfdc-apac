@@ -27,6 +27,7 @@ public class AccountHelperJP
     public static boolean persongroup8 = false;
     public static boolean persongroup9 = false;
     public static boolean persongroup10 = false;
+    public static boolean persongroup11 = false;
     public static boolean companygroup1 = false;
     public static boolean companygroup2=false;
     
@@ -523,7 +524,12 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
             if(oldAccountmap.get(acc.id).Primary_Phone__c != acc.Primary_Phone__c){
                     AccountIds.add(acc.id); 
                     persongroup10 = true;
-            }  
+            } 
+            if(oldAccountmap.get(acc.id).Complaint_Amount__c != acc.Complaint_Amount__c){
+                    AccountIds.add(acc.id); 
+                    persongroup11 = true;
+            } 
+             
             if(oldAccountmap.get(acc.id).Primary_Address_Reference__c  != acc.Primary_Address_Reference__c || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Address_Type__c != acc.Primary_Address_Reference__r.Address_Type__c
                 || oldAccountmap.get(acc.id).Primary_Address_Reference__r.Province__c != acc.Primary_Address_Reference__r.Province__c ||
                     oldAccountmap.get(acc.id).Primary_Address_Reference__r.City__c  != acc.Primary_Address_Reference__r.City__c  ||
@@ -562,7 +568,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c,toRole__r.Complaint_Amount__c 
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         System.debug('Accountlinklist------>'+Accountlinklist  );
         
@@ -606,7 +612,10 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 if(persongroup10 == true){  
                     acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
-                }               
+                }   
+                if(persongroup11 == true){  
+                    acclnk.Retail_Complaint_Amount__c = acclnk.toRole__r.Complaint_Amount__c ;
+                }              
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
@@ -928,7 +937,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             String origin = ApexPages.currentPage().getParameters().get('CLNID');
+             //String origin = ApexPages.currentPage().getParameters().get('CLNID'); // Removed this to resolve null pointer exception
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -996,9 +1005,10 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-                  if(origin != null){
+                  // Removed this to resolve null pointer exception
+				  /*if(origin != null){
                       acclnk.CorrelationID__c = origin;
-                  }
+                  }*/
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
                   }

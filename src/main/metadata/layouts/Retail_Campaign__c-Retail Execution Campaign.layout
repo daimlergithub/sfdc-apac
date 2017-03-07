@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload</customButtons>
+    <customButtons>OPR_Label_Print</customButtons>
+    <customButtons>OPRO_Label_Print_PDF</customButtons>
+    <customButtons>Segment</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -34,19 +37,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Total_Leads__c</field>
+                <field>Survey__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Total_Contacts__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Converted_Leads_in_Hierarchy__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Responses__c</field>
+                <field>Campaign_Member_Sharing_Rule__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -56,7 +51,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Execution_End_Date__c</field>
+                <field>Parent_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -72,10 +67,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Survey__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Add_Sales_Staff__c</field>
             </layoutItems>
             <layoutItems>
@@ -85,14 +76,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Campaign_Member_Sharing_Rule__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parent_Campaign__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -108,7 +91,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
@@ -161,7 +143,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000Jths</masterLabel>
+        <masterLabel>00hN0000000HCxW</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -40,6 +40,8 @@ public class AddressSearchValidationController{
     public String mobileAreaCodePart2{get;set;}
     public String mobileAreaCodePart3{get;set;}
     public String AddressDetails{get;set;}
+    public String TouchPoint{get;set;} 
+    
     public Map<String,String> phoneAreaCodeMapKR {get;set;}//= new Map<String,String>();
     public string selectedValue { get;set; }
     public List<SelectOption> statusOptions { get;set; }
@@ -50,12 +52,17 @@ public class AddressSearchValidationController{
     Public boolean datasource {get;set;}
     
     // COnstructor
-    public AddressSearchValidationController(ApexPages.StandardController controller){
+        public boolean firstsave{get;set;}      
+        public boolean secondsave{get;set;}
+    
+        public AddressSearchValidationController(ApexPages.StandardController controller){
         objAccount= new Account();
         objPersonAccount= new Account();
         AddressObj = new Address__c();
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
+        
+        
         // refreshPage = false;        
         User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
@@ -67,6 +74,8 @@ public class AddressSearchValidationController{
             mbkdatasource = false;
             datasource = true;
         } 
+        firstsave = false;                    
+        secondsave = true;   
           
     }
     public List<SelectOption> getAddressOptions() {
@@ -990,7 +999,8 @@ If the user is Saving  same address which matches the fields returned by toleran
      
     public void onLineDeduplication(){  
         objAccountDeDup= new Account();
-        List<Account>   lstAcc = New List<Account>();    
+        List<Account>   lstAcc = New List<Account>();
+        System.debug('I am inside onLineDeduplication');  
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
         
         if(objPersonAccount.LastName !=null ) 
@@ -1089,7 +1099,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 show = true;
                 if(response.CustomerIdentificationResponseMessage ==null)
                 {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
                 lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
                  
@@ -1101,7 +1111,9 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
-        }   
+        }  
+            firstsave = true;       
+        secondsave = false;         
     }
     Public class addressSelectionWrapper{
         Public boolean isSelected{get;set;}       
@@ -1114,7 +1126,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void SelectedAddress(){
         
         for(addressSelectionWrapper cWrapper : mapAddressResponse){
-               if(cWrapper.isSelected){
+           
+            if(cWrapper.isSelected){
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;

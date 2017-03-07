@@ -1207,26 +1207,6 @@
         <label>Intention Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Hand Back</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trade In</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retain Payout</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retain Refinance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quoted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1260,6 +1240,30 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hand Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Payout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Refinance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quoted</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Trade-in</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2022,7 +2026,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
+	
     <fields>
         <fullName>eDM_Type__c</fullName>
         <description>eDM Type with 3 types of values: Brochure, Price List	, Brochure+Price List. Auto from trigger. Used by eDM Template ID field.</description>

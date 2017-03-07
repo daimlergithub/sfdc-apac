@@ -21,6 +21,10 @@
                 <field>Dealer__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Dealer_Type__c</field>
             </layoutItems>

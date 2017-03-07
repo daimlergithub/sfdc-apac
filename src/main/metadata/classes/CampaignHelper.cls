@@ -56,7 +56,7 @@ JIRA NO             :    SFDCJP-1026
     Set<Id> sid = New Set<Id>();
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
-  Id ParId;
+  String mailSales ;
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
   
   For(Campaign camp : campList){
@@ -71,21 +71,30 @@ JIRA NO             :    SFDCJP-1026
     
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'ListMaintenanceNotification'];
-  List<Campaign> CamList = [Select id,Name,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
+  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
   System.Debug('++++++++++'+CamList );
   
-  
-       List<User> userRecords = [Select id,Name,email,Contact.Id from User where IsActive = True and email IN : sDealerEmails];
-                 for(User u : userRecords){
-            userIds.add(u.id);
-        }
         For(Campaign c : CamList){
   
      For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
+          
+          
+         if(c.Parent.Campaign_Type__c == 'sales'){ 
+ 
           if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
-          //String DealerMail = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;
-          string[] toaddress = New String []{parDealer.Dealer__r.Dealer_Sales_Manager_Email__c};
-          system.debug('++++++++++'+toaddress );
+                mailSales = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;    
+          }
+          } else if (c.Parent.Campaign_Type__c == 'After Sales'){
+          
+          if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
+                mailSales = parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c;   
+          }
+          
+          }
+          system.debug('+++++++++++++++++'+mailSales);
+          if(mailSales != null){
+          string[] toaddress = New String []{mailSales};
+          
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
         mail.setTargetObjectId(parDealer.ownerId);
@@ -102,10 +111,10 @@ JIRA NO             :    SFDCJP-1026
                
             mails.add(mail); 
            
-
+   }
          
     }
-    }
+    
      
     }
      
@@ -202,11 +211,11 @@ Set<id> aid = New Set<id>();
         } 
         
         
-        
+       } 
         
       List<Campaign> camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
-          
-        
+     If(camList.size() >0 && !camList.isEmpty()){     
+    For(Campaign campNew : campaignIds){    
     for(Campaign cam : camList ){
         
        if(Cam.Campaign_Executer__c == 'Retail'){
@@ -257,8 +266,10 @@ Set<id> aid = New Set<id>();
         retailCamParentList.add(newRetail);
         }
         }
+        }
+        }
         
-     }
+     
      //insert retailCamParentList; 
      Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
      integer i=0;

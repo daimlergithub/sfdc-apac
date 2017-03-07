@@ -31,7 +31,8 @@ public class CaseHelperJP {
         
         List<Case> case_acc = [Select Id, AccountId From Case 
                                       Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
-                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
                                       AND Case_Class__c = 'Complaint' and MD__c = 'KR')];    
         
         
@@ -71,7 +72,8 @@ public class CaseHelperJP {
         
         List<Case> case_acc = [Select Id, AccountId From Case 
                                       Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
-                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                                      AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
                                       AND Case_Class__c = 'Complaint' and MD__c = 'KR')]; 
         
         system.debug('Case_acc...' +case_acc);
@@ -443,10 +445,10 @@ List<Account> accUpdLst = new List<Account>();
                         Dealername.add(listca.Case_Dealer__r.Name);
                         userId.add(listca.Case_Dealer__c);  
                         CaseDealerUserId.add(listca.Case_Dealer_User__c); 
-						if(listca.Case_Dealer_User__r.Dealer_GC_Code__c !=null)
-						{
-						DealerGccode.add(listca.Case_Dealer_User__r.Dealer_GC_Code__c);
-						}						
+                        if(listca.Case_Dealer_User__r.Dealer_GC_Code__c !=null)
+                        {
+                        DealerGccode.add(listca.Case_Dealer_User__r.Dealer_GC_Code__c);
+                        }                       
                         if(listca.Case_Dealer__r.Dealer_GC_Code__c!=null)
                         {
                         DealerGccode.add(listca.Case_Dealer__r.Dealer_GC_Code__c); 
@@ -499,7 +501,7 @@ List<Account> accUpdLst = new List<Account>();
         //Apex share number AS-017,JIRA ticket SFDCJP-655
         if(CaseDealerUserId!=null)
         {
-          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
+          CaseDealerUser=[Select Id,Name,Dealer_GC_Code__c,contactId,isactive,Contact.AccountId,Contact.Account.Name,Profile.Name,Profile.userlicense.name from user where Contact.AccountId=:userId and isactive=true and (profile.Name='Japan Dealer Service Advisor' or profile.Name='Japan Dealer Sales Representative')];
         }
         
          if(!caserecList.isEmpty() && caserecList != null && CaseDealerUser!=null)
