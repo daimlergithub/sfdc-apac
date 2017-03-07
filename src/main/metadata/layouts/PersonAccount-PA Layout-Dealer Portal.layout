@@ -7,13 +7,8 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
-    <excludeButtons>IncludeOffline</excludeButtons>
-    <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>Edit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -437,6 +432,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Hobby__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
