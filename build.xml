@@ -121,12 +121,13 @@
 <target name="deploy09">
 			<deploy runAllTests="${sfdc.runAllTests}">
 							<sf:typeset name="objects">
-											<sf:include name="Picklist_Mapping__c"/>
-											<sf:include name="Integration_Picklist__c"/>
-											<sf:include name="External_Picklist__c"/>
-											<sf:include name="Car_Model__c"/>
-											<sf:include name="Trigger__c"/>
-											
+								<sf:include name="Picklist_Mapping__c"/>
+								<sf:include name="Integration_Picklist__c"/>
+								<sf:include name="External_Picklist__c"/>
+								<sf:include name="Car_Model__c"/>
+								<sf:include name="Trigger__c"/>
+								<sf:include name="Retail_Campaign__c"/>
+								<sf:include name="Campaign_Member__c"/>
 							</sf:typeset>
 			</deploy>
 </target>
@@ -142,8 +143,7 @@
 											<sf:include name="Address__c"/>
 											<sf:include name="Vehicle__c"/>
 											<sf:include name="Vehicle_Relationship__c"/>
-											<sf:include name="Retail_Task__c"/>											
-											<sf:include name="Retail_Campaign__c"/>
+											<sf:include name="Retail_Task__c"/>	
 											<sf:include name="Account_Link__c"/>
 											<sf:include name="SSI__c"/>
 											<sf:include name="AreaCodeTranslation__mdt"/>
@@ -161,7 +161,7 @@
 							   <sf:include name="SendToJPOS"/>
 							   <sf:include name="Create_Vehicle"/>
 							   <sf:include name="TrialCustomerPortalHomePage"/>
-<sf:include name="ChangeContactTarget"/>
+							   <sf:include name="ChangeContactTarget"/>
 							   <sf:include name="MassUpdate_new_Assigned_User"/>
 							   <sf:include name="SendVehicleInformationtoSPOJP"/>
 							   <sf:include name="SendVehicletoSPOConfirmationJP"/>
@@ -174,13 +174,13 @@
 							   <sf:include name="RetailCopyViewAreaForDealerUser"/>
 							   <sf:include name="RetailCopyOnlyRelatedList"/>
 							   <sf:include name="RetailTaskInsurance"/>
-											<sf:include name="ServiceRetailTask "/>
-											<sf:include name="RetailTaskLoan"/>
-											<sf:include name="Retailcopybutton"/>
-											<sf:include name="AddressSelectionforExistingCustomer"/>
-											<sf:include name="LeadAssignmentPage"/>
-											<sf:include name="PrintPDF"/>
-											<sf:include name="SelectAddress"/>                                    
+							   <sf:include name="ServiceRetailTask "/>
+							   <sf:include name="RetailTaskLoan"/>
+							   <sf:include name="Retailcopybutton"/>
+							   <sf:include name="AddressSelectionforExistingCustomer"/>
+							   <sf:include name="LeadAssignmentPage"/>
+							   <sf:include name="PrintPDF"/>
+							   <sf:include name="SelectAddress"/>                                    
 							   <sf:include name="createRetailCopyKRButton"/>
 							   
 							</sf:typeset>                                                   
@@ -295,6 +295,7 @@
 											<sf:exclude name="Contract_Relation__c"/>
 											<sf:exclude name="Participating_Dealer__c"/>
 											<sf:exclude name="Dealer_List_Member__c"/>
+											<sf:exclude name="Campaign_Member__c"/>
 							</sf:typeset>
 			</deploy>
 </target>
