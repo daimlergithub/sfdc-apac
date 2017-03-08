@@ -257,8 +257,8 @@
 								<sf:include name="SelectAddressControllerTest"/>
 							   <sf:include name="VehicleRelationshipHelper"/>
 							   <sf:include name="createRetailCopyKR"/>
-							 <sf:include name="ScheduleCampCompletion"/>
-							 <sf:include name="ScheduleCampCompletionTest"/>
+							 <!--<sf:include name="ScheduleCampCompletion"/>
+							 <sf:include name="ScheduleCampCompletionTest"/>-->
 							 <sf:include name="ScheduleRetailCampCompletion"/>
 							 <sf:include name="exportCampaignMembers"/>
 							</sf:typeset>
