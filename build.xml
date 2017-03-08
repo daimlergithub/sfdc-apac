@@ -126,8 +126,8 @@
 								<sf:include name="External_Picklist__c"/>
 								<sf:include name="Car_Model__c"/>
 								<sf:include name="Trigger__c"/>
-								<sf:include name="Campaign_Member__c"/>
 								<sf:include name="Retail_Campaign__c"/>
+								<sf:include name="Campaign_Member__c"/>
 							</sf:typeset>
 			</deploy>
 </target>
