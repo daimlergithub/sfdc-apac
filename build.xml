@@ -148,6 +148,7 @@
 											<sf:include name="SSI__c"/>
 											<sf:include name="AreaCodeTranslation__mdt"/>
 											<sf:include name="Account_Object__mdt"/>
+											<sf:include name="Campaign_Member__c"/>
 							</sf:typeset>
 							<sf:typeset name="components"/>
 							<sf:typeset name="tabs">                                                                                          
@@ -161,7 +162,7 @@
 							   <sf:include name="SendToJPOS"/>
 							   <sf:include name="Create_Vehicle"/>
 							   <sf:include name="TrialCustomerPortalHomePage"/>
-<sf:include name="ChangeContactTarget"/>
+							   <sf:include name="ChangeContactTarget"/>
 							   <sf:include name="MassUpdate_new_Assigned_User"/>
 							   <sf:include name="SendVehicleInformationtoSPOJP"/>
 							   <sf:include name="SendVehicletoSPOConfirmationJP"/>
@@ -174,13 +175,13 @@
 							   <sf:include name="RetailCopyViewAreaForDealerUser"/>
 							   <sf:include name="RetailCopyOnlyRelatedList"/>
 							   <sf:include name="RetailTaskInsurance"/>
-											<sf:include name="ServiceRetailTask "/>
-											<sf:include name="RetailTaskLoan"/>
-											<sf:include name="Retailcopybutton"/>
-											<sf:include name="AddressSelectionforExistingCustomer"/>
-											<sf:include name="LeadAssignmentPage"/>
-											<sf:include name="PrintPDF"/>
-											<sf:include name="SelectAddress"/>                                    
+							   <sf:include name="ServiceRetailTask "/>
+							   <sf:include name="RetailTaskLoan"/>
+							   <sf:include name="Retailcopybutton"/>
+							   <sf:include name="AddressSelectionforExistingCustomer"/>
+							   <sf:include name="LeadAssignmentPage"/>
+							   <sf:include name="PrintPDF"/>
+							   <sf:include name="SelectAddress"/>                                    
 							   <sf:include name="createRetailCopyKRButton"/>
 							   
 							</sf:typeset>                                                   
@@ -295,6 +296,7 @@
 											<sf:exclude name="Contract_Relation__c"/>
 											<sf:exclude name="Participating_Dealer__c"/>
 											<sf:exclude name="Dealer_List_Member__c"/>
+											<sf:exclude name="Campaign_Member__c"/>
 							</sf:typeset>
 			</deploy>
 </target>
