@@ -21597,9 +21597,6 @@ Company_Account__r.Work_Phone__c  ,
             <field>Interested_Vehicle_Brand__c</field>
             <operation>equals</operation>
             <value>smart</value>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
-        </sharedTo>
         </filters>
         <filters>
             <field>Lead_Type__c</field>
@@ -21610,7 +21607,6 @@ Company_Account__r.Work_Phone__c  ,
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
-            <role>Central_Sales_Marketing</role>
         </sharedTo>
     </listViews>
     <listViews>
