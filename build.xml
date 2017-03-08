@@ -386,6 +386,9 @@
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
+							   <sf:include name="MBJ_FS_Complaint_Detail_Page"/>
+							   <sf:include name="MBJ_FS_Case_Inquiry_Detail_Page"/>
+							   <sf:include name="MBJ_FS_Case_ContractClosing_Detail_Page"/>
 							   <sf:include name="LeadDealerAssignmentPage"/>
 							   <sf:include name="AnnouncementsPage"/>
 							   <!-- Added by Naga Start-->
