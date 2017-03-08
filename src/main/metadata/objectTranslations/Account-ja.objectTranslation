@@ -1415,7 +1415,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Special lease</masterLabel>
-            <translation>特別リース</translation>
+            <translation>特別リース</translation> 
         </picklistValues>
         <picklistValues>
             <masterLabel>Special lease for employees</masterLabel>

@@ -12991,8 +12991,12 @@
             <translation><!-- GLC SUV --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLE SUV</masterLabel>
+            <masterLabel>GLE SUC</masterLabel>
             <translation>GLE SUC (SUクーペ)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLE SUV</masterLabel>
+            <translation>GLE SUV (SUクーペ)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK SUV</masterLabel>

@@ -3809,6 +3809,14 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>F&amp;I</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </picklistValues>	
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -15598,6 +15606,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
@@ -26510,6 +26526,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>

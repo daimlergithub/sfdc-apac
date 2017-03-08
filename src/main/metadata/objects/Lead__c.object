@@ -88752,7 +88752,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special lease</fullName>
-                <default>false</default>
+                <default>false</default> 
             </values>
             <values>
                 <fullName>Special lease for employees</fullName>
@@ -88760,7 +88760,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
+                <default>false</default> 
             </values>
         </picklistValues>
         <picklistValues>
