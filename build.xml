@@ -181,8 +181,7 @@
 							   <sf:include name="LeadAssignmentPage"/>
 							   <sf:include name="PrintPDF"/>
 							   <sf:include name="SelectAddress"/>                                    
-							   <sf:include name="createRetailCopyKRButton"/>						                                                        
-							   
+							   <sf:include name="createRetailCopyKRButton"/>
 							   
 							</sf:typeset>                                                   
 							<sf:typeset name="classes">
@@ -369,7 +368,6 @@
 							   <sf:include name="TaskDeleting"/>							
 							   <sf:include name="Tasks"/>
 								<sf:include name="ConvertToLead"/>
-								<sf:include name="LeadMerge"/>
 								  <!--<sf:include name="ConvertToDMRequest"/> commented by Rakesh -->
 								  <sf:include name="ConvertToTask"/>
 								<sf:include name="ALKDeleteConformationpage"/>
@@ -386,19 +384,15 @@
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
-							   <sf:include name="MBJ_FS_Complaint_Detail_Page"/>
-							   <sf:include name="MBJ_FS_Case_Inquiry_Detail_Page"/>
-							   <sf:include name="MBJ_FS_Case_ContractClosing_Detail_Page"/>
 							   <sf:include name="LeadDealerAssignmentPage"/>
 							   <sf:include name="AnnouncementsPage"/>
 							   <!-- Added by Naga Start-->
 							</sf:typeset>
-							<sf:typeset name="layouts">
-											<!--<sf:include name="Account.*"/>
-											<sf:include name="PersonAccount.*"/>-->
-											<sf:include name="Case.*"/>											
-											<sf:include name="Account_Link__c.*"/>
-							</sf:typeset>         
+							<!--<sf:typeset name="layouts">
+											<sf:include name="Account.*"/>
+											<sf:include name="Case.*"/>
+											<sf:include name="PersonAccount.*"/>
+							</sf:typeset>-->             
 							<sf:typeset name="classes">    
 											<sf:include name="TriggerHandlerIf"/>
 											<sf:include name="TriggerUtil"/>
@@ -542,7 +536,7 @@
 </target>   
 
 								<target name="deploy21">
-									<deploy transformations="transformations.xml">
+									<deploy transformations="transformations29.xml">
 										<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
 									</deploy>
 								</target>
@@ -601,8 +595,8 @@
 			<sf:typeset name="pages">
 											<sf:include name="VehiclePicker"/>
 											<sf:include name="VehiclePickerForCase"/>                                                      
-											<!--<sf:include name="LeadMerge"/>-->
-											<sf:include name="SelectSlaveLead"/>             
+							   <sf:include name="LeadMerge"/>
+							   <sf:include name="SelectSlaveLead"/>             
 											<sf:include name="LeadVehiclePickerKR"/>
 											<sf:include name="MarketCheckOnVehiclePicker"/>
 			</sf:typeset>
