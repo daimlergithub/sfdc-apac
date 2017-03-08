@@ -121,12 +121,13 @@
 <target name="deploy09">
 			<deploy runAllTests="${sfdc.runAllTests}">
 							<sf:typeset name="objects">
-											<sf:include name="Picklist_Mapping__c"/>
-											<sf:include name="Integration_Picklist__c"/>
-											<sf:include name="External_Picklist__c"/>
-											<sf:include name="Car_Model__c"/>
-											<sf:include name="Trigger__c"/>
-											
+								<sf:include name="Picklist_Mapping__c"/>
+								<sf:include name="Integration_Picklist__c"/>
+								<sf:include name="External_Picklist__c"/>
+								<sf:include name="Car_Model__c"/>
+								<sf:include name="Trigger__c"/>
+								<sf:include name="Campaign_Member__c"/>
+								<sf:include name="Retail_Campaign__c"/>
 							</sf:typeset>
 			</deploy>
 </target>
@@ -142,13 +143,11 @@
 											<sf:include name="Address__c"/>
 											<sf:include name="Vehicle__c"/>
 											<sf:include name="Vehicle_Relationship__c"/>
-											<sf:include name="Retail_Task__c"/>											
-											<sf:include name="Retail_Campaign__c"/>
+											<sf:include name="Retail_Task__c"/>	
 											<sf:include name="Account_Link__c"/>
 											<sf:include name="SSI__c"/>
 											<sf:include name="AreaCodeTranslation__mdt"/>
 											<sf:include name="Account_Object__mdt"/>
-											<sf:include name="Campaign_Member__c"/>
 							</sf:typeset>
 							<sf:typeset name="components"/>
 							<sf:typeset name="tabs">                                                                                          
