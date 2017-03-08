@@ -260,7 +260,7 @@
 							 <!--<sf:include name="ScheduleCampCompletion"/>
 							 <sf:include name="ScheduleCampCompletionTest"/>-->
 							 <sf:include name="ScheduleRetailCampCompletion"/>
-							 <sf:include name="exportCampaignMembers"/>
+							 <!--<sf:include name="exportCampaignMembers"/>-->
 							</sf:typeset>
 							<!--<sf:typeset name="pages">
 									 <sf:include name="ExportAsCsvCampaign"/>
