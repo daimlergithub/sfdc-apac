@@ -167,7 +167,10 @@ public class AccountHelperJP
             User usr = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         	market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues(market);
+			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
+            {
+				UtilAddressTranslation.gettranslatedvalues(market);
+			}
             For(Account a:listNewAccounts)
             {      
                 if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
