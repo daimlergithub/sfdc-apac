@@ -15,12 +15,7 @@
         <description>Case Deadline : Dealer Manager Notification KR after 72 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>CommunityAccountPartnerExecutive</recipient>
-            <type>portalRole</type>
-        </recipients>
-        <recipients>
-            <recipient>CommunityAccountPartnerManager</recipient>
-            <type>portalRole</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -60,8 +55,7 @@
         <description>Case Deadline Notification KR after 240 Hours</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -71,8 +65,7 @@
         <description>Case Deadline Notification KR after 24 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -82,8 +75,7 @@
         <description>Case Deadline Notification KR after 72 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
