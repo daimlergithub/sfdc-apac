@@ -21617,12 +21617,12 @@
         <layout>Case-Case Layout</layout>
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Dealer Complaint Read Only Layout</layout>
+	<layoutAssignments>
+        <layout>Case-MB Complaint Layout - Dealer Portal User</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Dealer Inquiry Read Only Layout</layout>
+        <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
