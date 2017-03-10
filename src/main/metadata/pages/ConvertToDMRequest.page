@@ -12,7 +12,8 @@
     <apex:form >
         <apex:pageBlock >
             <apex:pageBlockButtons >
-                <apex:commandButton value="Convert To DM Request" action="{!processSelected}" rerender="table2"/>
+                <apex:commandButton value="Convert To DM Request" action="{!processSelected}" />
+                 <apex:commandButton action="{!cancel}" value="Cancel"/>
             </apex:pageBlockButtons>
  
             <apex:pageblockSection title="All Accounts" collapsible="false" columns="2">
