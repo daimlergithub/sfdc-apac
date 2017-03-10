@@ -84,6 +84,7 @@ public with sharing class ConvertToTaskController
         Task taskRec = new Task(RecordTypeId = OB_Call);
         taskRec.status= 'New';
         taskRec.Priority='Low';
+		taskRec.subject = 'Campaign Executed';
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')
          {

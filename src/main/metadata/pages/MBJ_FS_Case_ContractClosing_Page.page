@@ -22,11 +22,11 @@
                 <apex:inputField value="{!Case.Ownerid}"/>
                 <apex:inputField value="{!Case.Lead__c}"/>
                 <apex:inputField value="{!Case.Case_Class__c}"/>
-                <apex:inputField value="{!Case.Inquiry_Comments__c  }"/>
+                <apex:inputField value="{!Case.Inquiry_Comments__c  }" style="width:300px; height:100px"/>
                 <apex:inputField value="{!Case.Case_Type__c}">
                     <apex:actionSupport event="onchange" action="{!nullifyContractClosingPageSection}" reRender="earlyTerminationid,payoutActualid,releaseActualid,returnCloseSWPid,returnOpenid,reloanActualid"/>
                 </apex:inputField>
-                <apex:inputField value="{!Case.Internal_Comments__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
             </apex:pageblockSection>
             
             <apex:outputPanel id="earlyTerminationid">
@@ -147,7 +147,7 @@
                 <apex:inputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Receiver_address_type__c}"/>
                 <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
-                <apex:inputField value="{!Case.Receiver_address__c}"/>
+                <apex:inputField value="{!Case.Receiver_address__c}" style="width:300px; height:100px"/>
             </apex:pageblockSection>
             
             <apex:pageblockSection id="pbs4id" title="Payer">
@@ -165,8 +165,8 @@
                 <apex:inputField value="{!Case.Payer_Preferred_comm_Channel__c}"/>
                 <apex:inputField value="{!Case.Payer_address_type__c}"/>
                 <apex:inputField value="{!Case.Payer_Fax_Email_address__c}"/>
-                <apex:inputField value="{!Case.Payer_address__c}" rendered="{!IF(Case.Payer_address_type__c == 'Others',true,false)}"/>
-                <apex:inputField value="{!Case.Payer_address__c}"/>
+                <apex:inputField value="{!Case.Payer_address__c}" rendered="{!IF(Case.Payer_address_type__c == 'Others',true,false)}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Payer_address__c}" style="width:300px; height:100px"/>
             </apex:pageblockSection>
                 
         </apex:pageBlock>

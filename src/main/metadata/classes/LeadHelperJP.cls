@@ -402,6 +402,7 @@ public class LeadHelperJP
             If(LeadUtil.LeadTrigger){
             system.debug('++++++++++'+Leadlist);
             led.Lead_Assignment_Notification_Done__c = True; 
+			led.Person_Assign_Notificaton_Done__c = True;
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                 mail.setWhatId(led.id);
                 mail.setTemplateID(e.Id);
