@@ -408,8 +408,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
-        <fields>Survey__c</fields>
-        <fields>Lead__c</fields>		
+        <fields>Survey__c</fields>	
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
