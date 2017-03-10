@@ -236,6 +236,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>NewAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Dealer List Members</relationshipLabel>
+        <relationshipName>Dealer_List_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Participating_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>This field is used to refer the related participating dealer record</description>
@@ -346,9 +358,9 @@
     <pluralLabel>Dealer List Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-	<validationRules>
-      <fullName>lock_on_campaign</fullName>
-       <active>true</active>
+    <validationRules>
+        <fullName>lock_on_campaign</fullName>
+        <active>true</active>
         <errorConditionFormula>AND(Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
         <errorMessage>Campaign is Locked</errorMessage>
     </validationRules>
