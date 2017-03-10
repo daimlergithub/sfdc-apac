@@ -14,7 +14,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>UsVIN__c</field>
+                <field>EuroVIN__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -122,7 +122,6 @@
     <miniLayout>
         <fields>Brand__c</fields>
         <fields>Class__c</fields>
-        <fields>UsVIN__c</fields>
     </miniLayout>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>

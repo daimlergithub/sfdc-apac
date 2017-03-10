@@ -6,9 +6,9 @@
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
+    <excludeButtons>Edit</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
-	<excludeButtons>Edit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -383,7 +383,7 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections> 
+    </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -399,6 +399,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
@@ -407,7 +408,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
-        <fields>Survey__c</fields>
+        <fields>Survey__c</fields>	
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
@@ -415,7 +416,7 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists> 
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
