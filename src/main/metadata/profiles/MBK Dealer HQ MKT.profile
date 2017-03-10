@@ -1149,10 +1149,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperKRTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TaskHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
