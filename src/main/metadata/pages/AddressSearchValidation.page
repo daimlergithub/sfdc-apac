@@ -98,7 +98,7 @@
                   <apex:inputText value="{!TouchPoint}"  />        
                   </apex:pageBlockSectionItem> 
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
-						  <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
+<apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                    
                     <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
@@ -165,9 +165,9 @@
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
                   <apex:inputField value="{!objPersonAccount.VIN__c}" />
-				  <apex:inputField value="{!objAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
-                  <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />
-				  <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
+                   <apex:inputField value="{!objAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
+                  <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
+                  <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
                  
               </apex:pageBlockSection>
                
@@ -184,7 +184,7 @@
                     </apex:pageBlockSectionItem>
                   
                   <apex:inputField value="{!objPersonAccount.VIN__c}" /> 
-                    <apex:inputField value="{!objAccount.Company_Name__c}" />              
+                   <!-- <apex:inputField value="{!objAccount.Company_Name__c}" />  -->          
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
@@ -215,7 +215,7 @@
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>                   
-                    </apex:pageBlockSectionItem>                  
+                   </apex:pageBlockSectionItem>                 
                                   
                    <apex:inputField value="{!objAccount.Email__c}" />  
                    <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
