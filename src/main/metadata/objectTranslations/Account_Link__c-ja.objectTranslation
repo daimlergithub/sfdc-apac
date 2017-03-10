@@ -1231,14 +1231,6 @@
     <layouts>
         <layout>Person Retail Copy</layout>
         <sections>
-            <label>コンタクト情報</label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label>主要コンタクト・コンセント</label>
-            <section>Main Contact Opt-out information</section>
-        </sections>
-        <sections>
             <label>プロフィール情報</label>
             <section>Profile Information</section>
         </sections>
