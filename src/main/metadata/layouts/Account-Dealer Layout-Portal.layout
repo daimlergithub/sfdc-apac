@@ -2,7 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
-	<customButtons>Merge</customButtons>
+    <customButtons>Merge</customButtons>
     <excludeButtons>Edit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -84,10 +84,10 @@
         <label>Account Information for Dealer</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>RetailCopyViewAreaForDealerUser</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -100,7 +100,14 @@
         <label>Address</label>
         <layoutColumns>
             <layoutItems>
-                <height>250</height>
+                <height>200</height>
+                <page>ContactTable</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>350</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
@@ -129,11 +136,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Email_Display__c</field>
+                <field>Primary_Email__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Fax_Display__c</field>
+                <field>Primary_Fax__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -148,6 +155,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Phone_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Email_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Primary_Fax_Display__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -233,7 +252,28 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
-    </layoutSections> 
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Description Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Unimog_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vans_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Western_Star_Offered_Service__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
@@ -314,9 +354,10 @@
         <fields>Lead_Desired_Service__c</fields>
         <fields>Assigned_Date_Time__c</fields>
         <fields>Assigned_Dealer__c</fields>
-        <fields>Lead_Latest_Phase__c</fields>
+		<fields>Lead_Latest_Phase__c</fields>		
         <fields>Lead_DataSource__c</fields>
-        <fields>Source_Campaign__c</fields> 
+        <fields>Dealer_Lead_Status__c</fields>
+        <fields>Source_Campaign__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
     </relatedLists>

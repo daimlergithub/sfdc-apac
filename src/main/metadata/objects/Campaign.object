@@ -15861,7 +15861,7 @@
             </values>
             <values>
                 <fullName>Draft</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Ongoing</fullName>
@@ -19742,7 +19742,7 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),NOT(ISNEW()), 
-PRIORVALUE(Consolidated_List_Completed__c) = TRUE)</errorConditionFormula>
+PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_Status__c)))</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
