@@ -27065,31 +27065,11 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
-                <fullName>CA Submission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Estimation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handover</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27105,35 +27085,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Needs Check</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product Proposal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27141,27 +27093,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Simple Estimation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Visited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39422,6 +39354,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
@@ -39434,43 +39370,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Simple Estimation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Visited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -89986,10 +89890,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -90014,15 +89914,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Job Card Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90039,10 +89931,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90063,10 +89951,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -101274,10 +101158,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmation</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
             </values>
@@ -101302,19 +101182,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Job Card Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Needs Check</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101331,10 +101199,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101359,10 +101223,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

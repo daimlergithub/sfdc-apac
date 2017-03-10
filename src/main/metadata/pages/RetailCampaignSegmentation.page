@@ -3,6 +3,7 @@
     <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/>
     
     <script>
+   
         var filterNames = '';
         var oldFieldValue = '';
         var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; Latest_Contract_Date__c; '
@@ -484,11 +485,11 @@
         }
 
         function checkFilterItemAdded(tableId, bracket){
-            var size = ($("#customerTable tr").length + $("#interestTable tr").length + $("#vehicleTable tr").length + $("#AccountRetailCopyTable tr").length) - 4;
-            if(size > 14){
+           /* var size = ($("#customerTable tr").length + $("#interestTable tr").length + $("#vehicleTable tr").length + $("#AccountRetailCopyTable tr").length) - 4;
+            if(size > 25){
                 alert('{!$Label.The_filter_count_is_greater_than_15}');
                 return false;
-            }
+            }*/
 
             return checkCriteriaLogic(tableId, bracket);
         }
@@ -640,7 +641,6 @@
                                     <option value="PersonBirthdate">{!$ObjectType.Account.Fields.PersonBirthdate.Label}</option>
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
-                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
                                     <option value="Customer_Lifecycle_Phase__c">Customer Stage</option>
                                 </select>
@@ -656,7 +656,7 @@
                                 <input class="inputText" type="text"/>
                                  <apex:inputField value="{!account.Occupation__c}" styleClass="Occupation__c" style="display:block;"/> 
                                  <apex:inputField value="{!account.Interest_Model__c}" styleClass="Interest_Model__c" style="display:block;"/>
-                                <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
+                                
                                  <apex:selectList styleClass="Status__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!status}"></apex:selectOptions>
                                 </apex:selectList>
@@ -722,16 +722,16 @@
                                
                                 <input class="inputText" type="text" style="display:block;"/>
                                                         
-                               
+                               <!--<apex:inputField value="{!AlkRec.Retail_OptOutContact_Reason__c}" styleClass="Retail_OptOutContact_Reason__c"/> -->
                               <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailSalesSanction}"></apex:selectOptions>
                                 </apex:selectList>                                                              
                              
                               <apex:inputField value="{!AlkRec.Portal_ID__c}" styleClass="Portal_ID__c" /> 
                               
-                               <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="1" multiselect="false">
+                             <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
                                     <apex:selectOptions value="{!RetailOptOutContactReason}"></apex:selectOptions>
-                                </apex:selectList> 
+                                </apex:selectList>
                             </td>
                             <td class="logic"></td>
                             <td></td>
@@ -741,7 +741,25 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                        
                     </div>
+                    <!--<div>
+                    <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="tableHeader">
+                                <th width="10%">Sales Dealer</th>
+                                <td>
+                                    <!--<select>
+                                        <option>--None--</option>
+                                        <option value="Company">Company</option>
+                                        <option value="Outlet">Outlet</option>
+                                    </select>
+                                    <apex:selectList value="{!Values}" multiselect="false" size="1">
+                                            <apex:selectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                      </table>
+                    </div>-->
                 </div>
+                
                 <hr style="margin-left:20px; width:650px;"/>
                 
                 <div class="commonFilterItem">
@@ -822,7 +840,7 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" style="display:block;"/>
-                                
+      
                                  <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                 
@@ -841,7 +859,7 @@
            <div class="commonFilterItem">
                     <span class="leftTitle">⑤ {!$Label.Vehicle_Relation_Filter}</span>
                     <table id="VehicleRelationTable" class="filterTable" border="0" cellspacing="0" cellpadding="2">
-                        <tr class="VehicleRelationshiptableHeader">
+                        <tr class="tableHeader">
                             <th width="10%">{!$Label.Cluster}</th>
                             <th width="32%">{!$Label.Field}</th>
                             <th>{!$Label.Operation}</th>
@@ -853,9 +871,10 @@
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="New_Used__c ">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
+                                    <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
-                                    <option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>                                                                     
+                                    <option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>
+                                    <!--<option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>-->                                                                  
                                 </select>
                             </td>
                             <td>
@@ -868,6 +887,7 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
+                                  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
@@ -1099,6 +1119,9 @@
                     
                     <apex:pageBlockTable value="{!wrapAccountList}" var="wrapAcc" rows="100" rendered="{!wrapAccountList != null && wrapAccountList.size > 0}">
                         <apex:column headerValue="Select">
+                            <apex:facet name="header">
+                                <c:selectAllChkBox />
+                            </apex:facet>
                             <apex:inputCheckbox value="{!wrapAcc.isSelected}"/>
                         </apex:column>
                         <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">

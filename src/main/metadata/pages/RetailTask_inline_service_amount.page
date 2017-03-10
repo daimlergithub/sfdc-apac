@@ -7,22 +7,25 @@
            <!--PageBlock starts here-->
             <apex:pageBlock title="Retail Outlet" id="pageBlock" rendered="{!ShowAmount}">
                 <apex:pageMessages id="pgmsg"/> 
-                    <apex:pageBlocktable value="{!retailtask}" var="retail">
-						<apex:column headerValue="Service Labour Amount">
-                        <!--out put field to display address Name  --> 
-                        <apex:outputText value="{!retail.Service_Labour_Amount__c}" style="width:9%; white-space:nowrap;">
-                        </apex:outputText>
-                    </apex:column>
-                    <apex:column headerValue="Service Parts Amount">
-                        <!--out put field to display address Type  --> 
-                        <apex:outputField value="{!retail.Service_Parts_Amount__c}" style="width:7%; white-space:none;">
-                        </apex:outputField>   
-                    </apex:column>
-                    <apex:column headerValue="Service Total Amount">
-                        <apex:outputText value="{!retail.Service_Total_Amount__c}"  style="width:8%; white-space:none;">                              
-                        </apex:outputText>
-                    </apex:column>  
-                </apex:pageBlocktable>  
+                    <apex:pageBlockSection columns="2">
+                      <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Description"/>
+                        <apex:outputField value="{!retailtask.Description__c}"/>  
+                      </apex:pageBlockSectionItem> &nbsp;
+                      <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+                      <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Service Labour Amount"/>
+                        <apex:outputField value="{!retailtask.Service_Labour_Amount__c}"/>  
+                      </apex:pageBlockSectionItem>
+                      <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Service Parts Amount"/>
+                        <apex:outputField value="{!retailtask.Service_Parts_Amount__c}"/>  
+                      </apex:pageBlockSectionItem>
+                      <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Service Total Amount"/>
+                        <apex:outputField value="{!retailtask.Service_Total_Amount__c}"/>  
+                      </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
             </apex:pageBlock>         
         </apex:outputPanel>                   
     </apex:form>

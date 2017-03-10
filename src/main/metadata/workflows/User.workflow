@@ -16,7 +16,22 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISNEW(),ISPICKVAL(Market__c, &apos;JP&apos;), OR( Profile.Name = &apos;Sales Manager&apos;, Profile.Name = &apos;Service Manager&apos;) )</formula>
-        <triggerType>onAllChanges</triggerType>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Japan Dealer Service Manager</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>Japan Dealer Sales Manager</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.Market__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

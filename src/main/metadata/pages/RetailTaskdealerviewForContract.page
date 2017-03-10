@@ -2,10 +2,7 @@
     <apex:form >
         <apex:pageBlock title="Related Dealer view for Contract">
             <apex:pageBlockSection columns="2">
-             <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Latest_Sales_Person__c.Label}"/>
-                        <apex:outputField value="{!displayRetail.Latest_Sales_Person__c}"/>  
-              </apex:pageBlockSectionItem>
+            
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name__c.Label}"/>
                         <apex:outputField value="{!displayRetail.Contractor_Name__c}"/>  
@@ -17,10 +14,10 @@
               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Vehicle_Registration_No__c.Label}"/>
                         <apex:outputField value="{!displayRetail.Vehicle_Registration_No__c}"/>  
-              </apex:pageBlockSectionItem>
+              </apex:pageBlockSectionItem> &nbsp;
               <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode1__c.Label}"/>
-                        <apex:outputField value="{!displayRetail.Contractor_ZipCode1__c}"/>  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Guarantor1_ZipCode__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
@@ -69,8 +66,8 @@
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Phone__c.Label}" />
-                        <apex:outputText value="{!MotuserPhone}" />  
-              </apex:pageBlockSectionItem>
+                        <apex:outputText value="{!MotuserPhone}" /> 
+              </apex:pageBlockSectionItem> &nbsp;
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Name__c.Label}"/>
                         <apex:outputField value="{!displayRetail.MOT_Owner_Name__c}"/>  
@@ -94,6 +91,15 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Address__c.Label}" />
                         <apex:outputText value="{!MotOwnerAddress}" />  
+              </apex:pageBlockSectionItem> &nbsp;
+             
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Latest_Sales_Person__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Latest_Sales_Person__c}"/>  
               </apex:pageBlockSectionItem>
            </apex:pageBlockSection> 
         </apex:pageBlock>

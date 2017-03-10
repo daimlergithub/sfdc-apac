@@ -343,12 +343,9 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
     <label>Participating Dealer</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>Campaign__c</columns>
-        <columns>Dealer__c</columns>
-        <columns>Campaign_Package__c</columns>
-        <columns>Session_End_Date__c</columns>
-        <columns>Session_Start_Date__c</columns>
         <columns>NAME</columns>
+		<columns>Campaign__c</columns>
+        <columns>Dealer__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -375,7 +372,7 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Participating Dealers</pluralLabel>
+    <pluralLabel>List Maintenance</pluralLabel>
     <recordTypes>
         <fullName>Participating_Dealer</fullName>
         <active>false</active>
