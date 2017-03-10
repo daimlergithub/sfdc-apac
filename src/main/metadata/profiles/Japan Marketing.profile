@@ -23785,10 +23785,6 @@
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
     </userPermissions>
-	<userPermissions>
-        <enabled>true</enabled>
-        <name>EditPublicReports</name>
-    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>

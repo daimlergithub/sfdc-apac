@@ -23781,10 +23781,6 @@
         <enabled>true</enabled>
         <name>ExportReport</name>
     </userPermissions>
-	<userPermissions>
-        <enabled>true</enabled>
-        <name>EditPublicReports</name>
-    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>
