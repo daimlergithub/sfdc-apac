@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Send_To_AutoLine</customButtons>
-    <customButtons>Delete_retail_copy</customButtons> 
-    <excludeButtons>Edit</excludeButtons>
+    <customButtons>Delete_retail_copy</customButtons>
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
@@ -54,7 +59,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_UCID__c</field>
@@ -85,7 +90,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Selling_Dealer__c</field>
-            </layoutItems>  
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
@@ -159,11 +164,11 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Type__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_ZipCode__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_CreatedDate__c</field>
@@ -323,11 +328,31 @@
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
-    </layoutSections> 
+    </layoutSections>
     <relatedLists>
-        <excludeButtons>NewTask</excludeButtons> 
+        <excludeButtons>NewTask</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
-    </relatedLists> 
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

@@ -197,7 +197,7 @@
         <fields>End_Date__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>Last_Service_Dealer__c</fields>
-        <fields>UPDATEDBY_USER</fields>
+        <fields>LAST_UPDATE</fields>
         <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
     </relatedLists>
     <relatedLists>

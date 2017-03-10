@@ -129,6 +129,9 @@
                 <field>Expected_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>
             </layoutItems>
@@ -642,7 +645,16 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
-    </layoutSections> 
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>System Information</label>
+        <layoutColumns/>
+        <layoutColumns/>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
@@ -687,6 +699,7 @@
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
         <fields>Survey__c</fields>
+		<fields>Lead__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
