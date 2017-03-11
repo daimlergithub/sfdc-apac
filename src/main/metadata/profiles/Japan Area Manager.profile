@@ -23639,15 +23639,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageDashboards</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
