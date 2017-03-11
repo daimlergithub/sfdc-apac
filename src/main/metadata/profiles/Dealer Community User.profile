@@ -196,7 +196,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkControllerTest</apexClass>
@@ -928,7 +928,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ServiceRetailTask</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ServiceRetailTaskTest</apexClass>
@@ -11814,7 +11814,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21617,12 +21617,12 @@
         <layout>Case-Case Layout</layout>
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Dealer Complaint Read Only Layout</layout>
+	<layoutAssignments>
+        <layout>Case-MB Complaint Layout - Dealer Portal User</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Dealer Inquiry Read Only Layout</layout>
+        <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -22756,7 +22756,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyOnlyRelatedList</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyViewAreaForDealerUser</apexPage>
@@ -22828,7 +22828,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ServiceRetailTask</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteLogin</apexPage>

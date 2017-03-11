@@ -875,6 +875,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>createRetailCopy</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -21678,6 +21682,10 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
+        <apexPage>Retailcopybutton</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -22696,10 +22704,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EditTask</name>
     </userPermissions>
     <userPermissions>
@@ -22721,10 +22725,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageCustomReportTypes</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageDashboards</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

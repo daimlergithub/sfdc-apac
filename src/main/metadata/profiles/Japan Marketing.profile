@@ -7237,9 +7237,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Case_Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8967,9 +8967,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Solution_Title__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17431,6 +17431,11 @@
         <field>Retail_Task__c.Related_Contact3__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Related_Contact4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Related_Contact__c</field>
@@ -17662,9 +17667,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.To_Be_Deleted__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -23766,10 +23771,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EditTask</name>
     </userPermissions>
     <userPermissions>
@@ -23783,10 +23784,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageDashboards</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

@@ -28,10 +28,7 @@
                 <behavior>Edit</behavior>
                 <field>Campaign_Executer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Campaign_Execution_Channels__c</field>
-            </layoutItems>
+
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ActualCost</field>
@@ -83,7 +80,7 @@
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Campaign_Code__c</field>
             </layoutItems>
             <layoutItems>

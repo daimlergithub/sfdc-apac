@@ -17919,9 +17919,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.To_Be_Deleted__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -24660,15 +24660,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditPublicReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EditPublicTemplates</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -24740,10 +24732,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageInteraction</name>
     </userPermissions>
     <userPermissions>
@@ -24808,10 +24796,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ModifyAllData</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>NewReportBuilder</name>
     </userPermissions>
     <userPermissions>
@@ -24865,10 +24849,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewAllData</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
