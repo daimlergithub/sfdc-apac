@@ -341,7 +341,7 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
                   
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
-                 newCamRetail.Name = camo.Name;
+                // newCamRetail.Name = camo.Name;
                  newCamRetail.Retail_Campaign_Id__c = retailId;
                  newCamRetail.Status__c = camo.Status__c;
                  newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;
