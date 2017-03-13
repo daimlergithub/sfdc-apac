@@ -301,7 +301,69 @@ Set<id> aid = New Set<id>();
    
    
    }
-
+   public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore){
+   
+   String rect ;
+   String mont;
+   Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+   
+   For(Campaign camp : campaignIdsBefore ){
+   
+   
+   if(camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true){     
+             rect = camp.SegWorkingDay__c ; 
+              
+             if(camp.SegWorkingMonth__c == 'Jan'){
+                 
+                 mont = '1';
+              }else if(camp.SegWorkingMonth__c == 'Feb'){
+              
+                 mont = '2';
+              } else if(camp.SegWorkingMonth__c == 'Mar'){ 
+              
+              mont = '3';
+              } else if(camp.SegWorkingMonth__c == 'Apr'){ 
+              
+              mont = '4';
+              } else if(camp.SegWorkingMonth__c == 'May'){ 
+              
+              mont = '5';
+              } else if(camp.SegWorkingMonth__c == 'Jun'){ 
+              
+              mont = '6';
+              } else if(camp.SegWorkingMonth__c == 'Jul'){ 
+              
+              mont = '7';
+              } else if(camp.SegWorkingMonth__c == 'Aug'){ 
+              
+              mont = '8';
+              } else if(camp.SegWorkingMonth__c == 'Sep'){ 
+              
+              mont = '9';
+              }else if(camp.SegWorkingMonth__c == 'Oct'){ 
+              
+              mont = '10';
+              }else if(camp.SegWorkingMonth__c == 'Nov'){ 
+              
+              mont = '11';
+              }else if(camp.SegWorkingMonth__c == 'Dec'){ 
+              
+              mont = '12';
+              }
+             String SampDate = String.ValueOf(datetime.now().year());
+             //String year = '2017';
+             String year = SampDate ;
+             
+             
+            string stringDate = year + '-' + mont + '-' + rect;
+             
+           Camp.Segmentation_Date__c = Date.valueOf(stringDate );
+             
+             }
+           
+}
+   
+}
 
    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
