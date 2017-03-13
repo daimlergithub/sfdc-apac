@@ -52,7 +52,7 @@ public with sharing class ConvertToTaskController
         return new PageReference('/' + campaignId);
       }
     
-     public PageReference convertToTask() 
+     public void convertToTask() 
      {
         List<Task> taskList = new List<Task>();
         List<Task> taskListToInsert = new List<Task>();
@@ -76,7 +76,7 @@ public with sharing class ConvertToTaskController
             system.debug('$%$%$%$%taskListToInsert'+taskListToInsert);
         }
         
-      return new PageReference('/' + campaignId);
+      //return new PageReference('/' + campaignId);
      }
      
   @TestVisible   private Task setTaskRecordFields(String campaignId, Campaign_Member__c campaignMember) 
@@ -84,17 +84,17 @@ public with sharing class ConvertToTaskController
         Task taskRec = new Task(RecordTypeId = OB_Call);
         taskRec.status= 'New';
         taskRec.Priority='Low';
-		taskRec.subject = 'Campaign Executed';
+        taskRec.subject = 'Campaign Executed';
   
         if(objectAPIName == 'Campaign' || objectAPIName == 'Retail_Campaign__c')
          {
            taskRec.whatID=campaignId;
-           taskRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;
+           taskRec.OwnerId = UserInfo.getUserId();//campaignMember.Campaign_ID__r.OwnerId;
         }
          else if(objectAPIName == 'Retail_Campaign__c')
           { 
             taskRec.whatID=campaignId;
-            taskRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+            taskRec.OwnerId = UserInfo.getUserId();//campaignMember.Retail_Campaign_Id__r.OwnerId;
         }  
         
         if(OB_Call!= null) {
