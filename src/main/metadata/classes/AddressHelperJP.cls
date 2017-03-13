@@ -77,7 +77,8 @@ public with sharing class AddressHelperJP {
 				 
 				 // addded by rakesh 
                  string nullValue ='';
-                  String province;         
+                  String province;    
+				  String market;				  
                  User usr = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
 				market = usr.Market__c;
 				Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
