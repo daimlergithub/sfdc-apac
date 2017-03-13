@@ -338,7 +338,7 @@ public class LeadHelperJP
         
         List<String> userIds = new List<String>();  
         List<Lead__c> LeadUpdate = new List<Lead__c>();             
-        Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
+        //Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
         EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];  
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
         List<Messaging.SingleEmailMessage > UFRbulkEmails = new  List<Messaging.SingleEmailMessage >();
@@ -354,7 +354,7 @@ public class LeadHelperJP
         }
         
         
-        List<Lead__C> Leadlist = [Select id,MD__c,ownerid,contact__c,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+        List<Lead__C> Leadlist = [Select id,MD__c,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
         system.debug('+++++++++++++'+Leadlist);
         
         for(Lead__c lead : Leadlist)
@@ -366,11 +366,13 @@ public class LeadHelperJP
                     if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                         {                       
                         if(lead.RecordTypeId == salesRecordTypeId){                       
-                         EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
+                          //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
+                         EmailAddress.add(lead.Service_Advisor__r.Email); 
                          system.debug('+++++++++++++'+EmailAddress);                     
                         }
                         if(lead.RecordTypeId == afterSalesRecordTypeId ){ 
-                            EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);  
+                            //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
+                            EmailAddress.add(lead.Service_Advisor__r.Email);   
                             system.debug('+++++++++++++'+EmailAddress);                            
                         }                        
                     }                                  
@@ -402,7 +404,7 @@ public class LeadHelperJP
             If(LeadUtil.LeadTrigger){
             system.debug('++++++++++'+Leadlist);
             led.Lead_Assignment_Notification_Done__c = True; 
-			led.Person_Assign_Notificaton_Done__c = True;
+			//led.Person_Assign_Notificaton_Done__c = True;
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                 mail.setWhatId(led.id);
                 mail.setTemplateID(e.Id);

@@ -580,11 +580,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GenerateAndAttachPDF</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GenerateAndAttachPDFTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GenerateCatalogueCsv</apexClass>
@@ -6767,11 +6767,6 @@
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Survey__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 	 <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Survey__c</field>
@@ -11045,6 +11040,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.NewAccount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23935,7 +23935,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RelatedDealerViewForLease</apexPage>

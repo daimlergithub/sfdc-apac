@@ -648,7 +648,7 @@
     <fieldUpdates>
         <fullName>Status</fullName>
         <field>Status</field>
-        <literalValue>In progress</literalValue>
+        <literalValue>Waiting for Response approval</literalValue>
         <name>Status</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -1691,7 +1691,7 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Update Case status to %22In Progress%22</fullName>
+        <fullName>Update Case status to %22Waiting for Response approval%22</fullName>
         <actions>
             <name>Status</name>
             <type>FieldUpdate</type>

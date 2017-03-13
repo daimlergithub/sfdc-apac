@@ -15,7 +15,7 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
       // Start Test
         Test.startTest();
                    
-        PageReference redirectSuccess=extveh.SaveRecords();         
+       PageReference redirectSuccess=extveh.SaveRecords();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
@@ -57,6 +57,33 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;
         objVehicleRelship.Contact__c = objAccount.Id;
         objVehicleRelship.Car_Relation__c='Owner';
+        objVehicleRelship.End_Reason__c='None';
         objVehicleRelship= (Vehicle_Relationship__c)UtilViewHierarchyTestData.createSobject(objVehicleRelship,UtilViewHierarchyTestData.VEHICLE_RELATIONSHIP);
    }   
+   public static testMethod void endReasonTest()
+   {
+        
+        /* List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;*/
+         
+          init();
+        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);
+   List<SelectOption> countryOptions = new List<SelectOption>();
+        countryOptions.add(new SelectOption('','-None-'));
+        countryOptions.add(new SelectOption('Replacement','Replacement'));
+        countryOptions.add(new SelectOption('Bought Competitors','Bought Competitors'));
+        countryOptions.add(new SelectOption('Sold','Sold'));
+        countryOptions.add(new SelectOption('Handover','Handover'));
+        countryOptions.add(new SelectOption('Warranty system','Warranty system'));
+         countryOptions.add(new SelectOption('MB Online','MB Online'));
+          countryOptions.add(new SelectOption('DMS','DMS'));
+          countryOptions.add(new SelectOption('Others','Others'));
+        TerminateVehicleRelationshipExtension tr = new TerminateVehicleRelationshipExtension();
+       Test.startTest();
+       List<SelectOption> method_options = tr.getEndReason();
+       Test.stopTest();
+     
+     system.assertEquals(method_options.size(),countryOptions.size());
+   
+   }
 }

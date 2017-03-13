@@ -3274,9 +3274,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11198,6 +11198,11 @@
         <field>Dealer_List_Member__c.Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.NewAccount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Participating_Dealer__c</field>
@@ -16858,6 +16863,11 @@
         <field>Retail_Campaign__c.Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Parent_Campaign1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Parent_Campaign__c</field>
@@ -20009,9 +20019,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>SurveyTaker__c.View_By_All__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20076,11 +20086,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Survey__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
