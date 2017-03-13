@@ -31,16 +31,19 @@ public with sharing class TaskMassAssignChangeOwnerJP {
 
   */    
         
-    public void assignToOwnerClick(){     
+    public PageReference assignToOwnerClick(){     
+        string owner;
         if(task.OwnerId==null){            
             Apexpages.addMessage(new Apexpages.Message(ApexPages.severity.ERROR,'New Owner Cannot be null.'));            
-            return;    
+           // return;    
         }                
         List<Id> relatedSSIIds = new List<Id>();
 
         List<Task> tasks = [Select Id, OwnerId, WhatId From Task Where Id=:arrObjIds];        
-        for(Task t : tasks){            
-            t.OwnerId = task.OwnerId;    
+        for(Task t : tasks){   
+                   
+            t.OwnerId = task.OwnerId;   
+            owner =  t.WhatId;  
             if(t.WhatId!=null && t.WhatId.getSObjectType()==SSI__c.getSObjectType()){
                 relatedSSIIds.add(t.WhatId);
             }
@@ -51,7 +54,9 @@ public with sharing class TaskMassAssignChangeOwnerJP {
             if(relatedSSIIds.size()>0){
                 updateRelatedSSIs(relatedSSIIds, task.OwnerId);
             }         
-        }    
+        }
+        PageReference newPage = new PageReference('/'+owner);
+        return newPage;   
     }
     /**
   *@Description : Assigns the task with different owner and updates Related SSI object.
