@@ -13171,7 +13171,7 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Start_Date_And_End_date</fullName>
         <active>true</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>IF(Parent_Campaign__c = null,IF( Start_Date__c &lt;= Close_Date__c , true,false),false)</errorConditionFormula>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= Close_Date__c, true,false)))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
