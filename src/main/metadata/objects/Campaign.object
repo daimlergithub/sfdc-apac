@@ -19704,7 +19704,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Make_segementation_date_inactive</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),( Use_Segmentation_Criteria__c = TRUE),(NOT(ISBLANK(Segmentation_Date__c ) )))</errorConditionFormula>
         <errorMessage>Segmentation criteria is on</errorMessage>
     </validationRules>
@@ -19778,11 +19778,11 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
-	    <validationRules>
+    <validationRules>
         <fullName>Start_Date_And_End_date</fullName>
         <active>true</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>IF(parentcampaign__c= null,( MD__c = 'JP'),IF(StartDate &gt;= EndDate , true,false))</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;= EndDate , true, false)))</errorConditionFormula>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>

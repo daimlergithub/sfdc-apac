@@ -16,8 +16,17 @@ public class TriggerCampaignTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-             
-        if(Trigger.isBefore && Trigger.isDelete)
+         if(Trigger.isBefore && Trigger.isInsert) {     
+                
+            CampaignHelper.useSegmentationCampaign(Trigger.New);
+        }    
+		if(Trigger.isBefore && Trigger.isUpdate) {     
+                
+            CampaignHelper.useSegmentationCampaign(Trigger.New);
+        }    
+        
+		
+		if(Trigger.isBefore && Trigger.isDelete)
         {
             CampaignHelper.beforeDeleteEvents(Trigger.old);
             CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
