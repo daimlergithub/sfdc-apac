@@ -17,10 +17,14 @@ public class TriggerCampaignTriggerHandlerJP
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
              
-        if(Trigger.isBefore && Trigger.isDelete)
+         if(Trigger.isBefore && Trigger.isDelete){
+             CampaignHelper.beforeDeleteEvents(Trigger.old);
+         }    
+        if(Trigger.isAfter && Trigger.isDelete )
         {
-            CampaignHelper.beforeDeleteEvents(Trigger.old);
+            //CampaignHelper.beforeDeleteEvents(Trigger.old);
             CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
+            //LeadUtil.isRecursive = false;
             
         }
         if(Trigger.isAfter && Trigger.isUpdate)
