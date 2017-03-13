@@ -59,6 +59,10 @@
                 <behavior>Readonly</behavior>
                 <field>Zip_Code_Finance__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NewAccount__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
