@@ -3,7 +3,12 @@
         function converttoleadfin() {
             alert("Convert to Lead successfully.");
         }
-        
+        function RelodeParent(){
+          
+          window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.CampaignId}";          
+          window.top.close();
+  
+       }
         function checkAll(cb){
             var inputElem = document.getElementsByTagName("input");
             for (var i = 0; i < inputElem.length; i++) {
@@ -26,8 +31,8 @@
                 <apex:column value="{!cMember.campaignMember.Name}" headerValue="{!$Label.CL_Member_Name}"/>
             </apex:pageBlockTable>
             <apex:pageBlockButtons location="bottom"> 
-            <apex:commandButton action="{!convertToTask}" value="Convert to task"/>
-                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            <apex:commandButton oncomplete="RelodeParent()" action="{!convertToTask}" value="Convert to task"/>
+                <apex:commandButton oncomplete="RelodeParent()" action="{!cancel}" value="Cancel"/>
             </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>
