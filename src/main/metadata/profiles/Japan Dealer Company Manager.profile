@@ -11047,6 +11047,11 @@
         <field>Dealer_List_Member__c.Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.NewAccount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Participating_Dealer__c</field>

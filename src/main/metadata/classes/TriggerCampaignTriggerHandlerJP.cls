@@ -24,7 +24,7 @@ public class TriggerCampaignTriggerHandlerJP
         {
             //CampaignHelper.beforeDeleteEvents(Trigger.old);
             CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
-            //LeadUtil.isRecursive = false;
+            
             
         }
         if(Trigger.isAfter && Trigger.isUpdate)
