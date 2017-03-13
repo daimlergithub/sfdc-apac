@@ -20,6 +20,10 @@ public class TriggerCampaignTriggerHandlerJP
                 
             CampaignHelper.useSegmentationCampaign(Trigger.New);
         }    
+		if(Trigger.isBefore && Trigger.isUpdate) {     
+                
+            CampaignHelper.useSegmentationCampaign(Trigger.New);
+        }    
         
 		
 		if(Trigger.isBefore && Trigger.isDelete)
