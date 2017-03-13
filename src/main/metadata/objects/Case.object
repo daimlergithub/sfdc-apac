@@ -273,6 +273,268 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	
+	<fields>
+        <fullName>MBTH_Case_Department_c__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_Case_Department__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate communication</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	
+	    <fields>
+        <fullName>MBTH_Related_Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Department</label>
+        <picklist>
+            <controllingField>Case_Department__c</controllingField>
+            <picklistValues>
+                <fullName>Sales &amp; Distribution</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fleet Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical Complaint Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Relations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Parts/P&amp;A</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical /DAC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Body &amp; Paint</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Merchandising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Card</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertising/Digital Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Communication/PR</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Activation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Turnaround_time__c</fullName>
+        <description>Add turnaround time (In Days) to calculate resolution time based on resolution date and created date for both Inquiry and complaint cases.</description>
+        <externalId>false</externalId>
+        <label>Turnaround Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MBTH_Waiver_Amount__c</fullName>
+        <description>Add Waiver Amount currency field to capture the requested waived off amount</description>
+        <externalId>false</externalId>
+        <label>Waiver Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Waiver_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Waiver Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Overdue Interest,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unearned Interest,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Early Termination Charges,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Penalty Fee,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_official_emailId__c</fullName>
+        <description>To add an email field which is basically the official email id for official communication channel for customer to send in request, complains, inquiries to MBM especially via this email channel which is managed by CCC.</description>
+        <externalId>false</externalId>
+        <label>Official-EmailId</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+
+	
+	
+	
     <fields>
         <fullName>Accident_Place__c</fullName>
         <externalId>false</externalId>

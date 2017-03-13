@@ -151,6 +151,50 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Address_TH__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c != null, Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c+ &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c + &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c + &apos;,&apos;, &apos;&apos;) + IF(Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) != null, Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) + &apos;,&apos;, &apos;&apos;) + Customer_Name__r.Primary_Address_Reference__r.ZipCode__c</formula>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, Customer_Name__r.FirstName, &apos;&apos;)</formula>
+        <label>First Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c  = &apos;TH&apos;, Customer_Name__r.LastName, &apos;&apos;)</formula>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, TEXT(Customer_Name__r.Title__c), &apos;&apos;)</formula>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>CAC_SourceId__c</fullName>
         <caseSensitive>true</caseSensitive>

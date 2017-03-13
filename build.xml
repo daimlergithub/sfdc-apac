@@ -113,6 +113,7 @@
 				<sf:include name="Account"/>				
 				<sf:include name="User"/>
 				<sf:include name="Address__c"/>	
+				<sf:include name="RegionMasterInfo__c"/>	
 				<sf:include name="Vehicle_Relationship__c"/>
 				<sf:include name="SSI__c"/>
 				<sf:include name="Vehicle__c"/>				
