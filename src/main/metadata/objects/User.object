@@ -1188,9 +1188,9 @@
         <masterLabel>Mass Update Assignment</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var userid = "{!$User.Id}";
-window.open("/apex/MassUpdate_new_Assigned_User?Id=userid")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/MassUpdate_new_Assigned_User?Id=userid", "_blank","resizable=yes")</url>
     </webLinks>
 </CustomObject>
