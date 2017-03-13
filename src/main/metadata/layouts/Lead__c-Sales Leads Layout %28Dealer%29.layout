@@ -129,6 +129,9 @@
                 <field>Expected_Registration_Date__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>
             </layoutItems>
