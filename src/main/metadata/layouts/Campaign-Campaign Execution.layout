@@ -20,11 +20,11 @@
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Execution_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Segmentation_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -78,7 +78,7 @@
                 <field>Final_List_Approved__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Execution_Type__c</field>
             </layoutItems>
             <layoutItems>

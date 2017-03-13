@@ -19577,6 +19577,12 @@ Record Type =  CAS/Central Marketing campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Campaign_Segmentation_Status_Checking</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Segmentation'),ISPICKVAL(Child_Campaign_Status__c, 'Planning'),  MD__c = 'JP',  $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Campaign_Executiono' )</errorConditionFormula>
+        <errorMessage>Campaign Status cannot be changed from Segmentation to Planning</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Status_Campleted</fullName>
         <active>true</active>
@@ -19729,6 +19735,12 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Parent_Complete_Status_Change</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Status),'Completed'),ISCHANGED(Status), MD__c = 'JP', $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
+        <errorMessage>You cannot changed the status</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Previous_Campaign_Execution_Parent</fullName>
         <active>false</active>
         <errorConditionFormula>AND(
@@ -19765,6 +19777,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>Start_Date_And_End_date</fullName>
+        <active>true</active>
+        <description>Start Date And End date validations On Parent Campaign</description>
+        <errorConditionFormula>IF(parentcampaign__c= null,( MD__c = 'JP'),IF(StartDate &gt;= EndDate , true,false))</errorConditionFormula>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Start_date_can_not_be_equal_to_Today</fullName>
