@@ -13167,18 +13167,18 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>Site Cost  plus Gift Expense cannot be greater than Actual Expense</errorMessage>
     </validationRules>
-	    <validationRules>
+    <validationRules>
         <fullName>Start_Date_And_End_date</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>IF(Parent_Campaign__c = null,IF( Start_Date__c &gt;= Close_Date__c , true,false),false)</errorConditionFormula>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= Close_Date__c, true,false)))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt; TODAY(), true,false)))</errorConditionFormula>
+        <active>false</active>
+        <errorConditionFormula>AND(ISCHANGED(Start_Date__c),Parent_Campaign__c = null,(IF( Start_Date__c &lt;= TODAY(), true,false)))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
@@ -13542,13 +13542,11 @@ alert('Does not match the request status, You cannot add active members.');
         <fullName>Segment</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Add Campaign Member</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}</url>
+        <url>window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>

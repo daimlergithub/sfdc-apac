@@ -1180,23 +1180,17 @@
         <showsStatus>false</showsStatus>
         <url>/</url>
     </webLinks>
-    <webLinks>
+   <webLinks>
         <fullName>Mass_Update_Assignment</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Mass Update Assignment</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var userid = "{!$User.Id}";
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/MassUpdate_new_Assigned_User?Id=userid", "_blank","resizable=yes")</url>
     </webLinks>
 </CustomObject>
