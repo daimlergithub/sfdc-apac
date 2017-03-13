@@ -19766,6 +19766,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
+	    <validationRules>
+        <fullName>Start_Date_And_End_date</fullName>
+        <active>true</active>
+        <description>Start Date And End date validations On Parent Campaign</description>
+        <errorConditionFormula>IF(parentcampaign__c= null,( MD__c = 'JP'),IF(StartDate &gt;= EndDate , true,false))</errorConditionFormula>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Start_date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
