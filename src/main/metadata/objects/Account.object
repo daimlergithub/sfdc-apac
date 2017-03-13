@@ -12157,6 +12157,241 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
+	
+	    <fields>
+        <fullName>Dealer_Field_Force_Manager_Email__c</fullName>
+        <description>&quot;GAP-Add Dealer Fieldforce Manager (TextArea) field and Dealer Fieldforce Manager Email to be added for Sales, Aftersales and FS</description>
+        <externalId>false</externalId>
+        <label>Dealer Field Force Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Field_Force_Manager__c</fullName>
+        <description>&quot;GAP-Add Dealer Fieldforce Manager (TextArea) field and Dealer Fieldforce Manager Email to be added for Sales, Aftersales and FS</description>
+        <externalId>false</externalId>
+        <label>Dealer Field Force Manager</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_AS__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager AS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_EmailFS__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager EmailFS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_EmailSales__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager EmailSales</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_Email_AS__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager Email AS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_FS__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager FS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fieldforce_Manager_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Fieldforce Manager Sales</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MBTH_Mercede__c</fullName>
+        <description>Only for Thailand</description>
+        <externalId>false</externalId>
+        <label>MBTH Mercedes Events</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lifestyle Event/Workshop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving Event/Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music/Concert</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Movie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Golf (Mercedes Trophy)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Product Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dining/F&amp;B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health/Beauty/Spa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Nationality__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Nationality</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>American</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>British</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_Mobile__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>New field to be added in Kernel Template</description>
+        <externalId>false</externalId>
+        <label>Opt In Mobile</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+
+	
+	
     <fields>
         <fullName>Updated_Consent_User__c</fullName>
         <externalId>false</externalId>
