@@ -13542,13 +13542,11 @@ alert('Does not match the request status, You cannot add active members.');
         <fullName>Segment</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Add Campaign Member</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}</url>
+        <url>window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>

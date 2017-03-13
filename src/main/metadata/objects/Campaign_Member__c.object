@@ -1165,13 +1165,14 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>CM-{0000}</displayFormat>
         <label>Campaign Member Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-	<validationRules>
+    <validationRules>
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
         <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
@@ -1209,7 +1210,7 @@
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
     </webLinks>
-	 <webLinks>
+    <webLinks>
         <fullName>Convert_To_Task</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
