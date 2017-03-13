@@ -3,20 +3,37 @@ public class RetailCampaignTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+       
+       if(Trigger.isBefore && Trigger.isInsert)
+        {
+           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New);
+           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
+            
+        }
+        if(Trigger.isBefore && Trigger.isUpdate)
+        {
+           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New);
+           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
+            
+        }
+       
+       
+       
+       
         if(Trigger.isBefore && Trigger.isDelete)
         {
            RetailCampaignHelper.beforeDeleteEvents(Trigger.old);
             
         }
-		 if(Trigger.isAfter && Trigger.isInsert)
+         if(Trigger.isAfter && Trigger.isInsert)
         {
            RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
-		   RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
+           RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
             
         } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }
