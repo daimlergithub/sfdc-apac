@@ -839,7 +839,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
+        <apexClass>PrintPDFcontrollerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
