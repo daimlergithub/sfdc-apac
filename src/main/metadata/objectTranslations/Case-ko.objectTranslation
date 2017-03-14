@@ -7973,6 +7973,14 @@
             <translation>--</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>설문조사</translation>
         </picklistValues>
@@ -12948,6 +12956,10 @@
             <translation><!-- GLC SUV --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLE SUC</masterLabel>
+            <translation><!-- GLE SUC --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GLE SUV</masterLabel>
             <translation><!-- GLE SUV --></translation>
         </picklistValues>
@@ -12958,6 +12970,10 @@
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
             <translation><!-- GLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS SUV</masterLabel>
+            <translation><!-- GLS SUV --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GRAND VOYAGER</masterLabel>

@@ -625,7 +625,7 @@ Proxy_Date_Time__c
             <name>Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  Dealer_LMS__c = 'Salesforce', MD__c = 'KR' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

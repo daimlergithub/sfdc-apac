@@ -10,7 +10,7 @@
         <criteriaItems>
             <column>CUST_OWNER_NAME</column>
             <operator>contains</operator>
-            <value>深井　玲子,嶋野　亮一,粕尾　香緒莉,大立目　直子,宮谷　文也,小川戸　豊</value>
+            <value>深井　玲子,嶋野　亮一,粕尾　香緒莉,大立目　直子,宮谷　文也,小川戸　豊,谷田　勉,新藤　梢</value>
         </criteriaItems>
         <criteriaItems>
             <column>Lead__c.Lead_DataSource__c</column>

@@ -5579,6 +5579,14 @@
             <translation><!-- Social media --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation><!-- Survey --></translation>
         </picklistValues>
@@ -15660,10 +15668,6 @@
         <sections>
             <label>소개/추천인 정보</label>
             <section>Referal/Referee Information</section>
-        </sections>
-        <sections>
-            <label>할당된 딜러 선택</label>
-            <section>Select Assigne Dealer</section>
         </sections>
         <sections>
             <label>경로 정보</label>

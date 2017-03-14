@@ -1046,6 +1046,14 @@
             <translation>AS 도우미 어플</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>설문조사</translation>
         </picklistValues>

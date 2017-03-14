@@ -1414,6 +1414,14 @@
             <translation>ロードアシスタント</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation>特別リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation>ダイムラーグループ従業員特別リース</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>アンケート</translation>
         </picklistValues>
