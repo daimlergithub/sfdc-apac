@@ -15498,67 +15498,7 @@
         <name>X72H_Untouched__c</name>
     </fields>
     <layouts>
-        <layout>After Sales Leads</layout>
-        <sections>
-            <label><!-- Assigned Dealer Reminder --></label>
-            <section>Assigned Dealer Reminder</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>アクティビティ日付情報</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>販売店情報</label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label>詳細情報</label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label>リード顧客情報</label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label>リード情報</label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label>リード処理情報</label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label>リードリクエスト情報</label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Miscelleneous Section --></label>
-            <section>Miscelleneous Section</section>
-        </sections>
-        <sections>
-            <label><!-- New Fields --></label>
-            <section>New Fields</section>
-        </sections>
-        <sections>
-            <label>参照情報</label>
-            <section>Reference Information</section>
-        </sections>
-        <sections>
-            <label><!-- Select Assigne Dealer --></label>
-            <section>Select Assigne Dealer</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
+        <layout>After Sales Leads</layout> 
     </layouts>
     <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
