@@ -54,7 +54,8 @@ global class Updatecampaignmemwithrefresh{
     }
     public static String getSObjectField(String str){
         if (str == null) { 
-            return ''; 
+            //return ''; 
+           return str== null ? '' : str ;
         } 
 
         return str;

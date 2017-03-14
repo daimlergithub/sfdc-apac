@@ -104,7 +104,9 @@
 											<sf:include name="RetailCampaignSegmentation"/>
 											<sf:include name="SurveyForce"/>
 											<sf:include name="Timeline_CSS"/>
-											<sf:include name="RetailCampaignTimeline_JS"/>
+											<sf:include name="RetailCampaignTimeline_JS"/>											
+											<sf:include name="False_Checkbox"/>
+											<sf:include name="True_Checkbox"/>
 							</sf:typeset>
 							<sf:typeset name="remoteSiteSettings"/>
 							<sf:typeset name="roles"/>
