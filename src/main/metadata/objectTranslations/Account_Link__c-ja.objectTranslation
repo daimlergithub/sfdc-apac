@@ -1402,10 +1402,14 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Person Retail Copy</layout>
+        <layout>Contact to Dealer</layout>
         <sections>
-            <label>プロフィール情報</label>
-            <section>Profile Information</section>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
