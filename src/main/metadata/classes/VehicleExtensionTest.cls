@@ -40,6 +40,7 @@ public class VehicleExtensionTest {
       objVehicleExtension.recordType=UtilConstant.MB;
       objVehicleExtension.saveVal();
       objVehicleExtension.saveAndNew();
+      objVehicleExtension.save();
       
       //stop test
       test.stopTest();
@@ -77,6 +78,7 @@ public class VehicleExtensionTest {
        objVehicleExtension.brand=UtilConstant.Question;
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
+       objVehicleExtension.save();
        objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
@@ -113,6 +115,7 @@ public class VehicleExtensionTest {
        objVehicleExtension.brand=objCarmodel.Brand__c;
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
+      objVehicleExtension.save();
        objVehicleExtension.Cancel();
       //stop test
       test.stopTest();

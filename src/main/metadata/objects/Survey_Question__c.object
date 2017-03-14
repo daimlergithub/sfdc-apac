@@ -54,7 +54,7 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Campaign_Question_Ref__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -173,16 +173,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
     </fields>
     <fields>
         <fullName>Survey__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Survey</label>
         <referenceTo>Survey__c</referenceTo>
         <relationshipLabel>SurveyQuestions</relationshipLabel>
         <relationshipName>SurveyQuestions</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Total_Responses__c</fullName>
@@ -275,7 +276,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <searchResultsAdditionalFields>OrderNumber__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Question__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Set_Single_Opinion_Text_Next_Question</fullName>
         <active>true</active>

@@ -704,7 +704,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontrollerTest</apexClass>
@@ -757,13 +757,9 @@
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-	    <classAccesses>
-        <apexClass>PrintPDF</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
+        <apexClass>PrintPDFcontrollerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3250,9 +3246,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22685,7 +22681,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MassUpdate_new_Assigned_User</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
@@ -22696,7 +22692,7 @@
         <enabled>true</enabled>
     </pageAccesses>
 	 <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

@@ -3,6 +3,7 @@ public With Sharing class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     final static String companyRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    final static String retailCampaignRecordtypeid = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId();
     public static Vehicle__c vehicle; 
     public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
@@ -24,6 +25,7 @@ public With Sharing class UserHelperTest
     Public Static Tool_Kit__c toolKit;
     public static Lead__c testLead;
     public static Lead__c testLead2;
+    public static Retail_Campaign__c testretail;
     public static Case aCase;
     public static Retail_Task__c contract;
     public static Account_Link__c externalLink;
@@ -115,6 +117,16 @@ public With Sharing class UserHelperTest
        test.stopTest();
        Lead__Share testLeadshare = [select AccessLevel from Lead__Share where ParentId =:testLead.id and UserOrGroupId =:usr.id limit 1];
        system.assertEquals(Edit,testLeadShare.AccessLevel) ;  
+    }   
+      public static testmethod void ShareAsRecordsToNewUser_test()
+    {
+       test.startTest();
+       createTestData();
+        
+       userHelper.ShareAsRecordsToNewUser(usr.id, existUserIds);
+       test.stopTest();
+       Retail_Campaign__Share share = [select AccessLevel from Retail_Campaign__Share where ParentId =:testretail.id and UserOrGroupId =:usr.id limit 1];
+       system.assertEquals(Edit,share.AccessLevel) ;  
     }   
         
     public static testmethod void ShareAsYearlyTAToNewUser_test()
@@ -414,22 +426,13 @@ public static testmethod void testbatch2()
         con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
-        //create user
-        
-        
+        //create user  
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
-            
-        //Create UserRole
-        UserRole ur = [Select Id From UserRole Where PortalType = 'Partner' Limit 1];
-                    
         usr = new User(
             Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
-            ProfileId = DealerDelegatedAdmin.Id,
-           // ProfileId  = portalProfile.Id,
-		    UserRoleId = ur.Id,            
-		    //PortalRole ='Worker',
+            ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
@@ -440,7 +443,8 @@ public static testmethod void testbatch2()
             LanguageLocaleKey = 'en_US',
             ContactId=con.id
         );
-       insert usr;
+        
+        insert usr;
         
         //Sandeep - After insert for trigger helper class coverage.
         update usr;
@@ -453,15 +457,15 @@ public static testmethod void testbatch2()
             LastName = 'Last',
             PersonEmail = 'test@test.com',
             Salutation = 'Unknown',
-            //MBK_Data_Source__c='Email',
-            Mobile__c = '09865234112'
+            MBK_Data_Source__c='Email',
+            Mobile__c = '00000009642'
         );
         insert person;
         
         CompanyAcc = new Account(
             RecordTypeId = companyRecordtypeid,
-            Mobile__c = '09642259685',
-            //Work_Phone__c = '000-0000-9642',
+            Mobile__c = '00000009642',
+            Work_Phone__c = '00000009642',
             Name = 'First'
             
         );
@@ -516,6 +520,15 @@ public static testmethod void testbatch2()
         RecordType contractType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'contract' limit 1];
         contract = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
         insert contract;
+        
+        testretail = new Retail_Campaign__c(RecordTypeId = retailCampaignRecordtypeid , name = 'testretail1');
+        insert testretail;
+        
+        Retail_Campaign__Share rShare = new Retail_Campaign__Share ();
+        rShare.ParentId = testretail.id;
+        rShare.UserOrGroupId = usr.id;
+        rShare.AccessLevel = Edit;
+        insert rShare;
         
         Retail_Task__Share rtShare = new Retail_Task__Share();
         rtShare.ParentId = contract.id;
@@ -572,7 +585,7 @@ public static testmethod void testbatch2()
             cmpAs.Name = 'cmpAs';
             cmpAs.Status = 'Started'; 
             cmpAs.StartDate = System.today();
-            cmpAs.EndDate = System.today();
+            cmpAs.EndDate = System.today().addDays(2);
             insert cmpAs;
       
         CampaignShare cmpAsShare = new CampaignShare();
@@ -589,7 +602,7 @@ public static testmethod void testbatch2()
             cmpSm.Name = 'cmpSm';
             
             cmpSm.StartDate = System.today(); 
-            cmpSm.EndDate = System.today();
+            cmpSm.EndDate = System.today().addDays(1);
             insert cmpSm;
          
         
@@ -608,7 +621,7 @@ public static testmethod void testbatch2()
             cmpMb.Name = 'cmpMb'; 
             cmpMb.Status = 'Started'; 
             cmpMb.StartDate = System.today(); 
-            cmpMb.EndDate = System.today();
+            cmpMb.EndDate = System.today().addDays(3);
             insert cmpMb;
         
         CampaignShare cmpMbShare = new CampaignShare();
@@ -637,7 +650,4 @@ public static testmethod void testbatch2()
         ush = new userHelper();     
         System.assertEquals(UserHelper.ErrorMessageFirstPart,ErrorMessageFirstPart);
     }
-    
-    
-    
-}
+    }

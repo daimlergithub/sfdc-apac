@@ -220,7 +220,10 @@
                    <apex:inputField value="{!objAccount.Email__c}" />  
                    <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
                    <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
-                
+                   <apex:inputField value="{!objPersonAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objPersonAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   
+                   
                    <apex:inputField value="{!objAccount.Fax}" /> 
                 </apex:pageBlockSection>       
                 

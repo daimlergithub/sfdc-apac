@@ -13,6 +13,8 @@ public with sharing class AccountHelperJPTest
    private static User user1;
    private static Account personAcc;
    private static Account companyacc; 
+   private static Address__c address;
+    private static Account account;
    
      //Create Test data
    public static void createTestData()
@@ -39,6 +41,9 @@ public with sharing class AccountHelperJPTest
                                Primary_Email__c = 'Email1',
                                Primary_Fax__c = 'FAX2',
                                Primary_Phone__c ='Other2',
+                               MD__c = 'JP',
+                               Industry = 'Other',
+                               OwnerId = Userinfo.GetUserId(),
                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
        
       // insert personAcc;
@@ -60,14 +65,19 @@ public with sharing class AccountHelperJPTest
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
+                                MD__c = 'JP',
+                                OwnerId = Userinfo.GetUserId(),
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
       //insert companyacc;
       accountlist.add(companyacc);
       insert accountlist;  
+      
       Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+   
         Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = accountlist[0].id, ReCordTypeId = RetailPerson);
         insert acclnk;
+       
       for(Account acc: accountlist){
          accountMap.put(acc.Id,acc);
          accountOldMap.put(acc.Id,acc);
@@ -122,19 +132,30 @@ public with sharing class AccountHelperJPTest
      {  
       createTestData(); 
       Test.Starttest();  
+      personAcc.LastName = 'galaxy123';
+      personAcc.Gender__c = 'Female';
+      //personAcc.Fax= '123456';
+      personAcc.Allow_Data_Sharing2__c = 'Yes';
+      personAcc.Complaint_Amount__c = 10;
       personAcc.Primary_Fax__c = 'FAX1';
       personAcc.Primary_Email__c = 'Email3';
       personAcc.Primary_Phone__c = 'Home Phone';
+     //personAcc.Company_Name_Native_1__c = 'Test ';
+      personAcc.Industry = 'Education';
       update personAcc;  
        AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(accountlist,accountMap,true);
+       AccountHelperJP.updateCompanyAccountNameBeforeInsert(accountlist);
       Test.Stoptest();      
      }
    public static testmethod void testcreateUCID()
      {  
       createTestData(); 
-      Test.Starttest();     
+      Test.Starttest();         
        AccountHelperJP.createUCID(accountlist,true);
+       AccountHelperJP.CreateRetailCopy(accountlist,true,true);
+      AccountHelperJP.handleAfterInsertUpdateEvent(accountlist,accountMap);
       Test.Stoptest();      
      }
+      
       
   }

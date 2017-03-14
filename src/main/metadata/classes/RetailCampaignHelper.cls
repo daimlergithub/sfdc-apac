@@ -282,7 +282,85 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
   
   
    }  
+   public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList){
    
+   Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+          
+          
+           For(Retail_Campaign__c rect : retList){
+           
+           if(rect.Parent_Campaign__c == null && rect.RecordTypeId == parentCampaignId){
+           
+               
+                 If(rect.Start_Date__c < System.Today()){
+                 
+                   rect.addError('Date error');   
+                 
+                 }
+                 
+                 If(rect.Close_Date__c < rect.Start_Date__c){
+                 
+                       rect.addError('Date error');
+                 }
+                  
+           
+}
+
+
+}
+   
+ }
+ 
+ public static void validationChildRetailCampaign(List<Retail_Campaign__c> retListMain){
+ 
+ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+ Set<Id> sid = New Set<Id>();         
+          
+           For(Retail_Campaign__c rect : retListMain){
+           
+if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
+                  
+                    system.debug('+++++++++++++++'+'WORKING' );
+                         sid.add(rect.Parent_Campaign1__c);
+                         
+                         
+                         }
+                  }
+                  
+                  
+                  if(sid.size() > 0){
+                  
+                  
+                  List<Retail_Campaign__c> retList = [Select id,Start_Date__c,Close_Date__c from Retail_Campaign__c Where Id =:sid];
+                  
+                  system.debug('+++++++++++++++'+retList );
+                  For(Retail_Campaign__c rec : retlist){
+                  
+                     For(Retail_Campaign__c recta : retListMain ){
+                     
+                     system.debug('+++++++++++++++'+rec.Start_Date__c );
+                     if(recta.Segmentation_Date__c <= rec.Start_Date__c ||recta.Segmentation_Date__c > rec.Close_Date__c ){
+                     
+                         recta.addError('Segmentation Error');
+                         
+                     
+                     }
+                     
+                     if(recta.Execution_Start_Date__c <= recta.Segmentation_Date__c || recta.Execution_Start_Date__c > rec.Close_Date__c ){
+                     
+                     
+                            recta.addError('Execution Error');
+                     }
+                  if(recta.Response_Date__c <= recta.Execution_Start_Date__c || recta.Response_Date__c  > rec.Close_Date__c ){
+                     
+                     
+                            recta.addError('Response Error');
+                     }
+                  }
+               }
+     }
+ 
+}
    
     public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
     
@@ -341,7 +419,7 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
                   
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
-                 newCamRetail.Name = camo.Name;
+                // newCamRetail.Name = camo.Name;
                  newCamRetail.Retail_Campaign_Id__c = retailId;
                  newCamRetail.Status__c = camo.Status__c;
                  newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;

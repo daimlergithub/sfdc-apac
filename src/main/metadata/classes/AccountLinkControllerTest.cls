@@ -32,8 +32,8 @@ public class AccountLinkControllerTest{
        
       companyAcc = new Account(Name='Test Company'
                         ,Email__c='test@compacc.com'
-						,MD__c='JP'
-						,RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+                        ,MD__c='JP'
+                        ,RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        insert companyAcc;
       
        /* account= new Account();
@@ -58,6 +58,8 @@ public class AccountLinkControllerTest{
          ApexPages.currentPage().getParameters().put('Id',companyAcc.id);
          ApexPages.StandardController sc1 = new ApexPages.StandardController(companyAcc);
          AccountLinkController spo1=new AccountLinkController(sc1);
+         spo1.ab();
+         spo1.DeleteRetailCopy();
          test.StopTest();
    }
 }
