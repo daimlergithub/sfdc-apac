@@ -5,9 +5,7 @@
     <customButtons>Notify_to_Dealer</customButtons>
     <customButtons>Generate_Pdf</customButtons>
 	<excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
 	<excludeButtons>Clone</excludeButtons>
 	<excludeButtons>CloseCase</excludeButtons>
