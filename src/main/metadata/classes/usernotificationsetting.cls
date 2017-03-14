@@ -35,13 +35,14 @@ public class usernotificationsetting {
          acclst=[select Id,Name,Dealer_GC_Code__c,Dealer_ND_Code__c from Account where  Dealer_GC_Code__c =:strname AND recordtypeId=:dealeracctrt ];
      
         for(Account a:acclst ){
+		if(a.Dealer_ND_Code__c!=null){
            selectOption s=new selectOption(a.Dealer_ND_Code__c,a.Name); 
             leftacc.add(s);
             leftacctwo.add(s);
             leftaccthree.add(s);
         }   
         }
-  
+  }
     public void addit(){
        
         if(Selected.size() >0){
