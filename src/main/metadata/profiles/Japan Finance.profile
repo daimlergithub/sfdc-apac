@@ -704,7 +704,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontrollerTest</apexClass>
@@ -22794,7 +22794,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MassUpdate_new_Assigned_User</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>

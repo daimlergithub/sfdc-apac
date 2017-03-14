@@ -704,7 +704,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MassUpdatenewAssignedusercontrollerTest</apexClass>
@@ -759,7 +759,7 @@
         <enabled>true</enabled>
     </classAccesses> 
     <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
+        <apexClass>PrintPDFcontrollerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -22681,7 +22681,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MassUpdate_new_Assigned_User</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
@@ -22692,7 +22692,7 @@
         <enabled>true</enabled>
     </pageAccesses>
 	 <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

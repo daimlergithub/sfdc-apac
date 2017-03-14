@@ -104,7 +104,9 @@
 											<sf:include name="RetailCampaignSegmentation"/>
 											<sf:include name="SurveyForce"/>
 											<sf:include name="Timeline_CSS"/>
-											<sf:include name="RetailCampaignTimeline_JS"/>
+											<sf:include name="RetailCampaignTimeline_JS"/>											
+											<sf:include name="False_Checkbox"/>
+											<sf:include name="True_Checkbox"/>
 							</sf:typeset>
 							<sf:typeset name="remoteSiteSettings"/>
 							<sf:typeset name="roles"/>
@@ -177,7 +179,7 @@
 											<sf:include name="Retailcopybutton"/>
 											<sf:include name="AddressSelectionforExistingCustomer"/>
 											<sf:include name="LeadAssignmentPage"/>
-											<sf:include name="PrintPDF"/>
+											<sf:include name="printLeadPDF"/>
 											<sf:include name="SelectAddress"/>                                    
 							   <sf:include name="createRetailCopyKRButton"/>
 							   
@@ -247,8 +249,8 @@
 								<sf:include name="RelatedDealerViewForLoanTest"/>
 								<sf:include name="createRetailCopy"/>
 								<sf:include name="createRetailCopyJPTEST"/>
-								<sf:include name="PrintPDF"/>
-								<sf:include name="PrintPDFTest"/>
+								<sf:include name="PrintPDFcontroller"/>
+								<sf:include name="PrintPDFcontrollerTest"/>
 								<sf:include name="AddressSelectionforExistingCustomer"/>
 								<sf:include name="AddressSelectionforExistingCustomerTest"/>
 								<sf:include name="SelectAddressController"/>

@@ -5,10 +5,11 @@
     <customButtons>New_Task</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
-    <customButtons>Merge</customButtons>
-    <excludeButtons>Edit</excludeButtons>
-    <excludeButtons>Delete</excludeButtons>
-    <excludeButtons>Clone</excludeButtons>
+    <customButtons>Merge</customButtons> 
+	<excludeButtons>ChangeOwnerOne</excludeButtons>
+   <excludeButtons>ChangeRecordType</excludeButtons>
+   <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -408,7 +409,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
-        <fields>Survey__c</fields>	
+        <fields>Survey__c</fields>
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
