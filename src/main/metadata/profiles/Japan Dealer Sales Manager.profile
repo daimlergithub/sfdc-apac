@@ -23819,7 +23819,7 @@
         <name>IPRestrictRequests</name>
     </userPermissions>
 	<userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
