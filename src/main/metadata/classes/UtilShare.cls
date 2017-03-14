@@ -177,6 +177,7 @@ public without sharing class UtilShare{
     
     @future
     public static void DealerGroupCreation(Set<id> dealerAccountIds, Set<id> userIds){
+	/*
         Set<String> groupNames = new Set<String>();
         Map<id,Account> mapAccount = new Map<id,Account>([select id,Name,Dealer_ND_Code__c from account where Id IN : dealerAccountIds]);
         for (Account acc : mapAccount.Values()) {
@@ -226,6 +227,7 @@ public without sharing class UtilShare{
         system.debug('listGroupMembersToInsert <<:'+listGroupMembersToInsert);
         if(listGroupMembersToInsert.size() > 0){            
             upsert listGroupMembersToInsert; 
-        }        
+        }    
+	*/
     }    
 }
