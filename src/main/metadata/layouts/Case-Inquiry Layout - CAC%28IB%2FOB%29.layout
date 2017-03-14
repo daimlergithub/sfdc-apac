@@ -9,6 +9,8 @@
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
+	<excludeButtons>CloseCase</excludeButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -24,12 +26,7 @@
                 <width>450</width>
             </containers>
         </primaryTabComponents>
-    </customConsoleComponents>
-    <excludeButtons>ChangeOwnerOne</excludeButtons>
-    <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Clone</excludeButtons>
-    <excludeButtons>CloseCase</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
+    </customConsoleComponents> 
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
