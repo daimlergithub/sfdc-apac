@@ -42704,7 +42704,7 @@ window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=0122800
 
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>New_Inquiry</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -42726,10 +42726,10 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 else{ 
 if('{!User.ContactId}' !=null) 
 { 
-window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;cas4={!Account.Id}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;cas4={!Account.Id}&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 else { 
-window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
+window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
 } 
 }</url>
     </webLinks>
@@ -42755,13 +42755,13 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 else{ 
 if('{!User.ContactId}' !=null) 
 { 
-window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;cas4={!Account.Id}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;cas4={!Account.Id}&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 else { 
-window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
+window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
 }
 }</url>
-    </webLinks>	
+    </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Leads</fullName>
         <availability>online</availability>
@@ -42793,11 +42793,11 @@ else {
 if('{!User.ContactId}' !=null) {
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self');  
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self');  
 } 
 }
 else{
@@ -42845,11 +42845,11 @@ if('{!User.ContactId}' !=null)
 { 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 }
 }
 else{
@@ -43034,6 +43034,24 @@ if (sforce.console.isInConsole()) {
 			{
 			alert(&apos;{!$Label.Insufficient_privilege}&apos;);
         }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_Retail_Copies</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>View Retail Copies</masterLabel>
+        <openType>newWindow</openType>
+        <page>ViewRetailCopiesPage</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
