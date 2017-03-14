@@ -59,7 +59,7 @@ MODIFICATION DETAILS:
         address.Block__c='test3';
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
-        address.Customer__c=account.id;
+        address.Customer__c=personAcc.id;
         address.TitleOfHonor__c = 'To Person';  
          
 
@@ -70,6 +70,9 @@ MODIFICATION DETAILS:
          ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
          SendAccountInfoToSPO spo=new SendAccountInfoToSPO(sc);
          spo.SendTOSpo();
+         spo.message = 'Test';
+         spo.ShowHideError = False;
+         spo.redirectUrl = 'Test';
          test.StopTest();
          system.assertNotEquals(personAcc,null);
   }

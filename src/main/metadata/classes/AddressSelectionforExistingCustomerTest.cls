@@ -27,147 +27,6 @@ MODIFICATION DETAILS:
     private static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
   
   
-  Public static void personAccountTestData()
-  {
-  personAcc = new Account(Dealer_Default_Flag__c=false,
-                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
-                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                               City__c='Beijing',
-                               Gender__c = 'Male',
-                               Phone = '0801801110',
-                               Area_code__c = '0101',
-                               MD__c = 'JP',
-                               LastName = 'galaxy1',
-                               FirstName = 'First Name',
-                               Salutation = 'Unknown',      
-                               Province__c = 'Shanghai',
-                               ZipCode__c= '1002347',
-                               Mobile__c = '023482832',
-                               Mobile2__c = '035456232',
-                               Primary_Email__c = 'Email1',
-                               Primary_Fax__c = 'FAX2',
-                               Primary_Phone__c ='Other2',
-                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-       
-       insert personAcc;  
-        
-      
-       
-        account= new Account();
-        account.Phone='09844650654';
-        account.FirstName = 'Test';
-        account.Mobile__c = '023482832';
-        account.Data_Source__c  = 'Test4';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
-        
-        address=new Address__c();
-        address.Address_Type__c='Home';
-        address.Province__c='test1';
-        address.City__c='bangalore';
-        address.District__c='test2';
-        address.Block__c='test3';
-        address.Address_Line_1__c='testaddress1';
-        address.Address_Line_2__c='testaddress2';
-        address.Customer__c=account.id;
-        address.TitleOfHonor__c = 'To Person';  
-         
-
-        insert address;
-        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = personAcc.id,fromrole__c=account.id, ReCordTypeId = RetailPerson);
-        insert acclnk; 
-  
-  }
- 
- 
-  Public static void createCompanyAccTestData()
- {
- 
-     
-       
-        companyacc = new Account(Dealer_Default_Flag__c=false,
-                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
-                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                                City__c='Beijing',
-                                Gender__c = 'Male',
-                                Phone = '0801801010',
-                                Area_code__c = '0101',
-                                MD__c = 'JP',
-                                name = 'tes company name',
-                                //Salutation = 'Unknown',      
-                                Province__c = 'Shanghai',
-                                ZipCode__c= '1003465',
-                                Mobile__c = '023482832',
-                                Mobile2__c = '034456232',
-                                Primary_Email__c = 'Email2',
-                                Primary_Fax__c = 'FAX2',
-                                Primary_Phone__c ='Other2',
-                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
-       
-      insert companyacc;
-      //accountlist.add(companyacc);
-        
-     // insert accountlist;  
-      
-       
-        account= new Account();
-        account.Phone='09844650654';
-        account.FirstName = 'Test';
-        account.Mobile__c = '023482832';
-        account.Data_Source__c  = 'Test4';
-        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
-        
-        address=new Address__c();
-        address.Address_Type__c='Home';
-        address.Province__c='test1';
-        address.City__c='bangalore';
-        address.District__c='test2';
-        address.Block__c='test3';
-        address.Address_Line_1__c='testaddress1';
-        address.Address_Line_2__c='testaddress2';
-        address.Customer__c=account.id;
-        address.TitleOfHonor__c = 'To Person';  
-         
-
-        insert address;
-        
-        Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-        Account_Link__c acclnkcom = new Account_Link__c(Name = 'Test Name', ToRole__c = companyacc.id,fromrole__c=account.id, ReCordTypeId = RetailCompany);
-        insert acclnkcom;
- 
- }
- 
-  public static testMethod void PersonAccTestData()
-  {
-  
-      
-        personAccountTestData();
-        test.StartTest();
-        ApexPages.currentPage().getParameters().put('Id',personAcc.id);
-        // ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
-         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
-          add.getSelectedAddress();
-         add.getDealer();       
-         add.CreateRetailCopy();
-         test.StopTest();
-         system.assertNotEquals(personAcc,null);
-  }
-  
-/* public static testMethod void CompanyAccTestData()
-  {
-  
-      //  CompanyAccTestData();
-        test.StartTest();
-        ApexPages.currentPage().getParameters().put('Id',companyacc.id);
-      //   ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
-         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
-          add.getSelectedAddress();
-         add.getDealer();       
-         add.CreateRetailCopy();
-         test.StopTest();
-         system.assertNotEquals(companyacc,null);
-  } */
- 
  
  public static testMethod void DealerTest()
   {
@@ -244,13 +103,6 @@ MODIFICATION DETAILS:
 
         insert address;
         
-          Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = companyacc.id,fromrole__c=dealer.id, ReCordTypeId = RetailPerson);
-        insert acclnk;
-         Account_Link__c Indacclnk = new Account_Link__c(Name = 'Test Name',Primary__c=True, ToRole__c = companyacc.id,System__c='My Mercedes',fromrole__c=dealer.id, ReCordTypeId = alkIndividualRecordTypeId);
-        alkList.add(Indacclnk) ;
-        
-        insert alkList;
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',companyacc.id);
        //  ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
@@ -258,12 +110,81 @@ MODIFICATION DETAILS:
           add.getSelectedAddress();
          add.getDealer();       
          add.CreateRetailCopy();
+         add.cancel();
          test.StopTest();
          system.assertNotEquals(companyacc,null);
          }
+    }
+    public static testMethod void DealerTest1()
+  {
   
-    
-  }
+  // create a Dealer
+         dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+         
+        // create a Contact
+        
+        con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+        insert con;
+        
+        //create user  
+        User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+       
+        
+         System.runAs (thisUser) {
+        
+     personAcc = new Account(Dealer_Default_Flag__c=false,
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801110',
+                               Area_code__c = '0101',
+                               MD__c = 'JP',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'Email1',
+                               Primary_Fax__c = 'FAX2',
+                               Primary_Phone__c ='Other2',
+                               Main_Dealer__c = dealer.Id,
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+       
+       insert personAcc;  
   
-   
+  
+   //  Insert Address Record 
+       address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='test1';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.Customer__c=personAcc.id;
+        address.TitleOfHonor__c = 'To Person';  
+         
+
+        insert address;
+        
+        test.StartTest();
+        ApexPages.currentPage().getParameters().put('Id',personAcc.id);
+       //  ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
+         AddressSelectionforExistingCustomer add=new AddressSelectionforExistingCustomer();
+         add.did = personAcc.id;
+         add.DealerID = dealer;
+          add.getSelectedAddress();
+         add.getDealer();       
+         add.CreateRetailCopy();
+         add.cancel();
+         test.StopTest();
+        // system.assertNotEquals(companyacc,null);
+         }
+    }
+  
+  
  }
