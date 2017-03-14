@@ -1161,24 +1161,23 @@
         <searchResultsAdditionalFields>CORE.USER_ROLE.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-	<webLinks>
+    <webLinks>
         <fullName>Change_Notification_Settings</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
         <hasMenubar>false</hasMenubar>
         <hasScrollbars>true</hasScrollbars>
         <hasToolbar>false</hasToolbar>
         <height>600</height>
         <isResizable>true</isResizable>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>Change Notification Settings</masterLabel>
         <openType>newWindow</openType>
+        <page>usernotificationsetting</page>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/</url>
     </webLinks>
    <webLinks>
         <fullName>Mass_Update_Assignment</fullName>
