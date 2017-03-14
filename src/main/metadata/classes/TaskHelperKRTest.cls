@@ -1,90 +1,124 @@
-@isTest
+@istest
 public class TaskHelperKRTest {
-    private static Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
-    private static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
-    private static Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
-    private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
-    private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-    public static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
+  public static Account accobj;
+  public static Contact Contobj;
+  public static Lead__c leadobj;
+  public static Task taskobj;
+   public static Task taskobj1;
+  public static List<Task> tasklist;
+  public static Campaign camobj;
+  public static DM_Request__c dmr;
+  public static DM_Material__c Material;
+  public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(); 
+  public static Id DealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(); 
+  public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+  public static Id salesleadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+  public static Id SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+  public static Id OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+  public static Id eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
+      
+  static void createTestData() {
+    accobj = new Account();
+    accobj.RecordTypeId = DealerRecordTypeId ;
+    accobj.Name = 'testaccount'; 
+    accobj.MBK_Data_Source__c='Email';
+    accobj.Mobile__c = '00000009642';
+    accobj.ZipCode__c= '1002347';    
+    insert accobj;
+    system.debug('$$$$$$$$$$$$'+accobj);
+    system.debug('$$$$$$$$$$$$'+accobj.id);
     
-    private static Account personAccount;
-  	private static Account testPersonAccount;
-  	private static Task taskObj;
-    public static Campaign cmpAs;
-    public static Case aCase;
-    public static string acme = 'Acme';
-    public static String Unknown = 'Unknown';
+    contobj = new Contact();
+    contobj.LastName = 'Testutilcampaignlead';
+    contobj.Phone = '1212313';
+    contobj.Title = 'contact title';
+    contobj.Name_English__c = 'c';
+    contobj.AccountId = accobj.Id;
+    insert contobj;
+    system.debug('$$$$$$$$$$$$'+contobj);
+    system.debug('$$$$$$$$$$$$'+contobj.id);
     
+    camobj = new Campaign();
+    camobj.RecordTypeId = centmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Planned';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today();
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    insert camobj;
+    system.debug('$$$$$$$$$$$$'+camobj);
+    system.debug('$$$$$$$$$$$$'+camobj.id);
     
-    public static void createTestData(){
-        
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-        
-        personAccount = new Account(LastName='TEST ACC',
-                                    FirstName = 'FirstName',
-                                    Salutation = Unknown,
-                                      Type='Company',
-                                      Status__c='VIP',
-                                      Province__c='Shanghai',
-                                      City__c='Baoshan district',
-                                      ZipCode__c='1004468',
-                                      PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',
-                                      RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
-                                     ); 
-        personAccount.Is_Blacklist__c = false;
-        insert(personAccount);    
-        testPersonAccount = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :personAccount.Id]; 
-      cmpAs = new Campaign();
-        cmpAs.RecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
-            cmpAs.IsActive = true;
-            cmpAs.Name = 'cmpAs';
-            cmpAs.Status = 'Started'; 
-            cmpAs.StartDate = System.today();
-            cmpAs.EndDate = System.today();
-            
-            insert cmpAs;
-        
-         aCase = new Case(
-            Subject = 'XX',
-            AccountId = personAccount.Id,
-            Case_Class__c = 'Pre-Sales',
-            Car_Type__c = 'Dealer contact method',
-            Case_SubType__c = 'Dealership Contacts',
-            
-            Status = 'Open'
-        );
-        insert aCase;
-        
-    }
+    leadobj = new Lead__c();
+    leadobj.RecordTypeId = salesleadRecordTypeId;
+    //leadobj.Contact__c = accobj.Id;
+    leadobj.CAC_Lead_Status__c = 'Qualified';
+    leadobj.Lead_Type__c = 'New Car';
+    insert leadobj;
+    system.debug('$$$$$$$$$$$$'+leadobj);
+    system.debug('$$$$$$$$$$$$'+leadobj.id);
     
-    public static void testData1(){
-        String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-        createTestData();
-          // Person Contact                
-          Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-    	Contact conComplaint = new Contact(AccountId = dealer.Id, Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '0123456789', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
-        insert conComplaint;
-        Task task = new Task(Subject = acme, RecordTypeId = IBTaskRecordTypeId, WhoId = conComplaint.Id);
-        insert task; 
+    taskobj = new Task();
+    taskobj.RecordTypeId = OBTaskRecordTypeId ;
+    taskobj.Status='open';
+    taskobj.Activity_Status__c='Successful';
+    taskobj.Generate_QC__c = true;
+    taskobj.whatId = accobj.Id;
+    taskobj1 = new Task();
+    taskobj1.RecordTypeId = eDMTaskRecordTypeId ;
+    taskobj1.Status='open';
+    taskobj1.Activity_Status__c='Successful';
+    taskobj1.Generate_QC__c = true;
+    taskobj1.whatId = leadobj.Id;
+    tasklist = new List<Task>();
+    tasklist.add(taskobj);
+    tasklist.add(taskobj1);
+    insert tasklist;
+      
+    dmr = new DM_Request__c();
+    Trigger__c TriggerDMR=new Trigger__c(Name='DMRequest',Trigger_Name__c='TriggerDMRequest',
+                                         Trigger_Handler__c='TriggerDMRequestTriggerHandlerJP',update__c=True,
+                                         insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,
+                                         Market__c='JP');
+    insert TriggerDMR;
+    
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+  
+    Material = new DM_Material__c();
+    Material.Name='testname';
+    insert Material;
         
-        List<Task> lsttask = new List<Task>();
-        lsttask.add(task);
-        
-        
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname1',Salutation = Unknown, Area_Code__c = '0101',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Home_Phone_2__c = '0987654131');
-        insert acc;
-        task = new Task(Subject = acme, RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
-        insert task;
-        
-        List<Task> lsttask1 = new List<Task>();
-        lsttask1.add(task);
-        
-        TaskHelperKR.updateAccountMobile(lsttask);
-        TaskHelperKR.CustomerConsenment(lsttask1);
-        
-    }
-
+    dmr = new  DM_Request__c();
+    dmr.Status__c='Open'; 
+    //dmr.Customer_Name__c=accobj.id;
+    //dmr.Sending_Address__c='Home';
+    dmr.TitleOfHonor__c = 'To Person';
+    dmr.Status2__c='open';
+    dmr.Expected_DM_Material1__c=Material.id;
+    dmr.Expected_DM_Material2__c=Material.id;
+    dmr.Expected_DM_Material3__c=Material.id;
+    dmr.Status1__c='Success';
+    dmr.Status3__c='Success';
+    dmr.Sent_Date__c=system.today().addDays(-10);
+    insert dmr;
+    system.debug('$$$$$$$$$$$$'+dmr);
+    system.debug('$$$$$$$$$$$$'+dmr.id);
+  }
+  public static testmethod void updateAccountMobileTest() {
+    createTestData();
+    test.starttest();
+      TaskHelperKR.updateAccountMobile(tasklist);
+    test.stoptest();  
+    system.assertEquals(taskobj.Activity_Status__c,'Successful');
+  }
+  public static testmethod void CustomerConsenmentTest() {
+    createTestData();
+    test.starttest();
+      TaskHelperKR.CustomerConsenment(tasklist);
+    test.stoptest();     
+    system.assertEquals(taskobj.Activity_Status__c,'Successful');
+  }
 }
