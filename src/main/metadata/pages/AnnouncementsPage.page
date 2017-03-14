@@ -4,15 +4,15 @@
     Date        : 04/12/2017
     Release     : Japan P4
 -->
-<apex:page Controller="AnnouncementController" showHeader="false" sidebar="false">
+<apex:page Controller="AnnouncementController" showHeader="false" sidebar="false" >
   <apex:form >
-      <apex:pageBlock rendered="{!isVisibleforDealers}">
-          <!--<apex:repeat  var="chfeed">-->
-          <apex:pageBlockTable value="{!dealerchatterfeed}" var="chfeed">
+      <apex:pageBlock rendered="{!isVisibleforDealers}" title="Announcements">
+          <apex:pageBlockTable value="{!dealerchatterfeed}" var="chfeed" >
                   <apex:column value="{!chfeed.parent.Name}"/> 
                   <apex:column value="{!chfeed.InsertedBy.Name}"/><br/>
-                  <apex:column value="{!chfeed.Body}"/>
-          <!--</apex:repeat>-->
+                  <apex:column >
+                      <apex:outputText value="{!chfeed.Body}" escape="false"/>
+                  </apex:column>
           </apex:pageBlockTable>
       </apex:pageBlock>
     <apex:pageBlock rendered="{!isVisible}">
