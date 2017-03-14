@@ -763,7 +763,7 @@
         <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>printLeadPDF</apexClass>
+        <apexClass>PrintPDFcontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -22817,7 +22817,7 @@
         <enabled>false</enabled>
     </pageAccesses>
 	<pageAccesses>
-        <apexPage>PrintPDFcontroller</apexPage>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
