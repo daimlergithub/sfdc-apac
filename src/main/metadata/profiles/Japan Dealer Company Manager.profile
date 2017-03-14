@@ -11951,7 +11951,7 @@
         <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.AnnualRevenue</field>
@@ -12200,6 +12200,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Additional_Services__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Retail_Campaign_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
