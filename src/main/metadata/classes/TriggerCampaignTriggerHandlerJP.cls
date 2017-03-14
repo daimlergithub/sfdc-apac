@@ -26,12 +26,12 @@ public class TriggerCampaignTriggerHandlerJP
          if(Trigger.isBefore && Trigger.isDelete){
              CampaignHelper.beforeDeleteEvents(Trigger.old);
          }
-                 if(Trigger.isBefore && Trigger.isUpdate)
+               /*if(Trigger.isBefore && Trigger.isUpdate)
         {
            CampaignHelper.validationParentCampaign(Trigger.New);
            CampaignHelper.validationChildCampaign(Trigger.New);
             
-        }    
+        }    */
         if(Trigger.isAfter && Trigger.isDelete )
         {
             //CampaignHelper.beforeDeleteEvents(Trigger.old);

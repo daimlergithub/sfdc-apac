@@ -10,12 +10,12 @@ public class RetailCampaignTriggerHandlerJP
            RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
             
         }
-        if(Trigger.isBefore && Trigger.isUpdate)
+      /*if(Trigger.isBefore && Trigger.isUpdate)
         {
-           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New);
-           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
+        // RetailCampaignHelper.validationParentRetailCampaign(Trigger.New);
+	//RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
             
-        }
+        } */
        
        
        
