@@ -8,6 +8,8 @@
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>	
     <excludeButtons>ChangeOwnerOne</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
+	<excludeButtons>CloseCase</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
