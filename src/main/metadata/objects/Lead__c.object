@@ -109068,7 +109068,7 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <linkType>page</linkType>
         <masterLabel>Print PDF</masterLabel>
         <openType>newWindow</openType>
-        <page>PrintPDF</page>
+        <page>printLeadPDF</page>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>

@@ -325,6 +325,10 @@ public without sharing class RetailCampaignSegmentationController {
                 }
                 
                                      system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
+				if(vehicleRelSoql.endsWith('AND  ')){		
+                     System.debug('Removing end in vehilce soql');		
+                     vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');		
+                 }
 
                 if(!vehicleRelSoql.endsWith('where ')) {
                 
@@ -553,13 +557,13 @@ public without sharing class RetailCampaignSegmentationController {
         Map<String, Campaign_Member__c> retailCampaignMembers = new Map<String, Campaign_Member__c>();
         Set<String> accountIds = new Set<String>();
         List<Id> selectedAccoundIds = new List<Id>();
-        Map<Id,String> accName = new Map<Id,String>();
+        //Map<Id,String> accName = new Map<Id,String>();
          System.debug('wrapAccountList==='+wrapAccountList);
         // Filtering seletced accounts
         for(wrapperAccount temp : wrapAccountList){
             if(temp.isSelected)
                 selectedAccoundIds.add(temp.acc.Id);
-                accName.put(temp.acc.Id,temp.acc.name);
+                //accName.put(temp.acc.Id,temp.acc.name);
         }
         system.debug('selectedAccoundIds==='+selectedAccoundIds);
         for(Id id: selectedAccoundIds){
@@ -658,6 +662,10 @@ public without sharing class RetailCampaignSegmentationController {
                 vehicleRetailFind = true;
                 vehicleRelFind = true;
              }
+			 if(vehicleFilterItems != NULL && vehicleretailItems != NULL && !vehicleretailItems.isEmpty() && !vehicleFilterItems.isEmpty()){		
+                 vehicleFind = true; 		
+                  vehicleRetailFind = true;   		
+             }
             setSubSoql(customerFilterItems, 'account');
             setSubSoql(leadFilterItems, 'lead');
             setSubSoql(vehicleFilterItems, 'vehicle');
@@ -690,6 +698,7 @@ public without sharing class RetailCampaignSegmentationController {
                     String logic = (String)filterItemMap.get('logic');
                     Boolean bracket = (Boolean)filterItemMap.get('bracket');
                     String subSoql = '';
+					 System.debug('vehicleRelFind '+vehicleRelFind +' vehicleFind '+vehicleFind +' vehicleRetailFind '+vehicleRetailFind );
                     if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
                         System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
                         logic = ' AND ';
@@ -697,6 +706,11 @@ public without sharing class RetailCampaignSegmentationController {
                     }
                     if(vehicleRelFind && vehicleRetailFind && logic == '' && cluster == 'VehicleRelation'){
                         logic = ' AND ';
+                    }
+					if(vehicleFind && vehicleRetailFind && logic == '' && cluster == 'Vehicle'){		
+                     System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');		
+                        logic = ' AND ';		
+                     System.debug('AfterField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');		
                     }
                     if(vehicleFields.contains(field)){
                         field = 'Vehicle_ID__r.' + field;

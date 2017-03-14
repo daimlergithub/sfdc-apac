@@ -48,7 +48,7 @@
                 <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Activation_Dealer_Code__c</field>
             </layoutItems>
             <layoutItems>
@@ -109,13 +109,13 @@
         <label>Contract Status</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Status__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Contract_Status_Change_Date__c</field>
             </layoutItems>
         </layoutColumns>

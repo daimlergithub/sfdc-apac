@@ -16,10 +16,22 @@ public class TriggerCampaignTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+      if(Trigger.isBefore && Trigger.isInsert)
+        {
+           CampaignHelper.validationParentCampaign(Trigger.New);
+           CampaignHelper.validationChildCampaign(Trigger.New);
+            
+        }
              
          if(Trigger.isBefore && Trigger.isDelete){
              CampaignHelper.beforeDeleteEvents(Trigger.old);
-         }    
+         }
+               /*if(Trigger.isBefore && Trigger.isUpdate)
+        {
+           CampaignHelper.validationParentCampaign(Trigger.New);
+           CampaignHelper.validationChildCampaign(Trigger.New);
+            
+        }    */
         if(Trigger.isAfter && Trigger.isDelete )
         {
             //CampaignHelper.beforeDeleteEvents(Trigger.old);

@@ -301,70 +301,70 @@ Set<id> aid = New Set<id>();
    
    
    }
-   public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore){
-   
-   String rect ;
-   String mont;
-   Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
-   
-   For(Campaign camp : campaignIdsBefore ){
-   
-   
-   if(camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true){     
-             rect = camp.SegWorkingDay__c ; 
-              
-             if(camp.SegWorkingMonth__c == 'Jan'){
-                 
-                 mont = '1';
-              }else if(camp.SegWorkingMonth__c == 'Feb'){
-              
-                 mont = '2';
-              } else if(camp.SegWorkingMonth__c == 'Mar'){ 
-              
-              mont = '3';
-              } else if(camp.SegWorkingMonth__c == 'Apr'){ 
-              
-              mont = '4';
-              } else if(camp.SegWorkingMonth__c == 'May'){ 
-              
-              mont = '5';
-              } else if(camp.SegWorkingMonth__c == 'Jun'){ 
-              
-              mont = '6';
-              } else if(camp.SegWorkingMonth__c == 'Jul'){ 
-              
-              mont = '7';
-              } else if(camp.SegWorkingMonth__c == 'Aug'){ 
-              
-              mont = '8';
-              } else if(camp.SegWorkingMonth__c == 'Sep'){ 
-              
-              mont = '9';
-              }else if(camp.SegWorkingMonth__c == 'Oct'){ 
-              
-              mont = '10';
-              }else if(camp.SegWorkingMonth__c == 'Nov'){ 
-              
-              mont = '11';
-              }else if(camp.SegWorkingMonth__c == 'Dec'){ 
-              
-              mont = '12';
-              }
-             String SampDate = String.ValueOf(datetime.now().year());
-             //String year = '2017';
-             String year = SampDate ;
-             
-             
-            string stringDate = year + '-' + mont + '-' + rect;
-             
-           Camp.Segmentation_Date__c = Date.valueOf(stringDate );
-             
-             }
-           
-}
-   
-}
 
+ public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore){		
+   		
+   String rect ;		
+   String mont;		
+   Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();		
+   		
+   For(Campaign camp : campaignIdsBefore ){		
+   		
+   		
+   if(camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true){     		
+             rect = camp.SegWorkingDay__c ; 		
+              		
+             if(camp.SegWorkingMonth__c == 'Jan'){		
+                 		
+                 mont = '1';		
+              }else if(camp.SegWorkingMonth__c == 'Feb'){		
+              		
+                 mont = '2';		
+              } else if(camp.SegWorkingMonth__c == 'Mar'){ 		
+              		
+              mont = '3';		
+              } else if(camp.SegWorkingMonth__c == 'Apr'){ 		
+              		
+              mont = '4';		
+              } else if(camp.SegWorkingMonth__c == 'May'){ 		
+              		
+              mont = '5';		
+              } else if(camp.SegWorkingMonth__c == 'Jun'){ 		
+              		
+              mont = '6';		
+              } else if(camp.SegWorkingMonth__c == 'Jul'){ 		
+              		
+              mont = '7';		
+              } else if(camp.SegWorkingMonth__c == 'Aug'){ 		
+              		
+              mont = '8';		
+              } else if(camp.SegWorkingMonth__c == 'Sep'){ 		
+              		
+              mont = '9';		
+              }else if(camp.SegWorkingMonth__c == 'Oct'){ 		
+              		
+              mont = '10';		
+              }else if(camp.SegWorkingMonth__c == 'Nov'){ 		
+              		
+              mont = '11';		
+              }else if(camp.SegWorkingMonth__c == 'Dec'){ 		
+              		
+              mont = '12';		
+              }		
+             String SampDate = String.ValueOf(datetime.now().year());		
+             //String year = '2017';		
+             String year = SampDate ;		
+             		
+             		
+            string stringDate = year + '-' + mont + '-' + rect;		
+             		
+           Camp.Segmentation_Date__c = Date.valueOf(stringDate );		
+             		
+             }		
+           		
+}		
+   		
+}	
    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
@@ -624,6 +624,85 @@ Set<id> aid = New Set<id>();
             }
         }
     }
+      public static void validationParentCampaign(List<Campaign> CamList){
+   
+   Id parentCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+          
+          
+           For(Campaign Camp : CamList){
+           
+           if(Camp.RecordTypeId == parentCampaignId){
+           
+               
+                 If(Camp.StartDate < System.Today()){
+                 
+                   Camp.addError('Date error');   
+                 
+                 }
+                 
+                 If(Camp.EndDate < Camp.StartDate){
+                 
+                       Camp.addError('Date error');
+                 }
+                  
+           
+}
+
+
+}
+   
+ }
+ 
+ public static void validationChildCampaign(List<Campaign> campListMain){
+ 
+ Id childCampaign= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+ Set<Id> sid = New Set<Id>();         
+          
+           For(Campaign Camp : campListMain){
+           
+if( Camp.RecordTypeId == childCampaign ){
+                  
+                    system.debug('+++++++++++++++'+'WORKING' );
+                         sid.add(Camp.ParentId);
+                         
+                         
+                         }
+                  }
+                  
+                  
+                  if(sid.size() > 0){
+                  
+                  
+                  List<Campaign> CamList = [Select id,StartDate,EndDate from Campaign Where Id =:sid];
+                  
+                  system.debug('+++++++++++++++'+CamList );
+                  For(Campaign ca : CamList){
+                  
+                     For(Campaign campan : campListMain ){
+                     
+                     system.debug('+++++++++++++++'+ca.StartDate );
+                     if(campan.Segmentation_Date__c <= ca.StartDate ||campan.Segmentation_Date__c > ca.EndDate ){
+                     
+                         campan.addError('Segmentation Error');
+                         
+                     
+                     }
+                     
+                     if(campan.Execution_Start_Date__c <= campan.Segmentation_Date__c || campan.Execution_Start_Date__c > ca.EndDate ){
+                     
+                     
+                            campan.addError('Execution Error');
+                     }
+                  if(campan.Response_Date__c <= campan.Execution_Start_Date__c || campan.Response_Date__c  > ca.EndDate ){
+                     
+                     
+                            campan.addError('Response Error');
+                     }
+                  }
+               }
+     }
+ 
+}
     /**
      * 2014-2-17 added by Justin for copying the status
      *  in the top level campaign to the OB campaign
