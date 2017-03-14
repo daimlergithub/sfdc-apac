@@ -9,7 +9,7 @@
     2. Modified on 4-Feb-2017    
 */
 @isTest
-public class AccountMergeControllerTest {  
+public class AccountMergeControllerKRTest {  
     public static Account objMaster;
     public static Account objSlave;
     public static User user;
@@ -30,7 +30,7 @@ public class AccountMergeControllerTest {
         }                         
     }   
     
-    public static testMethod void testAccountMergeController() {
+    public static testMethod void testAccountMergeControllerKR() {
         init();
         list<Account> lstAccToInsert = new list<Account>();
         lstAccToInsert.add(objMaster);
@@ -45,9 +45,9 @@ public class AccountMergeControllerTest {
         ApexPages.currentPage().getParameters().put('selectedMasterAccount',objMaster.id);
        
         //Instantiate and construct the controller class.     
-        AccountMergeController objAccountController = new AccountMergeController(); 
+        AccountMergeControllerKR objAccountController = new AccountMergeControllerKR(); 
         Test.startTest(); 
-            for(AccountMergeController.Accountwrapper objAccWr : objAccountController.AccountwrapperList) {
+            for(AccountMergeControllerKR.Accountwrapper objAccWr : objAccountController.AccountwrapperList) {
                 if(objAccWr.acc.Id == objSlave.Id){
                     objAccWr.selected = TRUE;
                 }
@@ -62,7 +62,6 @@ public class AccountMergeControllerTest {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
-             objAccountController.getParameter('Test'); 
         Test.stopTest();  
         list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
         system.assert(lstLogsCreated.size() > 0 );           
