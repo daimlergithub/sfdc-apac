@@ -325,6 +325,10 @@ public without sharing class RetailCampaignSegmentationController {
                 }
                 
                                      system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
+				if(vehicleRelSoql.endsWith('AND  ')){		
+                     System.debug('Removing end in vehilce soql');		
+                     vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');		
+                 }
 
                 if(!vehicleRelSoql.endsWith('where ')) {
                 
@@ -658,6 +662,10 @@ public without sharing class RetailCampaignSegmentationController {
                 vehicleRetailFind = true;
                 vehicleRelFind = true;
              }
+			 if(vehicleFilterItems != NULL && vehicleretailItems != NULL && !vehicleretailItems.isEmpty() && !vehicleFilterItems.isEmpty()){		
+                 vehicleFind = true; 		
+                  vehicleRetailFind = true;   		
+             }
             setSubSoql(customerFilterItems, 'account');
             setSubSoql(leadFilterItems, 'lead');
             setSubSoql(vehicleFilterItems, 'vehicle');
@@ -690,6 +698,7 @@ public without sharing class RetailCampaignSegmentationController {
                     String logic = (String)filterItemMap.get('logic');
                     Boolean bracket = (Boolean)filterItemMap.get('bracket');
                     String subSoql = '';
+					 System.debug('vehicleRelFind '+vehicleRelFind +' vehicleFind '+vehicleFind +' vehicleRetailFind '+vehicleRetailFind );
                     if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
                         System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
                         logic = ' AND ';
@@ -697,6 +706,11 @@ public without sharing class RetailCampaignSegmentationController {
                     }
                     if(vehicleRelFind && vehicleRetailFind && logic == '' && cluster == 'VehicleRelation'){
                         logic = ' AND ';
+                    }
+					if(vehicleFind && vehicleRetailFind && logic == '' && cluster == 'Vehicle'){		
+                     System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');		
+                        logic = ' AND ';		
+                     System.debug('AfterField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');		
                     }
                     if(vehicleFields.contains(field)){
                         field = 'Vehicle_ID__r.' + field;
