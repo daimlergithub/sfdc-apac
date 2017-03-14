@@ -111,10 +111,6 @@
         <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Personal Abroad Agreement --></label>
-        <name>Personal_Abroad_Agreement__c</name>
-    </fields>
-    <fields>
         <label>My Mercedes メールアドレス</label>
         <name>Portal_Email__c</name>
     </fields>

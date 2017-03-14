@@ -13,6 +13,8 @@ global Class ScheduleCampCompletion implements Schedulable
 
 Public List<Campaign> parentCamp;
 Public List<Campaign> ChildCamp;
+Public List<Campaign> ChildCampmain;
+Public List<Campaign> UpdateCampmain;
 Public List<Campaign> addparentCamp;
 Public List<Campaign_Member__c> Campaignmember;
 Public List<Campaign_Member__c> UpdateCampaignmember;
@@ -39,6 +41,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  updateChildCamp= new Map<Id, Campaign>();
  Campaignmember=new List<Campaign_Member__c> ();
  UpdateCampaignmember=new List<Campaign_Member__c>();
+ UpdateCampmain = new List<Campaign>();
  Date d=date.Today();
  system.debug('#$#$#$#$#$#$#$ d'+d);
  if(d!=null)
@@ -88,19 +91,31 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
   
  if(ChildCamId!=null)
  {
- Campaignmember=[select id,Status__c from Campaign_Member__c where Campaign_ID__c=:ChildCamId ];
+ Campaignmember=[select id,Status__c from Campaign_Member__c where Campaign_ID__c=:ChildCamId AND Status__c = 'Executed' ];
+ ChildCampmain = [select id,Child_Campaign_Status__c from Campaign where Id =:ChildCamId ];
+
  }
   system.debug('#$#$# Campaignmember #$#$ d'+Campaignmember);
  if(Campaignmember!=null)
  {
+ 
  for(Campaign_Member__c cmm:Campaignmember)
  {
  cmm.Status__c='Not Responded';
  UpdateCampaignmember.add(cmm);
  }
+  }
+ for(Campaign camp :ChildCampmain ){ 
+ 
+ camp.Child_Campaign_Status__c = 'Completed';
+ UpdateCampmain.add(camp);
+
  }
  
+ 
+ 
  Update UpdateCampaignmember;
+ //Update UpdateCampmain;
  
  system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
  }
