@@ -3,7 +3,11 @@
     <customButtons>New_Lead</customButtons>
     <customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Print_Dealer_PDF</customButtons>
-    <excludeButtons>Edit</excludeButtons>
+	<excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>	
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

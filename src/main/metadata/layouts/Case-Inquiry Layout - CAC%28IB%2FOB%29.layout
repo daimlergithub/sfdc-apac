@@ -4,6 +4,11 @@
     <customButtons>New_AfterSales_Lead</customButtons>
     <customButtons>Notify_to_Dealer</customButtons>
     <customButtons>Generate_Pdf</customButtons>
+	<excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>	
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
