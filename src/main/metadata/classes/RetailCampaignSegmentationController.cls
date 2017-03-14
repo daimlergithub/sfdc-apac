@@ -553,18 +553,18 @@ public without sharing class RetailCampaignSegmentationController {
         Map<String, Campaign_Member__c> retailCampaignMembers = new Map<String, Campaign_Member__c>();
         Set<String> accountIds = new Set<String>();
         List<Id> selectedAccoundIds = new List<Id>();
-        Map<Id,String> accName = new Map<Id,String>();
+        //Map<Id,String> accName = new Map<Id,String>();
          System.debug('wrapAccountList==='+wrapAccountList);
         // Filtering seletced accounts
         for(wrapperAccount temp : wrapAccountList){
             if(temp.isSelected)
                 selectedAccoundIds.add(temp.acc.Id);
-                accName.put(temp.acc.Id,temp.acc.name);
+                //accName.put(temp.acc.Id,temp.acc.name);
         }
         system.debug('selectedAccoundIds==='+selectedAccoundIds);
         for(Id id: selectedAccoundIds){
             Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-            member.Name = accName.get(id);
+            //member.Name = accName.get(id);
             member.Contact_Id__c= id;
             retailCampaignMembers.put(member.Contact_Id__c+ ':' + member.Retail_Campaign_Id__c, member);
            
