@@ -763,7 +763,7 @@
         <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
-        <apexClass>PrintPDF</apexClass>
+        <apexClass>PrintPDFcontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -22817,7 +22817,7 @@
         <enabled>false</enabled>
     </pageAccesses>
 	 <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -23817,6 +23817,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

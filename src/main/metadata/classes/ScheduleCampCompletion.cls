@@ -115,7 +115,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  
  
  Update UpdateCampaignmember;
- //Update UpdateCampmain;
+ Update UpdateCampmain;
  
  system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
  }
