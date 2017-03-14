@@ -413,7 +413,7 @@
         <name>Retail_Email_OptOut__c</name>
     </fields>
     <fields>
-        <label>メール</label>
+        <label>Eメール</label>
         <name>Retail_Email__c</name>
     </fields>
     <fields>
