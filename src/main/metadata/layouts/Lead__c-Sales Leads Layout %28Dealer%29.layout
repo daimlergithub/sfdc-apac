@@ -683,6 +683,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+	<excludeButtons>Submit</excludeButtons>
         <fields>StepStatus</fields>
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
