@@ -23818,6 +23818,10 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeToLightningReports</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
