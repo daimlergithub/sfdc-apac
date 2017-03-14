@@ -5,8 +5,22 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>
-    <excludeButtons>Edit</excludeButtons>
+    <customButtons>Merge</customButtons>	
+    <customButtons>Check_Duplicates</customButtons>
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
+    <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
+    <excludeButtons>EnableCustomerPortalUser</excludeButtons>
+    <excludeButtons>IncludeOffline</excludeButtons>
+    <excludeButtons>RequestUpdate</excludeButtons>
+    <excludeButtons>SendEmail</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>ViewCustomerPortalUser</excludeButtons>
+    <excludeButtons>XClean</excludeButtons>
+	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

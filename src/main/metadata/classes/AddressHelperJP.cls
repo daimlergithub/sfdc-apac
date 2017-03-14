@@ -163,14 +163,15 @@ public with sharing class AddressHelperJP {
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             UtilAddressTranslation.gettranslatedvalues('JP');
-            accountList = [select id,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
+            accountList = [select id,fromRole__r.Dealer_Rollout_Status__c,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
                            Retail_Address_Reference__r.District__c,Retail_Address_Reference__r.Block__c,Retail_Address_Reference__r.Address_Line_1__c,
                             Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Address_Reference__r.Address_Type__c,Retail_Address_Reference__r.City__c,Retail_Address_Reference__r.Address_Line_2__c,
                             Retail_Address_Reference__r.ZipCode__c,Retail_Address_Reference__r.Province__c,Retail_Address_Reference__r.CreatedDate,Retail_Address_Reference__r.LastModifiedDate,
                             Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c from Account_Link__c where Retail_Address_Reference__c IN:accountId];
          system.debug('Class1' + accountList.size());
         if(accountList.size() > 0){
-            for(Account_Link__c acc: accountList){            
+            for(Account_Link__c acc: accountList){   
+             if(acc.fromRole__r.Dealer_Rollout_Status__c == 'Done'){                  
                 acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
                 acc.Retail_City__c = ((acc.Retail_Address_Reference__r.City__c != null ? acc.Retail_Address_Reference__r.City__c : '')).left(17);
                 acc.Retail_Distinct__c = ((acc.Retail_Address_Reference__r.District__c != null ? acc.Retail_Address_Reference__r.District__c: '') + (acc.Retail_Address_Reference__r.Block__c != null ? acc.Retail_Address_Reference__r.Block__c : '')).left(17); 
@@ -188,6 +189,7 @@ public with sharing class AddressHelperJP {
                 acc.Retail_Address_LastModifiedDate__c = (acc.Retail_Address_Reference__r.LastModifiedDate).date();
                     accountList1.add(acc);
             }
+          }  
         }
         if(!accountList1.isEmpty()||accountList1!=null)
             {

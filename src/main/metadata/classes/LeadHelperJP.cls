@@ -46,12 +46,12 @@ public class LeadHelperJP
                 {
                     system.debug('!!!!!!!!'+ 'in trigger.new loop');
                     if(lead.Contact__c != null){
-						contactIdsUpd.add(lead.Contact__c);         // ids of account(Contact__C) with new lead status "Approved"
+                        contactIdsUpd.add(lead.Contact__c);         // ids of account(Contact__C) with new lead status "Approved"
                     }
-					if(lead.Assigned_Dealer__c != null){
-						DealerIds.add(lead.Assigned_Dealer__c);     // Ids of Acccount(Assigned_Dealer__c) with new lead status "Approved"
+                    if(lead.Assigned_Dealer__c != null){
+                        DealerIds.add(lead.Assigned_Dealer__c);     // Ids of Acccount(Assigned_Dealer__c) with new lead status "Approved"
                     }
-					ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
+                    ContactDealerMap.put(lead.contact__C,lead.Assigned_Dealer__c); // Contact Dealer map 
                 }
                 
                 if(oldLead.CAC_Lead_Status__c != lead.CAC_Lead_Status__c && (lead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' ||
@@ -60,7 +60,7 @@ public class LeadHelperJP
                 {
                     system.debug('!!!!!!!!'+'inside 2nd case loop trigger.new');
                     if(lead.Contact__c != null){
-						contactIdsIns.add(lead.Contact__c);
+                        contactIdsIns.add(lead.Contact__c);
                     }
                     
                 }
@@ -150,8 +150,8 @@ public class LeadHelperJP
             
             update AccountsToBeUpdated;
         }
-		if(!contactIdsUpd.isEmpty()){
-			createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
+        if(!contactIdsUpd.isEmpty()){
+            createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         }
     }
     
@@ -338,7 +338,7 @@ public class LeadHelperJP
         
         List<String> userIds = new List<String>();  
         List<Lead__c> LeadUpdate = new List<Lead__c>();             
-        Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
+        //Contact con = [Select id from Contact where email!= null AND AccountId != null AND Federation_ID__c != null limit 1];
         EmailTemplate e =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to dealer outlet' limit 1];  
         List<Messaging.SingleEmailMessage > mails  = new  List<Messaging.SingleEmailMessage >();
         List<Messaging.SingleEmailMessage > UFRbulkEmails = new  List<Messaging.SingleEmailMessage >();
@@ -353,9 +353,16 @@ public class LeadHelperJP
              
         }
         
-        
-        List<Lead__C> Leadlist = [Select id,MD__c,ownerid,contact__c,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
+       set<Id> DealerAccid=new set<id>();
+        List<User> userRecords=new List<user>();
+        List<Lead__C> Leadlist = [Select id,MD__c,Assigned_Dealer__r.id,ownerid,contact__c,Service_Advisor__r.Email,contact__r.ownerId,Service_Advisor__c,Person_Assign_Notificaton_Done__c,RecordTypeId,CAC_Lead_Status__c ,Lead_Assignment_Notification_Done__c , Assigned_Dealer__c ,Assigned_Dealer__r.ownerid,Assigned_Dealer__r.salesLead_Notification_Timing__c,Assigned_Dealer__r.Dealer_Sales_Manager_Email__c ,Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c from Lead__c where Id IN :LeadId];
         system.debug('+++++++++++++'+Leadlist);
+        for(Lead__c ledealer: Leadlist)
+        {
+        DealerAccid.add(ledealer.Assigned_Dealer__r.id);
+        }
+       
+         system.debug('+++DealerUser++++'+DealerAccid);
         
         for(Lead__c lead : Leadlist)
         {
@@ -366,11 +373,13 @@ public class LeadHelperJP
                     if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
                         {                       
                         if(lead.RecordTypeId == salesRecordTypeId){                       
-                         EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);   
+                         
+                         EmailAddress.add(lead.Service_Advisor__r.Email); 
                          system.debug('+++++++++++++'+EmailAddress);                     
                         }
                         if(lead.RecordTypeId == afterSalesRecordTypeId ){ 
-                            EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);  
+                            //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
+                            EmailAddress.add(lead.Service_Advisor__r.Email);   
                             system.debug('+++++++++++++'+EmailAddress);                            
                         }                        
                     }                                  
@@ -385,11 +394,18 @@ public class LeadHelperJP
             } 
             
                      
-        }
         
+        }
+          
         system.debug('+++++++++++++'+EmailAddress);
-        List<User> userRecords = [Select id,Name,email from User where IsActive = True and email IN : EmailAddress];
-            system.debug('++++++++'+userRecords);
+        if(EmailAddress !=null)
+        {
+        userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
+        
+        }    
+        
+        if(userRecords!=null)
+        {
             for(User u : userRecords){        
             userIds.add(u.Id);
             
@@ -402,7 +418,7 @@ public class LeadHelperJP
             If(LeadUtil.LeadTrigger){
             system.debug('++++++++++'+Leadlist);
             led.Lead_Assignment_Notification_Done__c = True; 
-			led.Person_Assign_Notificaton_Done__c = True;
+            //led.Person_Assign_Notificaton_Done__c = True;
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                 mail.setWhatId(led.id);
                 mail.setTemplateID(e.Id);
@@ -419,7 +435,7 @@ public class LeadHelperJP
             }
             LeadUtil.LeadTrigger = false;
             }
-            
+            }
         if(mails.size()>0){
         system.debug('++++++++++'+mails);
        

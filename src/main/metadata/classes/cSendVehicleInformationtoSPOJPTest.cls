@@ -68,6 +68,8 @@ public class cSendVehicleInformationtoSPOJPTest
    csvi.SelectedType = '1';
    csvi.RecordSize = 2;
    csvi.Param1 = accObj3.Id;
+   csvi.cancel();
+   csvi.getSelected();
  
      Test.stopTest();
 

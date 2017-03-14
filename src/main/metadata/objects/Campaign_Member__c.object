@@ -1165,13 +1165,14 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>CM-{0000}</displayFormat>
         <label>Campaign Member Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-	<validationRules>
+    <validationRules>
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
         <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
@@ -1197,18 +1198,18 @@
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/ConvertToDMRequest?id={!Campaign.Id}</url>
     </webLinks>
-	 <webLinks>
+    <webLinks>
         <fullName>Convert_To_Task</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Convert To Task</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}", "_blank","resizable=yes,top=900,left=900,width=900,height=900");</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_to_Lead</fullName>
@@ -1235,6 +1236,24 @@
         <requireRowSelection>true</requireRowSelection>
         <url>var recId = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
 window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+window.open("{!URLFOR($Site.Prefix)}/a1H/e?CFOBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID={!Campaign.Name}&amp;CFOBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Refresh</fullName>

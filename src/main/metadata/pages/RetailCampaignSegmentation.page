@@ -741,23 +741,18 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                        
                     </div>
-                    <!--<div>
+                                        <div>
                     <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
                                 <th width="10%">Sales Dealer</th>
                                 <td>
-                                    <!--<select>
-                                        <option>--None--</option>
-                                        <option value="Company">Company</option>
-                                        <option value="Outlet">Outlet</option>
-                                    </select>
-                                    <apex:selectList value="{!Values}" multiselect="false" size="1">
+                                    <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
                                             <apex:selectOptions value="{!items}"/>
                                     </apex:selectList>
                                 </td>
                             </tr>
                       </table>
-                    </div>-->
+                    </div>
                 </div>
                 
                 <hr style="margin-left:20px; width:650px;"/>
@@ -873,8 +868,8 @@
                                 <select onchange="showCriteria(this);"> 
                                     <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
-                                    <option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>
-                                    <!--<option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>-->                                                                  
+                                    <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
+                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
                                 </select>
                             </td>
                             <td>
@@ -919,7 +914,7 @@
                                 <select onchange="showCriteria(this);"> 
                                                                                                         
                                     <option value="Service_Advisor__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Service_Advisor__c.Label}</option>
-                                    <option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>                                  
+                                    <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->                                  
                                      <option value="MOT_Expired_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.MOT_Expired_Date__c.Label}</option>
                                      <option value="NextInspectionDate__c">{!$ObjectType.Vehicle__c.Fields.NextInspectionDate__c.Label}</option>
                                       <option value="CurrentMileage__c">{!$ObjectType.Vehicle__c.Fields.CurrentMileage__c.Label}</option> 

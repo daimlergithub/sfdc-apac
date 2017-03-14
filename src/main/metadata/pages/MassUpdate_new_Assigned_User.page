@@ -1,5 +1,12 @@
 <apex:page controller="MassUpdatenewAssignedusercontroller" sidebar="false">
-    <apex:form >
+    <apex:form ><script>
+      function RelodeParent(){
+        //  window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+  
+       }
+      
+      </script>
         <apex:pageBlock id="pb" >
             <apex:pageBlockSection columns="1">
                 <div>
@@ -82,8 +89,8 @@
             </apex:pageBlockSection>
             <center>
                 <apex:commandButton value="Update" action="{!massUpdateNewAssign}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                       
-                <apex:commandButton value="Cancel" style="padding-center:10px;"/>
+                  <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />                     
+                
             </center>
         </apex:pageBlock>
     </apex:form>
