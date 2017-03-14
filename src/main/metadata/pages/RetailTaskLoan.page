@@ -39,8 +39,6 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Campaign_Description__c.Label}"/>
                         <apex:outputText value="{!CampaignDescription}" />
               </apex:pageBlockSectionItem>&nbsp;
-              <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
-              
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Start_Date__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Payment_Start_Date__c}"/>  
@@ -68,7 +66,7 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payments__c.Label}"/>
                         <apex:outputText value="{!NumberofPayments}" />
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
               
               
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
@@ -178,7 +176,7 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Interest_Rate__c.Label}"/>
                         <apex:outputText value="{!CustomerInterestRate}" />   
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
               
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Mileage__c.Label}"/>
@@ -207,7 +205,7 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Indemnity_Amount__c.Label}"/>
                         <apex:outputText value="{!IndemnityAmount}" />   
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
               
               <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
@@ -228,7 +226,7 @@
                <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Balance_Update_Date__c.Label}"/>
                         <apex:outputText value="{!Updatedate}" />  
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
               
               
               <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
@@ -309,17 +307,14 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Number_Of_Employees__c.Label}"/>
                        <apex:outputText value="{!NumberOfEmployees}" /> 
               </apex:pageBlockSectionItem>
-              
-              
-              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
-                        <apex:outputField value="{!displayLoan.Guarantor1_ZipCode__c}"/>  
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode1__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Contractor_ZipCode1__c}"/>  
               </apex:pageBlockSectionItem>&nbsp;
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
-                        <apex:outputText value="{!Guarantor1ZipCodeactual}" />  
-              </apex:pageBlockSectionItem>&nbsp;
-              
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode1__c.Label}"/>
+                        <apex:outputText value="{!zipcodeactual}"/>   
+              </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Contractor_Address1__c}"/>  
@@ -328,9 +323,7 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
                         <apex:outputText value="{!AddresskanjiActual}" />  
               </apex:pageBlockSectionItem>
-              
-              
-                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1_Native__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Contractor_Address1_Native__c}"/>  
               </apex:pageBlockSectionItem>
@@ -338,28 +331,22 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1_Native__c.Label}"/>
                          <apex:outputText value="{!AddresskanaActual}" />  
               </apex:pageBlockSectionItem>
-              
-              
-               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Phone__c.Label}"/>
-                        <apex:outputField value="{!displayLoan.Guarantor1_Phone__c}"/>  
-              </apex:pageBlockSectionItem>
-               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Phone__c.Label}"/>
-                        <apex:outputText value="{!Guarantor1Phone1actual}" />    
-              </apex:pageBlockSectionItem>
-              
-              
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_MobilePhone__c.Label}"/>
-                        <apex:outputField value="{!displayLoan.Guarantor1_MobilePhone__c}"/>  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone1__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Contractor_Phone1__c}"/>  
               </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_MobilePhone__c.Label}"/>
-                       <apex:outputText value="{!Guarantor1Phone2actual}" />
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone1__c.Label}"/>
+                        <apex:outputText value="{!phoneactual}" />    
               </apex:pageBlockSectionItem>
-              
-              
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone1__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Contractor_MobilePhone1__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone1__c.Label}"/>
+                       <apex:outputText value="{!phone2actual}" />
+              </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Mail__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Contractor_Mail__c}"/>  
@@ -367,10 +354,8 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Mail__c.Label}"/>
                         <apex:outputText value="{!ContractorEmail}" /> 
-              </apex:pageBlockSectionItem>&nbsp;
-              
-              
-               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Marital_Status__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Contractor_Marital_Status__c}"/>  
               </apex:pageBlockSectionItem>
@@ -441,7 +426,7 @@
               
               
               <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
-               <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+              
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Name__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Guarantor1_Name__c}"/>  
@@ -469,8 +454,6 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Company_Name__c.Label}"/>
                         <apex:outputText value="{!Guarantor1CompanyNameKanji}" />   
               </apex:pageBlockSectionItem>
-              
-              
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Company_Name_Native__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Guarantor1_Company_Name_Native__c}"/>  
@@ -479,14 +462,69 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Company_Name_Native__c.Label}"/>
                         <apex:outputText value="{!Guarantor1CompanyNameKana}" />   
               </apex:pageBlockSectionItem>
-              
-               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Fax1__c.Label}"/>
-                        <apex:outputField value="{!displayLoan.Contractor_Fax1__c}"/>  
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_BirthDate__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_BirthDate__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_BirthDate__c.Label}"/>
+                        <apex:outputText value="{!G1birthdate}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Gender__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_Gender__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Gender__c.Label}"/>
+                        <apex:outputText value="{!G1gender}" />   
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_ZipCode__c}"/>  
               </apex:pageBlockSectionItem>&nbsp;
                <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
-                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Fax1__c.Label}"/>
-                        <apex:outputText value="{!FaxNumberActual}" />  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
+                        <apex:outputText value="{!G1zipcode}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Address__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_Address__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Address__c.Label}"/>
+                        <apex:outputText value="{!G1add}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Address_Native__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_Address_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Address_Native__c.Label}"/>
+                        <apex:outputText value="{!G1addn}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Phone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_Phone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Phone__c.Label}"/>
+                        <apex:outputText value="{!G1phone1}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_MobilePhone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_MobilePhone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_MobilePhone__c.Label}"/>
+                        <apex:outputText value="{!G1phone2}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Fax__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor1_Fax__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_Fax__c.Label}"/>
+                        <apex:outputText value="{!G1fax}" />  
               </apex:pageBlockSectionItem>&nbsp;
               <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
               <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
@@ -521,15 +559,62 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Company_Name_Native__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Guarantor2_Company_Name_Native__c}"/>  
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Company_Name_Native__c.Label}"/>
                         <apex:outputText value="{!Guarantor2CompanyNameKana}" /> 
-              </apex:pageBlockSectionItem>&nbsp;
-              
-              
-              <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+              </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_ZipCode__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_ZipCode__c.Label}"/>
+                        <apex:outputText value="{!G2zipcode}" />  
+              </apex:pageBlockSectionItem>&nbsp;
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Address__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_Address__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Address__c.Label}"/>
+                        <apex:outputText value="{!G2add}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Address_Native__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_Address_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Address_Native__c.Label}"/>
+                        <apex:outputText value="{!G2addn}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Phone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_Phone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Phone__c.Label}"/>
+                        <apex:outputText value="{!G2phone1}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_MobilePhone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_MobilePhone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_MobilePhone__c.Label}"/>
+                        <apex:outputText value="{!G2phone2}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Fax__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor2_Fax__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor2_Fax__c.Label}"/>
+                        <apex:outputText value="{!G2fax}" />  
+              </apex:pageBlockSectionItem>&nbsp;
+              <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Name__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Guarantor3_Name__c}"/>  
               </apex:pageBlockSectionItem>
@@ -562,14 +647,62 @@
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Company_Name_Native__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Guarantor3_Company_Name_Native__c}"/>  
-              </apex:pageBlockSectionItem>&nbsp;
+              </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Company_Name_Native__c.Label}"/>
                         <apex:outputText value="{!Guarantor3CompanyNameKana}" /> 
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_ZipCode__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_ZipCode__c.Label}"/>
+                        <apex:outputText value="{!G3zipcode}" />  
               </apex:pageBlockSectionItem>&nbsp;
-              
-              <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_Address__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address__c.Label}"/>
+                        <apex:outputText value="{!G3add}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address_Native__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_Address_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Address_Native__c.Label}"/>
+                        <apex:outputText value="{!G3addn}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Phone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_Phone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Phone__c.Label}"/>
+                        <apex:outputText value="{!G3phone1}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_MobilePhone__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_MobilePhone__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_MobilePhone__c.Label}"/>
+                        <apex:outputText value="{!G3phone2}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Fax__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Guarantor3_Fax__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor3_Fax__c.Label}"/>
+                        <apex:outputText value="{!G3fax}" />  
+              </apex:pageBlockSectionItem>&nbsp;
+              <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
+              <apex:pageblockSectionItem >&nbsp;</apex:pageblockSectionItem>
+             <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bank_Account_Name__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Bank_Account_Name__c}"/>  
               </apex:pageBlockSectionItem>
@@ -587,7 +720,9 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Bank_Account_Name_Native__c.Label}"/>
                          <apex:outputText value="{!Accountholdernamekana}" /> 
               </apex:pageBlockSectionItem>
+                &nbsp;
               
+              <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
               
              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Common_Comments__c.Label}"/>
@@ -602,4 +737,4 @@
         </apex:pageBlock>
     </apex:form>
 </apex:page>
-             
+              
