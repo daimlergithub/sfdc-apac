@@ -44,7 +44,7 @@
                 <field>Related_Dealer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Activation_Dealer_Code__c</field>
             </layoutItems>
             <layoutItems>
