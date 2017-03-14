@@ -23814,6 +23814,10 @@
         <enabled>true</enabled>
         <name>EnableNotifications</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>SubscribeToLightningReports</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
