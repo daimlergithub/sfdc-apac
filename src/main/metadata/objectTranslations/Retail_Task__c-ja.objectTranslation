@@ -2435,6 +2435,7 @@
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
+		</sections>
 		<sections>
             <label>基本情報</label>
             <section>Basic Information</section>
@@ -2460,27 +2461,16 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout (Loan)</layout>
-		<sections>
-            <label>基本情報</label>
-            <section>Basic Information</section>
-        </sections>
-        <sections>
-            <label>支払情報</label>
-            <section>Payment Conditions</section>
-        </sections> 
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Retail Task Layout (Loan)</layout> 
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections> 
         <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+		</sections>
+		<sections>		
             <label>ファイナンス詳細情報</label>
             <section>Finance Detail Information</section>
         </sections>
