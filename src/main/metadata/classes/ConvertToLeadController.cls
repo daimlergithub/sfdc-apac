@@ -12,7 +12,7 @@ public with sharing class ConvertToLeadController {
     public String leadRT {get; set;}
     public List<CampaignMemberInfo> campaignMembers {get; set;}
     private String leadRTId {get; set;}
-    private String objectAPIName;
+    @testvisible private String objectAPIName;
     
     public ConvertToLeadController() {
         leadRT = 'Sales Leads';
@@ -86,7 +86,7 @@ public with sharing class ConvertToLeadController {
         insertCampaignLeadRecords(leadListToInsert, leadList);
         return new PageReference('/' + campaignId);
     }
-    
+    @testvisible
     private Lead__c checkDuplicate(Campaign_Member__c campaignMemberRec, List<Lead__c> existingLeadList) {
         
         Lead__c duplicateLeadRec = new Lead__c();
@@ -102,7 +102,7 @@ public with sharing class ConvertToLeadController {
         }
         return duplicateLeadRec;
     }
-    
+    @testvisible
     private Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
         Lead__c leadRec = new Lead__c(RecordTypeId = leadRTId);
         leadRec.CAC_Lead_Status__c = 'New';
@@ -123,7 +123,7 @@ public with sharing class ConvertToLeadController {
         }
         return leadRec;
     }
-    
+    @testvisible
     private void insertCampaignLeadRecords(List<Lead__c> insertedLeadList, List<Lead__c> leadList) {
         List<Campaign_Lead__c> cLeadList = new List<Campaign_Lead__c>();
         for(Lead__c leadRec : insertedLeadList){
@@ -138,7 +138,7 @@ public with sharing class ConvertToLeadController {
             insert cLeadList;
         }
     }
-    
+    @testvisible
     private Campaign_Lead__c setCampaignRec(Lead__c leadRec) {
         Campaign_Lead__c cLeadRec = new Campaign_Lead__c(); 
         cLeadRec.Lead__c = leadRec.Id;
