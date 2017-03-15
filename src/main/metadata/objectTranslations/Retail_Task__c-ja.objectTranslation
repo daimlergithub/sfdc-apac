@@ -1948,6 +1948,10 @@
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
+	 <label>請求額（労務）</label>
+        <name>Service_Labour_Amount__c</name>
+    </fields>
+    <fields>
         <label>走行距離</label>
         <name>Service_Mileage__c</name>
     </fields>
@@ -1956,8 +1960,16 @@
         <name>Service_Number__c</name>
     </fields>
     <fields>
+		<label>請求額（パーツ）</label>
+        <name>Service_Parts_Amount__c</name>
+    </fields>
+    <fields>
         <label><!-- Service Position --></label>
         <name>Service_Position__c</name>
+    </fields>
+    <fields>
+		<label>請求額（総額）</label>
+        <name>Service_Total_Amount__c</name>
     </fields>
     <fields>
         <label>車台番号</label>
@@ -2392,25 +2404,69 @@
     </fields>
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
         <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
         </sections>
+		<sections>
+            <label>ファイナンス詳細情報</label>
+            <section>Finance Detail Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Loan)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label>契約ステータス</label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label>ファイナンス詳細情報</label>
+            <section>Finance Detail Information</section>
+        </sections>
 	</layouts>
     <layouts>
         <layout>Retail Task Layout(Contract)</layout>
+		<sections>
+            <label>契約詳細情報</label>
+            <section>Contract Details Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
+		<sections>
+            <label>金額等詳細</label>
+            <section>Service Amount and Details</section>
+        </sections>
+        <sections>
+            <label>サービス履歴情報</label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Information</section>
+        </sections>
     </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
