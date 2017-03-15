@@ -1,11 +1,11 @@
 <apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
     <apex:form >
-        <apex:pagemessages ></apex:pagemessages>
+            <apex:pagemessages ></apex:pagemessages>
 
         <apex:pageBlock title="Customer My Mercedes Interface Customer" id="a">
-            <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> 
+           <!-- <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> -->
                 <apex:pageblockButtons location="bottom">
-                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}"/> <!-- oncomplete="myfunction();"-->
+                     <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/>
                      <apex:commandButton action="{!savepop}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}"/><!-- oncomplete="myfunction();"/>-->
                      <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
                      <apex:commandButton action="{!cancel}" value="Cancel"/>
@@ -57,10 +57,7 @@
     <script>
         function myfunction()
         {
-
-
             alert('Records updated');
-
         }
     </script>
       <style type="text/css">
