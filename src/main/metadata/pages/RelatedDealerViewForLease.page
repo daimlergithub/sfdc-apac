@@ -181,6 +181,30 @@
                         <apex:outputField value="{!rettsk.Contractor_Phone1__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone1__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_MobilePhone2__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Fax1__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Fax1__c}"/>  
+              </apex:pageBlockSectionItem>&nbsp;
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_ZipCode2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_ZipCode2__c}"/>  
+              </apex:pageBlockSectionItem>&nbsp;
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Address2__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address2_Native__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Address2_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone2__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Contractor_Phone2__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_MobilePhone2__c.Label}"/>
                         <apex:outputField value="{!rettsk.Contractor_MobilePhone2__c}"/>  
               </apex:pageBlockSectionItem>
@@ -421,4 +445,3 @@
         </apex:pageBlock>
     </apex:form>
   </apex:page>
-                      
