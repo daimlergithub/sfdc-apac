@@ -2421,21 +2421,9 @@
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
         <sections>
-            <label>コメント</label>
-            <section>Comments</section>
-        </sections>   
-        <sections>
             <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-		</sections>
 		<sections>
             <label>基本情報</label>
             <section>Basic Information</section>
@@ -2485,10 +2473,6 @@
             <label>契約詳細情報</label>
             <section>Contract Details Information</section>
         </sections>
-        <sections>
-            <label>フラグ情報</label>
-            <section>Flags</section>
-        </sections> 
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
