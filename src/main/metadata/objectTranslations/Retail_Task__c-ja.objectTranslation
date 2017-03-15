@@ -942,11 +942,11 @@
         <name>Guarantor1_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名1（カナ）</label>
+        <label>個人保証人名1（カナ）</label>
         <name>Guarantor1_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名1（漢字）</label>
+        <label>個人保証人名1（漢字）</label>
         <name>Guarantor1_Name__c</name>
     </fields>
     <fields>
@@ -998,11 +998,11 @@
         <name>Guarantor2_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名2（カナ）</label>
+        <label>個人保証人名2（カナ）</label>
         <name>Guarantor2_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名2（漢字）</label>
+        <label>個人保証人名2（漢字）</label>
         <name>Guarantor2_Name__c</name>
     </fields>
     <fields>
@@ -1054,11 +1054,11 @@
         <name>Guarantor3_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名3（カナ）</label>
+        <label>個人保証人名3（カナ）</label>
         <name>Guarantor3_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名3（漢字）</label>
+        <label>個人保証人名3（漢字）</label>
         <name>Guarantor3_Name__c</name>
     </fields>
     <fields>
