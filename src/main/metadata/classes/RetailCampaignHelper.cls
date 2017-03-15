@@ -384,40 +384,20 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
     
     
     
-      List<Campaign> camList =[Select id,Name,Consolidated_List_Completed__c,Set_List_Maintenance_Flag__c ,(Select Id,Name,Retail_Campaign__c From Participating_Dealers__r) From Campaign Where Id =: sid ];
+      //List<Campaign> camList =[Select id,Name,Consolidated_List_Completed__c,Set_List_Maintenance_Flag__c ,(Select Id,Name,Retail_Campaign__c From Participating_Dealers__r) From Campaign Where Id =: sid ];
       
-      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
+      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
       
-      
-      
-      For(Campaign campMain : camList){
-          
-          
-          if(campMain.Consolidated_List_Completed__c == true){
-          
-          For(Participating_Dealer__c partiDealer : campMain.Participating_Dealers__r){
-              
-              
-              partiDealer.Retail_Campaign__c = retailId ;
-              
-             newRetail.add(partiDealer); 
-          }
-          
-          }
-          
-          
-      }
-    
-            if(newRetail.size() > 0){
-             update newRetail;
-            }  
+
             
             For(Campaign caMem : caMemList ){
             
-            if(caMem.Set_List_Maintenance_Flag__c == false){
+            if(caMem.Set_List_Maintenance_Flag__c == false || caMem.Consolidated_List_Completed__c == true ){
                 
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
-                  
+                 
+                 if(camo.Status__c !='Removed'){ 
+                 
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
                 // newCamRetail.Name = camo.Name;
                  newCamRetail.Retail_Campaign_Id__c = retailId;
@@ -426,7 +406,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                  newCamRetail.contact_Id__c = camo.contact_Id__c;
                   retailMem.add(newCamRetail);               
                   
-                  
+               }   
               }
 
 

@@ -265,6 +265,8 @@
 							 <sf:include name="ScheduleCampCompletionTest"/>-->
 							 <sf:include name="ScheduleRetailCampCompletion"/>
 							 <!--<sf:include name="exportCampaignMembers"/>-->
+							 <sf:include name="ScheduleRetailCampCompletionTest"/>
+							 <sf:include name="exportCampaignMembersTest"/>
 							</sf:typeset>
 							<!--<sf:typeset name="pages">
 									 <sf:include name="ExportAsCsvCampaign"/>
@@ -409,12 +411,14 @@
 											<sf:include name="CaseHelper"/>
 											<sf:include name="CaseHelperTest"/>
 											<sf:include name="TaskHelperKR"/>
+											<sf:include name="TaskHelperKRTest"/>
 											<sf:include name="GenerateAndAttachPDF"/>
 											<sf:include name="UtilTestData"/>
 											<sf:include name="UtilRecordTypeTest"/>
 											<sf:include name="UtilRecordType"/>                                                 
 											<sf:include name="AccountMergeController"/>                              
 											<sf:include name="AccountMergeControllerKR"/>
+											<sf:include name="AccountMergeControllerKRTest"/>
 											<sf:include name="AccountMergeControllerTest"/>
 											<sf:include name="ContactTriggerHandlerJP"/>															<sf:include name="RetailCampaignHelper"/>
 											<sf:include name="RetailCampaignTriggerHandlerJP"/>
@@ -432,6 +436,7 @@
 											<sf:include name="TriggerCaseTriggerHandlerJP"/>
 											<sf:include name="TriggerCaseTriggerHandlerKR"/>
 											<sf:include name="shareAccountRecord"/>
+											<sf:include name="shareAccountRecordTest"/>
 											<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
 											<sf:include name="DMRequestHelperJP"/>
 											<sf:include name="DMRequestHelperJPTest"/>
@@ -439,15 +444,20 @@
 											<sf:include name="TriggerLeadTriggerHandlerKR"/>
 											<sf:include name="TriggerLeadTriggerHandlerJP"/>
 											<sf:include name="TriggerLeadTriggerHandler"/>
-											<sf:include name="LeadSharingTest"/>																			<sf:include name="EmailnotificationLeads"/>
-											<sf:include name="EmailnotificationLeadsnotassigned"/>
-											<sf:include name="EmailnotificationLeadsnotupdated"/>
+											<sf:include name="LeadSharingTest"/>
+											<sf:include name="EmailnotificationLeads"/>
+																	<sf:include name="EmailnotificationLeadsTest"/>																																										
+																	<sf:include name="EmailnotificationLeadsnotassigned"/>
+																	<sf:include name="EmailnotificationLeadsnotassignedTest"/>																																										
+																	<sf:include name="EmailnotificationLeadsnotupdated"/>
+																	<sf:include name="EmailnotificationLeadsnotupdatedTest"/>																																										
 											<sf:include name="TriggerLeadTest"/>
 											<sf:include name="LeadSharingWrapService"/>
 											<sf:include name="SharingWrapperService"/>
 											<sf:include name="SharingWrapper"/>
 											<sf:include name="SharingWrapperTest"/>
 											<sf:include name="LeadHelperAccountLinkCreateJP"/>
+											<sf:include name="LeadHelperAccountLinkCreateJPTest"/>
 											<sf:include name="LeadHelper"/>
 											<sf:include name="LeadHelperTest"/>
 											<sf:include name="LeadLatestPhaseUpdateJP"/>
@@ -496,6 +506,7 @@
 											<sf:include name="LeadMergeController"/>                                                     
 											<sf:include name="UtilShare"/>
 											<sf:include name="LeadSharingforDealerJP"/>
+											<sf:include name="LeadSharingforDealerJPTest"/>
 											<sf:include name="DeleteRetailCopy"/>
 											<sf:include name="DeleteRetailCopyTest"/>
 											<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
@@ -519,7 +530,15 @@
 											<sf:include name="ParticipateDealerHandlerJP"/>
 											<sf:include name="TriggerParticipateDealerHandlerJP"/>
 											<sf:include name="ParticipateDealerHandlerTestJP"/>
+											<sf:include name="TaskMassAssignChangeOwnerJP"/>
+											<sf:include name="TaskMassAssignChangeOwnerJPTest"/>
 											 <sf:include name="ConvertToLeadController"/>
+                                             <sf:include name="ConvertToLeadControllerTest"/>
+										
+												<sf:include name="ConvertToDMRequest"/>
+                                                <sf:include name="ConvertToDMRequestTest"/>
+
+
 											 <sf:include name="ConvertToTaskController"/>
 											 <sf:include name="ConvertToTaskControllerTest"/>
 											<sf:include name="ScheduleCampCompletion"/>
@@ -899,7 +918,9 @@
 						   
 							
 																																											<sf:include name="Batch_CreateCampaignTask"/>
+	<sf:include name="Batch_CreateCampaignTaskTest"/>																																										
 																																											<sf:include name="Batch_CreateCampaignNotification"/>
+	<sf:include name="Batch_CreateCampaignNotificationTest"/>																																										
 							<sf:include name="CampaignPackageHelper"/>
 							<sf:include name="CampaignPackageHelperTest"/>
 							<sf:include name="TriggerCampaignTriggerHandler"/>

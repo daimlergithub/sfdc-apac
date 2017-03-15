@@ -1190,6 +1190,6 @@
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var userid = "{!$User.Id}";
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/MassUpdate_new_Assigned_User?Id=userid", "_blank","resizable=yes")</url>
+var myWindow =  window.open("{!URLFOR($Site.Prefix)}/apex/MassUpdate_new_Assigned_User?Id=User.Id", "_blank", "scrollbars=yes")</url>
     </webLinks>
 </CustomObject>

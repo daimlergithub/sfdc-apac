@@ -1255,6 +1255,25 @@ window.open("{!URLFOR($Site.Prefix)}/a1H/e?CFOBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIG
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>New_Retail_Campaign_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}"; 
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
+window.open("{!URLFOR($Site.Prefix)}/a1H/e?CF00NN0000002CqEg={!Retail_Campaign__c.Name}&amp;CF00NN0000002CqEg_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}"); 
+}else 
+{ 
+alert('You cannot create campaign members for this campaign status'); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>

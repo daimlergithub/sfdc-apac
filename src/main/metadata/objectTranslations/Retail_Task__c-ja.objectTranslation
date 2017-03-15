@@ -942,11 +942,11 @@
         <name>Guarantor1_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名1（カナ）</label>
+        <label>個人保証人名1（カナ）</label>
         <name>Guarantor1_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名1（漢字）</label>
+        <label>個人保証人名1（漢字）</label>
         <name>Guarantor1_Name__c</name>
     </fields>
     <fields>
@@ -998,11 +998,11 @@
         <name>Guarantor2_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名2（カナ）</label>
+        <label>個人保証人名2（カナ）</label>
         <name>Guarantor2_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名2（漢字）</label>
+        <label>個人保証人名2（漢字）</label>
         <name>Guarantor2_Name__c</name>
     </fields>
     <fields>
@@ -1054,11 +1054,11 @@
         <name>Guarantor3_MobilePhone__c</name>
     </fields>
     <fields>
-        <label>保証人名3（カナ）</label>
+        <label>個人保証人名3（カナ）</label>
         <name>Guarantor3_Name_Native__c</name>
     </fields>
     <fields>
-        <label>保証人名3（漢字）</label>
+        <label>個人保証人名3（漢字）</label>
         <name>Guarantor3_Name__c</name>
     </fields>
     <fields>
@@ -1270,6 +1270,10 @@
         <name>MOT_Owner_Address__c</name>
     </fields>
    <fields>
+        <label>車検証所有者氏名（カナ）</label>
+        <name>MOT_Owner_Name_Native__c</name>
+    </fields>
+    <fields>
         <label>車検証所有者氏名</label>
         <name>MOT_Owner_Name__c</name>
     </fields>
@@ -1277,9 +1281,21 @@
         <label>車検証使用者住所</label>
         <name>MOT_User_Address__c</name>
     </fields>
+	<fields>
+	<label>車検証使用者氏名（カナ）</label>
+        <name>MOT_User_Name_Native__c</name>
+    </fields>
     <fields>
         <label>車検証使用者氏名</label>
         <name>MOT_User_Name__c</name>
+    </fields>
+	<fields>
+        <label>車検証使用者電話番号</label>
+        <name>MOT_User_Phone__c</name>
+    </fields>
+    <fields>
+        <label>車検証使用者郵便番号</label>
+        <name>MOT_User_Postal__c</name>
     </fields>
     <fields>
         <label>リース契約可能年月</label>
@@ -1948,6 +1964,10 @@
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
+	 <label>請求額（労務）</label>
+        <name>Service_Labour_Amount__c</name>
+    </fields>
+    <fields>
         <label>走行距離</label>
         <name>Service_Mileage__c</name>
     </fields>
@@ -1956,8 +1976,16 @@
         <name>Service_Number__c</name>
     </fields>
     <fields>
+		<label>請求額（パーツ）</label>
+        <name>Service_Parts_Amount__c</name>
+    </fields>
+    <fields>
         <label><!-- Service Position --></label>
         <name>Service_Position__c</name>
+    </fields>
+    <fields>
+		<label>請求額（総額）</label>
+        <name>Service_Total_Amount__c</name>
     </fields>
     <fields>
         <label>車台番号</label>
@@ -2407,13 +2435,16 @@
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
-        <sections>
-            <label>コメント</label>
-            <section>Comments</section>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
         </sections>
         <sections>
             <label>契約ステータス</label>
@@ -2423,13 +2454,16 @@
             <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
-        <sections>
-            <label>フラグ情報</label>
-            <section>Flags</section>
+		<sections>
+            <label>ファイナンス詳細情報</label>
+            <section>Finance Detail Information</section>
         </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout (Loan)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
         </sections>
         <sections>
             <label>支払情報</label>
@@ -2447,8 +2481,19 @@
             <section>Contract Status</section>
         </sections> 
         <sections>
-            <label>カスタムリンク</label>
-            <section>Custom Links</section>
+            <label>ファイナンス詳細情報</label>
+            <section>Finance Detail Information</section>
+        </sections>
+	</layouts>
+    <layouts>
+        <layout>Retail Task Layout(Contract)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
+		<sections>
+            <label>契約詳細情報</label>
+            <section>Contract Details Information</section>
         </sections>
         <sections>
             <label>フラグ情報</label>
@@ -2460,17 +2505,22 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Retail Task Layout(Contract)</layout> 
-		 <sections>
-            <label>新しい</label>
-            <section>New</section>
-        </sections>
-	</layouts>
-    <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
+		<sections>
+            <label>金額等詳細</label>
+            <section>Service Amount and Details</section>
+        </sections>
+        <sections>
+            <label>サービス履歴情報</label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Information</section>
+        </sections>
     </layouts>
     <nameFieldLabel>契約名</nameFieldLabel>
     <recordTypes>
