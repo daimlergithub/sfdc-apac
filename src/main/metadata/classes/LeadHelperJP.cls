@@ -403,11 +403,13 @@ public class LeadHelperJP
         userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
         
         }    
-        
+         system.debug('+++userRecords +++++'+userRecords );
         if(userRecords!=null)
         {
-            for(User u : userRecords){        
-            userIds.add(u.Id);
+        
+        If(LeadUtil.LeadTrigger)
+            {
+            
             
           
          
@@ -415,10 +417,14 @@ public class LeadHelperJP
         
         for(Lead__c led : Leadlist){
             
-            If(LeadUtil.LeadTrigger){
+            
             system.debug('++++++++++'+Leadlist);
+            if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' ))){
+                
             led.Lead_Assignment_Notification_Done__c = True; 
             //led.Person_Assign_Notificaton_Done__c = True;
+            for(User u : userRecords){        
+            userIds.add(u.Id);
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                 mail.setWhatId(led.id);
                 mail.setTemplateID(e.Id);
@@ -430,12 +436,17 @@ public class LeadHelperJP
                 mail.setUseSignature(false);              
                 mail.setSaveAsActivity(false);     
                 mails.add(mail);
-                LeadUpdate.add(led);
+            }
+            
+               LeadUpdate.add(led);
             }
             }
-            LeadUtil.LeadTrigger = false;
+           
             }
+            
+             
             }
+             LeadUtil.LeadTrigger = false;
         if(mails.size()>0){
         system.debug('++++++++++'+mails);
        
