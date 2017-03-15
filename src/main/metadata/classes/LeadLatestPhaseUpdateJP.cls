@@ -30,10 +30,10 @@ public class LeadLatestPhaseUpdateJP {
                 else if(led.Quotation_Date__c != Null && led.RecordtypeId == afterSalesRecordTypeId && (led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Job Card Issue' || led.Lead_Latest_Phase__c != 'Estimation')){
                     led.Lead_Latest_Phase__c = 'Estimation';
                 }
-                else if(led.Network_Registration_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration')){
+                else if(led.Network_Registration_Date__c != Null && led.Lead_Latest_Phase__c =='' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration')){
                     led.Lead_Latest_Phase__c = 'Vehicle Registration';
                 }
-                else if(led.Order_Confirmation_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed')){
+                else if(led.Order_Confirmation_Date__c != Null && led.Lead_Latest_Phase__c =='' && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed')){
                     led.Lead_Latest_Phase__c = 'Order Confirmed';
                 }
                 else if(led.Order_Placed_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Vehicle Registration' || led.Lead_Latest_Phase__c != 'Order Confirmed' 
