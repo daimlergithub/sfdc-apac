@@ -39,25 +39,27 @@ global class Updatecampaignmemwithrefresh{
          mem.Customer_Complete_Address__c = (mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Block__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.City__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.ZipCode__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Country__c ).left(100); 
         mem.Address__c = mem.Contact_Id__r.Primary_Address_Reference__c;
          } 
-         else if (mem.Vehicle_Relationship__r.vehicle_address__c == '' || mem.Vehicle_Relationship__r.vehicle_address__c == null && mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle' ){
+         else if (mem.Vehicle_Relationship__r.vehicle_address__c == null && mem.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' && mem.Campaign_ID__r.Segmentation_Base__c =='Vehicle' ){
                 mem.Customer_Complete_Address__c =  (mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Block__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.City__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.ZipCode__c + ',' + mem.Contact_Id__r.Primary_Address_Reference__r.Country__c ).left(100); 
          }
          else {
            mem.Customer_Complete_Address__c = ''; 
             //else mem.Customer_Complete_Address__c = ''; 
            }
-            getSObjectField(mem.Customer_Complete_Address__c);
+            //getSObjectField(mem.Customer_Complete_Address__c);
+			mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null,',' ');
+            mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null',' ');
             membertoupdate.add(mem);
         //}
         }
         update membertoupdate;
     }
-    public static String getSObjectField(String str){
+    /*public static String getSObjectField(String str){
         if (str == null) { 
             //return ''; 
            return str== null ? '' : str ;
         } 
 
         return str;
-    }
+    }*/
     }
