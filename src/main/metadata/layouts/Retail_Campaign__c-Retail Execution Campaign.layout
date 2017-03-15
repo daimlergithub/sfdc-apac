@@ -91,11 +91,13 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <customButtons>New_Retail_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>RespondedDate__c</fields>
@@ -141,7 +143,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000OGxb</masterLabel>
+        <masterLabel>00hN0000000HBuM</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
