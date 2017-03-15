@@ -6,7 +6,8 @@
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
-	<excludeButtons>ChangeOwnerOne</excludeButtons>
+	 <customButtons>Print_PDF</customButtons>
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
    <excludeButtons>ChangeRecordType</excludeButtons>
    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons> 
@@ -274,7 +275,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Requested_Service_DateTime2__c</field>
+                <field>Requested_Service_Date2__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
