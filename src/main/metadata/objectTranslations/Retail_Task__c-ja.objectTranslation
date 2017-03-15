@@ -2392,48 +2392,12 @@
     </fields>
     <layouts>
         <layout>Retail Task Layout (Insurance)</layout>
-        <sections>
-            <label>コメント</label>
-            <section>Comments</section>
-        </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout (Lease)</layout>
         <sections>
-            <label>コメント</label>
-            <section>Comments</section>
-        </sections>
-        <sections>
             <label>契約ステータス</label>
             <section>Contract Status</section>
-        </sections>
-        <sections>
-            <label>フラグ情報</label>
-            <section>Flags</section>
-        </sections>
-        <sections>
-            <label>保証/契約の詳細</label>
-            <section>Main Information</section>
-        </sections>
-        <sections>
-            <label>支払情報</label>
-            <section>Payment Conditions</section>
-        </sections>
-        <sections>
-            <label>残高情報</label>
-            <section>Remaining Balance Information</section>
-        </sections>
-        <sections>
-            <label>システム情報</label>
-            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
