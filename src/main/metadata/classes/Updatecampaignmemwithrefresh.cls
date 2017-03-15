@@ -46,18 +46,20 @@ global class Updatecampaignmemwithrefresh{
            mem.Customer_Complete_Address__c = ''; 
             //else mem.Customer_Complete_Address__c = ''; 
            }
-            getSObjectField(mem.Customer_Complete_Address__c);
+            //getSObjectField(mem.Customer_Complete_Address__c);
+			mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null,',' ');
+            mem.Customer_Complete_Address__c = mem.Customer_Complete_Address__c.replaceAll('null',' ');
             membertoupdate.add(mem);
         //}
         }
         update membertoupdate;
     }
-    public static String getSObjectField(String str){
+    /*public static String getSObjectField(String str){
         if (str == null) { 
             //return ''; 
            return str== null ? '' : str ;
         } 
 
         return str;
-    }
+    }*/
     }

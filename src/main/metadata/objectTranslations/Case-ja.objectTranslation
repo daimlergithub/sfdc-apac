@@ -16031,7 +16031,7 @@
         <name>Notify_to_Dealer</name>
     </webLinks>
     <webLinks>
-        <label>プリントディーラーPDF</label>
+        <label>PDF生成</label>
         <name>Print_Dealer_PDF</name>
     </webLinks>
     <webLinks>
