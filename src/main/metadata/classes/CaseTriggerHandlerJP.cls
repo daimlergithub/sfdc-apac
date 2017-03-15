@@ -3,18 +3,23 @@ public class CaseTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-	
-	 if (trigger.isAfter)
+            if(Trigger.isBefore && Trigger.isupdate)
+        {
+           CaseHelperJP.caseOwner(Trigger.New, (Map<Id,Case>) Trigger.OldMap);
+            
+        }
+    
+     if (trigger.isAfter)
     {
     if (trigger.isInsert){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
-	caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
     }
     if (trigger.isUpdate){
     System.debug('$$$$$$@@@@'+trigger.new);
     caseHelperJP.shareCaseWithDealers(trigger.new);
-	caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
     }
     } 
         system.debug('Entered handler...JP handler');
@@ -40,8 +45,8 @@ public class CaseTriggerHandlerJP
                  
             }
         
-		}
-		
+        }
+        
         if (trigger.isAfter){
             if (trigger.isInsert||trigger.isUpdate){
                caseHelperJP.countchildcase(trigger.new,trigger.old); 

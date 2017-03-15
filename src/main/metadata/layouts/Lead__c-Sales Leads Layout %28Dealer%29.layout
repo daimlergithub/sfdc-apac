@@ -682,7 +682,7 @@
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists>
+    <relatedLists> 
         <fields>StepStatus</fields>
         <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
