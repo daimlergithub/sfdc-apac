@@ -12,7 +12,10 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     global String emailBodyStr;
     global String templateName;
     global List<NotificationWrapper> notificationWrapperList;
-    global List<String> templateNameList = new List<String>{'Campaign notification on Execution', 'Campaign Lead Assignment Notification', 'test email'};
+    global List<String> templateNameList = new List<String>{'Campaign notification on Execution', 'Campaign Lead Assignment Notification', 'Task Notification'};
+    global Set<Id> campignIdSetForLeadType = new Set<Id>();
+    global Set<Id> newInsertedLeadId = new Set<Id>();
+    global Map<String, Id> templateNameToTemplateIdMap;
     
     global Database.QueryLocator start(Database.BatchableContext bc) {
         String query = 'SELECT ';
@@ -44,7 +47,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         notificationWrapperList = new List<NotificationWrapper>();
          
         // Create Tempate Map to avoid SOQL Limits
-        Map<String, Id> templateNameToTemplateIdMap = new Map<String, Id>();
+        templateNameToTemplateIdMap = new Map<String, Id>();
         List<EmailTemplate> templateList = [Select Id, Name from EmailTemplate where Name IN: templateNameList];
         for(EmailTemplate tempRec : templateList) {
             templateNameToTemplateIdMap.put(tempRec.Name, tempRec.Id);
@@ -53,12 +56,12 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         Map<String, Id> leadRecTypeNameToRecTypeIdMap = new Map<String, Id>();
         leadRecTypeNameToRecTypeIdMap.put('Sales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
         leadRecTypeNameToRecTypeIdMap.put('Aftersales Leads', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
-        leadRecTypeNameToRecTypeIdMap.put('Finance', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance').getRecordTypeId());
+       // leadRecTypeNameToRecTypeIdMap.put('Finance', Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance').getRecordTypeId());
          
         Map<String, String> parentCapmaignToLeadRecTypeMap = new Map<String, String>();
         parentCapmaignToLeadRecTypeMap.put('Sales', 'Sales Leads');
         parentCapmaignToLeadRecTypeMap.put('After Sales', 'Aftersales Leads');
-        parentCapmaignToLeadRecTypeMap.put('Finance', 'Finance');
+        parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
         
         for(Campaign camp : scope) {
@@ -66,7 +69,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                 if((camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM') && camp.Child_Campaign_Status__c == 'Segmentation') {
                     String templateId = templateNameToTemplateIdMap.containsKey('Campaign notification on Execution') 
                                                     ? templateNameToTemplateIdMap.get('Campaign notification on Execution')
-                                                    : templateNameToTemplateIdMap.get('test email');
+                                                    : templateNameToTemplateIdMap.get('Task Notification');
                     setNotificationTemplate(camp.OwnerId, templateId, camp.Id);
                      
                     camp.Child_Campaign_Status__c = 'Execution';
@@ -75,10 +78,11 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                  
                 else if(camp.Execution_Type__c == 'Lead' && camp.Child_Campaign_Status__c == 'Segmentation') {
                     if(camp.Campaign_CCC_Manager__c != null) {
-                        String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
+                        /*String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
                                                     ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
-                                                    : templateNameToTemplateIdMap.get('test email');
-                        setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateId, camp.Id);
+                                                    : templateNameToTemplateIdMap.get('Task Notification');
+                        setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateId, camp.Id);*/
+                        campignIdSetForLeadType.add(camp.Id);
                     }
                      
                      
@@ -116,7 +120,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                 else if(camp.Execution_Type__c == 'OB Call' && camp.Child_Campaign_Status__c == 'Segmentation'){
                      
                     if(camp.Campaign_CCC_Manager__c != null){
-                        setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateNameToTemplateIdMap.get('test email'), camp.Id);
+                        setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateNameToTemplateIdMap.get('Task Notification'), camp.Id);
                     }
                      
                     for(Campaign_Member__c campaignMemberRec : camp.Campaign_Members1__r) {
@@ -125,7 +129,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                         task.Status = 'Open';
                         task.Type = 'Campaign';
                         task.subject = 'Campaign Executed';
-                        task.ownerId = camp.Campaign_CCC_Manager__c;
+                      //  task.ownerId = camp.Campaign_CCC_Manager__c;
                         task.priority = 'Normal';
                         task.RecordTypeId = taskRecTypeId;
                         task.ActivityDate = camp.Execution_Start_Date__c;
@@ -164,6 +168,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                 cLead.Lead__c = lead.id;
                 cLead.Campaign__c = lead.Source_Campaign__c;
                 cLeadLst.add(cLead);
+                newInsertedLeadId.add(lead.Id);
             }
             insert cLeadLst;  
         }
@@ -227,17 +232,34 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     global void finish(Database.BatchableContext bc) {
         system.debug('notificationList\n\n' + notificationWrapperList);
         
+        if(campignIdSetForLeadType.size() > 0) {
+            setWrapperListForLeads(campignIdSetForLeadType);
+        }
+        
         List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
         for(NotificationWrapper notificationWrapperRec : notificationWrapperList) {
             Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
             msg.SetsaveAsActivity(false);
             msg.setTemplateId(notificationWrapperRec.templateId);
             msg.setTargetObjectId(notificationWrapperRec.userId);  
-            //msg.setWhatId(notificationWrapperRec.whatId);  
+            msg.setWhatId(notificationWrapperRec.whatId);  
             msgList.add(msg);
         }
         if(msgList.size() > 0) {
             Messaging.sendEmail(msgList);     
+        }
+    }
+    
+    private void setWrapperListForLeads(Set<Id> campignIdSetForLeadType) {
+        List<Campaign> campaignList = [select Campaign_CCC_Manager__c, (select Id from Leads__r where Id IN : newInsertedLeadId) from Campaign where Id IN: campignIdSetForLeadType];
+        String templateId = templateNameToTemplateIdMap.containsKey('Campaign Lead Assignment Notification') 
+                                                    ? templateNameToTemplateIdMap.get('Campaign Lead Assignment Notification')
+                                                    : templateNameToTemplateIdMap.get('Task Notification');
+                                                    
+        for(Campaign campRec : campaignList) {
+            for(Lead__c leadRec : campRec.Leads__r) {
+                setNotificationTemplate(campRec.Campaign_CCC_Manager__c, templateId, leadRec.Id);
+            }
         }
     }
     

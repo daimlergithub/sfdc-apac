@@ -53,7 +53,8 @@ public with sharing class CampaignMembersCustomHelperJP {
              that account to new campaign member or create new account based on the above fields and assign that account to campaign member.
     */
      public static void updateCampaignMemberStatusResponseCollection(List<campaign_member__c> newList){
-        Set<Id> camMemSet = new Set<Id>();
+        LeadUtil.Campaigntrigger = false;
+		Set<Id> camMemSet = new Set<Id>();
         List<String> firstName = new List<String>();
         List<String> lastName = new List<String>();
         List<String> email = new List<String>();
@@ -155,7 +156,7 @@ public with sharing class CampaignMembersCustomHelperJP {
          if(updateCampList != NULL && !updateCampList.isEmpty()){
                 update updateCampList;
          }
-         LeadUtil.Campaigntrigger = false;
+         
      }
      
      /*trigger  : After Update Campaign Members
