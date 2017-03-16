@@ -203,7 +203,6 @@
     </relatedContent>
     <relatedLists>
         <customButtons>New_Campaign_Member</customButtons>
-        <customButtons>Upload_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
