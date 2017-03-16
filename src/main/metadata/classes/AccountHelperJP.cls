@@ -937,7 +937,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             //String origin = ApexPages.currentPage().getParameters().get('CLNID'); // Removed this to resolve null pointer exception
+             String origin = ApexPages.currentPage().getParameters().get('CLNID');
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -1005,10 +1005,9 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-                  // Removed this to resolve null pointer exception
-				  /*if(origin != null){
+				  if(origin != null){
                       acclnk.CorrelationID__c = origin;
-                  }*/
+                  }
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
                   }
