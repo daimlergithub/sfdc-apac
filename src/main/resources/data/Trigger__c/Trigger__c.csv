@@ -36,3 +36,4 @@ TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurveyTriggerHa
 TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerJP,JP
 TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignMembersCustomHandlerJP,JP
 DealerListMember,TRUE,TRUE,TRUE,DealerListMember,TRUE,TRUE,TRUE,TriggerDealerListMemberHandlerJP,JP
+TriggerAccountLinkKR,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAccountLinkTriggerHandlerKR,KR

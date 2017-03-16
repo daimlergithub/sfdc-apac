@@ -706,6 +706,7 @@
 							<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 							<sf:include name="ShareAccountLinksToDealerTest"/>
 							<sf:include name="TriggerAccountLinkTriggerHandlerJP"/>
+							<sf:include name="TriggerAccountLinkTriggerHandlerKR"/>
 							<sf:include name="SharingService"/>
 							<sf:include name="AccountLinkSharingWrapService"/>
 							<sf:include name="VehicleSharingWrapService"/>

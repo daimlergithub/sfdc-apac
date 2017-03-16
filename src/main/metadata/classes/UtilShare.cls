@@ -3,7 +3,7 @@ public without sharing class UtilShare{
     public static void groupmembersadd(set<id> rtlst,Set<id> dealerAccountIds){
         
         List<Lead__c> listLead = [select id,Name,Assigned_Dealer__c,Contact__c,RecordTypeId,RecordType.Name,VehicleRel_No__c,AfterSales_Vehicle__c
-            from Lead__c where id IN : rtlst];
+                    from Lead__c where id IN : rtlst];
         system.debug('listLead  << :'+listLead);        
         for (Lead__c Led : listLead) {
             dealerAccountIds.add(Led.Assigned_Dealer__C);
@@ -87,12 +87,12 @@ public without sharing class UtilShare{
         Set<Id> parentIdsVRS = new Set<Id>();
         Set<Id> groupIds = new Set<Id>();
         
-        if(groupsExisting.size() > 0){
+        if(allGroups.size() > 0){
             system.debug('test 1 :');                     
             for (Lead__c Led : listLead ) {
                 system.debug('test 2 :');
                 account dealerName = mapAccountall.get(Led.Assigned_Dealer__c);   
-                for(Group groupid : groupsExisting.values()){
+                for(Group groupid : allGroups.values()){
                     system.debug('test 3 :'+dealerName);
                     if(Led.Recordtype.Name == 'Sales Leads' || Led.Recordtype.Name == 'Aftersales Leads'){
                         if (dealerName.Dealer_ND_Code__c != NULL && dealerName.Dealer_ND_Code__c == groupid.Name) {
@@ -119,8 +119,8 @@ public without sharing class UtilShare{
                         AccountShare shareObjAS = new AccountShare();
                         shareObjAS.AccountId= pid;
                         shareObjAS.UserOrGroupId= uid;
-                        shareObjAS.AccountAccessLevel= 'Read';
-                        shareObjAS.OpportunityAccessLevel= 'Read';   
+                        shareObjAS.AccountAccessLevel= 'Edit';
+                        shareObjAS.OpportunityAccessLevel= 'Edit';   
                         shareObjAS.RowCause='Manual';
                         mapShareObjAS.put(shareObjAS.id,shareObjAS);
                     }
@@ -143,7 +143,7 @@ public without sharing class UtilShare{
                         Vehicle_Relationship__Share shareObjVRS = new Vehicle_Relationship__Share();
                         shareObjVRS.ParentId=pid;
                         shareObjVRS.UserOrGroupId= uid;
-                        shareObjVRS.AccessLevel= 'Read';                
+                        shareObjVRS.AccessLevel= 'Edit';                
                         shareObjVRS.RowCause='Manual';
                         mapshareObjVRS.put(shareObjVRS.id,shareObjVRS);
                     }
@@ -162,7 +162,7 @@ public without sharing class UtilShare{
                         Vehicle__Share shareObjVS = new Vehicle__Share();
                         shareObjVS.ParentId=pid;
                         shareObjVS.UserOrGroupId= uid;
-                        shareObjVS.AccessLevel= 'Read';
+                        shareObjVS.AccessLevel= 'Edit';
                         shareObjVS.RowCause='Manual';
                         MapShareObjVS.put(shareObjVS.id,shareObjVS); 
                     }  
