@@ -6,10 +6,10 @@
     <customButtons>Send_to_Autoline</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons> 
-	<excludeButtons>ChangeOwnerOne</excludeButtons>
+    <excludeButtons>ChangeOwnerOne</excludeButtons>
    <excludeButtons>ChangeRecordType</excludeButtons>
    <excludeButtons>Share</excludeButtons>
-    <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>Submit</excludeButtons> 
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -274,7 +274,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Requested_Service_DateTime2__c</field>
+                <field>Requested_Service_Date2__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -396,6 +396,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+	<excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
@@ -403,6 +404,7 @@
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>ViewAll</excludeButtons>
+		<excludeButtons>SendEmail</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
