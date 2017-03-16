@@ -8,10 +8,10 @@
   <apex:form >
       <apex:pageBlock rendered="{!isVisibleforDealers}" title="Announcements">
           <apex:pageBlockTable value="{!dealerchatterfeed}" var="chfeed" >
-                  <apex:column value="{!chfeed.parent.Name}"/> 
-                  <apex:column value="{!chfeed.InsertedBy.Name}"/><br/>
+                  <!--<apex:column value="{!chfeed.parent.Name}"/> 
+                 <apex:column value="{!chfeed.InsertedBy.Name}"/><br/>-->
                   <apex:column >
-                      <apex:outputText value="{!chfeed.Body}" escape="false"/>
+                    <apex:outputText value="{!chfeed.Body}" escape="false"/>
                   </apex:column>
           </apex:pageBlockTable>
       </apex:pageBlock>
