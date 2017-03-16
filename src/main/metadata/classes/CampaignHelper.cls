@@ -368,7 +368,62 @@ Set<id> aid = New Set<id>();
                 
 }       
         
-}   
+}  
+
+  public static void parentCampaignSatus(List<Campaign> campaignparent){ 
+  
+    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+  Set<id> sid = New Set<Id>();
+  List<Campaign> camList = New List<Campaign>();
+  
+            For(Campaign camMain : campaignparent){
+            
+            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning'){
+                      
+                      sid.add(camMain.ParentId);
+            
+            } 
+            
+            
+            }
+            
+            if(sid.size()>0){
+            List<Campaign> camMainList =[Select id,Status From Campaign where id =: sid];
+            
+            if(camMainList.size()>0){
+            
+               For(Campaign cam : camMainList ){
+               
+                 if(cam.Status != 'Ongoing' && cam.Status != 'Completed' ){
+                 
+                      cam.Status = 'Ongoing';
+                      
+                      camList.add(cam);
+                 
+                 }
+               
+               
+               
+               }
+            
+            
+            
+            
+            }
+  
+        if(camList.size()>0){
+           Update camList;
+        
+        }
+         
+  
+  }
+  
+  
+  
+  
+  }
    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
