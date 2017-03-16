@@ -21336,10 +21336,10 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Company Layout</layout>
+        <layout>Account-Company Layout_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout</layout>
+        <layout>Account-Company Layout_KR</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21691,7 +21691,7 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-AfterSales Lead</layout>
+        <layout>Lead__c-AfterSales Lead_KR</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21699,9 +21699,10 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
+<<<<<<< HEAD
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
         <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
     </layoutAssignments>
@@ -21711,6 +21712,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+=======
+        <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
+>>>>>>> f7f3f3eb0aa958607fc5601084f503744983c9cd
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21761,7 +21765,7 @@
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+        <layout>PersonAccount-Person Account Layout_KR</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -22466,18 +22470,18 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Vehicle_Relationship__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Vehicle__c</object>

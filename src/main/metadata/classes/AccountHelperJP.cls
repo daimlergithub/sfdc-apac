@@ -824,7 +824,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
            ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
-                if(acc.Company_Name__c != NUll&& acc.recordtypeid == RDType){
+                if(acc.Company_Name__c != NUll && acc.recordtypeid == RDType){
                    String Company_Legal_Form;
 
                    if (acc.Company_Legal_form__c != NULL )
@@ -843,15 +843,15 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Pre') {
                                         if(usr.LanguageLocaleKey == 'ja')
-                                            acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '') + ' ' + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
+                                            acc.name = (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form): '')  + (acc.Company_Name__c!= null ? acc.Company_Name__c : '');
                                         else
-                                           acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + ' ' + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
+                                           acc.name = (Company_Legal_Form != null?Company_Legal_Form:'' ) + (acc.Company_Name__c != null ?acc.Company_Name__c : '' );     
                                     }
                                     else if(acc.Legal_Form_Position__c == 'Post'){
                                         if(usr.LanguageLocaleKey == 'ja')
-                                            acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + ' ' + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
+                                            acc.name = (acc.Company_Name__c!= null ?acc.Company_Name__c : '' ) + (TranslateMap.get(Company_Legal_Form)!= null ? TranslateMap.get(Company_Legal_Form):'');
                                         else
-                                            acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + ' ' + (Company_Legal_Form != null ? Company_Legal_Form:'');    
+                                            acc.name = (acc.Company_Name__c != null ? acc.Company_Name__c : '') + (Company_Legal_Form != null ? Company_Legal_Form:'');    
                                     }
                                 
                 }
@@ -960,7 +960,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             //String origin = ApexPages.currentPage().getParameters().get('CLNID'); // Removed this to resolve null pointer exception
+             String origin = ApexPages.currentPage().getParameters().get('CLNID');
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -1028,10 +1028,9 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-                  // Removed this to resolve null pointer exception
-				  /*if(origin != null){
+				  if(origin != null){
                       acclnk.CorrelationID__c = origin;
-                  }*/
+                  }
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
                   }

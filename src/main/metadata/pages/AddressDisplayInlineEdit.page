@@ -273,7 +273,8 @@
                             };
                             
                             testGetFocusedSubtabId();
-                            window.open("/{!id}","_parent");
+                            window.open("{!URLFOR($Site.Prefix)}/{!id}","_parent");
+                         
                             </script>                     
                         </apex:outputText> 
                     </apex:outputPanel>                  

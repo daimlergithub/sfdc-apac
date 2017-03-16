@@ -132,6 +132,7 @@
 					</deploy>
 				</target>
 
+
 				<target name="deploy10">
 						<deploy runAllTests="${sfdc.runAllTests}">                       
 								<sf:typeset name="queues"/>
@@ -270,6 +271,7 @@
 						</deploy>
 				</target>
 
+
 				<target name="deploy12">
 					<deploy runAllTests="${sfdc.runAllTests}">
 						<sf:typeset name="objects">
@@ -400,6 +402,7 @@
 							   <sf:include name="AnnouncementsPage"/>
 							   <!-- Added by Naga Start-->
 							</sf:typeset>
+
 
 							<sf:typeset name="classes">    
 								<sf:include name="TriggerHandlerIf"/>
@@ -538,6 +541,144 @@
 							
 									<sf:include name="ConvertToDMRequest"/>
 									<sf:include name="ConvertToDMRequestTest"/>
+            
+							<sf:typeset name="classes">    
+											<sf:include name="TriggerHandlerIf"/>
+											<sf:include name="TriggerUtil"/>
+											<sf:include name="TriggerUtilTest"/>
+											<sf:include name="AccountHelperJP"/>
+											<sf:include name="AccountHelperJPTest"/>
+											<sf:include name="TestUserCreate"/>
+											<sf:include name="CaseHelperJP"/>
+											<sf:include name="CaseHelperJPTest"/>
+											<sf:include name="CaseHelper"/>
+											<sf:include name="CaseHelperTest"/>
+											<sf:include name="TaskHelperKR"/>
+											<sf:include name="TaskHelperKRTest"/>
+											<sf:include name="GenerateAndAttachPDF"/>
+											<sf:include name="UtilTestData"/>
+											<sf:include name="UtilRecordTypeTest"/>
+											<sf:include name="UtilRecordType"/>                                                 
+											<sf:include name="AccountMergeController"/>                              
+											<sf:include name="AccountMergeControllerKR"/>
+											<sf:include name="AccountMergeControllerKRTest"/>
+											<sf:include name="AccountMergeControllerTest"/>
+											<sf:include name="ContactTriggerHandlerJP"/>
+																																																											<sf:include name="RetailCampaignHelper"/>
+											<sf:include name="RetailCampaignTriggerHandlerJP"/>
+											<sf:include name="Updatecampaignmemwithrefresh"/>
+											<sf:include name="TaskDeletingController"/>
+											<sf:include name="TaskDeletingControllerTest"/>
+											<sf:include name="SSITriggerHandlerJP"/>
+											<sf:include name="SSITriggerHandler"/>
+											<sf:include name="SSITriggerHandlerTest"/>
+											<sf:include name="UtilTask"/>
+											<sf:include name="UtilTaskTest"/>
+											<sf:include name="dealerViewForContract"/>
+											<sf:include name="dealerViewForContractTest"/>
+											<sf:include name="TriggerAccountTriggerHandlerJP"/>
+											<sf:include name="TriggerCaseTriggerHandlerJP"/>
+											<sf:include name="TriggerCaseTriggerHandlerKR"/>
+											<sf:include name="shareAccountRecord"/>
+											<sf:include name="shareAccountRecordTest"/>
+											<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
+											<sf:include name="DMRequestHelperJP"/>
+											<sf:include name="DMRequestHelperJPTest"/>
+											<sf:include name="LeadUtil"/>
+											<sf:include name="TriggerLeadTriggerHandlerKR"/>
+											<sf:include name="TriggerLeadTriggerHandlerJP"/>
+											<sf:include name="TriggerLeadTriggerHandler"/>
+											<sf:include name="LeadSharingTest"/>
+																																																											<sf:include name="EmailnotificationLeads"/>
+																	<sf:include name="EmailnotificationLeadsTest"/>																																										
+																																																											<sf:include name="EmailnotificationLeadsnotassigned"/>
+																	<sf:include name="EmailnotificationLeadsnotassignedTest"/>																																										
+																																																											<sf:include name="EmailnotificationLeadsnotupdated"/>
+																	<sf:include name="EmailnotificationLeadsnotupdatedTest"/>																																										
+											<sf:include name="TriggerLeadTest"/>
+											<sf:include name="LeadSharingWrapService"/>
+											<sf:include name="SharingWrapperService"/>
+											<sf:include name="SharingWrapper"/>
+											<sf:include name="SharingWrapperTest"/>
+											<sf:include name="LeadHelperAccountLinkCreateJP"/>
+											<sf:include name="LeadHelperAccountLinkCreateJPTest"/>
+											<sf:include name="LeadHelper"/>
+											<sf:include name="LeadHelperTest"/>
+											<sf:include name="LeadLatestPhaseUpdateJP"/>
+											<sf:include name="ReservationMessageTemplate"/>
+											<sf:include name="ReservationMessageTemplateTest"/>
+											<sf:include name="TriggerRecallTriggerHandlerJP"/>
+											<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
+											<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
+											<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
+											<sf:include name="VehicleRelationshipHelperJP"/>
+											<!--<sf:include name="VehicleRelationshipHelperJPTest"/>-->
+											<sf:include name="CaseTriggerHandlerJP"/>
+											<sf:include name="TaskTriggerHandlerKR"/>
+											<sf:include name="LeadHelperJP"/>
+											<sf:include name="LeadHelperJPTest"/>
+											<sf:include name="TestTriggerHandler"/>
+											<sf:include name="UtilProfile"/>
+											<sf:include name="UtilSobject"/>
+											<sf:include name="UtilLead"/>
+											<sf:include name="UtilLeadTest"/>
+											<sf:include name="VehicleDataSharingHandlerTest"/>
+											<sf:include name="VehicleDataSharingHandler"/>
+											<sf:include name="CustomLogUtil"/>
+											<sf:include name="CustomLogUtilTest"/>
+											<sf:include name="SharingDataHandlerBase"/>
+											<sf:include name="SharingDataHandlerBaseTest"/>
+											<sf:include name="CMapTest"/>
+											<sf:include name="CMap"/>
+											<sf:include name="UserService"/>
+											<sf:include name="SharingService"/>
+											<sf:include name="AccountSharingDataHandler"/>
+											<sf:include name="AccountSharingDataHandlerTest"/>
+											<sf:include name="AccountLinkHelper"/>
+											<sf:include name="AccountLinkHelperTest"/>
+											<sf:include name="TriggerAccountTriggerHandlerKR"/>
+											<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+											<sf:include name="AccountHelperKR"/>
+											<sf:include name="AccountHelperKRTest"/>
+											<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
+											<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>
+											<sf:include name="RetailTaskTriggerHandlerJP"/>
+											<sf:include name="RetailTaskTriggerHandlerKR"/>
+											<sf:include name="RetailTaskHelperJP"/>                                                                                          
+											<sf:include name="RetailTaskHelperJPTest"/>  
+											<sf:include name="LeadcustomClone"/>
+											<sf:include name="LeadMergeController"/>                                                     
+											<sf:include name="UtilShare"/>
+											<sf:include name="LeadSharingforDealerJP"/>
+											<sf:include name="LeadSharingforDealerJPTest"/>
+											<sf:include name="DeleteRetailCopy"/>
+											<sf:include name="DeleteRetailCopyTest"/>
+											<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
+											<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
+											<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+											<sf:include name="FS_CaseInlineController"/>
+											<sf:include name="LeadDealerAssignmentProcess"/>
+											<sf:include name="LeadDealerAssignmentProcessTest"/>
+																																																					 <sf:include name="AnnouncementController"/>
+																																																					 <sf:include name="AnnouncementController_test"/>
+																																																					<sf:include name="CampaignMembersCustomHelperJP"/>
+											<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
+											<sf:include name="CampaignMembersCustomHelperJPTest"/>
+											<sf:include name="DealerListMemberHelperJP"/>
+											<sf:include name="TriggerDealerListMemberHandlerJP"/>
+											<sf:include name="DealerListMemberHelperTestJP"/>
+											<sf:include name="ParticipateDealerHandlerJP"/>
+											<sf:include name="TriggerParticipateDealerHandlerJP"/>
+											<sf:include name="ParticipateDealerHandlerTestJP"/>
+											<sf:include name="TaskMassAssignChangeOwnerJP"/>
+											<sf:include name="TaskMassAssignChangeOwnerJPTest"/>
+											 <sf:include name="ConvertToLeadController"/>
+                                             <sf:include name="ConvertToLeadControllerTest"/>
+										
+												<sf:include name="ConvertToDMRequest"/>
+                                                <sf:include name="ConvertToDMRequestTest"/>
 
 								 <sf:include name="ConvertToTaskController"/>
 								 <sf:include name="ConvertToTaskControllerTest"/>
@@ -1042,13 +1183,13 @@
 				<sf:exclude name="ToolKitSelectContent"/>
 			</sf:typeset>
 			<sf:typeset name="layouts">
-											<sf:include name="Campaign.*"/>
-											<sf:include name="Event.*"/>
-											<sf:include name="Task.*"/>
-											<sf:include name="Case.*"/>
-											<sf:include name="PersonAccount.*"/>
-											<sf:include name="Lead__c.*"/>
-											<sf:include name="Account.*"/>
+				<sf:include name="Campaign.*"/>
+				<sf:include name="Event.*"/>
+				<sf:include name="Task.*"/>
+				<sf:include name="Case.*"/>
+				<sf:include name="PersonAccount.*"/>
+				<sf:include name="Lead__c.*"/>
+				<sf:include name="Account.*"/>
 			</sf:typeset> 
 			</deploy>                                                                           
 </target>

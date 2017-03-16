@@ -10,28 +10,38 @@
 */
 public with sharing class CampaignMembersCustomHelperJP {
     
-    /*
+    /*  1.
         * Added By: Siva Krishna
         * Desc: trigger handler code for Custom Campaignmember
         * Updated: February 2, 2017
+        2.
+        Last modified by : Lokesh
+        date   : 15th Mar, 2017
+        Desc : if campaign members status is 'responded or not responded or bounced' then update the reated execution campaing status to 'Response collection'(if the status is not in 'completed')
         */
     
-    public static void afterUpdateOperation(Map<Id, Campaign_Member__c> oldMap, Map<Id, Campaign_Member__c> newMap, List<Campaign_Member__c> newList) {
+     public static void afterUpdateOperation(Map<Id, Campaign_Member__c> oldMap, Map<Id, Campaign_Member__c> newMap, List<Campaign_Member__c> newList) {
         Set<Id> campaignIdSet = new Set<Id>(); 
+        Set<Id> parentIdSet = new Set<Id>();
+        List<Campaign> updateList = new List<Campaign>();
+        Map<Id,Id> camMemIdCamIdMap = new Map<Id,Id>();
         String FINAL_CAMPAIGN_STATUS = 'Response collection';
-        Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded', 'Not Responded'};
+        Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
         for(Campaign_Member__c campaignMemberRec : newList) {
             if(oldMap.get(campaignMemberRec.Id).Status__c == 'Executed' && campaignMemberStatusSet.contains(newMap.get(campaignMemberRec.Id).Status__c)) {
                 campaignIdSet.add(campaignMemberRec.Campaign_ID__c);
             }
         }
-        
-        List<Campaign> campaignList = [select Name, Child_Campaign_Status__c from Campaign where Id =: campaignIdSet]; 
-        for(Campaign campaignRec : campaignList) {
-            campaignRec.Child_Campaign_Status__c = FINAL_CAMPAIGN_STATUS;
-        }
-        if(campaignList.size() > 0) {
-            update campaignList;
+        if(campaignIdSet != NULL && !campaignIdSet.isEmpty()){
+            List<Campaign> campaignList = [select Name,ParentId, Child_Campaign_Status__c from Campaign where Id =: campaignIdSet]; 
+            for(Campaign campaignRec : campaignList) {
+                if(campaignRec.Child_Campaign_Status__c != 'Response Collection' && campaignRec.Child_Campaign_Status__c != 'Completed')
+                    campaignRec.Child_Campaign_Status__c = FINAL_CAMPAIGN_STATUS;
+                    updateList.add(campaignRec);
+            }
+        }   
+        if(updateList.size() > 0) {
+            update updateList;
         }
     }
     
@@ -43,7 +53,8 @@ public with sharing class CampaignMembersCustomHelperJP {
              that account to new campaign member or create new account based on the above fields and assign that account to campaign member.
     */
      public static void updateCampaignMemberStatusResponseCollection(List<campaign_member__c> newList){
-        Set<Id> camMemSet = new Set<Id>();
+        LeadUtil.Campaigntrigger = false;
+		Set<Id> camMemSet = new Set<Id>();
         List<String> firstName = new List<String>();
         List<String> lastName = new List<String>();
         List<String> email = new List<String>();
@@ -145,41 +156,34 @@ public with sharing class CampaignMembersCustomHelperJP {
          if(updateCampList != NULL && !updateCampList.isEmpty()){
                 update updateCampList;
          }
-		 LeadUtil.Campaigntrigger = false;
+         
      }
      
      /*trigger  : After Update Campaign Members
        Added by : Lokesh 
-	   Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' then update the related campaing status to 'Response collection'
-					and retail campaign member status to 'Response collection'
-      */
+       Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' then update the related campaing status to 'Response collection'
+                    and retail campaign status to 'Response collection'
+       date     : 15th Mar, 2017
+     */
     public static void afterUpdateCampaignMembers(Map<Id,Campaign_Member__c> afterCampMembers){
-        List<Id> parentCampIds = new  List<Id>();
-        List<Id> parentRetailCampIds = new  List<Id>();
+        Set<Id> parentRetailCampIds = new Set<Id>();
+        Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
         for(Campaign_Member__c campMem : [SELECT Status__c, Campaign_Id__c, Retail_Campaign_Id__c FROM Campaign_Member__c WHERE ID IN: afterCampMembers.keySet()]){
-            if(campMem.Status__c == 'Responded'){
-                if(campMem.Campaign_Id__c != null)
-                    parentCampIds.add(campMem.Campaign_Id__c);
+            if(campaignMemberStatusSet.contains(campMem.Status__c)){
                 if(campMem.Retail_Campaign_Id__c != null)
                     parentRetailCampIds.add(campMem.Retail_Campaign_Id__c);
             }            
         }
-        
-        List<Campaign> listCamp = new List<Campaign>();
-        for(Campaign cmp : [SELECT Child_Campaign_Status__c FROM Campaign WHERE Id IN : parentCampIds]){
-            cmp.Child_Campaign_Status__c = 'Response Collection';
-            listCamp.add(cmp);
-        }
-        if(listCamp.size()> 0)
-            update listCamp;
-        
+
         List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();
-        for(Retail_Campaign__c retCmp : [SELECT Child_Campaign_Status__c FROM Retail_Campaign__c WHERE Id IN : parentRetailCampIds]){
-            retCmp.Child_Campaign_Status__c = 'Response Collection';
-            listRetCamp.add(retCmp);
+        if(parentRetailCampIds != NULL && !parentRetailCampIds.isEmpty()){
+            for(Retail_Campaign__c retCmp : [SELECT Child_Campaign_Status__c FROM Retail_Campaign__c WHERE Id IN : parentRetailCampIds]){
+                retCmp.Child_Campaign_Status__c = 'Response Collection';
+                listRetCamp.add(retCmp);
+            }
         }
         if(listRetCamp.size()> 0)
             update listRetCamp;
-    }
+    } 
     
 }

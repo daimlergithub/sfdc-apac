@@ -48,7 +48,7 @@ global class EmailnotificationLeadsnotassigned implements Database.Batchable<sOb
     public void sendMail(List<User> userRecords,Id leadId){        
         List<Id> userIds = new List<Id>();
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet' limit 1];
+        EmailTemplate e =  [select id,name from EmailTemplate WHERE NAME =: 'Lead assignment to dealer outlet for unassigned' limit 1];
         for(User u : userRecords){
             userIds.add(u.id);
         

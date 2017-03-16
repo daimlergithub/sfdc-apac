@@ -67,7 +67,6 @@ implements TriggerHandlerIf
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperJP.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new,(Map<Id,Account>)Trigger.OldMap); 
 
         }
         
@@ -78,7 +77,16 @@ implements TriggerHandlerIf
             AccountHelperJP.entityNotifyUpdate('DELETE',ListAccOld[0].Id,ListAccNew[0].MD__c,serializedObject);
             
         }
-
+        /*
+        # Description:Calling UpdateRetailCopy to update the retail Copy when related account(Account 1) is updated.
+        # SFDCJP-669
+        # Date: 02/12/2016
+        # Author : Kiran
+        */
+        if(isAfter && isUpdate){
+            System.debug('----->Is update is called');
+            AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new,(Map<Id,Account>)Trigger.OldMap);
+        }
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

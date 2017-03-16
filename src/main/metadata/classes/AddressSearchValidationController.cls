@@ -554,6 +554,7 @@ public class AddressSearchValidationController{
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('Enter JP Loop 2 :');
 
+
                     /****************************************/
                     if(!Address_Validated_Flag)
                     {   system.debug('Enter JP Loop 3 :');                    
@@ -566,6 +567,7 @@ public class AddressSearchValidationController{
                     }                    
                     if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     { 
+
                     /*****************************************/  
 
                         system.debug('Enter JP Loop 5 :'); 

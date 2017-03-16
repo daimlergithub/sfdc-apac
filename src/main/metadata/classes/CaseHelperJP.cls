@@ -130,6 +130,39 @@ public class CaseHelperJP {
         }
         update updateAccount;                                                                                                                 
     }
+  
+    public static void caseOwner(List<Case> CaseList,Map<Id,Case> Maplist){
+
+ Set<Id> aid = new Set<Id>();   
+    
+    
+    
+     for(Case ca :CaseList){
+     
+     
+         
+         aid.add(Maplist.get(ca.Id).OwnerId);
+     }
+      system.debug('+++++++++++++'+aid);
+     
+     List<Group> usr = [Select Id From Group Where Id =:aid AND Name = 'Supervisor Team B' ];
+     
+     system.debug('+++++++++++++'+usr);
+     
+     if(usr.size() >0){
+     
+     
+        
+     for(Case ca :CaseList){
+       
+       ca.Status = 'In Progress';
+      
+     
+     }
+     
+     }
+     
+     }
     
     public void updateCaseDeadline(List<Case> cases){
         CaseDeadelineCalc__mdt caseDeadline;

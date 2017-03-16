@@ -226,6 +226,10 @@ public class LeadHelperJP
     {
      Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      list<lead__c> leadlist = new list<lead__c>();
+     list<account> dealerAccountList =new list<account>();
+        Map<String,account>accountMap=new Map<String,account>();
+       // Map<id,account>aMap=new Map<id,account>();
+     set<id>dealerAccountIds = new set<id>();
      set<String> GCCode = new set<String>();
      set<id> leadIds = new set<id>();
      for(Lead__c lead:leadlist1)
@@ -241,11 +245,32 @@ public class LeadHelperJP
             }
         }
      leadlist = [Select id,recordtypeId,Assigned_Dealer__r.name,CAC_Lead_Status__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
+        for(lead__c le:leadlist)
+        {
+            if(le.Assigned_Dealer__c != null){dealerAccountIds.add(le.Assigned_Dealer__c);}
+        }
+        if(dealerAccountIds.size()>0)
+        {
+            dealerAccountList = [select id,name,Dealer_Rollout_Status__c from account where ID IN:dealerAccountIds];
+        }
+        if(dealerAccountList.size()>0)
+        {
+            for(account a:dealerAccountList)
+            {
+                if(a.Dealer_Rollout_Status__c != null)
+                {
+                     accountMap.put(a.name,a);
+                   
+                }
+            }
+        }
      list<Lead__share>  leadshare=new list<lead__share>();
      list<Lead__c> leads=new list<lead__c>();
       list<group>assgroupList=new list<group>();
      map<string,id> assgroupMap = new map<string,id>();
       Map<String,id>agroupmap=new Map<String,id>();
+      
+       
      list<string>asslist=new list<string>();
      list<String> AccountNAme = new List<String>();
       
@@ -292,13 +317,17 @@ public class LeadHelperJP
                     l.AccessLevel='edit';
                     leadshare.add(l);
                     }
-                    Lead__c ld=new Lead__c();
-                    ld.Id = lead.id;
-                    ld.CAC_Lead_Status__c='Allocated';
-                    ld.Assigned_Date_Time__c=System.now();
-                    leads.add(ld);
-                 
-                   
+                     if(accountMap != null && !accountMap.isEmpty()){
+                    if(accountMap.get(lead.Assigned_Dealer__r.name).Dealer_Rollout_Status__c!=null && accountMap.get(lead.Assigned_Dealer__r.name).Dealer_Rollout_Status__c == 'Done')
+                     {
+                        Lead__c ld=new Lead__c();
+                        ld.Id = lead.id;
+                        ld.CAC_Lead_Status__c='Allocated';
+                        ld.Assigned_Date_Time__c=System.now();
+                        leads.add(ld);
+                     
+                     }
+                     }
                    
                  }
                  
@@ -309,20 +338,26 @@ public class LeadHelperJP
                     l.UserOrGroupId = assgroupMap.get(lead.Assigned_Dealer__r.Name);
                     l.AccessLevel='edit';
                     leadshare.add(l);
+                    if(accountMap != null && !accountMap.isEmpty()){
+                     if(accountMap.get(lead.Assigned_Dealer__r.name).Dealer_Rollout_Status__c!=null && accountMap.get(lead.Assigned_Dealer__r.name).Dealer_Rollout_Status__c == 'Done')
+                     {
                     Lead__c ld=new Lead__c();
                     ld.Id = lead.id;
                     ld.CAC_Lead_Status__c='Allocated';
                     ld.Assigned_Date_Time__c=System.now();
-                    leads.add(ld);   
-                    
-                    } 
+                    leads.add(ld);
+                     }
+                   }
+                 } 
                             
             
           }
         
         insert leadshare;
-        update leads;
-        
+        if(leads.size()>0)
+        {
+          update leads;
+        }
     }
     
     /*DesCription : Send E-mail notification when dealer outlet is assigned to the Lead (LEA-T06)
@@ -403,11 +438,13 @@ public class LeadHelperJP
         userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
         
         }    
-        
+         system.debug('+++userRecords +++++'+userRecords );
         if(userRecords!=null)
         {
-            for(User u : userRecords){        
-            userIds.add(u.Id);
+        
+        If(LeadUtil.LeadTrigger)
+            {
+            
             
           
          
@@ -415,10 +452,14 @@ public class LeadHelperJP
         
         for(Lead__c led : Leadlist){
             
-            If(LeadUtil.LeadTrigger){
+            
             system.debug('++++++++++'+Leadlist);
+            if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' ))){
+                
             led.Lead_Assignment_Notification_Done__c = True; 
             //led.Person_Assign_Notificaton_Done__c = True;
+            for(User u : userRecords){        
+            userIds.add(u.Id);
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                 mail.setWhatId(led.id);
                 mail.setTemplateID(e.Id);
@@ -430,12 +471,17 @@ public class LeadHelperJP
                 mail.setUseSignature(false);              
                 mail.setSaveAsActivity(false);     
                 mails.add(mail);
-                LeadUpdate.add(led);
+            }
+            
+               LeadUpdate.add(led);
             }
             }
-            LeadUtil.LeadTrigger = false;
+           
             }
+            
+             
             }
+             LeadUtil.LeadTrigger = false;
         if(mails.size()>0){
         system.debug('++++++++++'+mails);
        

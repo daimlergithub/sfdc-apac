@@ -19598,7 +19598,7 @@ Record Type =  CAS/Central Marketing campaign</description>
     <validationRules>
         <fullName>Campaign_Status_Campleted</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED(  EndDate ) , IF( ISPICKVAL(Status, 'Completed') , true, false), false)))</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED(  EndDate ) , IF( ISPICKVAL(Status, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Planning_Design_Campaign')</errorConditionFormula>
         <errorDisplayField>EndDate</errorDisplayField>
         <errorMessage>Campaign status Completed you cant change End Date</errorMessage>
     </validationRules>
@@ -19735,7 +19735,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
         <active>true</active>
         <description>Parent Campaign Status ongoing you can not change start date</description>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( StartDate ) , IF( ISPICKVAL(Status, 'Ongoing') , true, false), false)))</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( StartDate ) , IF( ISPICKVAL(Status, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Planning_Design_Campaign')</errorConditionFormula>
         <errorDisplayField>Status</errorDisplayField>
         <errorMessage>Parent Campaign Status ongoing you can not change start date</errorMessage>
     </validationRules>
@@ -19766,7 +19766,7 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
         <fullName>Record_lock_on_campaign</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),NOT(ISNEW()), 
-PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_Status__c)))</errorConditionFormula>
+PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_Status__c)),RecordType.DeveloperName = 'Campaign_Executiono')</errorConditionFormula>
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
