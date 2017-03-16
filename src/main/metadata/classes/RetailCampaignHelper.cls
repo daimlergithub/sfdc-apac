@@ -283,7 +283,62 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
   Messaging.sendEmail(mails);
   
   
-   }  
+   } 
+   
+   public static void parentRetailCampaignSatusChange(List<Retail_Campaign__c> retMainList){ 
+  
+    Id executionRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+  Set<id> sid = New Set<Id>();
+  List<Retail_Campaign__c> camList = New List<Retail_Campaign__c>();
+  
+            For(Retail_Campaign__c camMain : retMainList){
+            
+            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning'){
+                      
+                      sid.add(camMain.Parent_Campaign1__c);
+            
+            } 
+            
+            
+            }
+            
+            if(sid.size()>0){
+            List<Retail_Campaign__c> retCamMainList =[Select id,Status__c From Retail_Campaign__c where id =: sid];
+            
+            if(retCamMainList.size()>0){
+            
+               For(Retail_Campaign__c cam : retCamMainList ){
+               
+                 if(cam.Status__c != 'Ongoing' && cam.Status__c != 'Completed'){
+                 
+                      cam.Status__c = 'Ongoing';
+                      
+                      camList.add(cam);
+                 
+                 }
+               
+               
+               
+               }
+            
+            
+            
+            
+            }
+  
+        if(camList.size()>0){
+           Update camList;
+        
+        }
+         
+  
+  }
+  
+  
+  
+  
+  } 
    public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList){
    
    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
@@ -296,13 +351,13 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                  If(rect.Start_Date__c < System.Today()){
                  
-                   rect.addError('Start Date cant be Lesser Than Today');   
+                   rect.addError('Date error');   
                  
                  }
                  
                  If(rect.Close_Date__c < rect.Start_Date__c){
                  
-                       rect.addError('End Date cant be Lesser Than Start Date');
+                       rect.addError('Date error');
                  }
                   
            
@@ -343,7 +398,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
                      if(recta.Segmentation_Date__c <= rec.Start_Date__c ||recta.Segmentation_Date__c > rec.Close_Date__c ){
                      
-                         recta.addError('Segmentation Date must be greater than parent start date and less than parent end date');
+                         recta.addError('Segmentation Error');
                          
                      
                      }
@@ -351,12 +406,12 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                      if(recta.Execution_Start_Date__c <= recta.Segmentation_Date__c || recta.Execution_Start_Date__c > rec.Close_Date__c ){
                      
                      
-                            recta.addError('Execution Date must be greater than Segmentation date and less than parent end date');
+                            recta.addError('Execution Error');
                      }
                   if(recta.Response_Date__c <= recta.Execution_Start_Date__c || recta.Response_Date__c  > rec.Close_Date__c ){
                      
                      
-                            recta.addError('Response Date must be greater than Execution date and less than parent end date');
+                            recta.addError('Response Error');
                      }
                   }
                }
@@ -368,7 +423,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
     
     List<Participating_Dealer__c> newRetail = New List<Participating_Dealer__c>();
     List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
-	Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
     Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 
      Id retailId;       
