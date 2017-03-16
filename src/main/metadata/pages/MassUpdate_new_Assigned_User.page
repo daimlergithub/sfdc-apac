@@ -80,11 +80,8 @@
                          <apex:outputField value="{!usr.Firstname}"/>
                      <apex:outputField value="{!usr.Lastname}"/>
                       <apex:outputField value="{!usr.Email}"/>
-                      <apex:outputField value="{!usr.ProfileId}"/>
                       <apex:outputField value="{!usr.userName}"/>
                     </apex:pageBlockSection>
-                    <!--  <apex:pageBlockTable value="{!UserDetails}" var="usrdtls"><apex:outputField value="{!usr.Firstname}"/></apex:pageBlockTable>
-                               -->
                 </apex:pageBlock>
             </apex:pageBlockSection>
             <center>
