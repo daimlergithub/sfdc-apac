@@ -303,6 +303,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -405,6 +410,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -449,6 +459,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Campaign Execution</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
         <description>workflow fire based on segmenation date and execution date</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
