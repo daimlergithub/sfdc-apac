@@ -1753,6 +1753,13 @@
         <shortDescription>Dealer Outlet</shortDescription>
         <value>Dealer Outlet</value>
     </labels>
+	<labels>
+        <fullName>Dealer_login_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer login Url</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBJapan</value>
+    </labels>
     <labels>
         <fullName>Dedup_callout_failure</fullName>
         <language>en_US</language>
