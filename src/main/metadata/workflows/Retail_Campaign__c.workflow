@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Retail_Execution_Email_Notification</fullName>
+        <description>Retail Execution Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Retail_CampaignnotificationforExecution</template>
+    </alerts>
+    <alerts>
         <fullName>Retail_Execution_Notification</fullName>
         <description>Retail Execution Notification</description>
         <protected>false</protected>
@@ -158,10 +168,6 @@
     </fieldUpdates>
     <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
-        <actions>
-            <name>Retail_Execution_Notification</name>
-            <type>Alert</type>
-        </actions>
         <active>true</active>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
@@ -173,8 +179,17 @@
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
+            <actions>
+                <name>Retail_Execution_Email_Notification</name>
+                <type>Alert</type>
+            </actions>
             <offsetFromField>Retail_Campaign__c.Execution_Start_Date__c</offsetFromField>
             <timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
@@ -192,6 +207,11 @@
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -239,6 +259,11 @@
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
