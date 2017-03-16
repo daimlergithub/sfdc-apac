@@ -14,6 +14,7 @@ public without sharing class RetailCampaignSegmentationController {
     Boolean vehicleFind;
     Boolean vehicleRelFind;
     Boolean vehicleRetailFind;
+	Boolean accountFilter;
     
     //Find the initail soql lentght of all queries
     private Integer vehRelLength;
@@ -319,6 +320,7 @@ public without sharing class RetailCampaignSegmentationController {
            vehicleRelFind = false;
            vehicleFind = false;
            VehicleRetailFind = false;
+		   accountFilter = false;
             setSoql();
             accounts = new List<Account>();
             addAccountIds = new Set<Id>();
@@ -419,7 +421,10 @@ public without sharing class RetailCampaignSegmentationController {
                 
                //Searhs the accounts according to all other filters
                //if(accountIdSet != NULL && !accountIdSet.isEmpty()){
-                    if(accountSoql.endsWith('and ')){
+                    if(accountIdSet.size()==0 && accountFilter){
+                        accountSoql += '';
+                    }
+                    else if(accountSoql.endsWith('and ')){
                         accountSoql += 'Id in :accountIdSet ';
                     }
                     else{
@@ -684,6 +689,10 @@ public without sharing class RetailCampaignSegmentationController {
             system.debug('Entered into campaignFilterItems setSoql method'+campaignFilterItems);
             system.debug('Entered into campaignFilterItems setSoql method'+vehicleretailItems);
             
+			if(customerFilterItems != NULL && !customerFilterItems.isEmpty()){
+                accountFilter = true;
+            }
+			
             if(vehicleFilterItems != NULL && vehiclerelItems != NULL && !vehicleFilterItems.isEmpty() && !vehiclerelItems.isEmpty()){
                 vehicleFind = true;
                 vehicleRelFind = true;
