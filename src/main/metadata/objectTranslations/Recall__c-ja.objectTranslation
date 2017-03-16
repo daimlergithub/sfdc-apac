@@ -68,6 +68,12 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    
+    <layouts>
+        <layout>Revised Recall Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <nameFieldLabel>改善措置番号</nameFieldLabel>
 </CustomObjectTranslation>

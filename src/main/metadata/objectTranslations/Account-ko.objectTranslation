@@ -1046,6 +1046,14 @@
             <translation>AS 도우미 어플</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>설문조사</translation>
         </picklistValues>
@@ -2396,6 +2404,10 @@ Allows up to 240 characters --></help>
             <masterLabel>WEST</masterLabel>
             <translation><!-- WEST --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealer Manual Create --></label>
+        <name>Dealer_Manual_Create__c</name>
     </fields>
     <fields>
         <label><!-- Dealer Marketing Manager Email --></label>
@@ -4453,6 +4465,10 @@ Allows up to 240 characters --></help>
             <translation><!-- GLA-Class --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>GLC-Class Coupe</masterLabel>
+            <translation><!-- GLC-Class Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>GLE-Class</masterLabel>
             <translation><!-- GLE-Class --></translation>
         </picklistValues>
@@ -5032,7 +5048,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Oriental Medical Doctor</masterLabel>
-            <translation><!-- Oriental Medical Doctor --></translation>
+            <translation>Oriental Medical Doctor</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -6001,7 +6017,7 @@ Allows up to 240 characters --></help>
         <name>Postal_Opt_Out_Reason__c</name>
     </fields>
     <fields>
-        <label>우편 옵트아웃</label>
+        <label>우편 수신 거부</label>
         <name>Postal_Opt_Out__c</name>
     </fields>
     <fields>
@@ -6814,7 +6830,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>BBAC</masterLabel>
-            <translation><!-- BBAC --></translation>
+            <translation>BBAC</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Central</masterLabel>
@@ -7115,7 +7131,7 @@ Allows up to 240 characters --></help>
         <name>UCID_Sequence__c</name>
     </fields>
     <fields>
-        <label><!-- UCID --></label>
+        <label>UCID</label>
         <name>UCID__c</name>
     </fields>
     <fields>
@@ -7268,7 +7284,7 @@ Allows up to 240 characters --></help>
         <name>Vendor_Code__c</name>
     </fields>
     <fields>
-        <label>방문 옵트아웃</label>
+        <label>방문 거부</label>
         <name>Visit_Opt_Out__c</name>
     </fields>
     <fields>
@@ -7417,22 +7433,7 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-  <!--   <layouts>
-        <layout>3rd Pary Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>필드</label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Retail Information</section>
-        </sections>
-    </layouts> -->
+  
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7462,16 +7463,24 @@ Allows up to 240 characters --></help>
             <label>연락처 정보</label>
             <section>Contact Infromation</section>
         </sections>
+        <sections>
+            <label>텔레매틱스 관련 정보</label>
+            <section>Telematics Related Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Company Read Only Layout</layout>
         <sections>
-            <label><!-- Company Information --></label>
+            <label>회사 정보</label>
             <section>Company Information</section>
         </sections>
         <sections>
-            <label><!-- Contact Infromation --></label>
+            <label>연락처 정보</label>
             <section>Contact Infromation</section>
+        </sections>
+        <sections>
+            <label>텔레매틱스 관련 정보</label>
+            <section>Telematics Related Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -7499,6 +7508,14 @@ Allows up to 240 characters --></help>
             <label>딜러 포털 관련 정보</label>
             <section>Dealer Portal Related Information</section>
         </sections>
+        <sections>
+            <label>GSSN 주소 정보</label>
+            <section>GSSN Address Information</section>
+        </sections>
+        <sections>
+            <label>GSSN 정보</label>
+            <section>GSSN Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Dealer Layout-CAC</layout>
@@ -7514,6 +7531,14 @@ Allows up to 240 characters --></help>
             <label>딜러 포털 관련 정보</label>
             <section>Dealer Portal Related Information</section>
         </sections>
+        <sections>
+            <label>GSSN 주소 정보</label>
+            <section>GSSN Address Information</section>
+        </sections>
+        <sections>
+            <label>GSSN 정보</label>
+            <section>GSSN Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Dealer Layout-Portal</layout>
@@ -7528,6 +7553,14 @@ Allows up to 240 characters --></help>
         <sections>
             <label>딜러 포털 정보</label>
             <section>Dealer Portal Information</section>
+        </sections>
+        <sections>
+            <label>GSSN 주소 정보</label>
+            <section>GSSN Address Information</section>
+        </sections>
+        <sections>
+            <label>GSSN 정보</label>
+            <section>GSSN Information</section>
         </sections>
     </layouts>
   <!--  <layouts>
@@ -7558,12 +7591,24 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
+            <label>기타 정보</label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
             <label>개인 계정 기본 정보</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>텔레매틱스 관련 정보</label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections>
+            <label>전체 활동</label>
+            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>
@@ -7578,8 +7623,16 @@ Allows up to 240 characters --></help>
             <section>Fields</section>
         </sections>
         <sections>
+            <label>기타 정보</label>
+            <section>Other information</section>
+        </sections>
+        <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>전체 활동</label>
+            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>
@@ -7610,12 +7663,24 @@ Allows up to 240 characters --></help>
             <section>Duplication Information</section>
         </sections>
         <sections>
+            <label>기타 정보</label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
             <label>개인 계정 기본 정보</label>
             <section>Person Account Basic Information</section>
         </sections>
         <sections>
             <label>소매 정보</label>
             <section>Retail Information</section>
+        </sections>
+        <sections>
+            <label>텔레매틱스 관련 정보</label>
+            <section>Telematics Related Information</section>
+        </sections>
+        <sections>
+            <label>전체 활동</label>
+            <section>Whole activities</section>
         </sections>
     </layouts>
     <layouts>
@@ -7650,34 +7715,11 @@ Allows up to 240 characters --></help>
             <section>Main Contact and Consent</section>
         </sections>
         <sections>
-            <label>신규 섹션</label>
-            <section>New Section</section>
-        </sections>
-        <sections>
             <label>프로파일 정보</label>
             <section>Profile Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Person Account Read Only Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label></label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Main Contact and Consent</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>New Section</section>
-        </sections>
-        <sections>
-            <label></label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts> -->
+   
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>

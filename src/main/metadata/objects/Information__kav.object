@@ -66,27 +66,6 @@
         <required>false</required>
         <type>File</type>
     </fields>
- <!--   <fields>
-        <fullName>Attachment_6__c</fullName>
-        <externalId>false</externalId>
-        <label>Attachment 6</label>
-        <required>false</required>
-        <type>File</type>
-    </fields>
-    <fields>
-        <fullName>Attachment_7__c</fullName>
-        <externalId>false</externalId>
-        <label>Attachment 7</label>
-        <required>false</required>
-        <type>File</type>
-    </fields>
-    <fields>
-        <fullName>Attachment_8__c</fullName>
-        <externalId>false</externalId>
-        <label>Attachment 8</label>
-        <required>false</required>
-        <type>File</type>
-    </fields>-->
     <fields>
         <fullName>Category__c</fullName>
         <externalId>false</externalId>
@@ -148,14 +127,6 @@
                 <fullName>Sales &amp; Marketing Other</fullName>
                 <default>false</default>
             </picklistValues>
-        <!--    <picklistValues>
-                <fullName>Current Car Model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Promotion</fullName>
-                <default>false</default>
-            </picklistValues>-->
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -195,14 +166,6 @@
                 <fullName>After Sales</fullName>
                 <default>false</default>
             </picklistValues>
-        <!--    <picklistValues>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CRM</fullName>
-                <default>false</default>
-            </picklistValues>-->
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>

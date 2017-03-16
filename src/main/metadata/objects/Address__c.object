@@ -1746,7 +1746,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Province_is_mandatory</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Province__c is Mandatory while creating new Address</description>
         <errorConditionFormula>AND( $Profile.Name != 'IntegrationAPI',
 MD__c = 'JP',

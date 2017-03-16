@@ -80,8 +80,9 @@ public class CaseHelperJPTest{
         system.debug('Account Before Insert:' +acc);
         
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
+        test.starttest();
         insert testCase1;
-        
+        test.stoptest();
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Insert:' +acc);
         //system.assertEquals(2, acc.Complaint_Amount__c);
@@ -90,14 +91,15 @@ public class CaseHelperJPTest{
     public static testMethod void testComplaintAmountCaseDelete(){
         createCustomSetting();
         init();
+        
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, MD__c = 'JP');
         insert testCase1;
         
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Delete :' +acc);
-        
+        test.starttest();
         delete testCase1;
-        
+        test.stoptest();
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Delete:' +acc);
         //system.assertEquals(1, acc.Complaint_Amount__c);
@@ -106,6 +108,7 @@ public class CaseHelperJPTest{
     public static testMethod void testComplaintAmountCaseUpdate(){
         createCustomSetting();
         init();
+        
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP');
         insert testCase1;
         
@@ -113,8 +116,9 @@ public class CaseHelperJPTest{
         system.debug('Account Before Update :' +acc);
         
         testCase1.AccountId = testAccount1.Id;
+        test.starttest();
         update testCase1;
-        
+        test.stoptest();
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Update:' +acc);
         //system.assertEquals(2, acc.Complaint_Amount__c);
@@ -125,8 +129,10 @@ public class CaseHelperJPTest{
         createCustomSetting();
         init();
         createCaseToComputeDeadline();
+        test.starttest();
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount1.Id, Priority = 'A', MD__c = 'JP');
         insert testCase1;
+        test.stoptest();
                
         Case cs = [Select DeadLine__c from Case Where Id =: testCase1.Id];
         System.debug('Case Record...' +cs.DeadLine__c);

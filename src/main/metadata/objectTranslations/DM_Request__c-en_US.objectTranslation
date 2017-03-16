@@ -32,6 +32,15 @@
         <name>Address__c</name>
     </fields>
     <fields>
+        <label><!-- AfterSales Department --></label>
+        <name>AfterSales_Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Dealer --></label>
+        <name>Assigned_Dealer__c</name>
+        <relationshipLabel><!-- DM Request (Assigned Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Attention --></label>
         <name>Attention__c</name>
     </fields>
@@ -55,6 +64,10 @@
     </fields>
     <fields>
         <label><!-- Case Number --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select Case that is linked to the same account as this DM Request. --></errorMessage>
+            <informationalMessage><!-- Search and select case. --></informationalMessage>
+        </lookupFilter>
         <name>Case_Number__c</name>
         <relationshipLabel><!-- DM Request --></relationshipLabel>
     </fields>
@@ -88,6 +101,14 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation><!-- Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation><!-- MB Connection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCare</masterLabel>
+            <translation><!-- MCare --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -132,6 +153,10 @@
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation><!-- Outbound Call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall desk</masterLabel>
@@ -185,6 +210,10 @@
         <name>Dealer__c</name>
     </fields>
     <fields>
+        <label><!-- Delivery Date --></label>
+        <name>Delivery_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Delivery Type --></label>
         <name>Delivery_Type__c</name>
         <picklistValues>
@@ -233,12 +262,96 @@
     </fields>
     <fields>
         <label><!-- Lead --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select Leads that is linked to the same account as this DM Request. --></errorMessage>
+            <informationalMessage><!-- Search and select leads. --></informationalMessage>
+        </lookupFilter>
         <name>Lead__c</name>
         <relationshipLabel><!-- DM Request --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- MBK Channel --></label>
+        <name>MBK_Channel__c</name>
+        <picklistValues>
+            <masterLabel>24 hours Touring Support</masterLabel>
+            <translation><!-- 24 hours Touring Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Circle of excellence</masterLabel>
+            <translation><!-- Circle of excellence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers</masterLabel>
+            <translation><!-- Dealers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter</masterLabel>
+            <translation><!-- Letter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Connection</masterLabel>
+            <translation><!-- MB Connection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Magazine Survey</masterLabel>
+            <translation><!-- Mercedes Magazine Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes Me</masterLabel>
+            <translation><!-- Mercedes Me --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes call</masterLabel>
+            <translation><!-- Mercedes call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MercedesCard</masterLabel>
+            <translation><!-- MercedesCard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Mercedes</masterLabel>
+            <translation><!-- My Mercedes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Call</masterLabel>
+            <translation><!-- Outbound Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom</masterLabel>
+            <translation><!-- Showroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>StarClass</masterLabel>
+            <translation><!-- StarClass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Department --></label>
+        <name>Marketing_Department__c</name>
     </fields>
     <fields>
         <label><!-- Mobile --></label>
@@ -255,6 +368,14 @@
     <fields>
         <label><!-- Province --></label>
         <name>Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipient Name --></label>
+        <name>Receipient_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Department --></label>
+        <name>Sales_Department__c</name>
     </fields>
     <fields>
         <label><!-- Second Mobile --></label>
@@ -402,10 +523,6 @@
             <translation><!-- Approving --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Failed</masterLabel>
-            <translation><!-- Failed --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Not send</masterLabel>
             <translation><!-- Not send --></translation>
         </picklistValues>
@@ -452,8 +569,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- View By All --></label>
+        <name>View_By_All__c</name>
     </fields>
     <fields>
         <label><!-- Zip Code --></label>

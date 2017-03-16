@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- CallReference --></label>
+        <name>AES_CNTR__CallReference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Called --></label>
+        <name>AES_CNTR__Called__c</name>
+    </fields>
+    <fields>
+        <label><!-- Caller --></label>
+        <name>AES_CNTR__Caller__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queue --></label>
+        <name>AES_CNTR__Queue__c</name>
+    </fields>
+    <fields>
+        <label><!-- UCID --></label>
+        <name>AES_CNTR__UCID__c</name>
+    </fields>
+    <fields>
+        <label><!-- UUI --></label>
+        <name>AES_CNTR__UUI__c</name>
+    </fields>
+    <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
     </fields>
@@ -98,7 +122,7 @@
         <name>Communication_Type__c</name>
     </fields>
     <fields>
-        <label><!-- Communication date --></label>
+        <label><!-- Comm Date --></label>
         <name>Communication_date__c</name>
     </fields>
     <fields>
@@ -246,7 +270,7 @@
         <name>Reason__c</name>
     </fields>
     <fields>
-        <label><!-- Related Task Id --></label>
+        <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
     </fields>
     <fields>
@@ -294,7 +318,7 @@
         <name>Status__c</name>
     </fields>
     <fields>
-        <label><!-- Survey Result Id --></label>
+        <label><!-- *Survey Result Id --></label>
         <name>Survey_Result_Id__c</name>
     </fields>
     <fields>
@@ -356,14 +380,14 @@
             <section>Fields</section>
         </sections>
         <sections>
-            <label>신규 섹션</label>
+            <label>사용자 지정 링크</label>
             <section>New Section</section>
         </sections>
     </layouts>
     <layouts>
         <layout>DM</layout>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label>통화 세부정보</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
@@ -377,22 +401,22 @@
     <layouts>
         <layout>IB Call</layout>
         <sections>
-            <label>통화 세부정보</label>
+            <label>필드</label>
             <section>Call Detail</section>
         </sections>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label>통화 세부정보</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>필드</label>
+            <label>사용자 지정 링크</label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>OB Call</layout>
         <sections>
-            <label>통화 세부정보</label>
+            <label>필드</label>
             <section>Call Detail</section>
         </sections>
         <sections>
@@ -400,14 +424,14 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>필드</label>
+            <label>사용자 지정 링크</label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>OB Task</layout>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
@@ -435,7 +459,7 @@
     <layouts>
         <layout>Social Media</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
     </layouts>

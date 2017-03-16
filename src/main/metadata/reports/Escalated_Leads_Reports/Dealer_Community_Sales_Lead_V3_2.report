@@ -66,10 +66,15 @@
             <operator>equals</operator>
             <value>Lead__c.Sales_Leads</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$Lead_Type__c</column>
+            <operator>equals</operator>
+            <value>New Car,Used Car</value>
+        </criteriaItems>
         <language>ko</language>
     </filter>
     <format>Tabular</format>
-    <name>Dealer Community_Sales Lead_V3.2</name>
+    <name>세일즈 리드 보고서</name>
     <params>
         <name>co</name>
         <value>1</value>

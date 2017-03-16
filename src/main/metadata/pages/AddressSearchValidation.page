@@ -1,6 +1,7 @@
 <apex:page standardController="Account" extensions="AddressSearchValidationController" >
    
-    <apex:pageMessages id="msgs" escape="False" />
+
+    <apex:pageMessages id="msgs1" escape="False" />
     <apex:includeScript value="/support/console/20.0/integration.js"/>
     <apex:includeScript value="{!$Resource.jQuery}" />
     <script type="text/javascript">

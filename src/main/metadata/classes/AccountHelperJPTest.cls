@@ -118,7 +118,7 @@ public with sharing class AccountHelperJPTest
       {
        createTestData(); 
        Test.Starttest(); 
-       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountMap,true);
+       AccountHelperJP.updatePrimaryAddressdisplay(accountlist,accountOldMap, true);
        Test.Stoptest();      
      }  
     Public static testmethod void testUpdatePrimaryContactInformationBeforeInsert()

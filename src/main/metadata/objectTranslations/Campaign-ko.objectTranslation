@@ -282,7 +282,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
+            <translation>DM</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Visit</masterLabel>
@@ -355,7 +355,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>SMS</masterLabel>
-            <translation><!-- SMS --></translation>
+            <translation>SMS</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Social Media</masterLabel>

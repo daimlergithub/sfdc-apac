@@ -2032,9 +2032,27 @@
         <label><!-- Segment 3 --></label>
         <name>Vehicle_SubSubGroup__c</name>
     </fields>
+    <layouts>
+        <layout>Car Model Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>세그먼트 정보</label>
+            <section>Segment Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Revised Car Model Layout</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>세그먼트 정보</label>
+            <section>Segment Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel><!-- Car Model Name --></nameFieldLabel>
-    <validationRules>
-        <errorMessage><!-- Model is Mandatory. --></errorMessage>
-        <name>Model_Required</name>
-    </validationRules>
 </CustomObjectTranslation>

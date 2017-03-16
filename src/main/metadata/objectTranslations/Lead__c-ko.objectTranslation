@@ -2721,7 +2721,7 @@
         <name>Gender__c</name>
     </fields>
     <fields>
-        <label><!-- Handover Date --></label>
+        <label>차량 출고일</label>
         <name>Handover_Date__c</name>
     </fields>
     <fields>
@@ -2745,8 +2745,20 @@
         <label><!-- Insurance Type --></label>
         <name>Insurance_Type__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>No insurance</masterLabel>
+            <translation><!-- No insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other outlet</masterLabel>
+            <translation><!-- Other outlet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>This outlet</masterLabel>
+            <translation><!-- This outlet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -5236,7 +5248,7 @@
         <name>Invoice_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Invoice Date --></label>
+        <label>인보이스 날짜</label>
         <name>Invoice_Date__c</name>
     </fields>
     <fields>
@@ -5327,6 +5339,14 @@
         <label>추가 서비스</label>
         <name>Lead_Additional_Service__c</name>
         <picklistValues>
+            <masterLabel>1 Year Inspection</masterLabel>
+            <translation><!-- 1 Year Inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 month Inspection</masterLabel>
+            <translation><!-- 6 month Inspection --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation>--</translation>
         </picklistValues>
@@ -5339,6 +5359,10 @@
             <translation>일반적 차량관리</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>General Repair</masterLabel>
+            <translation><!-- General Repair --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Inspection</masterLabel>
             <translation>검사</translation>
         </picklistValues>
@@ -5347,8 +5371,28 @@
             <translation>보험</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MOT</masterLabel>
+            <translation><!-- MOT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paint</masterLabel>
+            <translation><!-- Paint --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Participate</masterLabel>
             <translation>--</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plus Check</masterLabel>
+            <translation><!-- Plus Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation><!-- Recall --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Repair</masterLabel>
@@ -5533,6 +5577,14 @@
         <picklistValues>
             <masterLabel>Social media</masterLabel>
             <translation><!-- Social media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -7784,7 +7836,7 @@
         <name>Next_Contact_Contents__c</name>
     </fields>
     <fields>
-        <label><!-- Next Contact Customer Date --></label>
+        <label>재방문(접촉)일</label>
         <name>Next_Contact_Customer_Date__c</name>
     </fields>
     <fields>
@@ -13613,7 +13665,7 @@
         <name>Trade_in_Vehicle_Text2__c</name>
     </fields>
     <fields>
-        <label><!-- UCID --></label>
+        <label>UCID</label>
         <name>UCID__c</name>
     </fields>
     <fields>
@@ -15500,6 +15552,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
             <label>딜러 정보</label>
             <section>Dealer Information</section>
         </sections>
@@ -15533,6 +15589,10 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15574,6 +15634,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
             <label>딜러 정보</label>
             <section>Dealer Information</section>
         </sections>
@@ -15606,10 +15670,6 @@
             <section>Referal/Referee Information</section>
         </sections>
         <sections>
-            <label>할당된 딜러 선택</label>
-            <section>Select Assigne Dealer</section>
-        </sections>
-        <sections>
             <label>경로 정보</label>
             <section>Source Information</section>
         </sections>
@@ -15631,6 +15691,10 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
         </sections>
         <sections>
             <label>설명 정보</label>
@@ -15670,6 +15734,10 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15772,6 +15840,10 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
         </sections>
         <sections>
             <label>딜러 정보</label>
@@ -15986,10 +16058,6 @@
     <webLinks>
         <label>세일즈 리드 생성</label>
         <name>New_Sales_Lead</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- PushToATL --></label>
-        <name>PushToATL</name>
     </webLinks>
     <webLinks>
         <label><!-- SMS --></label>

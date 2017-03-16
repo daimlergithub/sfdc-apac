@@ -62,7 +62,6 @@ public class AccountMergeControllerTest {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
-             objAccountController.getParameter('Test'); 
         Test.stopTest();  
         list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
         system.assert(lstLogsCreated.size() > 0 );           

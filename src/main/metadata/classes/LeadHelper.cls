@@ -31,7 +31,7 @@ public class LeadHelper
                * @return 
                 * @see   UpdateLeadOwner
                */ 
-   public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate){
+   public static void UpdateLeadOwnerFromDealerLeadGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate,Map<Id,Lead__c> oldValLead){
        List<Lead__c> leadForUpdate = new List<Lead__c>();        
        Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();       
        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
@@ -39,8 +39,7 @@ public class LeadHelper
            dealerIdGateKeeperIds.put(u.AccountId, u.Id);
        }        
        for(Lead__c lead : leadsForUpdate) {
-           if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
-           {
+            if(lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c){
                if(lead.RecordTypeId == salesRecordTypeId)
                {
                    lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);

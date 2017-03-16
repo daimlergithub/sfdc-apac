@@ -273,7 +273,8 @@ public With Sharing class CaseHelperTest {
         
         String accountId = String.valueOf(newAccount.Id);
         CaseHelper.populateCarOwnerValuesToCase(new Set<String>{accountId}, new List<Case>{testCase});
-        
+        CaseHelper ch = new CaseHelper(); 
+        ch.inflateTest();
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {

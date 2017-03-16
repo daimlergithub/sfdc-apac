@@ -54,10 +54,15 @@
             <operator>equals</operator>
             <value>Lead__c.Aftersales_Leads</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$Lead_Type__c</column>
+            <operator>equals</operator>
+            <value>Service,Product,TA&amp;C,Activities</value>
+        </criteriaItems>
         <language>ko</language>
     </filter>
     <format>Tabular</format>
-    <name>Dealer Community_AS Lead_V3.1</name>
+    <name>AS 리드 보고서</name>
     <params>
         <name>co</name>
         <value>1</value>

@@ -38,11 +38,13 @@ private with sharing class RecallHelperTest {
          
         insert vehicles;
         accList.add(account);
-        insert accList;
+
+        //insert accList;
+
         //insert account;
         //VR.Contact__c = accList[0].id;
         VR.Vehicle_ID__c = vehicles.id;
-        insert VR;
+        //insert VR;
         custom.Vehicle_ID__c = vehicles.id;
         insert custom;
         vehicleIDS.add(vehicles.Id);

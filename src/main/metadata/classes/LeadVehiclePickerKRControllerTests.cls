@@ -6,6 +6,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
     private static Vehicle__c testVehicle_VehicleProduct;
     private static List<Car_Model__c> carModels;
     private static List<Map<String, Set<String>>> carModelMap;
+    public static user usr;
+    public static List<Vehicle_Relationship__c> vrlist;
+    public static List<Vehicle__c> vechlist;
     private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1', 'CurrentVehicle2', 'TradeIn', 'Purchased'};
     public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id salesleadsRecordtypeid = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
@@ -28,7 +31,10 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         testLead = new Lead__c(RecordTypeId=salesleadsRecordtypeid,Contact__c = ta.Id,CAC_Lead_Status__c = 'Qualified',Lead_Type__c = 'New Car');
         insert testLead;
         system.debug('Leads... :' +testLead);
-        
+        for(ApexPages.Message msg :  ApexPages.getMessages()) {
+            System.assertEquals('Have a nice day', msg.getSummary());
+            System.assertEquals(ApexPages.Severity.ERROR, msg.getSeverity());
+        }
         
         /*
         lead.Relation_With_The_Leads__c = 'testR';
@@ -58,7 +64,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         List<String> brands = new List<String>{'AMG','Others','TRUCKS','Maybach'};
         List<String> classes = new List<String>{'A-CLASS','B-CLASS','C-CLASS','C-CLASS'};
         List<String> models = new List<String>{'A160','A180','B200','C200K Elegance'};
-        
+        List<String> colours = new List<String>{'Red','blue','white','black'};
         carModels = new List<Car_Model__c>();
         for (Integer i=0; i<4; i++){
             carModels.add(new Car_Model__c());
@@ -75,9 +81,14 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             carModels[i].Series__c = classes[i];
             carModels[i].Model__c = models[i];
             carModels[i].Name = models[i];
+            carModels[i].Colour__c = colours[i];
         }
         update carModels;
         system.debug('Updated Car Models...' +carModels);
+        
+        Profile prof = [select Id from Profile where Name = 'IntegrationAPI'];
+        usr = new User (ProfileId = prof.Id, isActive = true, Username='lai1@nttdata.com',LastName='sichaof',Email='sichao.lai@nttdata.com',Alias='laisc',CommunityNickname='barney1',
+                    TimeZoneSidKey='America/Los_Angeles',LocaleSidKey='en_US',EmailEncodingKey='ISO-8859-1',LanguageLocaleKey='en_US');
     }
     
     
@@ -135,8 +146,8 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         test.StopTest();
         //System.assertEquals(tempMap.size(),1);
     }
-    /*   
-    public static testMethod void testCreateNewVehicle(){
+       
+    /*public static testMethod void testCreateNewVehicle(){
     
         //@@@@@@@@@@@ NEW VEHICLE @@@@@@@@@@@
         
@@ -144,17 +155,20 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         createTestData();
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
+        String vehicleDetials;
+        LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetials);
         test.startTest();
         
         //String vehicleDetials;
         //Map<String,String> tempMap_New = new Map<String,String>();
         //vehicleDetials = JSON.serialize(tempMap_New);
         //LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetials);
-        
+         Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+		 lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails];
         for (String vehicle : vehicleTypes){
         
             String leadId = testLead.Id;
-            String vehicleDetials;      
+                  
             Map<String,String> tempMap_New = new Map<String,String>();
             tempMap_New.put('Brand','AMG');
             tempMap_New.put('Class','A-CLASS');
@@ -168,33 +182,33 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             tempMap_New.put('LeadVehicleType',vehicle);
             vehicleDetials = JSON.serialize(tempMap_New);
             system.debug('$$$$$$$$$$$$'+vehicleDetials);
-            LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetials);
+            
             
             Lead__c leadDetails;
             Vehicle__c lead_VehicleDetails;
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-                leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
+                //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
-                leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
+                //leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Interested_Competitor_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
                 leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c from Vehicle__c Where Id =:leadDetails.Current_Vehicle_1__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
+                //leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Current_Vehicle_2__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-                leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
+                //leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Trade_In_Vehicle__c];
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-                leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
-                lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
+                //leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails.Purchased_Vehicle__c];
             }
                 
             
@@ -256,8 +270,8 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         }
         test.stopTest();
         
-    }
-    */
+    }*/
+    
     public static testMethod void testLookupVehicle(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
@@ -265,6 +279,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         Map<String,String> tempMap = new Map<String,String>();
+		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -273,26 +288,25 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             String vehicleDetails = JSON.serialize(tempMap);
             system.debug('Vehicle Detials for Lookup...' +vehicleDetails);
             LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetails);
-            Lead__c leadDetails;
             
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-                leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Interested_Vehicle__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_1__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_2__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-                leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Trade_In_Vehicle__c,testVehicleMB.Id);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-                leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Purchased_Vehicle__c,testVehicleMB.Id);
             }
             
@@ -307,6 +321,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         test.startTest();
+		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for (String vehicle : vehicleTypes){
             String leadId = testLead.Id;
             String vehicleDetials;      
@@ -324,11 +339,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             vehicleDetials = JSON.serialize(tempMap_New);
             LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetials);
             
-            //Id recTypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c', 'Vehicle Product');
-            Vehicle__c vehicle_VP = [Select Id from Vehicle__c Where RecordTypeId =:VehicleProductRecordtypeid];
-            System.debug('Vehicle Before clear :' +vehicle_VP);
+
             
-            Lead__c leadDetails;
+            //Lead__c leadDetails;
             //Clear the Vehicle:
             Map<String,String> clearVehicleDetails = new Map<String,String>();
             clearVehicleDetails.put('VehicleType',vehicle);
@@ -336,39 +349,32 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             LeadVehiclePickerKRController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
             
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-                leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                 system.debug('Cleared Vehicle Id:' +leadDetails.Interested_Vehicle__c);
                 System.assertEquals(leadDetails.Interested_Vehicle__c,null);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
-                leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Interested_Competitor_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Interested_Competitor_Vehicle__c,null);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_1__c,null);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-                leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Current_Vehicle_2__c,null);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-                leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Trade_In_Vehicle__c,null);
             }
             else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-                leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+                //leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
                 System.assertEquals(leadDetails.Purchased_Vehicle__c,null);
             }
             
-            Vehicle__c deletedVehicle;
-            try{
-                deletedVehicle = [Select Id from Vehicle__c Where RecordTypeId =:VehicleProductRecordtypeid];
-                System.debug('Vehicle after clear :' +vehicle);
-            }catch(Exception e){
-                system.debug('vehicle cleared :' +deletedVehicle);
-                System.assertEquals(deletedVehicle,null);
-            }
+            
             
         }
         test.StopTest();
@@ -383,6 +389,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         Map<String,String> tempMap = new Map<String,String>();
+		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for(String vehicle : vehicleTypes){
         
             if (!vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
@@ -393,7 +400,6 @@ public without sharing class LeadVehiclePickerKRControllerTests{
                 String vehicleDetails = JSON.serialize(tempMap);
                 system.debug('Vehicle Detials for Lookup...' +vehicleDetails);
                 LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetails);
-                Lead__c leadDetails;
                 
                 //Clear the Vehicle:
                 Map<String,String> clearVehicleDetails = new Map<String,String>();
@@ -402,34 +408,28 @@ public without sharing class LeadVehiclePickerKRControllerTests{
                 //LeadVehiclePickerKRController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
                 
                if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
-                    leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
+                    //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                     system.debug('Cleared Vehicle Id:' +leadDetails.Interested_Vehicle__c);
                     System.assertEquals(leadDetails.Interested_Vehicle__c,null);
                 }
                 else if (vehicle.equalsIgnoreCase(utilConst.CURRENT1_VEHICLE)){
-                    leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
+                    //leadDetails = [Select Current_Vehicle_1__c from Lead__c where Id =:testLead.Id];
                     System.assertEquals(leadDetails.Current_Vehicle_1__c,null);
                 }
                 else if (vehicle.equalsIgnoreCase(utilConst.CURRENT2_VEHICLE)){
-                    leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
+                    //leadDetails = [Select Current_Vehicle_2__c from Lead__c where Id =:testLead.Id];
                     System.assertEquals(leadDetails.Current_Vehicle_2__c,null);
                 }
                 else if (vehicle.equalsIgnoreCase(utilConst.TRADE_IN_VEHICLE)){
-                    leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
+                    //leadDetails = [Select Trade_In_Vehicle__c from Lead__c where Id =:testLead.Id];
                     System.assertEquals(leadDetails.Trade_In_Vehicle__c,null);
                 }
                 else if (vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
-                    leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+                    //leadDetails = [Select Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
                     System.assertEquals(leadDetails.Purchased_Vehicle__c,null);
                 }
                 
-                Vehicle__c clearedVehicle;
-                try{
-                    clearedVehicle = [Select Id from Vehicle__c Where Id =:testVehicleMB.Id];
-                    System.debug('Vehicle after clear :' +clearedVehicle);
-                }catch(Exception e){
-                    system.debug('Exeption encoutered :' +e.getMessage());
-                }
+                
             }
             
         }
@@ -466,7 +466,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
                                                     Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert testVR_vehicle;
         //Vehicle_Relationship__c testVR  = (Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
-        Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c(RecordTypeId=VehicleRelationshipRetailRecordtypeid );
+        Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c(RecordTypeId=VehicleRelationshipRetailRecordtypeid );        
+        testVR.Contact__c = testAccount.Id;
+        testVR.Vehicle_ID__c = testVehicleMB.Id;
         insert testVR;
         testVR.Contact__c = testAccount.Id;
         testVR.Vehicle_ID__c = testVehicleMB.Id;

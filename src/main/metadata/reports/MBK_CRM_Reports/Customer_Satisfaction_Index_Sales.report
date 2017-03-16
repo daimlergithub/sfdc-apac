@@ -7,9 +7,6 @@
         <field>Lead__c$Contact__c.Latest_Sales_Dealer__c</field>
     </columns>
     <columns>
-        <field>Lead__c$Purchased_VIN__c</field>
-    </columns>
-    <columns>
         <field>Lead__c$Invoice_Date__c</field>
     </columns>
     <columns>

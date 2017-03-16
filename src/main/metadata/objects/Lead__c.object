@@ -863,7 +863,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Attriters</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3290,7 +3289,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>TV</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8322,6 +8320,38 @@ Modify Reason:
                 <fullName>Car Wash</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plus Check</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8521,6 +8551,26 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>MB Card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9861,7 +9911,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>TV (new value)</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10404,7 +10453,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Web/Mobile Phone</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10478,7 +10526,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>mymb</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10540,7 +10587,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Trade-In</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10575,7 +10621,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12164,7 +12209,7 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12297,7 +12342,6 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22028,7 +22072,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Competitive Reasons</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22130,6 +22173,9 @@ Company_Account__r.Work_Phone__c  ,
             <value>TODAY</value>
         </filters>
         <label>AMGセントラルDM2016_GTR</label>
+            <value>E&amp;SクラスセントラルDM2016</value>
+        </filters>
+        <label>E・SセントラルDM2016</label>
         <language>ja</language>
     </listViews>
     <listViews>
@@ -22417,13 +22463,98 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MBF_Quotation_Team_Queue_Lead</fullName>
-        <filterScope>Queue</filterScope>
-        <label>MBF Quotation Team Queue</label>
-        <queue>MBF_Quotation_Team_Queue</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
+        <fullName>E_S_DM_Amex_2016</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>E&amp;SクラスセントラルDM（Amex）2016</value>
+        </filters>
+        <label>E&amp;SクラスセントラルDM（Amex）2016</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <label>GDO</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO1</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Approving</value>
+        </filters>
+        <label>GDO承認中</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
+        <fullName>GDO2</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>Lead_Desired_Service__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Source_Campaign__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Drop_off_Time__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Source_Campaign__c</field>
+            <operation>equals</operation>
+            <value>CLAシューティングブレークで行くゴルフ旅（GDO）</value>
+        </filters>
+        <filters>
+            <field>CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <label>GDO新規</label>
+        <language>ja</language>
     </listViews>
     <listViews>
         <fullName>MBJ_ALL</fullName>
@@ -22552,6 +22683,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Lead</fullName>
@@ -36010,10 +36144,25 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Not Allocated</fullName>
+				<default>true</default>
+            </values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36106,6 +36255,26 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39644,6 +39813,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -78100,6 +78449,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>MB_Vehicle_Interest__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
@@ -89092,6 +89621,77 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
+				<default>false</default>
+            </values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Call Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Magainze Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Model-Year Reference desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89662,14 +90262,40 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Information</fullName>
+				 <default>false</default>
+            </values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+				<default>false</default>
+            </values>
+			<values>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -90240,6 +90866,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -100451,6 +101257,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
@@ -101159,6 +101973,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Contact</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>Confirmation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101175,6 +101993,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Insurance Proposal</fullName>
+				 <default>false</default>
+            </values>
+			<values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101203,6 +102025,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Program Proposal</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -101476,6 +102302,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -108936,6 +109942,8 @@ window.location.reload();
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Lead__c.Id}", "_parent","resizable=yes")</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Lead</fullName>
@@ -108949,7 +109957,10 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Le
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
 
+if(userMarket.records.Market__c == 'KR') 
+{ 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -108974,6 +109985,9 @@ else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_I
 { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
+}
+}else{
+      alert('You do not have sufficient access for this button');
 }</url>
     </webLinks>
     <webLinks>

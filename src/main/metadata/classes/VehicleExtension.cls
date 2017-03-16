@@ -41,7 +41,7 @@ public with sharing class VehicleExtension {
      public PageReference saveVal()
     {
         
-        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question || model == UtilConstant.Question))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question || compModel == UtilConstant.Question))){
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question ))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question ))){
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
                 return null;
                 nextPage = null;
@@ -53,7 +53,7 @@ public with sharing class VehicleExtension {
                      return null;
                    }
                 else{
-				try
+                try
                 {
                 save();
                 }
@@ -84,7 +84,7 @@ public with sharing class VehicleExtension {
     public PageReference saveAndNew()
     {
           
-        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question || model == UtilConstant.Question))||(recordType == UtilConstant.Competitor && (compBrand == UtilConstant.Question || compModel == UtilConstant.Question))){
+        if((recordType == UtilConstant.MB && (brand == UtilConstant.Question))||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question )){
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
                 nextPage = null;
          }

@@ -58,7 +58,7 @@
                 <behavior>Edit</behavior>
                 <field>Preliminary_Flag__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Threshold__c</field>
             </layoutItems>
