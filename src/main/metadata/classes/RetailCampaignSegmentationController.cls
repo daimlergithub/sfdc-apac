@@ -418,14 +418,14 @@ public without sharing class RetailCampaignSegmentationController {
                 }
                 
                //Searhs the accounts according to all other filters
-               if(accountIdSet != NULL && !accountIdSet.isEmpty()){
+               //if(accountIdSet != NULL && !accountIdSet.isEmpty()){
                     if(accountSoql.endsWith('and ')){
                         accountSoql += 'Id in :accountIdSet ';
                     }
                     else{
                         accountSoql += ' and Id in :accountIdSet ';
                     }
-                }
+                //}
                 
                 // Searchs the accounts according to the Customer Filter 
                 if(!accountIds.isEmpty() || attendedCampaign != ''){
