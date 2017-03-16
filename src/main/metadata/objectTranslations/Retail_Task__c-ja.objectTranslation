@@ -1270,6 +1270,10 @@
         <name>MOT_Owner_Address__c</name>
     </fields>
    <fields>
+        <label>車検証所有者氏名（カナ）</label>
+        <name>MOT_Owner_Name_Native__c</name>
+    </fields>
+    <fields>
         <label>車検証所有者氏名</label>
         <name>MOT_Owner_Name__c</name>
     </fields>
@@ -1277,9 +1281,21 @@
         <label>車検証使用者住所</label>
         <name>MOT_User_Address__c</name>
     </fields>
+	<fields>
+	<label>車検証使用者氏名（カナ）</label>
+        <name>MOT_User_Name_Native__c</name>
+    </fields>
     <fields>
         <label>車検証使用者氏名</label>
         <name>MOT_User_Name__c</name>
+    </fields>
+	<fields>
+        <label>車検証使用者電話番号</label>
+        <name>MOT_User_Phone__c</name>
+    </fields>
+    <fields>
+        <label>車検証使用者郵便番号</label>
+        <name>MOT_User_Postal__c</name>
     </fields>
     <fields>
         <label>リース契約可能年月</label>
@@ -2441,6 +2457,10 @@
 	</layouts>
     <layouts>
         <layout>Retail Task Layout(Contract)</layout>
+		<sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
 		<sections>
             <label>契約詳細情報</label>
             <section>Contract Details Information</section>
