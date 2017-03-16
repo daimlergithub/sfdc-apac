@@ -1193,7 +1193,7 @@
     </validationRules>
     <validationRules>
         <fullName>retail_campaign_is_locked</fullName>
-        <active>false/active>
+        <active>false</active>
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
