@@ -344,8 +344,8 @@ public without sharing class RetailCampaignSegmentationController {
                     vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
                      system.debug('@@@@@@accountSoql'+accountSoql);
                      if(vehicleRelSoql.length()>vehRelLength){
-                         List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'limit 50000');
-                         System.debug('vehRelList '+vehRelList);
+                         List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'limit 10000');
+                         System.debug('vehRelList '+vehRelList.size());
                          for(Vehicle_relationship__C vr : vehRelList){
                              accountIdSet.add(vr.Contact__c);
                          }
@@ -358,7 +358,8 @@ public without sharing class RetailCampaignSegmentationController {
                     leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
                     System.debug('leadSoql '+leadSoql);
                     if(leadSoql.length()>leadLength){
-                         List<Lead__C> leadList = Database.query(leadSoql+ 'limit 50000');
+                         List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
+						 System.debug('leadList '+leadList.size());
                          for(Lead__C vr : leadList){
                              accountIdSet.add(vr.Contact__c);
                          }
@@ -370,8 +371,8 @@ public without sharing class RetailCampaignSegmentationController {
                    // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
                    AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
                    if(AccountLinkSoql.length()>accLinkLength){
-                         List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 50000');
-                          System.debug('accLinkList '+accLinkList);
+                         List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
+                          System.debug('accLinkList '+accLinkList.size());
                          for(Account_Link__C vr : accLinkList){
                              accountIdSet.add(vr.toRole__c);
                          }
@@ -382,7 +383,8 @@ public without sharing class RetailCampaignSegmentationController {
                 if(!RetailTaskSoql.endsWith('where ')) {
                     //RetailTaskSoql = RetailTaskSoql.replace('Account__c', 'Account__r.Name');
                     if(RetailTaskSoql.length()>retailaskLength){
-                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000');
+                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000');
+						 System.debug('retTaskList '+retTaskList.size());
                          for(Retail_Task__c vr : retTaskList ){
                              accountIdSet.add(vr.Account__c);
                          }
@@ -394,7 +396,8 @@ public without sharing class RetailCampaignSegmentationController {
                 if(!AddressSoql.endsWith('where ')) {
                   //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
                    if(AddressSoql.length()>addressLength){
-                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 50000');
+                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
+						  System.debug('addList '+addList.size());
                          System.debug('addList '+addList);
                          for(Address__c vr : addList ){
                              accountIdSet.add(vr.Customer__c);
@@ -406,8 +409,8 @@ public without sharing class RetailCampaignSegmentationController {
                 if(!campaignMemSoql.endsWith('where ')) {
                   //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
                     if(campaignMemSoql.length()>campLength){
-                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
-                         System.debug('camMemList '+camMemList);
+                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
+                         System.debug('camMemList '+camMemList.size());
                          for(Campaign_Member__c vr : camMemList ){
                              accountIdSet.add(vr.Contact_Id__c);
                          }
