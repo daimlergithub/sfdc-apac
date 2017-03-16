@@ -133,7 +133,17 @@ public with sharing class CustomerMymercInterfaceController {
         if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please input "My Mercedes Email Id"'));
             return null;
-        } 
+        }
+        else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || MyMercEmail.);
+            String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+            Pattern MyPatternn = Pattern.compile(emailRegex);
+            Matcher MyMatcher = MyPatternn.matcher(MyMercEmail);
+        
+            if (!MyMatcher.matches()){ 
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'please enter valid Email'));
+                return null;    
+            }
+        }
         else{ 
             accont.Email3__c  = MyMercEmail;
         }
@@ -157,7 +167,9 @@ public with sharing class CustomerMymercInterfaceController {
              accont.Portal_Apply_User__c = userinfo.getUserid();
              update accont;
          }*/
-        return null;
+         pagereference pr = new pagereference ('/'+Accid);
+         pr.setRedirect(true);
+         return pr;
      }
      
     public pagereference saveAndReturn(){

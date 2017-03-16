@@ -7,9 +7,9 @@
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Information</label>
+        <label>Service History Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -23,6 +23,9 @@
                 <behavior>Edit</behavior>
                 <field>Related_Contact2__c</field>
             </layoutItems>
+			 <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Date_In__c</field>
@@ -52,6 +55,9 @@
                 <behavior>Edit</behavior>
                 <field>Related_Contact3__c</field>
             </layoutItems>
+			 <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>	
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Date_Out__c</field>

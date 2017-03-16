@@ -1318,4 +1318,89 @@ public class AccountLinkHelper
             }
         }        
     }
+     
+    /*
+        LastModifiedDate : 15th Mar, 2017
+        LastModifedBY    : Srinivas Pendli
+        JIRA No          : SFDCKR-484
+        Method           : afterInsertEventKR
+        Event            : Before insert
+    */
+    
+    public static void afterInsertEventKR(List<Account_Link__c> list_AccountLink){
+        map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        for(Account_Link__c accountLink : list_AccountLink){
+            if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+            }
+            map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+        }
+        if(map_AccountIdAndListAccountLinkId.size() > 0){
+            //createSharingRecord(map_AccountIdAndListAccountLinkId);
+            List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+            Set<String> dealerAccNameSet = new Set<String>();
+            Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+            for(Account dealerRec : dealerAccList) {
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            }
+        
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+                if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                    for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
+                        Account_Link__Share accountLinkShare = new Account_Link__Share();
+                        accountLinkShare.AccessLevel = 'Edit';
+                        accountLinkShare.UserOrGroupId = groupRec.Id;
+                        accountLinkShare.ParentId = accountLinkId;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        list_SharingRecord.add(accountLinkShare);
+                    }
+                }
+            }
+            if(list_SharingRecord.size() > 0){
+                Database.insert(list_SharingRecord, false);
+            }
+        }
+    }
+    public static void afterUpdateEventKR(List<Account_Link__c> list_AccountLink, Map<Id, Account_Link__c> map_AccountLinkIdAndRecord){
+        Map<Id, List<Id>> map_AccountIdAndListAccountLinkId = new Map<Id, List<Id>>();
+        for(Account_Link__c accountLink : list_AccountLink){
+            if(accountLink.RecordTypeId == AccountLink_ContactSectorRecordTypeId && accountLink.Status__c == 'My Shops' &&
+                accountLink.fromRole__c != null && (accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c || 
+                accountLink.Status__c != map_AccountLinkIdAndRecord.get(accountLink.Id).Status__c)){
+                if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)){
+                    map_AccountIdAndListAccountLinkId.put(accountLink.fromRole__c, new List<Id>());
+                }
+                map_AccountIdAndListAccountLinkId.get(accountLink.fromRole__c).add(accountLink.Id);
+            }
+        }
+        if(map_AccountIdAndListAccountLinkId.size() > 0){
+            //createSharingRecord(map_AccountIdAndListAccountLinkId);
+            List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+            Set<String> dealerAccNameSet = new Set<String>();
+            Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+            for(Account dealerRec : dealerAccList) {
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            }
+            
+            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+                if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                    for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
+                        Account_Link__Share accountLinkShare = new Account_Link__Share();
+                        accountLinkShare.AccessLevel = 'Edit';
+                        accountLinkShare.UserOrGroupId = groupRec.Id;
+                        accountLinkShare.ParentId = accountLinkId;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        list_SharingRecord.add(accountLinkShare);
+                    }
+                }
+            }
+            if(list_SharingRecord.size() > 0){
+                Database.insert(list_SharingRecord, false);
+            }
+        }
+    }
 }

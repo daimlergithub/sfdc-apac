@@ -553,7 +553,6 @@ public class AddressSearchValidationController{
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('Enter JP Loop 2 :');
-                    /****************************************
                     if(Address_Validated_Flag == false)
                     {   system.debug('Enter JP Loop 3 :');                    
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
@@ -565,7 +564,6 @@ public class AddressSearchValidationController{
                     }                    
                     if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
                     { 
-                    *****************************************/  
                         system.debug('Enter JP Loop 5 :'); 
                        /* if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
                            objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
@@ -589,7 +587,7 @@ public class AddressSearchValidationController{
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);            
                         return PageRef;
                         }
-                   // }
+                    }
                 }
                 
             }
