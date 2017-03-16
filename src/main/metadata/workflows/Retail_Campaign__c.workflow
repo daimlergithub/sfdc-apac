@@ -179,6 +179,11 @@
             <operation>equals</operation>
             <value>TODAY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -202,6 +207,11 @@
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -249,6 +259,11 @@
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
             <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
