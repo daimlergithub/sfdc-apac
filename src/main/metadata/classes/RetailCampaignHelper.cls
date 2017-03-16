@@ -214,12 +214,14 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
     Set<Id> sid = New Set<Id>();
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
+  Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
    Id retId; 
    String mailSales ;
   For(Retail_Campaign__c  camp : retCampList){
   
-   if(camp.Parent_Campaign__c != null ){
+   if(camp.Parent_Campaign__c != null && camp.RecordTypeId == childCampaign ){
    
    
         sid.add(camp.Parent_Campaign__c);
@@ -294,13 +296,13 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
                
                  If(rect.Start_Date__c < System.Today()){
                  
-                   rect.addError('Date error');   
+                   rect.addError('Start Date cant be Lesser Than Today');   
                  
                  }
                  
                  If(rect.Close_Date__c < rect.Start_Date__c){
                  
-                       rect.addError('Date error');
+                       rect.addError('End Date cant be Lesser Than Start Date');
                  }
                   
            
@@ -341,7 +343,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
                      if(recta.Segmentation_Date__c <= rec.Start_Date__c ||recta.Segmentation_Date__c > rec.Close_Date__c ){
                      
-                         recta.addError('Segmentation Error');
+                         recta.addError('Segmentation Date must be greater than parent start date and less than parent end date');
                          
                      
                      }
@@ -349,12 +351,12 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                      if(recta.Execution_Start_Date__c <= recta.Segmentation_Date__c || recta.Execution_Start_Date__c > rec.Close_Date__c ){
                      
                      
-                            recta.addError('Execution Error');
+                            recta.addError('Execution Date must be greater than Segmentation date and less than parent end date');
                      }
                   if(recta.Response_Date__c <= recta.Execution_Start_Date__c || recta.Response_Date__c  > rec.Close_Date__c ){
                      
                      
-                            recta.addError('Response Error');
+                            recta.addError('Response Date must be greater than Execution date and less than parent end date');
                      }
                   }
                }
@@ -366,13 +368,15 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
     
     List<Participating_Dealer__c> newRetail = New List<Participating_Dealer__c>();
     List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
+	Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 
      Id retailId;       
     Set<id> sid = New Set<id>();    
         
         for(Retail_Campaign__c retcam : retCamp){
             
-            if(retcam.Parent_Campaign__c != null){
+            if(retcam.Parent_Campaign__c != null && retcam.RecordTypeId == childCampaign ){
                 
                     sid.add(retcam.Parent_Campaign__c);
                     retailId = retcam.Id;
