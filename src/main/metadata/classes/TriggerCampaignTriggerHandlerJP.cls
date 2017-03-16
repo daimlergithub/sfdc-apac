@@ -26,12 +26,7 @@ public class TriggerCampaignTriggerHandlerJP
          if(Trigger.isBefore && Trigger.isDelete){
              CampaignHelper.beforeDeleteEvents(Trigger.old);
          }
-               /*if(Trigger.isBefore && Trigger.isUpdate)
-        {
-           CampaignHelper.validationParentCampaign(Trigger.New);
-           CampaignHelper.validationChildCampaign(Trigger.New);
-            
-        }    */
+               
         if(Trigger.isAfter && Trigger.isDelete )
         {
             //CampaignHelper.beforeDeleteEvents(Trigger.old);
@@ -43,6 +38,7 @@ public class TriggerCampaignTriggerHandlerJP
         {
             CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
+            CampaignHelper.parentCampaignSatus(Trigger.New);
             
         }
     }

@@ -568,12 +568,13 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c,toRole__r.Complaint_Amount__c 
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.UCID__c,toRole__r.Complaint_Amount__c, fromRole__r.Dealer_Rollout_Status__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         System.debug('Accountlinklist------>'+Accountlinklist  );
         
       //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
+		if(acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done'){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
                 if(persongroup1 == true){
                     acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
@@ -674,7 +675,8 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
             
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
             system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
-        }//End of for loop
+        }
+		}//End of for loop
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
@@ -937,7 +939,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                 }
                 
             }
-             //String origin = ApexPages.currentPage().getParameters().get('CLNID'); // Removed this to resolve null pointer exception
+             String origin = ApexPages.currentPage().getParameters().get('CLNID');
              string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -1005,10 +1007,9 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-                  // Removed this to resolve null pointer exception
-				  /*if(origin != null){
+				  if(origin != null){
                       acclnk.CorrelationID__c = origin;
-                  }*/
+                  }
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
                   }

@@ -1337,7 +1337,7 @@
     <fields>
         <label>車両</label>
         <name>Vehicle__c</name>
-        <relationshipLabel> 車両情報（自法人のみ参照可）</relationshipLabel>
+        <relationshipLabel>販売店内用車両情報リンク</relationshipLabel>
     </fields>
     <fields>
         <label>アカウントリンク1</label>
