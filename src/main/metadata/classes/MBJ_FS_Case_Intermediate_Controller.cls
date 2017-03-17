@@ -6,9 +6,12 @@ public class MBJ_FS_Case_Intermediate_Controller{
     Public String accountId;
     Public String fromAccountId {get;set;}
     public String userid {get;set;}
+    List<Network> Net;
     
     public MBJ_FS_Case_Intermediate_Controller(ApexPages.StandardController stdController){
         this.redirectCase = (Case)stdController.getrecord();
+        Net =[SELECT UrlPathPrefix from Network where id=:Network.getNetworkId() LIMIT 1];
+    //  userContact = [Select Id, Name From Contact Where Id In (Select ContactId From User Where Id = :UserInfo.getUserId())];
     }
     
     public PageReference Redirect(){
@@ -89,9 +92,16 @@ public class MBJ_FS_Case_Intermediate_Controller{
             }
             
             else
-            {  
+            { 
+                system.debug('===='+net);
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
                 returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                returnURL.setredirect(false);
+                }
+                 returnURL.setredirect(false);
                 return returnURL;
             }
         }
@@ -180,8 +190,14 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else
             {  
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
                 returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                returnURL.setredirect(false);
+                }
+                 returnURL.setredirect(false);
                 return returnURL;
             }
         }
@@ -198,7 +214,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
          
                 if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Inquiry Case'){
-            
+                    
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
@@ -250,14 +266,26 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 
                 else
                 {  
-                    System.debug('=====1' + RecordTypeid);
-                    returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                    returnURL.setredirect(false);
-                    return returnURL;
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                }
+                 returnURL.setredirect(false);
+                return returnURL;
                 }
             }
-            System.debug('=====2' + RecordTypeid);
+            if(net.size()>0 &&net[0].UrlPathPrefix!=null)
+            {
+            returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?retURL=%2F500%2Fo&nooverride=0');
+            }
+            else{
             returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
+            }
+            
+            
             returnURL.setredirect(false);
             return returnURL;
         //  return Null;

@@ -735,35 +735,7 @@ public class AccountLinkHelper
             }
         }
     }
- public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap)
- {
-     Set<Id> accIds = new Set<Id>();
-     List<Account_Link__c> accountlinkList = new List<Account_Link__c>();
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-     accIds.add(acclink.toRole__c);
-     }
-     Map<id,Account> accountMap = new Map<id,Account>([select id,(select id,position__c from Account_Links__r where recordtypeid=:AccountLink_contact2conatctRecordTypeId order by lastmodifieddate limit 1) from Account where id in :accIds]);
-     
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-        If(oldMap!=null && acclink.Retail_Related_Company__c!=oldMap.get(acclink.id).Retail_Related_Company__c)
-        {
-        if(accountMap!=null && accountMap.get(acclink.toRole__c)!=null && !accountMap.get(acclink.toRole__c).Account_Links__r.isempty())
-        {
-            acclink.position__c=accountMap.get(acclink.toRole__c).Account_Links__r[0].position__c;
-            accountlinkList.add(acclink);
-        }
-        }
-         if(acclink.role__c ==acclink.role2__c && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId )
-         {
-         acclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
-         
-         }
-     }
     
-     
- }
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
         
         system.debug('------>Method is called');
