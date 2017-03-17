@@ -1,6 +1,6 @@
-@isTest
-public class ConvertToDMRequestTest
-{
+ @isTest
+ public class ConvertToDMRequestTest
+ {
    public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
    public static testMethod void CampaignTest()
     {

@@ -507,3 +507,4 @@ global with sharing class VehiclePickerController {
         public Map<String, String> name {get;set;}
     }
 }
+

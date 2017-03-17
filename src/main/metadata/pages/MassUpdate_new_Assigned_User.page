@@ -70,7 +70,7 @@
                 </apex:pageBlock>
                 <div>
                     <apex:pageBlock title="Newly Assigned To:" id="usr">
-                        <apex:inputField value="{!NewAsignUsr.Dealer_Lead_Gate_Keeper__c}" label="">
+                        <apex:inputField value="{!NewAsignUsr.Portal_Apply_User__c}" label="">
                             <apex:actionSupport event="onchange" action="{!disPlayNewAssignUserInfo}" reRender="usrdetail"/>
                         </apex:inputField>
                     </apex:pageBlock>
@@ -80,11 +80,8 @@
                          <apex:outputField value="{!usr.Firstname}"/>
                      <apex:outputField value="{!usr.Lastname}"/>
                       <apex:outputField value="{!usr.Email}"/>
-                      <apex:outputField value="{!usr.ProfileId}"/>
                       <apex:outputField value="{!usr.userName}"/>
                     </apex:pageBlockSection>
-                    <!--  <apex:pageBlockTable value="{!UserDetails}" var="usrdtls"><apex:outputField value="{!usr.Firstname}"/></apex:pageBlockTable>
-                               -->
                 </apex:pageBlock>
             </apex:pageBlockSection>
             <center>

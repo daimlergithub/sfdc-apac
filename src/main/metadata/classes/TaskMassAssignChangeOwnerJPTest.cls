@@ -8,7 +8,7 @@ private class TaskMassAssignChangeOwnerJPTest {
         User ob_csr = UtilTestData.createUser('OB CSR','CAC OB CSR');
         
         List<id> ssiIDs = new List<id>();
-        
+       
         System.runAs ( ob_sv ) {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
             insert updatecustomsettings;
@@ -32,7 +32,7 @@ private class TaskMassAssignChangeOwnerJPTest {
            // controller.assignToOwnerClick();
             task1 = [Select OwnerId From Task Where Id = :task1.id];
             task2 = [Select OwnerId From Task Where Id = :task2.id];
-            ssi = [Select OwnerId From SSI__c Where Id = :ssi.Id];
+           ssi = [Select OwnerId From SSI__c Where Id = :ssi.Id];
              
             // Test Stop
             Test.stopTest();
