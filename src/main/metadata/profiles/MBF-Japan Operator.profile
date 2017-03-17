@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+22395 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -23105,10 +23105,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
-        <recordType>Account.CompanyManualMerge</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Company Layout</layout>
         <recordType>Account.Company_Manual_Merge</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -24891,11 +24887,6 @@
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Company</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.CompanyManualMerge</recordType>
-        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
