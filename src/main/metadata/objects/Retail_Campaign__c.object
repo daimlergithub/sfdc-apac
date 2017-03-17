@@ -10290,7 +10290,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Draft</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Ongoing</fullName>
