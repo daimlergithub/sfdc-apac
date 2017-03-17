@@ -1,11 +1,18 @@
-<apex:page standardController="User"  extensions="usernotificationsetting" >
+apex:page standardController="User"  extensions="usernotificationsetting" >
      <style>
         .block{
             width:100px;
             height:100px;
         }
     </style>
-    <apex:form >
+    <apex:form ><script>
+      function RelodeParent(){
+        //  window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+  
+       }
+      
+      </script>
               <div align="center">
                   
        
@@ -66,7 +73,8 @@
                     <apex:outputText value="{!Selected1}"/>
                     <apex:outputText value="{!Selected2}" />--->
           <apex:commandbutton value="update" action="{!updateit}"/>
-          <apex:commandbutton value="cancel" action="{!cancelit}"/>
+         <!-- <apex:commandbutton value="cancel" action="{!cancelit}"/>-->
+         <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" /> 
               
             
          
