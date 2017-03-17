@@ -72,7 +72,7 @@
          <!--- <apex:outputText value="{!Selected}" />
                     <apex:outputText value="{!Selected1}"/>
                     <apex:outputText value="{!Selected2}" />--->
-          <apex:commandbutton value="update" action="{!updateit}"/>
+          <apex:commandbutton value="update" action="{!updateit}"  oncomplete="RelodeParent()" />
          <!-- <apex:commandbutton value="cancel" action="{!cancelit}"/>-->
          <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" /> 
               
