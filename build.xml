@@ -199,7 +199,18 @@
 							   <sf:include name="SendToJPOSTest"/>
 							   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 							   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
+							   <sf:include name="crmasiaDaimlerComSarinotificatio_Test"/>
+							   <sf:include name="WebServiceMockImplsar"/>
+							   <sf:include name="WebServiceMockImplsar1"/>
 							   <sf:include name="crmasiaDaimlerApacComSfdcnotificatio"/>
+							   <sf:include name="crmasiaDaimlerApacComSfdcnot_Test"/>
+							   <sf:include name="WebServiceMockImplapac"/>
+							   <sf:include name="WebServiceMockImplapac1"/>
+							   <sf:include name="WebServiceMockImplapac2"/>
+							   <sf:include name="WebServiceMockImplapac3"/>
+							   
+							   
+							   
 							   <sf:include name="UtilWebservice"/>
 							   <sf:include name="crmasiaDaimlerApacComValidateaddress"/>
 							   <sf:include name="AddressSearchValidationControllerTest"/>
@@ -307,6 +318,7 @@
 							<sf:typeset name="objects">
 											<sf:include name="Campaign"/>
 											<sf:include name="CampaignMember"/>
+											
 											<sf:include name="Question__c"/>
 											<sf:include name="Survey_Question__c"/>
 							</sf:typeset>
@@ -442,6 +454,7 @@
 											<sf:include name="TriggerAccountTriggerHandlerJP"/>
 											<sf:include name="TriggerCaseTriggerHandlerJP"/>
 											<sf:include name="TriggerCaseTriggerHandlerKR"/>
+											<sf:include name="TriggerCaseTriggerHandlerKRTest"/>
 											<sf:include name="shareAccountRecord"/>
 											<sf:include name="shareAccountRecordTest"/>
 											<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
@@ -449,6 +462,7 @@
 											<sf:include name="DMRequestHelperJPTest"/>
 											<sf:include name="LeadUtil"/>
 											<sf:include name="TriggerLeadTriggerHandlerKR"/>
+											<sf:include name="TriggerLeadTriggerHandlerKRTest"/>
 											<sf:include name="TriggerLeadTriggerHandlerJP"/>
 											<sf:include name="TriggerLeadTriggerHandler"/>
 											<sf:include name="LeadSharingTest"/>
@@ -471,8 +485,10 @@
 											<sf:include name="ReservationMessageTemplate"/>
 											<sf:include name="ReservationMessageTemplateTest"/>
 											<sf:include name="TriggerRecallTriggerHandlerJP"/>
+											<sf:include name="TriggerRecallTriggerHandlerTest"/>
 											<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
 											<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
+											<sf:include name="TriggerRetailTaskTriggerHandlerTest"/>
 											<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 											<sf:include name="VehicleRelationshipHelperJP"/>
 											<!--<sf:include name="VehicleRelationshipHelperJPTest"/>-->
@@ -531,6 +547,7 @@
 											<sf:include name="CampaignMembersCustomHelperJPTest"/>
 											<sf:include name="DealerListMemberHelperJP"/>
 											<sf:include name="TriggerDealerListMemberHandlerJP"/>
+											<sf:include name="TriggerDealerListMemberHandlerTest"/>
 											<sf:include name="DealerListMemberHelperTestJP"/>
 											<sf:include name="ParticipateDealerHandlerJP"/>
 											<sf:include name="TriggerParticipateDealerHandlerJP"/>
@@ -767,10 +784,12 @@
 							<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
 							<sf:include name="TriggerCampaignLeadTriggerHandler"/>
 							<sf:include name="UtilCampaignLead"/>
+							<sf:include name="UtilCampaignLeadTest"/>
 							<sf:include name="TriggerCampaignCityTest"/>
 							<sf:include name="TriggerCampaignLeadTest"/>
 							<sf:include name="TriggerCampaignCityTriggerHandler"/>
 							<sf:include name="UtilCampaignCity"/>
+							<sf:include name="UtilCampaignCityTest"/>
 							<sf:include name="AddressHelperJP"/>
 							<sf:include name="AddressHelperJPTest"/>
 							<sf:include name="TriggerAddressTriggerHandlerJP"/>
@@ -790,6 +809,7 @@
 			<sf:typeset name="classes">
 							<sf:include name="TriggerCampaignLeadTest"/>
 							<sf:include name="TriggerRecallTriggerHandler"/>
+							<sf:include name="TriggerRecallTriggerHandlerTest"/>
 							<sf:include name="RecallHelper"/>       
 							<sf:include name="RecallHelperTest"/>
 			</sf:typeset>
@@ -902,6 +922,7 @@
 							<sf:include name="TriggerRetailCampaignMemberHandler"/>
 							<sf:include name="TriggerRetailCampaignTest"/>
 							<sf:include name="TriggerRetailTaskTriggerHandler"/>
+							<sf:include name="TriggerRetailTaskTriggerHandlerTest"/>
 							<sf:include name="TriggerTaskTest"/>                                 
 							<sf:include name="AttachmentAfterTriggerHandler"/>
 							<sf:include name="AttachmentAfterTriggerHandlerJP"/>
@@ -919,10 +940,10 @@
 							<sf:include name="UserTriggerCallout"/>
 							<sf:include name="UserTriggerCalloutTest"/>
 							<sf:include name="CampaignSchedulerAndNotificationJP"/>
-							<sf:include name="CampaignSchedulerAndNotificationJPTest"/>
+							<sf:include name="CampaignSchedulerAndNotificationJP_Test"/>
 							<sf:include name="RetailCampaignSchedulerAndNotificationJP"/>
-							<sf:include name="RetailCampSchedulerAndNotificationJPTest"/>
 							
+							<sf:include name="RetailCampSchedulerAndNotificationJPTest"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 							<sf:include name="RetailCampaignTrigger"/>
@@ -1203,4 +1224,3 @@
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 </target>
 </project>
-
