@@ -196,7 +196,7 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Segmentation start date Notification to WS Users</fullName>
+        <fullName>Segmentation start date Notification to Retail Users</fullName>
         <active>true</active>
         <criteriaItems>
             <field>Retail_Campaign__c.Segmentation_Date__c</field>
