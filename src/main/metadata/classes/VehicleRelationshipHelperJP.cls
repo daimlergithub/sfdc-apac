@@ -183,7 +183,7 @@ public with sharing class VehicleRelationshipHelperJP
     Public static void updateAccountstatus(Set<Id> ContactIds){
         List<Account> lstAccount=new List<Account>();
         IgnoredAccounts();                    
-        for(Account acct:[Select Id,status__c from Account Where Id IN:ContactIds AND (NOT Id IN : setIgnoredAccounts) Limit 50000]){            
+        for(Account acct:[Select Id,status__c from Account Where Id IN:ContactIds AND status__c!='Customer' AND (NOT Id IN : setIgnoredAccounts) Limit 50000]){            
             acct.status__c='Customer';
             lstAccount.add(acct);
         }         
