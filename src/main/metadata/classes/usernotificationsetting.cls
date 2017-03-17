@@ -1,4 +1,4 @@
-public class usernotificationsetting 
+public class usernotificationsetting
 {
     public List<selectOption> leftacc{set;get;}
     public List<selectOption> leftacctwo{set;get;}
