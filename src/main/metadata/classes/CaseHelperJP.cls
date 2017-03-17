@@ -135,7 +135,7 @@ public class CaseHelperJP {
         
      for(Case ca :CaseList){
        
-       ca.Status = 'In Progress';
+       ca.Status = 'Waiting for Response approval';
       
      
      }
