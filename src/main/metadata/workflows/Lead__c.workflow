@@ -692,7 +692,7 @@ Proxy_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISCHANGED( OwnerId ), OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
+        <formula>AND(ISCHANGED( OwnerId ),MD__c  = 'JP', OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

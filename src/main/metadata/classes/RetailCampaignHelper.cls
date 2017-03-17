@@ -214,12 +214,14 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
     Set<Id> sid = New Set<Id>();
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
+  Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
    Id retId; 
    String mailSales ;
   For(Retail_Campaign__c  camp : retCampList){
   
-   if(camp.Parent_Campaign__c != null ){
+   if(camp.Parent_Campaign__c != null && camp.RecordTypeId == childCampaign ){
    
    
         sid.add(camp.Parent_Campaign__c);
@@ -281,7 +283,62 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
   Messaging.sendEmail(mails);
   
   
-   }  
+   } 
+   
+   public static void parentRetailCampaignSatusChange(List<Retail_Campaign__c> retMainList){ 
+  
+    Id executionRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+  Set<id> sid = New Set<Id>();
+  List<Retail_Campaign__c> camList = New List<Retail_Campaign__c>();
+  
+            For(Retail_Campaign__c camMain : retMainList){
+            
+            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning'){
+                      
+                      sid.add(camMain.Parent_Campaign1__c);
+            
+            } 
+            
+            
+            }
+            
+            if(sid.size()>0){
+            List<Retail_Campaign__c> retCamMainList =[Select id,Status__c From Retail_Campaign__c where id =: sid];
+            
+            if(retCamMainList.size()>0){
+            
+               For(Retail_Campaign__c cam : retCamMainList ){
+               
+                 if(cam.Status__c != 'Ongoing' && cam.Status__c != 'Completed'){
+                 
+                      cam.Status__c = 'Ongoing';
+                      
+                      camList.add(cam);
+                 
+                 }
+               
+               
+               
+               }
+            
+            
+            
+            
+            }
+  
+        if(camList.size()>0){
+           Update camList;
+        
+        }
+         
+  
+  }
+  
+  
+  
+  
+  } 
    public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList){
    
    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
@@ -366,13 +423,15 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
     
     List<Participating_Dealer__c> newRetail = New List<Participating_Dealer__c>();
     List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
+    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+    Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 
      Id retailId;       
     Set<id> sid = New Set<id>();    
         
         for(Retail_Campaign__c retcam : retCamp){
             
-            if(retcam.Parent_Campaign__c != null){
+            if(retcam.Parent_Campaign__c != null && retcam.RecordTypeId == childCampaign ){
                 
                     sid.add(retcam.Parent_Campaign__c);
                     retailId = retcam.Id;

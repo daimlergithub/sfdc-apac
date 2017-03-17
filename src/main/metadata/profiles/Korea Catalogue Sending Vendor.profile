@@ -18417,14 +18417,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Survey__c.Sales_Notification__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Survey__c.Service_Notification__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20747,10 +20747,10 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Company Layout</layout>
+        <layout>Account-Company Layout_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout</layout>
+        <layout>Account-Company Layout_KR</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21093,14 +21093,14 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-AfterSales Lead</layout>
+        <layout>Lead__c-AfterSales Lead_KR</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21152,7 +21152,7 @@
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+        <layout>PersonAccount-Person Account Layout_KR</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>

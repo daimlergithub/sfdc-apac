@@ -52,8 +52,8 @@ public with sharing class MassUpdatenewAssignedusercontroller
     }
     Public List<User> getUserDetails(){
         userlst = new List<user>();
-        if(NewAsignUsr.Dealer_Lead_Gate_Keeper__c!=null){
-            for(User usr: [SELECT iD,Firstname,lastName,Email,ProfileiD FROM User WHERE id=:NewAsignUsr.Dealer_Lead_Gate_Keeper__c]){
+        if(NewAsignUsr.Portal_Apply_User__c!=null){
+            for(User usr: [SELECT iD,Firstname,lastName,Email,ProfileiD FROM User WHERE id=:NewAsignUsr.Portal_Apply_User__c]){
             userlst.add(usr);    
             }
         }
@@ -61,9 +61,9 @@ public with sharing class MassUpdatenewAssignedusercontroller
         return userlst;
     }
     public void disPlayNewAssignUserInfo(){
-    system.debug('Welcome to user:'+NewAsignUsr.Dealer_Lead_Gate_Keeper__c);
-    if(NewAsignUsr.Dealer_Lead_Gate_Keeper__c!=null){
-    usr=[SELECT iD,Firstname,lastName ,Email,ProfileiD,userName FROM User WHERE id=:NewAsignUsr.Dealer_Lead_Gate_Keeper__c];
+    system.debug('Welcome to user:'+NewAsignUsr.Portal_Apply_User__c);
+    if(NewAsignUsr.Portal_Apply_User__c!=null){
+    usr=[SELECT iD,Firstname,lastName ,Email,ProfileiD,userName FROM User WHERE id=:NewAsignUsr.Portal_Apply_User__c];
     }
     }
     public void getFields() {
@@ -105,8 +105,8 @@ public with sharing class MassUpdatenewAssignedusercontroller
     }
     
     public void massUpdateNewAssign() {
-    if(NewAsignUsr.Dealer_Lead_Gate_Keeper__c!=null){
-    User usr = [SELECT iD,Firstname,lastName FROM User WHERE id=:NewAsignUsr.Dealer_Lead_Gate_Keeper__c];
+    if(NewAsignUsr.Portal_Apply_User__c!=null){
+    User usr = [SELECT iD,Firstname,lastName FROM User WHERE id=:NewAsignUsr.Portal_Apply_User__c];
     
     system.debug('user record: '+usr);
     system.debug('user record: '+usr.id);
