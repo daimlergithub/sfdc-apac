@@ -1255,7 +1255,7 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignI
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var recId = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
-window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
+window.open("{!URLFOR($Site.Prefix)}/apex/ExportAsCsvCampaign?id="+recId);</url>
     </webLinks>
 	<webLinks>
         <fullName>New_Campaign_Member</fullName>
