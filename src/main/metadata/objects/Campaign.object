@@ -543,7 +543,7 @@
         <label>Campaign Execution Channels</label>
         <picklist>
             <picklistValues>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3756,7 +3756,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6090,7 +6090,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14906,7 +14906,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
