@@ -32,12 +32,6 @@ public class TriggerAccountLinkTriggerHandlerJP
             AccountLinkHelper.ExportNotification(Trigger.new, oldmap); 
             AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
         }
-        if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert))
-        {
-        
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountLinkHelper.beforeInsertUpdateEvent(Trigger.new, oldMap);
-        }
          //if(Trigger.isBefore && (Trigger.isUpdate || Trigger.isInsert) )
           if(Trigger.isBefore &&  Trigger.isInsert)
         {        
@@ -46,7 +40,7 @@ public class TriggerAccountLinkTriggerHandlerJP
             AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
         }
           if(Trigger.isBefore && Trigger.isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
-			AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+            AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
         }
     }
         
