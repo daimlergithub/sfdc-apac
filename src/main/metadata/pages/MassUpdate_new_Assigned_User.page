@@ -85,7 +85,7 @@
                 </apex:pageBlock>
             </apex:pageBlockSection>
             <center>
-                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"  oncomplete="RelodeParent()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />                     
                 
             </center>

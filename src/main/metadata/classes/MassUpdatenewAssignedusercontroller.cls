@@ -1,4 +1,5 @@
-public with sharing class MassUpdatenewAssignedusercontroller {
+public with sharing class MassUpdatenewAssignedusercontroller 
+{
 
     public MassUpdatenewAssignedusercontroller(){
     accUsr= new Account();
