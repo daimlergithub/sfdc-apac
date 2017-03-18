@@ -651,9 +651,10 @@
 							<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
 							<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 							<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
-							<sf:include name="CampaignHelper"/>                                                                                                                                               <sf:include name="CampaignHelperTest"/>
+							<sf:include name="CampaignHelper"/>                                                                                             <sf:include name="CampaignHelperTest"/>
 							<sf:include name="TriggerCampaignTriggerHandlerJP"/>
-							<sf:include name="TriggerCampaignTriggerHandlerKR"/>
+							<sf:include name="TriggerCampaignTriggerHandlerKR"/>							
+							<sf:include name="AccountLinkHelperKR"/>
 			</sf:typeset>
 			<sf:typeset name="triggers">
 							<sf:include name="TriggerBatchJob"/>
