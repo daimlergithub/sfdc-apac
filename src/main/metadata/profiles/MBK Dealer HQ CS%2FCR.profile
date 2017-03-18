@@ -20607,11 +20607,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Survey_Question__c.Question_Ref__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Survey_Question__c.Redirect_Question_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
