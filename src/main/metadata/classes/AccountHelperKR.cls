@@ -180,6 +180,8 @@ public class AccountHelperKR{
     }
     //Creating Retail copy from dealer #SFDCKR-696
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
+        user usr = [select id,Name,ContactId from user where Id =: UserInfo.getUserId()];
+        if(usr.ContactId != Null){
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
         Set<String> UsrAccountIds = new set<String>();   
@@ -216,7 +218,7 @@ public class AccountHelperKR{
             }
             Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-         
+        
         for(Account led : AccList){            
             if(ownermap.containskey(led.ownerid) ){
                 Account_Link__c acclnk = new Account_Link__c();
@@ -246,7 +248,9 @@ public class AccountHelperKR{
                            acclnk.Retail_Foundation_Month__c = String.ValueOf(led.Foundation_Date__c.month())+String.valueOf(led.Foundation_Date__c.year());
                         }
                 }
+                acclnk.Name = led.UCID__c;
                 acclnk.Retail_Fax__c = led.Fax;
+                acclnk.MD__c = led.MD__c;
                 acclnk.Retail_Industry__c = led.Industry;
                 if(origin != null){
                     acclnk.CorrelationID__c = origin;
@@ -279,6 +283,7 @@ public class AccountHelperKR{
         }    
         if(!accLst.isEmpty()){
             insert acckLst;
+        }
         }
     } 
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
