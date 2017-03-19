@@ -672,14 +672,10 @@
     <td style="vertical-align: top;">{!$label.Vehicle_Picker_Interested}&nbsp;</td>
     <td>
         <input type="text" ng-model="interestedVehicleDetails"  disabled="disabled" style="width:300px" /> 
-
-        <apex:outputPanel rendered="{!disableButtons}">
-        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses);" onclick="KillSaveButton();" class="btn" value="{!$label.New_Button}" id="cmdSave"/>
+        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
-        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/>
-        &nbsp;<!--<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>-->
-        </apex:outputPanel>
-
+        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
+        &nbsp;<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
         <div ng-if="vehicleDetail" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -760,16 +756,11 @@
         <tr>
         <!----------- CURRENT VEHICLE1 SECTION -------->
         <td style="vertical-align: top;padding=20px">
-
-        {!$label.Vehicle_Picker_Current1}&nbsp;</td>
-        <td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
-        <apex:outputPanel rendered="{!disableButtons}"> 
-
+        {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
-		</apex:outputPanel
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent1" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -814,16 +805,11 @@
         <tr>
         <!----------- CURRENT VEHICLE2 SECTION -------->
         <td style="vertical-align: top;">
-
-        {!$label.Vehicle_Picker_Current2}&nbsp;</td>
-        <td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
-        <apex:outputPanel rendered="{!disableButtons}">
-
+        {!$label.Vehicle_Picker_Current2}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
-		</apex:outputPanel
         <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent2" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -918,13 +904,10 @@
         <!----------- PURCHASED VEHICLE SECTION -------->
         <td style="vertical-align: top;">{!$label.Vehicle_Picker_Purchased}&nbsp;</td><td>
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 
-
-        <apex:outputPanel rendered="{!disableButtons}">
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
-		</apex:outputPanel
         <!----------- PURCHASED VEHICLE DETAILS SECTION -------->
         <div ng-if="vehicleDetailPurchased" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -974,3 +957,5 @@
     </html>
 </apex:form>
 </apex:page>
+
+

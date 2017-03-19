@@ -20,36 +20,6 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
     </alerts>
-	 <alerts>
-        <fullName>No_modification_is_made_in_10_days_All_Modifications</fullName>
-        <description>No modification is made in 10 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_10_days_All_Modifications</template>
-    </alerts>
-	<alerts>
-        <fullName>No_modification_is_made_in_15_days_All_Modifications</fullName>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_15_days_All_Modifications</template>
-    </alerts>
-	<alerts>
-        <fullName>No_modification_is_made_in_5_days_All_Modifications</fullName>
-        <description>No modification is made in 5 days (All Modifications)</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>MBK_Email_Templates/No_modification_is_made_in_5_days_All_Modifications</template>
-    </alerts>
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>
@@ -1210,16 +1180,7 @@ Modify Reason:
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
-        <actions>
-            <name>Update_Purchased_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    
     <rules>
         <fullName>Update Service Completed Date</fullName>
         <actions>
@@ -1239,16 +1200,6 @@ Modify Reason:
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
-        <actions>
-            <name>Update_Purchased_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>	
     <rules>
         <fullName>Update Leads Dealer Status for dealer create</fullName>
         <actions>
