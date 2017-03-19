@@ -10,7 +10,8 @@ public class LeadHelperAccountLinkCreateJP {
         set<String> contactId = new set<String>();
         
         for(Lead__c le : leadlst){
-            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
+		     if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved'  && (le.MD__c == label.MarketJP)){
+            //if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
                 if(isInsert || (isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c)) {
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);

@@ -1693,7 +1693,7 @@
             <name>Status</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

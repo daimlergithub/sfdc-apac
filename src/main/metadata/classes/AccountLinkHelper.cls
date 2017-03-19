@@ -735,35 +735,7 @@ public class AccountLinkHelper
             }
         }
     }
- public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap)
- {
-     Set<Id> accIds = new Set<Id>();
-     List<Account_Link__c> accountlinkList = new List<Account_Link__c>();
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-     accIds.add(acclink.toRole__c);
-     }
-     Map<id,Account> accountMap = new Map<id,Account>([select id,(select id,position__c from Account_Links__r where recordtypeid=:AccountLink_contact2conatctRecordTypeId order by lastmodifieddate limit 1) from Account where id in :accIds]);
-     
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-        If(oldMap!=null && acclink.Retail_Related_Company__c!=oldMap.get(acclink.id).Retail_Related_Company__c)
-        {
-        if(accountMap!=null && accountMap.get(acclink.toRole__c)!=null && !accountMap.get(acclink.toRole__c).Account_Links__r.isempty())
-        {
-            acclink.position__c=accountMap.get(acclink.toRole__c).Account_Links__r[0].position__c;
-            accountlinkList.add(acclink);
-        }
-        }
-         if(acclink.role__c ==acclink.role2__c && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId )
-         {
-         acclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
-         
-         }
-     }
     
-     
- }
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
         
         system.debug('------>Method is called');
@@ -1247,13 +1219,14 @@ public class AccountLinkHelper
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             UtilAddressTranslation.gettranslatedvalues('JP');
-            accountList = [select id,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
+            accountList = [select id,fromRole__r.Dealer_Rollout_Status__c,Retail_Address_Reference__c , Retail_Address_Type__c ,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,
                            Retail_Address_Reference__r.District__c,Retail_Address_Reference__r.Block__c,Retail_Address_Reference__r.Address_Line_1__c,
                             Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Address_Reference__r.Address_Type__c,Retail_Address_Reference__r.City__c,Retail_Address_Reference__r.Address_Line_2__c,
                             Retail_Address_Reference__r.ZipCode__c,Retail_Address_Reference__r.Province__c,Retail_Address_Reference__r.CreatedDate,Retail_Address_Reference__r.LastModifiedDate,
                             Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c from Account_Link__c where Retail_Address_Reference__c IN:accountId];
         if(accountList.size() > 0){
-            for(Account_Link__c acc: accountList){            
+            for(Account_Link__c acc: accountList){  
+              if(acc.fromRole__r.Dealer_Rollout_Status__c == 'Done'){                     
                 acc.Retail_Address_Type__c = acc.Retail_Address_Reference__r.Address_Type__c;                       
                   acc.Retail_City__c = (acc.Retail_Address_Reference__r.City__c != null ? acc.Retail_Address_Reference__r.City__c : '').left(17);
                 acc.Retail_Distinct__c = ((acc.Retail_Address_Reference__r.District__c !=null ? acc.Retail_Address_Reference__r.District__c : '')+ (acc.Retail_Address_Reference__r.Block__c!=null ? acc.Retail_Address_Reference__r.Block__c : '')).left(17);               
@@ -1270,6 +1243,7 @@ public class AccountLinkHelper
                 acc.Retail_Address_LastModifiedDate__c = (acc.Retail_Address_Reference__r.LastModifiedDate).date();
                     accountList1.add(acc);
             }
+          }  
         }
         if(!accountList1.isEmpty()||accountList1!=null)
             {

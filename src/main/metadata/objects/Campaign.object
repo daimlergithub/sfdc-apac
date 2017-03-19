@@ -543,7 +543,7 @@
         <label>Campaign Execution Channels</label>
         <picklist>
             <picklistValues>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3756,7 +3756,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4935,7 +4935,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6090,7 +6090,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7269,7 +7269,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8264,7 +8264,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9275,7 +9275,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10289,7 +10289,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11375,7 +11375,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12649,7 +12649,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13644,7 +13644,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14918,7 +14918,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16136,7 +16136,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17335,7 +17335,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18521,7 +18521,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19578,6 +19578,58 @@
         <errorConditionFormula>AND(RecordType.DeveloperName = 'CAS_Marketing_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Completed</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Completed'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+  ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
+
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed when it is 'Completed'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Execution</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Execution' then it can' t be changed to 'Planning' or 'Segmentation'</description>
+        <errorConditionFormula>AND( ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Execution'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, '')
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Exection' to 'Planning or Segmentation'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Response</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Response Collection' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution'</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+      ISPICKVAL(Child_Campaign_Status__c, '')
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Campaign_Not_Yet_Started_Active</fullName>

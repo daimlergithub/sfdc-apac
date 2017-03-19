@@ -57,11 +57,12 @@ JIRA NO             :    SFDCJP-1026
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
   String mailSales ;
+  Id camIdExec = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
   
   For(Campaign camp : campList){
   
-   if(Camp.Ready_for_List_Maintenance__c == true && Camp.Ready_for_List_Maintenance__c != oldCampList.get(camp.id).Ready_for_List_Maintenance__c ){
+   if(Camp.RecordTypeId == camIdExec && Camp.Ready_for_List_Maintenance__c == true && Camp.Ready_for_List_Maintenance__c != oldCampList.get(camp.id).Ready_for_List_Maintenance__c ){
    
    
         sid.add(Camp.Id);
@@ -198,12 +199,12 @@ Set<id> aid = New Set<id>();
     Id planningRecordRetailId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
         For(Campaign campNew : campaignIds){
             
-            if( campNew.Child_Campaign_Status__c =='Execution' && campNew.Set_List_Maintenance_Flag__c == false ){
+            if( campNew.RecordTypeId==executionRecordId && campNew.Child_Campaign_Status__c =='Execution' && campNew.Set_List_Maintenance_Flag__c == false ){
             
                  sid.add(campNew.ParentId);
                  aid.add(campNew.Id);  
             
-        }else if (campNew.Consolidated_List_Completed__c == true){
+        }else if (campNew.RecordTypeId==executionRecordId && campNew.Consolidated_List_Completed__c == true){
         
           sid.add(campNew.ParentId);
                  aid.add(campNew.Id); 
@@ -367,7 +368,62 @@ Set<id> aid = New Set<id>();
                 
 }       
         
-}   
+}  
+
+  public static void parentCampaignSatus(List<Campaign> campaignparent){ 
+  
+    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+  Set<id> sid = New Set<Id>();
+  List<Campaign> camList = New List<Campaign>();
+  
+            For(Campaign camMain : campaignparent){
+            
+            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning'){
+                      
+                      sid.add(camMain.ParentId);
+            
+            } 
+            
+            
+            }
+            
+            if(sid.size()>0){
+            List<Campaign> camMainList =[Select id,Status From Campaign where id =: sid];
+            
+            if(camMainList.size()>0){
+            
+               For(Campaign cam : camMainList ){
+               
+                 if(cam.Status != 'Ongoing' && cam.Status != 'Completed' ){
+                 
+                      cam.Status = 'Ongoing';
+                      
+                      camList.add(cam);
+                 
+                 }
+               
+               
+               
+               }
+            
+            
+            
+            
+            }
+  
+        if(camList.size()>0){
+           Update camList;
+        
+        }
+         
+  
+  }
+  
+  
+  
+  
+  }
    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
@@ -639,13 +695,13 @@ Set<id> aid = New Set<id>();
                
                  If(Camp.StartDate < System.Today()){
                  
-                   Camp.addError('Date error');   
+                   Camp.addError('Start Date cant be Lesser Than Today');   
                  
                  }
                  
                  If(Camp.EndDate < Camp.StartDate){
                  
-                       Camp.addError('Date error');
+                       Camp.addError('End Date cant be Lesser Than Start Date');
                  }
                   
            
@@ -686,7 +742,7 @@ if( Camp.RecordTypeId == childCampaign ){
                      system.debug('+++++++++++++++'+ca.StartDate );
                      if(campan.Segmentation_Date__c <= ca.StartDate ||campan.Segmentation_Date__c > ca.EndDate ){
                      
-                         campan.addError('Segmentation Error');
+                         campan.addError('Segmentation Date must be greater than parent start date and less than parent end date');
                          
                      
                      }
@@ -694,12 +750,12 @@ if( Camp.RecordTypeId == childCampaign ){
                      if(campan.Execution_Start_Date__c <= campan.Segmentation_Date__c || campan.Execution_Start_Date__c > ca.EndDate ){
                      
                      
-                            campan.addError('Execution Error');
+                            campan.addError('Execution Date must be greater than Segmentation date and less than parent end date ');
                      }
                   if(campan.Response_Date__c <= campan.Execution_Start_Date__c || campan.Response_Date__c  > ca.EndDate ){
                      
                      
-                            campan.addError('Response Error');
+                            campan.addError('Response Date must be greater than Execution date and less than parent end date');
                      }
                   }
                }

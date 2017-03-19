@@ -42,8 +42,8 @@ public class ConvertToLeadControllerTest
            try{
             controller.convertToLead();
             }catch(exception e){}
-           controller.cancel();
-          
+          controller.cancel();
+         
        Test.stopTest();
      }
      public static testMethod void CampaignTest1()
@@ -55,17 +55,17 @@ public class ConvertToLeadControllerTest
             EndDate=System.Today(),
             StartDate=System.Today(),
             RecordtypeID=parentCampaign_RecordTypeID,
-            Status='Responded');
+           Status='Responded');
             insert parentCamp;       
               Campaign_Member__c cmm=new Campaign_Member__c(     
              Status__c='Responded',OwnerId = userinfo.getuserId(),
              Retail_Campaign_Id__c=parentCamp.id);
              insert cmm;     
             PageReference pageRef = Page.ConvertToLead;
-            pageRef.getParameters().put('CampaignId', parentCamp.Id);
-           
+           pageRef.getParameters().put('CampaignId', parentCamp.Id);
+          
             Test.setCurrentPage(pageRef);   
-           ConvertToLeadController controller = new ConvertToLeadController ();   
+         ConvertToLeadController controller = new ConvertToLeadController ();   
            ConvertToLeadController.CampaignMemberInfo newt = new ConvertToLeadController.CampaignMemberInfo(cmm);
            newt.isSelected= True;
            controller.campaignMembers.add(newt);

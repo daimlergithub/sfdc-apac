@@ -236,6 +236,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Contact Id</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>PersonAccount</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members2</relationshipName>
@@ -1228,10 +1237,9 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignI
         <availability>online</availability>
         <displayType>massActionButton</displayType>
         <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
         <linkType>url</linkType>
         <masterLabel>Convert To Lead</masterLabel>
-        <openType>noSidebar</openType>
+        <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}</url>
@@ -1247,7 +1255,7 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignI
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var recId = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
-window.open('/apex/ExportAsCsvCampaign?id='+recId);</url>
+window.open("{!URLFOR($Site.Prefix)}/apex/ExportAsCsvCampaign?id="+recId);</url>
     </webLinks>
 	<webLinks>
         <fullName>New_Campaign_Member</fullName>
@@ -1267,7 +1275,7 @@ window.open("{!URLFOR($Site.Prefix)}/a1H/e?CFOBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIG
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>New_Retail_Campaign_Member</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1276,14 +1284,14 @@ alert('You cannot create campaign members for this campaign status');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}"; 
-if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/a1H/e?CF00NN0000002CqEg={!Retail_Campaign__c.Name}&amp;CF00NN0000002CqEg_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}"); 
-}else 
-{ 
-alert('You cannot create campaign members for this campaign status'); 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+window.open("{!URLFOR($Site.Prefix)}/a1H/e?CF00Np0000001FVEr={!Retail_Campaign__c.Name}&amp;CF00Np0000001FVEr_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
     <webLinks>

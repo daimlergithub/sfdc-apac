@@ -1686,6 +1686,14 @@
         <apexClass>dealerViewForContractTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>exportCampaignMembers</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>exportCampaignMembersTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>false</enabled>
@@ -23506,7 +23514,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
+        <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -23780,6 +23788,10 @@
     <pageAccesses>
         <apexPage>Exception</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ExportAsCsvCampaign</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
