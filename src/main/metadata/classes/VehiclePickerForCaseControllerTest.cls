@@ -9,7 +9,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
     private static Vehicle__c testVehicle_VehicleProduct1;
     private static Vehicle__c testVehicle_Comp;
     private static List<Car_Model__c> carModels;
-    private static List<Map<String, Set<String carModelMap;
+     private static List<Map<String, Set<String>>> carModelMap;
     private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1', 'CurrentVehicle2', 'TradeIn', 'Purchased'};
     public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id MBRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
@@ -490,7 +490,6 @@ public without sharing class VehiclePickerForCaseControllerTest{
         
         //Creating associated data for search test.
 
-        Account testAccount = (Account)UtilTestData.createSobject(new Account(Mobile__c='09440044090'), UtilConstant.person_Account);
         
         //Account testAccountDlr = (Account)UtilTestData.createSobject(new Account(Name='DealerAcc'), 'ACCOUNT_RT_DEALER');
         

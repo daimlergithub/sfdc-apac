@@ -1,6 +1,7 @@
 @istest
 public class SSITriggerHandlerTest {
   public static Account accobj;
+  public static Account customer;
   public static Contact contobj;
   public static Task taskobj;
   public static List<Task> taskobjlist;
@@ -9,7 +10,7 @@ public class SSITriggerHandlerTest {
   public static Map<Id,SSI__c> ssioldmap;
   
   public static User usr;
-  public static User us;
+  public static User ssi_sv;
   public static Id ssitaskid = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
   public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -47,6 +48,39 @@ public class SSITriggerHandlerTest {
     ssiold.OfficePhone__c = '000-0000-9999';
     ssiold.Mark__c = 'test';
     insert ssiold;
+	 // SSI New Map
+
+    
+    ssiold.CustomerName__c = 'testcustomernew'; 
+    ssiold.Status__c = 'Matched';
+    ssiold.DealerCheck_Status__c = 'valid';
+    ssiold.CarModelCheck_Status__c = 'valid';
+    ssiold.HomeMobilePhone__c = '000-0000-9562';
+    ssiold.OfficePhone__c = '000-0000-9842';
+    ssiold.Mark__c = '';
+    update ssiold;
+    
+    system.debug('$$$$$ssiold$$$$$'+ssiold);
+    system.debug('$$$$$ssiold.id$$$$$'+ssiold.id);
+    
+    taskobj = new Task();
+    taskobj.recordtypeid = ssitaskid;
+    taskobj.Subject = '2nd Survey Call';
+    taskobj.WhatId = ssiold.id;
+    taskobj.HomeMobilePhone__c = '000-0000-9999';
+    taskobj.OfficePhone__c = '000-0000-8888';
+    taskobj.Status = 'Open';
+    system.debug('$$$$$$taskobj$$$$$$'+taskobj);
+    
+    taskobjlist = new List<Task>();
+    taskobjlist.add(taskobj);
+    insert taskobjlist;
+    system.debug('$$$$$$taskobjlist$$$$$$'+taskobjlist);
+    
+    Profile prof = [select Id from Profile where Name = 'System Administrator'];
+    usr = new User (ProfileId = prof.Id, isActive = true, Username='lai1@nttdata.com',LastName='sichaof',Email='sichao.lai@nttdata.com',Alias='laisc',CommunityNickname='barney1',
+                    TimeZoneSidKey='America/Los_Angeles',LocaleSidKey='en_US',EmailEncodingKey='ISO-8859-1',LanguageLocaleKey='en_US');
+  }
     
 
     static testMethod void myUnitTest1() {
@@ -92,39 +126,7 @@ public class SSITriggerHandlerTest {
         }  
         
     }
-    // SSI New Map
-
-    
-    ssiold.CustomerName__c = 'testcustomernew'; 
-    ssiold.Status__c = 'Matched';
-    ssiold.DealerCheck_Status__c = 'valid';
-    ssiold.CarModelCheck_Status__c = 'valid';
-    ssiold.HomeMobilePhone__c = '000-0000-9562';
-    ssiold.OfficePhone__c = '000-0000-9842';
-    ssiold.Mark__c = '';
-    update ssiold;
-    
-    system.debug('$$$$$ssiold$$$$$'+ssiold);
-    system.debug('$$$$$ssiold.id$$$$$'+ssiold.id);
-    
-    taskobj = new Task();
-    taskobj.recordtypeid = ssitaskid;
-    taskobj.Subject = '2nd Survey Call';
-    taskobj.WhatId = ssiold.id;
-    taskobj.HomeMobilePhone__c = '000-0000-9999';
-    taskobj.OfficePhone__c = '000-0000-8888';
-    taskobj.Status = 'Open';
-    system.debug('$$$$$$taskobj$$$$$$'+taskobj);
-    
-    taskobjlist = new List<Task>();
-    taskobjlist.add(taskobj);
-    insert taskobjlist;
-    system.debug('$$$$$$taskobjlist$$$$$$'+taskobjlist);
-    
-    Profile prof = [select Id from Profile where Name = 'System Administrator'];
-    usr = new User (ProfileId = prof.Id, isActive = true, Username='lai1@nttdata.com',LastName='sichaof',Email='sichao.lai@nttdata.com',Alias='laisc',CommunityNickname='barney1',
-                    TimeZoneSidKey='America/Los_Angeles',LocaleSidKey='en_US',EmailEncodingKey='ISO-8859-1',LanguageLocaleKey='en_US');
-  }
+   
   
   /*public static testmethod void handleTriggerTest() {
     createTestdata();

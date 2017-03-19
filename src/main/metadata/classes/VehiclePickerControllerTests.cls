@@ -412,7 +412,7 @@ public without sharing class VehiclePickerControllerTests{
             
         }
         test.stopTest();
-    }
+    }*/
     
     
     public static testMethod void testLookupSearch(){

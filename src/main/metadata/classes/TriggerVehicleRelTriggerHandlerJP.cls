@@ -115,21 +115,6 @@ public class TriggerVehicleRelTriggerHandlerJP
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
         }
-       List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
-	   List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
-        if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'JP')
-        {  
-		  // Implementation to addedd as required in market
-			 VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
-			Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
-			Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-			 // US-CP-007
-			/* if (trigger.isBefore && trigger.isInsert){
-					vrHelperJP.validateOverlappingVehicleRelationshiponInsert(trigger.new);
-			 }
-			 if(trigger.isBefore && trigger.isUpdate){
-					vrHelperJP.validateOverlappingVehicleRelationshiponUpdate(trigger.new,oldmapVehicleRelation);
-			 }*/
-	
-    }
+       
+}
 }

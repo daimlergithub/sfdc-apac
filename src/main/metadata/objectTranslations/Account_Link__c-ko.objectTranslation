@@ -1423,10 +1423,6 @@
             <label>정보</label>
             <section>Information</section>
         </sections>
-        <sections>
-            <label>시스템 정보</label>
-            <section>System Information</section>
-        </sections>
     </layouts>
     <layouts>
         <layout>Vehicle External Link</layout>

@@ -7,11 +7,11 @@
         <field>ACCOUNT.NAME</field>
     </columns>
     <filter>
-        <criteriaItems>
+        <!--<criteriaItems>
             <column>Activity.Intention_Status__c</column>
             <operator>equals</operator>
             <value>Visited</value>
-        </criteriaItems>
+        </criteriaItems>-->
         <criteriaItems>
             <column>Activity.SentTime__c</column>
             <operator>equals</operator>

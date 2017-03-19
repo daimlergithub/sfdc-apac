@@ -156,10 +156,7 @@ accSdh.shareAccountByAccountLink(newData, oldDataAl, true);
 ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
 //shacc.handleTrigger(true,true,true,true,true);
 shacc.handleIntegrationTrigger(true,true,true,true,true);
-AccountSharingDataHandler accSdh = new AccountSharingDataHandler('Account_Link__c'); 
-accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
-accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true); 
-accSdh.shareAccountByAccountLink(newData, oldDataAl, true);
+
 
 test.stopTest();
 system.assertNotEquals(null,newData);

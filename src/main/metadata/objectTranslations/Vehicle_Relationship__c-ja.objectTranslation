@@ -3073,22 +3073,6 @@
         <relationshipLabel><!-- Vehicle Relationship (UsedWarranty Apply User) --></relationshipLabel>
     </fields>
     <fields>
-        <label>電話番号（車両）</label>
-        <name>Vehicle_Phone_picklist__c</name>
-        <picklistValues>
-            <masterLabel>Home Phone</masterLabel>
-            <translation>自宅電話</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Home Phone 2</masterLabel>
-            <translation>その他電話番号1</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Work Phone</masterLabel>
-            <translation>勤務先電話</translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label>UCP登録／申請ステータス</label>
         <name>UsedWarranty_Apply_Status__c</name>
         <picklistValues>

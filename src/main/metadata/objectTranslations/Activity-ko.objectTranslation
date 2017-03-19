@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label><!-- CallReference --></label>
-        <name>AES_CNTR__CallReference__c</name>
-    </fields>
-    <fields>
-        <label><!-- Called --></label>
-        <name>AES_CNTR__Called__c</name>
-    </fields>
-    <fields>
-        <label><!-- Caller --></label>
-        <name>AES_CNTR__Caller__c</name>
-    </fields>
-    <fields>
-        <label><!-- Queue --></label>
-        <name>AES_CNTR__Queue__c</name>
-    </fields>
-    <fields>
-        <label><!-- UCID --></label>
-        <name>AES_CNTR__UCID__c</name>
-    </fields>
-    <fields>
-        <label><!-- UUI --></label>
-        <name>AES_CNTR__UUI__c</name>
-    </fields>
-    <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
     </fields>
@@ -856,10 +832,6 @@
             <masterLabel>Unknown</masterLabel>
             <translation><!-- Unknown --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label>Communication date</label>
-        <name>Communication_date__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>

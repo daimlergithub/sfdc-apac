@@ -737,7 +737,6 @@
         <label>AccountMergeFieldsCompany</label>
     </fieldSets>
     <fieldSets>
-    <fieldSets>
         <fullName>AccountMergeFieldsPerson</fullName>
         <description>AccountMerge.page (Contact Portfolio)</description>
         <displayedFields>
@@ -2006,7 +2005,7 @@
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-<            <picklistValues>
+            <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
             </picklistValues>
@@ -2212,15 +2211,6 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>All_channel_opt_out__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All channel opt-out</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>All_channel_opt_out__c</fullName>
@@ -14772,27 +14762,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MBK_All_Customer_Accounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>PC_SALUTATION</columns>
-        <columns>PC_BIRTHDATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>PC_FIRST_NAME</columns>
-        <columns>PC_LEAD_SOURCE</columns>
-        <columns>PC_LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.ThirdParty</value>
-        </filters>
-        <label>All third-party data</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>MyAccounts</fullName>
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
@@ -14970,21 +14939,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30290,14 +30244,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLC-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GQ</fullName>
                 <default>false</default>
             </values>
@@ -37197,84 +37143,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Special_Mark_on_Account__c</picklist>
-            <values>
-                <fullName>Automotive related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fire department</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lawyer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ministry of Transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Police</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Special_Needs_Class__c</picklist>
-            <values>
-                <fullName>A</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>D</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Special_Vehicle_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -37312,19 +37180,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Automotive related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Diplomat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fire department</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37376,41 +37232,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>E</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Special_Vehicle_Offered_Service__c</picklist>
-            <values>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving Academy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ex-Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prospect</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>VIP</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41030,18 +40851,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>FORTUNE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>First Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLC-Class Coupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLE-Class</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -9,16 +9,8 @@
         <name>Address_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Address Line 1 Native --></label>
-        <name>Address_Line_1_Native__c</name>
-    </fields>
-    <fields>
         <label>住所1</label>
         <name>Address_Line_1__c</name>
-    </fields>
-    <fields>
-        <label><!-- Address Line 2 Native --></label>
-        <name>Address_Line_2_Native__c</name>
     </fields>
     <fields>
         <label>住所2</label>
@@ -73,16 +65,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Block Native --></label>
-        <name>Block_Native__c</name>
-    </fields>
-    <fields>
         <label>字名・丁目</label>
         <name>Block__c</name>
-    </fields>
-    <fields>
-        <label><!-- City Native --></label>
-        <name>City_Native__c</name>
     </fields>
     <fields>
         <label>市区郡町村</label>
@@ -130,10 +114,6 @@
         <name>Delivery_Point_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Town Native --></label>
-        <name>District_Native__c</name>
-    </fields>
-    <fields>
         <label>大字・通称名</label>
         <name>District__c</name>
     </fields>
@@ -172,10 +152,6 @@
     <fields>
         <label><!-- Preferred --></label>
         <name>Preferred__c</name>
-    </fields>
-    <fields>
-        <label><!-- Prefecture Native --></label>
-        <name>Province_Native__c</name>
     </fields>
     <fields>
         <label>都道府県</label>
@@ -415,10 +391,6 @@
     </fields>
 	<fields>
         <label>夜間削除対象フラグ</label>
-        <name>To_Be_Deleted__c</name>
-    </fields>
-    <fields>
-        <label><!-- To Be Deleted --></label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>

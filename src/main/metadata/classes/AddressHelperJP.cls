@@ -87,11 +87,7 @@ public with sharing class AddressHelperJP {
                  for(Address__c add:newMap.values()){
                         accountId.add(add.Customer__c);
                   } 
-          string regexForNullValue ='null';
-            string nullValue ='';                            
-            String province;
-            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
+
             
                  for(Account acc:[select id,Primary_Address_Reference__c,Primary_Address_Reference__r.Province__c from Account where id IN:accountId]){
                      if((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))){
