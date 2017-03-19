@@ -20751,10 +20751,10 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Company Layout_KR</layout>
+        <layout>Account-Company Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout_KR</layout>
+        <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
