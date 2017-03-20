@@ -23,9 +23,7 @@
                         </apex:outputText>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle__c.Label}">
-                        
-                        <apex:outputText value="{!ser.Service_Vehicle__c}" style="width:9%; white-space:nowrap;"> 
-                        </apex:outputText>
+                         <apex:outputlink value="#" onclick="window.open('/{!ser.Service_Vehicle__r.id}','_blank');">{!ser.Service_Vehicle__r.Name}</apex:outputlink>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date__c.Label}">
                         
