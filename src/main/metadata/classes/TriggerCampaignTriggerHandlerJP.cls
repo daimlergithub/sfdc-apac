@@ -20,13 +20,14 @@ public class TriggerCampaignTriggerHandlerJP
         {
            CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
            CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
             
         }
         if(Trigger.isBefore && Trigger.isUpdate)
         {
            CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
            CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
-            
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
         }
              
          if(Trigger.isBefore && Trigger.isDelete){

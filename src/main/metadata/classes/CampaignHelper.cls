@@ -333,12 +333,16 @@ Set<id> aid = New Set<id>();
    }
    }
    }
+  /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method auto calculate Segementation date based on Working day and working month
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
    
-   
-   
-   
-
- public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore){      
+ public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){      
         
    String rect ;        
    String mont;     
@@ -347,7 +351,7 @@ Set<id> aid = New Set<id>();
    For(Campaign camp : campaignIdsBefore ){     
         
         
-   if(camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true){           
+   if(isInsert && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true || (isUpdate && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true && (camp.SegWorkingDay__c != camOldMap.get(camp.id).SegWorkingDay__c || camp.SegWorkingMonth__c != camOldMap.get(camp.id).SegWorkingMonth__c ))){           
              rect = camp.SegWorkingDay__c ;         
                     
              if(camp.SegWorkingMonth__c == 'Jan'){      
@@ -400,7 +404,15 @@ Set<id> aid = New Set<id>();
                 
 }       
         
-}  
+} 
+/**
+  *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method updates the status of parent based on child campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
 
   public static void parentCampaignSatus(List<Campaign> campaignparent,map<id,Campaign> camOldMap){ 
   
@@ -740,6 +752,14 @@ Set<id> aid = New Set<id>();
             }
         }
     }
+    /**
+  *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method contains Date validations on Parent and Child Campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */
       public static void validationParentCampaign(List<Campaign> CamList,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){
    
    Id parentCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();

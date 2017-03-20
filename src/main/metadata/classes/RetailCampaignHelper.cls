@@ -258,6 +258,16 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
   
   
    } 
+   /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method change the status of parent based on child retail campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
+   
+   
    
    public static void parentRetailCampaignSatusChange(List<Retail_Campaign__c> retMainList,map<id,Retail_Campaign__c> camOldMap){ 
   
@@ -323,6 +333,15 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                Update camListMain;
                } 
   } 
+  /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method contains Data validations of parent and child retail campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
+   
    public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList,map<id,Retail_Campaign__c> camOldMap,boolean isInsert,boolean isUpdate){
    
    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
@@ -402,6 +421,15 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
      }
  
 }
+
+/**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method insert the campaign Members of Retail campaign on Join Driven Campaign(SFDCJP-1044)
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
    
     public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
     
