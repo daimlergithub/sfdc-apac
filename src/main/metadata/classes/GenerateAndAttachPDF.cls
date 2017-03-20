@@ -71,8 +71,10 @@ public with sharing class GenerateAndAttachPDF {
      * @Date 11/06/2015(mm/dd/yy)   
      * @return Current record Id of a case.
      */ 
-   public String recordId {
-    get {
+   public String recordId 
+   {
+    get 
+	{
       return ApexPages.currentPage().getParameters().get(System.Label.Id);
     }
   }

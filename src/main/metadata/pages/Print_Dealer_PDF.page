@@ -1,4 +1,4 @@
-<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" applyBodyTag="false" standardStylesheets="false"> 
+<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="PDF" applyBodyTag="false" standardStylesheets="false"> 
    <!-- Stylesheets -->
    
      <head>      
@@ -43,7 +43,7 @@
             content: counter(page); 
         }
         
-        .pageCount:before {
+        .pageCount:after {
             content: counter(pages);  
         }
         table,tr,td {            
@@ -147,8 +147,7 @@
            <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
          <tr><td class="TopTdLabel" align="left" width="30%" style="border-bottom-style: hidden;border-right-style: hidden;">{!$Label.DealerName}&nbsp;</td>
              <td class="TopTd" align="left" width="30%" colspan="3" style="border-bottom-style: hidden;">{!Case.Case_Dealer__r.Company_Name__c}&nbsp;{!Case.Case_Dealer__r.Name}
-              <apex:outputlabel rendered="{!If(OR(Case.Case_Dealer__r.Company_Name__c!=Null,Case.Case_Dealer__r.Name!=Null),true,false)}">
-              {!$Label.Onchu}</apex:outputlabel></td>
+              </td>
          </tr>
          
          <tr><td class="TopTdLabel" align="left" width="30%" style="border-right-style: hidden;">{!$Label.Sales_Phone}&nbsp;</td>
@@ -162,7 +161,7 @@
              <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;">{!Case.Case_Dealer__r.Dealer_Fax_Service__c}</td>  
          </tr>
          <tr><td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Pages}</td>
-             <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;content: counter(pages);"><span class="pageCount"/>&nbsp;{!$Label.Pages}</td>
+             <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;"><!--<span class="pageCount"/>-->2&nbsp;{!$Label.Pages}</td>
              <td class="TopTdLabel" align="left" width="30%" style="border-top-style: hidden;border-right-style: hidden;">{!$Label.Parts_Fax}</td>
              <td class="TopTd" align="left" width="30%" style="border-top-style: hidden;">{!Case.Case_Dealer__r.Dealer_Fax_Parts__c}</td>  
          </tr>         
@@ -269,7 +268,7 @@
           <td align="left" width="160px" height="25" style="border-top-style: hidden;border-right-style: hidden;border-bottom-style: hidden;border-left-style: hidden;"></td>
 
           <td class="TdLabel" align="left" width="75px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-style: hidden;border-right-style: hidden;">{!$Label.Received_By}</td>
-             <td align="left" width="40px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-width: 1px;border-right-width: 1px;">{!Case.Case_Dealer_User__c}</td>  
+             <td align="left" width="40px" height="25" style="border-top-width: 1px;border-left-width: 1px;border-bottom-width: 1px;border-right-width: 1px;">{!Case.Case_Dealer_User__r.Name}</td>  
 
              </tr>
              <tr>
@@ -288,7 +287,7 @@
               </tr>
               
               <tr><td class="TdLabel" align="left" width="20%" height="25">{!$Label.Customer}</td>
-                  <td align="left" width="30%" height="25"><apex:outputField value="{!Case.Account.Name}"></apex:outputField></td>
+                  <td align="left" width="30%" height="25" style ="font-family:Arial Unicode MS"><apex:outputField value="{!Case.Account.Name}"></apex:outputField></td>
                   <td class="TdLabel" align="left" width="20%" height="25">{!$Label.CaseNumber}</td>
                   <td align="left" width="30%" height="25"><apex:outputField value="{!Case.CaseNumber}"></apex:outputfield></td>
               </tr>
