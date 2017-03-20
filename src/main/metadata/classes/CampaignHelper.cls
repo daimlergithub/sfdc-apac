@@ -793,7 +793,9 @@ Set<id> aid = New Set<id>();
  public static void validationChildCampaign(List<Campaign> campListMain,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){
  
  Id childCampaign= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
- Set<Id> sid = New Set<Id>();         
+ Set<Id> sid = New Set<Id>(); 
+ Set<Id> aid = New Set<Id>(); 
+         
           
            For(Campaign Camp : campListMain){
            
@@ -804,6 +806,11 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                          
                          
                          }
+       if( isInsert && Camp.RecordTypeId == childCampaign){
+       
+                    aid.add(Camp.ParentId); 
+        }
+                         
                   }
                   
                   
@@ -837,6 +844,22 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      }
                   }
                }
+     }
+     
+     
+     if(aid.size()>0){
+     
+     List<Campaign> ParentCampaign = [Select id, Status From Campaign Where Id =: aid ];
+      For(Campaign cam : ParentCampaign ){
+      
+      For(Campaign childCam :campListMain){
+         if(cam.Status == 'Completed'){
+         childCam.addError('Cant add Child Campaign When Parent Status is Completed');
+       
+       }
+      } 
+     }
+     
      }
  
 }
