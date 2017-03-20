@@ -183,9 +183,9 @@ background-color: blue;
             <tr>
                 <td rowspan="14" width="2%">{!$Label.Customer_Profile} </td>
                 <td colspan="2" width="40%" cellpadding = "100">{!$Label.Customer_Name}&nbsp;
-                    <apex:outputField value="{!Lead__c.Name}"/>
-                    <apex:outputLabel value="Age" style="margin-left:45px;"/>&nbsp;
-                    <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:15px;"/>
+                    <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
+                    <apex:outputLabel value="Age" style="margin-left:140px;"/>&nbsp;
+                    <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:5px;"/>
                 </td>
                 <td rowspan="2" width="15%">{!$Label.Company}</td>
                 <td colspan="2">                    
@@ -223,6 +223,7 @@ background-color: blue;
                     	<apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
                     </apex:outputLabel>
                 </td>
+                
                 <td rowspan="6" width="12%">{!$Label.Current_Vehicle1}</td>
                 <td width="20%">{!$Label.Amount}</td>
                 <td>
@@ -235,7 +236,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}"/>
                 </td> 
             </tr>
             <tr>
@@ -249,7 +251,8 @@ background-color: blue;
                 </td>
                 <td >{!$Label.Registration_Date_Milage} </td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                	<apex:outputText value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td> 
             </tr>   
             <tr>
@@ -264,7 +267,8 @@ background-color: blue;
                 </td> 
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{!vRList[0].Registration_Date__c}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
                 </td>
             </tr>            
             <tr>
@@ -278,7 +282,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vrList[0].MOT_USER_NAME__c}"/>                
                 </td>
             </tr>
             <tr>
@@ -291,7 +295,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vrList[0].Finance_Method__c}"/>
                 </td>
             </tr>
             <tr >  
@@ -305,7 +309,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}"/>
                 </td>
             </tr>
             <tr> 
@@ -315,7 +320,8 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                	<apex:outputText value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td>
             </tr>
             <tr>
@@ -325,7 +331,8 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{!vRList[1].Registration_Date__c}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
                 </td>
             </tr>
             <tr>
@@ -337,7 +344,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td height = "30%">
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vRList[1].MOT_USER_NAME__c}"/>              
                 </td>
             </tr>
             <tr>
@@ -349,7 +356,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td rowspan = "5">
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vRList[1].Finance_Method__c}"/>
                 </td>
             </tr>
             <tr>
@@ -391,35 +398,38 @@ background-color: blue;
                 <td rowspan="5" width="15%">{!$Label.Current_Vehicle3}</td>
                 <td width="20%">{!$Label.Range_Model}</td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}"/>
                 </td>
             </tr>
             <tr>
                 <td width="42%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                	<apex:outputText value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{!vRList[2].Registration_Date__c}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Leagl_Owner}</td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vRList[2].MOT_USER_NAME__c}"/>               
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Purchase_Type}</td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vRList[2].Finance_Method__c}"/>
                 </td>
             </tr>   
         </table>
@@ -519,7 +529,10 @@ background-color: blue;
          <b>Request</b>        
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Type}</td>
-                <td class="TopTd" align="left">{!Lead__c.Lead_Desired_Service__c}</td>
+                <td class="TopTd" align="left">
+                    {!Lead__c.Lead_Desired_Service__c}<br/>
+                    {!Lead__c.Collectioner_Notes__c}
+                </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Date}</td>
                 <td class="TopTd" align="left">{!Lead__c.Order_Confirmation_Date__c}</td>
             </tr>
@@ -792,16 +805,15 @@ background-color: blue;
                     {!$Label.Current_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">
-                    <apex:outputField value="{!Lead__c.Expected_Close_Date__c}"/>
                 </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
                     {!$Label.Current_Vehicle_Model}
                 </td>
                 <td class="TopTd" align="left">
-                    <apex:outputField value="{!Lead__c.Order_Confirmation_Date__c}"/>
                 </td>
             </tr>
-            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
                 	{!$Label.Compared_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">
