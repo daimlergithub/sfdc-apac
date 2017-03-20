@@ -80,15 +80,12 @@
                          <apex:outputField value="{!usr.Firstname}"/>
                      <apex:outputField value="{!usr.Lastname}"/>
                       <apex:outputField value="{!usr.Email}"/>
-                      <apex:outputField value="{!usr.ProfileId}"/>
                       <apex:outputField value="{!usr.userName}"/>
                     </apex:pageBlockSection>
-                    <!--  <apex:pageBlockTable value="{!UserDetails}" var="usrdtls"><apex:outputField value="{!usr.Firstname}"/></apex:pageBlockTable>
-                               -->
                 </apex:pageBlock>
             </apex:pageBlockSection>
             <center>
-                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"  oncomplete="RelodeParent()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />                     
                 
             </center>
