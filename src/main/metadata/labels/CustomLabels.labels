@@ -1753,7 +1753,7 @@
         <shortDescription>Dealer Outlet</shortDescription>
         <value>Dealer Outlet</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Dealer_login_Url</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4024,6 +4024,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Inspection tasks</value>
     </labels>
     <labels>
+        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
+        <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4136,6 +4143,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Label used in Task View Acc button</shortDescription>
         <value>Related Account field is empty</value>
+    </labels>
+    <labels>
+        <fullName>Related_Dealer_View_for_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Dealer View for Contract</shortDescription>
+        <value>Related Dealer View for Contract</value>
     </labels>
     <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
