@@ -88,7 +88,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
   
  if(ChildCamId!=null)
  {
- Campaignmember=[select id,Status__c,Retail_Campaign__c from Retail_Campaign_Member__c where Retail_Campaign__c=:ChildCamId ];
+ Campaignmember=[select id,Status__c,Retail_Campaign__c from Retail_Campaign_Member__c where Retail_Campaign__c=:ChildCamId AND Status__c = 'Executed' ];
  }
   system.debug('#$#$# Campaignmember #$#$ d'+Campaignmember);
  if(Campaignmember!=null)

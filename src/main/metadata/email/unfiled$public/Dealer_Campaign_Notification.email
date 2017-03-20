@@ -1,20 +1,20 @@
-<messaging:emailTemplate subject="{!$Label.Dealer_Campaign_Notification}" recipientType="User" relatedToType="Participating_Dealer__c">
+<messaging:emailTemplate subject="{!$Label.Dealer_Campaign_Notification}" recipientType="User" relatedToType="Retail_Campaign__c">
 <messaging:htmlEmailBody >
 <html>
    <style type="text/css">
    </style>
    <body>
-   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Dealer__r.Name} {!$Label.Store}</p>
+   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Owner.Name} {!$Label.Store}</p>
    <p> {!$Label.Campaign_Notification1}</p>
    
    <p> {!$Label.Campaign_Notification10}</p>
-   <p> {!relatedTo.Campaign__r.Name}  </p>
+   <p> {!relatedTo.Name}  </p>
    
    <p> {!$Label.Campaign_Notification11}</p>
    
    
   
-  <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Retail_Campaign__c}">
+  <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
   
         Direct link URL to the detail page
   </a> 

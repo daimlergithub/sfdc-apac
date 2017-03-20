@@ -57,7 +57,7 @@ usernoti.addit();
 usernoti.addit1();
 usernoti.addit2();
 usernoti.updateit();
-usernoti.cancelit();
+//usernoti.cancelit();
 system.assertEquals(0,selectopt.size());
 }
 
