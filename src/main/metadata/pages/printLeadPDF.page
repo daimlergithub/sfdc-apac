@@ -167,8 +167,16 @@ background-color: blue;
         <div class="header" style="padding-top:2px;">
             <div class="Table">                     
                 <div style="font-size:25px;text-align: left;">{!$Label.Lead_Process_Sheet}</div>        
-                <div style="font-size:14px;text-align: right;">{!$Label.Printed_Date}&nbsp;&nbsp;{!Lead__c.CreatedDate}</div>
-                <div style="font-size:14px;text-align: right;">{!$Label.Last_Modified_Date}&nbsp;&nbsp;{!Lead__c.LastModifiedDate}</div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Printed_Date}&nbsp;&nbsp;
+                    <apex:outputText value="{0,date,YYYY/MM/dd}"> 
+                        <apex:param value="{!TODAY()}"/> 
+                    </apex:outputText>    
+                </div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Last_Modified_Date}&nbsp;&nbsp;
+                	<apex:outputText value="{0,date,YYYY/MM/dd}">
+                        <apex:param value="{!Lead__c.LastModifiedDate}"/>
+                    </apex:outputText>     
+                </div>
                 <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;{!Lead__c.LastModifiedBy.Name}</div>
             </div>    
         </div>
@@ -210,7 +218,9 @@ background-color: blue;
             <tr>
                 <td colspan="2" rowspan="2">
                     <apex:outputLabel value="{!$Label.Address_PrintPDF}">
-                        <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c}" />
+                        <apex:outputText value="{!LEFT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                        <apex:outputLabel rendered="{!If(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
+                        <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
                         <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}" />
                     </apex:outputLabel>
                     <apex:outputLabel value="Address type" style="margin-left:10px;">&nbsp;
@@ -387,7 +397,7 @@ background-color: blue;
                 <td>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px"/>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:37px">
-                    <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
+                    <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/>
                 	</apex:outputLabel>
                 </td>
             </tr>
