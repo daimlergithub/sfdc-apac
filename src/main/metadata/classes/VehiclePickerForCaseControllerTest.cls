@@ -18,7 +18,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
     /********************* CREATING TEST DATA : START **************************/
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+      //  insert updatecustomsettings;
 
         UtilConstant utilConst = new UtilConstant();     
         //testCase = (Case)UtilTestData.createSobject(new Case(), UtilConstant.SALES_LEADS);
@@ -265,6 +265,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
     }
 */     
     public static testMethod void testLookupVehicle(){
+      // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         UtilConstant utilConst = new UtilConstant();
         createTestData();
         test.StartTest();
