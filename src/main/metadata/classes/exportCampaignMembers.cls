@@ -1,3 +1,11 @@
+/****************************************************************
+CreatedBy : Lokesh M
+Desc 	  : Export button - campaign_Member__c
+            When user click on export button it will save the campaign members which is related to The current page campaign Or retail campaing in 'csv format'
+createdDate : 31-Jan-2017
+Campaign Management - Phase 1
+*****************************************************************/
+
 public class exportCampaignMembers{
     public List<Campaign_Member__c> campaignMemberList{get;set;}
     Public Id curRecId{get;set;}
