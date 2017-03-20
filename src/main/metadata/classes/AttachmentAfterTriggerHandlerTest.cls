@@ -17,6 +17,7 @@ public class AttachmentAfterTriggerHandlerTest {
     accobj.ZipCode__c= '1002347';
     accobj.MBK_Data_Source__c='Email';
     accobj.Mobile__c = '000-0000-9642';
+    accobj.Email__c = 'saigotrala@gmail.com';
     insert accobj;  
     
     accobj1 = new Account();
@@ -25,6 +26,7 @@ public class AttachmentAfterTriggerHandlerTest {
     accobj1.ZipCode__c= '1002345';
     accobj1.MBK_Data_Source__c='Campaign';
     accobj1.Mobile__c = '000-0000-9642';
+    accobj1.Email__c = 'saigotrala@gmail.com';
     insert accobj1; 
     
     Caseobj = new Case();
@@ -76,6 +78,7 @@ public class AttachmentAfterTriggerHandlerTest {
   public static testMethod void AttachmentAfterTriggerHandlerTest1() {
     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
     insert updatecustomsettings;
+
 
     Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
     User usr = new User(Alias = 'standt', Email='test@mbj.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',LocaleSidKey='en_US', ProfileId = p.Id, 

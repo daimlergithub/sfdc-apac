@@ -22,14 +22,14 @@ public without sharing class VehiclePickerForCaseControllerTest{
     /********************* CREATING TEST DATA : START **************************/
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+
         insert updatecustomsettings;
         UtilConstant utilConst = new UtilConstant(); 
         
         accobj = new Account(RecordTypeId = personAccRecordTypeId,LastName = 'galaxy1',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9642',ZipCode__c= '1002347'); 
         insert accobj;
      
-        //testCase = (Case)UtilTestData.createSobject(new Case(), UtilConstant.SALES_LEADS);
-        
+      
         
         testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
@@ -283,6 +283,7 @@ public without sharing class VehiclePickerForCaseControllerTest{
     
 
     public static testMethod void testLookupVehicle(){
+      // List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         UtilConstant utilConst = new UtilConstant();
         createTestData();
         test.StartTest();
