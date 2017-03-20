@@ -8,7 +8,7 @@
    
        Campaign parentCamp=new Campaign(
              Name='test par',
-            EndDate=Date.Today().adddays(-10),
+            EndDate=Date.Today().adddays(+10),
             StartDate=Date.Today(),
             RecordtypeID=parentCampaign_RecordTypeID,
             Status='Responded');
@@ -22,6 +22,15 @@
             newt.selected = True;
             controller.wrapAccountList.add(newt);
            controller.processSelected();
+        List<Campaign_Member__c > SelectedAccounts=new List<Campaign_Member__c >();
+          Campaign_Member__c CampMem=new Campaign_Member__c();
+          CampMem.Status__c='Responded';
+          SelectedAccounts.add(CampMem);
+          insert SelectedAccounts;
+          
+          
+          
+        
           
        Test.stopTest();
      }
