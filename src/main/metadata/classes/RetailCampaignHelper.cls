@@ -374,7 +374,8 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
  public static void validationChildRetailCampaign(List<Retail_Campaign__c> retListMain,map<id,Retail_Campaign__c> camOldMap,boolean isInsert,boolean isUpdate){
  
  Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
- Set<Id> sid = New Set<Id>();         
+ Set<Id> sid = New Set<Id>(); 
+ Set<Id> aid = New Set<Id>();        
           
            For(Retail_Campaign__c rect : retListMain){
            
@@ -385,6 +386,10 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                          
                          
                          }
+                         if( isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign){
+       
+                    aid.add(rect.Parent_Campaign1__c); 
+        }
                   }
                   
                   
@@ -419,6 +424,20 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                   }
                }
      }
+     if(aid.size()>0){
+     
+     List<Retail_Campaign__c> ParentCamp = [Select id, Status__c From Retail_Campaign__c   Where Id =: aid ];
+      For(Retail_Campaign__c  cam : ParentCamp ){
+      
+      For(Retail_Campaign__c  childCam : retListMain){
+         if(cam.Status__c == 'Completed'){
+         childCam.addError('Cant add Child Campaign When Parent Status is Completed');
+       
+       }
+      } 
+     }
+     
+     } 
  
 }
 
