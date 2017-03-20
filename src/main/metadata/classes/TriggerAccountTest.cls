@@ -35,9 +35,9 @@ public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeIn
                     personAccount.LastName ='testaccount';
                     personAccount.Email__c='test@mbau.com';
                     personAccount.Email2__c = 'testemail2@test.com';
-                    personAccount.Home_Phone_2__c = '000-0000-9842';
+                    personAccount.Home_Phone_2__c = '00000009842';
                     personAccount.MBK_Data_Source__c = 'Email';
-                    personAccount.Mobile__c = '000-0000-9842';
+                    personAccount.Mobile__c = '00000009842';
         insert personAccount;
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         UtilTestData.createSobject(lead, UtilTestData.LEAD_RT_SALES_LEADS);

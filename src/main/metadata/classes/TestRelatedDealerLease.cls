@@ -44,9 +44,9 @@ string suppdealer=ret.Supporting_Dealer__r.Dealer_GC_Code__c;
 Retail_Task__c rettsk=[select id,name,Related_Dealer__r.Dealer_GC_Code__c,Supporting_Dealer__r.Dealer_GC_Code__c from Retail_Task__c where Related_Dealer__r.Dealer_GC_Code__c=:dealercode  And Supporting_Dealer__r.Dealer_GC_Code__c=:suppdealer AND id=:ret.id ]; 
 ApexPages.StandardController std=new ApexPages.StandardController(rettsk); 
 RelatedDealerLease rdl=new RelatedDealerLease(std);
- user ur=rdl.currentuser;
+ //user ur=rdl.currentuser;
 // List<Retail_Task__c> retlst1=rdl.rettsk;
- List<profile> profilenames=rdl.japanprofiles;
+// List<profile> profilenames=rdl.japanprofiles;
 // system.assertEquals(8,profilenames.size());
 
 }
