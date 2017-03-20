@@ -15033,7 +15033,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Allow_Data_Sharing2__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -19991,7 +19991,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -37811,7 +37811,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Allow_Data_Sharing2__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -42068,11 +42068,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Prospect</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>VIP</fullName>
