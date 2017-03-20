@@ -569,7 +569,7 @@
         <required>false</required>
         <type>TextArea</type>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>Activity_LeadsData__c</fullName>
         <externalId>false</externalId>
         <label>Activity LeadsData</label>
@@ -609,7 +609,7 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Activity_OutboundCallSource__c</fullName>
         <externalId>false</externalId>

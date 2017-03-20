@@ -297,8 +297,9 @@
 			<sf:typeset name="objects">
 				<sf:include name="Case"/>
 				<sf:include name="Task"/>
-				<!--<sf:include name="Activity"/>-->
+				<sf:include name="Activity"/>
 				<sf:exclude name="Activity"/>
+				<sf:include name="ContentVersion"/>
 				<sf:include name="ContentVersion"/>
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -309,7 +310,7 @@
 			    <sf:exclude name=".*__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
-			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
+			<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	-->
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -357,8 +358,8 @@
 				<sf:include name="UtilTestData"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
-				<sf:include name="AccountMergeController"/>
-				<sf:include name="AccountMergeControllerTest"/>
+				<!--<sf:include name="AccountMergeController"/>-->
+				<!--<sf:include name="AccountMergeControllerTest"/>-->
 				<sf:include name="ContactTriggerHandlerJP"/>
 				<sf:include name="RetailCampaignTriggerHandlerJP"/>
 				<sf:include name="TaskDeletingController"/>
@@ -592,7 +593,7 @@
 			<sf:include name="BatchCalcAmountOfAssignedLeads"/>
 			<sf:include name="UtilLeadEmailEscalation"/>
 			<sf:include name="BatchCreateDealerOBEmails"/>
-			<sf:include name="AccountMergeControllerTest"/>
+			<!--<sf:include name="AccountMergeControllerTest"/>-->
 		</sf:typeset>
 		<sf:typeset name="tabs"> 
 			<sf:include name="Retail_Campaigns"/>
@@ -956,7 +957,7 @@
 	    <sf:typeset name="classes">
 			<sf:include name="GenerateAndAttachPDFTest"/>
 		</sf:typeset>	
-       <sf:typeset name="profiles" force="true"/>
+      <!-- <sf:typeset name="profiles" force="true"/>-->
 		</deploy>
 	</target>	
 	
