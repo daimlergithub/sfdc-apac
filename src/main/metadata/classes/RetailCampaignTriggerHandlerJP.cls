@@ -6,13 +6,19 @@ public class RetailCampaignTriggerHandlerJP
        
        if(Trigger.isBefore && Trigger.isInsert)
         {
-           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New);
-           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New);
+           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New,(Map<Id,Retail_Campaign__c>)Trigger.OldMap, isInsert, isUpdate);
+           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New,(Map<Id,Retail_Campaign__c>)Trigger.OldMap, isInsert, isUpdate);
+            
+        }
+        if(Trigger.isBefore && Trigger.isUpdate)
+        {
+           RetailCampaignHelper.validationParentRetailCampaign(Trigger.New,(Map<Id,Retail_Campaign__c>)Trigger.OldMap, isInsert, isUpdate);
+           RetailCampaignHelper.validationChildRetailCampaign(Trigger.New,(Map<Id,Retail_Campaign__c>)Trigger.OldMap, isInsert, isUpdate);
             
         }
       if(Trigger.isAfter && Trigger.isUpdate)
         {
-        RetailCampaignHelper.parentRetailCampaignSatusChange(Trigger.New);
+        RetailCampaignHelper.parentRetailCampaignSatusChange(Trigger.New,(Map<ID,Retail_Campaign__c>)trigger.oldMap);
             
         } 
        
