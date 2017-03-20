@@ -4,7 +4,7 @@
    <style type="text/css">
    </style>
    <body>
-   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Dealer__r.Name} {!$Label.Store}</p>
+   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Owner.Name} {!$Label.Store}</p>
    <p> {!$Label.Campaign_Notification1}</p>
    
    <p> {!$Label.Campaign_Notification10}</p>
