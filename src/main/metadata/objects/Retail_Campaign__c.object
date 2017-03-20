@@ -13155,6 +13155,13 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Relevant_Central_Campaign__c</errorDisplayField>
         <errorMessage>Relevant Central Campaign is mandatory when Driven is Joint.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Retail_Campaign_Status_Completed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorDisplayField>Close_Date__c</errorDisplayField>
+        <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Retail_Candidate_must_match_the_MBSmart</fullName>
         <active>true</active>
