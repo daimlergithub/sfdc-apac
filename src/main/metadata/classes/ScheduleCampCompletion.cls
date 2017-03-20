@@ -92,7 +92,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  if(ChildCamId!=null)
  {
  Campaignmember=[select id,Status__c from Campaign_Member__c where Campaign_ID__c=:ChildCamId AND Status__c = 'Executed' ];
- ChildCampmain = [select id,Child_Campaign_Status__c from Campaign where Id =:ChildCamId ];
+ 
 
  }
   system.debug('#$#$# Campaignmember #$#$ d'+Campaignmember);
@@ -105,12 +105,7 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  UpdateCampaignmember.add(cmm);
  }
   }
- for(Campaign camp :ChildCampmain ){ 
  
- camp.Child_Campaign_Status__c = 'Completed';
- UpdateCampmain.add(camp);
-
- }
  
  
  
