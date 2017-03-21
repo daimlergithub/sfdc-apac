@@ -17145,10 +17145,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -22657,10 +22653,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -28334,10 +28326,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -34312,10 +34300,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -44411,11 +44395,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
             <values>
