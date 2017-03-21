@@ -25875,11 +25875,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Company Manual Merge</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -31893,10 +31889,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Company Soft Deleted</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
@@ -42376,10 +42368,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Dealer1</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
