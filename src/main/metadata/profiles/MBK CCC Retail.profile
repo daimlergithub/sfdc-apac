@@ -23443,7 +23443,7 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-After-Sales Leads Layout</layout>
+        <layout>Lead__c-AfterSales Lead</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
