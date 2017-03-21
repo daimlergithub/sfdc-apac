@@ -24030,6 +24030,22 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>New Customer</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Authority</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Fleet</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Government</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>New Customer%28Used Car%29</fullName>
+				<default>false</default>
+			</values>
         </picklistValues>
         <picklistValues>
             <picklist>DD_Authority2__c</picklist>
@@ -24073,6 +24089,34 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days(Only Non BDC)</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36016,6 +36060,58 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Assigned</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Received</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Accepted</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Contact Failed For 3 Days(Only Non BDC)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Plan to Purchase</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Test Drive</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Visited Showroom(Only Non BDC)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Order Placed</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Lost(Dealer)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Gave up</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Purchased</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Distributed</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Approved (Waiting)</fullName>
+				<default>false</default>
+			</values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
@@ -86550,28 +86646,80 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CAC_Lead_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approving</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Not Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+		<picklist>CAC_Lead_Status__c</picklist>
+			<values>
+				<fullName>Approved</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Approving</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>New</fullName>
+				<default>true</default>
+			</values>
+			<values>
+				<fullName>Not Allocated</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Rejected</fullName>
+				<default>false</default>
+			</values>
+				<values>
+				<fullName>Assigned</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Received</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Accepted</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Contact Failed For 3 Days(Only Non BDC)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Plan to Purchase</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Test Drive</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Visited Showroom(Only Non BDC)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Order Placed</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Lost(Dealer)</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Gave up</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Purchased</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Distributed</fullName>
+				<default>false</default>
+			</values>
+			<values>
+				<fullName>Approved (Waiting)</fullName>
+				<default>false</default>
+			</values>
+		</picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>

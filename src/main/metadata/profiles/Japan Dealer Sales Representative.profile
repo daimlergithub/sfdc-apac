@@ -7219,9 +7219,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Case_Follow_Up__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11006,6 +11006,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Communication_Method__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Communication_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23812,6 +23817,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

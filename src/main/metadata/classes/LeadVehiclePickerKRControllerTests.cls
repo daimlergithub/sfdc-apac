@@ -21,8 +21,11 @@ public without sharing class LeadVehiclePickerKRControllerTests{
     /********************* CREATING TEST DATA : START **************************/
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
+        //insert updatecustomsettings;
+Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountLinkTriggerHandlerJP',update__c=False,insert__c=False,delete__c=False,after__c=False,before__c=False,enabled__c=False,Market__c='JP');
+        insert TriggerAddress;
+        Trigger__c TriggerAddress1=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        //insert TriggerAddress1;
         UtilConstant utilConst = new UtilConstant();     
         //testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
         Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email');
@@ -315,7 +318,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
     }
     
 
-    /*public static testMethod void testClearNewVehicle(){
+    public static testMethod void testClearNewVehicle(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
@@ -346,8 +349,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             Map<String,String> clearVehicleDetails = new Map<String,String>();
             clearVehicleDetails.put('VehicleType',vehicle);
             clearVehicleDetails.put('CurrentRecordId',testLead.Id);
+        
             LeadVehiclePickerKRController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
-            
+           
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                 system.debug('Cleared Vehicle Id:' +leadDetails.Interested_Vehicle__c);
@@ -378,7 +382,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             
         }
         test.StopTest();
-    }*/
+    }
     
     
     
@@ -437,7 +441,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
     }
     
     
-   /* public static testMethod void testLookupSearch(){
+    public static testMethod void testLookupSearch(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
@@ -506,6 +510,5 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             }
         }
         test.StopTest();
-    }*/
-        
+    }       
 }
