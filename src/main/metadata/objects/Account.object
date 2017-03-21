@@ -2002,10 +2002,6 @@
         <label>ASLead Notification Timing</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
             </picklistValues>
@@ -3273,7 +3269,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Citizenship</label>
+        <label>Country</label>
         <picklist>
             <picklistValues>
                 <fullName>Japan</fullName>
@@ -7639,10 +7635,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <externalId>false</externalId>
         <label>FinanceLead Notification Timing</label>
         <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
@@ -13167,10 +13159,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <label>SalesLead Notification Timing</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
             </picklistValues>
@@ -17147,10 +17135,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -22659,10 +22643,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -25885,11 +25865,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Company Manual Merge</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -28336,10 +28312,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -31290,10 +31262,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SalesLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
@@ -31899,10 +31867,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Company Soft Deleted</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
@@ -34306,10 +34270,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>FinanceLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
@@ -37056,11 +37016,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SalesLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
             <values>
@@ -37593,7 +37549,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -39592,13 +39548,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
             <values>
@@ -41830,11 +41782,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -42355,10 +42303,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>Dealer1</label>
         <picklistValues>
             <picklist>ASLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>

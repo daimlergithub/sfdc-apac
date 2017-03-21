@@ -543,7 +543,6 @@
 									<sf:include name="ConvertToDMRequestTest"/>
 								 <sf:include name="ConvertToTaskController"/>
 								 <sf:include name="ConvertToTaskControllerTest"/>
-
 							</sf:typeset>
 							<sf:typeset name="triggers">
 								<sf:include name="TriggerUtilTestTrigger"/>
@@ -864,8 +863,10 @@
 											<sf:include name="YearlyTA"/>
 											<sf:include name="AddressDisplayInlineEdit"/>
 			</sf:typeset>
-		</deploy>
-    </target>
+			</deploy>                                                                           
+</target>
+
+
 
 		
 	<target name="deploy41">
