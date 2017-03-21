@@ -369,10 +369,6 @@
                 <behavior>Edit</behavior>
                 <field>PR_Comment_for_Dealer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Feedback__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
