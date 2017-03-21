@@ -2032,10 +2032,6 @@
         <label>ASLead Notification Timing</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
             </picklistValues>
@@ -7666,10 +7662,6 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <label>FinanceLead Notification Timing</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
             </picklistValues>
@@ -13208,10 +13200,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <externalId>false</externalId>
         <label>SalesLead Notification Timing</label>
         <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>Immediately</fullName>
                 <default>true</default>
@@ -37650,7 +37638,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -39649,13 +39637,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Fleet_Category__c</picklist>
             <values>
@@ -41887,11 +41871,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Immediately</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
