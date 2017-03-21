@@ -291,6 +291,19 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ND_Code__c</fullName>
         <externalId>false</externalId>
         <formula>Dealer__r.Dealer_ND_Code__c</formula>
@@ -344,7 +357,7 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-		<columns>Campaign__c</columns>
+        <columns>Campaign__c</columns>
         <columns>Dealer__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
@@ -399,6 +412,12 @@ IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
         <errorConditionFormula>Campaign_Package__r.Package_Items__c =0</errorConditionFormula>
         <errorDisplayField>Campaign_Package__c</errorDisplayField>
         <errorMessage>You can't add a Campaign Package without any Package Items.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>List_Maintenance_lock</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Campaign__r.Consolidated_List_Completed__c = TRUE)</errorConditionFormula>
+        <errorMessage>List Maintenance is Completed,You Cant Edit And Create</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Session_Start_Date_is_less_than_End_Date</fullName>
