@@ -455,7 +455,9 @@ public class LeadHelperJP
 							 if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
 							 {                                 
 								 led.Lead_Assignment_Notification_Done__c = True; 
-								 //led.Person_Assign_Notificaton_Done__c = True;
+								 if(led.Service_Advisor__c != null){
+                                     led.Person_Assign_Notificaton_Done__c = True;
+                                 } 
 								 for(User u : userRecords)
 								 {
 									 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
