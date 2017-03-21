@@ -234,6 +234,7 @@
 							   <sf:include name="Duplicatecheck_controller"/>
 							   <sf:include name="Duplicatecheck_controller_Test"/>
 							   <sf:include name="CheckAccountDuplicateController"/>
+							   <sf:include name="CheckAccountDuplicateController_Test"/>
 							   <sf:include name="ChangeContactTargetTest"/>
 							   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 							   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
