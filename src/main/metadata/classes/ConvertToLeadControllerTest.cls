@@ -1,6 +1,7 @@
 @isTest
 public class ConvertToLeadControllerTest
 {
+   public static Id parentRetailCampaign_RecordTypeID = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
    public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
     private static Account dealer;
     private static Account contact;
@@ -50,12 +51,12 @@ public class ConvertToLeadControllerTest
     {
        Test.startTest();
    
-       Campaign parentCamp=new Campaign(
+       Retail_Campaign__c parentCamp=new Retail_Campaign__c(
              Name='test par',
-            EndDate=System.Today(),
-            StartDate=System.Today(),
-            RecordtypeID=parentCampaign_RecordTypeID,
-           Status='Responded');
+            //EndDate=System.Today(),
+            //StartDate=System.Today(),
+            RecordtypeID=parentRetailCampaign_RecordTypeID
+           );
             insert parentCamp;       
               Campaign_Member__c cmm=new Campaign_Member__c(     
              Status__c='Responded',OwnerId = userinfo.getuserId(),
