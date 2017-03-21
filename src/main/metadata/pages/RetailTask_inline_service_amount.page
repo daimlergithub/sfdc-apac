@@ -5,7 +5,7 @@
         <!--OutPutPanel starts here-->
         <apex:outputPanel layout="block" style="overflow:auto;">
            <!--PageBlock starts here-->
-            <apex:pageBlock title="Retail Outlet" id="pageBlock" rendered="{!ShowAmount}">
+            <apex:pageBlock title="{!$Label.RET_02_01_ServiceAmountView}" id="pageBlock" rendered="{!ShowAmount}">
                 <apex:pageMessages id="pgmsg"/> 
                     <apex:pageBlockSection columns="2">
                       <apex:pageBlockSectionItem >
