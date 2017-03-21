@@ -1303,10 +1303,12 @@ alert('You cannot create campaign members for this campaign status');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var campaignID = "{!Campaign.Id}";
-var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID});
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var campaignID = "{!Campaign.Id}"; 
+var retcampaignid = "{!Retail_Campaign__c.Id}"; 
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
+var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid}); 
 location.reload();</url>
     </webLinks>
     <webLinks>
