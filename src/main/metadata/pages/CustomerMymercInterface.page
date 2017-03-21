@@ -1,3 +1,15 @@
+<!--
+	lastModifiedBy : Lokesh 
+	modifiedDate   : 23rd Mar, 2017
+	JIRA           : SFDCJP-2000
+	Description    :  "Did you get the agreement from customer?" to become pop-up message with "Yes" and 
+	                 "Cancel" button, instead of the fixed message inside the screen.[Screen]ACC-12-01, Confirm
+					 Information to send MyMercedes (VF page)
+					[Button]My Mercedes New Registration
+					[Button]My Mercedes Email ID Edit
+					[Button]Create Contact Sector
+-->
+
 <apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
     <apex:form >
             <apex:pagemessages ></apex:pagemessages>
@@ -6,8 +18,8 @@
            <!-- <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> -->
                 <apex:pageblockButtons location="bottom">
                      <apex:commandButton action="{!mymercnew}" value="MyMercedes New Registration" disabled="{!MyMercVar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/>
-                     <apex:commandButton action="{!savepop}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}"/><!-- oncomplete="myfunction();"/>-->
-                     <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}"/>
+                     <apex:commandButton action="{!savepop}" value="MyMercedes Email Id Edit" disabled="{!MyMercEmailVar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/><!-- oncomplete="myfunction();"/>-->
+                     <apex:commandButton action="{!createContractSector}" value="Create ContactSector" disabled="{!ContactSectorvar}" Onclick="if(!confirm('Did you get the agreement from customer?')){return false};"/>
                      <apex:commandButton action="{!cancel}" value="Cancel"/>
                 </apex:pageblockButtons>
                   

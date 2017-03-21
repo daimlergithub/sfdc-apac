@@ -2913,7 +2913,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
     <fields>
         <fullName>Commercial_Reg_No__c</fullName>
         <externalId>false</externalId>
-        <label>Commercial Register Number</label>
+        <label>Commercial Reg No</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
