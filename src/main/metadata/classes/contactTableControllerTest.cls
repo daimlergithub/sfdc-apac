@@ -2,10 +2,11 @@
     Type:    Test class
     Purpose: Test Class for ContactTableController
     ---------------------------------------------------------------   
-    1. Created on 18-Jan-2017    
+    1. Created on 18-Jan-2017  
+  
 */
 @istest
-public class ContactTableControllerTest {
+public class contactTableControllerTest {
   public static Account objAccount; 
   public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   
@@ -46,6 +47,7 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.PhoneNumberFormat();
     test.stoptest();
+    system.assertEquals(objAccount.Individual_Home_Phone__c,'000-0000-9642');
   }
   public static testMethod void UpdateAccountTest() {
     createTestData();
@@ -54,18 +56,7 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.UpdateAccount();
     test.stoptest();
-  }
-  public static testMethod void UpdateAccountTest1() {
-    createTestData();
-    ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
-    ContactTableController ctc = new ContactTableController(sc);
-    test.startTest();
-      objAccount.Individual_Home_Phone__c = '010-0000-9999';
-      objAccount.Work_Phone__c = '010-0000-9999';
-      objAccount.Mobile__c = '010-0000-9999';
-      update objAccount;
-      ctc.UpdateAccount();
-    test.stoptest();
+    //system.assertEquals(objAccount.Individual_Home_Phone__c,'10000009642');
   }
   public static testMethod void EditAccountTest() {
     createTestData();
@@ -74,6 +65,7 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.EditAccount();
     test.stoptest();
+    system.assertEquals(objAccount.MD__c,'KR');
   }
   public static testMethod void AreacodeItemsTest() {
     createTestData();
@@ -82,6 +74,7 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.getAreacodeItems();
     test.stoptest();
+    system.assertEquals(objAccount.Area_code__c,'0101');
   }
    public static testMethod void MobileAreacodeItemsTest() {
     createTestData();
@@ -90,6 +83,7 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.getMobileAreacodeItems();
     test.stoptest();
+    system.assertEquals(objAccount.Mobile__c,'000-0000-9642');
   }
   public static testMethod void CancelUpdateTest() {
     createTestData();
@@ -98,5 +92,6 @@ public class ContactTableControllerTest {
     test.startTest();
       ctc.CancelUpdate();
     test.stoptest();
+    system.assertEquals(objAccount.Individual_Home_Phone__c,'000-0000-9642');
   }
 }

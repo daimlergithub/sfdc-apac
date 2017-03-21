@@ -234,6 +234,7 @@
 							   <sf:include name="Duplicatecheck_controller"/>
 							   <sf:include name="Duplicatecheck_controller_Test"/>
 							   <sf:include name="CheckAccountDuplicateController"/>
+							   <sf:include name="CheckAccountDuplicateController_Test"/>
 							   <sf:include name="ChangeContactTargetTest"/>
 							   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 							   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
@@ -526,17 +527,21 @@
 											<sf:include name="RetailTaskHelperJP"/>                                                                                          
 											<sf:include name="RetailTaskHelperJPTest"/>  
 											<sf:include name="LeadcustomClone"/>
-											<sf:include name="LeadMergeController"/>                                                     
+											<sf:include name="LeadMergeController"/>
+                                            <sf:include name="LeadMergeControllerTest1"/>											
 											<sf:include name="UtilShare"/>
 											<sf:include name="LeadSharingforDealerJP"/>
 											<sf:include name="LeadSharingforDealerJPTest"/>
 											<sf:include name="DeleteRetailCopy"/>
 											<sf:include name="DeleteRetailCopyTest"/>
 											<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
-											<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+							                <sf:include name="MBJ_FS_Case_Request_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Request_InlineTest"/>
 											<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Quotation_Inline_Test"/>
 											<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
 											<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+											<sf:include name="MBJ_FS_Case_ContractClosing_InlineTest"/>
 											<sf:include name="FS_CaseInlineController"/>
 											<sf:include name="LeadDealerAssignmentProcess"/>
 											<sf:include name="LeadDealerAssignmentProcessTest"/>
@@ -901,6 +906,7 @@
 							<sf:include name="TookKitSharingWrapService"/>
 							<sf:include name="ToolKitTriggerHandler"/>
 							<sf:include name="ToolKitTriggerHelper"/>
+							<sf:include name="ToolKitTriggerHelperTest"/>
 			</sf:typeset>
 			</deploy>                                                                           
 </target>
