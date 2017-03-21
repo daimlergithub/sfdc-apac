@@ -74,17 +74,34 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     
     // This method is used to send notifications to new owner.
     private void sendNotificationToNewOwner(Id newOwnerId, List<Task> tasks) {
-        EmailTemplate templateRec = [Select Id, Name from EmailTemplate where DeveloperName = 'test_email'];
-        String emailBody = 'Hi,<br/><br/>Following Task are assigned to you - <br/>';
-        for(Integer i = 1; i <= tasks.size(); i++) {
-            emailBody += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+ tasks[i-1].Id + '<br/>';
+        //EmailTemplate templateRec = [Select Id, Name from EmailTemplate where DeveloperName = 'test_email'];
+        User userRec = [select Profile.Name from User where Id =: UserInfo.getUserId()];
+        Boolean isJapanProfile = false;
+        if(userRec.Profile.Name.toLowerCase().contains('japan dealer')) {
+          isJapanProfile = true;
         }
-        emailBody += '<br/>Thanks!!<br/>Salesforce';
+        
+        String wholesaleDealerStr = '';
+        String dealerStr = '';
+        for(Integer i = 1; i <= tasks.size(); i++) {
+          wholesaleDealerStr += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+ tasks[i-1].Id + '<br/>';
+          dealerStr += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+'MBJapan'+'/'+ tasks[i-1].Id + '<br/>';   
+        }
+        
+        String emailBody = 'Hi,<br/><br/>Following Task are assigned to you - <br/>';
+        if(!isJapanProfile) {
+          emailBody += '<br/> If you are wholesale user, please use the link<br/>';
+          emailBody += wholesaleDealerStr;
+        } else {
+          emailBody += '<br/>If you are dealer user, please use the link<br/>';
+          emailBody += dealerStr;
+        }
+        emailBody += '<br/>Thanks<br/>Salesforce';
         
         List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
         Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
         msg.SetsaveAsActivity(false); 
-        msg.setTemplateId(templateRec.Id);
+        //msg.setTemplateId(templateRec.Id);
         msg.setTargetObjectId(newOwnerId);  
         msg.setHTMLBody(emailBody);
         msg.subject = 'Task Assignment Notification';

@@ -177,7 +177,9 @@ background-color: blue;
                         <apex:param value="{!Lead__c.LastModifiedDate}"/>
                     </apex:outputText>     
                 </div>
-                <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;{!Lead__c.LastModifiedBy.Name}</div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;
+                    {!Lead__c.Service_Advisor__r.LastName}&nbsp;{!Lead__c.Service_Advisor__r.FirstName}
+                </div>
             </div>    
         </div>
         <table class = "TopIdCss" border = "1" cellpadding = "0" cellspacing = "0">
@@ -246,7 +248,7 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}"/>&nbsp;
                     <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}"/>
                 </td> 
             </tr>
@@ -261,7 +263,9 @@ background-color: blue;
                 </td>
                 <td >{!$Label.Registration_Date_Milage} </td>
                 <td>
-                	<apex:outputText value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    <apex:outputText value="{0,date,YYYY/MM/dd}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
                     <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td> 
             </tr>   
@@ -277,8 +281,12 @@ background-color: blue;
                 </td> 
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!vRList[0].Registration_Date__c}"/>
-                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[0].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>            
             <tr>
@@ -319,7 +327,7 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}"/>&nbsp;
                     <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}"/>
                 </td>
             </tr>
@@ -330,7 +338,9 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
                     <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td>
             </tr>
@@ -341,8 +351,12 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!vRList[1].Registration_Date__c}"/>
-                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                    	<apex:param value="{!vRList[1].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>
             <tr>
@@ -404,28 +418,34 @@ background-color: blue;
         </table>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr>
-                <td width="51%" style="border-left-style:hidden;" ></td>
+                <td width="48%" style="border-left-style:hidden;" ></td>
                 <td rowspan="5" width="15%">{!$Label.Current_Vehicle3}</td>
-                <td width="20%">{!$Label.Range_Model}</td>
+                <td width="19%">{!$Label.Range_Model}</td>
                 <td>
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}"/>&nbsp;
                     <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}"/>
                 </td>
             </tr>
             <tr>
-                <td width="42%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
+                <td width="41%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:param value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}"/>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!vRList[2].Registration_Date__c}"/>
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[2].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>   
             <tr>
@@ -694,10 +714,18 @@ background-color: blue;
             </tr>    
             <tr>   
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Print}</td>
-                <td class="TopTd" align="left">{!Lead__c.Quotation_Date__c}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
                 
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Finance_Estimate_Creation_Date}</td>
-                <td class="TopTd" align="left">{!Lead__c.Finance_Quotation_Date__c}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Finance_Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
             </tr>
             <tr>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Number}</td>
