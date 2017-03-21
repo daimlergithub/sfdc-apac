@@ -31280,10 +31280,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SalesLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
@@ -37034,11 +37030,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SalesLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
             <values>
@@ -46842,10 +46834,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>SalesLead_Notification_Timing__c</picklist>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
