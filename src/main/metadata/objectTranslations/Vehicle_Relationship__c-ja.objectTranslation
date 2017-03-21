@@ -3340,10 +3340,6 @@
             <label>車検証情報</label>
             <section>MOT Information</section>
         </sections>
-		<sections>
-            <label>新しい項目</label>
-            <section>New Fields</section>
-        </sections>
 		<sections>	            
 			<label>この車両の連絡先</label>
 			<section>Vehicle Contact Information</section>
