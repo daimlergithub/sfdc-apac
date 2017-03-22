@@ -31,5 +31,7 @@ public class RelatedDealerViewForInsuranceTest
         ApexPages.StandardController controller = new ApexPages.StandardController(Ins);
         RelatedDealerViewForInsurance I= new RelatedDealerViewForInsurance(controller);
         Test.StopTest();
+		
+		
         }
 }

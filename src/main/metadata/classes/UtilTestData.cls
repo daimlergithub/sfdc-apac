@@ -130,7 +130,7 @@ Public class UtilTestData {
        // Create Test portal User
     private static User createPortalUser(Id userRoleId, Id profileId) {   
        User thisUser = [ select Id,UserRoleId from User where Id = :UserInfo.getUserId() ];        
-        Account acc = new Account ( Name = 'dummtyTestAcc',MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642',OwnerId = thisUser.Id); 
+        Account acc = new Account ( Name = 'dummtyTestAcc',Mobile__c = '00000009642',OwnerId = thisUser.Id); 
         acc.RecordTypeId = 
             getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);     
         insert acc;      

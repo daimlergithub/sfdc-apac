@@ -1185,7 +1185,7 @@
     </fields>
     <fields>
         <help><!-- ID of related person --></help>
-        <label>コンタクト</label>
+        <label>顧客</label>
         <lookupFilter>
             <errorMessage><!-- Please select the proper account. --></errorMessage>
         </lookupFilter>
@@ -3118,7 +3118,7 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>モデルレンジ</label>
+        <label>モデル</label>
         <name>Vehicle_Model__c</name>
     </fields>
     <fields>
