@@ -1,4 +1,4 @@
-﻿<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
+<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
 
 	<property name="file.checksums.local" value="timestamps-updated.log"/>
 	<!-- This property is for debugging only. If set to true, no changes will be applied to the metadata in SFDC and the local checksums file. -->
@@ -310,7 +310,7 @@
 			    <sf:exclude name=".*__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
-			<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	-->
+			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -493,9 +493,9 @@
     </target>
 	
 	<target name="deploy30">
-		<!--<deploy transformations="transformations29.xml">
+		<deploy transformations="transformations29.xml">
 			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
-		</deploy>-->
+		</deploy>
 	</target>
 	
 	<target name="deploy31">
@@ -957,7 +957,7 @@
 	    <sf:typeset name="classes">
 			<sf:include name="GenerateAndAttachPDFTest"/>
 		</sf:typeset>	
-      <!-- <sf:typeset name="profiles" force="true"/>-->
+       <sf:typeset name="profiles" force="true"/>
 		</deploy>
 	</target>	
 	
@@ -989,8 +989,8 @@
     </target>
 	<target name="deploy51">
 		<deploy runAllTests="${sfdc.runAllTests}">
-			<sf:typeset name="objectTranslations"/>
-			<sf:typeset name="translations"/>
+			<!--<sf:typeset name="objectTranslations"/>-->
+			<!--<sf:typeset name="translations"/>-->
 		</deploy>
     </target>
 	<target name="deploy52">
