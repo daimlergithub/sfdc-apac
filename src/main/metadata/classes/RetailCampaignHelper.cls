@@ -404,19 +404,19 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                      For(Retail_Campaign__c recta : retListMain ){
                      
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
-                     if(recta.Segmentation_Date__c <= rec.Start_Date__c ||recta.Segmentation_Date__c > rec.Close_Date__c ){
+                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c < rec.Start_Date__c  ){
                      
                          recta.addError('Segmentation Date Error');
                          
                      
                      }
                      
-                     if(recta.Execution_Start_Date__c <= recta.Start_Date__c  || recta.Execution_Start_Date__c > rec.Close_Date__c ){
+                     if(recta.Execution_Start_Date__c < System.Today()  || recta.Execution_Start_Date__c > rec.Close_Date__c || recta.Execution_Start_Date__c <=recta.Segmentation_Date__c ){
                      
                      
                             recta.addError('Execution Date Error');
                      }
-                  if(recta.Response_Date__c <= recta.Start_Date__c  || recta.Response_Date__c  > rec.Close_Date__c ){
+                  if(recta.Response_Date__c < System.Today()  || recta.Response_Date__c  > rec.Close_Date__c ||recta.Response_Date__c <= recta.Execution_Start_Date__c   ){
                      
                      
                             recta.addError('Response Date Error');
