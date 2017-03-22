@@ -74,7 +74,7 @@ public class AttachmentAfterTriggerHandlerTest {
     List<Attachment> attachments=[select id, name from Attachment where parent.id=:Caseobj.id];*/
   }
   public static testMethod void AttachmentAfterTriggerHandlerTest1() {
-    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
     insert updatecustomsettings;
 
     Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
