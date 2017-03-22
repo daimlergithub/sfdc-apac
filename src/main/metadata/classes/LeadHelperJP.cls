@@ -18,7 +18,7 @@ public class LeadHelperJP
 **/
      private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
-    
+    static boolean isNotificationSendtoAdivisor = false;
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
         // Variables Declaration 
@@ -418,7 +418,22 @@ public class LeadHelperJP
 									 EmailAddress.add(lead.Service_Advisor__r.Email);   
 									 system.debug('EmailAddress>>>>>>'+EmailAddress);                            
 								 }                        
-							 }                                  
+							 }  
+							else if(lead.Assigned_Dealer__c != NULL && lead.Service_Advisor__c != null &&lead.Person_Assign_Notificaton_Done__c == false) 
+                             {
+                                 isNotificationSendtoAdivisor = true;
+                                 if(lead.RecordTypeId == salesRecordTypeId)
+                                 {                                                            
+                                     EmailAddress.add(lead.Service_Advisor__r.Email); 
+                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                     
+                                 }
+                                 if(lead.RecordTypeId == afterSalesRecordTypeId )
+                                 { 
+                                     //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c);
+                                     EmailAddress.add(lead.Service_Advisor__r.Email);   
+                                     system.debug('EmailAddress>>>>>>'+EmailAddress);                            
+                                 }       
+                             }
 						 }
 						 // if((isinsert || isupdate && lead.Assigned_Dealer__c != LeadOldMap.get(lead.id).Assigned_Dealer__c) && lead.MD__c== 'JP' && lead.Assigned_Dealer__c != null && lead.CAC_Lead_Status__c == 'Approved' && lead.Service_Advisor__c != null && !lead.Person_Assign_Notificaton_Done__c){
 						 //EmailAddress.add(lead.Assigned_Dealer__r.Dealer_Sales_Manager_Email__c);
@@ -429,7 +444,7 @@ public class LeadHelperJP
 						 
 					 } 
 				 }
-				 
+				 EmailTemplate salesAdvisorNotification =  [select id,name from EmailTemplate WHERE Name = 'Lead assignment to Service Advisor' limit 1];  
 				 system.debug('+++++++++++++'+EmailAddress);
 				 if(EmailAddress !=null)
 				 {
@@ -455,12 +470,17 @@ public class LeadHelperJP
 							 if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
 							 {                                 
 								 led.Lead_Assignment_Notification_Done__c = True; 
-								 //led.Person_Assign_Notificaton_Done__c = True;
+								 if(isNotificationSendtoAdivisor == true){
+                                     led.Person_Assign_Notificaton_Done__c = True;
+                                 } 
 								 for(User u : userRecords)
 								 {
 									 Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
 									 mail.setWhatId(led.id);
-									 mail.setTemplateID(e.Id);
+									 if(isNotificationSendtoAdivisor == True)
+                                         mail.setTemplateID(salesAdvisorNotification.Id);
+                                     else
+                                         mail.setTemplateID(e.Id);
 									 //mail.setTargetObjectId(con.id);
 									 mail.setTargetObjectId(u.id);                            
 									 mail.setBccSender(false);

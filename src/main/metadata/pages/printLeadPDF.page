@@ -167,9 +167,19 @@ background-color: blue;
         <div class="header" style="padding-top:2px;">
             <div class="Table">                     
                 <div style="font-size:25px;text-align: left;">{!$Label.Lead_Process_Sheet}</div>        
-                <div style="font-size:14px;text-align: right;">{!$Label.Printed_Date}&nbsp;&nbsp;{!Lead__c.CreatedDate}</div>
-                <div style="font-size:14px;text-align: right;">{!$Label.Last_Modified_Date}&nbsp;&nbsp;{!Lead__c.LastModifiedDate}</div>
-                <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;{!Lead__c.LastModifiedBy.Name}</div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Printed_Date}&nbsp;&nbsp;
+                    <apex:outputText value="{0,date,YYYY/MM/dd}"> 
+                        <apex:param value="{!TODAY()}"/> 
+                    </apex:outputText>    
+                </div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Last_Modified_Date}&nbsp;&nbsp;
+                	<apex:outputText value="{0,date,YYYY/MM/dd}">
+                        <apex:param value="{!Lead__c.LastModifiedDate}"/>
+                    </apex:outputText>     
+                </div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;
+                    {!Lead__c.Service_Advisor__r.LastName}&nbsp;{!Lead__c.Service_Advisor__r.FirstName}
+                </div>
             </div>    
         </div>
         <table class = "TopIdCss" border = "1" cellpadding = "0" cellspacing = "0">
@@ -183,9 +193,9 @@ background-color: blue;
             <tr>
                 <td rowspan="14" width="2%">{!$Label.Customer_Profile} </td>
                 <td colspan="2" width="40%" cellpadding = "100">{!$Label.Customer_Name}&nbsp;
-                    <apex:outputField value="{!Lead__c.Name}"/>
-                    <apex:outputLabel value="Age" style="margin-left:45px;"/>&nbsp;
-                    <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:15px;"/>
+                    <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
+                    <apex:outputLabel value="Age" style="margin-left:5px;"/>&nbsp;
+                    <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:5px;"/>
                 </td>
                 <td rowspan="2" width="15%">{!$Label.Company}</td>
                 <td colspan="2">                    
@@ -210,10 +220,12 @@ background-color: blue;
             <tr>
                 <td colspan="2" rowspan="2">
                     <apex:outputLabel value="{!$Label.Address_PrintPDF}">
-                        <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c}" />
+                        <apex:outputText value="{!LEFT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                        <apex:outputLabel rendered="{!If(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
+                        <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
                         <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}" />
-                    </apex:outputLabel>
-                    <apex:outputLabel value="Address type" style="margin-left:10px;">&nbsp;
+                    </apex:outputLabel><br/>
+                    <apex:outputLabel value="Address type" style="float:right;margin-left:15px;">&nbsp;
                         <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Reference__r.Address_Type__c}" />
                     </apex:outputLabel><br/>
                     <apex:outputLabel value="Home Phone" style="float:right;margin-left:10px;">
@@ -223,6 +235,7 @@ background-color: blue;
                     	<apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
                     </apex:outputLabel>
                 </td>
+                
                 <td rowspan="6" width="12%">{!$Label.Current_Vehicle1}</td>
                 <td width="20%">{!$Label.Amount}</td>
                 <td>
@@ -235,7 +248,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
                 </td> 
             </tr>
             <tr>
@@ -249,7 +263,10 @@ background-color: blue;
                 </td>
                 <td >{!$Label.Registration_Date_Milage} </td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                    <apex:outputText value="{0,date,YYYY/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
                 </td> 
             </tr>   
             <tr>
@@ -264,7 +281,12 @@ background-color: blue;
                 </td> 
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>            
             <tr>
@@ -278,7 +300,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vrList[0].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
                 </td>
             </tr>
             <tr>
@@ -291,7 +313,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vrList[0].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
                 </td>
             </tr>
             <tr >  
@@ -305,7 +327,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr> 
@@ -315,7 +338,10 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr>
@@ -325,7 +351,12 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                    	<apex:param value="{!vRList[1].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>
             <tr>
@@ -337,7 +368,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td height = "30%">
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vRList[1].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>              
                 </td>
             </tr>
             <tr>
@@ -349,12 +380,12 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td rowspan = "5">
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vRList[1].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr>
                 <td width="20%">{!$Label.Home_Type} </td>
-                <td>Value</td>
+                <td></td>
             </tr>
             <tr>
             	<td rowspan ="2" width ="10%">
@@ -380,46 +411,55 @@ background-color: blue;
                 <td>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px"/>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:37px">
-                    <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
+                    <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/>
                 	</apex:outputLabel>
                 </td>
             </tr>
         </table>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr>
-                <td width="51%" style="border-left-style:hidden;" ></td>
+                <td width="48%" style="border-left-style:hidden;" ></td>
                 <td rowspan="5" width="15%">{!$Label.Current_Vehicle3}</td>
-                <td width="20%">{!$Label.Range_Model}</td>
+                <td width="19%">{!$Label.Range_Model}</td>
                 <td>
-                    <apex:outputText value="{!rangeModel}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>
             <tr>
-                <td width="42%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
+                <td width="41%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{!registrationinspec}"/>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Leagl_Owner}</td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+					<apex:outputText value="{!vRList[2].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>               
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Purchase_Type}</td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                	<apex:outputText value="{!vRList[2].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>   
         </table>
@@ -519,7 +559,10 @@ background-color: blue;
          <b>Request</b>        
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Type}</td>
-                <td class="TopTd" align="left">{!Lead__c.Lead_Desired_Service__c}</td>
+                <td class="TopTd" align="left">
+                    {!Lead__c.Lead_Desired_Service__c}<br/>
+                    {!Lead__c.Collectioner_Notes__c}
+                </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Date}</td>
                 <td class="TopTd" align="left">{!Lead__c.Order_Confirmation_Date__c}</td>
             </tr>
@@ -671,10 +714,18 @@ background-color: blue;
             </tr>    
             <tr>   
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Print}</td>
-                <td class="TopTd" align="left">{!Lead__c.Quotation_Date__c}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
                 
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Finance_Estimate_Creation_Date}</td>
-                <td class="TopTd" align="left">{!Lead__c.Finance_Quotation_Date__c}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Finance_Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
             </tr>
             <tr>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Number}</td>
@@ -792,16 +843,15 @@ background-color: blue;
                     {!$Label.Current_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">
-                    <apex:outputField value="{!Lead__c.Expected_Close_Date__c}"/>
                 </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
                     {!$Label.Current_Vehicle_Model}
                 </td>
                 <td class="TopTd" align="left">
-                    <apex:outputField value="{!Lead__c.Order_Confirmation_Date__c}"/>
                 </td>
             </tr>
-            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
                 	{!$Label.Compared_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">

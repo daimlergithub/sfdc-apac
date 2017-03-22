@@ -960,9 +960,6 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Sales_Lead</customButtons>
-        <customButtons>New_AfterSales_Lead</customButtons>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>

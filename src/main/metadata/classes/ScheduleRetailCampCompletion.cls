@@ -14,8 +14,8 @@ global Class ScheduleRetailCampCompletion implements Schedulable
 Public List<Retail_Campaign__c> parentCamp;
 Public List<Retail_Campaign__c> ChildCamp;
 Public List<Retail_Campaign__c> addparentCamp;
-Public List<Retail_Campaign_Member__c> Campaignmember;
-Public List<Retail_Campaign_Member__c> UpdateCampaignmember;
+Public List<Campaign_Member__c> Campaignmember;
+Public List<Campaign_Member__c> UpdateCampaignmember;
 Public List<Campaign> addChildCamp;
 Public Set<Id> ParentCamId;
 Public Set<Id> ChildCamId;
@@ -37,8 +37,8 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
  ChildCamp=new List<Retail_Campaign__c>();
  updateparentCamp=new  Map<Id, Retail_Campaign__c>();
  updateChildCamp= new Map<Id, Retail_Campaign__c>();
- Campaignmember=new List<Retail_Campaign_Member__c> ();
- UpdateCampaignmember=new List<Retail_Campaign_Member__c>();
+ Campaignmember=new List<Campaign_Member__c> ();
+ UpdateCampaignmember=new List<Campaign_Member__c>();
  Date d=date.Today();
  system.debug('#$#$#$#$#$#$#$ d'+d);
  if(d!=null)
@@ -70,16 +70,16 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
  
  if(ParentCamId!=null)
  {
- ChildCamp=[Select Execution_End_Date__c,Id,Execution_Start_Date__c,Child_Campaign_Status__c,Parent_Campaign1__c from Retail_Campaign__c where Parent_Campaign1__c=:ParentCamId and recordtypeid=:childCampaign_RecordTypeID and Child_Campaign_Status__c='Execution'  ];
- }
+ ChildCamp=[Select Execution_End_Date__c,Id,Execution_Start_Date__c,Child_Campaign_Status__c,Parent_Campaign1__c from Retail_Campaign__c where Parent_Campaign1__c=:ParentCamId and recordtypeid=:childCampaign_RecordTypeID   ];
+ 
  system.debug('#$#$# ChildCamp#$#$ d'+ChildCamp);
  if(ChildCamp!=null)
  {
  for(Retail_Campaign__c  Child:ChildCamp)
  {
- if(Child.Child_Campaign_Status__c =='Execution')
- {
+ 
  ChildCamId.add(Child.Id);
+ 
  }
  }
  }
@@ -88,15 +88,16 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Retail_Campaign_
   
  if(ChildCamId!=null)
  {
- Campaignmember=[select id,Status__c,Retail_Campaign__c from Retail_Campaign_Member__c where Retail_Campaign__c=:ChildCamId ];
- }
+ Campaignmember=[select id,Status__c,Retail_Campaign_Id__c from Campaign_Member__c where Retail_Campaign_Id__c=:ChildCamId AND Status__c = 'Executed' ];
+ 
   system.debug('#$#$# Campaignmember #$#$ d'+Campaignmember);
  if(Campaignmember!=null)
  {
- for(Retail_Campaign_Member__c  cmm:Campaignmember)
+ for(Campaign_Member__c  cmm:Campaignmember)
  {
  cmm.Status__c='Not Responded';
  UpdateCampaignmember.add(cmm);
+ }
  }
  }
  

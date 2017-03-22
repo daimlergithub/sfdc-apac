@@ -161,7 +161,7 @@ public with sharing class CampaignMembersCustomHelperJP {
      
      /*trigger  : After Update Campaign Members
        Added by : Lokesh 
-       Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' then update the related campaing status to 'Response collection'
+       Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' and status not in 'completed' then update the related 
                     and retail campaign status to 'Response collection'
        date     : 15th Mar, 2017
      */
@@ -178,9 +178,11 @@ public with sharing class CampaignMembersCustomHelperJP {
         List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();
         if(parentRetailCampIds != NULL && !parentRetailCampIds.isEmpty()){
             for(Retail_Campaign__c retCmp : [SELECT Child_Campaign_Status__c FROM Retail_Campaign__c WHERE Id IN : parentRetailCampIds]){
-                retCmp.Child_Campaign_Status__c = 'Response Collection';
-                listRetCamp.add(retCmp);
-            }
+				if(retCmp.Child_Campaign_Status__c != 'Completed' && retCmp.Child_Campaign_Status__c != 'Response Collection'){
+					retCmp.Child_Campaign_Status__c = 'Response Collection';
+					listRetCamp.add(retCmp);
+				}
+			}
         }
         if(listRetCamp.size()> 0)
             update listRetCamp;

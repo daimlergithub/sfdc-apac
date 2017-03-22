@@ -5,24 +5,24 @@
         <!--OutPutPanel starts here-->
         <apex:outputPanel layout="block" style="overflow:auto;">
            <!--PageBlock starts here-->
-            <apex:pageBlock title="Retail Outlet" id="pageBlock" rendered="{!ShowAmount}">
+            <apex:pageBlock title="Service Amount View" id="pageBlock" rendered="{!ShowAmount}">
                 <apex:pageMessages id="pgmsg"/> 
                     <apex:pageBlockSection columns="2">
                       <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="Description"/>
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Description__c.Label}"/>
                         <apex:outputField value="{!retailtask.Description__c}"/>  
                       </apex:pageBlockSectionItem> &nbsp;
                       <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="Service Labour Amount"/>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Labour_Amount__c.Label}"/>
                         <apex:outputField value="{!retailtask.Service_Labour_Amount__c}"/>  
                       </apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="Service Parts Amount"/>
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Parts_Amount__c.Label}"/>
                         <apex:outputField value="{!retailtask.Service_Parts_Amount__c}"/>  
                       </apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="Service Total Amount"/>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Total_Amount__c.Label}"/>
                         <apex:outputField value="{!retailtask.Service_Total_Amount__c}"/>  
                       </apex:pageBlockSectionItem>
                     </apex:pageBlockSection>

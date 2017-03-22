@@ -7,14 +7,14 @@
 @isTest
 public class AnnouncementController_test{
     public static testMethod void AnnouncementController_MT(){
-       CollaborationGroup gp = new CollaborationGroup(Name = 'All MBJ Users',CollaborationType = 'Public');
+       CollaborationGroup gp = new CollaborationGroup(Name = 'Dealer Community1',CollaborationType = 'Private');
        insert gp;       
        AnnouncementController obj = new AnnouncementController();
        obj.detail = 'test';  
         obj.message= 'test';   
         obj.groupId ='test';   
-      try{
+      //try{
        obj.doPost();
-       }catch(exception e){}
+     //}catch(exception e){}
     }
 }
