@@ -15545,6 +15545,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Source__c</picklist>
+			            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
+			            <values>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+			            <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
@@ -38199,6 +38211,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Source__c</picklist>
+			            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
+			            <values>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+			            <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
