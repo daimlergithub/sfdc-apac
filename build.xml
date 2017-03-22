@@ -443,6 +443,7 @@
 																																																											<sf:include name="RetailCampaignHelper"/>
 											<sf:include name="RetailCampaignTriggerHandlerJP"/>
 											<sf:include name="Updatecampaignmemwithrefresh"/>
+											<sf:include name="UpdatecampaignmemwithrefreshTest"/>
 											<sf:include name="TaskDeletingController"/>
 											<sf:include name="TaskDeletingControllerTest"/>
 											<sf:include name="SSITriggerHandlerJP"/>
