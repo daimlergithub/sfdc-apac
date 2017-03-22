@@ -30,13 +30,13 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
            System.assertEquals(ChildCamp.Child_Campaign_Status__c,'Execution');
            System.assertEquals(cmm.Status__c,'Not Responded');
                    
-           System.assertEquals(parentCamp.Status,'Draft'); //dint get this
+           System.assertEquals(parentCamp.Status,'Draft'); 
            System.assertEquals(ChildCamp.Child_Campaign_Status__c,'Execution');
            System.assertEquals(cmm.Status__c,'Not Responded');
            
            
             ScheduleCampCompletion CampSch = new ScheduleCampCompletion();
-            String sch = '0 36 18 * * ?';  // here i have given what i used
+            String sch = '0 36 18 * * ?'; 
             System.schedule('Test Campaign completion', sch, CampSch); 
 
         Test.stopTest(); 

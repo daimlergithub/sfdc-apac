@@ -332,7 +332,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Dealer Info</label>
+        <label>Dealer Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
