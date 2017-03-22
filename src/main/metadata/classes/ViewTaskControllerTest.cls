@@ -12,7 +12,7 @@ Private static string Closed='Closed';
     public static testMethod void testMyController() 
     {
         Test.startTest();
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
         // Create Person Account
         Account personAccount = (Account)UtilTestData.createSobject(new Account(Mobile__c='09865231450'), 
