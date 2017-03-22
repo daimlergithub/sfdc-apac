@@ -19,6 +19,7 @@ public class LeadHelperJP
      private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     static boolean isNotificationSendtoAdivisor = false;
+	static boolean isNotificationSendtosalesmanager = false;
     public static void updateCustomerStage(list<Lead__C> listNewLeads,map<id,Lead__C> LeadOldMap,map<id,Lead__c> LeadNewMap)
     {
         // Variables Declaration 
@@ -403,6 +404,7 @@ public class LeadHelperJP
 					 {                
 						 if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Allocated' )))
 						 {
+							isNotificationSendtosalesmanager = true;
 							 system.debug('Insert Method 1');
 							 if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
 							 {
@@ -469,7 +471,9 @@ public class LeadHelperJP
 							 system.debug('++++++++++'+Leadlist);
 							 if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
 							 {                                 
-								 led.Lead_Assignment_Notification_Done__c = True; 
+								 if(isNotificationSendtosalesmanager == true){
+									led.Lead_Assignment_Notification_Done__c = True;
+								}
 								 if(isNotificationSendtoAdivisor == true){
                                      led.Person_Assign_Notificaton_Done__c = True;
                                  } 
