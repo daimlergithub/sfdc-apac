@@ -958,7 +958,7 @@
 	    <sf:typeset name="classes">
 			<sf:include name="GenerateAndAttachPDFTest"/>
 		</sf:typeset>	
-       <sf:typeset name="profiles" force="true"/>
+       <!--<sf:typeset name="profiles" force="true"/>-->
 		</deploy>
 	</target>	
 	
