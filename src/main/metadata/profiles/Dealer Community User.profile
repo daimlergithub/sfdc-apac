@@ -23503,4 +23503,8 @@
         <enabled>true</enabled>
         <name>ShowCompanyNameAsUserBadge</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>SubscribeToLightningReports</name>
+    </userPermissions>
 </Profile>
