@@ -268,7 +268,8 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.recordType = '012280000000f0p';
         JPAcccontroller.selectedRecordType = 'Company';
         JPAcccontroller.RecordType = 'Company';
-        test.startTest();        
+        test.startTest();      
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());  
         JPAcccontroller.saveAccount();
         
         JPAcccontroller.selectedRecordType = 'Person Account';
@@ -276,10 +277,10 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objPersonAccount = objAccount;
         JPAcccontroller.saveAccount();
         JPAcccontroller.AddressSearchbyZipCode();
-        //JPAcccontroller.validateAddressByZipCode();
-        //JPAcccontroller.ValidateAddressCode(addressobj);
-        //JPAcccontroller.getAreacodeItems();
-        //JPAcccontroller.getMobileAreacodeItems();
+        JPAcccontroller.validateAddressByZipCode();
+        JPAcccontroller.ValidateAddressCode(addressobj);
+        JPAcccontroller.getAreacodeItems();
+        JPAcccontroller.getMobileAreacodeItems();
         JPAcccontroller.onLineDeduplication();
         test.stopTest();
         system.assertNotEquals(null, objAccount.id);

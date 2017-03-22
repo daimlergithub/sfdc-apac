@@ -20,7 +20,7 @@ public class CampaignMemberAfterTriggerHandlerTest {
     accobj.Name = 'testaccount';
     accobj.Phone = '012310086';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    //accobj.Mobile__c = '000-0000-9642';
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);

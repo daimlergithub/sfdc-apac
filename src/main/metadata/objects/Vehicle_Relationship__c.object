@@ -5048,10 +5048,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Employee</fullName>
                 <default>false</default>
             </values>
@@ -6166,10 +6162,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Colleague</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
                 <default>false</default>
             </values>
             <values>
