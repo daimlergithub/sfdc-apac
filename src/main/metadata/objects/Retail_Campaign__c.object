@@ -658,7 +658,7 @@
         <label>Campaign Execution Channels</label>
         <picklist>
             <picklistValues>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3659,7 +3659,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4519,7 +4519,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5371,7 +5371,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6223,7 +6223,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7074,7 +7074,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7945,7 +7945,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8805,7 +8805,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9656,7 +9656,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10483,7 +10483,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11343,7 +11343,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12195,7 +12195,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
