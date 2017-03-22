@@ -6224,11 +6224,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
@@ -11496,11 +11492,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
@@ -12766,10 +12758,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -13765,10 +13753,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -16269,10 +16254,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -17468,10 +17450,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -18654,10 +18633,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Prematurity</fullName>
-                <default>false</default>
-            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
