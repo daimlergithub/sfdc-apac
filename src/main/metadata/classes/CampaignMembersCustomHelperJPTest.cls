@@ -4,13 +4,13 @@ public class CampaignMembersCustomHelperJPTest
  public static Account accobj;
   public static Contact contobj;
   public static Campaign camobj;
-  public static Campaign campobj;
+  public static Retail_Campaign__c campobj;
   public static Campaign_Member__c cm;
   public static List<Participating_Dealer__c> padealerlist;
   public static Id DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
   public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
-  
+  public static Id RetailcentmarcampRecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   static void createTestData() {  
  
       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
@@ -28,19 +28,19 @@ public class CampaignMembersCustomHelperJPTest
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
     
-    campobj= new Campaign();
-    campobj.RecordTypeId = centmarcampRecordTypeId;
+    campobj= new Retail_Campaign__c();
+    campobj.RecordTypeId = RetailcentmarcampRecordTypeId;
     campobj.Name = 'camptest1';
-    campobj.Type = 'Other';
-    campobj.Status = 'Planned';
-    campobj.StartDate = System.today();
-    campobj.EndDate = System.today();
-    campobj.Campaign_Objectives__c = 'camobjectives';
-    campobj.Description = 'testdescrip';
+    //campobj.Type = 'Other';
+    //campobj.Status = 'Planned';
+    //campobj.StartDate = System.today();
+    //campobj.EndDate = System.today();
+    //campobj.Campaign_Objectives__c = 'camobjectives';
+    //campobj.Description = 'testdescrip';
     
     insert campobj;
     cm=new Campaign_Member__c();
-    cm.Campaign__c=campobj.id;
+    cm.Retail_Campaign_Id__c=campobj.id;
     cm.Status__c = 'Executed';
     //cm.contact_Id__c = accobj.Id;   
     insert cm;    
