@@ -11,18 +11,21 @@ public String recordTypeId2 { get; set; }
     public set<ID> accID {get; set;}
     public List<Account> newacc {get; set;}
     public Id aeeId {get; set;}
+   //public string SelectedType {get; set;}
+    
     public cSendVehicleInformationtoSPOJP(ApexPages.StandardController controller) {
     
         VehId=ApexPages.currentPage().getParameters().get('id');
-
+         //SelectedType = '2';
          checkSelectedValue();
-
+         
     }
 
-        
-           public string SelectedType {
+        public string SelectedType {
             get{if(SelectedType == null) SelectedType = '2'; return SelectedType;}
             set;}
+
+           
 
         public void checkSelectedValue()
         {
@@ -36,7 +39,7 @@ public String recordTypeId2 { get; set; }
                     
      
                      
-                    vehRec = [SELECT Id,Name,OwnerId,Vehicle_ID__c, Contact__c,Contact__r.Id, Contact__r.Name
+                    vehRec = [SELECT Id,Name,OwnerId,Vehicle_ID__c, Contact__c,Contact__r.Id, Contact__r.Name,Car_Relation__c ,End_Date__c 
                                     FROM Vehicle_Relationship__c
                                      WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null ];
                                      
@@ -47,22 +50,22 @@ public String recordTypeId2 { get; set; }
                         
                         system.debug('++++++++++++++++++++'+addId);
                         }
-                    newRec = [Select fromRole__c, toRole__c ,toRole__r.Recordtype.name ,fromRole__r.Recordtype.name From Account_Link__c where (fromRole__c=:addId OR toRole__c =:addId)  AND RecordType.Name IN('Contact2Contact') ];
+                    newRec = [Select RecordType.Name,fromRole__c, toRole__c ,toRole__r.Recordtype.name ,fromRole__r.Recordtype.name From Account_Link__c where (fromRole__c=:addId OR toRole__c =:addId)  AND RecordType.Name IN('Contact2Contact') ];
                     
                     system.debug('++++++++++++++++++++'+newRec);
-                       for( Account_Link__c alc : newRec ){
-                    if(alc.toRole__r.Recordtype.name == 'Company'){
-                        accID.add(alc.toRole__c) ;
-                        system.debug('++++++++++++++++++++'+accID);
-                    }
-                    else if (alc.fromRole__r.Recordtype.name == 'Company'){
-                         accID.add(alc.fromRole__c) ;
-                    system.debug('++++++++++++++++++++'+accID);
-                    }
+                    for( Account_Link__c alc : newRec ){
+                        if(alc.toRole__r.Recordtype.name == 'Company'){
+                            accID.add(alc.toRole__c) ;
+                            system.debug('++++++++++++++++++++'+accID);
+                        }
+                        else if (alc.fromRole__r.Recordtype.name == 'Company'){
+                             accID.add(alc.fromRole__c) ;
+                            system.debug('++++++++++++++++++++'+accID);
+                        }
                    }
                     
                     system.debug('++++++++++++++++++++'+newRec);
-                    newacc = [Select Name From Account where id=: accId AND RecordType.Name IN('Company') ];
+                    newacc = [Select id ,Name ,IsPersonAccount,RecordType.Name From Account where id=: accId AND RecordType.Name IN('Company') ];
                     system.debug('++++++++++++++++++++'+newacc);         
                                 
                     RecordSize=vehRec.size();
@@ -96,7 +99,7 @@ public String recordTypeId2 { get; set; }
                    }
                     
                     system.debug('++++++++++++++++++++'+newRec);
-                    newacc = [Select Name From Account where id=: accId AND RecordType.Name IN('Company')];
+                    newacc = [Select id ,Name ,IsPersonAccount, RecordType.Name From Account where id=: accId AND RecordType.Name IN('Company')];
                     system.debug('++++++++++++++++++++'+newacc);         
                                 
                     RecordSize=vehRec.size();
@@ -110,14 +113,12 @@ public String recordTypeId2 { get; set; }
                 }
                 
                 
-                public pageReference getSelected(){
+                public pagereference getSelected(){
                 
-                    
-          aeeId =ApexPages.currentPage().getParameters().get('idselected');  
-           
-           system.debug('+++++++++'+ aeeId ); 
-     
-     
+              
+          aeeId =ApexPages.currentPage().getParameters().get('idselected');            
+        
+           system.debug('+++++++++ aeeId '+ aeeId ); 
      
     
       return null;
@@ -128,26 +129,29 @@ public String recordTypeId2 { get; set; }
                 
             public pagereference Navigate()
             {
-             
+            
              Pagereference pg = new Pagereference('/apex/SendVehicletoSPOConfirmationJP?id=');
              
-              if(SelectedType== '2'){
-              
-              pg.getParameters().put('accountid',aeeId );
+              if(SelectedType != null && SelectedType== '2' ){           
+              system.debug('selected type 2 ######');
+              pg.getParameters().put('accountId',aeeId );
               pg.getParameters().put('vehicleid',VehId);
               pg.setRedirect(true);
-              
-              }else if(SelectedType== '1'){
-              
+              system.debug('+++++++++ aeeId '+ aeeId ); 
+            
+              }else if(SelectedType != null && SelectedType== '1'){
+           
+               system.debug('selected type 1 ######');
               //Pagereference pg = new Pagereference('/apex/SendVehicletoSPOConfirmationJP?id=');
-              //pg.getParameters().put('accountid',aeeId );
+             //pg.getParameters().put('accountid',aeeId );
               pg.getParameters().put('vehicleid',VehId);
               pg.setRedirect(true);
-              
+             
               
               
               }
               return pg;
+               
             }
             
           public pagereference cancel () {
