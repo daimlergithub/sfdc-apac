@@ -287,6 +287,7 @@
 				<sf:exclude name="Account_Link__c"/>
 				<sf:exclude name="SSI__c"/>
 				<sf:exclude name="Retail_Task__c"/>
+				<sf:exclude name="Article__kav"/>
 			</sf:typeset>
 			
 			
@@ -310,7 +311,7 @@
 			    <sf:exclude name=".*__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 			</sf:typeset>
-			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>
+			<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -494,7 +495,7 @@
 	
 	<target name="deploy30">
 		<deploy transformations="transformations29.xml">
-			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>		
+			<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	-->	
 		</deploy>
 	</target>
 	
