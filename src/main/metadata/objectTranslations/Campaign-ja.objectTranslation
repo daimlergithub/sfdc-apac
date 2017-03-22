@@ -477,12 +477,32 @@
         <label>キャンペーン種別</label>
         <name>Campaign_Sub_Type__c</name>
         <picklistValues>
-            <masterLabel>Prematurity</masterLabel>
-            <translation><!-- Finance - &gt;  Prematurity --></translation>
+            <masterLabel>After Sales</masterLabel>
+            <translation>アフターセールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Crosspoint</masterLabel>
+            <translation><!-- Crosspoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance - &gt;  Prematurity</masterLabel>
+            <translation><!-- Finance - &gt;  Prematurity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation>セールス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales -&gt; Crosspoint</masterLabel>
             <translation><!-- Sales -&gt; Crosspoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales and After Sales</masterLabel>
+            <translation>セールス/アフターセールス</translation>
         </picklistValues>
     </fields>
     <fields>
