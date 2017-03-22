@@ -8,6 +8,7 @@ public class SurveyHelperJPTest{
     public static Account dlrAcc;
     public static Contact dlrContact;
     public static User usr;
+    public static Group accGrp;
     public static Id ContactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByName().get('DealerStaff').getRecordTypeId();
     public static Id dlrAccRecordTypeId = Schema.SobjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
 public static testmethod  void handleInsertOrUpdateEventtest(){
@@ -58,5 +59,7 @@ public static testmethod  void handleInsertOrUpdateEventtest(){
     // Survey Taker Record
        svrTkrtest = new SurveyTaker__c(Survey__c=testSurvey.Id,Account__c=dlrAcc.Id); 
         insert svrTkrtest;
+        accGrp = new Group(Name='test dealer');
+        insert accGrp;
     }
 }
