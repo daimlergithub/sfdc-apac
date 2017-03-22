@@ -757,11 +757,31 @@
         <label>Campaign Sub Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Prematurity</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Crosspoint</fullName>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance - &gt;  Prematurity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -8382,11 +8402,19 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Crosspoint</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prematurity</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15028,11 +15056,19 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Crosspoint</fullName>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </values>
+             <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prematurity</fullName>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
