@@ -454,7 +454,7 @@ public class LeadHelperJP
 					 serviceAdvisorList = [select id,email from User where email =:EmailAddress];
 				 }
 				 system.debug('serviceAdvisorList>>>>' + serviceAdvisorList);
-				 if(!DealerAccid.isEmpty() && DealerAccid !=null && && isNotificationSendtosalesmanager == true)
+				 if(!DealerAccid.isEmpty() && DealerAccid !=null && isNotificationSendtosalesmanager == true)
 				 {
 					userRecords = [Select id,profile.name,Name,email,contactid,contact.AccountId from User where IsActive = True and contact.Accountid=:DealerAccid and ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') OR (profile.Name='Japan Dealer Company Manager') OR (profile.Name='Japan Dealer Sales Representative'))];
 				 }else if(isNotificationSendtoAdivisor == true){
