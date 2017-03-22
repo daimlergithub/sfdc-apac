@@ -404,10 +404,11 @@ public class LeadHelperJP
 					 {                
 						 if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Allocated' )))
 						 {
-							isNotificationSendtosalesmanager = true;
+							
 							 system.debug('Insert Method 1');
 							 if(lead.Assigned_Dealer__c != NULL && lead.Lead_Assignment_Notification_Done__c == false && lead.Assigned_Dealer__r.salesLead_Notification_Timing__c == 'Immediately')
 							 {
+								isNotificationSendtosalesmanager = true;
 								 system.debug('Insert Method 2');
 								 if(lead.RecordTypeId == salesRecordTypeId)
 								 {                                                            
