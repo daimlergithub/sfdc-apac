@@ -33,9 +33,9 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
       Update  Updatealk;
        //return response;
     }
-	
+    
 //(String RTCustomerId,String DealerID,String CorrelationId)
-    webservice static void  AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
+    webservice static string AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
     {  
     System.debug('%^%%^%^%^% RTCustomerId'+RTCustomerId+'DealerID'+DealerID+'CorrelationId'+CorrelationId); 
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
@@ -46,14 +46,30 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
          String MarketDiscriminator= Usr.Market__c;
-          
-      sendport.SARICustomerNotification(OrganizationId ,MarketDiscriminator,Usecase,RTCustomerId,DealerId,CorrelationId);
+          String src;
+          try
+          {
+      src=sendport.SARICustomerNotification(OrganizationId ,MarketDiscriminator,Usecase,RTCustomerId,DealerId,CorrelationId);
+      }
       
-      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+      
+       Catch(Exception e)
+           {
+          
+           String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
+               
+               src=errMessageText;   
+          
+          }
+          
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+src);
        
     // crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType
       System.debug('%^%%^%^%^% response'+response); 
-       //return response;
+       return src;
     }
    /* Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
     {  
@@ -78,7 +94,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
        return response;
     } */
 
-	   Public static string AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+       Public static string AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
         
@@ -116,7 +132,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
       
        return src;
     }
-	
+    
     Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendSPO(String CustomerID,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
@@ -387,8 +403,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email_xc = accountDetails.Email__c;
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
-        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
-        
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
+		sendingCustomerDetails.Vin = accountDetails.VIN__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
