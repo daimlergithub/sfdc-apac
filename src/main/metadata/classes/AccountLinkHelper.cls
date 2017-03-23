@@ -864,25 +864,26 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-    public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
+ public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
 
  
  
-   // list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
     set<id>fromroleidlist=new set<id>();
     set<String> GCCode = new set<String>();
     list<String> AccountNAme = new List<String>();
-    for(Account_Link__c atl:aclnklist)
+    for(Account_Link__c atl:allist)
     {
+        System.debug('Entered For Loop for Acc Link >>>>>');
         toroleidlist.add(atl.toRole__r.id);
         fromroleidlist.add(atl.fromRole__c);
         GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
     list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
-    
+    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
      Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
      
      
@@ -895,6 +896,9 @@ public class AccountLinkHelper
                 newstmap.get(st.account__c).add(st);
    
    }
+    
+    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
+    
     
     list<Account_Link__c>allist1 = new list<Account_Link__c>();
     list<Account> aclist;
@@ -914,15 +918,18 @@ public class AccountLinkHelper
     Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
     Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
   
-    for(Account_Link__c al:aclnklist)
+    for(Account_Link__c al:allist)
     {
         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
         {
+            
+            System.debug('Entered 2nd After Loop for Acc Link >>>>>'+aclnklist.size());
             
             if(al.fromRole__c!=null)
             {
                 if(al.fromRole__r.RecordTypeid==da && (al.ToRole__r.RecordTypeid==rpa)||(al.ToRole__r.RecordTypeid==rca))
                 {
+                    System.debug('Entered After Loop for Acc Link ******'+aclnklist.size());
                     allist1.add(al);
                     aclistnames.add(al.fromRole__r.name);
                     AccountIdsSet.add(al.fromRole__c);
@@ -939,6 +946,7 @@ public class AccountLinkHelper
     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
+        System.debug('Entered After Loop for Acc Link $$$$$'+glist.size());
         for(Group assg:glist)
         {
                
@@ -951,13 +959,14 @@ public class AccountLinkHelper
             if(AccountIdsSet.contains(alnk.fromRole__c))
             {
                  
+                System.debug('Entered After Loop for Acc Link ########'+allist1.size());
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
                   if(AccountNAme.size()>0)
                     {
                     for(id m:assgroupMap.values())
                     {
-                 system.debug('Inserting1');
+                     system.debug('Inserting1');
                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = m;
