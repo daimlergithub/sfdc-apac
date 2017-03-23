@@ -1000,6 +1000,10 @@ If the user is Saving  same address which matches the fields returned by toleran
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
+        String province1;
+        Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
+        UtilAddressTranslation.gettranslatedvalues(Market);
+        
         
         if(objPersonAccount.LastName !=null ) 
         {
@@ -1045,7 +1049,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }               
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
-           Address__c NewAdd=new Address__c();
+            Address__c NewAdd=new Address__c();
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
             {
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
@@ -1090,7 +1094,15 @@ If the user is Saving  same address which matches the fields returned by toleran
                     // }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
+                    
+                        if(addtrmapUpdate1.containsKey(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc)){
+                            province1 = addtrmapUpdate1.get(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc);
+                        }
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        
+                        /***                        
                         AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        **/
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }

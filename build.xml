@@ -182,6 +182,7 @@
 								<sf:include name="AddressSelectionforExistingCustomer"/>
 								<sf:include name="LeadAssignmentPage"/>
 								<sf:include name="printLeadPDF"/>
+								<sf:include name="printPDF"/>
 								<sf:include name="SelectAddress"/>                                    
 								<sf:include name="createRetailCopyKRButton"/>
 								<sf:include name="ViewRetailCopiesPage"/>
@@ -254,6 +255,8 @@
 								<sf:include name="createRetailCopyJPTEST"/>
 								<sf:include name="PrintPDFcontroller"/>
 								<sf:include name="PrintPDFcontrollerTest"/>
+								<sf:include name="PrintPDF"/>
+								<sf:include name="PrintPDFTest"/>
 								<sf:include name="AddressSelectionforExistingCustomer"/>
 								<sf:include name="AddressSelectionforExistingCustomerTest"/>
 								<sf:include name="SelectAddressController"/>
