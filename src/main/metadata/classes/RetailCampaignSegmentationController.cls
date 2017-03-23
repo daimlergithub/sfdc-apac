@@ -43,7 +43,6 @@ public without sharing class RetailCampaignSegmentationController {
     private String RetailTaskSoql;
     private String AddressSoql;
     private Set<String> accountIds;
-    //private Set<Id> addAccountIds;
     private Set<Id> accountIdSet;
     
     private Set<String> numberFields;
@@ -434,21 +433,44 @@ public without sharing class RetailCampaignSegmentationController {
     }
     
     public List<wrapperAccount> wrapAccountList{set;get;}
-    
+        
+    // Create a new Map to verify whether the Account is already added in the Map
+    Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
+     
     // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
     public list<wrapperAccount> getloadwrapAccountList()
     {
+        getSelectedAccount();
         wrapAccountList = new  List<wrapperAccount>();
             for(Account a : (List<Account>)con.getRecords()){
                 wrapperAccount wrapAcc = new wrapperAccount();
                 wrapAcc.acc = a;               // Holding Account
-                wrapAcc.isSelected = false;    // Used as Checkbox in vf page, default is not selected
+                if(SelectedAccountMap.containsKey(a.Id)){
+                    wrapAcc.isSelected = true;    // check if Checkbox is checked in vf page    
+                }
+                else{
+                    wrapAcc.isSelected = false;    // Used as Checkbox in vf page, default is not selected
+                }
                 wrapAccountList.add(wrapAcc);   
             }
             system.debug('Called Wrapper method size---- '+wrapAccountList.size());
         return wrapAccountList;
     }
     
+    //This methods holds the accounts which is checked and which is unchecked
+    public void getSelectedAccount(){
+        if(wrapAccountList != NULL){
+            for(wrapperAccount wr:wrapAccountList){
+                if(wr.isSelected == true){
+                    SelectedAccountMap.put(wr.acc.id,wr.acc); // Add the selected contact id in to the SelectedAccountMap.
+                }
+                else{
+                    SelectedAccountMap.remove(wr.acc.id); // If you uncheck the contact, remove it from the SelectedAccountMap
+                }
+            }
+        }
+    }
+  
     // Wrapper class will be to used to have list of accounts with checkbox to Add to Campaign
     public class wrapperAccount{
         public Account acc {set;get;}
@@ -461,31 +483,31 @@ public without sharing class RetailCampaignSegmentationController {
     System.debug('retailCampaignId === '+retailCampaignId);
         if(retailCampaignId == null) return null;
         
+        //Calling this method to add the current page selected accounts
+        getSelectedAccount();
         Map<String, Campaign_Member__c> retailCampaignMembers = new Map<String, Campaign_Member__c>();
         Set<String> accountIds = new Set<String>();
         List<Id> selectedAccoundIds = new List<Id>();
-        //Map<Id,String> accName = new Map<Id,String>();
-         System.debug('wrapAccountList==='+wrapAccountList);
+ 
         // Filtering seletced accounts
-        for(wrapperAccount temp : wrapAccountList){
-            if(temp.isSelected)
-                selectedAccoundIds.add(temp.acc.Id);
-                //accName.put(temp.acc.Id,temp.acc.name);
-        }
-        system.debug('selectedAccoundIds==='+selectedAccoundIds);
-        for(Id id: selectedAccoundIds){
-            Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
-            //member.Name = accName.get(id);
-            member.Contact_Id__c= id;
-            retailCampaignMembers.put(member.Contact_Id__c+ ':' + member.Retail_Campaign_Id__c, member);
-           
-        }
-        System.debug('retailCampaignMembersBefore'+retailCampaignMembers);
-        // Removes the exsitent member
-        for(Campaign_Member__c rcm : [select Contact_Id__c, Retail_Campaign_Id__c from Campaign_Member__c
-                                            where Contact_Id__c in :selectedAccoundIds and Retail_Campaign_Id__c = :retailCampaignId]){
-            retailCampaignMembers.remove(rcm.Contact_Id__c + ':' + rcm.Retail_Campaign_Id__c );
-           // retailCampaignMembers.remove(rcm.Contact__c,rcm.Retail_Campaign__c);
+         if(SelectedAccountMap.size()>0){
+            for(Id temp : SelectedAccountMap.keySet()){
+                    selectedAccoundIds.add(temp);
+            }
+            
+            system.debug('selectedAccoundIds==='+selectedAccoundIds);
+            for(Id id: selectedAccoundIds){
+                Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
+                member.Contact_Id__c= id;
+                retailCampaignMembers.put(member.Contact_Id__c+ ':' + member.Retail_Campaign_Id__c, member);
+               
+            }
+            System.debug('retailCampaignMembersBefore'+retailCampaignMembers);
+            // Removes the exsitent member
+            for(Campaign_Member__c rcm : [select Contact_Id__c, Retail_Campaign_Id__c from Campaign_Member__c
+                                                where Contact_Id__c in :selectedAccoundIds and Retail_Campaign_Id__c = :retailCampaignId]){
+                retailCampaignMembers.remove(rcm.Contact_Id__c + ':' + rcm.Retail_Campaign_Id__c );
+            }
         }
         System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
         System.debug('retailCampaignMembersAftervalues'+retailCampaignMembers.values());
@@ -613,20 +635,15 @@ public without sharing class RetailCampaignSegmentationController {
                     String logic = (String)filterItemMap.get('logic');
                     Boolean bracket = (Boolean)filterItemMap.get('bracket');
                     String subSoql = '';
-                    System.debug('vehicleRelFind '+vehicleRelFind +' vehicleFind '+vehicleFind +' vehicleRetailFind '+vehicleRetailFind );
+                    //To Find Vehicle fileter is added or not
                     if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
-                        System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
                         logic = ' AND ';
-                        System.debug('AfterField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
                     }
                     if(vehicleRelFind && vehicleRetailFind && logic == '' && cluster == 'VehicleRelation'){
                         logic = ' AND ';
                     }
                     if(vehicleFind && vehicleRetailFind && logic == '' && cluster == 'Vehicle'){
-                     System.debug('beforeField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
                         logic = ' AND ';
-                     System.debug('AfterField--'+field+'--operation--'+operation+'--Criteraia--'+criteria+'--logic--'+logic+'---');
-
                     }
                     
                     if(vehicleFields.contains(field)){
@@ -647,24 +664,14 @@ public without sharing class RetailCampaignSegmentationController {
                     }else if(field == 'ZipCode__c'){
                         subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
                     }else{
-                        System.debug('BeforeAddLogicSubSoql'+subSoql);
                         subSoql += field + operation + criteria + ' '; 
-                        System.debug('AfterAddLogicSubSoql'+subSoql);
                     }
-                     system.debug('sub soql'+subSoql);
-                     System.debug('bracket'+bracket);
                     if(bracket){
-                        system.debug('BeforesubSoqlremoveEnd'+subSoql);
                         subSoql = subSoql.removeEnd(' ');
-                        system.debug('AftersubSoqlremoveEnd'+subSoql);
                         subSoql += (++bracketCount > 1 ? ') ' : ' ') + logic + ' (';
-                        system.debug('bracketCount'+subSoql);
                     }
                     else{
-                    System.debug('beforeaaaaaaaa'+subSoql);
-                       
                         subSoql += logic + ' ';
-                        System.debug('aaaaaaaa'+subSoql);
                     }
                     System.debug('finalsubsoql'+subSoql);
                     if(cluster == 'account'){
@@ -726,10 +733,7 @@ public without sharing class RetailCampaignSegmentationController {
     }
     
     private String getCriteria(String field, String criteria){
-        System.debug('----'+field+'--criteria '+criteria);
-        System.debug('pickListFields.contains(field) '+pickListFields.contains((field.trim())));
         if(textFields.contains(field) || pickListFields.contains(field) || multiplePickListFields.contains(field)){
-            System.debug('criteria : '+criteria);
             return '\'' + criteria + '\'';
         }
         else if(dateFields.contains(field)){
@@ -746,6 +750,8 @@ public without sharing class RetailCampaignSegmentationController {
         } 
         return criteria;
     }
+   
+  
    
     private void setFieldType(){
         numberFields = new Set<String>{'Buy_Cycle__c', 'Household_Amount__c',
