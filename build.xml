@@ -254,6 +254,8 @@
 								<sf:include name="createRetailCopyJPTEST"/>
 								<sf:include name="PrintPDFcontroller"/>
 								<sf:include name="PrintPDFcontrollerTest"/>
+								<sf:include name="PrintPDF"/>
+								<sf:include name="PrintPDFTest"/>
 								<sf:include name="AddressSelectionforExistingCustomer"/>
 								<sf:include name="AddressSelectionforExistingCustomerTest"/>
 								<sf:include name="SelectAddressController"/>
@@ -391,7 +393,8 @@
 							   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
 							   <sf:include name="LeadDealerAssignmentPage"/>
-							   <sf:include name="AnnouncementsPage"/>
+							   <sf:include name="AnnouncementsPage"/>							   
+							   <sf:include name="printPDF"/>
 							   <!-- Added by Naga Start-->
 							</sf:typeset>
 							<!--<sf:typeset name="layouts">

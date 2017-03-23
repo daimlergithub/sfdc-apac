@@ -74,8 +74,8 @@ public with sharing class PrintPDFcontroller
         system.debug('cas account>>>>' + cas.Contact__c);
         if(cas.Contact__c != null)
         {
-        	addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
-        	vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
+          addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
+          vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
                       Vehicle_ID__r.Range__c,Vehicle_ID__r.Model__c,Vehicle_ID__r.CurrentMileage__c,Registration_Date__c,Vehicle_ID__r.NextInspectionDate__c,
                       MOT_USER_NAME__c,Finance_Method__c
                       from Vehicle_Relationship__c where contact__c =:cas.Contact__c AND Car_Relation__c = 'Purchaser' AND Validity__c = 'Yes'];
@@ -88,7 +88,7 @@ public with sharing class PrintPDFcontroller
         {
             for(Task tsk : HistoryList)
             {
-               	if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
+                 if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
                 {
                     pickListValueSet.add(tsk.Intention_Status__c);
                 }
@@ -137,7 +137,7 @@ public with sharing class PrintPDFcontroller
         system.debug('activityhistoryList>>>>' + activityhistoryList);
         if(cas.Company_Account__c != null)
         {
-            companyAccaddList = [select id,Customer__c,Address_Type__c ,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];        	
+            companyAccaddList = [select id,Customer__c,Address_Type__c ,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];          
         }
         if(!vRList.isEmpty() && vRList != null)
         {
@@ -149,7 +149,7 @@ public with sharing class PrintPDFcontroller
                     {
                         if(vR.Vehicle_ID__r.Range__c != null && vR.Vehicle_ID__r.Range__c != '')
                         {
-                        	rangeModel = vR.Vehicle_ID__r.Range__c;
+                          rangeModel = vR.Vehicle_ID__r.Range__c;
                         }
                         if(vR.Vehicle_ID__r.Model__c != null && vR.Vehicle_ID__r.Model__c != '')
                         {

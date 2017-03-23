@@ -8,7 +8,7 @@
             
             body 
             { 
-            	font-family: 'Arial Unicode MS';    
+                 font-family: 'Arial Unicode MS';    
             }
             @page 
             { 
@@ -50,18 +50,18 @@
                 padding: 5px;
                 text-align: center;
                 position: running(footer_center);
-            }      
+           }      
             .pageNumber:before 
             {
-            	content: counter(page); 
+                 content: counter(page); 
             }            
             .pageCount:before 
             {
-            	content: counter(pages);  
+                 content: counter(pages);  
             }
             table,tr,td 
             {            
-            	border-collapse:collapse;
+                 border-collapse:collapse;
             }
             table,td
             {    
@@ -70,24 +70,24 @@
             }
             td
             {
-            	padding-left:1px;
+                 padding-left:1px;
             }
             p
             { 
-            	word-spacing: 100px;
+                 word-spacing: 100px;
             }
             .TopTd
             {
-            	font-size:14px;          	
+                 font-size:14px;          
             }
             .TopTdLabel
             {
-            	font-size:14px;
-            	font-weight: bold;
+                 font-size:14px;
+                 font-weight: bold;
             }       
             td.TdLabel
             {
-            	font-weight: bold;
+                 font-weight: bold;
             }
             .TopIdCss
             {
@@ -102,7 +102,7 @@
             }
             
             thead{display: table-header-group;}
-            .Table
+           .Table
             {
                 display:table;
                 margin-left:8px;
@@ -111,7 +111,7 @@
             }
             .Row
             {
-            	display: table-row;
+                 display: table-row;
             }
             .Cell
             {
@@ -200,10 +200,10 @@ background-color: blue;
                 </td>
                 <td colspan="2">
                     <apex:outputLabel value="{!$Label.Sales_TEL}" style="float:right;margin-left:90px;">
-                    	<apex:outputField value="{!Lead__c.Company_Account__r.Primary_Phone_Display__c}"/>
+                          <apex:outputField value="{!Lead__c.Company_Account__r.Primary_Phone_Display__c}"/>
                     </apex:outputLabel>
                     <apex:outputLabel value="{!$Label.Address_PrintPDF}"><br/>
-                    	<apex:outputText value="{!homeaddress}"/>
+                          <apex:outputText value="{!homeaddress}"/>
                     </apex:outputLabel>
                 </td>
             </tr> 
@@ -220,7 +220,7 @@ background-color: blue;
                         <apex:outputField value="{!Lead__c.Contact__r.Individual_Home_Phone__c}"/>
                     </apex:outputLabel><br/>
                     <apex:outputLabel value="Mobile" style="float:right;margin-left:10px;">
-                    	<apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
+                          <apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
                     </apex:outputLabel>
                 </td>
                 <td rowspan="6" width="12%">{!$Label.Current_Vehicle1}</td>
@@ -236,29 +236,29 @@ background-color: blue;
                 </td>
                 <td>
                     <apex:outputText value="{!rangeModel}"/>
-                </td> 
+               </td> 
             </tr>
             <tr>
                 <td colspan="2">
-                	<apex:outputLabel value="{!$Label.Sales_TEL}">&nbsp;
-                    	<apex:outputField value="{!Lead__c.Contact__r.Primary_Phone_Display__c}"/>
+                <apex:outputLabel value="{!$Label.Sales_TEL}">&nbsp;
+                          <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone_Display__c}"/>
                     </apex:outputLabel>
                     <apex:outputLabel value="{!$Label.Sales_TEL_Type}" style="float:right;margin-left:5px;">&nbsp;
-                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone__c}"/>                    	
+                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone__c}"/>                             
                     </apex:outputLabel>
                 </td>
                 <td >{!$Label.Registration_Date_Milage} </td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                <apex:outputText value="{!registrationMileage}"/>
                 </td> 
             </tr>   
             <tr>
                 <td colspan="2">
                     <apex:outputLabel value="{!$Label.Sales_Mail_Type}" style="float:right;margin-left:10px;">&nbsp;
-                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Email__c}"/>                    	
+                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Email__c}"/>                             
                     </apex:outputLabel>
                     <apex:outputLabel value="{!$Label.Sales_Mail}">&nbsp;
-                    	<apex:outputField value="{!Lead__c.Contact__r.Primary_Email_Display__c}"/>
+                          <apex:outputField value="{!Lead__c.Contact__r.Primary_Email_Display__c}"/>
                     </apex:outputLabel>
                      
                 </td> 
@@ -278,7 +278,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+                                            <apex:outputText value="{!legalOwner}"/>                
                 </td>
             </tr>
             <tr>
@@ -291,13 +291,13 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                <apex:outputText value="{!purchaseType}"/>
                 </td>
             </tr>
             <tr >  
                 <td width="20%">{!$Label.Hobby}</td>
                 <td>
-                	<apex:outputField value="{!Lead__c.contact__r.Hobby__c}"/>
+                <apex:outputField value="{!Lead__c.contact__r.Hobby__c}"/>
                 </td>
                 <td rowspan="8" width="12%">{!$Label.Current_Vehicle2}</td>
                 <td >
@@ -315,7 +315,7 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                <apex:outputText value="{!registrationMileage}"/>
                 </td>
             </tr>
             <tr>
@@ -337,7 +337,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td height = "30%">
-					<apex:outputText value="{!legalOwner}"/>                
+                                            <apex:outputText value="{!legalOwner}"/>                
                 </td>
             </tr>
             <tr>
@@ -349,7 +349,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td rowspan = "5">
-                	<apex:outputText value="{!purchaseType}"/>
+                <apex:outputText value="{!purchaseType}"/>
                 </td>
             </tr>
             <tr>
@@ -357,7 +357,7 @@ background-color: blue;
                 <td>Value</td>
             </tr>
             <tr>
-            	<td rowspan ="2" width ="10%">
+                 <td rowspan ="2" width ="10%">
                     {!$Label.Vehicle}
                 </td>                    
                 <td>
@@ -375,13 +375,13 @@ background-color: blue;
                     <apex:outputField value="{!Lead__c.Interested_Vehicle__r.ModelYear__c}"/>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px">
                     <apex:outputField value="{!Lead__c.Interested_Vehicle__r.Range__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
-                	</apex:outputLabel>
+                </apex:outputLabel>
                 </td>
                 <td>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px"/>
                     <apex:outputLabel style="border-left:1px solid #000000;margin-left:37px">
                     <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
-                	</apex:outputLabel>
+                </apex:outputLabel>
                 </td>
             </tr>
         </table>
@@ -398,7 +398,7 @@ background-color: blue;
                 <td width="42%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                	<apex:outputText value="{!registrationMileage}"/>
+                <apex:outputText value="{!registrationMileage}"/>
                 </td>
             </tr>   
             <tr>
@@ -412,14 +412,14 @@ background-color: blue;
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Leagl_Owner}</td>
                 <td>
-					<apex:outputText value="{!legalOwner}"/>                
+                                            <apex:outputText value="{!legalOwner}"/>                
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Purchase_Type}</td>
                 <td>
-                	<apex:outputText value="{!purchaseType}"/>
+                <apex:outputText value="{!purchaseType}"/>
                 </td>
             </tr>   
         </table>
@@ -428,7 +428,7 @@ background-color: blue;
             <tr>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Pruchase_Plan_Date}</td>
                 <td class="TopTd" align="left">
-                	<apex:outputField value="{!Lead__c.Expected_Close_Date__c}"/>
+                <apex:outputField value="{!Lead__c.Expected_Close_Date__c}"/>
                 </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Purchased_Date}</td>
                 <td class="TopTd" align="left">
@@ -444,7 +444,7 @@ background-color: blue;
                     <apex:outputField value="{!Lead__c.Network_Registration_Date__c}"/>
                 </td>
             </tr>
-        </table>        	
+        </table>          
          <br/>
          <b>Next Activity</b>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
@@ -539,7 +539,7 @@ background-color: blue;
         </table>
         <br/>        
         <apex:form >
-            <apex:pageBlock >
+           <apex:pageBlock >
                 <!--<apex:pageBlockSection columns="2">-->
                 <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;">                    
                     <apex:column >  
@@ -622,7 +622,7 @@ background-color: blue;
                 </table>
                 <table style="width:50%;height:40%;border:1px solid Black;float:right;display:inline;">
                     <tr>
-                    	<td width = "100%" style ="border:none">                        	 
+                          <td width = "100%" style ="border:none">                               
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
                             <apex:outputLabel value="{!$Label.Did_you_visit_home_or_company}"/><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
@@ -700,7 +700,7 @@ background-color: blue;
             <tr>
                 <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;border-left-style:hidden:hidden;border-top-style:hidden;"></td>
                 <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_1}</td>
-                <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_2}</td>
+               <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_2}</td>
                 <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_3}</td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="40%" height="25" style="border-right-style:hidden;">{!$Label.Vehicle_Price_Maker_option_price}</td>
@@ -802,13 +802,13 @@ background-color: blue;
                 </td>
             </tr>
             <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
-                	{!$Label.Compared_Vehicle_Brand}
+                {!$Label.Compared_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">
                     <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Brand__c}"/>
                 </td>
                 <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
-                	{!$Label.Compared_Vehicle_Brand}
+                {!$Label.Compared_Vehicle_Brand}
                 </td>
                 <td class="TopTd" align="left">
                     <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Model__c}"/>
