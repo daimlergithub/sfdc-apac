@@ -1343,6 +1343,19 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Upload_Campaign_Member_Response</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member Response</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+    </webLinks>
+    <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
