@@ -3376,7 +3376,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Record_Type_Name__c</columns>
-        <filterScope>Everything</filterScope>
+		<columns>Status__c</columns>
+		<columns>Start_Date__c</columns>
+		<columns>Close_Date__c</columns>
+        <columns>Campaign_Type__c</columns>
+		<filterScope>Everything</filterScope>
         <label>All</label>
         <language>zh_CN</language>
     </listViews>

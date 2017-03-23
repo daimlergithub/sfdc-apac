@@ -92,8 +92,8 @@
     </layoutSections>
     <relatedLists>
         <customButtons>New_Retail_Campaign_Member</customButtons>
-        <customButtons>RetailRefresh</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
+		<customButtons>RetailRefresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
