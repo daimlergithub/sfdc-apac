@@ -4261,7 +4261,7 @@
             <section>Vehicle information</section>
         </sections>
     </layouts>
-    <nameFieldLabel>車両番号</nameFieldLabel>
+    <nameFieldLabel>車両ID</nameFieldLabel>
     <recordTypes>
         <label>Competitor</label>
         <name>Competitor</name>
