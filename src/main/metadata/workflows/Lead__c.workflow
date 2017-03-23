@@ -842,7 +842,12 @@ Proxy_Date_Time__c
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Aftersales Leads,Retail Sales Leads,Sales Leads,Sales Leads Soft Deleted</value>
+            <value>Aftersales Leads,Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
         <workflowTimeTriggers>
