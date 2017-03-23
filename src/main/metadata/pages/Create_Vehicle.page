@@ -213,11 +213,11 @@
                                   <apex:pageBlockSectionItem >
                                      <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
                                     
-                                            <div class = "requiredInput"  >
+                                            <div>
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td class="dataCol requiredInput" >
+                                                    <td>
                                                     <select  id="brandItems" style="width:160px" ng-blur="setSelectedValue(selectedBrand)" ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand for brand in brands track by brand" />
                                                     </td> 
                                                 </tr> 
@@ -234,11 +234,11 @@
                              
                                     <apex:pageBlockSectionItem > 
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}"  />
-                                         <div class = "requiredInput"  >
+                                         <div>
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td class="dataCol requiredInput" >
+                                                    <td>
                                          <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>                            
                                                      </td> 
                                                 </tr> 
@@ -332,7 +332,7 @@
                                     </div>
                          </apex:pageBlockSectionItem>
                             
-                         <apex:pageBlockSectionItem> 
+                         <apex:pageBlockSectionItem > 
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}"/>              
                                     <div class = "requiredInput">
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      

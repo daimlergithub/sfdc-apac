@@ -103,7 +103,7 @@
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-    <layoutSections>
+   <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
@@ -124,6 +124,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SendEmailToGateKeeper__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Sub_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
