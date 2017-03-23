@@ -3883,7 +3883,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Dealer_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Lead Comment</label>
+        <label>Dealer Comment</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
