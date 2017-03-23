@@ -1625,9 +1625,20 @@
             <masterLabel>Closed</masterLabel>
             <translation>終了</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>終了</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Confirmed</masterLabel>
             <translation>計画済み</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation>ドラフト</translation>
+        </picklistValues><picklistValues>
+            <masterLabel>Ongoing</masterLabel>
+            <translation>実施中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Planned</masterLabel>
