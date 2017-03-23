@@ -1321,6 +1321,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	    <fields>
+        <fullName>DM_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>DM Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>DM_Material__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
