@@ -329,6 +329,10 @@
                 <behavior>Readonly</behavior>
                 <field>Interest_Model__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

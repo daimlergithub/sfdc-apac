@@ -55,7 +55,7 @@ public class ConvertToTaskControllerTest
               
              
              Campaign_Member__c cmm=new Campaign_Member__c(     
-             Status__c='Not Responded',
+             Status__c='Responded',
              Campaign_ID__c=ChildCamp.id);
              insert cmm;
              
@@ -81,7 +81,7 @@ public class ConvertToTaskControllerTest
             string campaignId;
             campaignId=ChildCamp.id;
             PageReference pageRef = Page.ConvertToTask;
-            pageRef.getParameters().put('CampaignId', String.valueOf(ChildCamp.Id));
+            pageRef.getParameters().put('CampaignId', ChildCamp.Id);
            
             Test.setCurrentPage(pageRef); 
   
@@ -156,7 +156,8 @@ public class ConvertToTaskControllerTest
              cmmembers.add(cmm1);
              
              Campaign_Member__c cmm2=new Campaign_Member__c(     
-             Status__c='Not Responded'            
+             Status__c='Responded' 
+             //Campaign_ID__c =  rtChildCamp.id          
              //Retail_Campaign_Id__c=rtChildCamp.id
              );
                cmmembers.add(cmm2);
@@ -176,7 +177,7 @@ public class ConvertToTaskControllerTest
             campaignId=rtChildCamp.id;
             
             PageReference pageRef = Page.ConvertToTask;
-            pageRef.getParameters().put('CampaignId', String.valueOf(rtChildCamp.Id));
+            pageRef.getParameters().put('CampaignId', rtChildCamp.Id);
            
             Test.setCurrentPage(pageRef); 
   

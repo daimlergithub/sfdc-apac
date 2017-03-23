@@ -545,7 +545,7 @@
         <name>CaseContentStatus</name>
     </customLabels>
     <customLabels>
-        <label>伝票番号</label>
+        <label>ケース番号</label>
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>

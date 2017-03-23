@@ -22,6 +22,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicle_relationship.End_Date__c = endDate;
            vehicle_relationship.Contact__c = testAccount.Id;
            vehicle_relationship.End_Reason__c = 'DMS';
+           //vehicle_relationship.Validity__c = 'Yes';
            update vehicle_relationship;
            system.assertNotEquals(vehicle_relationship,null);
        }
