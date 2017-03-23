@@ -864,17 +864,17 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+    public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
 
  
  
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+   // list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
     set<id>toroleidlist=new set<id>();
     set<id>fromroleidlist=new set<id>();
     set<String> GCCode = new set<String>();
     list<String> AccountNAme = new List<String>();
-    for(Account_Link__c atl:allist)
+    for(Account_Link__c atl:aclnklist)
     {
         toroleidlist.add(atl.toRole__r.id);
         fromroleidlist.add(atl.fromRole__c);
@@ -906,15 +906,15 @@ public class AccountLinkHelper
     Set<id> AccountIdsSet = new Set<id>();
     Set<id> ToAccountIdsSet = new Set<id>();  
     map<string,id> assgroupMap = new map<string,id>();  
-    Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
-    Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
+    //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
+   // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
     Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
     Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
     Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
     Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
     Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
   
-    for(Account_Link__c al:allist)
+    for(Account_Link__c al:aclnklist)
     {
         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
         {
