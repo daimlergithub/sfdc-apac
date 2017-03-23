@@ -8752,7 +8752,7 @@ Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</descri
     <fields>
         <fullName>Household_Children__c</fullName>
         <externalId>false</externalId>
-        <label>Household Amount</label>
+        <label>Children_Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
