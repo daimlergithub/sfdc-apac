@@ -1321,6 +1321,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	    <fields>
+        <fullName>DM_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>DM Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>DM_Material__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1465,6 +1475,126 @@
             </picklistValues>
             <picklistValues>
                 <fullName>New Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_Mcare Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_inspections (After 4years)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_service program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_new car six month inspections</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_accessory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_motor show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_display</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_othres</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Connection/me</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_SSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_Model</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3901,7 +4031,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-         </picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
@@ -5076,7 +5206,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -6224,7 +6353,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-         </picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
@@ -7403,7 +7532,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -9410,7 +9538,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-  
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -10421,7 +10548,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
- 
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -11508,7 +11634,7 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-         </picklistValues>
+        </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
@@ -11906,51 +12032,123 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Showroom</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_othres</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13769,7 +13967,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -15040,7 +15237,7 @@
                 <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
-             <values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -15406,51 +15603,123 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Showroom</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_othres</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16266,7 +16535,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -17462,7 +17730,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -18645,7 +18912,6 @@
                 <fullName>Crosspoint</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
@@ -19575,7 +19841,7 @@
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
-	    <validationRules>
+    <validationRules>
         <fullName>CamExecution_Staus_Change_form_Completed</fullName>
         <active>true</active>
         <description>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</description>
@@ -19637,7 +19903,7 @@ Record Type =  CAS/Central Marketing campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Campaign_Segmentation_Status_Checking</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Segmentation'),ISPICKVAL(Child_Campaign_Status__c, 'Planning'),  MD__c = 'JP',  $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Campaign_Executiono' )</errorConditionFormula>
@@ -19897,7 +20163,7 @@ IsActive = True
         <protected>false</protected>
         <url>/701/e?RecordType=012p00000004oA2&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
-	    <webLinks>
+    <webLinks>
         <fullName>Create_Child_Campaign_For_Execution</fullName>
         <availability>online</availability>
         <description>create child campaign for execution</description>
