@@ -61,7 +61,7 @@
         <externalId>false</externalId>
         <label>Survey Taken By Account</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Surveys Taken</relationshipLabel>
+        <relationshipLabel>Surveys Taken By Account</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
