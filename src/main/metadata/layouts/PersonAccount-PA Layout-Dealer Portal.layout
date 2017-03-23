@@ -229,7 +229,6 @@
                 <field>Annual_Income_Range__c</field>
             </layoutItems>
         </layoutColumns>
-        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
