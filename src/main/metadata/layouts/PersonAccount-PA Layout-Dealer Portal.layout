@@ -9,6 +9,9 @@
     <customButtons>New_Case</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -223,6 +226,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Fax_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -502,7 +509,7 @@
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
-        <relatedList>SurveyTaker__c.Contact__c</relatedList>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
