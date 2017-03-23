@@ -1,7 +1,7 @@
 <!--
-	lastmodifedby : lokesh 
-	jira : SFDCJP 1023
-	modified date : mar 23, 2017
+    lastmodifedby : lokesh 
+    jira : SFDCJP 1023
+    modified date : mar 23, 2017
 -->
 
 <apex:page showHeader="true"  tabStyle="Retail_Campaigns__tab" controller="RetailCampaignSegmentationController" id="page">    
@@ -1132,13 +1132,13 @@
                         
                 <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>
-                    <div style="overflow: auto;">  
+                    <div style="overflow:auto;">  
                         <apex:pageBlockTable value="{!loadwrapAccountList}" var="wrapAcc" rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}">
                             <apex:column headerValue="Select">
                                 <apex:facet name="header">
                                         <c:selectAllChkBox />
                                 </apex:facet>
-                            <apex:inputCheckbox value="{!wrapAcc.isSelected}"/>
+                            <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
                             </apex:column>
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
