@@ -18,10 +18,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>fromRole__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>toRole__c</field>
             </layoutItems>
             <layoutItems>
@@ -31,10 +27,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Portal_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Primary__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
