@@ -253,11 +253,9 @@ public without sharing class VehiclePickerControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         VehiclePickerController vpc = new VehiclePickerController(sc);
         Map<String,String> tempMap = new Map<String,String>();
-<<<<<<< HEAD
-		/*Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];*/
-=======
+
         /*Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];*/
->>>>>>> c3aa6aef43c629946c69be7dddf0807b8366da7f
+
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -455,14 +453,11 @@ public without sharing class VehiclePickerControllerTests{
         update testVIN_Vehicle;
         
         //Vehicle__c testVR_vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
-<<<<<<< HEAD
-        Vehicle__c testVR_vehicle = new Vehicle__c(RecordTypeId=VehicleMBRecordtypeid,Vehicle_Name__c ='Test1',UsVIN__c ='abchgdtrsghtredfr',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),
-                                                    Purchase_Month__c ='02',Model__c = 'R350L 4MATIC',Class__c = 'A-Class',Purchase_Year__c = '2004',RegistrationNo__c = '333');                                                   
-=======
+
         Vehicle__c testVR_vehicle = new Vehicle__c(RecordTypeId=VehicleselfregRecordtypeid ,Vehicle_Name__c ='Test1',UsVIN__c ='abchgdtrsghtredfr',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),
                                                     Purchase_Month__c ='02',Model__c = 'R350L 4MATIC',Class__c = 'A-Class',Purchase_Year__c = '2004',RegistrationNo__c = '333');    
                                                     insert testVR_vehicle;                                               
->>>>>>> c3aa6aef43c629946c69be7dddf0807b8366da7f
+
         Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c();//(Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
         testVR.RegistrationProvince__c = 'Shanghai';
         testVR.Registration_City__c = 'Shanghai';

@@ -4,14 +4,9 @@ public class createRetailCopyKRTest {
   public static Account accountobj;
   public static Account_Link__c acclinkobj;
   public static Address__c addressobj1;
+  public static Address__c addressobj;
   public static List<Address__c> addresslist;
-  public static Id retailcompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-
-  static void createTestData() {
-    accobj = new Account (Name = 'Sreeni');
-    insert accobj;
-
-     public static Account dealer;
+   public static Account dealer;
   public static Id retailcompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
 
   static void createTestData() {
