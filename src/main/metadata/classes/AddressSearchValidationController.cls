@@ -119,7 +119,7 @@ public class AddressSearchValidationController{
         {   system.debug('enter 2 :');
             try
             {
-                if(recordType == 'Company')
+                if(recordType == 'Company' &&  market != System.Label.KR)
                 {
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
@@ -226,6 +226,10 @@ public class AddressSearchValidationController{
                     } system.debug(objAccount.Individual_Home_Phone__c + '   *$*$*$ objAccount.Individual_Home_Phone__c   ' + objAccount.Mobile__c + '   *$*$*$*  objAccount.Work_Phone__c   ' + objAccount.Work_Phone__c + '   *$*$*$* objAccount.Email__c   ' + objAccount.Email__c);                   
                     if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' && objAccount.Work_Phone__c == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                    }
+                    if(objAccount.Vat_No__c == null && objAccount.Commercial_Reg_No__c == null){
+                        //ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter Business registration number / Vat registration '));
                     }
                     else{
                         refreshPage = true;                      
