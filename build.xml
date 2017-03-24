@@ -234,11 +234,12 @@
 							   <sf:include name="Duplicatecheck_controller"/>
 							   <sf:include name="Duplicatecheck_controller_Test"/>
 							   <sf:include name="CheckAccountDuplicateController"/>
+							   <sf:include name="CheckAccountDuplicateController_Test"/>
 							   <sf:include name="ChangeContactTargetTest"/>
 							   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 							   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 							   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
-							 <!--  <sf:include name="cSendVehicletoSPOConfirmationJPTest"/> -->
+							  <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
 							   <sf:include name="RetailtaskInlineEditController"/>
 							   <sf:include name="RetailtaskInlineEditController_Test"/>
 								<sf:include name="RelatedDealerLease"/>
@@ -268,6 +269,7 @@
 								<sf:include name="SelectAddressControllerTest"/>
 							   <sf:include name="VehicleRelationshipHelper"/>
 							   <sf:include name="createRetailCopyKR"/>
+							   <sf:include name="createRetailCopyKRTest"/>
 							 <sf:include name="ScheduleCampCompletion"/>
 							 <sf:include name="ScheduleCampCompletionTest"/>
 							 <sf:include name="ScheduleRetailCampCompletion"/>
@@ -378,6 +380,7 @@
 							<sf:typeset name="pages">
 							   <sf:include name="GeneratePDF"/>
 							   <sf:include name="Print_Dealer_PDF"/>
+							   <sf:include name="printAfterSaleLeadPdf"/>
 							   <sf:include name="SelectSlaveAccount"/>
 							   <sf:include name="SelectSlaveAccountKR"/>
 							   <sf:include name="AccountMerge"/>
@@ -442,6 +445,7 @@
 																																																											<sf:include name="RetailCampaignHelper"/>
 											<sf:include name="RetailCampaignTriggerHandlerJP"/>
 											<sf:include name="Updatecampaignmemwithrefresh"/>
+											<sf:include name="UpdatecampaignmemwithrefreshTest"/>
 											<sf:include name="TaskDeletingController"/>
 											<sf:include name="TaskDeletingControllerTest"/>
 											<sf:include name="SSITriggerHandlerJP"/>
@@ -491,7 +495,7 @@
 											<sf:include name="TriggerRetailTaskTriggerHandlerTest"/>
 											<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 											<sf:include name="VehicleRelationshipHelperJP"/>
-											<!--<sf:include name="VehicleRelationshipHelperJPTest"/>-->
+											<sf:include name="VehicleRelationshipHelperJPTest"/>
 											<sf:include name="CaseTriggerHandlerJP"/>
 											<sf:include name="TaskTriggerHandlerKR"/>
 											<sf:include name="LeadHelperJP"/>
@@ -526,23 +530,30 @@
 											<sf:include name="RetailTaskHelperJP"/>                                                                                          
 											<sf:include name="RetailTaskHelperJPTest"/>  
 											<sf:include name="LeadcustomClone"/>
-											<sf:include name="LeadMergeController"/>                                                     
+											<sf:include name="LeadcustomClone_Test"/>
+											<sf:include name="LeadMergeController"/>
+                                            <sf:include name="LeadMergeControllerTest1"/>											
 											<sf:include name="UtilShare"/>
 											<sf:include name="LeadSharingforDealerJP"/>
 											<sf:include name="LeadSharingforDealerJPTest"/>
 											<sf:include name="DeleteRetailCopy"/>
 											<sf:include name="DeleteRetailCopyTest"/>
 											<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
-											<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Inquiry_ControllerTest"/>
+							                <sf:include name="MBJ_FS_Case_Request_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Request_InlineTest"/>
 											<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+											<sf:include name="MBJ_FS_Case_Quotation_Inline_Test"/>
 											<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
+											<sf:include name="MBJ_FS_Case_Intermediate_ControllerTest"/>
 											<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+											<sf:include name="MBJ_FS_Case_ContractClosing_InlineTest"/>
 											<sf:include name="FS_CaseInlineController"/>
 											<sf:include name="LeadDealerAssignmentProcess"/>
 											<sf:include name="LeadDealerAssignmentProcessTest"/>
-																																																					 <sf:include name="AnnouncementController"/>
-																																																					 <sf:include name="AnnouncementController_test"/>
-																																																					<sf:include name="CampaignMembersCustomHelperJP"/>
+											<sf:include name="AnnouncementController"/>
+											<sf:include name="AnnouncementController_test"/>
+											<sf:include name="CampaignMembersCustomHelperJP"/>
 											<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
 											<sf:include name="CampaignMembersCustomHelperJPTest"/>
 											<sf:include name="DealerListMemberHelperJP"/>
@@ -901,6 +912,7 @@
 							<sf:include name="TookKitSharingWrapService"/>
 							<sf:include name="ToolKitTriggerHandler"/>
 							<sf:include name="ToolKitTriggerHelper"/>
+							<sf:include name="ToolKitTriggerHelperTest"/>
 			</sf:typeset>
 			</deploy>                                                                           
 </target>
@@ -926,6 +938,7 @@
 							<sf:include name="TriggerTaskTest"/>                                 
 							<sf:include name="AttachmentAfterTriggerHandler"/>
 							<sf:include name="AttachmentAfterTriggerHandlerJP"/>
+							<sf:include name="AttachmentAfterTriggerHandlerTest"/>
 							<sf:include name="BatchAssignTasks"/>
 							<sf:include name="BatchAssignTasksTest"/>
 						   
@@ -961,6 +974,7 @@
 							<sf:include name="LeadConvertingControllerTest"/>
 							<sf:include name="TriggerCampaignMembers_TestClass"/>
 							<sf:include name="CampaignMemberAfterTriggerHandler"/>
+							<sf:include name="CampaignMemberAfterTriggerHandlerTest"/>
 							<sf:include name="TriggerCampaignTriggerHandler"/>
 							<sf:include name="CaseEscalationController"/>
 							<sf:include name="CaseEscalationControllerTest"/>
@@ -1030,6 +1044,7 @@
 							<sf:include name="AssignCaseToDealerController"/>
 							<sf:include name="AssignCaseToDealerControllerTest"/>
 							<sf:include name="UtilCase"/>
+							<sf:include name="UtilCaseTest"/>
 							<sf:include name="UtilCaseShare"/>
 							<sf:include name="UtilCaseShareTest"/>
 							<sf:include name="CaseTriggerHandler"/>

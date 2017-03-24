@@ -1743,6 +1743,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Annual_Income_Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Annual_Mileage__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6184,6 +6189,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Driven_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.DM_Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -24513,6 +24523,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

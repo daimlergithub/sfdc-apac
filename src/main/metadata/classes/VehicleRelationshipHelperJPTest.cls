@@ -13,7 +13,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
        static List<Vehicle_Relationship__c> vrlst;
        public static void createTestData(Date startDate, Date endDate){ 
            
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
            insert updatecustomsettings;
       
            testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   

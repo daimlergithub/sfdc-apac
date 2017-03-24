@@ -28,7 +28,7 @@ public with sharing class CampaignMembersCustomHelperJP {
         String FINAL_CAMPAIGN_STATUS = 'Response collection';
         Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
         for(Campaign_Member__c campaignMemberRec : newList) {
-            if(oldMap.get(campaignMemberRec.Id).Status__c == 'Executed' && campaignMemberStatusSet.contains(newMap.get(campaignMemberRec.Id).Status__c)) {
+            if(campaignMemberStatusSet.contains(newMap.get(campaignMemberRec.Id).Status__c)) {
                 campaignIdSet.add(campaignMemberRec.Campaign_ID__c);
             }
         }

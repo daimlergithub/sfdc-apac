@@ -225,6 +225,20 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Model__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign_Member__r.Model__c</formula>
@@ -359,9 +373,15 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>List_Maintenance_Lock_on_Dealer</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), Campaign__r.Consolidated_List_Completed__c = TRUE)</errorConditionFormula>
+        <errorMessage>List Maintenance is Completed,You Cant Edit And Create</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>lock_on_campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
         <errorMessage>Campaign is Locked</errorMessage>
     </validationRules>
 </CustomObject>

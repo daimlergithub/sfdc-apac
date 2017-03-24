@@ -1,3 +1,9 @@
+<!--
+    lastmodifedby : lokesh 
+    jira : SFDCJP 1023
+    modified date : mar 23, 2017
+-->
+
 <apex:page showHeader="true"  tabStyle="Retail_Campaigns__tab" controller="RetailCampaignSegmentationController" id="page">    
     <apex:includeScript value="{!$Resource.jquery142}"/>
     <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/>
@@ -670,9 +676,7 @@
                                 
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
-                                <apex:selectList styleClass="Hobby__c" size="1" multiselect="false">
-                                    <apex:selectOptions value="{!hobbyOptions}"></apex:selectOptions>
-                                </apex:selectList>
+                               
                             </td>
                             <td class="logic"></td>
                             <td></td>
@@ -1099,7 +1103,7 @@
             <hr/>
             
             <apex:outputPanel layout="block" id="searchingResult">
-                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts" status="loadingStatus"
+                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;"/>
                 <apex:actionStatus id="loadingStatus">
@@ -1107,27 +1111,44 @@
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>
                     </apex:facet>      
                 </apex:actionStatus>
-                
-                <div style="margin:6px;">Records: {!IF(accounts == null, 0, accounts.size)}</div>
+                <apex:outputPanel rendered="{!wrapAccountList.size == 0}" id="noMatches">
+                 <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}" id="buttons">
+                    <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
+                    <apex:commandbutton action="{!first}" value="FirstPage" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="PrevPage" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!next}" value="NextPage" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!last}" value="LastPage" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:actionStatus id="loading">
+                        <apex:facet name="start">
+                            <img src="/img/loading24.gif" style="vertical-align:middle;"/>
+                        </apex:facet>
+                    </apex:actionStatus>
+                        <apex:outputText >{!(con.pageNumber * size)+1-size}-{!IF((con.pageNumber * size)>noOfRecords, noOfRecords,
+                         (con.pageNumber * size))} of {!noOfRecords}
+                        </apex:outputText>
+                    </apex:outputPanel>
+                        
                 <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>
-                    
-                    <apex:pageBlockTable value="{!wrapAccountList}" var="wrapAcc" rows="100" rendered="{!wrapAccountList != null && wrapAccountList.size > 0}">
-                        <apex:column headerValue="Select">
-                            <apex:facet name="header">
-                                <c:selectAllChkBox />
-                            </apex:facet>
-                            <apex:inputCheckbox value="{!wrapAcc.isSelected}"/>
-                        </apex:column>
-                        <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
-                            <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
-                        </apex:column>
-                        <apex:column value="{!wrapAcc.acc.PersonHomePhone}"/>
-                        <apex:column value="{!wrapAcc.acc.PersonMobilePhone}"/>
-                        <apex:column value="{!wrapAcc.acc.Phone}"/>
-                        <apex:column value="{!wrapAcc.acc.PersonEmail}"/>
-                       
-                    </apex:pageBlockTable>
+                    <div style="overflow:auto;">  
+                        <apex:pageBlockTable value="{!loadwrapAccountList}" var="wrapAcc" rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}">
+                            <apex:column headerValue="Select">
+                                <apex:facet name="header">
+                                        <c:selectAllChkBox />
+                                </apex:facet>
+                            <apex:inputCheckbox value="{!wrapAcc.isSelected}" />
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                                <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column value="{!wrapAcc.acc.PersonHomePhone}"/>
+                            <apex:column value="{!wrapAcc.acc.PersonMobilePhone}"/>
+                            <apex:column value="{!wrapAcc.acc.Phone}"/>
+                            <apex:column value="{!wrapAcc.acc.PersonEmail}"/>                           
+                        </apex:pageBlockTable>
+                    </div>
                 </apex:outputPanel>
             </apex:outputPanel>
         </apex:pageBlock>

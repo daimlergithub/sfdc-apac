@@ -647,11 +647,15 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+        <description>For JP users set to JP</description>
         <externalId>false</externalId>
-        <label>MD</label>
-        <length>40</length>
+        <label>Market Discriminator</label>
+        <length>2</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1189,16 +1193,26 @@
     ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
     OR(  
       ISPICKVAL( Status__c , "Removed") ,
-      ISPICKVAL( Status__c , "Ready")
+      ISPICKVAL( Status__c , "Ready"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI' 
     ) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>campaign_locked</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(Campaign_ID__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
-        <errorMessage>campaign is locked</errorMessage>
+        <active>true</active>
+        <errorConditionFormula>AND( MD__c = 'JP', $Profile.Name != 'IntegrationAPI', 
+ISPICKVAL( PRIORVALUE( Status__c ) , "Responded"), 
+OR( 
+ISPICKVAL( Status__c , "Removed") , 
+ISPICKVAL( Status__c , "Ready") , 
+ISPICKVAL( Status__c , "Bounced") , 
+ISPICKVAL( Status__c , "Executed") , 
+ISPICKVAL( Status__c , "Not Responded") 
+
+) 
+)</errorConditionFormula>
+        <errorMessage>Status Cannot be Changed When Status is Responded</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>retail_campaign_is_locked</fullName>
@@ -1305,10 +1319,23 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var campaignID = "{!Campaign.Id}"; 
-var retcampaignid = "{!Retail_Campaign__c.Id}"; 
+var campaignID = "{!Campaign.Id}";  
 var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
-var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid}); 
+location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>RetailRefresh</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var retcampaignid = "{!Retail_Campaign__c.Id}";
+var show1 = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid});
 location.reload();</url>
     </webLinks>
     <webLinks>
@@ -1328,6 +1355,19 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
 {
 alert('You cannot create campaign members for this campaign status');
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Campaign_Member_Response</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload Campaign Member Response</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>

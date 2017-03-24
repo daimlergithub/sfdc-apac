@@ -5,10 +5,13 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>	
     <customButtons>Check_Duplicates</customButtons>
+    <customButtons>New_Case</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -20,7 +23,6 @@
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
     <excludeButtons>XClean</excludeButtons>
-	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -224,6 +226,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Fax_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -442,7 +448,7 @@
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
-		<fields>VIN__c</fields>
+        <fields>Service_Vehicle_VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
         <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
@@ -503,7 +509,7 @@
         <fields>Case__c</fields>
         <fields>Campaign__c</fields>
         <fields>CREATED_DATE</fields>
-        <relatedList>SurveyTaker__c.Contact__c</relatedList>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>

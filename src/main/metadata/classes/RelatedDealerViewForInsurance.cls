@@ -29,7 +29,7 @@ public RelatedDealerViewForInsurance(ApexPages.StandardController controller)
      alkID=ApexPages.currentPage().getParameters().get('id');
      if(alkID!=null)
      {
-        Insurance= [select id,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Balance_Update_Date__c,Related_Dealer__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
+        Insurance= [select id,RecordType.Name,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Balance_Update_Date__c,Related_Dealer__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
      }
         us1 = [select id,ContactId, Dealer_GC_Code__c,User_Type__c from User WHERE Id =:UserInfo.getUserId()];
    
@@ -43,7 +43,7 @@ public RelatedDealerViewForInsurance(ApexPages.StandardController controller)
         { 
         if(alkID!=null)
         {
-        Insurance= [select id,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Balance_Update_Date__c,Related_Dealer__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
+        Insurance= [select id,RecordType.Name,Contractor_Address1__c,Booking_Month__c,Condition_Change__c,Premium_Change__c,Company_Name__c,Contractor_BirthDate__c,Net_Premium__c,Net_Premium2__c,Net_Premium3__c,Outlet_Name__c,Payment_Method__c,Contractor_Phone1__c,Common_Comments__c,Source_System__c,Balance_Update_Date__c,Related_Dealer__r.Dealer_GC_Code__c from Retail_Task__c WHERE ID = :alkID];
         if(Insurance!=null && Insurance.recordtype.Name=='Insurance Contract' && us1.ContactId !=null)
         {
         AddressActual=Insurance.Contractor_Address1__c;

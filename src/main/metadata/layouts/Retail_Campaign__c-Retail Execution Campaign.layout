@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Upload</customButtons>
     <customButtons>OPR_Label_Print</customButtons>
     <customButtons>OPRO_Label_Print_PDF</customButtons>
     <customButtons>Segment</customButtons>
@@ -16,11 +15,11 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Execution_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Segmentation_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -58,7 +57,7 @@
                 <field>Segmentation_Base__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Execution_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -92,9 +91,10 @@
     </layoutSections>
     <relatedLists>
         <customButtons>New_Retail_Campaign_Member</customButtons>
-        <customButtons>Refresh</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
+		<customButtons>RetailRefresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
+        <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_Task</customButtons>
         <excludeButtons>New</excludeButtons>
@@ -143,7 +143,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000HBuM</masterLabel>
+        <masterLabel>00hN0000000M2FZ</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
