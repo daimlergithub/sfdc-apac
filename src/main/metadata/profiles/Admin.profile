@@ -6191,6 +6191,11 @@
         <field>Campaign.Driven_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.DM_Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Driven__c</field>

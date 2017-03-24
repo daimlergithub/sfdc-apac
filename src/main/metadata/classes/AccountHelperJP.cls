@@ -574,7 +574,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         
       //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
-		if(acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done'){
+    if(acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done'){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
                 if(persongroup1 == true){
                     acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
@@ -676,7 +676,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
             system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
         }
-		}//End of for loop
+    }//End of for loop
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
@@ -797,6 +797,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
         try{
+          System.debug('inserting>>>>>>>>>>>>>');
             user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
@@ -928,6 +929,8 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 }
 
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
+ if(userinfo.getUserType()=='PowerPartner')
+ {
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
     Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
      Set<String> UsrAccountIds = new set<String>();   
@@ -1007,7 +1010,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-				  if(origin != null){
+          if(origin != null){
                       acclnk.CorrelationID__c = origin;
                   }
                   if(led.MD__c == Label.MarketKR){
@@ -1048,5 +1051,5 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
            
          }
      }   
- 
+ }
 }
