@@ -188,4 +188,17 @@ public with sharing class CampaignMembersCustomHelperJP {
             update listRetCamp;
     } 
     
+    public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
+    	List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};
+    	Map<Id, Campaign_Member__c> campaignMemberMap = 
+    				new Map<Id, Campaign_Member__c>([select Id from Campaign_Member__c where Id IN: oldList 
+    															AND (Campaign_ID__r.Child_Campaign_Status__c IN: CHILD_CAMPAIGN_STATUS_LIST
+    																  OR Retail_Campaign_Id__r.Child_Campaign_Status__c IN: CHILD_CAMPAIGN_STATUS_LIST )]);
+    	
+    	for(Campaign_Member__c campaignMemberRec : oldList) {
+    		if(campaignMemberMap.containsKey(campaignMemberRec.Id)) {
+    			campaignMemberRec.addError('You can\'t delete the Campaign Member for this Campaign Status.');
+    		}
+    	}
+    }
 }
