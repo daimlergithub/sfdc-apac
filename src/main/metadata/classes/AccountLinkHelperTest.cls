@@ -61,7 +61,7 @@ public static Contact contactObj;
          objMaster.Primary_Address_Reference__c=address.id;
         update objMaster;
          Test.startTest();  
-        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = AccountLink_RetailPersonRecordTypeId , Name = 'contact2Contact', Vehicle__c = vehicle.Id,toRole__c=objMaster.id , fromRole__c = dealer.Id ,Retail_Address_Reference__c = address.Id);
+        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = AccountLink_RetailPersonRecordTypeId , Name = 'contact2Contact', Vehicle__c = vehicle.Id,toRole__c=objMaster.id , fromRole__c = dealer.Id ,Retail_Address_Reference__c = address.Id,MD__c = 'JP');
 
         AccountLinkSharingWrapService wrapService = new AccountLinkSharingWrapService();
         List<SharingWrapper> testSharingWrapC2C = wrapService.wrapContact2Contact(new List<Account_Link__c>{contact2Contact});
@@ -99,7 +99,7 @@ public static Contact contactObj;
         vehicle = new Vehicle__c(Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004',RegistrationNo__c = '12345');
         insert vehicle;
          Test.startTest();  
-          Account_Link__c contact2Contact = new Account_Link__c(Status__c = 'My Shops',RecordTypeId = AccountLink_ContactSectorRecordTypeId , Name = 'contact2Contact', Vehicle__c = vehicle.Id,toRole__c=objMaster.id , fromRole__c = dealer.Id,Retail_Delete_Flag__c = False);
+          Account_Link__c contact2Contact = new Account_Link__c(Status__c = 'My Shops',RecordTypeId = AccountLink_ContactSectorRecordTypeId , MD__c = 'JP',Name = 'contact2Contact', Vehicle__c = vehicle.Id,toRole__c=objMaster.id , fromRole__c = dealer.Id,Retail_Delete_Flag__c = False);
         
      insert contact2Contact;
      update contact2Contact;
