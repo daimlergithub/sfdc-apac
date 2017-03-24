@@ -181,7 +181,7 @@
 											<sf:include name="AddressSelectionforExistingCustomer"/>
 											<sf:include name="LeadAssignmentPage"/>
 											<sf:include name="printLeadPDF"/>
-											<sf:include name="SelectAddress"/>                                    
+											<sf:include name="SelectAddress"/>                                  
 							   <sf:include name="createRetailCopyKRButton"/>
 							   
 							</sf:typeset>                                                   
@@ -231,6 +231,8 @@
 							   <sf:include name="ChatterAnswersEscalationTriggerTest"/>
 							   <sf:include name="TrialCustomerPortalHomePageController"/>
 							   <sf:include name="TrialCustomerPortalHomePageTest"/>
+							   <sf:include name="AddingMemberstoChatterGroup"/>
+							   <sf:include name="AddingMemberstoChatterGroup_test"/>
 							   <sf:include name="CommunitiesLandingController"/>
 							   <sf:include name="CommunitiesLandingControllerTest"/>
 							   <sf:include name="UtilCustomSettings"/>
@@ -243,7 +245,7 @@
 							   <sf:include name="MassUpdatenewAssignedusercontroller"/>
 							   <sf:include name="MassUpdatenewAssignedusercontrollerTest"/>
 							   <sf:include name="cSendVehicletoSPOConfirmationJP"/>
-							 <!--  <sf:include name="cSendVehicletoSPOConfirmationJPTest"/> -->
+							  <sf:include name="cSendVehicletoSPOConfirmationJPTest"/>
 							   <sf:include name="RetailtaskInlineEditController"/>
 							   <sf:include name="RetailtaskInlineEditController_Test"/>
 								<sf:include name="RelatedDealerLease"/>
@@ -379,6 +381,7 @@
 							<sf:typeset name="pages">
 							   <sf:include name="GeneratePDF"/>
 							   <sf:include name="Print_Dealer_PDF"/>
+							   <sf:include name="printAfterSaleLeadPdf"/>
 							   <sf:include name="SelectSlaveAccount"/>
 							   <sf:include name="SelectSlaveAccountKR"/>
 							   <sf:include name="AccountMerge"/>
@@ -414,6 +417,7 @@
 							   <!-- Added by Naga Start-->
 							</sf:typeset>
 							<sf:typeset name="classes">    
+<<<<<<< HEAD
 								<sf:include name="TriggerHandlerIf"/>
 								<sf:include name="TriggerUtil"/>
 								<sf:include name="TriggerUtilTest"/>
@@ -554,6 +558,7 @@
 									<sf:include name="ConvertToDMRequestTest"/>
 								 <sf:include name="ConvertToTaskController"/>
 								 <sf:include name="ConvertToTaskControllerTest"/>
+
 							</sf:typeset>
 							<sf:typeset name="triggers">
 								<sf:include name="TriggerUtilTestTrigger"/>
@@ -928,6 +933,7 @@
 							<sf:include name="TriggerTaskTest"/>                                 
 							<sf:include name="AttachmentAfterTriggerHandler"/>
 							<sf:include name="AttachmentAfterTriggerHandlerJP"/>
+							<sf:include name="AttachmentAfterTriggerHandlerTest"/>
 							<sf:include name="BatchAssignTasks"/>
 							<sf:include name="BatchAssignTasksTest"/>
 						   
@@ -964,6 +970,7 @@
 							<sf:include name="LeadConvertingControllerTest"/>
 							<sf:include name="TriggerCampaignMembers_TestClass"/>
 							<sf:include name="CampaignMemberAfterTriggerHandler"/>
+							<sf:include name="CampaignMemberAfterTriggerHandlerTest"/>
 							<sf:include name="TriggerCampaignTriggerHandler"/>
 							<sf:include name="CaseEscalationController"/>
 							<sf:include name="CaseEscalationControllerTest"/>
@@ -1034,6 +1041,7 @@
 							<sf:include name="AssignCaseToDealerController"/>
 							<sf:include name="AssignCaseToDealerControllerTest"/>
 							<sf:include name="UtilCase"/>
+							<sf:include name="UtilCaseTest"/>
 							<sf:include name="UtilCaseShare"/>
 							<sf:include name="UtilCaseShareTest"/>
 							<sf:include name="CaseTriggerHandler"/>

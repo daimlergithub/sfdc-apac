@@ -3,5 +3,5 @@
     <apiVersion>38.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>PrintPDF</label>
+    <label>printAfterSaleLeadPdf</label>
 </ApexPage>

@@ -6403,6 +6403,11 @@
         <field>Campaign.Repeated_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.DM_Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Resource_Channels__c</field>
