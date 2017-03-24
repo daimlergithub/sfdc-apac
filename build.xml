@@ -417,7 +417,6 @@
 							   <!-- Added by Naga Start-->
 							</sf:typeset>
 							<sf:typeset name="classes">    
-<<<<<<< HEAD
 								<sf:include name="TriggerHandlerIf"/>
 								<sf:include name="TriggerUtil"/>
 								<sf:include name="TriggerUtilTest"/>
