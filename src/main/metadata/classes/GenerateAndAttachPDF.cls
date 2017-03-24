@@ -44,6 +44,7 @@ public with sharing class GenerateAndAttachPDF {
     * Define number of characters per line
     */
    public static final Integer LINE_LENGTH = 57;
+    public user usr{get;set;}
 
    public GenerateAndAttachPDF(ApexPages.StandardController controller) 
    {

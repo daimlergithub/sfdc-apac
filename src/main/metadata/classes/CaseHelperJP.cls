@@ -15,6 +15,7 @@ public class CaseHelperJP
         system.debug('Trigger Old Map...' +case_Map);
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
+		List<Id> newAccoutIds = new List<Id>();
         for (Case c : cases)
         {
             if (c.MD__c == 'JP' || c.MD__c == 'KR')

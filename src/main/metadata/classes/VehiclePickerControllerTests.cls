@@ -292,7 +292,7 @@ public without sharing class VehiclePickerControllerTests{
         test.stopTest();
     }
     
-
+/*
     public static testMethod void testClearNewVehicle(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();

@@ -239,7 +239,12 @@
                                              <table>
                                                 <tr>
                                                     <td>
-                                         <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>                            
+                                         <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>
+													 </td> 
+                                                </tr> 
+                                             </table>
+                                            </div>
+										
                                     </apex:pageBlockSectionItem>
                                   
                                    <apex:pageBlockSectionItem >
@@ -334,7 +339,11 @@
                                      <table>
                                         <tr>
                                             <td class="dataCol requiredInput">            
-                                    <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>              
+                                    <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>
+											 </td> 
+                                                </tr> 
+                                             </table>
+                                            </div>
                         </apex:pageBlockSectionItem>
                             
                          <apex:inputField value="{!vehicle.Related_contact__c}"/>
