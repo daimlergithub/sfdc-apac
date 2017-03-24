@@ -4,6 +4,9 @@
 function test(){
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!acclnkdealer.id}", "_blank","resizable=yes,top=250,left=500,width=400,height=350");
 }
+function edit(){
+window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.Prefix)}/{!acclnkdealer.id} ", "_blank");
+}
 </script>
        
        
@@ -87,9 +90,10 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpa
       <apex:pageblockButtons location="Top">
    <!----< <apex:commandButton action="{!ab}" value="Edit" /> ------->
         <!--<<apex:commandButton onclick="window.open('{!ab}');" value="Edit"/>-->
-        <apex:commandlink action="{!ab}" target="_blank">
+        <!--<apex:commandlink action="{!ab}" target="_blank">
             <apex:commandButton value="Edit"/>
-        </apex:commandLink>
+        </apex:commandLink>-->
+        <apex:commandButton value="Edit" onclick="edit();"/>
         <apex:commandButton value="Delete" onclick="test();"/>
     </apex:pageblockButtons>
     </apex:pageBlock>
