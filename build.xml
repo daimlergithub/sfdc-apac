@@ -180,7 +180,7 @@
 											<sf:include name="AddressSelectionforExistingCustomer"/>
 											<sf:include name="LeadAssignmentPage"/>
 											<sf:include name="printLeadPDF"/>
-											<sf:include name="SelectAddress"/>                                    
+											<sf:include name="SelectAddress"/>                                  
 							   <sf:include name="createRetailCopyKRButton"/>
 							   
 							</sf:typeset>                                                   
@@ -227,6 +227,8 @@
 							   <sf:include name="ChatterAnswersEscalationTriggerTest"/>
 							   <sf:include name="TrialCustomerPortalHomePageController"/>
 							   <sf:include name="TrialCustomerPortalHomePageTest"/>
+							   <sf:include name="AddingMemberstoChatterGroup"/>
+							   <sf:include name="AddingMemberstoChatterGroup_test"/>
 							   <sf:include name="CommunitiesLandingController"/>
 							   <sf:include name="CommunitiesLandingControllerTest"/>
 							   <sf:include name="UtilCustomSettings"/>

@@ -20,6 +20,8 @@ public class AddingMemberstoChatterGroup_test{
             AddingMemberstoChatterGroup obj = new AddingMemberstoChatterGroup();
             
             Database.executeBatch(obj);
+			
+			
             }
     }
 

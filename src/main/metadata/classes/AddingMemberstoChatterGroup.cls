@@ -36,5 +36,6 @@ global class AddingMemberstoChatterGroup implements Database.Batchable<sObject>{
     }  
      global void finish(Database.BatchableContext BC){
        
+	   
     }                  
 }
