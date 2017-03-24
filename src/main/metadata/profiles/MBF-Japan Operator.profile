@@ -24617,7 +24617,7 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

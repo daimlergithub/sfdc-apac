@@ -109626,19 +109626,26 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <fullName>Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Print PDF</masterLabel>
-        <openType>newWindow</openType>
-        <page>printLeadPDF</page>
-        <position>none</position>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+ 
+var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
+if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'})
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printAfterSaleLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+}
+else if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+} 
+else{ 
+alert("{!$Label.Authorization}"); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>

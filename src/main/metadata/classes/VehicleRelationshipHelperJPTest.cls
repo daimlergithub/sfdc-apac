@@ -13,7 +13,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
        static List<Vehicle_Relationship__c> vrlst;
        public static void createTestData(Date startDate, Date endDate){ 
            
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
            insert updatecustomsettings;
       
            testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
@@ -22,7 +22,6 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicle_relationship.End_Date__c = endDate;
            vehicle_relationship.Contact__c = testAccount.Id;
            vehicle_relationship.End_Reason__c = 'DMS';
-           //vehicle_relationship.Validity__c = 'Yes';
            update vehicle_relationship;
            system.assertNotEquals(vehicle_relationship,null);
        }
