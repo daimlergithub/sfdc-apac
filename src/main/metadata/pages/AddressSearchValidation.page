@@ -165,7 +165,7 @@
                   <apex:inputField value="{!objPersonAccount.Email__c}" />                    
                   <apex:inputField value="{!objPersonAccount.PersonBirthdate}"/>
                   <apex:inputField value="{!objPersonAccount.VIN__c}" />
-                   <apex:inputField value="{!objAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
+                   <apex:inputField value="{!objPersonAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />     
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>         
                  
@@ -218,10 +218,10 @@
                    </apex:pageBlockSectionItem>                 
                                   
                    <apex:inputField value="{!objAccount.Email__c}" />  
-                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
-                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
-                   <apex:inputField value="{!objPersonAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
-                   <apex:inputField value="{!objPersonAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
+                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
                    
                    
                    <apex:inputField value="{!objAccount.Fax}" /> 

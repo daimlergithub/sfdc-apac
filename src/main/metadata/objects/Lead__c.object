@@ -109060,25 +109060,19 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <fullName>Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
         <masterLabel>Print PDF</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>newWindow</openType>
+        <page>PrintPDF</page>
+        <position>none</position>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
-if ('{!User.Market__c}' == 'KR' ){
-    alert('You are not authorised to Generate PDF');
-}
-else{
-    if('{!User.ContactId}' !=null){
-        window.open("{!URLFOR($Site.Prefix)}/apex/PrintPDF?id={!Lead__c.Id}",'_self');
-    }
-    else{
-        window.open('/apex/PrintPDF?id={!Lead__c.Id}','_self');
-    }
-}</url>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>
