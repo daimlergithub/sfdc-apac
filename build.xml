@@ -380,6 +380,7 @@
 							<sf:typeset name="pages">
 							   <sf:include name="GeneratePDF"/>
 							   <sf:include name="Print_Dealer_PDF"/>
+							   <sf:include name="printAfterSaleLeadPdf"/>
 							   <sf:include name="SelectSlaveAccount"/>
 							   <sf:include name="SelectSlaveAccountKR"/>
 							   <sf:include name="AccountMerge"/>
