@@ -183,7 +183,7 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                   
-                  <apex:inputField value="{!objPersonAccount.VIN__c}" /> 
+               
                    <!-- <apex:inputField value="{!objAccount.Company_Name__c}" />  -->          
                     <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
                     <apex:pageBlockSectionItem >
@@ -215,14 +215,15 @@
                             <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" style="width:60px"/>
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>                   
-                   </apex:pageBlockSectionItem>                 
-                                  
-                   <apex:inputField value="{!objAccount.Email__c}" />  
+                   </apex:pageBlockSectionItem>  
+                   <apex:inputField value="{!objAccount.Email__c}" />                 
+                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/> 
+                   <apex:inputField value="{!objAccount.VIN__c}" />                  
+                   
                    <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
                    <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
-                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
-                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
-                   
+                          
                    
                    <apex:inputField value="{!objAccount.Fax}" /> 
                 </apex:pageBlockSection>       

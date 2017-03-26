@@ -5,10 +5,12 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>Merge</customButtons>	
-    <customButtons>Check_Duplicates</customButtons>
+    <customButtons>Merge</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -20,7 +22,6 @@
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
     <excludeButtons>XClean</excludeButtons>
-	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -54,6 +55,18 @@
                 <behavior>Edit</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Latest_Service_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Latest_Sales_Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Age__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -78,11 +91,43 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>MBK_Data_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>COS_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allow_Data_Sharing_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Last_Campaign_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Sanction_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Corporate_Program__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_SMS_Last_Modified_By__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FS_SMS_Last_Modified_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -110,14 +155,14 @@
         <label>Address</label>
         <layoutColumns>
             <layoutItems>
-                <height>400</height>
+                <height>250</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
-                <height>400</height>
+                <height>350</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
@@ -180,6 +225,34 @@
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Education__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Newspaper__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Magazine__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>KaKao_Talk_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Website</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_Release__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Agreement__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -187,7 +260,8 @@
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Do_Not_Call_Reason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -211,6 +285,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Primary_Address_Reference__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Postal_Opt_Out_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Primary_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
@@ -225,6 +307,22 @@
                 <behavior>Edit</behavior>
                 <field>Primary_Fax_Display__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax_Validity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Agreement_to_commit_info_processing__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -237,6 +335,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PersonBirthdate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Occupation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -284,6 +390,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Car_Owner_Club__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Event__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Interest_Model__c</field>
             </layoutItems>
             <layoutItems>
@@ -292,6 +406,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Age_Range__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Gender__c</field>
@@ -313,10 +431,22 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Annual_Mileage__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Buy_Cycle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UpsellOpportunity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -354,6 +484,10 @@
                 <behavior>Edit</behavior>
                 <field>Warranty_Apply_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -367,6 +501,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Warranty_Apply_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -442,7 +580,7 @@
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
-		<fields>VIN__c</fields>
+        <fields>VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
         <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
