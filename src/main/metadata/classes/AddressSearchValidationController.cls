@@ -1008,8 +1008,9 @@ If the user is Saving  same address which matches the fields returned by toleran
         Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
         UtilAddressTranslation.gettranslatedvalues(Market);
         system.debug('addtrmapUpdate1 :'+addtrmapUpdate1);
-        
-        if(objPersonAccount.LastName !=null ) 
+        system.debug('addtrmapUpdate1 >> :'+objPersonAccount.LastName);
+        system.debug('addtrmapUpdate1 << :'+objAccount.Name);
+        if(objPersonAccount.LastName !=null || objAccount.Name !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
