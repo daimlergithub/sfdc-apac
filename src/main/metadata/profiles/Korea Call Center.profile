@@ -21455,14 +21455,14 @@
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC-KR</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC-KR</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC-KR</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21470,22 +21470,22 @@
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-Competitor Vehicle Layout-CAC-KR</layout>
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC-KR</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC-KR</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC-KR</layout>
         <recordType>Vehicle__c.Vehicle_Product</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC-KR</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>

@@ -15,6 +15,7 @@ public class AddressSearchValidationController{
     public Account objAccount{get;set;}
     public Account objPersonAccount{get;set;}
     public boolean refreshPage {get; set;}
+    public boolean CompanyConfirmedMatch{get; set;}
     public string accountOwner{get;set;}
     public string recordType{get;set;}
     public id recordTypeId;
@@ -1008,7 +1009,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('I am inside onLineDeduplication');  
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
         
-        if(objPersonAccount.LastName !=null ) 
+         System.debug('@@@@@@@ objPersonAccount.Name    '+objAccount.Name);
+        if(objPersonAccount.LastName !=null || objAccount.Name !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
@@ -1017,7 +1019,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
             if(recordType !=null && recordType=='Company')
             {
-                objPersonAccount.Recordtypeid=companyRecordTypeId;
+                objAccount.Recordtypeid=companyRecordTypeId;
             }
             system.debug('recordType------------:'+recordType);
             if(recordType !=null && recordType== 'Person Account')
@@ -1059,13 +1061,24 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(AddressObj == NewAdd)
             {
+            if(objPersonAccount.LastName !=null)
+            {
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             }
+             
+             //@Venky:Added Below if condition Changes related to SFDCJP-995
+             if(objAccount.Name !=null)
+            {
+             System.debug('objAccount &**&*&**&**&*&*'+objAccount );
+            response =  UtilWebservice.validateCustomerDetails(objAccount); 
+            }
+            }
             System.debug('@@@@@@@@@@ response '+response);
-            //System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage[0].Customer);
+           // System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage);
             if(response != null){
-                if(response.CustomerIdentificationResponseMessage!=null)
+                if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null)
                 {
+                show = true;
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
                     {
                         objAccountDeDup.Lastname=response.CustomerIdentificationResponseMessage[0].Customer.Lastname;
@@ -1078,6 +1091,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
+                     
                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
                         objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
@@ -1101,12 +1115,48 @@ If the user is Saving  same address which matches the fields returned by toleran
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
-                show = true;
+                
+                //@Venky:Added Below if condition Changes related to SFDCJP-995
+                
+                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
+                {                    
+                CompanyConfirmedMatch=true;
+                     
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    {
+                        objAccount.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+                    }
+                     if(response.CustomerIdentificationResponseMessage[0].Customer.Name!=null)
+                    {
+                        objAccount.Name=response.CustomerIdentificationResponseMessage[0].Customer.Name;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                    {
+                        objAccount.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                    }
+                    system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccount.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccount.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
+                    {   
+                        AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        AddressDetails = AddressDetails.replace('null',' ');
+                   }
+                }
+                
+                
                 if(response.CustomerIdentificationResponseMessage ==null)
                 {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
+                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName OR Name=:objAccount.Name];// and FirstName =: objPersonAccount.FirstName];
                  
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
