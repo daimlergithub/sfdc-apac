@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -145,6 +146,21 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -250,6 +266,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddingMemberstoChatterGroup</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddingMemberstoChatterGroup_test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddressDisplayInlineEditController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -304,6 +328,10 @@
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AttachmentAfterTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AvatoHelper</apexClass>
@@ -382,6 +410,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CampaignMemberAfterTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CampaignMembersCustomHelperJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -411,6 +443,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJPTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -475,6 +511,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CheckAccountDuplicateController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CheckAccountDuplicateController_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -738,6 +778,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LeadMergeControllerTest1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -770,8 +814,16 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LeadcustomClone_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MBJ_FS_Case_ContractClosing_InlineCntl</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MBJ_FS_Case_ContractClosing_InlineTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
@@ -794,8 +846,16 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MBJ_FS_Case_Quotation_Inline_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MBJ_FS_Case_Request_InlineController</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MBJ_FS_Case_Request_InlineTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
@@ -1242,6 +1302,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TaskTriggerHandlerKRTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskTriggerHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1288,6 +1352,10 @@
     <classAccesses>
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ToolKitTriggerHelperTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
@@ -1402,6 +1470,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerCaseTriggerHandlerKRTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1434,6 +1506,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerLeadTriggerHandlerKRTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerParticipateDealerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1444,6 +1520,10 @@
     <classAccesses>
         <apexClass>TriggerRecallTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerRecallTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerRetailCampaignMemberHandler</apexClass>
@@ -1464,6 +1544,10 @@
     <classAccesses>
         <apexClass>TriggerRetailTaskTriggerHandlerJP</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerRetailTaskTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerSurveyTakerTriggerHandlerJP</apexClass>
@@ -1510,6 +1594,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UpdatecampaignmemwithrefreshTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UserHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1534,6 +1622,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UserTriggerHandlerKR</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilAccount</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1550,8 +1642,16 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilCampaignCityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignLead</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCampaignLeadTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilCampaignShareByCollaboration</apexClass>
@@ -1600,6 +1700,10 @@
     <classAccesses>
         <apexClass>UtilCaseShareTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCaseTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilConstant</apexClass>
@@ -1655,6 +1759,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilShare</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilShareTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1778,8 +1886,52 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>WSMockAddressValidationRespInvalidAddr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WSMockAddressValidationResponseFailure</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WSMockCustomerIdenticationResp</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WebServiceMockImpl</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImpl2</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImpl3</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplapac</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplapac1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplapac2</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplapac3</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplsar</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImplsar1</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YearlyTAReportController</apexClass>
@@ -1822,6 +1974,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>contactTableControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>createRetailCopy</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1834,11 +1990,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>createRetailCopyKRTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>crmasiaDaimlerApacComCustomeridentif</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>crmasiaDaimlerApacComSarinotificatio</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>crmasiaDaimlerApacComSfdcnot_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1848,6 +2012,10 @@
     <classAccesses>
         <apexClass>crmasiaDaimlerApacComValidateaddress</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>crmasiaDaimlerComSarinotificatio_Test</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>dealerViewForContract</apexClass>
@@ -1979,6 +2147,11 @@
         <editable>true</editable>
         <field>Account.AnnualRevenue</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Annual_Income_Range__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6248,6 +6421,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Create_Unique_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.DM_Comments__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11592,6 +11770,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Dealer_List_Member__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Dealer_List_Member__c.Model__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15432,6 +15615,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Participating_Dealer__c.MD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Participating_Dealer__c.ND_Code__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18139,6 +18327,11 @@
         <editable>true</editable>
         <field>Retail_Task__c.Contractor_BirthDate__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Contractor_Company_Esatblished_Date__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -24588,6 +24781,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MarketingCloudSettings</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MassApproveRetailCampaign</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -24612,7 +24809,7 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>printAfterSaleLeadPdf</apexPage>
+        <apexPage>PrintPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -24821,6 +25018,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>labs_survey_css</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -25487,6 +25688,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Address__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
