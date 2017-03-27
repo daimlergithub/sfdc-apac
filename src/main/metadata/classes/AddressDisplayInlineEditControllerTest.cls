@@ -264,7 +264,7 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
         objAccount.MD__c = 'JP';
-        //objAccount.Mobile__c = '999-999-9999';
+        //objAccount.Mobile__c = '999999999';
         
         
         insert objAccount;
@@ -377,7 +377,7 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
-        objAccount.Mobile__c = '999-999-9999';
+        //objAccount.Mobile__c = '9999999999';
         insert objAccount;
         
         objAddress= new Address__c();
