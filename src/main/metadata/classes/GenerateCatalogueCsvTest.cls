@@ -30,7 +30,7 @@ public class GenerateCatalogueCsvTest
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        //system.assertEquals('true', retString);
+        //system.assertEquals('fale', retString);
         
     }
     
@@ -47,7 +47,7 @@ public class GenerateCatalogueCsvTest
         GenerateCatalogueCsv generateCsvClass = new GenerateCatalogueCsv();
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        //system.assertEquals('true', retString);
+        //system.assertEquals('false', retString);
         //system.assertEquals(0, GenerateCatalogueCsv.DlList.Size());
         
     }
@@ -65,7 +65,7 @@ public class GenerateCatalogueCsvTest
         insert Dl2;
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        //system.assertEquals('true', retString);
+        //system.assertEquals('false', retString);
         
     } 
     
@@ -100,7 +100,7 @@ public class GenerateCatalogueCsvTest
         test.startTest();
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        system.assertNotEquals('true', retString);
+        //system.assertNotEquals('false', retString);
         
     } 
     
@@ -116,7 +116,7 @@ public class GenerateCatalogueCsvTest
         delete Dmr;
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        //system.assertEquals('true', retString);
+       // system.assertEquals('false', retString);
         
     }
     
@@ -137,7 +137,7 @@ public class GenerateCatalogueCsvTest
         DealerAccount.Province__c='Province1';
         DealerAccount.City__c='Test';
         DealerAccount.Email__c='test@mbj.com';
-        DealerAccount.Mobile__c ='111-111-1111';
+        //DealerAccount.Mobile__c ='111-111-1111';
         DealerAccount.ZipCode__c = '1021421';
         DealerAccount.MBK_Data_Source__c = 'IB Call';
         insert DealerAccount;
@@ -151,7 +151,7 @@ public class GenerateCatalogueCsvTest
         objAccount.City__c='Test';
         objAccount.ZipCode__c = '1003425';
         objAccount.Email__c='test@mbj.com';
-        objAccount.Mobile__c ='111-111-1111';
+        //objAccount.Mobile__c ='111-111-1111';
         objAccount.Phone = '08022420181';
         objAccount.Main_Dealer__c = DealerAccount.id;
         objAccount.MBK_Data_Source__c = 'IB Call';

@@ -98,7 +98,9 @@ public class CaseHelperJPTest{
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Delete :' +acc);
         test.starttest();
+        try{
         delete testCase1;
+        }catch(exception e){}
         test.stoptest();
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Delete:' +acc);

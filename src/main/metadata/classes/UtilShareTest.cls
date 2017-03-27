@@ -17,9 +17,9 @@ public class UtilShareTest {
     accobj = new Account();
     accobj.RecordTypeId = DealerRecordTypeId ;
     accobj.Name = 'testaccount';
-    accobj.Phone = '000-0000-9642';
+    accobj.Phone = '00000009642';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    accobj.Mobile__c = '00000009642';
     accobj.ZipCode__c= '1002347';
     //accobj.Parentid='001p000000GgV8s';
     accobjlist = new List<Account>();

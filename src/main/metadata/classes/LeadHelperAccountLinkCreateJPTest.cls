@@ -25,9 +25,9 @@ public class LeadHelperAccountLinkCreateJPTest {
     accobj = new Account();
     accobj.RecordTypeId = DealerRecordTypeId;
     accobj.Name = 'testaccount';
-    accobj.Phone = '000-0000-9642';
+    accobj.Phone = '00000009642';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    accobj.Mobile__c = '00000009642';
     accobj.ZipCode__c= '1002347';
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
@@ -36,15 +36,15 @@ public class LeadHelperAccountLinkCreateJPTest {
     accobj1 = new Account();
     accobj1.RecordTypeId = personAccRecordTypeId ;
     accobj1.LastName = 'testaccountone';
-    accobj1.Phone = '000-0000-9842';
+    accobj1.Phone = '00000009842';
     accobj1.MBK_Data_Source__c='Campaign';
-    accobj1.Mobile__c = '000-0000-9842';
+    accobj1.Mobile__c = '00000009842';
     accobj1.ZipCode__c= '3332347';
     insert accobj1;
     system.debug('$$$$$$$$$$$$'+accobj1);
     system.debug('$$$$$$$$$$$$'+accobj1.id);
     
-    Address__c add = new Address__c(Customer__c = accobj1.id,Address_Type__c = 'Home',City__c =  'test');
+    Address__c add = new Address__c(Customer__c = accobj1.id,Address_Type__c = 'Home',City__c =  'test',Province__c = 'Tokyo');
     insert add;
     accobj1.Primary_Address_Reference__c =add.id;
     update accobj1;
@@ -150,7 +150,7 @@ public class LeadHelperAccountLinkCreateJPTest {
 
     test.starttest();  
       LeadHelperAccountLinkCreateJP.leadAccountDetails(leadlist,leadOldMap,true,true);
-      //LeadHelperAccountLinkCreateJP.createAccountLinkRecord(contactId);
+      LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(leadlist,true,true);
     test.stoptest();
     system.assertEquals(leadobj.Lead_Type__c,'New Car'); 
   }   
