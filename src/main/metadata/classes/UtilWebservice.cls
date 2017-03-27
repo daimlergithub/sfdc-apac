@@ -380,6 +380,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
    
+   System.debug('%^%^%^%%^ accountDetails'+accountDetails);
         User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
         System.debug('@@@@@@ ## User'+Usr);
         String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
@@ -390,6 +391,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
+        sendingCustomerDetails.Name= accountDetails.Name;
         sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
         sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
         sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
@@ -404,7 +406,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
-		sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
@@ -418,7 +420,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
           request.OrganizationId = UserInfo.getOrganizationId();
           request.MarketDiscriminator= Usr.Market__c;
           
-          
+          System.debug('%^%^%^%%^ sendingCustomerDetails'+sendingCustomerDetails);
 
           System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
           request.Customer = sendingCustomerDetails;
