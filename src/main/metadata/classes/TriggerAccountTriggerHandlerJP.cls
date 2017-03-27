@@ -90,7 +90,7 @@ implements TriggerHandlerIf
         */
         if(isAfter && isUpdate){
             System.debug('----->Is update is called');
-          //  AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new,(Map<Id,Account>)Trigger.OldMap);
+          AccountHelperJP.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new,(Map<Id,Account>)Trigger.OldMap);
         }
     }
     
