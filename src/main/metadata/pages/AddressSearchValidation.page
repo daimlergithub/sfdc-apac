@@ -112,6 +112,7 @@
                     <apex:inputField value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
+					<apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP') ),true,false)}" />
                    
                     
                 </apex:pageBlockSection>
