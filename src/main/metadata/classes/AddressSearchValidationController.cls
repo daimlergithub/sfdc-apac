@@ -67,6 +67,7 @@ public class AddressSearchValidationController{
         // refreshPage = false;        
         User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
+		objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == 'KR'){
             mbkdatasource = true;
             datasource = false;
