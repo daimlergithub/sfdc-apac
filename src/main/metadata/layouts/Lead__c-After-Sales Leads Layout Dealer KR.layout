@@ -71,7 +71,7 @@
                 <height>200</height>
                 <page>VehiclePicker</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
