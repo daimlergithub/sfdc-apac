@@ -328,6 +328,8 @@
 										<sf:include name="CampaignMember"/>
 										<sf:include name="Question__c"/>
 										<sf:include name="Survey_Question__c"/>
+										
+										
 						</sf:typeset>
 					</deploy>
 				</target>
@@ -636,6 +638,8 @@
 											<sf:include name="MarketCheckOnVehiclePicker"/>
 											<sf:include name="AddParticipatingDealer"/>
 											<sf:include name="Consolidation_List"/>
+											<sf:include name="AddToCampaign"/>
+											
 											
 											
 											
@@ -675,6 +679,7 @@
 							<sf:include name="AccountTable"/>
 							<sf:include name="Batch_AutoSegmentation"/>
 							<sf:include name="Batch_BounceStatus"/>
+							<sf:include name="AddToCampaign"/>
 							
 
 			</sf:typeset>
