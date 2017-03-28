@@ -10,7 +10,13 @@ private class RetailCampaignSharingTest {
      private static Retail_Campaign__c retailCampaign1;
     private static Retail_Campaign__c retailCampaignsmart;
     private static Retail_Campaign__c retailCampaignAMG;
+      public static Campaign camobj;
+      public static set<Id> campid;
+        private static List<Retail_Campaign__c> rclist; 
     private static Retail_Campaign__c retailCampaignStarElite;
+     public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+      public static Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+      public static Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
     static {
         
           /* User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
@@ -31,9 +37,9 @@ private class RetailCampaignSharingTest {
             User portalAccountOwner1 = new User(
                 UserRoleId = portalRole.Id,
                 ProfileId = profile1.Id,
-                Username = System.now().millisecond() + 'test2@test.com',
+                Username = System.now().millisecond() + 'test2345@test.com',
                 Alias = 'batman',
-                Email='bruce.wayne@wayneenterprises.com',
+                Email='sai.waynedsse@wayneenterprises.com',
                 EmailEncodingKey='UTF-8',
                 Firstname='Bruce',
                 Lastname='Wayne',
@@ -216,8 +222,9 @@ insert updatecustomsettings;
             RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, false);
             RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, true, false);
             RetailCampaignHelper.beforeInsertUpdateEvents(retailCampaignck, retailCampaignMap, false, true);
-            
-            
+            RetailCampaignHelper.parentRetailCampaignSatusChange(retailCampaignck, retailCampaignMap);
+            RetailCampaignHelper.validationParentRetailCampaign(retailCampaignck, retailCampaignMap, false, true);
+            RetailCampaignHelper.validationChildRetailCampaign(retailCampaignck, retailCampaignMap, false, true);
              RetailCampaignHelper.generateTask(thisUser, retailCampaign, strSubject);
            RetailCampaignHelper.generateHighPrioTask(thisUser, retailCampaign, strSubject);
         
@@ -281,4 +288,196 @@ insert updatecustomsettings;
             Test.stopTest();
         }
     }
+    
+     static testmethod void MethodTest1(){
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+    campid =new set<Id>();
+    camobj = new Campaign();
+    camobj.RecordTypeId = centmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Planned';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today();
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    insert camobj;
+    system.debug('$$$$$$$$$$$$'+camobj);
+    system.debug('$$$$$$$$$$$$'+camobj.id);
+    campid.add(camobj.id);    
+    
+   
+    
+   Retail_Campaign__c rcobj=new Retail_Campaign__c();
+    rcobj.Name='Test Campaign';
+    rcobj.RecordTypeId=parentCampaignId;
+    rcobj.Campaign_Execution_Channels__c='eMail';
+    rcobj.Status__c='Draft';
+    rclist=new List<Retail_Campaign__c>();
+    rclist.add(rcobj);
+    
+    Retail_Campaign__c rcobj1=new Retail_Campaign__c();
+    rcobj1.Name='Test Campaign1';
+    rcobj1.Parent_Campaign__c=camobj.id;
+    rcobj1.Status__c='Draft';
+    rcobj1.Execution_Start_Date__c=system.today()+1;
+    rcobj1.Segmentation_Date__c=system.today();
+    rcobj1.Execution_Type__c='eMail';
+    rcobj1.RecordTypeId=childCampaign;
+    rclist.add(rcobj1);
+    insert rclist;
+    
+     Test.startTest();
+     RetailCampaignHelper.afterInsertCopyRetailCampaign(rclist);
+     RetailCampaignHelper.updateParentCampaignStatus(campid);
+     RetailCampaignHelper.updateParentCampaignQuarter(campid);
+     Test.stopTest();
+    }
+  } 
+  static testmethod void MethodTestbefore(){
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+    campid =new set<Id>();
+    camobj = new Campaign();
+    camobj.RecordTypeId = centmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Planned';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today();
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    insert camobj;
+    system.debug('$$$$$$$$$$$$'+camobj);
+    system.debug('$$$$$$$$$$$$'+camobj.id);
+    campid.add(camobj.id);    
+    
+   
+    
+   Retail_Campaign__c rcobj=new Retail_Campaign__c();
+    rcobj.Name='Test Campaign';
+    rcobj.RecordTypeId=parentCampaignId;
+    rcobj.Campaign_Execution_Channels__c='eMail';
+    rcobj.Status__c='Draft';
+    rclist=new List<Retail_Campaign__c>();
+    rclist.add(rcobj);
+    
+    Retail_Campaign__c rcobj1=new Retail_Campaign__c();
+    rcobj1.Name='Test Campaign1';
+    rcobj1.Parent_Campaign1__c=rcobj.id;
+    rcobj1.Status__c='Draft';
+    rcobj1.Execution_Start_Date__c=system.today()+1;
+    rcobj1.Segmentation_Date__c=system.today();
+    rcobj1.Execution_Type__c='eMail';
+    rcobj1.RecordTypeId=childCampaign;
+    rclist.add(rcobj1);
+    insert rclist;
+    
+     Test.startTest();
+     RetailCampaignHelper.beforeDeleteRetailCampaignStatus(rclist);
+     RetailCampaignHelper.updateParentCampaignStatus(campid);
+     RetailCampaignHelper.updateParentCampaignQuarter(campid);
+     Test.stopTest();
+    }
+  }  
+  
+   static testmethod void MethodTest2()
+   {
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+    campid =new set<Id>();
+    camobj = new Campaign();
+    camobj.RecordTypeId = centmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Planned';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today();
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    insert camobj;
+    system.debug('$$$$$$$$$$$$'+camobj);
+    system.debug('$$$$$$$$$$$$'+camobj.id);
+    campid.add(camobj.id);    
+    
+   
+    
+   Retail_Campaign__c rcobj=new Retail_Campaign__c();
+    rcobj.Name='Test Campaign';
+    rcobj.RecordTypeId=childCampaign;
+    rcobj.Campaign_Execution_Channels__c='eMail';
+    rcobj.Child_Campaign_Status__c='Execution';
+    rclist=new List<Retail_Campaign__c>();
+    rclist.add(rcobj);
+    
+    Retail_Campaign__c rcobj1=new Retail_Campaign__c();
+    rcobj1.Name='Test Campaign1';
+    rcobj1.Status__c='Ongoing';
+    rcobj1.Execution_Start_Date__c=system.today()+1;
+    rcobj1.Segmentation_Date__c=system.today();
+    rcobj1.Execution_Type__c='eMail';
+    rcobj1.RecordTypeId=parentCampaignId;
+    rclist.add(rcobj1);
+    insert rclist;
+    
+     Test.startTest();
+     RetailCampaignHelper.beforeDeleteEvents(rclist);
+     RetailCampaignHelper.updateParentCampaignStatus(campid);
+     RetailCampaignHelper.updateParentCampaignQuarter(campid);
+     Test.stopTest();
+    }
+  } 
+  
+  static testmethod void EmailMethodTest()
+  {
+    User thisUser = [ select Id,ContactId,Email from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+    campid =new set<Id>();
+    camobj = new Campaign();
+    camobj.RecordTypeId = centmarcampRecordTypeId;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Planned';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today();
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    insert camobj;
+    system.debug('$$$$$$$$$$$$'+camobj);
+    system.debug('$$$$$$$$$$$$'+camobj.id);
+    campid.add(camobj.id);    
+    
+   
+    
+   Retail_Campaign__c rcobj=new Retail_Campaign__c();
+    rcobj.Name='Test Campaign';
+    rcobj.RecordTypeId=parentCampaignId;
+    rcobj.Campaign_Execution_Channels__c='eMail';
+    rcobj.Status__c='Draft';
+        rcobj.OwnerId = thisUser.id;
+    rclist=new List<Retail_Campaign__c>();
+    
+    
+    Retail_Campaign__c rcobj1=new Retail_Campaign__c();
+    rcobj1.Name='Test Campaign1';
+    rcobj1.Parent_Campaign__c=camobj.id;
+    rcobj1.Status__c='Draft';
+    rcobj1.Execution_Start_Date__c=system.today()+1;
+    rcobj1.Segmentation_Date__c=system.today();
+    rcobj1.Execution_Type__c='eMail';
+    rcobj1.RecordTypeId=childCampaign;
+        rcobj1.OwnerId = thisUser.Id;
+    rclist.add(rcobj1);
+    insert rclist;
+    
+     Test.startTest();
+     RetailCampaignHelper.emailNotificationRetail(rclist);
+     RetailCampaignHelper.updateParentCampaignStatus(campid);
+     RetailCampaignHelper.updateParentCampaignQuarter(campid);
+     Test.stopTest();
+    }
+  }  
+
+  
 }

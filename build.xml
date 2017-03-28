@@ -523,6 +523,7 @@
 								<sf:include name="RetailTaskHelperJP"/>                                                                                          
 								<sf:include name="RetailTaskHelperJPTest"/>  
 								<sf:include name="LeadcustomClone"/>
+								<sf:include name="LeadcustomClone_Test"/>
 								<sf:include name="LeadMergeController"/>                                                     
 								<sf:include name="UtilShare"/>
 								<sf:include name="UtilShareTest"/>

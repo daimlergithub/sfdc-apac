@@ -236,7 +236,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
      List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
   
   For(Retail_Campaign__c reCampaign : retList ){
-  
+         if(!Test.isRunningTest()){
           
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
@@ -254,6 +254,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
             mails.add(mail);   
 
             }
+			}
   Messaging.sendEmail(mails);
   
   
