@@ -21584,7 +21584,7 @@
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
+        <layout>Case-JP Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
