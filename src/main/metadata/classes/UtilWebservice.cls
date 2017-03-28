@@ -407,6 +407,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
         sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
@@ -467,6 +469,10 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        sendingCustomerDetails.Name= accountDetails.Name;
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
         
         addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;

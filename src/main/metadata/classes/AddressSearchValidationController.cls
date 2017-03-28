@@ -67,7 +67,7 @@ public class AddressSearchValidationController{
         // refreshPage = false;        
         User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
-		objPersonAccount.Allow_Data_Sharing2__c = 'No';
+        objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == 'KR'){
             mbkdatasource = true;
             datasource = false;
@@ -1056,9 +1056,13 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
            Address__c NewAdd=new Address__c();
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
+            }
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
+            {
+            response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
             if(AddressObj == NewAdd)
             {
