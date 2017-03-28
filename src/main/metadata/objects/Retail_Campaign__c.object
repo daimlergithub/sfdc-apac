@@ -491,6 +491,16 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Auto_Segmentation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When check a segmentation criteria must selected</description>
+        <externalId>false</externalId>
+        <label>Auto-Segmentation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>BP_Category__c</fullName>
         <externalId>false</externalId>
@@ -1772,6 +1782,16 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>IsAutoSegmentationExecuted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Update when auto-segmentation is completed and executed</description>
+        <externalId>false</externalId>
+        <label>IsAutoSegmentationExecuted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Labor_Turn_over__c</fullName>
         <description>Retail Campaign: Labor Turn over of the campaign</description>
@@ -2654,6 +2674,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Segmentation_Criteria__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segmentation Criteria</label>
+        <referenceTo>Segmentation_Criteria__c</referenceTo>
+        <relationshipLabel>Retail Campaigns</relationshipLabel>
+        <relationshipName>Retail_Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Segmentation_Date__c</fullName>
         <externalId>false</externalId>
@@ -3420,6 +3453,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>hasError__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Update when theres an error on the auto-segmentation</description>
+        <externalId>false</externalId>
+        <label>hasError</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>migr_sourceid__c</fullName>
@@ -13241,6 +13284,12 @@ Y_Apply_Deadline__c &lt; TODAY(),
 false)</errorConditionFormula>
         <errorDisplayField>Y_Apply_Deadline__c</errorDisplayField>
         <errorMessage>Apply Deadline must later than today</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Auto_Segmentation_Criteria</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
+        <errorMessage>Field Is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Monthly</fullName>
