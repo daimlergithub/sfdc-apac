@@ -20129,6 +20129,88 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>Add_Participating_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Participating Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Consolidate_List_Maintenance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Consolidate List Maintenance</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')} 
+
+var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c From Participating_Dealer__c WHERE Campaign__c = '{!Campaign.Id}' AND Approve_the_List__c= false "); 
+
+var qrerecords = qre.getArray("records"); 
+
+if(qrerecords.length&gt;0){ 
+
+try{ 
+
+
+jQuery(function() { 
+/*Append the jQuery CSS CDN Link to the Head tag.*/ 
+jQuery('head').append('&lt;link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css" type="text/css" /&gt;'); 
+
+/*Create the HTML(DIV Tag) for the Dialog.*/ 
+var html = 
+'&lt;div id="dialog" title="WARNING"&gt;&lt;p&gt; List Maintenance is not yet completed do u want to proceed &lt;/p&gt;&lt;/div&gt;'; 
+
+/*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/ 
+if(!jQuery('[id=dialog]').size()){ 
+jQuery('body').append(html); 
+} 
+
+/*Open the jQuery Dialog.*/ 
+jQuery( "#dialog" ).dialog({ 
+autoOpen: true, 
+modal: true, 
+show: { 
+effect: "bounce", 
+duration: 1000 
+}, 
+hide: { 
+effect: "bounce", 
+duration: 10 
+}, 
+buttons: { 
+"Proceed": function() { 
+
+ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');	
+
+jQuery( this ).dialog( "close" ); 
+}, 
+Cancel: function() { 
+jQuery( this ).dialog( "close" ); 
+} 
+} 
+}); 
+}); 
+} 
+catch(e){ 
+alert('An Error has Occured. Error: ' + e); 
+} 
+}else if(qrerecords.length== 0) { 
+location.replace('/apex/Consolidation_List?Id={!Campaign.Id}'); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
