@@ -14,7 +14,7 @@ public class TriggerCampaignMembersTriggerHandler
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        Map<Id,CampaignMember> oldmap = (Map<Id,CampaignMember>)trigger.oldmap;
+        /*Map<Id,CampaignMember> oldmap = (Map<Id,CampaignMember>)trigger.oldmap;
         Map<Id,CampaignMember> newmap = (Map<Id,CampaignMember>)trigger.newmap;
         
         Set<Id> cmIds = newMap.keySet();
@@ -33,7 +33,7 @@ public class TriggerCampaignMembersTriggerHandler
             acc.Last_Campaign_Date__c = cmMap.get(acc.PersonContactId);
         }
         
-        Database.update(accList,false);
+        Database.update(accList,false);*/
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
