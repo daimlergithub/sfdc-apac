@@ -5101,6 +5101,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>N</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>R</fullName>
                 <default>false</default>
             </values>
@@ -5644,6 +5648,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>L</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6207,6 +6215,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>L</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N</fullName>
                 <default>false</default>
             </values>
             <values>
