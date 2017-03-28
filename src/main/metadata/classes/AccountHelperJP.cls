@@ -873,14 +873,15 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
-                
+             if(LeadUtil.Acctrigger )
+            {    
                 for(Account abc: accMainList)
                 
                 {
                      sid.add(abc.Id);   
                 }
                 
-                
+            }    
                 
                 
 
@@ -949,6 +950,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
        }
        }
      Update Updateli ;
+    LeadUtil.Acctrigger = false; 
 }
 
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
