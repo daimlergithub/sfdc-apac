@@ -1,6 +1,6 @@
 global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Database.Stateful, Schedulable {
     
-    global List<Retail_Campaign__c> retNotiList = new List<Retail_Campaign__c>();
+  /*  global List<Retail_Campaign__c> retNotiList = new List<Retail_Campaign__c>();
     global Set<Id> camMem = new Set<Id>();
     global Set<String> errorList = new Set<String>();
     global Database.QueryLocator start(Database.BatchableContext bc) {
@@ -123,7 +123,7 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
       
     
     
-    }
+    } */
       
        
        global void execute(SchedulableContext ctx) {
