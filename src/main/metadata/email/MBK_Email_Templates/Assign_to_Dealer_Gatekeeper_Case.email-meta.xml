@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Assign to Dealer Gatekeeper Case</name>
     <style>none</style>
     <subject>[{!Case.CaseNumber} 새로운 고객 {!Case.RecordType} 인입 알림]</subject>
