@@ -11454,11 +11454,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Dealer_List_Member__c.Campaign_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Dealer_List_Member__c.Company_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
