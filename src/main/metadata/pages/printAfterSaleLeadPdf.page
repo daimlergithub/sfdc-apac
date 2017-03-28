@@ -152,7 +152,7 @@
                         <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
                     </td>
                     <tr>
-                        <td colspan = "6" width ="75%">
+                        <td colspan = "6" width ="75%" style ="font-family:Arial Unicode MS">
                             <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}"/>
                         </td>
                 </tr>
