@@ -112,6 +112,11 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID</token>
 	</changetext>
@@ -133,6 +138,11 @@
     <changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+    <changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
 	</changetext>
 	 <changetext>
@@ -883,11 +893,11 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
 	</changetext> 
-		 <changetext>
-			<filename>objects\Leads__c.object</filename>
-			<xpath>/CustomObject/webLinks[fullName/text()='Convert']/url/text()</xpath>
-			<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
-		</changetext>
+	 <changetext>
+		<filename>objects\Leads__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Convert']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
 		<changetext>
 			<filename>objects\Leads__c.object</filename>
 			<xpath>/CustomObject/webLinks[fullName/text()='Convert']/url/text()</xpath>
