@@ -339,7 +339,7 @@
                 <field>Received_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Accepted_Date_Time__c</field>
             </layoutItems>
         </layoutColumns>
