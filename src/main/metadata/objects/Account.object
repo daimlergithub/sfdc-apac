@@ -53685,7 +53685,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'KR'))</e
     </validationRules>
     <validationRules>
         <fullName>Brahcn_name_Native</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
  OR(LEN(Branch_name_Native__c)=1,
  NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
