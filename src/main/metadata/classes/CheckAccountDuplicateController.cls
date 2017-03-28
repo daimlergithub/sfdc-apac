@@ -163,7 +163,7 @@ public void onLineDeduplication(){
                    
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
-                    if(objPersonAccount.Id !=: objAccountDeDup.Id)
+                    if(objPersonAccount.Id != objAccountDeDup.Id)
                     {
                      lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName OR Name=:objAccountDeDup.Name];// and FirstName =: objPersonAccount.FirstName];
                     }              
