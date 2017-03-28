@@ -220,6 +220,10 @@
         <label><!-- CL Cancel --></label>
         <name>CL_Cancel</name>
     </customLabels>
+	<customLabels>
+        <label>データ共有を許可する</label>
+        <name>Allow_data_sharing2</name>
+    </customLabels>
     <customLabels>
         <label><!-- CL Collectioner Notes --></label>
         <name>CL_Collectioner_Notes</name>

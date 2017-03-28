@@ -251,6 +251,13 @@
         <shortDescription>AftersalesContacTarget1</shortDescription>
         <value>Aftersales Contact Target 1</value>
     </labels>
+	<labels>
+        <fullName>Allow_data_sharing2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow data sharing2</shortDescription>
+        <value>Allow Data Sharing</value>
+    </labels>
     <labels>
         <fullName>AftersalesContactTarget2</fullName>
         <language>en_US</language>

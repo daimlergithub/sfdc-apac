@@ -112,10 +112,12 @@
                     <apex:inputField value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
-					<apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP') ),true,false)}" />
-                   
+					</apex:pageBlockSection>
+					<apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">
                     
-                </apex:pageBlockSection>
+                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" />
+                
+                   </apex:pageBlockSection>
                 
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'KR') ),true,false)}">
