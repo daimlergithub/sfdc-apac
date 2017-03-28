@@ -851,14 +851,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PrintPDF</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -24492,10 +24484,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
