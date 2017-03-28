@@ -634,6 +634,11 @@
 							   <sf:include name="SelectSlaveLead"/>             
 											<sf:include name="LeadVehiclePickerKR"/>
 											<sf:include name="MarketCheckOnVehiclePicker"/>
+											<sf:include name="AddParticipatingDealer"/>
+											<sf:include name="Consolidation_List"/>
+											
+											
+											
 			</sf:typeset>
 			<sf:typeset name="classes">
 							<sf:include name="MisunderstoodTaskGeneration"/>
@@ -666,6 +671,11 @@
 							<sf:include name="CampaignHelper"/>                                                                                                                                               <sf:include name="CampaignHelperTest"/>
 							<sf:include name="TriggerCampaignTriggerHandlerJP"/>
 							<sf:include name="TriggerCampaignTriggerHandlerKR"/>
+							<sf:include name="ConsolidationContorller"/>
+							<sf:include name="AccountTable"/>
+							<sf:include name="Batch_AutoSegmentation"/>
+							<sf:include name="Batch_BounceStatus"/>
+							
 
 			</sf:typeset>
 			<sf:typeset name="triggers">
