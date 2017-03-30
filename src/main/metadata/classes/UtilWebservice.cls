@@ -408,7 +408,9 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
         sendingCustomerDetails.Vin = accountDetails.VIN__c; 
         sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
-        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c;         
+         sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
@@ -473,6 +475,8 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Vin = accountDetails.VIN__c; 
         sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
         sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
+        sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
         
         addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;
