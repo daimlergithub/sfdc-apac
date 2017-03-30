@@ -832,7 +832,10 @@ public class AccountLinkHelper
                          province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
                     } 
                     acclink.Retail_Province__c = province ;  
+					 if(province ==null)
+                    {
                     acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
+					}
                     //acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' ); 
                     acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
                     acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
