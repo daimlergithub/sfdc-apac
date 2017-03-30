@@ -581,7 +581,7 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           //window.top.location="/{!currentRecordId}";
+                           window.top.location="/{!currentRecordId}";
                        }                            
               });
           };
