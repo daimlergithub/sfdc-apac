@@ -1276,6 +1276,18 @@
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
     </fields>
+	    <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Campaigns (Campaign)</relationshipLabel>
+        <relationshipName>Campaigns1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Closed_Date__c</fullName>
         <description>Date for the campaign close to dealer.</description>
