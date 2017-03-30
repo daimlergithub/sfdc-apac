@@ -6066,6 +6066,11 @@
         <field>Campaign.Task_Created_By__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.CloneCampaign__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Task_De_dup_Range__c</field>
