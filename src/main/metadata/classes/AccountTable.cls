@@ -46,9 +46,22 @@ Public class AccountTable{
         
     Public void SearchLogic(){
         
-          if(dealerType != null || dealerCode != null ) {
-        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND  RecordType.Name = 'Dealer']));
-        } else {
+          if(!String.isBlank(dealerType) && !String.isBlank(dealerCode) ) {
+          system.debug('+++++'+'First');
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' ]));
+        } else if(!String.isBlank(dealerType) && String.isBlank(dealerCode) ){
+           system.debug('+++++'+'Second');
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType  AND RecordType.Name = 'Dealer' ]));
+        
+        } else if(String.isBlank(dealerType) && !String.isBlank(dealerCode) ){
+        system.debug('+++++'+'Third');
+        
+       Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_GC_Code__c=:dealerCode  AND RecordType.Name = 'Dealer' ]));
+       
+        }
+        
+        
+        else {
         Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer'])); 
         
         }
