@@ -326,6 +326,10 @@
         <apexClass>BatchJobHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+		    <classAccesses>
+        <apexClass>Batch_BounceStatus</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>BatchUpdateRecords</apexClass>
         <enabled>false</enabled>
