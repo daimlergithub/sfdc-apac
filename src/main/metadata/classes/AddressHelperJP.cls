@@ -5,6 +5,7 @@
     Create By: Sriram kalluri
 */
 public with sharing class AddressHelperJP {
+	static User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
        
             
        /**             
@@ -163,6 +164,7 @@ public with sharing class AddressHelperJP {
         set<id> accountId = new set<id>();  
         list<Account_Link__c> accountList = new list<Account_Link__c>();
         list<Account_Link__c> accountList1 = new list<Account_Link__c>();
+		if(usr.Profile.Name != 'IntegrationAPI'){
         for(Address__c add:newMap.values()){
            accountId.add(add.id);
         } 
@@ -204,5 +206,7 @@ public with sharing class AddressHelperJP {
             {
                 update accountList1; 
             }
+		}
     }
+	
 }
