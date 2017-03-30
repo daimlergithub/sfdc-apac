@@ -285,6 +285,7 @@
             $scope.models = [];
             $scope.realtedColours = [];
             $scope.colours = [];
+			$scope.escapedColours = [];
             /*VF Remoting to fetch car models based on status type*/
             Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerForCaseControllerKR.getCarModels}',status_type,
@@ -299,6 +300,13 @@
                         $scope.models = $scope.classModel[selected_Class];
                         $scope.colorModel = $scope.brand_class_modelWrap[2];
                         $scope.realtedColours = $scope.colorModel[selectedModel];
+						if($scope.realtedColours != undefined){
+							for(var i=0; i<$scope.realtedColours.length; i++){
+								$scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+							}
+						}
+						console.log('This is ' + selectedColour);
+						console.log($scope.escapedColours);
                         $scope.$apply();
              });
         }
@@ -321,16 +329,18 @@
          
          $scope.setSelectedColour = function(model_selected){
             $scope.realtedColours = $scope.colorModel[model_selected];
-            $scope.sortedColours = orderBy( $scope.realtedColours, '-' , false);
+            $scope.sortedColours = orderBy($scope.realtedColours, '-' , false);
             $scope.Colours = [];
             
          }
          $scope.setColourValue = function(model_selected){
             $scope.Colours = $scope.colorModel[model_selected];
+			console.log($scope.Colours);
          }
          
          
          $scope.getSelectedColour = function (color_value){
+			console.log(color_value);
             $scope.selectedColour = color_value;
          }
             
@@ -551,10 +561,6 @@
               $scope.classVal = jq('#classItems :selected').text();//document.getElementById("classItems").value;
               $scope.colourVal = jq('#colourItems :selected').text();//$sanitize(document.getElementById("colourItems").value);
               $scope.modelVal = jq('#modelItemsIntrstedVeh :selected').text();//document.getElementById("modelItemsIntrstedVeh").value;
-              
-             
-              
-             
               $scope.mileage = document.getElementById("mileageValue").value;               
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brandVal, Class:$scope.classVal,
@@ -825,7 +831,7 @@
                     <td>{!$label.Colour}</td>
                       <td>
                           <select style="width:150px" ng-change="getSelectedColour(selectedColour)" id="colourItems" ng-model="selectedColour">
-                                <option ng-repeat="colour in realtedColours" ng-selected="selectedColour == colour" ng-bind-html="colour" value="{{colour}}"></option>
+                                <option ng-repeat="colour in escapedColours" ng-selected="selectedColour == colour" ng-bind-html="colour" value="{{colour}}"></option>
                           </select>
                       </td>                 
                 </tr>
