@@ -14874,6 +14874,11 @@
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Retail_Task__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Campaign_ID__c</field>
@@ -16559,6 +16564,11 @@
         <field>Retail_Campaign__c.Approver__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Auto_Segmentation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.BP_Category__c</field>
@@ -16772,6 +16782,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Historical_Actual_Show_up_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.IsAutoSegmentationExecuted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17064,6 +17079,11 @@
         <field>Retail_Campaign__c.Segmentation_Base__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Segmentation_Criteria__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Segmentation_Date__c</field>
@@ -17317,6 +17337,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Yearly_TA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.hasError__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
