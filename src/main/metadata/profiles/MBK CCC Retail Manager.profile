@@ -146,11 +146,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSalesConsole</application>
         <default>false</default>
         <visible>true</visible>
@@ -863,14 +858,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ParticipateDealerHandlerTestJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PrintPDF</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PrintPDFTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -9018,21 +9005,6 @@
         <editable>false</editable>
         <field>Case.MBDA_feedback__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.MBK_Case_Class__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.MBK_Case_Sub_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.MBK_Case_Type__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20626,11 +20598,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Survey_Question__c.Question_Ref__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Survey_Question__c.Redirect_Question_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20648,11 +20615,6 @@
         <editable>false</editable>
         <field>Survey_Question__c.Survey_Answer_Id__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Survey_Question__c.Survey__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -24483,10 +24445,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MarketingCloudSettings</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MassApproveRetailCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -24509,10 +24467,6 @@
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
-        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
