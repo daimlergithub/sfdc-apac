@@ -66,6 +66,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -159,6 +160,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -257,6 +259,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -296,6 +299,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -373,6 +377,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -385,21 +390,22 @@
             <controllingField>Repeated_Campaign__c</controllingField>
             <picklistValues>
                 <fullName>Ad Hoc</fullName>
-                <controllingFieldValues>unchecked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>unchecked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Regular-Continuous</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Regular-Periodic</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -422,6 +428,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -461,6 +468,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -475,6 +483,39 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Execution_Channels__c</fullName>
+        <externalId>false</externalId>
+        <label>Campaign Execution Channels</label>
+        <picklist>
+            <picklistValues>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Campaign_Format__c</fullName>
@@ -531,6 +572,7 @@
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -582,6 +624,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -632,6 +675,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -700,6 +744,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -712,6 +757,7 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -719,10 +765,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -730,10 +776,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -741,10 +787,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -752,10 +798,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -763,10 +809,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -774,10 +820,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -785,10 +831,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -796,10 +842,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -807,10 +853,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -818,10 +864,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -829,10 +875,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -840,10 +886,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -851,10 +897,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -862,10 +908,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -873,10 +919,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -884,10 +930,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -895,10 +941,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -906,10 +952,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -917,10 +963,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -928,10 +974,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -939,10 +985,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -950,10 +996,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G65 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -961,10 +1007,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -972,10 +1018,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -983,10 +1029,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -994,10 +1040,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1005,10 +1051,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1016,10 +1062,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1027,10 +1073,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1038,10 +1084,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S65 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1049,10 +1095,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1060,10 +1106,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1071,10 +1117,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>TRUCKS</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1082,10 +1128,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1093,10 +1139,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1104,10 +1150,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 L AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1115,10 +1161,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GenericModel</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1126,10 +1172,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1137,10 +1183,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1148,10 +1194,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML 55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1159,10 +1205,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1170,10 +1216,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL55 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1181,10 +1227,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Sport Sedan</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1192,10 +1238,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1203,10 +1249,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1214,10 +1260,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1225,10 +1271,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
+                <default>false</default>
                 <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
@@ -1236,10 +1282,10 @@
                 <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <controllingFieldValues>MB Vans</controllingFieldValues>
                 <controllingFieldValues>smart</controllingFieldValues>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -1252,231 +1298,232 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLC-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>M-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Viano</fullName>
-                <controllingFieldValues>MB Cars</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Cars</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>fortwo</fullName>
-                <controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Citan</fullName>
-                <controllingFieldValues>MB Vans</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Vans</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Valente</fullName>
-                <controllingFieldValues>MB Vans</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Vans</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vito</fullName>
-                <controllingFieldValues>MB Vans</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Vans</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sprinter</fullName>
-                <controllingFieldValues>MB Vans</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Vans</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Argosy</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Century Class</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Columbia</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Coronado 112</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Coronado SD 114</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Coronado 114</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sterling</fullName>
-                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Actros</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Atego</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Axor</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Econic</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unimog</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Zetros</fullName>
-                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>City Bus</fullName>
-                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Charter Bus</fullName>
-                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>School Bus</fullName>
-                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Coach</fullName>
-                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Canter</fullName>
-                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fighter</fullName>
-                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Heavy</fullName>
-                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rosa</fullName>
-                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
@@ -1568,6 +1615,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1631,6 +1679,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1666,6 +1715,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -1893,6 +1943,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2011,6 +2062,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2079,6 +2131,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2093,6 +2146,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Ready_to_Execute__c</fullName>
@@ -2176,6 +2246,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2195,36 +2266,37 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             <controllingField>Repeated_Campaign__c</controllingField>
             <picklistValues>
                 <fullName>Daily</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Weekly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Bi-Weekly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Monthly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Quarterly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Yearly</fullName>
-                <controllingFieldValues>checked</controllingFieldValues>
                 <default>false</default>
+                <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2267,6 +2339,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -2359,6 +2432,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2466,6 +2540,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2488,6 +2563,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -2511,6 +2587,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
@@ -3152,6 +3229,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -3660,6 +3760,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Region__c</picklist>
             <values>
                 <fullName>Eastern</fullName>
@@ -4037,6 +4144,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -4545,6 +4675,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Region__c</picklist>
             <values>
                 <fullName>Eastern</fullName>
@@ -4882,6 +5019,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5386,6 +5546,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5755,6 +5922,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -6079,6 +6269,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6444,6 +6641,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -6768,6 +6988,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7149,6 +7376,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -7473,6 +7723,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7910,6 +8167,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8434,6 +8714,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Region__c</picklist>
             <values>
                 <fullName>Eastern</fullName>
@@ -8902,6 +9189,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9614,6 +9924,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10106,6 +10423,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -10814,6 +11154,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11306,6 +11653,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -12018,6 +12388,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Region__c</picklist>
             <values>
                 <fullName>Eastern</fullName>
@@ -12447,6 +12824,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -12963,6 +13363,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13352,6 +13759,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -13868,6 +14298,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14257,6 +14694,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Campaign_Format__c</picklist>
             <values>
                 <fullName>Autoshow</fullName>
@@ -14777,6 +15237,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Region__c</picklist>
             <values>
                 <fullName>Eastern</fullName>
@@ -15157,6 +15624,29 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eEmail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15673,6 +16163,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
             </values>
             <values>
                 <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Range__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
