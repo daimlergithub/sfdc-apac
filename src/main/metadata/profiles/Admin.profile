@@ -6076,6 +6076,11 @@
         <field>Campaign.Campaign_Code__c</field>
                                 <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.CloneCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Campaign_Executer__c</field>
