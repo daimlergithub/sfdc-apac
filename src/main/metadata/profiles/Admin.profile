@@ -302,6 +302,10 @@
         <apexClass>BatchAssignTasks</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>Batch_BounceStatus</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>BatchAssignTasksTest</apexClass>
         <enabled>true</enabled>
@@ -6075,6 +6079,11 @@
         <editable>true</editable>
         <field>Campaign.Campaign_Code__c</field>
                                 <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.CloneCampaign__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
