@@ -298,6 +298,18 @@
         <apexClass>AvatoHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>AccountTable</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConsolidationContorller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>AddToCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AvatoHelperTest</apexClass>
         <enabled>true</enabled>
@@ -23681,6 +23693,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+			<pageAccesses>
+        <apexPage>Consolidation_List</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>AddParticipatingDealer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>AddToCampaign</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	 <pageAccesses>

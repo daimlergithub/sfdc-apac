@@ -7,5 +7,6 @@ public class LeadUtil {
     public static boolean leadAccountlnktrigger = true;
     public static boolean Campaigntrigger = true;
     public static boolean Acctrigger = true;
+	public static boolean AccountLinkTrigger = true;
 
 }
