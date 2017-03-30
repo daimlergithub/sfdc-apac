@@ -108949,7 +108949,7 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveLead?Id={!Le
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
+if('{!User.ContactId}' ==null) {
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -108964,6 +108964,7 @@ sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LE
 
 } 
 ) 
+}
 }	
 else { 
 if('{!User.ContactId}' !=null) {
@@ -109000,7 +109001,7 @@ window.open("OBJECT_LEAD_ID?RecordType=012280000006I7q&amp;ent=Account&amp;OBJEC
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
+if('{!User.ContactId}' ==null){
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -109017,6 +109018,7 @@ sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LE
 } 
 ) 
 }	
+}
 else { 
 if('{!User.ContactId}' !=null) 
 { 
