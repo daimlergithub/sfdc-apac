@@ -101,13 +101,13 @@ implements TriggerHandlerIf
             
             AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            
         }
         if(isBefore && isUpdate)
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         
