@@ -305,8 +305,6 @@
 								$scope.escapedColours.push($sanitize($scope.realtedColours[i]));
 							}
 						}
-						console.log('This is ' + selectedColour);
-						console.log($scope.escapedColours);
                         $scope.$apply();
              });
         }
@@ -329,7 +327,12 @@
          
          $scope.setSelectedColour = function(model_selected){
             $scope.realtedColours = $scope.colorModel[model_selected];
-            $scope.sortedColours = orderBy($scope.realtedColours, '-' , false);
+			if($scope.realtedColours != undefined){
+				for(var i=0; i<$scope.realtedColours.length; i++){
+					$scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+				}
+			}
+            $scope.sortedColours = orderBy($scope.escapedColours, '-' , false);
             $scope.Colours = [];
             
          }
