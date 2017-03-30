@@ -302,6 +302,10 @@
         <apexClass>AvatoHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+		    <classAccesses>
+        <apexClass>Batch_BounceStatus</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>BatchAssignTasks</apexClass>
         <enabled>true</enabled>
