@@ -869,7 +869,7 @@ public class AccountLinkHelper
       */
  public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
-
+  if(LeadUtil.AccountLinkTrigger){
  
  
     list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
@@ -1030,6 +1030,8 @@ public class AccountLinkHelper
     }
  }
  }
+ }
+ LeadUtil.AccountLinkTrigger = false;
  }
   public static void afterDeleteEvent(List<Account_Link__c>oldlist)
  {
