@@ -302,6 +302,10 @@
         <apexClass>BatchAssignTasks</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>Batch_BounceStatus</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>BatchAssignTasksTest</apexClass>
         <enabled>true</enabled>

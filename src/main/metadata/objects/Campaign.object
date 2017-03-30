@@ -20299,6 +20299,26 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <protected>false</protected>
         <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
+		    <webLinks>
+        <fullName>Custom_Clone</fullName>
+        <availability>online</availability>
+        <description>Custom button “Clone“ will be available on the parent campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Custom Clone</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID={!Campaign.Name}</url>
+    </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>
         <availability>online</availability>

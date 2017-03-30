@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Custom_Clone</customButtons>
     <customButtons>Create_Child_Campaign_For_Execution</customButtons>
+    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -28,7 +30,7 @@
                 <behavior>Edit</behavior>
                 <field>Campaign_Executer__c</field>
             </layoutItems>
-			            <layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Campaign_Execution_Channels__c</field>
             </layoutItems>
@@ -47,6 +49,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CloneCampaign__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

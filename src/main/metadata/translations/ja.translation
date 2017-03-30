@@ -221,7 +221,7 @@
         <name>CL_Cancel</name>
     </customLabels>
 	<customLabels>
-        <label>データ共有を許可する</label>
+        <label>個人情報第三者提供の許諾</label>
         <name>Allow_data_sharing2</name>
     </customLabels>
     <customLabels>
