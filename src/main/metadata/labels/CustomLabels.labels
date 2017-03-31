@@ -251,13 +251,6 @@
         <shortDescription>AftersalesContacTarget1</shortDescription>
         <value>Aftersales Contact Target 1</value>
     </labels>
-	<labels>
-        <fullName>Allow_data_sharing2</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Allow data sharing2</shortDescription>
-        <value>Allow Data Sharing</value>
-    </labels>
     <labels>
         <fullName>AftersalesContactTarget2</fullName>
         <language>en_US</language>
@@ -284,6 +277,13 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Allow Data Sharing</shortDescription>
+        <value>Allow Data Sharing</value>
+    </labels>
+    <labels>
+        <fullName>Allow_data_sharing2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow data sharing2</shortDescription>
         <value>Allow Data Sharing</value>
     </labels>
     <labels>
@@ -399,6 +399,13 @@
         <protected>false</protected>
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
+        <fullName>Backslash</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Backslash</shortDescription>
+        <value>\</value>
     </labels>
     <labels>
         <fullName>Birthdate</fullName>
@@ -2994,6 +3001,13 @@ please contact the number below.</value>
         <value>Last Modified Date</value>
     </labels>
     <labels>
+        <fullName>Latest_Phase_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Latest Phase History</shortDescription>
+        <value>Latest Phase History</value>
+    </labels>
+    <labels>
         <fullName>LeadId</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3900,6 +3914,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Priority</shortDescription>
         <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Process_Check_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Process Check Items</shortDescription>
+        <value>Process Check Items</value>
     </labels>
     <labels>
         <fullName>Product_ID</fullName>
@@ -5306,6 +5327,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Trade-in Vehicle Remaining</shortDescription>
         <value>Trade-in Vehicle Remaining</value>
+    </labels>
+    <labels>
+        <fullName>Triangle_Image</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Triangle Image</shortDescription>
+        <value>▲</value>
     </labels>
     <labels>
         <fullName>Trim</fullName>
