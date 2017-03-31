@@ -9,7 +9,7 @@
 
 public class AccountLinkHelper
 {
-    
+     
     public static Id AccountLink_ContactSectorRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -27,6 +27,7 @@ public class AccountLinkHelper
 * @return returns crm codes
 * @see   AccountLinkSharingWrapService, UserService, VehicleSharingWrapService
 */   
+	static User Integrationusr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public static string nameParsing(string name)
     {
         String crmCode;
@@ -741,6 +742,7 @@ public class AccountLinkHelper
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+		
         Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
@@ -832,7 +834,10 @@ public class AccountLinkHelper
                          province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
                     } 
                     acclink.Retail_Province__c = province ;  
+                     if(province ==null)
+                    {
                     acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
+                    }
                     //acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' ); 
                     acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
                     acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
@@ -848,7 +853,8 @@ public class AccountLinkHelper
         }//End of for loop
         
        // if(!AccountlnkUpdate.isEmpty())
-         //   update AccountlnkUpdate;
+     	 //   update AccountlnkUpdate;
+		 
     }//End of Method
 //created by:surya varma
 //sfdcjp-578
@@ -866,10 +872,16 @@ public class AccountLinkHelper
       */
  public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
-
+  if(LeadUtil.AccountLinkTrigger){
  
  
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+  Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
+    Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
+    Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
+    Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
+    Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
+    
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:rc or RecordtypeId=:rp)];
     set<id>toroleidlist=new set<id>();
     set<id>fromroleidlist=new set<id>();
     set<String> GCCode = new set<String>();
@@ -912,14 +924,11 @@ public class AccountLinkHelper
     map<string,id> assgroupMap = new map<string,id>();  
     //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
    // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
-    Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
-    Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
-    Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
-    Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
-    Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
-  
+   
+   
     for(Account_Link__c al:allist)
     {
+    
         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
         {
             
@@ -1027,6 +1036,8 @@ public class AccountLinkHelper
     }
  }
  }
+ }
+ LeadUtil.AccountLinkTrigger = false;
  }
   public static void afterDeleteEvent(List<Account_Link__c>oldlist)
  {
@@ -1273,7 +1284,7 @@ public class AccountLinkHelper
         Set<Id> perAccIdSet = new Set<Id>();
         Set<Id> comAccIdSet = new Set<Id>();
         Map<Id,Id> retComAccLinkMap = new Map<Id,Id>();
-        if((isInsert || isUpdate) && isBefore){
+        if((isInsert || isUpdate) && isBefore && Integrationusr.Profile.Name != 'IntegrationAPI'){
             for(Account_Link__c accLink : accLst){
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);

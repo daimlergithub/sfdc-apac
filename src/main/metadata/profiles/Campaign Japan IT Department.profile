@@ -298,6 +298,18 @@
         <apexClass>AvatoHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>AccountTable</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>ConsolidationContorller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>AddToCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AvatoHelperTest</apexClass>
         <enabled>true</enabled>
@@ -14862,6 +14874,11 @@
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Retail_Task__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Campaign_ID__c</field>
@@ -16547,6 +16564,11 @@
         <field>Retail_Campaign__c.Approver__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Auto_Segmentation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.BP_Category__c</field>
@@ -16760,6 +16782,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Historical_Actual_Show_up_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.IsAutoSegmentationExecuted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17052,6 +17079,11 @@
         <field>Retail_Campaign__c.Segmentation_Base__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Segmentation_Criteria__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Segmentation_Date__c</field>
@@ -17305,6 +17337,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Yearly_TA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.hasError__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19420,6 +19457,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>SSI__c.VehicleUSvin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.Criteria__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -23103,6 +23145,9 @@
     <layoutAssignments>
         <layout>SSI__c-SSI Record Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Segmentation_Criteria__c-Segmentation Criteria Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>ServiceContract-Service Contract Layout</layout>
     </layoutAssignments>
@@ -23479,6 +23524,15 @@
         <object>Retail_Task__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Segmentation_Criteria__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -23664,6 +23718,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+			<pageAccesses>
+        <apexPage>Consolidation_List</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>AddParticipatingDealer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>AddToCampaign</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	 <pageAccesses>
@@ -24739,6 +24805,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Task__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Segmentation_Criteria__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

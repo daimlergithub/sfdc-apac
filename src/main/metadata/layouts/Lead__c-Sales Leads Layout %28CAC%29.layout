@@ -68,7 +68,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Possibility_text__c</field>
-            </layoutItems>
+           </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
@@ -118,7 +118,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>
+           </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lead_Status__c</field>
@@ -268,7 +268,7 @@
                 <field>Email__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+               <behavior>Edit</behavior>
                 <field>Fax__c</field>
             </layoutItems>
         </layoutColumns>
@@ -412,7 +412,7 @@
                 <height>200</height>
                 <page>MarketCheckOnVehiclePicker</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
@@ -437,7 +437,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Purchased_Vehicle_Text__c</field>
+               <field>Purchased_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

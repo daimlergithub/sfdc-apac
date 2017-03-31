@@ -140,11 +140,27 @@ Public class AccountTable{
     }
 
     public void  clickMe(){
-        
+        List<Account> acc = New List<Account>();
         
         CamId =ApexPages.currentPage().getParameters().get('id');
         getSelectedAccount();
         selectedList = SelectedAccountMap.values();
+        
+        
+        List<Participating_Dealer__c> participateDealer = [select id ,Dealer__c ,Campaign__c From Participating_Dealer__c where Campaign__c =:camid AND Dealer__c =: SelectedAccountMap.keySet()  ];
+        
+             for(Participating_Dealer__c newpd : participateDealer ){
+             
+                       
+                       if(SelectedAccountMap.containsKey(newpd.Dealer__c)){
+                          
+                         SelectedAccountMap.remove(newpd.Dealer__c);  // removing Duplicate Ids
+                       
+                       }    
+            }
+        
+        
+        
         for(Account pdMain : SelectedAccountMap.values()){
         Participating_Dealer__c pd = New Participating_Dealer__c();
         pd.Campaign__c = CamId;
