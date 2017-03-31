@@ -59,7 +59,7 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >        
-                     <apex:outputLabel value="Touch Point" />       
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />       
                   <apex:inputText value="{!TouchPoint}"  />             
                   </apex:pageBlockSectionItem> 
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
@@ -95,7 +95,7 @@
                         
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
-                     <apex:outputLabel value="Touch Point" />
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />
                   <apex:inputText value="{!TouchPoint}"  />        
                   </apex:pageBlockSectionItem> 
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />

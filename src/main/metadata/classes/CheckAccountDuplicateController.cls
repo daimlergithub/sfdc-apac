@@ -26,7 +26,7 @@ public Boolean CompanyAcc{get;set;}
 public List<Account> cResult{get;set;}
 public void onLineDeduplication(){  
         objPersonAccount1 = new Account();
-        objPersonAccount= [select id,MD__c,Phone,Mobile2__c,Email__c,Email2__c,RecordTypeID,Email3__c,Salutation,Name,Work_Phone__c,Home_Phone_2__c,LastName,PersonEmail,Mobile__c,Loyalty_Card_No__c,LastName_Native_1__c,PersonBirthdate,FirstName_Native_1__c,FirstName,Individual_Home_Phone__c,PersonMobilePhone from Account WHERE Id =: apexpages.currentpage().getparameters().get('id')];
+        objPersonAccount= [select id,MD__c,Phone,Mobile2__c,Company_Name__c, Company_Name_Native_1__c , Foundation_date__c, Commercial_reg_no__c, Email__c,Email2__c,RecordTypeID,Email3__c,Salutation,Name,Work_Phone__c,Home_Phone_2__c,LastName,PersonEmail,Mobile__c,Loyalty_Card_No__c,LastName_Native_1__c,PersonBirthdate,FirstName_Native_1__c,FirstName,Individual_Home_Phone__c,PersonMobilePhone from Account WHERE Id =: apexpages.currentpage().getparameters().get('id')];
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();    
         List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType> listmess=new List<crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponseMessageType>();
@@ -75,6 +75,20 @@ public void onLineDeduplication(){
                 if(objPersonAccount.Id!=  null){
                     objPersonAccount1.Id= objPersonAccount.Id;   
                 }
+                
+                if(objPersonAccount.Company_Name__c!=  null){
+                    objPersonAccount1.Company_Name__c= objPersonAccount.Company_Name__c;   
+                }
+                if(objPersonAccount.Company_Name_Native_1__c !=  null){
+                    objPersonAccount1.Company_Name_Native_1__c= objPersonAccount.Company_Name_Native_1__c;   
+                }
+                if(objPersonAccount.Foundation_date__c!=  null){
+                    objPersonAccount1.Foundation_date__c= objPersonAccount.Foundation_date__c;   
+                }
+                if(objPersonAccount.Commercial_reg_no__c!=  null){
+                    objPersonAccount1.Commercial_reg_no__c= objPersonAccount.Commercial_reg_no__c;   
+                }
+                
                 if(objPersonAccount.LastName_Native_1__c !=  null){
                     objPersonAccount1.LastName_Native_1__c = objPersonAccount.LastName_Native_1__c;   
                 }

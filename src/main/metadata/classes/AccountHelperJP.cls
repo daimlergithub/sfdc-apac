@@ -11,6 +11,7 @@
 **/
 public class AccountHelperJP
 {
+    static User usr = [Select id, LanguageLocaleKey,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
 **  Date: 2015-12-22
@@ -178,7 +179,7 @@ public class AccountHelperJP
             set<id> addressid = new set<id>();                  
             String province;
 			String market;
-            User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+            //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
         	market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
 			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
@@ -508,6 +509,7 @@ public class AccountHelperJP
         system.debug('------>Method is called');
 Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
 List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+if(usr.Profile.Name != 'IntegrationAPI'){
   for(Account acc : accLst){
     if(isUpdate && acc.MD__c == label.MarketJp ){ //Checking Market for updated account
             if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c){
@@ -703,6 +705,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
+			}
     }//End of Method
     //*created by :Suryavarma
     // sharing account to dealer user
@@ -821,9 +824,10 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
         try{
           System.debug('inserting>>>>>>>>>>>>>');
-            user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
+           // user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
+			if(usr.Profile.Name != 'IntegrationAPI'){
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
            ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
@@ -859,6 +863,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                 
                 }
             }
+			}
         }
         catch(Exception e){
             System.debug('Error'+e.getMessage());
