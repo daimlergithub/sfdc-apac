@@ -1544,6 +1544,6 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&ent=Campaign</url>
+        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign</url>
     </webLinks>
 </CustomObject>
