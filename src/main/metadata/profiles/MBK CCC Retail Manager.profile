@@ -21604,7 +21604,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.Market__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -24678,6 +24678,14 @@
     <pageAccesses>
         <apexPage>usernotificationsetting</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>MarketCheckOnVehiclePickerCase</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>VehiclePickerforCaseKR</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
