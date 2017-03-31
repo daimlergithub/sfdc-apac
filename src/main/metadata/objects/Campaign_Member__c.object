@@ -1220,6 +1220,21 @@ ISPICKVAL( Status__c , "Not Responded")
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>Add_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var CampStatus = "{!Account.Id}";
+openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enableScopes=1&amp;addToCampaign=1',670,'1','')</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>
