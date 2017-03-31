@@ -408,6 +408,13 @@
         <value>you do not have the proper authorization</value>
     </labels>
     <labels>
+        <fullName>Backslash</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Backslash</shortDescription>
+        <value>\</value>
+    </labels>
+    <labels>
         <fullName>Birthdate</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3001,6 +3008,13 @@ please contact the number below.</value>
         <value>Last Modified Date</value>
     </labels>
     <labels>
+        <fullName>Latest_Phase_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Latest Phase History</shortDescription>
+        <value>Latest Phase History</value>
+    </labels>
+    <labels>
         <fullName>LeadId</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3907,6 +3921,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Priority</shortDescription>
         <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Process_Check_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Process Check Items</shortDescription>
+        <value>Process Check Items</value>
     </labels>
     <labels>
         <fullName>Product_ID</fullName>
@@ -5313,6 +5334,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Trade-in Vehicle Remaining</shortDescription>
         <value>Trade-in Vehicle Remaining</value>
+    </labels>
+    <labels>
+        <fullName>Triangle_Image</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Triangle Image</shortDescription>
+        <value>▲</value>
     </labels>
     <labels>
         <fullName>Trim</fullName>

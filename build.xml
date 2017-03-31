@@ -677,10 +677,13 @@
 							<sf:include name="TriggerCampaignTriggerHandlerJP"/>
 							<sf:include name="TriggerCampaignTriggerHandlerKR"/>
 							<sf:include name="ConsolidationContorller"/>
+							<sf:include name="ConsolidationContorllerTest"/>
 							<sf:include name="AccountTable"/>
+							<sf:include name="AccountTableTest"/>
 							<sf:include name="Batch_AutoSegmentation"/>
 							<sf:include name="Batch_BounceStatus"/>
 							<sf:include name="AddToCampaign"/>
+							<sf:include name="AddToCampaignTest"/>
 							
 
 			</sf:typeset>
