@@ -14712,6 +14712,9 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         </filters>
         <label>All third-party data</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_dealers_MBK</fullName>
@@ -14812,6 +14815,9 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <value>LAST_WEEK</value>
         </filters>
         <label>New Last Week</label>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>NewThisWeek</fullName>
@@ -14822,6 +14828,9 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <value>THIS_WEEK</value>
         </filters>
         <label>New This Week</label>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>PlatinumandGoldSLACustomers</fullName>
@@ -14831,7 +14840,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <columns>ACCOUNT.PHONE1</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
-        <label>Platinum and Gold SLA Customers</label>
+        <label>Platinum and Gold SLA Customers</label>		
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
