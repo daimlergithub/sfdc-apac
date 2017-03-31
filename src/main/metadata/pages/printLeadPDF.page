@@ -248,8 +248,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>&nbsp;
-                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
                 </td> 
             </tr>
             <tr>
@@ -263,10 +263,10 @@ background-color: blue;
                 </td>
                 <td >{!$Label.Registration_Date_Milage} </td>
                 <td>
-                    <apex:outputText value="{0,date,YYYY/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                    <apex:outputText value="{0,date,YYYY/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
                         <apex:param value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
                 </td> 
             </tr>   
             <tr>
@@ -281,10 +281,10 @@ background-color: blue;
                 </td> 
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
                         <apex:param value="{!vRList[0].Registration_Date__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
                         <apex:param value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
                     </apex:outputText>
                 </td>
@@ -300,7 +300,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td>
-					<apex:outputText value="{!vrList[0].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
+					<apex:outputText value="{!vrList[0].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
                 </td>
             </tr>
             <tr>
@@ -313,7 +313,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td>
-                	<apex:outputText value="{!vrList[0].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >0,true,false)}"/>
+                	<apex:outputText value="{!vrList[0].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
                 </td>
             </tr>
             <tr >  
@@ -327,8 +327,8 @@ background-color: blue;
                     </apex:outputLabel>
                 </td>
                 <td>
-                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>&nbsp;
-                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr> 
@@ -338,10 +338,10 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
                         <apex:param value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr>
@@ -351,10 +351,10 @@ background-color: blue;
                 </td>
                 <td>{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
                     	<apex:param value="{!vRList[1].Registration_Date__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
                         <apex:param value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
                     </apex:outputText>
                 </td>
@@ -368,7 +368,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
                 </td>
                 <td height = "30%">
-					<apex:outputText value="{!vRList[1].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>              
+					<apex:outputText value="{!vRList[1].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>              
                 </td>
             </tr>
             <tr>
@@ -380,7 +380,7 @@ background-color: blue;
                     <apex:outputLabel value="{!$Label.Purchase_Type}"/>
                 </td>
                 <td rowspan = "5">
-                	<apex:outputText value="{!vRList[1].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >1,true,false)}"/>
+                	<apex:outputText value="{!vRList[1].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
                 </td>
             </tr>
             <tr>
@@ -422,28 +422,28 @@ background-color: blue;
                 <td rowspan="5" width="15%">{!$Label.Current_Vehicle3}</td>
                 <td width="19%">{!$Label.Range_Model}</td>
                 <td>
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>&nbsp;
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>
             <tr>
-                <td width="41%" color="gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
+                <td width="41%" style="background-color:gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
                 <td>{!$Label.Registration_Date_Milage}</td>
                 <td>
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
                         <apex:param value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Registration_Date_Inspection_Date}</td>
                 <td>
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
                         <apex:param value="{!vRList[2].Registration_Date__c}"/>
                     </apex:outputText>&nbsp;
-                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
                         <apex:param value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
                     </apex:outputText>
                 </td>
@@ -452,14 +452,14 @@ background-color: blue;
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Leagl_Owner}</td>
                 <td>
-					<apex:outputText value="{!vRList[2].MOT_USER_NAME__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>               
+					<apex:outputText value="{!vRList[2].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>               
                 </td>
             </tr>   
             <tr>
                 <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
                 <td width="17%">{!$Label.Purchase_Type}</td>
                 <td>
-                	<apex:outputText value="{!vRList[2].Finance_Method__c}" rendered="{!if(Lead__c.contact__c !=null && vRList.size >2,true,false)}"/>
+                	<apex:outputText value="{!vRList[2].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
                 </td>
             </tr>   
         </table>
@@ -489,11 +489,11 @@ background-color: blue;
          <b>Next Activity</b>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
             <tr>
-                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;">{!$Label.Date}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Person_to_meet_Contact}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Lead_Activity_Type}</td>
-                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;">{!$Label.Subject}</td>
-                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;">{!$Label.Memo}</td>
+                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
             </tr>
             <apex:repeat value="{!activityList}" var="Task">
                 <tr>
@@ -584,8 +584,11 @@ background-color: blue;
         <apex:form >
             <apex:pageBlock >
                 <!--<apex:pageBlockSection columns="2">-->
-                <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;">                    
-                    <apex:column >  
+                <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;">
+                    <apex:column >
+                        <h1 style ="font-size:15px;text-align: left;">
+                            {!$Label.Latest_Phase_History}
+                        </h1>                    
                         <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isConatct = false,true,false)}"/>
                         <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isConatct = true,true,false)}"/>
                         <apex:outputLabel value="{!$Label.CL_Contact}"/>
@@ -651,7 +654,7 @@ background-color: blue;
                 <!--</apex:pageBlockSection>-->
                 <table style ="width:50%;height:90%;border:1px solid black;float:right;margin-bottom:10px">
                     <tr>
-                        <td border= "none" align="right" width="10%" height="25"/>
+                        <td border= "none" align="right" width="10%" height="25" style="background-color:gray"/>
                     </tr>
                     <tr>
                         <td border="none" align="right" width="10%" height="25"/>
@@ -665,7 +668,10 @@ background-color: blue;
                 </table>
                 <table style="width:50%;height:40%;border:1px solid Black;float:right;display:inline;">
                     <tr>
-                    	<td width = "100%" style ="border:none">                        	 
+                        <td width = "100%" style ="border:none">
+                            <h1 style ="font-size:15px;text-align:left;">
+                                {!$Label.Process_Check_Items}
+                            </h1>                                           	 
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
                             <apex:outputLabel value="{!$Label.Did_you_visit_home_or_company}"/><br/>
                             <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
@@ -705,10 +711,10 @@ background-color: blue;
                 </apex:pageBlockTable>-->
             </apex:pageBlock>
         </apex:form>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
             <tr>
-                <td class="TopTdLabel" align="Center" colspan="4" width="30%" height="25" style="border-right-style:solid;bgcolor:grey">
+                <td class="TopTdLabel" align="Center" colspan="4" width="30%" height="25" style="border-right-style:solid;background-color:gray">
                     {!$Label.Lead_Conditions}
                 </td>
             </tr>    
@@ -749,60 +755,123 @@ background-color: blue;
         <br/><br/>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
             <tr>
-                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;border-left-style:hidden:hidden;border-top-style:hidden;"></td>
+                <td border ="0" style="border-right-style:hidden;border-left-style:hidden;border-top-style:hidden;"></td>
                 <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_1}</td>
                 <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_2}</td>
                 <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_3}</td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="40%" height="25" style="border-right-style:hidden;">{!$Label.Vehicle_Price_Maker_option_price}</td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;align:left">
+                    {!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;align:left">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="40%" height="25" style="border-right-style:hidden;">{!$Label.Accessory_price_Dealer_Option_price} </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
             </tr>
             
             <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Total_Price}</td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
             </tr>
             
             <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Trade_in_Price}</td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Trade_in_Vehicle_Remaining}</td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.MBJ_support}</td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;border-right-style:hidden"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
-                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;border-right-style:hidden;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
             </tr>
             <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Grand_Total}</td>
                 <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Payment_Total} </td>
@@ -868,11 +937,11 @@ background-color: blue;
         <b>Activity History</b>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
             <tr>
-                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;">{!$Label.Date}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Person_to_meet_Contact}</td>
-                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Lead_Activity_Type}</td>
-                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;">{!$Label.Subject}</td>
-                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;">{!$Label.Memo}</td>
+                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
             </tr>
             <apex:repeat value="{!activityhistoryList}" var="TaskHistory">
                 <tr>
