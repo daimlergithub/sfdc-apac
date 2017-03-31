@@ -7,7 +7,7 @@ Usage               :    This functionaly will check the duplicate account recor
                          Business Conditions :
                           * Need to click on Duplicate check button.
                    
-JIRA NO             :    SFDCJP-1056                                            
+JIRA NO             :    SFDCJP-1056,SFDCJP-995                                    
  
 MODIFICATION DETAILS:
 Modified by          : Venky
@@ -19,7 +19,7 @@ public class CheckAccountDuplicateController{
 public Account objAccountDeDup{get;set;}
 public Account objPersonAccount{get;set;}
 public Account objPersonAccount1{get;set;}
-
+public String AddressDetails{get;set;}
 public string recordType{get;set;}
 public Boolean show {get;set;}
 public Boolean CompanyAcc{get;set;}
@@ -155,11 +155,11 @@ public void onLineDeduplication(){
                     // {
                     //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     // }
-                    /*if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
                     {   
                         AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         AddressDetails = AddressDetails.replace('null',' ');
-                   }*/
+                   }
                    
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
