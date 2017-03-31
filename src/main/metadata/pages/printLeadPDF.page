@@ -654,7 +654,9 @@ background-color: blue;
                 <!--</apex:pageBlockSection>-->
                 <table style ="width:50%;height:90%;border:1px solid black;float:right;margin-bottom:10px">
                     <tr>
-                        <td border= "none" align="right" width="10%" height="25" style="background-color:gray"/>
+                        <td border= "none" align="left" width="10%" height="25" style="background-color:gray;">
+                        	{!$Label.Needs_Problem_Points}
+                        </td>
                     </tr>
                     <tr>
                         <td border="none" align="right" width="10%" height="25"/>
