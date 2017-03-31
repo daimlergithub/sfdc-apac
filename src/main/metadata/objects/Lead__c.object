@@ -22105,6 +22105,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>AMGセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AMG_DM2016_GTR</fullName>
@@ -22131,6 +22134,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>AMGセントラルDM2016_GTR</label>
         <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Lead</fullName>
@@ -22665,6 +22671,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>カレコ</label>
         <language>ja</language>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
