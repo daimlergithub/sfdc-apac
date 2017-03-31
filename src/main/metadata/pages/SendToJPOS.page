@@ -105,7 +105,7 @@ else
               </apex:pageBlockSectionItem> 
                
               <apex:pageBlockSectionItem >                 
-                        <apex:outputLabel value="Assigned Dealer"/>
+                        <apex:outputLabel value="{!$Label.Assigned_Dealer}"/>
                         <apex:outputField value="{!AssignedDealer.DMS_UserID__c}"/>  
               </apex:pageBlockSectionItem>
               <apex:pageBlockSectionItem >                 
