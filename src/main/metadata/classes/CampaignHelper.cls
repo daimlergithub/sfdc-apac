@@ -371,6 +371,9 @@ For(Campaign camp : CamList ){
                 Campaign camm = New Campaign();
                 camm.Name = camp.Name;
                 camm.ParentId = came.Id;
+				camm.Segmentation_Date__c = camp.Segmentation_Date__c;
+                camm.Execution_Start_Date__c = camp.Execution_Start_Date__c ;
+                camm.Campaign_Status__c = camp.Campaign_Status__c;
                
                 camm.RecordTypeId = camIdExec;
                                                                         
