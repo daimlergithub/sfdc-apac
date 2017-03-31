@@ -27,7 +27,7 @@ public class AccountLinkHelper
 * @return returns crm codes
 * @see   AccountLinkSharingWrapService, UserService, VehicleSharingWrapService
 */   
-	static User Integrationusr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+    static User Integrationusr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public static string nameParsing(string name)
     {
         String crmCode;
@@ -738,11 +738,11 @@ public class AccountLinkHelper
     }
     
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
-         if(LeadUtil.Retailcopy){
+if(LeadUtil.Retailcopy){
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
-		
+        
         Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
@@ -853,9 +853,10 @@ public class AccountLinkHelper
         }//End of for loop
         
        // if(!AccountlnkUpdate.isEmpty())
-     	 //   update AccountlnkUpdate;
-		}
-		LeadUtil.Retailcopy=false; 
+      
+        //   update AccountlnkUpdate;
+	   }
+      LeadUtil.Retailcopy=false;   
     }//End of Method
 //created by:surya varma
 //sfdcjp-578
