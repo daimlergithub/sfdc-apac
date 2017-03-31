@@ -59,9 +59,10 @@ implements TriggerHandlerIf
            // User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
             system.debug('Entered aFTER insert TRIGGER');
             serializedObject=json.serialize(ListAccNew);
+             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
             AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
           //  if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
-            AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+           
         //  }
 
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');            
@@ -101,13 +102,13 @@ implements TriggerHandlerIf
             
             AccountHelperJP.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             AccountHelperJP.updatePrimaryContactInformationBeforeInsert(Trigger.new,trigger.isInsert);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            
         }
         if(isBefore && isUpdate)
         {
             AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-            AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new);
+            
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
         }
         
@@ -134,7 +135,7 @@ implements TriggerHandlerIf
           if(isAfter && isInsert )
         {
        //  AccountHelperJP.handleAfterInsertEvent(Trigger.new);             
-		 }
+         }
         
          if(isAfter && isUpdate )
         {
