@@ -68,7 +68,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Possibility_text__c</field>
-            </layoutItems>
+           </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
@@ -118,7 +118,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>
+           </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lead_Status__c</field>
@@ -268,7 +268,7 @@
                 <field>Email__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+               <behavior>Edit</behavior>
                 <field>Fax__c</field>
             </layoutItems>
         </layoutColumns>
@@ -437,7 +437,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Purchased_Vehicle_Text__c</field>
+               <field>Purchased_Vehicle_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -899,6 +899,15 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <customButtons>New_Campaign_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Campaign__c</fields>
+        <fields>Central_Campaign_Name__c</fields>
+        <fields>Participate__c</fields>
+        <relatedList>Campaign_Lead__c.Lead__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
