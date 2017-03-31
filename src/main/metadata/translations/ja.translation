@@ -192,6 +192,10 @@
         <label><!-- Assign QC --></label>
         <name>Assign_QC</name>
     </customLabels>
+	<customLabels>
+        <label>販売店担当者</label>
+        <name>Assigned_Dealer</name>
+    </customLabels>
     <customLabels>
         <label>添付PDFにエラーがあります。</label>
         <name>AttachedPdfError</name>
@@ -205,7 +209,7 @@
         <name>Btn_Preview_No_Questions</name>
     </customLabels>
     <customLabels>
-        <label>勤務先Email</label>
+        <label>Eメール(会社）</label>
         <name>Business_Email</name>
     </customLabels>
     <customLabels>
@@ -896,7 +900,7 @@
         <name>Has_Referral_Record</name>
     </customLabels>
     <customLabels>
-        <label>自宅Email</label>
+        <label>Eメール(自宅）</label>
         <name>Home_Email</name>
     </customLabels>
     <customLabels>
@@ -1428,7 +1432,7 @@
         <name>Operation</name>
     </customLabels>
     <customLabels>
-        <label>その他Email</label>
+        <label>MyMercedesメールアドレス</label>
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
@@ -2000,6 +2004,10 @@
     <customLabels>
         <label><!-- Total Amount Spend On Car Service is Greater Than --></label>
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
+    </customLabels>
+	<customLabels>
+        <label>タッチポイント</label>
+        <name>Touch_Point</name>
     </customLabels>
     <customLabels>
         <label>内装色</label>

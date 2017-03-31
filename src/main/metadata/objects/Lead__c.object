@@ -109430,7 +109430,7 @@ ISNULL(Visited_Showroom_Date__c)
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var prName = "{!$Profile.Name}"; 
 var market = "{!Lead__c.MD__c}"; 
-if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'System Administrator'){ 
+if(prName == 'Japan Dealer Sales Manager' || prName == 'Japan Dealer Service Manager' || prName == 'Japan Dealer Company Manager' || prName == 'System Administrator'){ 
 var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/LeadDealerAssignmentPage?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
 } 
 else{ 

@@ -89,7 +89,10 @@ public class AddressSearchValidationController{
         }
         else{
             try{
-                AddressOptions.add(new SelectOption('--None--','--None--'));
+                if(UserInfo.getLocale()=='ja_JP')
+                  AddressOptions.add(new SelectOption('--None--','--なし--'));
+                else
+                  AddressOptions.add(new SelectOption('--None--','--None--'));  
                 Schema.DescribeFieldResult countryFieldDescription = Address__c.Address_Type__c.getDescribe();
                 for(Schema.Picklistentry picklistEntry : countryFieldDescription.getPicklistValues()){
                     //Options.add(new SelectOption(pickListEntry.getValue(),pickListEntry.getLabel()));

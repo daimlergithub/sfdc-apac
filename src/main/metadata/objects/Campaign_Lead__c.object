@@ -1544,6 +1544,6 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_FIELD_ID={!Lead__c.Name}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_FIELD_ID_lkid={!Lead__c.Id}&amp;retURL=%2F{!Lead__c.Id}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_SOURCE_FIELD_ID={!Lead__c.Lead_Source__c}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_INFOSOURCE_FIELD_ID={!Lead__c.Lead_InfoSource__c}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_INFOSOURCESUB_FIELD_ID={!Lead__c.Lead_InfoSourceSub__c}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_DATASOURCE_FIELD_ID={!Lead__c.Lead_DataSource__c}&amp;OBJECT_CAMPAIGN_LEAD_WEBLINK_LEAD_INFOSOURCESUB_FIELD_ID={!Lead__c.Lead_DataSubSource__c}&amp;saveURL=%2F{!Lead__c.Id}</url>
+        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign</url>
     </webLinks>
 </CustomObject>

@@ -9,7 +9,7 @@
 
 public class AccountLinkHelper
 {
-    
+     
     public static Id AccountLink_ContactSectorRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -27,6 +27,7 @@ public class AccountLinkHelper
 * @return returns crm codes
 * @see   AccountLinkSharingWrapService, UserService, VehicleSharingWrapService
 */   
+    static User Integrationusr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public static string nameParsing(string name)
     {
         String crmCode;
@@ -737,10 +738,11 @@ public class AccountLinkHelper
     }
     
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
-        
+if(LeadUtil.Retailcopy){
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+        
         Set<String> FromAccountIds = new set<String>();
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
@@ -851,7 +853,10 @@ public class AccountLinkHelper
         }//End of for loop
         
        // if(!AccountlnkUpdate.isEmpty())
-         //   update AccountlnkUpdate;
+      
+        //   update AccountlnkUpdate;
+	   }
+      LeadUtil.Retailcopy=false;   
     }//End of Method
 //created by:surya varma
 //sfdcjp-578
@@ -1281,7 +1286,7 @@ public class AccountLinkHelper
         Set<Id> perAccIdSet = new Set<Id>();
         Set<Id> comAccIdSet = new Set<Id>();
         Map<Id,Id> retComAccLinkMap = new Map<Id,Id>();
-        if((isInsert || isUpdate) && isBefore){
+        if((isInsert || isUpdate) && isBefore && Integrationusr.Profile.Name != 'IntegrationAPI'){
             for(Account_Link__c accLink : accLst){
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);

@@ -387,6 +387,13 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>Assigned_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assigned Dealer</shortDescription>
+        <value>Assigned Dealer</value>
+    </labels>
+    <labels>
         <fullName>AttachedPdfError</fullName>
         <language>en_US</language>
         <protected>false</protected>
