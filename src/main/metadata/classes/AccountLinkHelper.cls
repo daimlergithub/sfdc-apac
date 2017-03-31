@@ -738,7 +738,7 @@ public class AccountLinkHelper
     }
     
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
-        
+         if(LeadUtil.Retailcopy){
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
@@ -854,7 +854,8 @@ public class AccountLinkHelper
         
        // if(!AccountlnkUpdate.isEmpty())
      	 //   update AccountlnkUpdate;
-		 
+		}
+		LeadUtil.Retailcopy=false; 
     }//End of Method
 //created by:surya varma
 //sfdcjp-578
