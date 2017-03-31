@@ -591,7 +591,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }                            
               });
           };
