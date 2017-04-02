@@ -15,12 +15,13 @@ public class RetailTaskTriggerHandlerKR
            
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' ){           
-            RetailTaskHelperJP.RetailTaskDetails(trigger.new, (Map<Id,Retail_Task__c>)Trigger.OldMap, isInsert, isUpdate);
-           
-            
+            RetailTaskHelperJP.RetailTaskDetails(trigger.new, (Map<Id,Retail_Task__c>)Trigger.OldMap, isInsert, isUpdate);            
+        }
+        if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI'){
+            RetailTaskHelperJP.afterInsertEvent(trigger.new);
         }
     } 
-     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
     } 
