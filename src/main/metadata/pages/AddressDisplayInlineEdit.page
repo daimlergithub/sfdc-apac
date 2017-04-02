@@ -67,8 +67,8 @@
                     </apex:outputField>
                     </apex:column>-->
                     
-                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" rendered="{!IF(market != 'JP', true, false)}">
-                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" rendered="{!IF(AND(Communityuser == true,Market !='JP'), false, true)}">
+                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;" rendered="{!IF(AND(Communityuser == true,Market !='JP'), false, true)}">
                         </apex:outputField>
                     </apex:column>
                     
@@ -221,7 +221,7 @@
                      <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      
                     <apex:inputField value="{!addressobj.Status__c}"/>
-                    <apex:inputField value="{!addressobj.Preferred__c}" rendered="{!IF(market != 'JP', true, false)}"/>
+                    <apex:inputField value="{!addressobj.Preferred__c}" rendered="{!IF(AND(market != 'JP',market != 'KR' ),true, false)}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
                     <apex:inputField value="{!addressobj.Temp_Address__c}"/> &nbsp;
                     <apex:pageBlockSectionItem rendered="{!IF(market == 'JP', true, false)}">       
