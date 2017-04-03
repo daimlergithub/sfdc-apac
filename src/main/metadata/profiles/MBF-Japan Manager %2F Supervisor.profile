@@ -1459,10 +1459,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerDealerListMemberHandlerJP</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
     </classAccesses>
