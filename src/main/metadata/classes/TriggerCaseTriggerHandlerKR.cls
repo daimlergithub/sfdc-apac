@@ -31,12 +31,12 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             } 
             if (trigger.isInsert){
                 caseHelperJP.calculateComplaintAmount(trigger.new);
-                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap);
+                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
                 
             }
             if (trigger.isUpdate){
                caseHelperJP.calculateComplaintAmount(trigger.new);
-               caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap);
+               caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
                
             }
         }
