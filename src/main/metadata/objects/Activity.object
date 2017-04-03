@@ -91,7 +91,15 @@
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields> 
+    </fields>
+    <fields>
+        <fullName>Activity_Comment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Activity Comment</inlineHelpText>
+        <label>Dealer Summary</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Activity_DataSource__c</fullName>
         <externalId>false</externalId>
@@ -482,6 +490,14 @@
         <label>Activity Date</label>
         <required>false</required>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Activity_Info__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Activity Info</inlineHelpText>
+        <label>Monthly Objective</label>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Activity_Purpose__c</fullName>
@@ -1089,6 +1105,61 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Engagement__c</fullName>
+        <externalId>false</externalId>
+        <label>Engagement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Didn't receive/bounce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Un-Opened</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opened</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clicked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Took Action</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Responded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Executed_CSR__c</fullName>
         <externalId>false</externalId>
         <label>Executed CSR</label>
@@ -1332,6 +1403,25 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Origin__c</fullName>
+        <externalId>false</externalId>
+        <label>Origin</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+	<fields>
         <fullName>Other_Activity__c</fullName>
         <externalId>false</externalId>
         <label>Other Activity</label>
