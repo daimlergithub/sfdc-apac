@@ -621,9 +621,6 @@
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock id="block">
-            <div style="margin:10px;">
-                <span style="color:#FF0000;">Birthday to filter for a specific customer, please modify the year 3000, such as 3000-11-12, which searches all November 12 birthdays customer.</span>
-            </div>
             <div id="filterBody" style="margin:10px;">
               
                 
