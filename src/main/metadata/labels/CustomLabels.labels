@@ -1910,6 +1910,34 @@
         <shortDescription>Email_Assignment</shortDescription>
         <value>you are assigned to the Lead in Salesforce thus we notify you.</value>
     </labels>
+	<labels>
+        <fullName>Email_Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case</shortDescription>
+        <value>Please check　New customer related information distribution notification .</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Record</shortDescription>
+        <value>Case</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Respond</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Respond</shortDescription>
+        <value>Please check and respond as necessary. *Please take caution in handling of the information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_information</shortDescription>
+        <value>customer related information(Call-in conversations, survey result, customer information change, etc.) we&apos;d like to distribute to you.</value>
+    </labels>
     <labels>
         <fullName>Email_LeadDealerAssign1</fullName>
         <language>en_US</language>
