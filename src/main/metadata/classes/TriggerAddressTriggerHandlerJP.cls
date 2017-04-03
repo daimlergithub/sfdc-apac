@@ -37,6 +37,8 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
              AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
+			 //added by lokesh M
+             AddressHelperJP.afterInsetAddressUpdateRetailPerson(trigger.new);
         } 
         if(isAfter && isUpdate)
         {
