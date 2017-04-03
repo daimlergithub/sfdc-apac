@@ -201,14 +201,17 @@ public with sharing class VehicleExtension {
     **/  
     public PageReference Cancel()
     { 
-          string returnId = ApexPages.currentPage().getParameters().get('accId');
+          /*string returnId = ApexPages.currentPage().getParameters().get('accId');
         if(returnId!=null){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
         }else{
             nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/a04/o');
         }
           nextPage.setRedirect(true);
-          return nextPage;
+          return nextPage;*/
+          //return null;
+          PageReference returnPage = new PageReference(ApexPages.currentPage().getParameters().get('retURL'));  
+          return returnPage ;
     }
     
     

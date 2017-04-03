@@ -21282,7 +21282,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21712,7 +21712,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Selling_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
