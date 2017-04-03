@@ -13,7 +13,7 @@ private class RetailCampSchedulerAndNotificationJPTest{
                 update rc;
     cm=new Campaign_Member__c();
     cm.Retail_Campaign_Id__c=rc.id;
-    cm.Status__c = 'Executed';
+    cm.Status__c = 'Ready';
    
     insert cm;    
      Test.startTest();
@@ -29,7 +29,7 @@ private class RetailCampSchedulerAndNotificationJPTest{
        update rc;
     cm=new Campaign_Member__c();
     cm.Retail_Campaign_Id__c=rc.id;
-    cm.Status__c = 'Executed';
+    cm.Status__c = 'Ready';
    
     insert cm;    
       rc1 = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId ,Campaign_Execution_Channels__c ='DM',Execution_Start_Date__c = Date.Today(),Execution_Type__c = 'Lead');
@@ -38,7 +38,7 @@ private class RetailCampSchedulerAndNotificationJPTest{
        update rc1;
     cm1=new Campaign_Member__c();
     cm1.Retail_Campaign_Id__c=rc1.id;
-    cm1.Status__c = 'Executed';
+    cm1.Status__c = 'Ready';
    
     insert cm1;    
      Test.startTest();
