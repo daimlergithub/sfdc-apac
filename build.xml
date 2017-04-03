@@ -544,9 +544,6 @@
 																																																		<sf:include name="CampaignMembersCustomHelperJP"/>
 								<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
 								<sf:include name="CampaignMembersCustomHelperJPTest"/>
-								<sf:include name="DealerListMemberHelperJP"/>
-								<sf:include name="TriggerDealerListMemberHandlerJP"/>
-								<sf:include name="DealerListMemberHelperTestJP"/>
 								<sf:include name="ParticipateDealerHandlerJP"/>
 								<sf:include name="TriggerParticipateDealerHandlerJP"/>
 								<sf:include name="ParticipateDealerHandlerTestJP"/>
@@ -568,7 +565,7 @@
 								<sf:include name="TriggerLead"/>
 								<sf:include name="RetailTaskTrigger"/>   
 								<sf:include name="TriggerCampaignmembersCustom"/>
-								<sf:include name="DealerListMember"/>
+							
 											
 							</sf:typeset>
 						</deploy>
