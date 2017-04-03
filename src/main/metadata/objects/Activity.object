@@ -1104,61 +1104,7 @@
         <required>false</required>
         <type>DateTime</type>
     </fields>
-    <fields>
-        <fullName>Engagement__c</fullName>
-        <externalId>false</externalId>
-        <label>Engagement</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Didn't receive/bounce</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Un-Opened</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Opened</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Clicked</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Took Action</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Attended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Responded</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Positive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Negative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Neutral</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <type>Picklist</type>
-    </fields>
+   
     <fields>
         <fullName>Executed_CSR__c</fullName>
         <externalId>false</externalId>
