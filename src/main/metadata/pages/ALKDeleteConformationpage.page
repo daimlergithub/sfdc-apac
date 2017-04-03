@@ -16,7 +16,8 @@
               <br/>
              
               <apex:commandButton value="Delete"  oncomplete="RelodeParent()" action="{!updateRetailCopy}"/>
-              <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />
+              <!--<apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />-->
+			  <apex:CommandButton value="Cancel" onclick="window.close();" />
                
           </apex:pageBlockButtons>
       </apex:pageBlock>

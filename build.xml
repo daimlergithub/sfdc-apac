@@ -395,7 +395,7 @@
 								  <sf:include name="ConvertToDMRequest"/>
 								  <sf:include name="ConvertToTask"/>
 
-			<sf:include name="ALKDeleteConformationpage"/>
+			<!--<sf:include name="ALKDeleteConformationpage"/>-->
 							   <sf:include name="TaskMassAssignChangeOwnerJP"/>
 							   <sf:include name="Tasks"/>
 							   <sf:include name="ConvertToLead"/>
