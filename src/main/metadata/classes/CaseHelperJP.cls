@@ -696,15 +696,25 @@ List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_
       }     
  }
 
-    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase){
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
        List<Id> caseIds = new List<Id>();
-       for(case cs: LstnewCase){
-           if(oldValcase != Null){
-           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
-               caseIds.add(cs.id);                
-           }
-           }
-       }        
+         if(action == 'isUpdate')
+         {
+           for(case cs: LstnewCase)
+           {
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c )
+               {
+                   caseIds.add(cs.id);                
+                }
+           }        
+       }
+        if(action == 'isInsert'){
+           for(case cs: LstnewCase){
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null){
+                   caseIds.add(cs.id);                
+                }
+           }        
+       }       
        
        if(caseIds.size()>0){
            
