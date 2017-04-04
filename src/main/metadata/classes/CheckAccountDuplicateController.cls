@@ -152,10 +152,10 @@ public void onLineDeduplication(){
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                   /* if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
                         objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
-                    }
+                    }*/
                     system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
                     {   

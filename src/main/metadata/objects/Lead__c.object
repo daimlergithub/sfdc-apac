@@ -36244,27 +36244,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Booking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39259,43 +39239,27 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-            <values>
-                <fullName>Broucher</fullName>
+			<values>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Buy</fullName>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial</fullName>
+                <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Leasing</fullName>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Trade-In</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Product Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+		</picklistValues>
         <picklistValues>
             <picklist>Lead_InfoSourceSub__c</picklist>
             <values>
@@ -40570,19 +40534,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invoice</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87147,14 +87099,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Won</fullName>
                 <default>false</default>
             </values>
@@ -90064,27 +90008,23 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
-                <fullName>Broucher</fullName>
+                <fullName>Buy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Product Information</fullName>
+                <fullName>Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service Information</fullName>
+                <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade-In</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Used Car</fullName>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91371,10 +91311,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Loan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

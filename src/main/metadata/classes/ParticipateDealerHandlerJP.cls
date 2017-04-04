@@ -61,7 +61,7 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
         
         if(set_AccountId.size() > 0){
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_AccountId AND IsPortalEnabled = true]);
-           List<Participating_Dealer__Share> list_SharingDele = new List<Participating_Dealer__Share>([SELECT Id FROM Participating_Dealer__Share 
+           List<Participating_Dealer__Share> list_SharingDele = new List<Participating_Dealer__Share>([SELECT Id FROM Participating_Dealer__Share
                                                                                             WHERE ParentId IN:list_DmrequestId AND UserOrGroupId IN :list_User]);
             if(list_SharingDele.size() > 0){
                 delete list_SharingDele;
