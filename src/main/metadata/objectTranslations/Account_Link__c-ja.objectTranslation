@@ -15,7 +15,7 @@
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Correlation ID --></label>
+        <label>AutolineセッションID</label>
         <name>CorrelationID__c</name>
     </fields>
     <fields>

@@ -744,7 +744,8 @@ if(LeadUtil.Retailcopy){
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         
         Set<String> FromAccountIds = new set<String>();
-        for(Account_Link__c acc : accLst){
+        if(Integrationusr.profile.Name != 'IntegrationAPI'){
+		for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
                  FromAccountIds.add(acc.fromRole__c);  
@@ -851,7 +852,7 @@ if(LeadUtil.Retailcopy){
             }
            //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
         }//End of for loop
-        
+		}
        // if(!AccountlnkUpdate.isEmpty())
       
         //   update AccountlnkUpdate;

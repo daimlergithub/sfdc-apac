@@ -395,7 +395,7 @@
 								  <sf:include name="ConvertToDMRequest"/>
 								  <sf:include name="ConvertToTask"/>
 
-			<sf:include name="ALKDeleteConformationpage"/>
+			<!--<sf:include name="ALKDeleteConformationpage"/>-->
 							   <sf:include name="TaskMassAssignChangeOwnerJP"/>
 							   <sf:include name="Tasks"/>
 							   <sf:include name="ConvertToLead"/>
@@ -544,9 +544,6 @@
 																																																		<sf:include name="CampaignMembersCustomHelperJP"/>
 								<sf:include name="TriggerCampaignMembersCustomHandlerJP"/>
 								<sf:include name="CampaignMembersCustomHelperJPTest"/>
-								<sf:include name="DealerListMemberHelperJP"/>
-								<sf:include name="TriggerDealerListMemberHandlerJP"/>
-								<sf:include name="DealerListMemberHelperTestJP"/>
 								<sf:include name="ParticipateDealerHandlerJP"/>
 								<sf:include name="TriggerParticipateDealerHandlerJP"/>
 								<sf:include name="ParticipateDealerHandlerTestJP"/>
@@ -568,7 +565,7 @@
 								<sf:include name="TriggerLead"/>
 								<sf:include name="RetailTaskTrigger"/>   
 								<sf:include name="TriggerCampaignmembersCustom"/>
-								<sf:include name="DealerListMember"/>
+							
 											
 							</sf:typeset>
 						</deploy>
@@ -681,7 +678,9 @@
 							<sf:include name="AccountTable"/>
 							<sf:include name="AccountTableTest"/>
 							<sf:include name="Batch_AutoSegmentation"/>
+							<sf:include name="Batch_AutoSegmentationTest"/>
 							<sf:include name="Batch_BounceStatus"/>
+							<sf:include name="Batch_BounceStatusTest"/>
 							<sf:include name="AddToCampaign"/>
 							<sf:include name="AddToCampaignTest"/>
 							

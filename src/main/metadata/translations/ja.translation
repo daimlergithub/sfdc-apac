@@ -1107,6 +1107,119 @@
         <label><!-- Select Site to display Survey --></label>
         <name>LABS_SF_SelectSitetodisplaySurvey</name>
     </customLabels>
+	<customLabels>
+        <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
+        <name>Email_Assignment</name>
+    </customLabels>
+    <customLabels>
+        <label>【ご確認ください】　新規お客様関連情報展開のお知らせ</label>
+        <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label>■ケース</label>
+        <name>Email_Case_Record</name>
+    </customLabels>
+    <customLabels>
+        <label>ご対応をお願いいたします。 ※情報の取り扱いにご注意下さい。</label>
+        <name>Email_Case_Respond</name>
+    </customLabels>
+    <customLabels>
+        <label>お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
+        <name>Email_Case_information</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ</label>
+        <name>Email_LeadDealerAssign1</name>
+    </customLabels>
+    <customLabels>
+        <label>※リードの確認にはセールスフォースへの
+ログインが必要となります。</label>
+        <name>Email_LeadDealerAssign10</name>
+    </customLabels>
+    <customLabels>
+        <label>ご担当者様は、貴店にリードを展開いたしましたので、
+管理者様にご確認ください。</label>
+        <name>Email_LeadDealerAssign11</name>
+    </customLabels>
+    <customLabels>
+        <label>よろしくお願いいたします。</label>
+        <name>Email_LeadDealerAssign12</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースの操作について、ご不明な点がございましたら、
+セールスフォース　サポートデスクまでお問い合わせください。</label>
+        <name>Email_LeadDealerAssign13</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局</label>
+        <name>Email_LeadDealerAssign14</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースの操作、システムメンテナンスに関しての
+お問い合わせは下記の電話番号までお願いいたします。</label>
+        <name>Email_LeadDealerAssign15</name>
+    </customLabels>
+    <customLabels>
+        <label>店</label>
+        <name>Email_LeadDealerAssign2</name>
+    </customLabels>
+    <customLabels>
+        <label>管理者様、ご担当者様</label>
+        <name>Email_LeadDealerAssign3</name>
+    </customLabels>
+    <customLabels>
+        <label>いつもお世話になっております。</label>
+        <name>Email_LeadDealerAssign4</name>
+    </customLabels>
+    <customLabels>
+        <label>本日</label>
+        <name>Email_LeadDealerAssign5</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースにリードデータを展開しましたのでお知らせいたします。</label>
+        <name>Email_LeadDealerAssign6</name>
+    </customLabels>
+    <customLabels>
+        <label>ご協力ありがとうございます。</label>
+        <name>Email_Thankyou</name>
+    </customLabels>
+    <customLabels>
+        <label>新規リード展開</label>
+        <name>Email_LeadDealerAssign7</name>
+    </customLabels>>
+    <customLabels>
+        <label>*ケース情報を確認するには、Salesforceにログインする必要があります。</label>
+        <name>Email_salesforcelogin</name>
+    </customLabels>
+    <customLabels>
+        <label>これは非常に有望な顧客情報であるため、販売活動に活用してください。</label>
+        <name>Email_salesActivities</name>
+    </customLabels>
+    <customLabels>
+        <label>代表</label>
+        <name>Email_Manager</name>
+    </customLabels>
+    <customLabels>
+        <label>件</label>
+        <name>Email_LeadDealerAssign8</name>
+    </customLabels>
+    <customLabels>
+        <label>ホットなお客様情報ですので、管理者様は下記URLからリードをご確認いただき
+担当者割り当ての上、営業活動にご活用ください。</label>
+        <name>Email_LeadDealerAssign9</name>
+    </customLabels>
+    <customLabels>
+        <label>◆セールスフォースサポートデスク</label>
+        <name>Email_LeadDealerAssign16</name>
+    </customLabels>
+    <customLabels>
+        <label>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）</label>
+        <name>Email_LeadDealerAssign17</name>
+    </customLabels>
+    <customLabels>
+        <label>※本メールへは返信しないようにお願いいたします。</label>
+        <name>Email_LeadDealerAssign18</name>
+    </customLabels>
     <customLabels>
         <label><!-- Share --></label>
         <name>LABS_SF_Share</name>

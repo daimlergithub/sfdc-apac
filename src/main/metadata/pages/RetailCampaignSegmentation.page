@@ -621,9 +621,6 @@
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock id="block">
-            <div style="margin:10px;">
-                <span style="color:#FF0000;">Birthday to filter for a specific customer, please modify the year 3000, such as 3000-11-12, which searches all November 12 birthdays customer.</span>
-            </div>
             <div id="filterBody" style="margin:10px;">
               
                 
@@ -1143,10 +1140,22 @@
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
                             </apex:column>
-                            <apex:column value="{!wrapAcc.acc.PersonHomePhone}"/>
-                            <apex:column value="{!wrapAcc.acc.PersonMobilePhone}"/>
-                            <apex:column value="{!wrapAcc.acc.Phone}"/>
-                            <apex:column value="{!wrapAcc.acc.PersonEmail}"/>                           
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            </apex:column>
+                            
                         </apex:pageBlockTable>
                     </div>
                 </apex:outputPanel>

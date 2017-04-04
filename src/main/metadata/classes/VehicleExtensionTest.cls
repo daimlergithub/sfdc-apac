@@ -125,7 +125,7 @@ public class VehicleExtensionTest {
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
        //objVehicleExtension.save();
-       objVehicleExtension.Cancel();
+       //objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         
@@ -162,7 +162,7 @@ public class VehicleExtensionTest {
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
      // objVehicleExtension.save();
-       objVehicleExtension.Cancel();
+       //objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         

@@ -12,6 +12,7 @@ public  class AccountLinkController
        public Id sid;
      public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+     public static Id con2con_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
      public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Id accPersonAccountSoftDeleted_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
@@ -30,8 +31,8 @@ public  class AccountLinkController
         {
          acc=[select id,recordtypeid from account where id=:aid];
          
-         listalk=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid ];
-       if(listalk !=null && !listalk.isempty() && sid!=null)
+         listalk=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and fromRole__c !=null and recordtypeId !=:con2con_RecordTypeId ];
+       if(listalk !=null && !listalk.isempty())
        {
        if(acc.recordtypeid ==accPerson_RecordTypeId)
        {
@@ -43,7 +44,9 @@ public  class AccountLinkController
        acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkCompany_RecordTypeId limit 1];
               sid = acclnkdealer.id;
        }
-       
+       system.debug('sid'+sid);
+       system.debug('listalk'+listalk);
+       system.debug('acc.recordtypeid'+acc.recordtypeid);
        if(acc.recordtypeid ==accPerson_RecordTypeId || acc.recordtypeid ==accPersonAccountSoftDeleted_RecordTypeId)
        {
           acclnkrellist=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,fromRole__c,Selling_Dealer__c,toRole__c,Retail_Comments__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and recordtypeID=:alkPerson_RecordTypeId limit 1];
