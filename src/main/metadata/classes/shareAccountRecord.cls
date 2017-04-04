@@ -9,10 +9,9 @@ public class shareAccountRecord
         List<Id> dealerAccIds = new List<Id>();
         map<string, Id> dealerAccNameCustomerAccid = new map<string, Id>();
         List<AccountShare> accShrLst = new List<AccountShare>();
-        List<CaseShare> caseshrList = new List<CaseShare>();
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
         List<case> caseUpdLst = new List<case>();
-        List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId, Case_Dealer__r.Name from case where id in: caseIds]);
+        List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId,Ownerid,Case_Dealer__r.Name from case where id in: caseIds]);
         for(case cs: lstCase)
         {
             if(string.valueOf(cs.Case_Dealer__c) != '' && string.valueOf(cs.AccountId)!= '')
@@ -34,15 +33,18 @@ public class shareAccountRecord
         List<Group> grpLst = new List<Group>([select id, Name from Group where Name in: caseDealerAccName.values()]);
         if(!dealerAccIds.isEmpty() && dealerAccIds != null)
         {
-            gateKeeperList= [select Id, AccountId from User where isActive = true and AccountId in :dealerAccIds and Contact.Dealer_Lead_Gate_Keeper__c = true];       
+            gateKeeperList= [select Id, AccountId,contactId,Contact.AccountId from User where isActive = true and AccountId in :dealerAccIds and Contact.Dealer_Lead_Gate_Keeper__c = true];       
         }
+        system.debug('gateKeeperList>>>>' + gateKeeperList);
         if(grpLst.size()>0)
         {
             for(Group grp: grpLst)
             {
+                
                 AccountShare ash = new AccountShare();
                 ash.AccountAccessLevel = 'Read';
                 ash.OpportunityAccessLevel = 'Read';
+                ash.CaseAccessLevel = 'Edit';
                 ash.AccountId = dealerAccNameCustomerAccid.get(grp.Name);
                 ash.UserOrGroupId = grp.id;
                 accShrLst.add(ash);
@@ -62,29 +64,13 @@ public class shareAccountRecord
         }
         
         for(Case cs : lstCase)
-        {
-            if(!gateKeeperList.isEmpty() && gateKeeperList != null)
-            {
-                for(User gateKpr : gateKeeperList)
-                {
-                    CaseShare gateKeeperShare = new CaseShare();
-                    gateKeeperShare.CaseId = cs.Id;
-                    gateKeeperShare.CaseAccessLevel = 'Edit';
-                    gateKeeperShare.UserOrGroupId = gateKpr.Id;
-                    caseshrList.add(gateKeeperShare);
-                }
-            }
+        {            
             if(dealerIdGateKeeperIds.containsKey(cs.Case_Dealer__c))
             {
                 cs.ownerid = dealerIdGateKeeperIds.get(cs.Case_Dealer__c); 
-                caseUpdLst.add(cs);                       
-            }                    
+                caseUpdLst.add(cs);
+            }            
         }
-        if(caseshrList.size()>0)
-        {
-            insert caseshrList;
-        }
-        
         if(caseUpdLst.size()>0)
         {
             TriggerCaseTriggerHandlerKR.isFutureUpdate = true;
