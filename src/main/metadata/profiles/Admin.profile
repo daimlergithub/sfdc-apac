@@ -16857,6 +16857,11 @@
         <field>Retail_Campaign__c.Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.CloneCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Close_Date__c</field>
