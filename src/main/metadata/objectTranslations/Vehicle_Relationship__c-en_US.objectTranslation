@@ -3115,16 +3115,8 @@
             <section>Date Information</section>
         </sections>
         <sections>
-            <label><!-- End Setting Information --></label>
-            <section>End Setting Information</section>
-        </sections>
-        <sections>
             <label><!-- MOT Information --></label>
             <section>MOT Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Address Information --></label>
-            <section>Vehicle Address Information</section>
         </sections>
         <sections>
             <label><!-- Vehicle Information --></label>
