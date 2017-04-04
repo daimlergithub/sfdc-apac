@@ -133,7 +133,270 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Pre Order</label>
+	<fields>
+        <fullName>Vehicle_Model_Class__c</fullName>
+        <description>This field is auto populated based on Vehicle model code field</description>
+        <externalId>false</externalId>
+        <label>Vehicle Model Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Coupe (Old)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Coupe (New)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC (SLK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Saloon (Old)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Saloon (New)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Estate (Old)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Saloon SWB &amp; LWB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Maybach S-Class Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Class Cab Chassis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Class (G350d &amp; G63)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Model_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Model Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>W176</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W246</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C117</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X117</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C204</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S205</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R172</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W212</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W213</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S212</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C207</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A207</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C218</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X218</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W/V222</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X222</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R231</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C190</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C217</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X156</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X253</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W166</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C292</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X166</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W461 Professional Series</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W461</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W463</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>447</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<label>Pre Order</label>
     <nameField>
         <displayFormat>{0000000}</displayFormat>
         <label>Pre Order</label>

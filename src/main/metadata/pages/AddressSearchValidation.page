@@ -75,7 +75,7 @@
                     <apex:inputField value="{!objAccount.Phone}" />
                     <apex:inputField value="{!objAccount.Email__c}" />
                     <apex:inputField value="{!objAccount.Email2__c}" />
-                    <apex:inputField value="{!objPersonAccount.VIN__c}" />                  
+                    <apex:inputField value="{!objAccount.VIN__c}" />                  
                 </apex:pageBlockSection>
                
                 
