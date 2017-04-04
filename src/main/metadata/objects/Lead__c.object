@@ -22401,7 +22401,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Contract Administration (CA) Team</label>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22410,7 +22410,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Customer Care (CCC) Team</label>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22419,7 +22419,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Inbound &amp; Outbound Supervisor</label>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22428,7 +22428,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Quotation Team Queue</label>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <role>Central</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -109080,7 +109080,7 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <linkType>page</linkType>
         <masterLabel>Print PDF</masterLabel>
         <openType>newWindow</openType>
-        <page>PrintPDF</page>
+        <page>LeadPrintPDF</page>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>

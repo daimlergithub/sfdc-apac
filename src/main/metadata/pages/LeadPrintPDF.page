@@ -1,0 +1,4 @@
+<apex:page standardController="Lead__c" >
+  <apex:include pageName="PrintSalesLead_KR" rendered="{!if(Lead__c.RecordType.Name =='Sales Leads',true,false)}"/>
+  <apex:include pageName="PrintAfterSalesLead_KR" rendered="{!if(Lead__c.RecordType.Name =='Aftersales Leads',true,false)}"/>
+</apex:page>

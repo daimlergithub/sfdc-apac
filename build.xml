@@ -182,6 +182,9 @@
 								<sf:include name="AddressSelectionforExistingCustomer"/>
 								<sf:include name="LeadAssignmentPage"/>
 								<sf:include name="printLeadPDF"/>
+								<sf:include name="LeadPrintPDF"/>
+								<sf:include name="PrintSalesLead_KR"/>
+								<sf:include name="PrintAfterSalesLead_KR"/>
 								<sf:include name="SelectAddress"/>                                    
 								<sf:include name="createRetailCopyKRButton"/>
 								<sf:include name="ViewRetailCopiesPage"/>

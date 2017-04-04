@@ -788,7 +788,7 @@ Proxy_Date_Time__c
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
         <active>false</active>
         <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp;( DATEVALUE(LastModifiedDate) - today() == 10)&amp;&amp; MD__c == 'KR'</formula>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -804,7 +804,7 @@ Proxy_Date_Time__c
         <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
         <active>false</active>
         <description>No modification is made in 15 days (All Modifications)</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp;( DATEVALUE(LastModifiedDate) - today() == 15)&amp;&amp; MD__c == 'KR'</formula>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -820,7 +820,7 @@ Proxy_Date_Time__c
         <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
         <active>false</active>
         <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
-        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp;( DATEVALUE(LastModifiedDate) - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>

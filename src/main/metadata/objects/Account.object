@@ -42994,31 +42994,67 @@ else {
         <fullName>Send_to_JPOS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>SendtoJPOS</masterLabel>
-        <openType>replace</openType>
-        <page>SendToJPOS</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
+
+if(MD)
+{
+alert("This function available only for Japan user");
+
+}
+else
+{
+   window.open('/apex/SendToJPOS?id={!Account.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_MyMercedes</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Send to MyMercedes</masterLabel>
-        <openType>replace</openType>
-        <page>CustomerMymercInterface</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
+
+if(MD)
+{
+alert("This function available only for Japan user");
+
+}
+else
+{
+   window.open('/apex/CustomerMymercInterface?id={!Account.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Send_to_SPO</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Send to SPO</masterLabel>
-        <openType>replace</openType>
-        <page>SendAccountInfoToSPO</page>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
+
+if(MD)
+{
+alert("This function available only for Japan user");
+
+}
+else
+{
+   window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Test</fullName>
