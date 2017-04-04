@@ -737,6 +737,10 @@ public without sharing class RetailCampaignSegmentationController {
             return '\'' + criteria + '\'';
         }
         else if(dateFields.contains(field)){
+		if(criteria == 'null'){
+                criteria = null;
+            }
+            else
             criteria = (Date.parse(criteria) + ' ').left(10);
         }
         else if(dateTimeFields.contains(field)){
