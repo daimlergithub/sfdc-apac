@@ -6116,6 +6116,7 @@
         <field>Campaign.Campaign_Code__c</field>
                                 <readable>true</readable>
     </fieldPermissions>
+	
 	    <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.CloneCampaign__c</field>
@@ -7020,6 +7021,16 @@
         <editable>false</editable>
         <field>Campaign_Member__c.Address_Flag__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16854,6 +16865,11 @@
     <fieldPermissions>
                 <editable>true</editable>
         <field>Retail_Campaign__c.Class__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.CloneCampaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
