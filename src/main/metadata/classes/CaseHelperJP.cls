@@ -5,7 +5,6 @@ public class CaseHelperJP {
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-    
    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map){
@@ -702,10 +701,10 @@ List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_
          {
            for(case cs: LstnewCase)
            {
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c )
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c)
                {
                    caseIds.add(cs.id);                
-                }
+               }
            }        
        }
         if(action == 'isInsert'){
