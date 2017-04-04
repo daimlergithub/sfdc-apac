@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+
     <customButtons>Create_Child_Retail_Campaign</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -51,6 +52,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Parent_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CloneCampaign__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
