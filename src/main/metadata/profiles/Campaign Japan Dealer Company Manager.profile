@@ -6259,6 +6259,11 @@
         <field>Campaign.Campaign_Response_Channels__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.CloneCampaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	 <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Campaign_Sub_Type__c</field>
