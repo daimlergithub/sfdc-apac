@@ -39239,7 +39239,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-        </picklistValues>
 			<values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
