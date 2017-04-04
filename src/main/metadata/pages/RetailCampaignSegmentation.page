@@ -491,12 +491,6 @@
         }
 
         function checkFilterItemAdded(tableId, bracket){
-           /* var size = ($("#customerTable tr").length + $("#interestTable tr").length + $("#vehicleTable tr").length + $("#AccountRetailCopyTable tr").length) - 4;
-            if(size > 25){
-                alert('{!$Label.The_filter_count_is_greater_than_15}');
-                return false;
-            }*/
-
             return checkCriteriaLogic(tableId, bracket);
         }
         
@@ -653,6 +647,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -717,6 +712,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -745,7 +741,7 @@
                                         <div>
                     <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
-                                <th width="10%">Sales Dealer</th>
+                                &nbsp;<th width="10%">Sales Dealer</th>
                                 <td>
                                     <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
                                             <apex:selectOptions value="{!items}"/>
@@ -788,6 +784,7 @@
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -832,6 +829,7 @@
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -878,6 +876,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -927,6 +926,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -977,6 +977,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -1024,6 +1025,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -1074,6 +1076,7 @@
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
