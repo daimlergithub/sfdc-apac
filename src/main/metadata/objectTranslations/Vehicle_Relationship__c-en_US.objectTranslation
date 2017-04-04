@@ -1214,10 +1214,6 @@
             <translation><!-- Company Car --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
-            <translation><!-- Daimler Employee --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
             <translation><!-- Dealer Employee Car --></translation>
         </picklistValues>
