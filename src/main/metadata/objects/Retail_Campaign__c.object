@@ -1223,6 +1223,19 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	    <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Retail Campaigns (Retail Campaign)</relationshipLabel>
+        <relationshipName>Retail_Campaigns2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Close_Date__c</fullName>
         <description>This field is used to capture the end date of the campaign</description>
@@ -13612,6 +13625,26 @@ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?Recor
 
 
 }</url>
+    </webLinks>
+	    <webLinks>
+        <fullName>Custom_Clone</fullName>
+        <availability>online</availability>
+        <description>Custom button “Clone“ will be available on the parent campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Custom Clone</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID={!Retail_Campaign__c.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
