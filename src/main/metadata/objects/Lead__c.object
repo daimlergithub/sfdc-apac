@@ -4185,6 +4185,28 @@ IMAGE('/img/samples/flag_red.gif','Dealer Overdue') , null)), null)</formula>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Dealer_Due_Date__c</fullName>
+        <description>to show the due date for the daler</description>
+        <externalId>false</externalId>
+        <label>Dealer Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Override_Overdue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to lead is overdue</description>
+        <externalId>false</externalId>
+        <label>Dealer Override Overdue</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Dealer_Owner_Email__c</fullName>
         <externalId>false</externalId>
@@ -17221,6 +17243,17 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Consultant_Due_Date__c</fullName>
+        <description>to show the due date for the consultant</description>
+        <externalId>false</externalId>
+        <label>Consultant Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Consultant_Override_Overdue__c</fullName>
