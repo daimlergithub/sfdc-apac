@@ -1223,6 +1223,19 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	    <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Retail Campaigns (Retail Campaign)</relationshipLabel>
+        <relationshipName>Retail_Campaigns2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Close_Date__c</fullName>
         <description>This field is used to capture the end date of the campaign</description>
