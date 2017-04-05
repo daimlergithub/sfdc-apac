@@ -5919,7 +5919,6 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-	<fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Campaign_Sub_Type__c</field>
         <readable>false</readable>
