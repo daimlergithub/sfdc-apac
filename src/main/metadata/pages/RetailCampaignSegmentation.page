@@ -1,6 +1,6 @@
 <!--
     lastmodifedby : lokesh 
-    jira : SFDCJP 1023
+    jira : SFDCJP 1023,JP-1052,JP-1050,JP-1076,JP-1054
     modified date : mar 23, 2017
 -->
 
@@ -643,7 +643,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -708,7 +708,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -780,7 +780,7 @@
                                 </select> 
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
@@ -825,7 +825,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
@@ -872,7 +872,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -922,7 +922,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -973,7 +973,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -1021,7 +1021,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
@@ -1072,7 +1072,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>

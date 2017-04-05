@@ -53641,6 +53641,20 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Account_Name_Fullchar</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Company',
+ISBLANK( Name ),
+REGEX(Name , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Account Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
@@ -53794,13 +53808,16 @@ RecordType.DeveloperName = 'ThirdParty'
     <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Company_Name_Native_1__c),
-REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+        <errorConditionFormula>AND(NOT( 
+OR( 
+RecordType.DeveloperName = 'Company', 
+ISBLANK( Company_Name_Native_1__c ), 
+REGEX(Company_Name_Native_1__c , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))), 
+$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
-        <errorMessage>Company Name Native should be KANA Characters</errorMessage>
+        <errorMessage>Company Name Native should be entered in KANA characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
@@ -54040,11 +54057,25 @@ FirstName  value &gt; 20 letters.</description>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>First_Name_Fullchar</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Person Account',
+ISBLANK( FirstName ),
+REGEX(FirstName , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
-RecordType.DeveloperName = 'Person Account',
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(FirstName_Native_1__c),
 REGEX(FirstName_Native_1__c, 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
@@ -54277,11 +54308,25 @@ LastName  value &gt; 40 letters.</description>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Last_Name_Fullchar</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Person Account',
+ISBLANK( LastName ),
+REGEX(LastName , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
-RecordType.DeveloperName = 'Person Account',
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(LastName_Native_1__c),
 REGEX(LastName_Native_1__c, 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
@@ -55051,12 +55096,23 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        
+        <linkType>javascript</linkType>
         <masterLabel>New Case</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/apex.js")}
+if('{!User.ContactId}' !=null &amp;&amp; {!CONTAINS( $Profile.Name ,'Dealer')} )
+{
+var main = '{!User.ContactId}';
+var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1");
+var qrerecords = accountId.getArray("records");
+window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="CF00Np0000000Kdtq"={!User.Name}&amp;id="CF00Np0000000Kdtq"_lkid={!User.Id}&amp;CF00Np0000000Kdtr={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
+}
+else {
+window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Case_Dealer</fullName>
