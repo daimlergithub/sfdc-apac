@@ -70,3 +70,10 @@ dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
 dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
+
+# Traning Sandbox
+dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
+
+# InitLoad Sandbox
+dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
+
