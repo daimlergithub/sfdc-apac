@@ -661,6 +661,16 @@ Proxy_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Last_Modified_fields_on_Lead</fullName>
+        <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
+        <field>Lead_Last_Modified_Date__c</field>
+        <formula>Now()</formula>
+        <name>Update Last Modified fields on Lead</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <outboundMessages>
         <fullName>Link_Social_Media_Leads</fullName>
         <apiVersion>28.0</apiVersion>
@@ -1291,5 +1301,20 @@ Function: update assigned date, recieved data and accepted date to now, and stat
         <active>true</active>
         <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Last Modified fields on Lead</fullName>
+        <actions>
+            <name>Update_Last_Modified_fields_on_Lead</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
