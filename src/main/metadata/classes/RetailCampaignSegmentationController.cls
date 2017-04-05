@@ -66,14 +66,10 @@ public without sharing class RetailCampaignSegmentationController {
         
     public RetailCampaignSegmentationController()
     {
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
-            size = 1000;
-            thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
-            retailCampaignId = ApexPages.currentPage().getParameters().get('id');
-            setFieldType();
-       }
+		size = 1000;
+		thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
+		retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+		setFieldType();
     }
     public ApexPages.StandardSetController con {get;set;}
     
@@ -261,9 +257,7 @@ public without sharing class RetailCampaignSegmentationController {
      
     System.debug('------------'+selectedValue);
     system.debug('Entered into Search method');
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
+        
            accountIdSet = new Set<Id>();
            vehicleRelFind = false;
            vehicleFind = false;
@@ -392,7 +386,6 @@ public without sharing class RetailCampaignSegmentationController {
             //'Logic Error!'
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getmessage()));
             }
-       }
         return null;
     }
     
@@ -525,10 +518,6 @@ public without sharing class RetailCampaignSegmentationController {
     
     private void setSoql()
     {
-        
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
        
        system.debug('Entered into inside  setSoql method');
             string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -611,14 +600,11 @@ public without sharing class RetailCampaignSegmentationController {
             setSubSoql(AddressFilterItems, 'Address');
             setSubSoql(campaignFilterItems, 'campaign');
             setSubSoql(vehicleretailItems,'VehicleRelation');
-       }
     }
     
     private void setSubSoql(List<Object> filterItems, String cluster)
     {
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
+       
        system.debug('Entered into filterItems'+filterItems);
        system.debug('Entered into cluster'+cluster);
        
@@ -721,11 +707,10 @@ public without sharing class RetailCampaignSegmentationController {
                     campaignMemSoql+= (bracketCount > 0 ? ') ' : '');
                 }
             }
-       }
     }
     
     private String getOperation(String operation){
-        operation = operation.replace('Not Equals', '!=');
+        operation = operation.replace('Exclude', '!=');
         operation = operation.replace('Equals', '=');
         operation = operation.replace('Greater Than', '>');
         operation = operation.replace('Less Than', '<');
@@ -737,6 +722,10 @@ public without sharing class RetailCampaignSegmentationController {
             return '\'' + criteria + '\'';
         }
         else if(dateFields.contains(field)){
+		if(criteria == 'null'){
+                criteria = null;
+            }
+            else
             criteria = (Date.parse(criteria) + ' ').left(10);
         }
         else if(dateTimeFields.contains(field)){
