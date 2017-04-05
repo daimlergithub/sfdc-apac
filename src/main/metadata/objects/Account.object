@@ -53641,6 +53641,20 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Account_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Company Account',
+ISBLANK( Name ),
+REGEX(Name , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Account Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
@@ -53794,13 +53808,16 @@ RecordType.DeveloperName = 'ThirdParty'
     <validationRules>
         <fullName>Company_Name_Native_1_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-ISBLANK(Company_Name_Native_1__c),
-REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+        <errorConditionFormula>AND(NOT( 
+OR( 
+RecordType.DeveloperName = 'Company Account', 
+ISBLANK( Company_Name_Native_1__c ), 
+REGEX(Company_Name_Native_1__c , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))), 
+$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
-        <errorMessage>Company Name Native should be KANA Characters</errorMessage>
+        <errorMessage>Company Name Native should be entered in KANA characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
@@ -54040,12 +54057,29 @@ FirstName  value &gt; 20 letters.</description>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>First_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Person Account',
+ISBLANK( FirstName ),
+REGEX(FirstName , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company Account',
 ISBLANK(FirstName_Native_1__c),
-REGEX(FirstName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(FirstName_Native_1__c, 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be KANA Chaarcters</errorMessage>
@@ -54274,12 +54308,29 @@ LastName  value &gt; 40 letters.</description>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Last_Name_Fullchar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+RecordType.DeveloperName = 'Person Account',
+ISBLANK( LastName ),
+REGEX(LastName , 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>LastName</errorDisplayField>
+        <errorMessage>Last Name should be entered in KANA characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company Account',
 ISBLANK(LastName_Native_1__c),
-REGEX(LastName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(LastName_Native_1__c, 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
+$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>

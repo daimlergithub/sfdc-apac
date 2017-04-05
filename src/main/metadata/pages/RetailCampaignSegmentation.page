@@ -1,6 +1,6 @@
 <!--
     lastmodifedby : lokesh 
-    jira : SFDCJP 1023
+    jira : SFDCJP 1023,JP-1052,JP-1050,JP-1076,JP-1054
     modified date : mar 23, 2017
 -->
 
@@ -491,12 +491,6 @@
         }
 
         function checkFilterItemAdded(tableId, bracket){
-           /* var size = ($("#customerTable tr").length + $("#interestTable tr").length + $("#vehicleTable tr").length + $("#AccountRetailCopyTable tr").length) - 4;
-            if(size > 25){
-                alert('{!$Label.The_filter_count_is_greater_than_15}');
-                return false;
-            }*/
-
             return checkCriteriaLogic(tableId, bracket);
         }
         
@@ -621,9 +615,6 @@
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock id="block">
-            <div style="margin:10px;">
-                <span style="color:#FF0000;">Birthday to filter for a specific customer, please modify the year 3000, such as 3000-11-12, which searches all November 12 birthdays customer.</span>
-            </div>
             <div id="filterBody" style="margin:10px;">
               
                 
@@ -652,10 +643,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -716,10 +708,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -748,7 +741,7 @@
                                         <div>
                     <table id="AccountRetailCopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
-                                <th width="10%">Sales Dealer</th>
+                                &nbsp;<th width="10%">Sales Dealer</th>
                                 <td>
                                     <apex:selectList value="{!selectedValue}" multiselect="false" size="1">
                                             <apex:selectOptions value="{!items}"/>
@@ -787,10 +780,11 @@
                                 </select> 
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -831,10 +825,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option>Greater Than</option>
                                     <option>Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -877,10 +872,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -926,10 +922,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -976,10 +973,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -1023,10 +1021,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -1073,10 +1072,11 @@
                                 </select>
                             </td>
                             <td>
-                                <select class="aaa">
+                                <select>
                                     <option value="Equals">Equals</option>
                                     <option value="Greater Than">Greater Than</option>
                                     <option value="Less Than">Less Than</option>
+                                    <option value="Exclude">Exclude</option>
                                 </select>
                             </td>
                             <td class="criteria">
@@ -1143,10 +1143,22 @@
                             <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
                                 <apex:outputLink value="/{!wrapAcc.acc.Id}">{!wrapAcc.acc.Name}</apex:outputLink>
                             </apex:column>
-                            <apex:column value="{!wrapAcc.acc.PersonHomePhone}"/>
-                            <apex:column value="{!wrapAcc.acc.PersonMobilePhone}"/>
-                            <apex:column value="{!wrapAcc.acc.Phone}"/>
-                            <apex:column value="{!wrapAcc.acc.PersonEmail}"/>                           
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonHomePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonHomePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonMobilePhone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonMobilePhone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.Phone.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.Phone}"/> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.Account.Fields.PersonEmail.Label}">
+                                <apex:outputField value="{!wrapAcc.acc.PersonEmail}"/> 
+                            </apex:column>
+                            
                         </apex:pageBlockTable>
                     </div>
                 </apex:outputPanel>

@@ -405,6 +405,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Participating_Dealer_Share__c</fullName>
+        <label>Participating Dealer Share</label>
+    </sharingReasons>
     <validationRules>
         <fullName>Campaign_Package_cannot_be_empty</fullName>
         <active>true</active>

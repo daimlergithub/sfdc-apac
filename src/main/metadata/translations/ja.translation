@@ -1107,6 +1107,26 @@
         <label><!-- Select Site to display Survey --></label>
         <name>LABS_SF_SelectSitetodisplaySurvey</name>
     </customLabels>
+	<customLabels>
+        <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
+        <name>Email_Assignment</name>
+    </customLabels>
+    <customLabels>
+        <label>【ご確認ください】　新規お客様関連情報展開のお知らせ</label>
+        <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label>■ケース</label>
+        <name>Email_Case_Record</name>
+    </customLabels>
+    <customLabels>
+        <label>ご対応をお願いいたします。 ※情報の取り扱いにご注意下さい。</label>
+        <name>Email_Case_Respond</name>
+    </customLabels>
+    <customLabels>
+        <label>お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
+        <name>Email_Case_information</name>
+    </customLabels>
     <customLabels>
         <label>メルセデス・ベンツ</label>
         <name>Email_LeadDealerAssign1</name>
