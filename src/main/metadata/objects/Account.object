@@ -55045,12 +55045,23 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        
+        <linkType>javascript</linkType>
         <masterLabel>New Case</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/apex.js")} 
+if('{!User.ContactId}' !=null && {!CONTAINS( $Profile.Name ,'Dealer')} ) 
+{ 
+var main = '{!User.ContactId}';
+var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1"); 
+var qrerecords = accountId.getArray("records");
+window.open('/500/e?nooverride=1&RecordType=012280000006I86&cas4={!Account.Name}&cas4_lkid={!Account.Id}&retURL={!Account.Id}&id="CF00N2800000A9Cty"={!User.Name}&id="CF00N2800000A9Cty"_lkid={!User.Id}&CF00N2800000A9Ctz={!User.Dealer_Outlet_Name__c} &saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}','_self');  
+}
+else { 
+window.open('/500/e?nooverride=1&RecordType=012280000006I86&cas4={!Account.Name}&cas4_lkid={!Account.Id}&cancelURL={!Account.Id};ent=Case', "", ""); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Leads</fullName>
