@@ -4,11 +4,12 @@
     History:
     
     1. Justin Yu Created on 2014-05-14
-    2. Lokesh M Last modified date : 2017-0Mar-02
-        Desc : retail campign segmentation
-       JIRA - SFDCJP-1023
+    2. Last modified date : 2017-Mar-02
+	   modified by : Lokesh M
+       Desc : retail campign segmentation
+       JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
 */
-public without sharing class RetailCampaignSegmentationController {
+public with sharing class RetailCampaignSegmentationController {
     
     private String retailCampaignId;
     private String thirdParty;
