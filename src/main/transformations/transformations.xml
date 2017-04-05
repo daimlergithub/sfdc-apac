@@ -409,6 +409,16 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
 	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_USERNAME_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_PRIMARYCASEDEALER_ID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
@@ -768,6 +778,26 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_END_DATE_FIELD_ID</token>
 	</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID</token>
+		</changetext>
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>

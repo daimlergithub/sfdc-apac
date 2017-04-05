@@ -491,7 +491,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Auto_Segmentation__c</fullName>
         <defaultValue>false</defaultValue>
         <description>When check a segmentation criteria must selected</description>
@@ -1224,6 +1224,19 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Retail Campaigns (Retail Campaign)</relationshipLabel>
+        <relationshipName>Retail_Campaigns2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Close_Date__c</fullName>
         <description>This field is used to capture the end date of the campaign</description>
         <externalId>false</externalId>
@@ -1782,7 +1795,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>IsAutoSegmentationExecuted__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Update when auto-segmentation is completed and executed</description>
@@ -2674,7 +2687,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Segmentation_Criteria__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3454,7 +3467,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>hasError__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Update when theres an error on the auto-segmentation</description>
@@ -13248,6 +13261,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>Record_Type_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Close_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign_Type__c</customTabListAdditionalFields>
         <searchResultsAdditionalFields>Record_Type_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Driven__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_Start_Date__c</searchResultsAdditionalFields>
@@ -13285,10 +13303,10 @@ false)</errorConditionFormula>
         <errorDisplayField>Y_Apply_Deadline__c</errorDisplayField>
         <errorMessage>Apply Deadline must later than today</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Auto_Segmentation_Criteria</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),MD__c = 'JP',(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
         <errorMessage>Field Is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
@@ -13481,6 +13499,55 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Relevant Central Campaign is mandatory when Driven is Joint.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Retail_Cam_Status_From_Completed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Completed'),
+OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
+
+),
+MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',
+RecordType.DeveloperName = 'Retail_Execution_Campaign' 
+)</errorConditionFormula>
+        <errorMessage>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Cam_Status_From_Execution</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Execution'),
+OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+ISPICKVAL(Child_Campaign_Status__c, '')
+),
+MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',
+RecordType.DeveloperName = 'Retail_Execution_Campaign' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Exection' to 'Planning or Segmentation''</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Cam_Status_From_Response</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
+OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+ISPICKVAL(Child_Campaign_Status__c, '')
+),
+MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',
+RecordType.DeveloperName = 'Retail_Execution_Campaign' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
@@ -13612,6 +13679,26 @@ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?Recor
 
 
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Custom_Clone</fullName>
+        <availability>online</availability>
+        <description>Custom button “Clone“ will be available on the parent campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Custom Clone</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>{!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID={!Retail_Campaign__c.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
@@ -13892,7 +13979,15 @@ alert('Does not match the request status, You cannot add active members.');
         <masterLabel>Add Campaign Member</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
+if(CampStatus != 'Planning' &amp;&amp; CampStatus != 'Segmentation') {
+alert('You cannot create campaign members for this campaign status');
+}else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>

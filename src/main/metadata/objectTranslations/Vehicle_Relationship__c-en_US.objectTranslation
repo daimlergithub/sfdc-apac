@@ -1214,10 +1214,6 @@
             <translation><!-- Company Car --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
-            <translation><!-- Daimler Employee --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
             <translation><!-- Dealer Employee Car --></translation>
         </picklistValues>
@@ -3115,16 +3111,8 @@
             <section>Date Information</section>
         </sections>
         <sections>
-            <label><!-- End Setting Information --></label>
-            <section>End Setting Information</section>
-        </sections>
-        <sections>
             <label><!-- MOT Information --></label>
             <section>MOT Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Address Information --></label>
-            <section>Vehicle Address Information</section>
         </sections>
         <sections>
             <label><!-- Vehicle Information --></label>

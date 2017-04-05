@@ -1095,10 +1095,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
                     }
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                  /*  if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    }
+                    } */
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
@@ -1130,10 +1130,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {                    
                 CompanyConfirmedMatch=true;
                      
-                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                   /* if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccount.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    }
+                    } */
                      if(response.CustomerIdentificationResponseMessage[0].Customer.Name!=null)
                     {
                         objAccount.Name=response.CustomerIdentificationResponseMessage[0].Customer.Name;
