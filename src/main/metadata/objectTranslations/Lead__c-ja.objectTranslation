@@ -2256,11 +2256,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost</masterLabel>
-            <translation>使用しないでください</translation>
+            <translation>失注</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
-            <translation>失注</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not Started</masterLabel>
