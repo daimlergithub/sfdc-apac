@@ -13644,7 +13644,7 @@ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?Recor
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID={!Retail_Campaign__c.Name}</url>
+        <url>{!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}/e?clone=1&amp;retURL=%2F{!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID=&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID={!Retail_Campaign__c.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
