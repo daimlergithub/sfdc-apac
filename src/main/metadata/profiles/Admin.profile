@@ -3776,36 +3776,11 @@
         <field>Account_Link__c.Personal_Agreement__c</field>
         <readable>true</readable>
 </fieldPermissions>
-<fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Activity_Comment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Activity_Comment__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Activity_Info__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Activity_Info__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Origin__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Origin__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+
+	
+    
+	
+	
 	 <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.Vehicle_Model_Code__c</field>
