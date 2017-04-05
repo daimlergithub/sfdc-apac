@@ -4832,23 +4832,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Driver</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchaser</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5218,23 +5206,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>D</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>H</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>L</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N</fullName>
                 <default>false</default>
             </values>
             <values>

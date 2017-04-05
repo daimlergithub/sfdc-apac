@@ -54058,7 +54058,7 @@ FirstName  value &gt; 20 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 RecordType.DeveloperName = 'Person Account',
@@ -54309,7 +54309,7 @@ LastName  value &gt; 40 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 RecordType.DeveloperName = 'Person Account',
@@ -55113,6 +55113,18 @@ window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Accou
 else {
 window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Case_Dealer</fullName>
+        <availability>online</availability>
+        <description>New Case button for Dealer User</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/MBJapan/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=%2FMBJapan%2F500%2Fo&amp;save_new_url=%2FMBJapan%2F500%2Fe%3FretURL%3D%252FMBJapan%252F500%252Fo</url>
     </webLinks>
     <webLinks>
         <fullName>New_Leads</fullName>
