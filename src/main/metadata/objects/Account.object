@@ -53642,10 +53642,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Account_Name_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
-RecordType.DeveloperName = 'Company Account',
+RecordType.DeveloperName = 'Company',
 ISBLANK( Name ),
 REGEX(Name , 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
@@ -53810,7 +53810,7 @@ RecordType.DeveloperName = 'ThirdParty'
         <active>true</active>
         <errorConditionFormula>AND(NOT( 
 OR( 
-RecordType.DeveloperName = 'Company Account', 
+RecordType.DeveloperName = 'Company', 
 ISBLANK( Company_Name_Native_1__c ), 
 REGEX(Company_Name_Native_1__c , 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))), 
@@ -54075,7 +54075,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
-RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company Account',
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(FirstName_Native_1__c),
 REGEX(FirstName_Native_1__c, 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
@@ -54326,7 +54326,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
 OR(
-RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company Account',
+RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(LastName_Native_1__c),
 REGEX(LastName_Native_1__c, 
 "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
