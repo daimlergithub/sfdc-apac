@@ -55101,17 +55101,17 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
         <masterLabel>New Case</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/apex.js")} 
-if('{!User.ContactId}' !=null && {!CONTAINS( $Profile.Name ,'Dealer')} ) 
-{ 
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/apex.js")}
+if('{!User.ContactId}' !=null &amp;&amp; {!CONTAINS( $Profile.Name ,'Dealer')} )
+{
 var main = '{!User.ContactId}';
-var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1"); 
+var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1");
 var qrerecords = accountId.getArray("records");
-window.open('/500/e?nooverride=1&RecordType=012280000006I86&cas4={!Account.Name}&cas4_lkid={!Account.Id}&retURL={!Account.Id}&id="CF00N2800000A9Cty"={!User.Name}&id="CF00N2800000A9Cty"_lkid={!User.Id}&CF00N2800000A9Ctz={!User.Dealer_Outlet_Name__c} &saveURL={!Account.Id}&retURL={!Account.Id}&cancelURL={!Account.Id}','_self');  
+window.open('/500/e?nooverride=1&amp;RecordType=012280000006I86&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="CF00N2800000A9Cty"={!User.Name}&amp;id="CF00N2800000A9Cty"_lkid={!User.Id}&amp;CF00N2800000A9Ctz={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
 }
-else { 
-window.open('/500/e?nooverride=1&RecordType=012280000006I86&cas4={!Account.Name}&cas4_lkid={!Account.Id}&cancelURL={!Account.Id};ent=Case', "", ""); 
+else {
+window.open('/500/e?nooverride=1&amp;RecordType=012280000006I86&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
 }</url>
     </webLinks>
     <webLinks>
