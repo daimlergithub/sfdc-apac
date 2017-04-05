@@ -6438,21 +6438,8 @@
         <field>Vehicle_Relationship__c.ToBeActioned__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Case.TSM__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Notice_Service__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Notice_Parts__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+	
+	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Loan_Car_Provided_by_Dealer__c</field>
