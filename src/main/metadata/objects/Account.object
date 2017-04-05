@@ -54058,7 +54058,7 @@ FirstName  value &gt; 20 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 RecordType.DeveloperName = 'Person Account',
@@ -54309,7 +54309,7 @@ LastName  value &gt; 40 letters.</description>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 RecordType.DeveloperName = 'Person Account',
