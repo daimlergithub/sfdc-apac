@@ -3704,6 +3704,42 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Lease Cancel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Buyout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Return Close</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Return Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan Early Terminate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pay Off Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extension Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan Return SWP</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -4594,6 +4630,42 @@ Contact__r.Email__c
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Cancel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Buyout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Return Close</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Return Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan Early Terminate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pay Off Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extension Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan Return SWP</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -87278,7 +87350,39 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Customer_Intention__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Extension Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Buyout</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Return Close</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Return Open</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Early Terminate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Return SWP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay Off Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Lease</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87518,7 +87622,39 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Finance_Closing_Option__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Extension Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Buyout</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Return Close</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Return Open</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Early Terminate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Return SWP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay Off Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Lease</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
