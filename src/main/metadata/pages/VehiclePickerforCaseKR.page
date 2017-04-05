@@ -285,7 +285,7 @@
             $scope.models = [];
             $scope.realtedColours = [];
             $scope.colours = [];
-			$scope.escapedColours = [];
+            $scope.escapedColours = [];
             /*VF Remoting to fetch car models based on status type*/
             Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.VehiclePickerForCaseControllerKR.getCarModels}',status_type,
@@ -300,11 +300,11 @@
                         $scope.models = $scope.classModel[selected_Class];
                         $scope.colorModel = $scope.brand_class_modelWrap[2];
                         $scope.realtedColours = $scope.colorModel[selectedModel];
-						if($scope.realtedColours != undefined){
-							for(var i=0; i<$scope.realtedColours.length; i++){
-								$scope.escapedColours.push($sanitize($scope.realtedColours[i]));
-							}
-						}
+                        if($scope.realtedColours != undefined){
+                            for(var i=0; i<$scope.realtedColours.length; i++){
+                                $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+                            }
+                        }
                         $scope.$apply();
              });
         }
@@ -327,23 +327,23 @@
          
          $scope.setSelectedColour = function(model_selected){
             $scope.realtedColours = $scope.colorModel[model_selected];
-			if($scope.realtedColours != undefined){
-				for(var i=0; i<$scope.realtedColours.length; i++){
-					$scope.escapedColours.push($sanitize($scope.realtedColours[i]));
-				}
-			}
+            if($scope.realtedColours != undefined){
+                for(var i=0; i<$scope.realtedColours.length; i++){
+                    $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+                }
+            }
             $scope.sortedColours = orderBy($scope.escapedColours, '-' , false);
             $scope.Colours = [];
             
          }
          $scope.setColourValue = function(model_selected){
             $scope.Colours = $scope.colorModel[model_selected];
-			console.log($scope.Colours);
+            console.log($scope.Colours);
          }
          
          
          $scope.getSelectedColour = function (color_value){
-			console.log(color_value);
+            console.log(color_value);
             $scope.selectedColour = color_value;
          }
             
@@ -626,7 +626,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                            var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           };
@@ -799,7 +804,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                            var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           }
@@ -916,9 +926,11 @@
         <td style="vertical-align: top;padding=20px">
         {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
         <apex:outputPanel rendered="{!disableButtons}">
+		<!--
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
+		-->
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
         </apex:outputPanel>
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
@@ -967,9 +979,11 @@
         <td style="vertical-align: top;">
         {!$label.Vehicle_Picker_Current2}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle2Details"  disabled="disabled" style="width:300px" /> 
         <apex:outputPanel rendered="{!disableButtons}">
+		<!--
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
+		-->
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
         </apex:outputPanel>
         <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
@@ -1070,9 +1084,11 @@
         
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" />
         <apex:outputPanel rendered="{!disableButtons}"> 
+		<!--
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'Edit'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetailText == 'New' || Purchased_RecType != 'Vehicle Product'}}" ng-click="showDetail('Purchased',selectedPurchasedBrand,selectedPurchasedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Purchased')" class="btn" value="{!$label.Clear_Button}"/> 
+		-->
         &nbsp;<input type="button" ng-disabled="{{purchasedVehicleDetails != ''}}" ng-click="showList('Purchased')" class="btn" value="{!$label.Lookup_Button}"/>
         </apex:outputPanel>
         <!----------- PURCHASED VEHICLE DETAILS SECTION -------->
