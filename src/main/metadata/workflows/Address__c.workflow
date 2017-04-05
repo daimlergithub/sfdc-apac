@@ -21,6 +21,26 @@
         <protected>false</protected>
         <targetObject>Customer__c</targetObject>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Address_Type_Last_Modified_Date</fullName>
+        <description>When the field [Address type] is updated and the user profile is NOT[ &quot;Integration API&quot;], then update the field [Address Type Last Modified Date].</description>
+        <field>Address_Type_Last_Modified_Date__c</field>
+        <formula>now()</formula>
+        <name>Update Address Type Last Modified Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Last_Modified_fields_on_Address</fullName>
+        <description>When address record is updated and user profile is NOT Integration API, then update the field Address Last Modified Date.</description>
+        <field>Address_Last_Modified_Date__c</field>
+        <formula>Now()</formula>
+        <name>Update Last Modified fields on Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Populate Sales Address KR</fullName>
         <actions>
@@ -49,6 +69,28 @@
         </actions>
         <active>true</active>
         <formula>ISCHANGED( Province_Native__c) || ISCHANGED(City_Native__c) ||  ISCHANGED( District_Native__c ) || ISCHANGED( Block_Native__c ) ||  ISCHANGED( Address_Line_1_Native__c) || ISCHANGED( Address_Line_2_Native__c) ||  ISCHANGED( Province__c ) || ISCHANGED( City__c ) ||  ISCHANGED( District__c ) || ISCHANGED( Block__c ) ||  ISCHANGED( Address_Line_1__c ) || ISCHANGED( Address_Line_2__c) || ISCHANGED( ZipCode__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Address Type Last Modified fields on Address</fullName>
+        <actions>
+            <name>Update_Address_Type_Last_Modified_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When Address type field  is updated and user profile is NOT Integration API, then update the field Address Type Last Modified Date.</description>
+        <formula>IF(MD__c = &apos;JP&apos; &amp;&amp;  ISCHANGED(Address_Type__c) , true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Last Modified fields on Address</fullName>
+        <actions>
+            <name>Update_Last_Modified_fields_on_Address</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When address record is updated and user profile is NOT Integration API, then update the field Address Last Modified Date.</description>
+        <formula>IF(MD__c = &apos;JP&apos;, true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
