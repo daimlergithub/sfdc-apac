@@ -160,6 +160,75 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
                 
+                if(Acc.Fax != Null && Acc.Fax != '')
+                {                    
+                    Acc.Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                {                    
+                    Acc.Fax2_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                {                    
+                    Acc.Primary_Phone_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '')
+                {                    
+                    Acc.Primary_Email_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '')
+                {                    
+                    Acc.Primary_Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
+                {                    
+                    Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonDoNotCall != accountOldMap.get(acc.Id).PersonDoNotCall)
+                {                    
+                    Acc.PersonDoNotCall_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Visit_Opt_Out__c != accountOldMap.get(acc.Id).Visit_Opt_Out__c)
+                {                    
+                    Acc.Visit_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Postal_Opt_Out__c != accountOldMap.get(acc.Id).Postal_Opt_Out__c)
+                {                    
+                    Acc.Postal_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfEmail != accountOldMap.get(acc.Id).PersonHasOptedOutOfEmail)
+                {                    
+                    Acc.OptedOutOfEmail_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfFax != accountOldMap.get(acc.Id).PersonHasOptedOutOfFax)
+                {                    
+                    Acc.OptedOutOfFax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.MB_Customer_Info_Remove__c != accountOldMap.get(acc.Id).MB_Customer_Info_Remove__c)
+                {                    
+                    Acc.MB_CIR_Last_Modified_Date__c = System.now();
+                }
+                                
+                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '')
+                {                    
+                    Acc.Data_Source_Last_Modified_Date__c = System.now();
+                }
             }
             
         }

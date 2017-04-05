@@ -2123,8 +2123,44 @@
         <label>顧客意向</label>
         <name>Customer_Intention__c</name>
         <picklistValues>
+            <masterLabel>Extension Loan</masterLabel>
+            <translation>再ローン　（extension loan）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Buyout</masterLabel>
+            <translation>リース買取</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Cancel</masterLabel>
+            <translation>リース中途解約</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Close</masterLabel>
+            <translation>リース（返却：Close）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Open</masterLabel>
+            <translation>リース（返却：Open）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Early Terminate</masterLabel>
+            <translation>ローン早期完済（販売店一括）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Return SWP</masterLabel>
+            <translation>ローン（返却：SWP）　（Return:SWP)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Off Loan</masterLabel>
+            <translation>ローン最終回引落 　(pay off loan）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation>再リース</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2256,11 +2292,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost</masterLabel>
-            <translation>使用しないでください</translation>
+            <translation>失注</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
-            <translation>失注</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Not Started</masterLabel>
@@ -2532,8 +2568,44 @@
         <label>ファイナンスクロージング方法意向（決定）</label>
         <name>Finance_Closing_Option__c</name>
         <picklistValues>
+            <masterLabel>Extension Loan</masterLabel>
+            <translation>再ローン　（extension loan）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Buyout</masterLabel>
+            <translation>リース買取</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Cancel</masterLabel>
+            <translation>リース中途解約</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Close</masterLabel>
+            <translation>リース（返却：Close）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Open</masterLabel>
+            <translation>リース（返却：Open）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Early Terminate</masterLabel>
+            <translation>ローン早期完済（販売店一括）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Return SWP</masterLabel>
+            <translation>ローン（返却：SWP）　（Return:SWP)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Off Loan</masterLabel>
+            <translation>ローン最終回引落 　(pay off loan）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation>再リース</translation>
         </picklistValues>
     </fields>
     <fields>

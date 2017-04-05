@@ -29,7 +29,7 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Account --></label>
+        <label>対象販売拠点</label>
         <name>Dealer_Account__c</name>
         <relationshipLabel>ディーラーアカウント</relationshipLabel>
     </fields>
@@ -113,4 +113,4 @@
         </sections>
     </layouts>
     <nameFieldLabel><!-- ID --></nameFieldLabel>
-</CustomObjectTranslation>
+    </CustomObjectTranslation>
