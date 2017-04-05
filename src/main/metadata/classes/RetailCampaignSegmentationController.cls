@@ -309,7 +309,7 @@ public with sharing class RetailCampaignSegmentationController {
                    // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
                    AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
                    if(AccountLinkSoql.length()>accLinkLength){
-                         List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000);
+                         List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
                           System.debug('accLinkList '+accLinkList.size());
                          for(Account_Link__C vr : accLinkList){
                              accountIdSet.add(vr.toRole__c);
