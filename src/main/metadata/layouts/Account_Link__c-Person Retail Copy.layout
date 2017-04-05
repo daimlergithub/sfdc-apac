@@ -256,7 +256,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Position__c</field>
+                <field>Position__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -344,7 +344,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <excludeButtons>NewTask</excludeButtons>
+        <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
