@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Case" extensions="VehiclePickerForCaseController">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Case" extensions="VehiclePickerForCaseControllerKR">
 <apex:form >
     <apex:includeScript value="{!$Resource.jQuery}" />
     <apex:includeScript value="{!$Resource.Angular}"/>
@@ -7,6 +7,7 @@
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
     <apex:includeScript value="{!$Resource.JSforce}" />
     <apex:includeScript value="/support/console/25.0/integration.js"/>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.min.js"></script>
     <html>
     <head>
     <style type="text/css">
@@ -21,8 +22,9 @@
     </head>
     <body>
        <script type="text/javascript">
-       var app = angular.module('VehiclePickerApp', ['ui.bootstrap']);      
-       app.controller('VehiclePickerForCaseController', ['$scope', '$filter', function($scope, $filter) {
+       var jq = $.noConflict();
+       var app = angular.module('VehiclePickerApp', ['ui.bootstrap', 'ngSanitize']);      
+       app.controller('VehiclePickerForCaseControllerKR', ['$scope', '$filter','$sce','$sanitize', function($scope, $filter, $sce, $sanitize) {
        var orderBy = $filter('orderBy');
        $scope.vehicleDetailText = "New";
        $scope.vehicleDetailCompetitorText = "New";
@@ -44,6 +46,7 @@
        $scope.selectedClass = "";
        $scope.selectedModel = ""; 
        $scope.vehicleMilage = ""; 
+       $scope.selectedColour = "";
        
        //COMPETITOR
        $scope.c_vehicleMilage = ""; 
@@ -52,11 +55,12 @@
        $scope.brands = [];
        $scope.relatedClasses = [];
        $scope.models = []; 
+       $scope.Colours = [];
        
        /*INTERESTED VEHICLE : Vehicle Intitialization details*/
        if($scope.caseVehicles.InterestedVehicle != undefined){
            $scope.vehicleDetailText = "Edit";
-           $scope.interestedVehicleDetails = $scope.caseVehicles.InterestedVehicle.Brand +' ' +$scope.caseVehicles.InterestedVehicle.Class + ' ' + $scope.caseVehicles.InterestedVehicle.Model;
+           $scope.interestedVehicleDetails = $scope.caseVehicles.InterestedVehicle.Brand +' ' +$scope.caseVehicles.InterestedVehicle.Class + ' ' + $scope.caseVehicles.InterestedVehicle.Model + ' ' + $sanitize($scope.caseVehicles.InterestedVehicle.Colour);
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -74,8 +78,15 @@
              $scope.vehicleModel = $scope.caseVehicles.InterestedVehicle.Model;
              $scope.selectedModel = $scope.vehicleModel;
            }
+           /*
            if($scope.caseVehicles.InterestedVehicle.Colour)
              $scope.interested_colourValue = $scope.caseVehicles.InterestedVehicle.Colour;
+           */
+            if($scope.caseVehicles.InterestedVehicle.Colour !=""){
+                $scope.colourModel = $scope.caseVehicles.InterestedVehicle.Colour;
+                $scope.selectedColour = $scope.colourModel;
+           }
+             
            if($scope.caseVehicles.InterestedVehicle.Trim != "")
              $scope.interested_trimValue = $scope.caseVehicles.InterestedVehicle.Trim;
            if($scope.caseVehicles.InterestedVehicle.Mileage != "")
@@ -253,7 +264,7 @@
             $scope.models = [];
             /*VF Remoting to fetch car models based on status type*/
             Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerForCaseController.getCarModels}',status_type,
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.getCarModels}',status_type,
                    function(result, event) {
                         $scope.brand_class_modelWrap = result;
                         $scope.brandsClasses = $scope.brand_class_modelWrap[0];
@@ -263,6 +274,37 @@
                         $scope.classModel = $scope.brand_class_modelWrap[1];
                         $scope.relatedClasses = $scope.brandsClasses[selected_Brand];
                         $scope.models = $scope.classModel[selected_Class];
+                        $scope.$apply();
+             });
+        }
+        
+        // This was added to get colour as picklist values instead of text
+        $scope.getCarModelsForLeadInterestedVehicle = function(status_type, selected_Brand, selected_Class, selectedModel, selectedColour){
+            $scope.brands = [];
+            $scope.relatedClasses = [];
+            $scope.models = [];
+            $scope.realtedColours = [];
+            $scope.colours = [];
+            $scope.escapedColours = [];
+            /*VF Remoting to fetch car models based on status type*/
+            Visualforce.remoting.Manager.invokeAction(
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.getCarModels}',status_type,
+                   function(result, event) {
+                        $scope.brand_class_modelWrap = result;
+                        $scope.brandsClasses = $scope.brand_class_modelWrap[0];
+                        for(var keyName in $scope.brandsClasses){
+                                $scope.brands.push(keyName);
+                        }
+                        $scope.classModel = $scope.brand_class_modelWrap[1];
+                        $scope.relatedClasses = $scope.brandsClasses[selected_Brand];
+                        $scope.models = $scope.classModel[selected_Class];
+                        $scope.colorModel = $scope.brand_class_modelWrap[2];
+                        $scope.realtedColours = $scope.colorModel[selectedModel];
+                        if($scope.realtedColours != undefined){
+                            for(var i=0; i<$scope.realtedColours.length; i++){
+                                $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+                            }
+                        }
                         $scope.$apply();
              });
         }
@@ -281,7 +323,29 @@
         
          $scope.getSelectedModel = function (model_value){
             $scope.selectedModel = model_value;
-         }              
+         }
+         
+         $scope.setSelectedColour = function(model_selected){
+            $scope.realtedColours = $scope.colorModel[model_selected];
+            if($scope.realtedColours != undefined){
+                for(var i=0; i<$scope.realtedColours.length; i++){
+                    $scope.escapedColours.push($sanitize($scope.realtedColours[i]));
+                }
+            }
+            $scope.sortedColours = orderBy($scope.escapedColours, '-' , false);
+            $scope.Colours = [];
+            
+         }
+         $scope.setColourValue = function(model_selected){
+            $scope.Colours = $scope.colorModel[model_selected];
+            console.log($scope.Colours);
+         }
+         
+         
+         $scope.getSelectedColour = function (color_value){
+            console.log(color_value);
+            $scope.selectedColour = color_value;
+         }
             
          $scope.refreshLookupData = function(details){
             if ($scope.vehicleList.length > 0)
@@ -304,7 +368,7 @@
          $scope.lookupSearchDetails = [{VIN:$vinNumber, VehicleType:vehicle_type, RecordId:'{!currentRecordId}'}];
             /*Remoting method here to search vehicle records*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerForCaseController.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
                    function(result, event) {
                         $scope.refreshLookupData(result);
                         $scope.$apply();
@@ -313,7 +377,8 @@
          }
          
          /*This method displays the details of the vehicles.*/
-         $scope.showDetail = function (vehicle_type, selectedBrand, selectedClass){   
+         $scope.showDetail = function (vehicle_type, selectedBrand, selectedClass){  
+            /*
             if(angular.equals(vehicle_type, 'Interested Vehicle')){
                 $scope.status_type = 'Own Sellable';
                 $scope.vehicleDetail = true;
@@ -330,7 +395,7 @@
                 $scope.TradeInLookup = false;
                 $scope.vehicleDetailPurchased = false;
                 $scope.PurchasedLookup = false;
-            }else if (angular.equals(vehicle_type, 'Competitor Vehicle')){
+            }*/if (angular.equals(vehicle_type, 'Competitor Vehicle')){
                 $scope.status_type = 'Competitor';
                 $scope.vehicleDetailCompetitor = true;
                 $scope.vehicleLookupCompetitor = false;
@@ -413,7 +478,27 @@
             }
                 /*Fetch the car models based on status types here*/
                 $scope.getCarModelsForCaseVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
-          }  
+          }
+
+        $scope.showDetailforInterestedVehicle = function(vehicle_type, selectedBrand, selectedClass, selectedModel, selectedColour){
+                //console.log('This method was called on click');
+                $scope.status_type = 'Own Sellable';
+                $scope.vehicleDetail = true;
+                $scope.vehicleLookup = false;
+                //console.log(vehicle_type +' '+ selectedBrand +' '+ selectedClass +' '+ selectedModel);
+                //Others
+                $scope.vehicleDetailCompetitor = false;
+                $scope.vehicleLookupCompetitor = false;
+                $scope.vehicleDetailCurrent1 = false;
+                $scope.LookupCurrentVehicle1 = false;
+                $scope.vehicleDetailCurrent2 = false;
+                $scope.LookupCurrentVehicle2 = false;
+                $scope.vehicleDetailTradeIn = false;
+                $scope.TradeInLookup = false;
+                $scope.vehicleDetailPurchased = false;
+                $scope.PurchasedLookup = false;
+                $scope.getCarModelsForLeadInterestedVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand,selectedModel, selectedColour);
+           }
           
           $scope.selectBrandAction = function () {
                 $scope.vehicleBrand = ''+$scope.brandText;           
@@ -442,7 +527,7 @@
                                          ];
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerForCaseController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
@@ -457,7 +542,65 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
+                       }                            
+              });
+          };
+          
+          // this was added since there was a seperation made for colour
+          $scope.saveInterestedVehicleDetail = function (vehicleType, operation) {
+              $scope.brands.sort();
+              $scope.relatedClasses.sort();
+              $scope.models.sort();
+              if($scope.realtedColours != undefined){
+                $scope.realtedColours.sort();
+              }
+              $scope.vehicleDetail = false;
+              $scope.caseVehicleType = vehicleType; 
+              $scope.recordId = '{!currentRecordId}';  
+              
+                          
+              $scope.brandVal = jq('#brandItems :selected').text();//document.getElementById("brandItems").value;
+              $scope.classVal = jq('#classItems :selected').text();//document.getElementById("classItems").value;
+              $scope.colourVal = jq('#colourItems :selected').text();//$sanitize(document.getElementById("colourItems").value);
+              $scope.modelVal = jq('#modelItemsIntrstedVeh :selected').text();//document.getElementById("modelItemsIntrstedVeh").value;
+              $scope.mileage = document.getElementById("mileageValue").value;               
+              $scope.vehicleAttributes = [ { 
+                                             Brand:$scope.brandVal, Class:$scope.classVal,
+                                              Colour:$scope.colourVal, Model:$scope.modelVal,
+                                             Trim:$scope.trimVal,Mileage:$scope.mileage, caseVehicleType:$scope.caseVehicleType,
+                                             CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
+                                           }
+                                         ];
+              /*Remoting method here*/
+              console.log($scope.vehicleAttributes[0]);
+              Visualforce.remoting.Manager.invokeAction(
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
+                   function(result, event) {
+                       $scope.contacts = result;
+                       $scope.$apply();
+                       if (sforce.console.isInConsole()){
+                           function testGetFocusedSubtabId() {   
+                                sforce.console.getFocusedSubtabId(showTabId);
+                           }                            
+                           var showTabId = function showTabId(result) {
+                                var subtabId = result.id;
+                                sforce.console.refreshSubtabById(subtabId, true);
+                                    
+                           };
+                           testGetFocusedSubtabId();
+                       }else{
+                           var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }                            
               });
           };
@@ -468,7 +611,7 @@
               $scope.vehicleAttributes = [{Id:$scope.checkedVehicleId, VehicleType:vehicleType, Lookup:"true", CurrentRecordId:$scope.recordId}];
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerForCaseController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.contacts = result;
                        $scope.$apply();
@@ -483,7 +626,12 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                            var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           };
@@ -642,7 +790,7 @@
                 
             /*Remoting to Clear the vehicle associated with case*/
             Visualforce.remoting.Manager.invokeAction(
-                 '{!$RemoteAction.VehiclePickerForCaseController.clearVehicleFromCase}',JSON.stringify($scope.vehicleAttributes[0]),
+                 '{!$RemoteAction.VehiclePickerForCaseControllerKR.clearVehicleFromCase}',JSON.stringify($scope.vehicleAttributes[0]),
                    function(result, event) {
                        $scope.$apply();
                        if (sforce.console.isInConsole()){
@@ -656,13 +804,18 @@
                            };
                            testGetFocusedSubtabId();
                        }else{
-                           window.top.location="/{!currentRecordId}";
+                            var urlCheck = window.location.href;
+                           if(urlCheck.indexOf("MBKorea") != -1){
+                               window.top.location="/MBKorea/{!currentRecordId}";
+                            }else{
+                                window.top.location="/{!currentRecordId}";
+                            }
                        }
               });
           }
           
-    }]);        
-    </script>
+    }]); 
+  </script>
     <script type="text/javascript">
         function Disablebuttons(){
             var obj= document.getElementById('cmdSave')
@@ -671,7 +824,7 @@
             obj2.style.visibility = 'hidden';
         }
     </script>
-    <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerForCaseController">
+    <div id="ng-app" ng-app="VehiclePickerApp" ng-controller="VehiclePickerForCaseControllerKR">
     <table>
     <tr>
     
@@ -680,9 +833,9 @@
     <td>
         <input type="text" ng-model="interestedVehicleDetails"  disabled="disabled" style="width:300px" /> 
         <apex:outputPanel rendered="{!disableButtons}">
-        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
-        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
-        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
+        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetailforInterestedVehicle('Interested Vehicle',selectedBrand,selectedClasses,selectedModel,selectedColour);" onclick="KillSaveButton();" class="btn" value="{!$label.New_Button}" id="cmdSave"/>
+        &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetailforInterestedVehicle('Interested Vehicle',selectedBrand,selectedClasses,selectedModel,selectedColour)" class="btn" value="{!$Label.Edit}"/>
+        &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/>
         &nbsp;<!--<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/> -->
         </apex:outputPanel>
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
@@ -691,26 +844,30 @@
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
+                    <td><select id="brandItems" ng-model="selectedBrand" ng-change="setSelectedValue(selectedBrand);setSelectedColour(selectedColour)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
-                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
-                </tr>
-                <tr>
-                    <td>{!$label.Colour}</td>
-                      <td><input id="colourValue" style="width:150px" ng-model="interested_colourValue"></input></td>
-                    <td>{!$label.Trim}</td>
-                    <td><input type="text" id="trimValue" style="width:150px" ng-model="interested_trimValue" ></input></td>
+                    <td><select id="classItems" ng-model="selectedClasses" ng-blur="setModelValue(selectedClasses+selectedBrand)" ng-change="setModelValue(selectedClasses+selectedBrand);setSelectedColour(selectedColour)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel)" ng-model="selectedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
+                    <td><select id="modelItemsIntrstedVeh" style="width:150px" ng-change="getSelectedModel(selectedModel);setSelectedColour(selectedModel)" ng-model="selectedModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
+                    <td>{!$label.Colour}</td>
+                      <td>
+                          <select style="width:150px" ng-change="getSelectedColour(selectedColour)" id="colourItems" ng-model="selectedColour">
+                                <option ng-repeat="colour in escapedColours" ng-selected="selectedColour == colour" ng-bind-html="colour" value="{{colour}}"></option>
+                          </select>
+                      </td>                 
+                </tr>
+                <tr>
+                    <td>{!$label.Trim}</td>
+                    <td><input type="text" id="trimValue" style="width:150px" ng-model="interested_trimValue" ></input></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="vehicleMilage" style="width:150px" /></td>
                 </tr> 
             </table>
             <br/>
             <input type="button" ng-click="cancelDetail('Interested Vehicle')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
-            <input type="button" ng-click="saveDetail('Interested Vehicle', vehicleDetailText)" class="btn" value="{!$label.Save_Button}"/> 
+            <input type="button" ng-click="saveInterestedVehicleDetail('Interested Vehicle', vehicleDetailText)" class="btn" value="{!$label.Save_Button}"/> 
         </div>
         <!------------ INTERESTED VEHICLE LOOKUP SECTION ---------------------->
         <div ng-if="vehicleLookup" style="background-color:#efefef;width:500px">
