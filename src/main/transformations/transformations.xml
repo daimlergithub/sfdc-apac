@@ -409,11 +409,6 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
 	</changetext>
-	<changetext>
-		<filename>objects\Account.object</filename>
-		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_CASE_INQUIRYS_RECORDTYPEID</token>
-	</changetext>
 		<changetext>
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>

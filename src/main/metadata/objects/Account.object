@@ -55108,10 +55108,10 @@ if('{!User.ContactId}' !=null &amp;&amp; {!CONTAINS( $Profile.Name ,'Dealer')} )
 var main = '{!User.ContactId}';
 var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1");
 var qrerecords = accountId.getArray("records");
-window.open('/500/e?nooverride=1&amp;RecordType=012280000006I86&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="CF00N2800000A9Cty"={!User.Name}&amp;id="CF00N2800000A9Cty"_lkid={!User.Id}&amp;CF00N2800000A9Ctz={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
+window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="CF00Np0000000Kdtq"={!User.Name}&amp;id="CF00Np0000000Kdtq"_lkid={!User.Id}&amp;CF00Np0000000Kdtr={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
 }
 else {
-window.open('/500/e?nooverride=1&amp;RecordType=012280000006I86&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
+window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
 }</url>
     </webLinks>
     <webLinks>
