@@ -175,6 +175,10 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
+        <apexClass>PrintPDFcontroller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>MassUpdatenewAssignedusercontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1933,6 +1937,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Data_Source_Last_Modified_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Fax_Last_Modified_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22634,6 +22643,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	 <pageAccesses>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>

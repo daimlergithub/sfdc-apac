@@ -28,23 +28,40 @@
     <apex:pageMessages />     
     <apex:form id="theForm">
     <apex:pageBlock title="Current Lead">
-        <table>
+        <apex:pageBlockTable value="{!leads}" var="leads">
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Name.Label}">
+                <apex:outputText value="{!leads.Name}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Contact__c.Label}">
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!leads.Contact__r.id}','_blank');">{!leads.Contact__r.Name}</apex:outputlink>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Service_Advisor__c.Label}">
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!leads.Service_Advisor__r.id}','_blank');">{!leads.Service_Advisor__r.Name}</apex:outputlink>
+                </apex:Column>
+                <apex:Column headervalue="{!$Label.RecordType}">
+                <apex:outputText value="{!leads.RecordType.Name}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.CAC_Lead_Status__c.Label}">
+                <apex:outputField value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+        </apex:pageBlockTable> 
+      <!--  <table>
             <tr>
-                <th id= "Name"> Lea No.</th>
+                <th id= "Name"> Lead No.</th>
                 <th id= "Contact"> Contact</th>
-                <th id= "Advisor"> Service Advisor</th>
+                <th id= "Advisor"> Assigned Service Advisor</th>
                 <th id= "RTName"> Record Type</th>
                 <th id= "Status">CAC Lead Status </th>
             </tr>
             <tr>
-                <td headers = "Name" width="23%">{!leads.Name}</td>
+                <td  headers = "Name" width="23%">{!leads.Name}</td>
                 <td headers = "Contact" width="23%">{!leads.Contact__r.Name}</td>
                 <td headers = "Advisor" width="23%">{!leads.Service_Advisor__r.Name }</td>
                 <td headers = "RTName" width="23%">{!leads.RecordType.Name}</td>
                 <td headers = "Status" width="23%">{!leads.CAC_Lead_Status__c}</td>
                 
             </tr>
-        </table>
+        </table>-->
     </apex:pageBlock>
         <apex:pageBlock title="{!$Label.Lead_to_be_Merged}" id="resultBlock">
             <apex:pageblockTable value="{!slaves}" var="slave1" styleclass="compare_table" id="a">  

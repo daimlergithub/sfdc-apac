@@ -134,7 +134,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Quotation_Print_Date__c</field>
+                <field>Quotation_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

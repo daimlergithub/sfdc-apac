@@ -175,6 +175,17 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Selling Dealer</label>
+		<lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Account Link (Selling Dealer)</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
