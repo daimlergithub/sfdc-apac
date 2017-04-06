@@ -11,7 +11,7 @@ Please click on one of the following to email back a response:<br/>
 <a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Sold Vehicle and Finance:">Sold Vehicle and Finance</a><br/>
 <a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Sold Finance:">Sold Finance</a><br/>
 <a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Refinanced:">Refinanced</a><br/>
-<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed:Pay out:">Closed – Payout </a> <br/>
-<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed:Lost Competitor:">Closed – Lost Competitor</a><br/>
-<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed:Vehicle Hand Back:">Closed – Vehicle Hand Back</a><br/>
+<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed Lost:Pay out:">Closed – Payout </a> <br/>
+<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed Lost:Lost Competitor:">Closed – Lost Competitor</a><br/>
+<a href="Mailto:{!emailserviceAddress}?cc={!CustomerCareEmail}&Subject=Lead No.{!LeadName}:{!LeadId}:Closed Lost:Vehicle Hand Back:">Closed – Vehicle Hand Back</a><br/>
 </apex:component>
