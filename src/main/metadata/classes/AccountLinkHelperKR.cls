@@ -609,6 +609,7 @@ public class AccountLinkHelperKR
     private static void createSharingRecord ( Map<Id, List<Id>> map_AccountIdAndListAccountLinkId) {
        
         // Changing Sharing from User to Public Group
+        system.debug('map_AccountIdAndListAccountLinkId :'+map_AccountIdAndListAccountLinkId);
         List<Account> dealerAccList = [select Name,Dealer_ND_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         system.debug('dealerAccList >> 1:'+dealerAccList);
         system.debug('dealerAccList >> 2:'+dealerAccList.size());
@@ -621,13 +622,14 @@ public class AccountLinkHelperKR
         }
         
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
+        system.debug('dealerAccNameSet :'+dealerAccNameSet);
         list<Group> gps = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
-        system.debug('gps :'+gps.size());
+        system.debug('gps :'+gps);
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Read';
+                    accountLinkShare.AccessLevel = 'Edit'; //Modified access permission from Read to Edit  #SFDCKR-978
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
@@ -640,7 +642,7 @@ public class AccountLinkHelperKR
         }
         
         List<Account> dealerAccList1 = [select Id, Dealer_GC_Code__c from Account where Id in: map_AccountIdAndListAccountLinkId.keySet() AND RecordType.DeveloperName = 'Dealer'];
-        
+        system.debug('dealerAccList1  >> :'+dealerAccList1);
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
         Set<Id> accIdSet = new Set<Id>();
         for(Account accRec : dealerAccList1) {
@@ -651,33 +653,35 @@ public class AccountLinkHelperKR
         }
         system.debug('gcCodeToDealerAccIdMap \n\n' + gcCodeToDealerAccIdMap + '\n\n' + gcCodeToDealerAccIdMap.keySet());
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
-        system.debug('dealerAccList1 :'+dealerAccList1);
+        system.debug('dealerAccList1 << :'+dealerAccList1);
         if(dealerAccList1.size() > 0) {
-            List<Account> similarGCCodeDealerAccountList = [select Id,Name, Dealer_GC_Code__c,Dealer_ND_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet() AND RecordtypeId =: Dealer_RecordTypeId and Dealer_type__c = 'Company'];
+            //List<Account> similarGCCodeDealerAccountList = [select Id,Name, Dealer_GC_Code__c,Dealer_ND_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet() AND RecordtypeId =: Dealer_RecordTypeId and Dealer_type__c = 'Company'];
+            List<Account> similarGCCodeDealerAccountList = [select Id,Name, Dealer_GC_Code__c,Dealer_ND_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet() AND RecordtypeId =: Dealer_RecordTypeId];// and Dealer_type__c = 'Company'];
+           
             system.debug('similarGCCodeDealerAccountList :'+similarGCCodeDealerAccountList);
-         Set<String> dealerAccNameSet1 = new Set<String>();
-         for(Account dealerRec : similarGCCodeDealerAccountList ) {
-            dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
-        }
-        system.debug('dealerAccNameSet :'+dealerAccNameSet);
-        List<AccountShare> AccountShareList = new  List<AccountShare>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
-            system.debug('groupRec :'+groupRec.Name);
-            for(Account dealerRec : dealerAccList) {
-                system.debug('dealerRec :'+dealerRec.Name);
-                AccountShare AccountShareRecord = new AccountShare();
-                AccountShareRecord.AccountId= dealerRec.id;
-                AccountShareRecord.UserOrGroupId= groupRec.Id;
-                AccountShareRecord.AccountAccessLevel= 'Read';
-                AccountShareRecord.OpportunityAccessLevel= 'Edit';   
-                AccountShareRecord.RowCause='Manual';
-                AccountShareList.add(AccountShareRecord);
-            }            
-        }
-        system.debug('AccountShareList :'+AccountShareList);
-        if(AccountShareList.size() > 0){
-            Database.insert(AccountShareList, false);
-        }
+            Set<String> dealerAccNameSet1 = new Set<String>();
+            for(Account dealerRec : similarGCCodeDealerAccountList ) {
+                dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+            }
+            system.debug('dealerAccNameSet :'+dealerAccNameSet);
+            List<AccountShare> AccountShareList = new  List<AccountShare>();
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+                system.debug('groupRec :'+groupRec.Name);
+                for(Account dealerRec : dealerAccList) {
+                    system.debug('dealerRec :'+dealerRec.Name);
+                    AccountShare AccountShareRecord = new AccountShare();
+                    AccountShareRecord.AccountId= dealerRec.id;
+                    AccountShareRecord.UserOrGroupId= groupRec.Id;
+                    AccountShareRecord.AccountAccessLevel= 'Read';
+                    AccountShareRecord.OpportunityAccessLevel= 'Edit';   
+                    AccountShareRecord.RowCause='Manual';
+                    AccountShareList.add(AccountShareRecord);
+                }            
+            }
+            system.debug('AccountShareList :'+AccountShareList);
+            if(AccountShareList.size() > 0){
+                Database.insert(AccountShareList, false);
+            }
         }
     }
    
@@ -816,11 +820,14 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         Set<String> FromAccountIds = new set<String>();
+        string market;
         for(Account_Link__c acc : accLst){
-            if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+            //if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
+            if((isInsert || isUpdate) && (acc.MD__c == label.MarketJp || acc.MD__c == label.MarketKR)){
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
-                 FromAccountIds.add(acc.fromRole__c); 
-                System.debug('AccountID--->'+acc.id);       
+                FromAccountIds.add(acc.fromRole__c); 
+                System.debug('AccountID--->'+acc.id); 
+                market =  acc.MD__c;     
             }
            
         }
@@ -830,11 +837,12 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
             acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
            }    
         }
+        
           string regexForNullValue ='null';
             string nullValue ='';                           
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
+            UtilAddressTranslation.gettranslatedvalues(market);
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
         Map<id,Account> accountMap = new Map<id,Account>([select id,Name,RecordType.Name, LastName, FirstName, Salutation__c, LastName_Native_1__c,
