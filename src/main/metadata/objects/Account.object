@@ -43004,7 +43004,7 @@ var MD = '{!ISPICKVAL($User.Market__c, 'KR')}';
 
 if(MD)
 {
-alert("This function available only for Japan user");
+alert("{!$Label.SendToJPOSErrorMsg}"); 
 
 }
 else
@@ -43048,7 +43048,7 @@ var MD = '{!ISPICKVAL($User.Market__c, 'KR')}';
 
 if(MD)
 {
-alert("This function available only for Japan user");
+alert("{!$Label.SendToSPOErrorMSG}");
 
 }
 else
