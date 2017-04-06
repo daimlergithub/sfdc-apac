@@ -18,20 +18,20 @@ public class TriggerUtil
     public static Boolean isTriggerEnabled(List<Trigger__c> aTriggerInfoLst) 
     {
         if (!aTriggerInfoLst.isEmpty() && aTriggerInfoLst.size() > 0) 
-		{
-			for (Trigger__c triggerCust : aTriggerInfoLst)
-			{
-				if(triggerCust != null)
-				{
-					return triggerCust.enabled__c;
-				}
-				else 
-				{
-					return false;
-				}
-			} 
+    {
+      for (Trigger__c triggerCust : aTriggerInfoLst)
+      {
+        if(triggerCust != null)
+        {
+          return triggerCust.enabled__c;
         }
-		return false;
+        else 
+        {
+          return false;
+        }
+      } 
+        }
+    return false;
     }
     
     public static void handleTrigger(String aTriggerName)
@@ -55,7 +55,8 @@ public class TriggerUtil
                 if (triggerHandler != null) 
                 {
                     triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
-                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);                    
+                    //triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore,trigger.isdelete,trigger.isAfter);
+					//commented as part of SFDCJP-2176                  
 
                 }
             }
