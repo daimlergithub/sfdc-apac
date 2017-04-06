@@ -4206,6 +4206,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>RecipientofthisFAX</shortDescription>
         <value>If you are not the recipient of this FAX</value>
     </labels>
+	<labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
     <labels>
         <fullName>RecordTypeId</fullName>
         <categories>Address Search</categories>

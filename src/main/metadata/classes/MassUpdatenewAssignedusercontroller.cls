@@ -1,4 +1,4 @@
-public with sharing class MassUpdatenewAssignedusercontroller 
+public without sharing class MassUpdatenewAssignedusercontroller 
 {
 
     public MassUpdatenewAssignedusercontroller(){
@@ -18,36 +18,50 @@ public with sharing class MassUpdatenewAssignedusercontroller
     
     public List<WrapperMassUpdate> getLeads() {
         LeadList = new List<WrapperMassUpdate>();
-        for(Lead__c ld :[SELECT ID,Name,ownerID  FROM Lead__c WHERE Ownerid=:accUsr.OwnerId LIMIT 10]){
+        System.debug('&&*&*&&*&*&*& accUsr.OwnerId'+accUsr.OwnerId);
+        if(accUsr.OwnerId !=null)
+        {
+        for(Lead__c ld :[SELECT ID,Name,ownerID,Service_Advisor__c  FROM Lead__c WHERE Service_Advisor__c=:accUsr.OwnerId]){
         system.debug('Lead Records are:'+ld);
         LeadList.add(new WrapperMassUpdate(ld));        
+        }
         }
         return LeadList ;
     }
     
     public List<WrapperMassUpdate> getCases(){
+    System.debug('&&*&*&&*&*&*& accUsr.OwnerId'+accUsr.OwnerId);
         caseList = new List<WrapperMassUpdate>();
-        for(Case cs : [select Id,CaseNumber, OwnerID from case WHERE OwnerId =: accUsr.OwnerId]){
+        if(accUsr.OwnerId !=null)
+        {
+        for(Case cs : [select Id,CaseNumber,Case_Dealer_User__c, OwnerID from case WHERE Case_Dealer_User__c=: accUsr.OwnerId]){
             System.debug('Case Records'+ cs);
             caseList.add(new WrapperMassUpdate(cs));
+        }
         }
         return caseList;
     }
 
     public List<WrapperMassUpdate> getVehicles() {
      vehicleList = new List<WrapperMassUpdate>();
-        for(Vehicle__c acc : [SELECT ID,Name,ownerID  FROM Vehicle__c WHERE Ownerid=:accUsr.OwnerId  Limit 10]){
+     if(accUsr.OwnerId !=null)
+        {
+        for(Account_Link__c acc : [SELECT ID,Name,torole__c,Service_Advisor__c,VIN__c,ownerID  FROM Account_Link__c WHERE Service_Advisor__c=:accUsr.OwnerId ]){
             vehicleList .add(new WrapperMassUpdate(acc));
         }    
+        }
         return vehicleList ;
     }
 
 
     public List<WrapperMassUpdate> getAccounts() {
          accountList = new List<WrapperMassUpdate>();
-        for(Account acc : [SELECT ID,Phone,ownerID FROM Account WHERE Ownerid=:accUsr.OwnerId  Limit 10]){
+         if(accUsr.OwnerId !=null)
+        {
+        for(Account_Link__c acc : [SELECT ID,Name,OwnerId ,Retail_Sales_Consultant__c,toRole__c FROM Account_Link__c WHERE Retail_Sales_Consultant__c=:accUsr.OwnerId  ]){
             accountList.add(new WrapperMassUpdate(acc));
         }    
+        }
         return accountList;
     }
     Public List<User> getUserDetails(){
@@ -74,25 +88,25 @@ public with sharing class MassUpdatenewAssignedusercontroller
          
     }
     public class WrapperMassUpdate{
-        public Account acc{get;set;}
-        public Vehicle__c veh{get;set;}
+        public Account_Link__c acc{get;set;}
+        public Account_Link__c veh{get;set;}
         public Lead__c led{get;set;}
         public case cse{get;set;}
         public Boolean selected{get;set;}
         
-        public WrapperMassUpdate(Account a){
+        public WrapperMassUpdate(Account_Link__c a){
         acc = a;
         //veh = (Vehicle__c)a;
        // led = (Lead__c)a;
         selected = False;
         }
-         public WrapperMassUpdate(Vehicle__c vh){
+         public WrapperMassUpdate(SObject vh){
         //acc = (Account)a;
-        veh = vh;
+        veh = (Account_Link__c)vh;
        // led = (Lead__c)a;
         selected = False;
         }
-         public WrapperMassUpdate(SObject a){
+         public WrapperMassUpdate(Lead__c a){
         //acc = (Account)a;
         //veh = (Vehicle__c)a;
         led = (Lead__c)a;
@@ -111,8 +125,8 @@ public with sharing class MassUpdatenewAssignedusercontroller
     system.debug('user record: '+usr);
     system.debug('user record: '+usr.id);
 
-         List<Account> SelectedAccount =new List<Account>();
-         List<Vehicle__c> SelectedVehicle =new List<Vehicle__c>();
+         List<Account_Link__c> SelectedAccount =new List<Account_Link__c>();
+         List<Account_Link__c> SelectedVehicle =new List<Account_Link__c>();
          List<Lead__c> SelectedLead =new List<Lead__c>();
          List<case> Selectedcase =new List<case>();
          
@@ -122,22 +136,23 @@ public with sharing class MassUpdatenewAssignedusercontroller
              }
          }
          
-         List<Account>UpdateAcc = New List<Account>();
-         for(Account acc:SelectedAccount){
-             acc.ownerid=usr.id;
+         List<Account_Link__c> UpdateAcc = New List<Account_Link__c>();
+         for(Account_Link__c acc:SelectedAccount)
+         {
+             acc.Retail_Sales_Consultant__c=usr.id;
              UpdateAcc.add(acc);
          }
          if(!UpdateAcc.isempty()){
          update UpdateAcc;
          }
-         List<Vehicle__c> UpdateVehicle = new List<Vehicle__c>();
+         List<Account_Link__c> UpdateVehicle = new List<Account_Link__c>();
          for(WrapperMassUpdate vechupdt: vehicleList ){
              if(vechupdt.selected==true){
                  SelectedVehicle.add(vechupdt.veh);             
              }
          }
-         for(vehicle__c vh :SelectedVehicle ){
-             vh.ownerid=usr.id;
+         for(Account_Link__c vh :SelectedVehicle ){
+             vh.Service_Advisor__c=usr.id;
              UpdateVehicle.add(vh);
          }
          List<Lead__c> Updatelead = new List<Lead__c>();
@@ -148,7 +163,7 @@ public with sharing class MassUpdatenewAssignedusercontroller
          }
          
          for(Lead__c lf: SelectedLead){
-         lf.ownerid=usr.id;
+         lf.Service_Advisor__c=usr.id;
          Updatelead.add(lf);
          }
          
@@ -160,7 +175,7 @@ public with sharing class MassUpdatenewAssignedusercontroller
          }
          
          for(case cs: Selectedcase){
-         cs.ownerid=usr.id;
+         cs.Case_Dealer_User__c=usr.id;
          Updatecase.add(cs);
          }
          

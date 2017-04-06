@@ -17,9 +17,12 @@ public with sharing class AccountHelperJPTest
    private static Address__c address;
     private static Account account;
     public static user usr;
+      public static List<Account> listcampaigns;
     public static Account dealer;
         public static Contact con ;
    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Partner Community User' limit 1];
+   public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+   public static Id dealeraddRecordtypeid = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
      //Create Test data
    public static void createTestData()
    {       
@@ -122,7 +125,7 @@ public with sharing class AccountHelperJPTest
        } 
         
    }
-    Public static testmethod void testUpdateAccountFieldsBeforeInsert()
+   Public static testmethod void testUpdateAccountFieldsBeforeInsert()
      { 
       createTestData();      
       Test.Starttest();     
@@ -190,8 +193,10 @@ public with sharing class AccountHelperJPTest
    public static testmethod void testcreateUCID()
      {  
       createTestData(); 
-      Test.Starttest();         
+      Test.Starttest(); 
+              
        AccountHelperJP.createUCID(accountlist,true);
+       
        System.runAs (usr) {
        AccountHelperJP.CreateRetailCopy(accountlist,true,true);
        }
@@ -200,7 +205,7 @@ public with sharing class AccountHelperJPTest
       AccountHelperJP.handleAfterInsertEvent(accountlist);
       Test.Stoptest();      
      }     
-     public static testmethod void testcreateUCID1()
+     public static testmethod void testcreate1()
      {  
       createTestData(); 
       Test.Starttest();  
@@ -211,5 +216,365 @@ public with sharing class AccountHelperJPTest
       AccountHelperJP.updateRetailCopy(True,True,True,accountlist,accountOldMap);
       Test.Stoptest();      
      }     
+     
+     
+     public static testmethod void testcreateUCID1()
+     {  
+      createTestData();
+      List<account> acc=new List<account>();
+      Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_GC_Code__c='12345');
+      acc.add(dealer1);
+      Group testGroup = new Group();
+        testGroup.Name = 'acme23';
+        testGroup.DeveloperName = 'ABC';
+        INSERT testGroup;
+      insert acc;
+      Test.Starttest();  
+      AccountHelperJP.handleAfterInsertEvent(acc);
+      Test.Stoptest();      
+     }     
+     
+     @isTest static void testparent()
+     {
+       User thisUser = [ select Id,ContactId,Email from User where Id = :UserInfo.getUserId() ];
+       System.runAs(thisUser){
+         
+        Test.StartTest();
+        
+        Account dealer13 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',MD__c = 'JP');
+        insert dealer13;
+        
+        Account dealer12 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',MD__c = 'JP');
+        insert dealer12;
+        
+        Address__c add=new Address__c();
+        add.Customer__c=dealer13.id;
+        add.Province__c='Gunma';
+        add.City__c='Hyd';
+        add.District__c='RR DIst';
+        add.Block__c='New gad';
+        add.RecordTypeId=dealeraddRecordtypeid;
+        add.Address_Line_1__c='Dilsukhnagar';
+        add.Address_Line_2__c ='Dilsukhnagar';
+        add.Address_Type__c='Business';
+        insert add;
+        
+         
+      listcampaigns=new List<Account>();
+       
+      
+       
+     Account dealer14 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',MD__c = 'JP');
+     
+      listcampaigns.add(dealer14);
+      insert listcampaigns;  
+       
+       
+      Address__c add8=new Address__c();
+        add8.Customer__c=listcampaigns[0].id;
+        add8.Province__c='Gunma';
+        add8.City__c='Hyd';
+        add8.District__c='RR DIst';
+        add8.Block__c='New gad';
+        add8.RecordTypeId=dealeraddRecordtypeid;
+        add8.Address_Line_1__c='Dilsukhnagar';
+        add8.Address_Line_2__c ='Dilsukhnagar';
+        add8.Address_Type__c='Business';
+        insert add8; 
+        
+       
+        dealer14.Primary_Address_Reference__c=add8.id;
+        update dealer14;
+       
+      // listcampaigns.add(dealer14);
+        
+        //update listcampaigns;
+        
+        Account listCampaign =[select Name,MBK_Data_Source__c,Mobile__c,Primary_Address_Reference__c from Account where id IN:listcampaigns ];
+         list<Account> oldList = new  list<Account>();
+         oldList.add(listCampaign);
+        map<id,Account> oldMap = new map<id,Account>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+          Address__c add1=new Address__c();
+        add1.Customer__c=dealer14.id;
+        add1.Province__c='Gunma';
+        add1.RecordTypeId=dealeraddRecordtypeid;
+        add1.City__c='Hyd';
+        add1.District__c='RR DIst1';
+        add1.Block__c='New gad1';
+        add.Address_Line_1__c='Dilsukhnagar';
+        add1.Address_Line_2__c ='Dilsukhnagar';
+        add1.Address_Type__c='Business';
+        insert add1;
+         
+        dealer14.Primary_Address_Reference__c =add1.id;
+        update dealer14;
+      
+        AccountHelperJP.updatePrimaryAddressdisplay(listcampaigns,oldMap,true);
+        
+        
+        Test.StopTest();
+        system.assertNotEquals('ggg', listcampaigns[0].Name);
+     }
+     }
+     
+     public static testmethod void testcreateUCID2()
+     {  
+      createTestData();
+      
+      List<account> acc=new List<account>();
+      Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_GC_Code__c='12345');
+      insert dealer1;
+      
+     Account personAcc1 = new Account(Dealer_Default_Flag__c=false,
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801110',
+                               Area_code__c = '0101',
+                               //MBK_Data_Source__c = 'Email',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'E-mail1',
+                               Primary_Email_Display__c='E-mail1',
+                               Primary_Fax__c = 'FAX1',
+                               Primary_Phone__c ='Other2',
+                               MD__c = 'JP',
+                               Industry = 'Other',
+                               OwnerId = usr.id,
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+                               acc.add(personAcc1);
+      Group testGroup = new Group();
+        testGroup.Name = 'acme23';
+        testGroup.DeveloperName = 'ABC';
+        INSERT testGroup;
+      insert acc;
+      Test.Starttest();  
+      AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,true);
+     
+       personAcc1.Primary_Email__c = 'E-mail2';
+       personAcc1.Primary_Email_Display__c='Email1';
+       personAcc1.Primary_Fax__c = 'FAX2';
+       personAcc1.Primary_Phone__c ='Home Phone';
+       update personAcc1;
+       update acc;
+       
+        AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,false);
+       
+       personAcc1.Primary_Email__c = 'E-mail3';
+       personAcc1.Primary_Email_Display__c='Email3';
+       personAcc1.Primary_Fax__c = 'FAX2';
+       personAcc1.Primary_Phone__c ='Work Mobile';
+       update personAcc1;
+       update acc;
+        AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,false);
+         personAcc1.Primary_Phone__c ='Work Phone';
+       update personAcc1;
+       update acc;
+        AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,false);
+         personAcc1.Primary_Phone__c ='Mobile';
+       update personAcc1;
+       update acc;
+        AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,false);
+         personAcc1.Primary_Phone__c ='Other1';
+       update personAcc1;
+       update acc;
+        AccountHelperJP.updatePrimaryContactInformationBeforeInsert(acc,false);
+        
+      Test.Stoptest();      
+     }    
+     
+       @isTest static void updateretailcopyTest()
+     {
+       User thisUser = [ select Id,ContactId,Email from User where Id = :UserInfo.getUserId() ];
+       System.runAs(thisUser){
+         
+        Test.StartTest();
+        
+        listcampaigns=new List<Account>();
+       
+      Account personAcc14 = new Account(Dealer_Default_Flag__c=false,
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801110',
+                               Area_code__c = '0101',
+                               //MD__c = 'JP',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'Email1',
+                               Primary_Fax__c = 'FAX2',
+                               Fax='035456232',
+                               Primary_Phone__c ='Other2',
+                               Allow_Data_Sharing2__c='No Choice Yet',  
+                               MD__c = 'JP',
+                               Industry = 'Other',
+                               Dealer_Rollout_Status__c ='Done',
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+                               
+                               insert personAcc14;
+       
+    Account personAcc13 = new Account(Dealer_Default_Flag__c=false,
+                               Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                               City__c='Beijing',
+                               Gender__c = 'Male',
+                               Phone = '0801801110',
+                               Area_code__c = '0101',
+                               //MD__c = 'JP',
+                               LastName = 'galaxy1',
+                               FirstName = 'First Name',
+                               Salutation = 'Unknown',      
+                               Province__c = 'Shanghai',
+                               ZipCode__c= '1002347',
+                               Mobile__c = '023482832',
+                               Mobile2__c = '035456232',
+                               Primary_Email__c = 'Email1',
+                               Primary_Fax__c = 'FAX2',
+                               Fax='035456232',
+                               Primary_Phone__c ='Other2',
+                               Allow_Data_Sharing2__c='No Choice Yet',  
+                               MD__c = 'JP',
+                               Industry = 'Other',
+                               
+                               RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+       
+     listcampaigns.add(personAcc13);
+      insert listcampaigns;  
+      
+      Account_Link__c al=new Account_Link__c(Name='new al',
+      toRole__c=listcampaigns[0].id,
+      fromRole__c=personAcc14.id,
+      RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+      );
+   
+       insert al;
+       Account listCampaign =[select Name,MBK_Data_Source__c,RecordTypeId,Lastname,FirstName,Foundation_Date__c,Dealer_Rollout_Status__c,Website,Commercial_Reg_No__c,Vat_No__c,Gender__c,Primary_Address_Reference__r.Customer__c,Work_Phone__c,Allow_Data_Sharing2__c,Industry,Mobile__c,Occupation__c,PersonBirthdate,LastName_Native_1__c,FirstName_Native_1__c,Preferred_Language__c,Individual_Home_Phone__c,Fax,Email__c,Complaint_Amount__c,Primary_Phone__c,Primary_Fax__c,Primary_Email__c,Primary_Address_Reference__c from Account where id IN:listcampaigns ];
+         list<Account> oldList = new  list<Account>();
+         oldList.add(listCampaign);
+        map<id,Account> oldMap = new map<id,Account>();
+         oldMap.put(listCampaign.id, listCampaign);
+         personAcc13.LastName = 'galaxy2';
+         personAcc13.Fax='035456232';
+         personAcc13.Allow_Data_Sharing2__c='Yes';
+         personAcc13.Gender__c='Female';
+         personAcc13.Individual_Home_Phone__c = '046234864';
+         personAcc13.Work_Phone__c = '023482321';
+         personAcc13.Mobile__c = '023382832';
+         personAcc13.Email__c = 'testemail1@test.com';
+         personAcc13.Primary_Phone__c ='Other1';
+         update personAcc13;
+         update listcampaigns;
+        
+        AccountHelperJP.updateRetailCopy(true,true,true,listcampaigns,oldMap);
+        
+        
+        Test.StopTest();
+        system.assertNotEquals('ggg', listcampaigns[0].Name);
+     }
+     }
+     
+      @isTest static void updateretailcopyTest2()
+     {
+       User thisUser = [ select Id,ContactId,Email from User where Id = :UserInfo.getUserId() ];
+       System.runAs(thisUser){
+         
+        Test.StartTest();
+        
+        listcampaigns=new List<Account>();
+       
+    Account personAcc14 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                //MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown',      
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                MD__c = 'JP',
+                                
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+                               insert personAcc14;
+       
+    Account personAcc13 = new Account(Dealer_Default_Flag__c=false,
+                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
+                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                                City__c='Beijing',
+                                Gender__c = 'Male',
+                                Fax='025645435',
+                                Phone = '0801801010',
+                                Area_code__c = '0101',
+                                //MD__c = 'JP',
+                                name = 'tes company name',
+                                //Salutation = 'Unknown', 
+                                Commercial_Reg_No__c='test',     
+                                Province__c = 'Shanghai',
+                                ZipCode__c= '1003465',
+                                Mobile__c = '024482832',
+                                Mobile2__c = '034456232',
+                                Primary_Email__c = 'Email2',
+                                Primary_Fax__c = 'FAX2',
+                                Primary_Phone__c ='Other2',
+                                MD__c = 'JP',
+                                
+                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
+       
+     listcampaigns.add(personAcc13);
+      insert listcampaigns;  
+      
+      Account_Link__c al=new Account_Link__c(Name='new al',
+      toRole__c=listcampaigns[0].id,
+      RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+      );
+   
+       insert al;
+       Account listCampaign =[select Name,MBK_Data_Source__c,RecordTypeId,Lastname,FirstName,Company_Name_Native_1__c,Foundation_Date__c,Dealer_Rollout_Status__c,Website,Commercial_Reg_No__c,Vat_No__c,Gender__c,Primary_Address_Reference__r.Customer__c,Work_Phone__c,Allow_Data_Sharing2__c,Industry,Mobile__c,Occupation__c,PersonBirthdate,LastName_Native_1__c,FirstName_Native_1__c,Preferred_Language__c,Individual_Home_Phone__c,Fax,Email__c,Complaint_Amount__c,Primary_Phone__c,Primary_Fax__c,Primary_Email__c,Primary_Address_Reference__c from Account where id IN:listcampaigns ];
+         list<Account> oldList = new  list<Account>();
+         oldList.add(listCampaign);
+        map<id,Account> oldMap = new map<id,Account>();
+         oldMap.put(listCampaign.id, listCampaign);
+         personAcc13.name = 'tes name1';
+         personAcc13.Commercial_Reg_No__c='test1';
+         personAcc13.Fax='035456232';
+         personAcc13.Allow_Data_Sharing2__c='Yes';
+         personAcc13.Gender__c='Female';
+         personAcc13.Individual_Home_Phone__c = '046234664';
+         personAcc13.Work_Phone__c = '023482321';
+         personAcc13.Mobile__c = '023382832';
+         personAcc13.Email__c = 'testemail1@test.com';
+         personAcc13.Primary_Phone__c ='Other1';
+         personAcc13.Fax='0256454351';
+         update personAcc13;
+         update listcampaigns;
+        
+        AccountHelperJP.updateRetailCopy(true,true,true,listcampaigns,oldMap);
+        
+        
+        Test.StopTest();
+        system.assertNotEquals('ggg', listcampaigns[0].Name);
+     }
+     }
       
   }

@@ -104,6 +104,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lost_CAC_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>WIP_Number__c</field>
             </layoutItems>
             <layoutItems>
