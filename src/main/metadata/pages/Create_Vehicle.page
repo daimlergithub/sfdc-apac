@@ -342,7 +342,7 @@
                             
                          <apex:pageBlockSectionItem > 
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}"/>              
-                                    <div class = "requiredInput">
+                                    <div>
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                      <table>
                                         <tr>
