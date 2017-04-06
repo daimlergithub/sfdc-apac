@@ -67,6 +67,7 @@ public class AddressDisplayInlineEditControllerTest
     {
         init();        
         test.startTest();
+       
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
@@ -78,6 +79,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddressDisplayInlineEditController.saveAddress();        
         objAddressDisplayInlineEditController.editaddressId=editadds[0].Id;
         objAddressDisplayInlineEditController.Address_Validated_Flag=true;
+        objAddressDisplayInlineEditController.Validation=true;
         objAddressDisplayInlineEditController.saveAddress();
         objAddressDisplayInlineEditController.ValidateAddressCode(editadds[0]);
         AddressDisplayInlineEditController.addressSelectionWrapper addWrap = new AddressDisplayInlineEditController.addressSelectionWrapper(editadds[0]);
@@ -287,12 +289,12 @@ public class AddressDisplayInlineEditControllerTest
         
         system.debug('objAddress>>>>>'+objAddress.Id);
         
-        editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+       editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
         system.debug('editadds>>>'+editadds);
         editadds[0].Preferred__c=false;
         editadds[0].Province__c='NSW';
-        editadds[0].Address_Type__c ='Company';        
+        //editadds[0].Address_Type__c ='Company';        
         update editadds;
         
         
