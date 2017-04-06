@@ -22,24 +22,28 @@ public with sharing class SelectAddressController {
                     Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,
                     Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,
                     Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,
-                    Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: accountId ];  
+                    Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: accountId ];                     
     
-    for(Address__c addressRec : addressList) {
-      String addressType = addressRec.Address_Type__c;
-      addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));
-    }        
+ addressSelectOptionList.add(new SelectOption('None', '--None--'));
+    for(Address__c addressRec : addressList) {         
+          String addressType = addressRec.Address_Type__c;       
+                        
+         addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));     
+    }    
     
     List<Account> accountList = [select Primary_Address_Reference__c from Account where Id =: accountId];
-    if(accountList.size() > 0 && String.isNotBlank(accountList[0].Primary_Address_Reference__c)) {
-      selectedAddress = accountList[0].Primary_Address_Reference__c;
-    }
-    }
+      if(accountList.size() > 0 && String.isNotBlank(accountList[0].Primary_Address_Reference__c)) {
+         selectedAddress = accountList[0].Primary_Address_Reference__c;
+     }
+  }
     
     public PageReference updateAddress() {
-        Account accRec = new Account(Id = accountId);
-        accRec.Primary_Address_Reference__c = selectedAddress;
-        update accRec;
-        
+        Account accRec = new Account(Id = accountId);  
+        if(selectedAddress != 'None' )  
+        accRec.Primary_Address_Reference__c = selectedAddress;  
+        else
+            accRec.Primary_Address_Reference__c = null;       
+        update accRec;       
         return null;
     }
 }
