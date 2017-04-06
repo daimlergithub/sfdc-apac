@@ -42,7 +42,7 @@
                 <apex:outputText value="{!leads.RecordType.Name}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.CAC_Lead_Status__c.Label}">
-                <apex:outputText value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
+                <apex:outputField value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
         </apex:pageBlockTable> 
       <!--  <table>
