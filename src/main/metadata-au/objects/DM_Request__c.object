@@ -561,6 +561,16 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Marketing_Department__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Manager will pick up the record and forward it for approval based on this 'Marketing' checkbox.</description>
+        <externalId>false</externalId>
+        <label>Marketing Department</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Office_Phone__c</fullName>
         <externalId>false</externalId>
