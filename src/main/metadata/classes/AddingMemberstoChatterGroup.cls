@@ -15,7 +15,12 @@ global class AddingMemberstoChatterGroup implements Database.Batchable<sObject>{
     global void execute(Database.BatchableContext BC, List<User> scope){
           List<CollaborationGroupMember> collbgrpmember = new List<CollaborationGroupMember>();
           system.debug('Lead Scope :'+Scope);
-          CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'All MBJ Users' LIMIT 1];
+         CollaborationGroup Chattergrp;
+         if(!Test.isRunningTest()){
+          Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'Dealer Community' LIMIT 1];
+          }else {
+               Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'Dealer Community1' LIMIT 1];
+          }
           system.debug('------>'+Chattergrp);
           for(user usr :scope){
               CollaborationGroupMember mem = new CollaborationGroupMember();
@@ -31,5 +36,6 @@ global class AddingMemberstoChatterGroup implements Database.Batchable<sObject>{
     }  
      global void finish(Database.BatchableContext BC){
        
+	   
     }                  
 }

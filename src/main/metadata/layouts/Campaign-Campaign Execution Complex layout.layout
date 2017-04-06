@@ -28,12 +28,16 @@
                 <field>Execution_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Type</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Questionnaire__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -26,15 +26,15 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -44,11 +44,11 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -84,11 +84,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -98,11 +98,11 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -141,11 +141,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -155,15 +155,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
-                <type>queue</type>
-            </approver>
-            <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
                 <name>MBJ_Supervisor</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -202,11 +202,11 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -216,15 +216,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
+                <name>Supervisor_Team_A</name>
+                <type>queue</type>
+            </approver>
+            <approver>
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_A</name>
-                <type>queue</type>
-            </approver>
-            <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -263,7 +263,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Status1_To_Be_Sent</name>
+                <name>Change_Status1_ToBe_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -273,15 +273,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
-                <type>queue</type>
-            </approver>
-            <approver>
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
                 <name>Supervisor_Team_A</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -320,7 +320,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_1</name>
+                <name>Change_Status2_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -330,15 +330,15 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
-                <type>queue</type>
-            </approver>
-            <approver>
                 <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
                 <name>Supervisor_Team_A</name>
+                <type>queue</type>
+            </approver>
+            <approver>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -377,7 +377,7 @@
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Change_Cat_Print_Check_2</name>
+                <name>Change_Status3_To_Be_Sent</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
@@ -387,11 +387,11 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>Supervisor_Team_A</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_A</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>

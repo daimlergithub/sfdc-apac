@@ -9,7 +9,7 @@
         </criteriaItems>
         <language>en_US</language>
     </filter>
-	<format>Matrix</format>
+    <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
         <field>Account.Vehicle_Relationships2__r$Ownership__c</field>

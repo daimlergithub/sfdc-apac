@@ -9,10 +9,10 @@ public class shareAccountRecord{
             List<AccountShare> accShrLst = new List<AccountShare>();
             Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
             List<case> caseUpdLst = new List<case>();
-            List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId, Case_Dealer__r.Name from case where id in: caseIds]);
+            List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId, Case_Dealer__r.Name, Case_Dealer__r.Dealer_ND_Code__c from case where id in: caseIds]);
             for(case cs: lstCase){
                 if(string.valueOf(cs.Case_Dealer__c) != '' && string.valueOf(cs.AccountId)!= ''){
-                    caseDealerAccName.put(cs.id, cs.Case_Dealer__r.Name);
+                    caseDealerAccName.put(cs.id, cs.Case_Dealer__r.Dealer_ND_Code__c);
                     caseCustAccId.put(cs.id, cs.AccountId);
                     dealerAccIds.add(cs.Case_Dealer__c);
                 }
@@ -26,12 +26,13 @@ public class shareAccountRecord{
              List<Account> caseDealerAccountLst = new List<Account>([select id, Name from Account where id in: dealerAccIds and RecordType.Name = 'Dealer']);
              List<Account> accPartnerLst = new List<Account>([select id, Name from Account where id in: caseCustAccId.values()]);
              List<Group> grpLst = new List<Group>([select id, Name from Group where Name in: caseDealerAccName.values()]);
+             system.debug('PSM grpLst '+grpLst);
              if(grpLst.size()>0){
               for(Group grp: grpLst){
                   AccountShare ash = new AccountShare();
                   ash.AccountAccessLevel = 'Read';
                   ash.OpportunityAccessLevel = 'Read';
-                  ash.caseAccessLevel = 'Edit';
+                  //ash.caseAccessLevel = 'Edit';
                   ash.AccountId = dealerAccNameCustomerAccid.get(grp.Name);
                   ash.UserOrGroupId = grp.id;
                   accShrLst.add(ash);
@@ -42,13 +43,14 @@ public class shareAccountRecord{
                     insert accShrLst;
                 }
              }
+             system.debug('PSM accShrLst '+accShrLst);
              
              for(User usr : [select Id, AccountId from User where isActive = true and AccountId in :dealerAccIds and Contact.Dealer_Lead_Gate_Keeper__c = true]){
                     dealerIdGateKeeperIds.put(usr.AccountId, usr.Id);
              }
              
-             for(Case cs : lstCase){
-                        if(dealerIdGateKeeperIds.containsKey(cs.Case_Dealer__c)){
+             for(Case cs : lstCase){                 
+                        if(dealerIdGateKeeperIds.containsKey(cs.Case_Dealer__c)){                            
                             cs.ownerid = dealerIdGateKeeperIds.get(cs.Case_Dealer__c); 
                             caseUpdLst.add(cs);                       
                         }                    

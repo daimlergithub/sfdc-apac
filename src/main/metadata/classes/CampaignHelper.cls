@@ -56,7 +56,7 @@ JIRA NO             :    SFDCJP-1026
     Set<Id> sid = New Set<Id>();
   List<Id> userIds = new List<Id>();
   List<String> sDealerEmails = New List<String>();
-  String mailSales ;
+  Set<String> mailSales = New Set<String>() ;
   Id camIdExec = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
   
@@ -83,49 +83,38 @@ JIRA NO             :    SFDCJP-1026
          if(c.Parent.Campaign_Type__c == 'sales'){ 
  
           if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
-                mailSales = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;    
+                mailSales.add(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c);    
           }
           } else if (c.Parent.Campaign_Type__c == 'After Sales'){
           
           if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
-                mailSales = parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c;   
+                mailSales.add(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c);   
           }
           
           }
-          system.debug('+++++++++++++++++'+mailSales);
-          if(mailSales != null){
-          string[] toaddress = New String []{mailSales};
           
+            system.debug('+++++++++++++'+mailSales);
+          //if(mailSales.size()>0){
+          //string[] toaddress = New String []{mailSales};
+         
+          For(User u : [Select id From User Where Email =:mailSales ]){ 
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        mail.saveAsActivity = false;
-        mail.setTargetObjectId(parDealer.ownerId);
-        mail.setToAddresses(toaddress);
-        mail.setWhatId(parDealer.Id);
+         mail.saveAsActivity = false;
+         mail.setTargetObjectId(u.Id);
+       // mail.setToAddresses(toaddress);
+         mail.setWhatId(parDealer.Id);
         
-        mail.setTemplateID(templateId.Id); 
-        mail.setUseSignature(false);
-        mail.setSaveAsActivity(false);
+         mail.setTemplateID(templateId.Id); 
+         mail.setUseSignature(false);
+         mail.setSaveAsActivity(false);
               
-            
-               
-               
-               
-            mails.add(mail); 
+       mails.add(mail); 
            
    }
+       mailSales.clear();
          
-    }
-    
-     
-    }
-     
-     
-  
-  
-  
-  
-  
-   Messaging.sendEmail(mails);
+    }}
+     Messaging.sendEmail(mails);
   
    }  
    /* End Of SFDCJP-1026 */
@@ -193,6 +182,7 @@ List<Retail_Campaign__c> tail    = New List<Retail_Campaign__c>();
            
 Set<id> sid = New Set<id>();
 Set<id> aid = New Set<id>();
+ Set<String> mailSales = New Set<String>(); 
     Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
     Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
     Id executionRetailRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
@@ -213,18 +203,49 @@ Set<id> aid = New Set<id>();
         
         
        } 
+       
+       system.debug('+++++++++++'+sid);
+       system.debug('++++++++++'+aid);
         if(sid.size() > 0){
       
       List<Campaign> camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
-      
+      List<Participating_Dealer__c> parDeal = [Select id,Campaign__c,Campaign__r.Parent.Campaign_Type__c,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c From Participating_Dealer__c Where Campaign__c =: aid];
+     
+        system.debug('+++++++++++'+camList);
+        system.debug('++++++++++++'+ parDeal);
+     
      If(camList.size() >0 && !camList.isEmpty()){ 
-         
-    For(Campaign campNew : campaignIds){    
+     For(Campaign camVar : camList ){   
+    
+    For(Participating_Dealer__c par : parDeal ){
+     
+      if(camVar.Campaign_Type__c == 'sales'){ 
+ 
+          if(!String.isBlank(par.Dealer__r.Dealer_Sales_Manager_Email__c)){
+                mailSales.add(par.Dealer__r.Dealer_Sales_Manager_Email__c);    
+          }
+          } else if (camVar.Campaign_Type__c == 'After Sales'){
+ 
+          if(!String.isBlank(par.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
+                mailSales.add(par.Dealer__r.Dealer_Aftersales_Manager_Email__c);    
+          }
+          }
+          }
+          }
+          
+          
+      For(User u :[Select id,Email From User Where Email =: mailSales] ){
+      
+    
     for(Campaign cam : camList ){
+    For(Campaign campNew : campaignIds){    
+    
+                system.debug('+++++++++++++++++++++'+u.Id);
         
        if(Cam.Campaign_Executer__c == 'Retail'){
        Retail_Campaign__c newChildRetail = new Retail_Campaign__c();
             newChildRetail.Name = campNew.Name;
+            newChildRetail.OwnerId = u.Id;
            newChildRetail.Parent_Campaign__c = campNew.Id;
             newChildRetail.Execution_Start_Date__c = campNew.Execution_Start_Date__c;
             newChildRetail.Execution_End_Date__c = campNew.Execution_End_Date__c;
@@ -245,16 +266,22 @@ Set<id> aid = New Set<id>();
             
             ret.add(newChildRetail);
             
+         }
          } 
+         }
+         }
          if(ret.size() > 0){
          insert ret;
          }
+         For(User u :[Select id,Email From User Where Email =: mailSales] ){
+         for(Campaign cam : camList ){
         if(Cam.Campaign_Executer__c == 'Retail'){          
        Retail_Campaign__c newRetail = new Retail_Campaign__c(); 
         newRetail.Name = cam.Name; 
         //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
         newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
         newRetail.Parent_Campaign__c = cam.Id;
+        newRetail.OwnerId = u.Id;
         newRetail.Start_Date__c = cam.StartDate; 
         newRetail.Close_Date__c = cam.EndDate;  
         newRetail.Status__c = cam.Status ; 
@@ -271,8 +298,11 @@ Set<id> aid = New Set<id>();
         }
         }
         }
-        }
         
+        
+        
+        
+        system.debug('++++++++++'+retailCamParentList);
      
      //insert retailCamParentList; 
      Database.SaveResult[] srList = Database.insert(retailCamParentList, false);
@@ -301,12 +331,18 @@ Set<id> aid = New Set<id>();
    
    
    }
-   
-   
-   
    }
-
- public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore){      
+   }
+  /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method auto calculate Segementation date based on Working day and working month
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
+   
+ public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){      
         
    String rect ;        
    String mont;     
@@ -315,7 +351,7 @@ Set<id> aid = New Set<id>();
    For(Campaign camp : campaignIdsBefore ){     
         
         
-   if(camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true){           
+   if(isInsert && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true || (isUpdate && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true && (camp.SegWorkingDay__c != camOldMap.get(camp.id).SegWorkingDay__c || camp.SegWorkingMonth__c != camOldMap.get(camp.id).SegWorkingMonth__c ))){           
              rect = camp.SegWorkingDay__c ;         
                     
              if(camp.SegWorkingMonth__c == 'Jan'){      
@@ -368,26 +404,43 @@ Set<id> aid = New Set<id>();
                 
 }       
         
-}  
+} 
+/**
+  *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method updates the status of parent based on child campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
 
-  public static void parentCampaignSatus(List<Campaign> campaignparent){ 
+  public static void parentCampaignSatus(List<Campaign> campaignparent,map<id,Campaign> camOldMap){ 
   
     Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
     Id planningRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
   Set<id> sid = New Set<Id>();
+  Set<id> aid = New Set<Id>();
   List<Campaign> camList = New List<Campaign>();
+  List<Campaign> camListMain = New List<Campaign>();
   
             For(Campaign camMain : campaignparent){
             
-            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning'){
+            If(camMain.RecordTypeId == executionRecordId && camMain.Child_Campaign_Status__c != 'Planning' && CamMain.Child_Campaign_Status__c != camOldMap.get(CamMain.id).Child_Campaign_Status__c ){
                       
                       sid.add(camMain.ParentId);
             
             } 
             
+        If(CamMain.RecordTypeId == planningRecordId  && CamMain.Status != camOldMap.get(CamMain.id).Status && CamMain.Status == 'Completed'){
+      
+                    aid.add(camMain.Id);
+                    
+   
+   }
+            
             
             }
-            
+              system.debug('++++++++++++++'+aid);
             if(sid.size()>0){
             List<Campaign> camMainList =[Select id,Status From Campaign where id =: sid];
             
@@ -400,29 +453,45 @@ Set<id> aid = New Set<id>();
                       cam.Status = 'Ongoing';
                       
                       camList.add(cam);
-                 
                  }
-               
-               
-               
                }
-            
-            
-            
-            
             }
   
         if(camList.size()>0){
            Update camList;
         
         }
-         
-  
-  }
-  
-  
-  
-  
+        }
+        
+        if(aid.size()>0){
+        system.debug('++++++++++'+'Im In For Loop');
+        
+        List<Campaign> camChildList = [Select Id,ParentId,Child_Campaign_Status__c  From Campaign Where ParentId =: aid];
+        system.debug('++++++++++++'+camChildList );
+        
+        if(camChildList.size()>0){
+        
+          For(Campaign cam : camChildList ){
+          
+             
+             
+                  if(cam.Child_Campaign_Status__c != 'Completed'){
+                  
+                    cam.Child_Campaign_Status__c = 'Completed';
+                    
+                    camListMain.add(cam);
+                        
+                  }
+                 
+                 
+               
+          
+          }} 
+        
+        } 
+        if(camListMain.size()>0){
+               Update camListMain;
+               }
   }
    
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
@@ -683,14 +752,22 @@ Set<id> aid = New Set<id>();
             }
         }
     }
-      public static void validationParentCampaign(List<Campaign> CamList){
+    /**
+  *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method contains Date validations on Parent and Child Campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */
+      public static void validationParentCampaign(List<Campaign> CamList,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){
    
    Id parentCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
-          
+    Set<Id> sid =  New Set<Id>();      
           
            For(Campaign Camp : CamList){
            
-           if(Camp.RecordTypeId == parentCampaignId){
+           if(isInsert && Camp.RecordTypeId == parentCampaignId || (isUpdate && Camp.RecordTypeId == parentCampaignId  && (Camp.StartDate  != camOldMap.get(Camp.id).StartDate ))){
            
                
                  If(Camp.StartDate < System.Today()){
@@ -706,26 +783,34 @@ Set<id> aid = New Set<id>();
                   
            
 }
+   
 
 
 }
    
  }
  
- public static void validationChildCampaign(List<Campaign> campListMain){
+ public static void validationChildCampaign(List<Campaign> campListMain,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){
  
  Id childCampaign= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
- Set<Id> sid = New Set<Id>();         
+ Set<Id> sid = New Set<Id>(); 
+ Set<Id> aid = New Set<Id>(); 
+         
           
            For(Campaign Camp : campListMain){
            
-if( Camp.RecordTypeId == childCampaign ){
+if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTypeId == childCampaign && (Camp.Segmentation_Date__c != camOldMap.get(Camp.id).Segmentation_Date__c  || Camp.Execution_Start_Date__c  != camOldMap.get(Camp.id).Execution_Start_Date__c || Camp.Response_Date__c   != camOldMap.get(Camp.id).Response_Date__c ))){
                   
                     system.debug('+++++++++++++++'+'WORKING' );
                          sid.add(Camp.ParentId);
                          
                          
                          }
+       if( isInsert && Camp.RecordTypeId == childCampaign){
+       
+                    aid.add(Camp.ParentId); 
+        }
+                         
                   }
                   
                   
@@ -740,25 +825,41 @@ if( Camp.RecordTypeId == childCampaign ){
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c <= ca.StartDate ||campan.Segmentation_Date__c > ca.EndDate ){
+                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c <= ca.StartDate ){
                      
-                         campan.addError('Segmentation Date must be greater than parent start date and less than parent end date');
+                         campan.addError('Segmentation Date Error');
                          
                      
                      }
                      
-                     if(campan.Execution_Start_Date__c <= campan.Segmentation_Date__c || campan.Execution_Start_Date__c > ca.EndDate ){
+                     if(campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  ){
                      
                      
-                            campan.addError('Execution Date must be greater than Segmentation date and less than parent end date ');
+                            campan.addError('Execution Date Error ');
                      }
-                  if(campan.Response_Date__c <= campan.Execution_Start_Date__c || campan.Response_Date__c  > ca.EndDate ){
+                  if(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c  ){
                      
                      
-                            campan.addError('Response Date must be greater than Execution date and less than parent end date');
+                            campan.addError('Response Date Error');
                      }
                   }
                }
+     }
+     
+     
+     if(aid.size()>0){
+     
+     List<Campaign> ParentCampaign = [Select id, Status From Campaign Where Id =: aid ];
+      For(Campaign cam : ParentCampaign ){
+      
+      For(Campaign childCam :campListMain){
+         if(cam.Status == 'Completed'){
+         childCam.addError('Cant add Child Campaign When Parent Status is Completed');
+       
+       }
+      } 
+     }
+     
      }
  
 }

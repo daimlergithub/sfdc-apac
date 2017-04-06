@@ -73,16 +73,16 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  
  if(ParentCamId!=null)
  {
- ChildCamp=[Select Id,EndDate,StartDate,Child_Campaign_Status__c from Campaign where ParentId=:ParentCamId and recordtypeid=:childCampaign_RecordTypeID and Child_Campaign_Status__c ='Execution'  ];
- }
+ ChildCamp=[Select Id,EndDate,StartDate,Child_Campaign_Status__c from Campaign where ParentId=:ParentCamId and recordtypeid=:childCampaign_RecordTypeID ];
+ 
  system.debug('#$#$# ChildCamp#$#$ d'+ChildCamp);
  if(ChildCamp!=null)
  {
  for(Campaign  Child:ChildCamp)
  {
- if(Child.Child_Campaign_Status__c =='Execution')
- {
+ 
  ChildCamId.add(Child.Id);
+ 
  }
  }
  }
@@ -92,9 +92,9 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  if(ChildCamId!=null)
  {
  Campaignmember=[select id,Status__c from Campaign_Member__c where Campaign_ID__c=:ChildCamId AND Status__c = 'Executed' ];
- ChildCampmain = [select id,Child_Campaign_Status__c from Campaign where Id =:ChildCamId ];
+ 
 
- }
+ 
   system.debug('#$#$# Campaignmember #$#$ d'+Campaignmember);
  if(Campaignmember!=null)
  {
@@ -105,17 +105,12 @@ public static Id childCampaign_RecordTypeID= Schema.SObjectType.Campaign.getReco
  UpdateCampaignmember.add(cmm);
  }
   }
- for(Campaign camp :ChildCampmain ){ 
- 
- camp.Child_Campaign_Status__c = 'Completed';
- UpdateCampmain.add(camp);
-
  }
  
  
  
  Update UpdateCampaignmember;
- Update UpdateCampmain;
+ 
  
  system.debug('#$#$# UpdateCampaignmember#$#$ d'+UpdateCampaignmember);
  }

@@ -1744,6 +1744,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Annual_Income_Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Annual_Mileage__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4130,11 +4135,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.UsedWarranty_Apply_User__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Vehicle_Relationship__c.Warranty_Apply_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8301,6 +8301,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBAFC_Team__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBK_Case_Class__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBK_Case_Sub_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBK_Case_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22435,11 +22450,6 @@
         <layout>Vehicle__c-Vehicle Layout-Soft Deleted</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
-    <loginHours/>
-    <loginIpRanges>
-        <endAddress>255.255.255.255</endAddress>
-        <startAddress>0.0.0.0</startAddress>
-    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

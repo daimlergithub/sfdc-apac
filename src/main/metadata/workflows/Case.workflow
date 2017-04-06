@@ -5,12 +5,7 @@
         <description>Case Deadline Dealer Manager Notification KR after 24 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>CommunityAccountPartnerExecutive</recipient>
-            <type>portalRole</type>
-        </recipients>
-        <recipients>
-            <recipient>CommunityAccountPartnerManager</recipient>
-            <type>portalRole</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/X24_hours_before_deadline</template>
@@ -20,15 +15,20 @@
         <description>Case Deadline : Dealer Manager Notification KR after 72 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>CommunityAccountPartnerExecutive</recipient>
-            <type>portalRole</type>
-        </recipients>
-        <recipients>
-            <recipient>CommunityAccountPartnerManager</recipient>
-            <type>portalRole</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Deadline_Dealer_Notification_KR_before_24_Hour</fullName>
+        <description>Case Deadline Dealer Notification KR before 24 Hour</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBK_Email_Templates/X24_hours_before_deadline</template>
     </alerts>
     <alerts>
         <fullName>Case_Deadline_Notification_168_Hours_Before_Case_DeadLine</fullName>
@@ -55,8 +55,7 @@
         <description>Case Deadline Notification KR after 240 Hours</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -66,8 +65,7 @@
         <description>Case Deadline Notification KR after 24 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -77,8 +75,7 @@
         <description>Case Deadline Notification KR after 72 Hour</description>
         <protected>false</protected>
         <recipients>
-            <recipient>Call_Center_Supervisor</recipient>
-            <type>role</type>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
@@ -1075,24 +1072,24 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Case Deadline %3ADealer Notification KR after 24 Hours</fullName>
+        <fullName>Case Deadline %3ADealer Notification KR Before 24 Hours</fullName>
         <active>true</active>
-        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours after the deadline,If the case Priority is B and Yellow = 3.</description>
-        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;A&apos;),ISPICKVAL( Priority , &apos;Red &gt;= 4&apos;)), CreatedBy.Profile.Name = &apos;Dealer Community User&apos;), true, false)</formula>
+        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 24 hours before  the deadline.</description>
+        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL(Status,&apos;Closed&apos;))), true, false)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Case_Deadline_Dealer_Manager_Notification_KR_after_24_Hour</name>
+                <name>Case_Deadline_Dealer_Notification_KR_before_24_Hour</name>
                 <type>Alert</type>
             </actions>
             <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>24</timeLength>
+            <timeLength>-24</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Case Deadline Notification</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -1696,7 +1693,7 @@
             <name>Status</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

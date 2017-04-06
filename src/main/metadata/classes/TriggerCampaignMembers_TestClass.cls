@@ -11,6 +11,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
          insert updatecustomsettings;
+        
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
         Id caeSim_RecordTypeId = cpRecordTypeMap_test.get('Campaign Execution - Simple').getRecordTypeId();                       // CAC Campaign
@@ -49,21 +50,21 @@ public with sharing class TriggerCampaignMembers_TestClass{
         try{
          CampaignMember cmtest=[select CampaignId,Status,ContactId from CampaignMember where id=:cm1.id];
          
-         TriggerCampaignMembersTriggerHandler cth = new TriggerCampaignMembersTriggerHandler();
+       /*  TriggerCampaignMembersTriggerHandler cth = new TriggerCampaignMembersTriggerHandler();
          cth.handleTrigger(false, false, false, false, false);
          cth.handleIntegrationTrigger(false, false, false, false, false);
          
          TriggerCampaignOfferingTriggerHandler coh = new TriggerCampaignOfferingTriggerHandler();
          coh.handleTrigger(false, false, false, false, false);
-         coh.handleIntegrationTrigger(false, false, false, false, false);
+         coh.handleIntegrationTrigger(false, false, false, false, false);*/
          
          TriggerCampaignOfferingTriggerHandlerJP cohJP = new TriggerCampaignOfferingTriggerHandlerJP();
          cohJP.handleTrigger(false, false, false, false, false);
          cohJP.handleIntegrationTrigger(false, false, false, false, false);
          
-         TriggerCampaignPackageTriggerHandler cph = new TriggerCampaignPackageTriggerHandler();
+        /* TriggerCampaignPackageTriggerHandler cph = new TriggerCampaignPackageTriggerHandler();
          cph.handleTrigger(false, false, false, false, false);
-         cph.handleIntegrationTrigger(false, false, false, false, false);
+         cph.handleIntegrationTrigger(false, false, false, false, false);*/
          
          TriggerCampaignPackageTriggerHandlerJP cphJP = new TriggerCampaignPackageTriggerHandlerJP();
          cphJP.handleTrigger(false, false, false, false, false);

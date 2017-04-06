@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Vehicle --></value>
+        <value>차량</value>
     </caseValues>
     <fields>
         <label><!-- AMG --></label>
@@ -37,7 +37,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Baumuster --></label>
+        <label>Baumuster</label>
         <name>Baumuster__c</name>
     </fields>
     <fields>
@@ -3743,8 +3743,16 @@
         <label><!-- New Used --></label>
         <name>New_Used__c</name>
         <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used</masterLabel>
+            <translation><!-- Used --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -4214,40 +4222,6 @@
             <label>차량 정보</label>
             <section>Vehicle information</section>
         </sections>
-    </layouts>
-    <layouts>
-        <layout>Self Registered Layout-CAC</layout>
-        <sections>
-            <label>경쟁 모델 정보</label>
-            <section>Competitor Information</section>
-        </sections>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>기타 정보</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label>시스템 정보</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label>차량 세부 정보</label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label>차량 정보</label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Vehicle Layout</layout>
     </layouts>
     <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>

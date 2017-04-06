@@ -658,7 +658,7 @@
         <label>Campaign Execution Channels</label>
         <picklist>
             <picklistValues>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1463,6 +1463,126 @@
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_Mcare Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_inspections (After 4years)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_service program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_new car six month inspections</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_accessory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_motor show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_display</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_othres</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Connection/me</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_SSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1506,7 +1626,7 @@
                 <fullName>DM</fullName>
                 <default>false</default>
             </picklistValues>
-			            <picklistValues>
+            <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1690,6 +1810,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>M_ATL_BTL__c</fullName>
         <externalId>false</externalId>
         <label>ATL/BTL</label>
@@ -1861,21 +1995,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market Discriminator</label>
-        <length>2</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
+    <fields>
         <fullName>M_May__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -2623,7 +2743,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklist>
             <picklistValues>
                 <fullName>Draft</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Ongoing</fullName>
@@ -3376,6 +3496,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Record_Type_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Close_Date__c</columns>
+        <columns>Campaign_Type__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>zh_CN</language>
@@ -3659,7 +3783,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4519,7 +4643,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5371,7 +5495,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6223,7 +6347,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7074,7 +7198,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7548,47 +7672,123 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_othres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7599,11 +7799,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
-			            <values>
-                <fullName>Lead</fullName>
+            <values>
+                <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7945,7 +8145,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8805,7 +9005,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9656,7 +9856,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10086,47 +10286,123 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_othres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10137,11 +10413,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>Lead</fullName>
                 <default>false</default>
             </values>
-			            <values>
-                <fullName>Lead</fullName>
+            <values>
+                <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10290,7 +10566,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Draft</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Ongoing</fullName>
@@ -10483,7 +10759,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11343,7 +11619,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12195,7 +12471,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13156,6 +13432,13 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Relevant Central Campaign is mandatory when Driven is Joint.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Retail_Campaign_Status_Completed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorDisplayField>Close_Date__c</errorDisplayField>
+        <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Retail_Candidate_must_match_the_MBSmart</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -13276,7 +13559,7 @@ $Profile.Name != 'IntegrationAPI'
 {
 
 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
 
 
 }</url>

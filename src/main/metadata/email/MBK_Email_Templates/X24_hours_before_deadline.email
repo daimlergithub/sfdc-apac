@@ -3,6 +3,7 @@
 해당 케이스는 24시간 이내 처리해주시기 바랍니다.
 
 고객명：{!Case.Account}
+문의 및 불만 관련 딜러: {!Case.Case_Dealer__c}
 케이스 번호：{!Case.CaseNumber}
 제목：{!Case.Subject}
 내용：{!Case.Description}

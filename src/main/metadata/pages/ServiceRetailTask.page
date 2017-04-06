@@ -5,11 +5,11 @@
            <apex:pageBlockTable id="serv" value="{!retlist}" var="ser">
            
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}"> 
-                        <apex:outputlink value="#" onclick="window.open('/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
+                        <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
                     </apex:column>
 
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}">
-                     <apex:outputlink value="#" onclick="window.open('/{!ser.Related_Contact__r.id}','_blank');">{!ser.Related_Contact__r.Name}</apex:outputlink>
+                     <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact__r.id}','_blank');">{!ser.Related_Contact__r.Name}</apex:outputlink>
                         
                     </apex:column>
                    
@@ -23,9 +23,7 @@
                         </apex:outputText>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle__c.Label}">
-                        
-                        <apex:outputText value="{!ser.Service_Vehicle__c}" style="width:9%; white-space:nowrap;"> 
-                        </apex:outputText>
+                         <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Service_Vehicle__r.id}','_blank');">{!ser.Service_Vehicle__r.Name}</apex:outputlink>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date__c.Label}">
                         
@@ -64,19 +62,19 @@
                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Lead__c.Label}">
-                 <apex:outputlink value="#" onclick="window.open('/{!ser.Related_Lead__r.id}','_blank');">{!ser.Related_Lead__r.Name}</apex:outputlink>
+                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Lead__r.id}','_blank');">{!ser.Related_Lead__r.Name}</apex:outputlink>
                     
                          
                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact2__c.Label}">
-                <apex:outputlink value="#" onclick="window.open('/{!ser.Related_Contact2__r.id}','_blank');">{!ser.Related_Contact2__r.Name}</apex:outputlink>
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact2__r.id}','_blank');">{!ser.Related_Contact2__r.Name}</apex:outputlink>
                 
 
                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact3__c.Label}">
-                 <apex:outputlink value="#" onclick="window.open('/{!ser.Related_Contact3__r.id}','_blank');">{!ser.Related_Contact3__r.Name}</apex:outputlink>
+                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact3__r.id}','_blank');">{!ser.Related_Contact3__r.Name}</apex:outputlink>
                 
                        
                     </apex:column>
@@ -89,8 +87,7 @@
                     
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}">
                 
-                      <apex:outputlink style="width:9%; white-space:nowrap;" value="/{!ser.id}">{!ser.Related_Dealer__r.Name} 
-                        </apex:outputlink>
+                      <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
                     </apex:column>
                         </apex:pageBlockTable>           
           

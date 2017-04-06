@@ -651,7 +651,7 @@ public class AccountLinkHelper
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Read';
+                    accountLinkShare.AccessLevel = 'Edit';
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
@@ -735,35 +735,7 @@ public class AccountLinkHelper
             }
         }
     }
- public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap)
- {
-     Set<Id> accIds = new Set<Id>();
-     List<Account_Link__c> accountlinkList = new List<Account_Link__c>();
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-     accIds.add(acclink.toRole__c);
-     }
-     Map<id,Account> accountMap = new Map<id,Account>([select id,(select id,position__c from Account_Links__r where recordtypeid=:AccountLink_contact2conatctRecordTypeId order by lastmodifieddate limit 1) from Account where id in :accIds]);
-     
-     for(Account_Link__c acclink :list_AccountLink)
-     {
-        If(oldMap!=null && acclink.Retail_Related_Company__c!=oldMap.get(acclink.id).Retail_Related_Company__c)
-        {
-        if(accountMap!=null && accountMap.get(acclink.toRole__c)!=null && !accountMap.get(acclink.toRole__c).Account_Links__r.isempty())
-        {
-            acclink.position__c=accountMap.get(acclink.toRole__c).Account_Links__r[0].position__c;
-            accountlinkList.add(acclink);
-        }
-        }
-         if(acclink.role__c ==acclink.role2__c && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId )
-         {
-         acclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
-         
-         }
-     }
     
-     
- }
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
         
         system.debug('------>Method is called');
@@ -892,7 +864,7 @@ public class AccountLinkHelper
      Desc:Trigger handler code for sharing account record when after insert and delete event
      Update date:28/12/2016
       */
-    public static void afterInsertDeleteEvent(List<Account_Link__c>aclnklist)
+ public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
 
  
@@ -904,13 +876,14 @@ public class AccountLinkHelper
     list<String> AccountNAme = new List<String>();
     for(Account_Link__c atl:allist)
     {
+        System.debug('Entered For Loop for Acc Link >>>>>');
         toroleidlist.add(atl.toRole__r.id);
         fromroleidlist.add(atl.fromRole__c);
         GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
     }
     list<SurveyTaker__c>stlist=[select id,account__c,account__r.id from SurveyTaker__c where  account__r.id IN :toroleidlist];
     list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
-    
+    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
      Map<Id,list<surveytaker__c>> newstmap=new Map<Id,list<surveytaker__c>>(); 
      
      
@@ -924,6 +897,9 @@ public class AccountLinkHelper
    
    }
     
+    System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
+    
+    
     list<Account_Link__c>allist1 = new list<Account_Link__c>();
     list<Account> aclist;
     list<string> aclistnames = new list<string>();
@@ -934,8 +910,8 @@ public class AccountLinkHelper
     Set<id> AccountIdsSet = new Set<id>();
     Set<id> ToAccountIdsSet = new Set<id>();  
     map<string,id> assgroupMap = new map<string,id>();  
-    Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
-    Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
+    //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
+   // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
     Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
     Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
     Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
@@ -947,10 +923,13 @@ public class AccountLinkHelper
         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
         {
             
+            System.debug('Entered 2nd After Loop for Acc Link >>>>>'+aclnklist.size());
+            
             if(al.fromRole__c!=null)
             {
                 if(al.fromRole__r.RecordTypeid==da && (al.ToRole__r.RecordTypeid==rpa)||(al.ToRole__r.RecordTypeid==rca))
                 {
+                    System.debug('Entered After Loop for Acc Link ******'+aclnklist.size());
                     allist1.add(al);
                     aclistnames.add(al.fromRole__r.name);
                     AccountIdsSet.add(al.fromRole__c);
@@ -967,6 +946,7 @@ public class AccountLinkHelper
     list<group>glist=[select id ,Name ,Type from Group where Name IN:aclistnames OR Name IN:AccountNAme];
     if( aclistnames!=null&& allist1!=null)
     {
+        System.debug('Entered After Loop for Acc Link $$$$$'+glist.size());
         for(Group assg:glist)
         {
                
@@ -979,13 +959,14 @@ public class AccountLinkHelper
             if(AccountIdsSet.contains(alnk.fromRole__c))
             {
                  
+                System.debug('Entered After Loop for Acc Link ########'+allist1.size());
                 if(assgroupMap.containskey(alnk.fromRole__r.name))
                 {
                   if(AccountNAme.size()>0)
                     {
                     for(id m:assgroupMap.values())
                     {
-                 system.debug('Inserting1');
+                     system.debug('Inserting1');
                      Accountshare a=new Accountshare();
                      a.Accountid=alnk.toRole__c;
                      a.UserOrGroupId = m;

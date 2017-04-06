@@ -10,7 +10,8 @@ public class LeadHelperAccountLinkCreateJP {
         set<String> contactId = new set<String>();
         
         for(Lead__c le : leadlst){
-            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
+             if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Approved'  && (le.MD__c == label.MarketJP)){
+            //if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP)){
                 if(isInsert || (isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c)) {
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
@@ -63,7 +64,7 @@ public class LeadHelperAccountLinkCreateJP {
             if(dealerLead.Company_Account__c != null)
                 CompanyId.add(dealerLead.Company_Account__c);
          }
-		 /*
+         /*
          Author : Siva A
          */
         /* List<Account_Link__c> acclinkupdate = new list<Account_Link__c>();
@@ -142,7 +143,7 @@ public class LeadHelperAccountLinkCreateJP {
          if(!accLst.isEmpty()){
             //insert accLst;
             
-            Database.SaveResult[] srList = Database.insert(accLst,true);
+            Database.SaveResult[] srList = Database.insert(accLst,false);
             
             
             
@@ -154,9 +155,9 @@ public class LeadHelperAccountLinkCreateJP {
                   
          }
     }
-	/*if(!acclinkupdate.isempty()){
+    /*if(!acclinkupdate.isempty()){
         insert acclinkupdate;    
-		}*/
+        }*/
     if(! actlnkids.isEmpty() ){
                LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
            }       

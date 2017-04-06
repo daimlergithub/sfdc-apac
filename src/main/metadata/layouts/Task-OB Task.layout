@@ -91,7 +91,7 @@
                 <behavior>Readonly</behavior>
                 <field>Activity_DataSubSource__c</field>
             </layoutItems>
-          </layoutColumns>
+        </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

@@ -198,7 +198,7 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
                         Validation = true;
                     }
-                    if((market != 'KR') && addressobj.Province__c == null)
+                    if((market == 'KR') && addressobj.Province__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;
@@ -237,7 +237,7 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
                         Validation = true;
                     }
-                    if((market != 'KR') && addressobj.Province__c == null)
+                    if((market == 'KR') && addressobj.Province__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;

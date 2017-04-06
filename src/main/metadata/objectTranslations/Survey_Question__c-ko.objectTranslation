@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey Question --></value>
+        <value>설문 조사 질문</value>
     </caseValues>
     <fields>
         <label>선택 항목</label>

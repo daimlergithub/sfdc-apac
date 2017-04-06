@@ -4182,11 +4182,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>UCID__c</field>
-            <table>Address__c.Accounts__r.Lead_Contact__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Updated_By_EP_Transactions__c</field>
             <table>Address__c.Accounts__r.Lead_Contact__r</table>
         </columns>

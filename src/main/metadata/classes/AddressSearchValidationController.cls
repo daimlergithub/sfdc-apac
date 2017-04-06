@@ -319,7 +319,7 @@ public class AddressSearchValidationController{
                 {                   
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(System.Label.Company).getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;                   
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
@@ -421,7 +421,7 @@ public class AddressSearchValidationController{
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
                     
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
@@ -430,7 +430,7 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         
                     }
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {
                         refreshPage = true;
                         insert objAccount ;
@@ -451,7 +451,7 @@ public class AddressSearchValidationController{
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('recordType 8:'+ objPersonAccount.Mobile__c);                    
                     system.debug('mobileAreaCode >>:'+mobileAreaCode);  
-                    if(Address_Validated_Flag == false)
+                    if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = TRUE;
@@ -482,7 +482,7 @@ public class AddressSearchValidationController{
                         Validation = TRUE;
                     }  
                     */                 
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     {   
                         if(homePhoneAreaCodePart1 == ' ' && homePhoneAreaCodePart2 == '' && homePhoneAreaCodePart3 == '')
                         {    
@@ -557,7 +557,10 @@ public class AddressSearchValidationController{
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
                     objPersonAccount.RecordTypeId = recordTypeId;
                     system.debug('Enter JP Loop 2 :');
-                    if(Address_Validated_Flag == false)
+
+
+                    /****************************************/
+                    if(!Address_Validated_Flag)
                     {   system.debug('Enter JP Loop 3 :');                    
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                     }
@@ -566,8 +569,11 @@ public class AddressSearchValidationController{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation));
                         
                     }                    
-                    if (Address_Validated_Flag == true && AddressObj.Address_Type__c != null )
+                    if ((Address_Validated_Flag) && AddressObj.Address_Type__c != null )
                     { 
+
+                    /*****************************************/  
+
                         system.debug('Enter JP Loop 5 :'); 
                        /* if(objPersonAccount.Individual_Home_Phone__c == null && objPersonAccount.Mobile__c == null && objPersonAccount.Work_Phone__c == null &&
                            objPersonAccount.Mobile2__c == null && objPersonAccount.Home_Phone_2__c == null &&  objPersonAccount.Phone == null &&
@@ -582,7 +588,7 @@ public class AddressSearchValidationController{
                         if(Validation == false){
                              system.debug('refreshPage 2:'+refreshPage );
                             upsert objPersonAccount ;
-                            if(AddressObj !=null && Address_Validated_Flag == true){
+                            if(AddressObj !=null && (Address_Validated_Flag )){
                                 AddressObj.Customer__c = objPersonAccount.id;
                                 AddressObj.Address_Code__c = ValidateAddressCode(AddressObj);
                                 insert AddressObj;
@@ -592,6 +598,7 @@ public class AddressSearchValidationController{
                         return PageRef;
                         }
                     }
+
                 }
                 
             }

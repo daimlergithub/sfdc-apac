@@ -16,7 +16,7 @@ public class TriggerLeadTriggerHandlerKR
             for(Lead__C leds : (List<Lead__c>)trigger.new){
                 dealerIds.add(Leds.Assigned_Dealer__c);
             }            
-            LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new);
+             LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap);
         }       
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);

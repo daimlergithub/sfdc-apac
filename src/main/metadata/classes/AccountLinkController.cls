@@ -62,18 +62,22 @@ public  class AccountLinkController
         
         
           }
+          /*
            public pageReference ab()
  
             {
           String url = null;
+        
           //url = '/MBJapan/acclnkdealer[0].id/e?ret';
               system.debug('+++++++++++++'+sid);
-           pageReference pg = new pageReference('/MBJapan/'+acclnkdealer.id+'/e?retURL='+'/MBJapan/'+acclnkdealer.id );
+       //   pageReference pg = new pageReference('/MBJapan/'+acclnkdealer.id+'/e?retURL='+'/MBJapan/'+acclnkdealer.id );
+       
+         pageReference pg = new pageReference('/Asia/'+acclnkdealer.id+'/e?retURL='+'/Asia/'+acclnkdealer.id );
            
           //p = new PageRefreance(' url');
           pg.setRedirect(true);
-           return pg ;
-                 }
+           return pg;
+                 }*/
                  
           public PageReference DeleteRetailCopy(){
                                         system.debug('#######'+aid);

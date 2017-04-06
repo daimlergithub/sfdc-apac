@@ -18,9 +18,16 @@ public class TriggerCampaignTriggerHandlerJP
     {
       if(Trigger.isBefore && Trigger.isInsert)
         {
-           CampaignHelper.validationParentCampaign(Trigger.New);
-           CampaignHelper.validationChildCampaign(Trigger.New);
+           CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
             
+        }
+        if(Trigger.isBefore && Trigger.isUpdate)
+        {
+           CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
         }
              
          if(Trigger.isBefore && Trigger.isDelete){
@@ -38,7 +45,7 @@ public class TriggerCampaignTriggerHandlerJP
         {
             CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
-            CampaignHelper.parentCampaignSatus(Trigger.New);
+            CampaignHelper.parentCampaignSatus(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
             
         }
     }

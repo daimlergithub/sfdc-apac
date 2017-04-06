@@ -1755,7 +1755,7 @@
         <name>CAC_Lead_Status__c</name>
         <picklistValues>
             <masterLabel>Accepted</masterLabel>
-            <translation><!-- Accepted --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Allocated</masterLabel>
@@ -1767,7 +1767,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Approved (Waiting)</masterLabel>
-            <translation><!-- Approved (Waiting) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Approving</masterLabel>
@@ -1775,23 +1775,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Assigned</masterLabel>
-            <translation><!-- Assigned --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contact Failed For 3 Days(Only Non BDC)</masterLabel>
-            <translation><!-- Contact Failed For 3 Days(Only Non BDC) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Distributed</masterLabel>
-            <translation><!-- Distributed --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>First Contact Customer</masterLabel>
-            <translation><!-- First Contact Customer --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gave up</masterLabel>
-            <translation><!-- Gave up --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(CAC)</masterLabel>
@@ -1799,7 +1799,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
-            <translation><!-- Lost(Dealer) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New</masterLabel>
@@ -1811,15 +1811,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Order Placed</masterLabel>
-            <translation><!-- Order Placed --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Plan to Purchase</masterLabel>
-            <translation><!-- Plan to Purchase --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased</masterLabel>
-            <translation><!-- Purchased --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased(Only Non BDC)</masterLabel>
@@ -1831,7 +1831,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Received</masterLabel>
-            <translation><!-- Received --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
@@ -1839,19 +1839,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Booking</masterLabel>
-            <translation><!-- Service Booking --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Completed</masterLabel>
-            <translation><!-- Service Completed --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Visited Showroom(Only Non BDC)</masterLabel>
-            <translation><!-- Visited Showroom(Only Non BDC) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2140,7 +2140,7 @@
         <name>Customer_Type__c</name>
         <picklistValues>
             <masterLabel>Authority</masterLabel>
-            <translation><!-- Authority --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Sales</masterLabel>
@@ -2152,11 +2152,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Fleet</masterLabel>
-            <translation><!-- Fleet --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Government</masterLabel>
-            <translation><!-- Government --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>New Customer</masterLabel>
@@ -2164,7 +2164,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>New Customer(Used Car)</masterLabel>
-            <translation><!-- New Customer(Used Car) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2240,7 +2240,7 @@
         <name>Dealer_Lead_Status__c</name>
         <picklistValues>
             <masterLabel>Accepted</masterLabel>
-            <translation><!-- Accepted --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Assigned</masterLabel>
@@ -2248,15 +2248,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Contact Failed For 3 Days(Only Non BDC)</masterLabel>
-            <translation><!-- Contact Failed For 3 Days(Only Non BDC) --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>First Contact Customer</masterLabel>
-            <translation><!-- First Contact Customer --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost</masterLabel>
-            <translation><!-- Lost --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
@@ -2280,7 +2280,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Received</masterLabel>
-            <translation><!-- Received --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Booking</masterLabel>
@@ -2300,7 +2300,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Won</masterLabel>
-            <translation><!-- Won --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -15725,10 +15725,6 @@
         <sections>
             <label><!-- Referal/Referee Information --></label>
             <section>Referal/Referee Information</section>
-        </sections>
-        <sections>
-            <label><!-- Select Assigne Dealer --></label>
-            <section>Select Assigne Dealer</section>
         </sections>
         <sections>
             <label><!-- Source Information --></label>

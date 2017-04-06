@@ -6,8 +6,7 @@
 @isTest
 Public class GenerateAndAttachPDFTest {
 public static Case objCase;
- final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
- final static String vechmbid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+
   // "GenerateAndAttachPDF" method would be called //
   public static testMethod void GenerateAndAttachPDFTest()
     {
@@ -33,21 +32,10 @@ public static Case objCase;
        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
        // Create Account
         Account objAccount=new Account();
-        objAccount.MBK_Data_Source__c ='Campaign';
-        objAccount.Mobile__c ='000-123-4567';
-        //objAccount=(Account)UtilTestData.createSobject(new Account(),UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
-        objAccount=new Account(RecordTypeId=personRecordtypeid);
+        objAccount=(Account)UtilTestData.createSobject(new Account(),UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
         // Create Vehicle 
         Vehicle__c objVehicle=new Vehicle__c();                    
-        //objVehicle=(Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB); 
-        objVehicle=new Vehicle__c(RecordTypeId=vechmbid);
-        objVehicle.Brand__c ='Mercedes-Benz';
-        objVehicle.FirstRegistrationDate__c = date.today();
-        objVehicle.Purchase_Month__c ='02';
-        objVehicle.Model__c = 'R350L 4MATIC';
-        objVehicle.Class__c = 'A-Class'; 
-        objVehicle.Purchase_Year__c = '2004';
-        objVehicle.RegistrationNo__c = '12345';
+        objVehicle=(Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB); 
         // Create Vehicle Relationship
         Vehicle_Relationship__c objVehicleRelship= new Vehicle_Relationship__c();
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;

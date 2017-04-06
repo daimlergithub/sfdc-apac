@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ProcessInstance$TableEnumOrId</field>
+    </columns>
+    <columns>
+        <field>ProcessInstance$TargetName</field>
+    </columns>
+    <columns>
+        <field>ProcessInstance$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>ProcessInstance$SubmittedBy</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Report 17_18</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Process_Instance__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>ProcessInstance$CompletedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

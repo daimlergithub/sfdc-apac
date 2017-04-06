@@ -13,8 +13,16 @@
         <name>Address_Code__c</name>
     </fields>
     <fields>
+        <label><!-- Address Line 1 Native --></label>
+        <name>Address_Line_1_Native__c</name>
+    </fields>
+    <fields>
         <label><!-- Address Line 1 --></label>
         <name>Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Line 2 Native --></label>
+        <name>Address_Line_2_Native__c</name>
     </fields>
     <fields>
         <label><!-- Address Line 2 --></label>
@@ -45,8 +53,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Block Native --></label>
+        <name>Block_Native__c</name>
+    </fields>
+    <fields>
         <label><!-- Block --></label>
         <name>Block__c</name>
+    </fields>
+    <fields>
+        <label><!-- City Native --></label>
+        <name>City_Native__c</name>
     </fields>
     <fields>
         <label><!-- City --></label>
@@ -64,8 +80,20 @@
         <label><!-- Country --></label>
         <name>Country__c</name>
         <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Japan</masterLabel>
             <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -80,6 +108,10 @@
     <fields>
         <label><!-- Delivery Point ID --></label>
         <name>Delivery_Point_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Town Native --></label>
+        <name>District_Native__c</name>
     </fields>
     <fields>
         <label><!-- Town --></label>
@@ -120,6 +152,10 @@
     <fields>
         <label><!-- Preferred --></label>
         <name>Preferred__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prefecture Native --></label>
+        <name>Province_Native__c</name>
     </fields>
     <fields>
         <label><!-- Prefecture --></label>
@@ -358,6 +394,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
@@ -394,6 +434,10 @@
         <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Address_Line_1__c is Mandatory --></errorMessage>
+        <name>Address_Line_1_is_mandatory</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Address Type is required. --></errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>
@@ -428,6 +472,18 @@
     <validationRules>
         <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
         <name>Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ZIP CODE should be minimum 5 digits and ONLY Numbers. --></errorMessage>
+        <name>MBK_Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ZIPCODE is mandatory --></errorMessage>
+        <name>MBK_ZIP_CODE_is_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Province __c is Mandatory --></errorMessage>
+        <name>Province_is_mandatory</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- TitleOfHonor is required. --></errorMessage>

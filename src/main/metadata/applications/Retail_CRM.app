@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <label>Retail CRM</label>    
+    <label>Retail CRM</label>
     <tab>standard-Account</tab>
     <tab>Yearly_Target</tab>
     <tab>standard-Campaign</tab>

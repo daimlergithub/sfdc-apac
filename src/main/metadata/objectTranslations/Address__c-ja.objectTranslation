@@ -84,8 +84,20 @@
         <label><!-- Country --></label>
         <name>Country__c</name>
         <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Japan</masterLabel>
             <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -346,7 +358,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Dead Mail</masterLabel>
-            <translation><!-- Dead Mail --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Incomplete</masterLabel>
@@ -354,7 +366,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Opt out</masterLabel>
-            <translation>Opt out</translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -422,6 +434,10 @@
         <name>AddressLine2_NoOfDigit</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Address_Line_1__c is Mandatory --></errorMessage>
+        <name>Address_Line_1_is_mandatory</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>住所区分を入力して下さい。</errorMessage>
         <name>Address_Type_Required</name>
     </validationRules>
@@ -456,6 +472,18 @@
     <validationRules>
         <errorMessage>郵便番号は７桁で入力してください。</errorMessage>
         <name>Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ZIP CODE should be minimum 5 digits and ONLY Numbers. --></errorMessage>
+        <name>MBK_Invalid_ZipCode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ZIPCODE is mandatory --></errorMessage>
+        <name>MBK_ZIP_CODE_is_mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Province __c is Mandatory --></errorMessage>
+        <name>Province_is_mandatory</name>
     </validationRules>
     <validationRules>
         <errorMessage>御中・様を入力して下さい。</errorMessage>

@@ -14237,21 +14237,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Sales Leads Layout (Dealer)</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Sales Leads Soft Deleted</layout>
         <sections>
             <label><!-- Assigned Dealer Reminder --></label>

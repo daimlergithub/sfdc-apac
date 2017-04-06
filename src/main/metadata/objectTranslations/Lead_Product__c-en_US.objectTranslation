@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Lead Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Lead Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Lead Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Actions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attachment_Flag --></label>
+        <name>Attachment_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Contact Type --></label>
+        <name>Customer_Contact_Type__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation><!-- Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Person</masterLabel>
+            <translation><!-- In-Person --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Product Item --></label>
+        <name>Lead_Product_Item__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Product Items --></label>
+        <name>Lead_Product_Items__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>Lead__c</name>
+        <relationshipLabel><!-- Lead Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MD --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Steps --></label>
+        <name>Next_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Information --></label>
+        <name>Order_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ordered against Factory --></label>
+        <name>Ordered_against_Factory__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Offer --></label>
+        <name>Product_Offer__c</name>
+        <picklistValues>
+            <masterLabel>After Sales offer</masterLabel>
+            <translation><!-- After Sales offer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedez Bench Finance &amp; Insurance offer</masterLabel>
+            <translation><!-- Mercedez Bench Finance &amp; Insurance offer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service plan</masterLabel>
+            <translation><!-- Service plan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quote Information --></label>
+        <name>Quote_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Live --></label>
+        <name>Quote_Live__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related To --></label>
+        <name>Related_To__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation><!-- Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract</masterLabel>
+            <translation><!-- Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Contact</masterLabel>
+            <translation><!-- Customer Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation><!-- Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance &amp;amp; Insurance</masterLabel>
+            <translation><!-- Finance &amp;amp; Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote</masterLabel>
+            <translation><!-- Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service &amp;amp; Parts</masterLabel>
+            <translation><!-- Service &amp;amp; Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle</masterLabel>
+            <translation><!-- Vehicle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deferred</masterLabel>
+            <translation><!-- Deferred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for someone else</masterLabel>
+            <translation><!-- Waiting for someone else --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation><!-- Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quote</masterLabel>
+            <translation><!-- Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit</masterLabel>
+            <translation><!-- Visit --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

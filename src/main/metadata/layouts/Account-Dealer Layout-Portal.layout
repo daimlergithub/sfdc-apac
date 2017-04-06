@@ -207,7 +207,7 @@
         <label>Address</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>400</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -536,6 +536,9 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.PollPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>SendEmail</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedLists>

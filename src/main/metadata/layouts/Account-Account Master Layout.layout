@@ -216,6 +216,10 @@
                 <behavior>Edit</behavior>
                 <field>AnnualRevenue</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Income_Range__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -324,11 +328,14 @@
         <quickActionListItems>
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>SendEmail</quickActionName>
+        </quickActionListItems>
     </quickActionList>
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>sfa:socialPanel</component>
+                <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>

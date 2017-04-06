@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filter>
+        <criteriaItems>
+            <column>Case.Related_Department__c</column>
+            <operator>includes</operator>
+            <value>CEM/CRM</value>
+        </criteriaItems>
+        <language>ja</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>LAST_UPDATE_BY</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <name>SPN対応_ケース最終更新者別の内訳</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>List_Ready_Maintenance</customButtons>
-    <customButtons>Upload</customButtons>
     <customButtons>OPR_Label_Print</customButtons>
     <customButtons>OPRO_Label_Print_PDF</customButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -54,6 +53,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>DM_Comments__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -205,6 +208,7 @@
         <customButtons>New_Campaign_Member</customButtons>
         <customButtons>Refresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
+        <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
         <customButtons>Convert_To_DM_Request</customButtons>
         <customButtons>Convert_To_Task</customButtons>
@@ -269,7 +273,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000HCIY</masterLabel>
+        <masterLabel>00hN0000000M2b1</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

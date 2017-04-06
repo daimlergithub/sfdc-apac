@@ -1,27 +1,88 @@
-@isTest
-private with sharing class SSITriggerHandlerTest {
- private static Account customer;
-    private static string SubjectValue = 'Welcome Call';
-    private static string ActivityStatusValue ='Successful';
-    private static string ActivityStatus ='Valid';
-    private static string ActivityStatusInvalid ='Invalid';
-    private static User ssi_sv;
-    public static Profile CACSSISVID = [select Id from Profile where Name = 'CAC SSI SV' limit 1];
+@istest
+public class SSITriggerHandlerTest {
+  public static Account accobj;
+  public static Account customer;
+  public static Contact contobj;
+  public static Task taskobj;
+  public static List<Task> taskobjlist;
+  public static SSI__c ssiold;
+  public static Map<Id,SSI__c> ssinewmap;
+  public static Map<Id,SSI__c> ssioldmap;
+  
+  public static User usr;
+  public static User ssi_sv;
+  public static Id ssitaskid = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+  public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+  public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+  static void createTestdata() {
+    accobj = new Account();
+    accobj.RecordTypeId = dealerRecordtypeid;
+    accobj.Name = 'testaccount';
+    accobj.Phone = '000-0000-9842';
+    accobj.MBK_Data_Source__c='Email';
+    accobj.Mobile__c = '000-0000-9642';
+    insert accobj;
+    system.debug('$$$$$accobj$$$$$$$'+accobj);
+    system.debug('$$$$$accobj.id$$$$$$$'+accobj.id);
     
-     static{
-         
-          customer = new Account(
-                FirstName = 'Test-',
-                LastName =  DateTime.now().formatLong(),
-                PersonMobilePhone = '1301111111',
-                PersonOtherPhone = '1302222222', 
-                Phone = '1234567', 
-                PersonHomePhone = '1234567', 
-                PersonAssistantPhone = '1234567'
-            );
-                 
-    }
+    contobj = new Contact();
+    contobj.LastName = 'Testutilcampaignlead';
+    contobj.Phone = '1212313';
+    contobj.Title = 'contact title';
+    contobj.Name_English__c = 'c';
+    contobj.AccountId = accobj.id;
+    insert Contobj;
+    system.debug('$$$$$contobj$$$$$$$'+contobj);
+    system.debug('$$$$$contobj.id$$$$$$$'+contobj.id);
+ 
+    // SSI Old Map
+      
+    ssiold = new SSI__c();
+    ssiold.CustomerName__c = 'testcustomerold'; 
+    ssiold.DealerName__c = 'Test Dealerold';
+    ssiold.Status__c = 'Matched';
+    ssiold.DealerCheck_Status__c = 'Pending';
+    ssiold.CarModelCheck_Status__c = 'Pending';
+    ssiold.Need_2nd_Survey__c = false;
+    ssiold.HomeMobilePhone__c = '000-0000-8888';
+    ssiold.OfficePhone__c = '000-0000-9999';
+    ssiold.Mark__c = 'test';
+    insert ssiold;
+	 // SSI New Map
+
     
+    ssiold.CustomerName__c = 'testcustomernew'; 
+    ssiold.Status__c = 'Matched';
+    ssiold.DealerCheck_Status__c = 'valid';
+    ssiold.CarModelCheck_Status__c = 'valid';
+    ssiold.HomeMobilePhone__c = '000-0000-9562';
+    ssiold.OfficePhone__c = '000-0000-9842';
+    ssiold.Mark__c = '';
+    update ssiold;
+    
+    system.debug('$$$$$ssiold$$$$$'+ssiold);
+    system.debug('$$$$$ssiold.id$$$$$'+ssiold.id);
+    
+    taskobj = new Task();
+    taskobj.recordtypeid = ssitaskid;
+    taskobj.Subject = '2nd Survey Call';
+    taskobj.WhatId = ssiold.id;
+    taskobj.HomeMobilePhone__c = '000-0000-9999';
+    taskobj.OfficePhone__c = '000-0000-8888';
+    taskobj.Status = 'Open';
+    system.debug('$$$$$$taskobj$$$$$$'+taskobj);
+    
+    taskobjlist = new List<Task>();
+    taskobjlist.add(taskobj);
+    insert taskobjlist;
+    system.debug('$$$$$$taskobjlist$$$$$$'+taskobjlist);
+    
+    Profile prof = [select Id from Profile where Name = 'System Administrator'];
+    usr = new User (ProfileId = prof.Id, isActive = true, Username='lai1@nttdata.com',LastName='sichaof',Email='sichao.lai@nttdata.com',Alias='laisc',CommunityNickname='barney1',
+                    TimeZoneSidKey='America/Los_Angeles',LocaleSidKey='en_US',EmailEncodingKey='ISO-8859-1',LanguageLocaleKey='en_US');
+  }
+    
+
     static testMethod void myUnitTest1() {
         
         ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
@@ -65,165 +126,51 @@ private with sharing class SSITriggerHandlerTest {
         }  
         
     }
-    
-    
-    static testMethod void myUnitTest2() {
-        
-          ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
-        
-        System.runAs ( ssi_sv ) {
-                    
-            
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-            String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
-            // create new ssi record
-            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
-            insert ssi;
-            
-            // cover TriggerTask.trigger    
-            Id ibrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-            Id obrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-            Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-            
-            Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = SubjectValue);
-            insert ssiTask;
-            Test.startTest();
-   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-          insert updatecustomsettings;
-            ssiTask.recordtypeid = ibrtid;
-            ssiTask.CallType = 'Inbound';
-            ssiTask.Activity_Status__c = ActivityStatus;
-            ssiTask.IB_Status__c = ActivityStatus;
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, IB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatus);
-            
-            ssitask.recordtypeid = recordtype;
-            ssiTask.CallType = '';
-            ssiTask.Activity_Status__c = ActivityStatusValue;
-            ssiTask.OB_Status__c = 'Invalid';
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusValue);
-            
-            ssiTask.recordtypeid = obrtid;
-            ssiTask.CallType = 'Outbound';
-            ssiTask.Activity_Status__c = ActivityStatusInvalid;
-            ssiTask.OB_Status__c = 'Invalid';
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusInvalid);
-            
-            ssi.DealerCheck_Status__c = 'Accept';
-            ssi.CarModelCheck_Status__c = 'Accept';
-            ssi.Comments__c = 'OK';
-            update ssi;      
-            Test.stopTest();
-       }    
-        
-    }
-    static testMethod void myUnitTest3() {
-        
-          ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
-        
-        System.runAs ( ssi_sv ) {
-                    
-            
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-            String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
-            // create new ssi record
-            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
-            insert ssi;
-            
-            // cover TriggerTask.trigger    
-            Id ibrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-            Id obrtid = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-            Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-            
-            Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = '2nd Survey Call');
-            insert ssiTask;
-            Test.startTest();
-   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-          insert updatecustomsettings;
-            ssiTask.recordtypeid = ibrtid;
-            ssiTask.CallType = 'Inbound';
-            ssiTask.Activity_Status__c = ActivityStatus;
-            ssiTask.IB_Status__c = ActivityStatus;
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, IB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatus);
-            
-            ssitask.recordtypeid = recordtype;
-            ssiTask.CallType = '';
-            ssiTask.Activity_Status__c = ActivityStatusValue;
-            ssiTask.OB_Status__c = 'Invalid';
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusValue);
-            
-            ssiTask.recordtypeid = obrtid;
-            ssiTask.CallType = 'Outbound';
-            ssiTask.Activity_Status__c = ActivityStatusInvalid;
-            ssiTask.OB_Status__c = 'Invalid';
-            update ssiTask;
-            ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, ActivityStatusInvalid);
-            
-            ssi.DealerCheck_Status__c = 'Accept';
-            ssi.CarModelCheck_Status__c = 'Accept';
-            ssi.Comments__c = 'OK';
-            update ssi;
-            
-            Test.stopTest();
-       }    
-        
-    }
-    
-        static testMethod void fieldsValidationRule() {
-            //ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
-            ssi_sv = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
-            FirstName = 'firstname',
-            ProfileId = CACSSISVID.Id,            
-            Alias = 'test123',
-            Email = 'test12345@test.com',
-            EmailEncodingKey = 'UTF-8',
-            LastName = 'McTesty',
-            CommunityNickname = System.now().millisecond() + 'test12345',
-            TimeZoneSidKey = 'America/Los_Angeles',
-            LocaleSidKey = 'en_US',
-            LanguageLocaleKey = 'en_US'
-        );
-        
-        insert ssi_sv;
-   system.runAs(ssi_sv)
-   {
-    customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-    String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
-    // create new ssi record
-    SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched',DealerCheck_Status__c = ActivityStatus,CarModelCheck_Status__c = ActivityStatus,Need_2nd_Survey__c = false);
-    insert ssi;            
-    
-    // cover TriggerTask.trigger                
-      Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();            
-         
-     Test.startTest();
-     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-     insert updatecustomsettings;
-     Map<Id,SSI__c> oldmap = new Map<Id,SSI__c>();
-     oldmap.put(ssi.Id, ssi);
-     Task ssiTask = new Task(recordtypeid = recordtype, Subject = '2nd Survey Call'); 
-     insert ssiTask;
-     ssi.Need_2nd_Survey__c = true;
-     update ssi;
-     ssiTask.WhatId = ssi.Id;
-     update ssiTask;
-     List<Task> generatetask = new List<Task>();
-     Map<Id,SSI__c> updateMap = new Map<Id,SSI__c>();
-     updateMap.put(ssi.Id, ssi);
-     generatetask.add(ssiTask);
-     Test.stopTest(); 
-   }   
-                    
-    }
+   
+  
+  /*public static testmethod void handleTriggerTest() {
+    createTestdata();
+    test.starttest();
+    SSITriggerHandler ssith = new SSITriggerHandler();
+    ssith.handleTrigger(true,true,true,true,true);
+    ssith.handleIntegrationTrigger(true,true,true,true,true);
+    test.stoptest();
+  }*/
+  
+  public static testmethod void autoGenerate2ndSurveyTasksTest() {
+    createTestdata();
+    ssinewmap = new Map<Id,SSI__c>();
+    ssinewmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssinewmap$$$$$'+ssinewmap);
+    ssioldmap = new Map<Id,SSI__c>();
+    ssioldmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssioldmap$$$$$'+ssioldmap);
+    test.starttest();
+      SSITriggerHandler.autoGenerate2ndSurveyTasks(ssinewmap,ssioldmap);
+    test.stoptest();
+  }
+  public static testmethod void fieldUpdatesTest() {
+    createTestdata();
+    ssinewmap = new Map<Id,SSI__c>();
+    ssinewmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssinewmap$$$$$'+ssinewmap);
+    ssioldmap = new Map<Id,SSI__c>();
+    ssioldmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssioldmap$$$$$'+ssioldmap);
+    test.starttest();
+      SSITriggerHandler.fieldUpdates(ssinewmap,ssioldmap);
+    test.stoptest();
+  }
+  public static testmethod void fieldsValidationRuleTest() {
+    createTestdata();
+    ssinewmap = new Map<Id,SSI__c>();
+    ssinewmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssinewmap$$$$$'+ssinewmap);
+    ssioldmap = new Map<Id,SSI__c>();
+    ssioldmap.put(ssiold.Id,ssiold);
+    system.debug('$$$$$ssioldmap$$$$$'+ssioldmap);
+    test.starttest();
+      SSITriggerHandler.fieldsValidationRule(ssinewmap,ssioldmap);
+    test.stoptest();
+  }
 }

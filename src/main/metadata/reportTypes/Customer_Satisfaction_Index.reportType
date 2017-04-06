@@ -144,11 +144,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Purchased_VIN__c</field>
-            <table>Lead__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Invoice_Date__c</field>
             <table>Lead__c</table>
         </columns>
