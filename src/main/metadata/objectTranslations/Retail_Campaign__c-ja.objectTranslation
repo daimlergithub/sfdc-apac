@@ -191,7 +191,6 @@
         <name>Budgeted_Cost__c</name>
     </fields>
     <fields>
-    <fields>
         <label><!-- CBU/PbP --></label>
         <name>CBU_PbP__c</name>
         <picklistValues>
