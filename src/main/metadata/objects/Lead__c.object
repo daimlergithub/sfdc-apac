@@ -36598,6 +36598,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>On-going</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
