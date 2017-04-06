@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+	<caseValues>
+        <plural>false</plural>
+        <value>ToDo</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>グループ ToDo</value>
+        </caseValues>
+        <name>group_task</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ToDo データ</value>
+        </caseValues>
+        <name>task_data</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ToDo 情報</value>
+        </caseValues>
+        <name>task_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ToDo の行動</value>
+        </caseValues>
+        <name>task_occurrence</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ToDo 優先度</value>
+        </caseValues>
+        <name>task_priority</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ToDo レコードタイプ</value>
+        </caseValues>
+        <name>task_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>定期的な ToDo</value>
+        </caseValues>
+        <name>task_series</name>
+    </fields>
     <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
