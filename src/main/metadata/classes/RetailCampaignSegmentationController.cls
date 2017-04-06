@@ -526,7 +526,7 @@ public with sharing class RetailCampaignSegmentationController {
             string dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
             if(selectedValue == 'Company' || selectedValue == 'Outlet'){
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' AND ';
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
             }
             else {
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
