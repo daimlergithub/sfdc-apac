@@ -609,6 +609,8 @@ public class AccountLinkHelper
     
     private static void createSharingRecord ( Map<Id, List<Id>> map_AccountIdAndListAccountLinkId) {
         
+       if(LeadUtil.createSharingRecord ){ 
+       
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
@@ -634,11 +636,14 @@ public class AccountLinkHelper
         if(list_SharingRecord.size() > 0){
             Database.insert(list_SharingRecord, false);
         }
+        }
+       LeadUtil.createSharingRecord = false; 
     }
     
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         // Changing Sharing from User to Public Group
+        if(LeadUtil.createPCSharingRecord){
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
@@ -663,6 +668,8 @@ public class AccountLinkHelper
         if(list_SharingRecord.size() > 0){
             Database.insert(list_SharingRecord, false);
         }
+        }
+        LeadUtil.createPCSharingRecord = false;
     }
     
     
@@ -745,7 +752,7 @@ if(LeadUtil.Retailcopy){
         
         Set<String> FromAccountIds = new set<String>();
         if(Integrationusr.profile.Name != 'IntegrationAPI'){
-		for(Account_Link__c acc : accLst){
+        for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
                  FromAccountIds.add(acc.fromRole__c);  
@@ -852,11 +859,11 @@ if(LeadUtil.Retailcopy){
             }
            //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
         }//End of for loop
-		}
+        }
        // if(!AccountlnkUpdate.isEmpty())
       
         //   update AccountlnkUpdate;
-	   }
+       }
       LeadUtil.Retailcopy=false;   
     }//End of Method
 //created by:surya varma

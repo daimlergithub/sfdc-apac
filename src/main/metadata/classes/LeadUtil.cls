@@ -11,6 +11,7 @@ public class LeadUtil {
     public static boolean Retailcopy= true;
     public static boolean UtilTrigger= true;
     public static boolean handleAfterInsert= true;
-
-
+    public static boolean createPCSharingRecord = true;
+    public static boolean createSharingRecord  = true;
+    
 }
