@@ -2591,7 +2591,7 @@
         <name>Retail_Campaign_Calender</name>
     </customTabs>
     <customTabs>
-        <label><!-- Retail Campaigns --></label>
+        <label>ボタンの記述が違う</label>
         <name>Retail_Campaigns</name>
     </customTabs>
     <customTabs>
