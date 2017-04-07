@@ -3765,6 +3765,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
@@ -10480,27 +10484,27 @@ IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H (현대)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria (겔러리아)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte (롯데_면세점)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian (신라)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine (하얏트)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage (롯데)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10592,7 +10596,7 @@ IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10608,15 +10612,15 @@ IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm (대한_국내외선)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
+                <fullName>DesignHouse (행가집)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
