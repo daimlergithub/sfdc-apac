@@ -109702,7 +109702,6 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <masterLabel>Print PDF</masterLabel>
         <openType>onClickJavaScript</openType>
         <page>LeadPrintPDF</page>
-        <position>none</position>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
