@@ -2,32 +2,35 @@
     <apex:form id="myform">
     <script type="text/javascript">
 function closeWin() {
-         window.close();   // Closes the new window
+        // window.close();   // Closes the new window
+         
+         window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
         }
 
 
     </script>
 
         <apex:pageBlock >
-           Please Select A Dealer To Add As Participating Dealer : <apex:selectList value="{!regionValue}" size="1" >
+           {!$Label.Please_Select_A_Dealer_To_Add_As_Participating_Dealer}: <apex:selectList value="{!regionValue}" size="1" >
            <apex:actionSupport event="onchange" action="{!dropDown}" rerender="myform,page"/>
            <apex:selectOptions value="{!regionOptions}"/> 
            </apex:selectList>
         </apex:pageBlock>
 <!-- <apex:outputpanel id="SearchPanel"  rendered="{!if(panelStopper = false,true,false)}" > -->
         <apex:pageBlock id="table" rendered="{!if(panelStopper = true,true,false)}">
-            Filter 
-           <p> Dealer Type     <apex:inputText value="{!dealerType}"/> </p>
-           <p>  Dealer Code    <apex:inputText value="{!dealerCode}"/> </p>
+            {!$Label.Filter}
+           <p> {!$Label.Dealer_Type}     <apex:inputText value="{!dealerType}"/> </p>
+           <p> {!$Label.Dealer_Code}     <apex:inputText value="{!dealerCode}"/> </p>
             <apex:pageBlockButtons location="Bottom">
-                <apex:commandButton value="Search" action="{!SearchLogic}" reRender="myform" />
+                <apex:commandButton value="{!$Label.Search}" action="{!SearchLogic}" reRender="myform" />
             </apex:pageBlockButtons>
         </apex:pageBlock>
 <!-- </apex:outputpanel> -->
         <apex:outputPanel id="accounts" >
             <apex:pageblock >
                 <apex:pageblocktable value="{!Account}" var="cc" id="page" >
-                    <apex:column headerValue="Choose Account">
+                    <apex:column headerValue="{!$Label.Choose_Account}">
                         <apex:inputCheckbox value="{!cc.bool}"/>
                     </apex:column><apex:column value="{!cc.con.Name}"/>
                     <apex:column value="{!cc.con.City__c}"/>
@@ -42,19 +45,12 @@ function closeWin() {
                 </apex:pageBlockButtons>
                 <apex:outputText >Page Number {!pageNumber} </apex:outputText>
                 <apex:pageBlockButtons location="bottom">
-                    <apex:commandButton value="Add" action="{!clickMe}" oncomplete="closeWin();" />
-                    <apex:commandButton value="Cancel"  onClick="window.close();" /> 
+                    <apex:commandButton value="{!$Label.Add}" action="{!clickMe}" oncomplete="closeWin();" />
+                    <apex:commandButton value="{!$Label.Cancel}"  onClick="window.close();" /> 
                     
                     
                 </apex:pageBlockButtons>
             </apex:pageblock>
         </apex:outputPanel>
-        <apex:pageblock >
-            <apex:outputPanel rendered="{!display}">
-                <apex:pageblocktable value="{!selectedList}" var="w" >
-                    <apex:column value="{!w.Name}"/>
-                </apex:pageblocktable>
-            </apex:outputPanel>
-        </apex:pageblock>
     </apex:form>
 </apex:page>
