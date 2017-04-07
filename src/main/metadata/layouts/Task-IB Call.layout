@@ -136,7 +136,6 @@
                 <field>AES_CNTR__Caller__c</field>
             </layoutItems>
         </layoutColumns>
-        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
