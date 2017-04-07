@@ -2,7 +2,9 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
-        <type>Default</type>
+        <content>AddToCampaign</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>AdvancedSetup</actionName>
@@ -20130,6 +20132,14 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorDisplayField>StartDate</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Use_Segmentation_Criteria</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
+        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
+        <errorMessage>Segmentation Date is Required</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>

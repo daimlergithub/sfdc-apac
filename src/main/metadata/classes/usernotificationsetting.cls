@@ -9,7 +9,7 @@ public class usernotificationsetting
     public List<String> Selected{set;get;}
     public List<String> Selected1{set;get;}
     public List<String> Selected2{set;get;}
-    
+    public id uid{get;set;}
     public user usertoupdate{set;get;}
     
     public string strname{set;get;}
@@ -19,12 +19,12 @@ public class usernotificationsetting
     public usernotificationsetting(ApexPages.StandardController controller)
     {
         set<string> user1 = new set<string>();
-        
+        uid = apexpages.currentpage().getparameters().get('id');
         Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Selected=new List<string>();
         Selected1=new List<string>();
         Selected2=new List<string>();
-        usertoupdate=[select id,name,Dealer_GC_Code__c ,contactid,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:userinfo.getUserId() ]; 
+        usertoupdate=[select id,name,Dealer_GC_Code__c ,contactid,Notification_Lead_Dealer_Assignment__c,Notification_Lead_Not_Assigned__c,Notification_Lead_No_Update__c from user where id=:uid]; 
         leftacc=new List<selectOption>(); 
         rightacc=new List<selectOption>();
         leftacctwo=new List<selectOption>(); 

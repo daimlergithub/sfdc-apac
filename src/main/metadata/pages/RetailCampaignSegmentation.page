@@ -254,7 +254,7 @@
                || newFieldValue == 'CAC_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
                || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'MOT_Expired_Date__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
                || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Re_lease_Prohibit_flag__c' || newFieldValue == 'Duration__c'
-               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name') {
+               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name' || newFieldValue == 'Model__c' || newFieldValue == 'Range__c') {
                 jQueryFieldRow.find('.aaa').children().each(function(){
                     this.style.display = 'block';
                 });
@@ -664,12 +664,9 @@
                                    <apex:selectList styleClass="Special_Mark_on_Account__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!SpecialMarkonAccount}"></apex:selectOptions>
                                 </apex:selectList>
-                                
-                                
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
-                               
-                            </td>
+                               </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -820,6 +817,8 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                    <option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option>                                                                     
+                                   <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
+                                   <option value="Model__c">{!$ObjectType.Vehicle__c.Fields.Model__c.Label}</option>                                                                     
                                     <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
                                     <option value="Recall__c">{!$ObjectType.Vehicle__c.Fields.Recall__c.Label}</option> 
                                 </select>
@@ -834,7 +833,7 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" style="display:block;"/>
-      
+                                                             
                                  <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                 
@@ -945,6 +944,18 @@
                     <div class="criteriaLink">
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
+                    </div>
+					<div>
+                    <table id="VehicleRetailcopyTable" class="" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="tableHeader">
+                                &nbsp;<th width="10%">Service Dealer</th>
+                                <td>
+                                    <apex:selectList value="{!selectedValueService}" multiselect="false" size="1">
+                                            <apex:selectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                      </table>
                     </div>
                 </div>
               

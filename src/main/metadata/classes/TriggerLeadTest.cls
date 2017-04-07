@@ -88,6 +88,8 @@ public static void preparedTestData()
         // Update CAC_Lead_Status__c from New to 'Lost(CAC)'
         lead.Lost_To__c = 'test';
         lead.CAC_Lead_Status__c = 'Lost(CAC)';
+        lead.CAC_Lost_Reason__c='Interest Lost';
+        lead.Lost_Comment__c='hello';
         lead.Lost_CAC_Date__c = System.today();
         update lead;
         Test.stopTest(); 

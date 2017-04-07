@@ -29,6 +29,11 @@ public class TriggerCampaignTriggerHandlerJP
            CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
            CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
         }
+        if(Trigger.isAfter && Trigger.isInsert || Trigger.isAfter && Trigger.isUpdate ){
+        
+        CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+        
+        }
              
          if(Trigger.isBefore && Trigger.isDelete){
              CampaignHelper.beforeDeleteEvents(Trigger.old);

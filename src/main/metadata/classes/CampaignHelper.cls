@@ -880,7 +880,7 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c <= ca.StartDate ){
+                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate ){
                      
                          campan.addError('Segmentation Date Error');
                          
