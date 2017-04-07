@@ -374,7 +374,7 @@
 								<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
 								<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
 								<sf:include name="VehicleRelationshipHelperJP"/>
-								<!--<sf:include name="VehicleRelationshipHelperJPTest"/>-->
+								<sf:include name="VehicleRelationshipHelperJPTest"/>
 								<sf:include name="CaseTriggerHandlerJP"/>
 								<sf:include name="TaskTriggerHandlerKR"/>
 								<sf:include name="TaskTriggerHandlerKRTest"/>
