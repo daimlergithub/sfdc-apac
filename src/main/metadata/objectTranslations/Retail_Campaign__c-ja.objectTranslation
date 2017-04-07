@@ -8,8 +8,8 @@
         <label><!-- AS Marketing Current Planned Budget --></label>
         <name>AS_Marketing_Current_Planned_Budget__c</name>
     </fields>
-	<fields>
-        <label>費用</label>
+    <fields>
+        <label>キャンペーンの費用</label>
         <name>Actual_Cost__c</name>
     </fields>
     <fields>
@@ -73,16 +73,16 @@
         <label><!-- Ad Type --></label>
         <name>Ad_Type__c</name>
     </fields>
-	<fields>
-        <label>キャンペーンメンバーIDを追加</label>
+    <fields>
+        <label>キャンペーン対象者ID</label>
         <name>Add_Campaign_Member_ID__c</name>
     </fields>
-	<fields>
-        <label>営業スタッフを追加</label>
+    <fields>
+        <label>販売担当者印字</label>
         <name>Add_Sales_Staff__c</name>
     </fields>
     <fields>
-        <label>サービススタッフの追加</label>
+        <label>サービス担当者印字</label>
         <name>Add_Service_Staff__c</name>
     </fields>
     <fields>
@@ -186,8 +186,8 @@
             <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
-	<fields>
-        <label>予算コスト</label>
+    <fields>
+        <label>キャンペーンの予算</label>
         <name>Budgeted_Cost__c</name>
     </fields>
     <fields>
@@ -214,8 +214,8 @@
         <label>キャンペーンコード</label>
         <name>Campaign_Code__c</name>
     </fields>
-	<fields>
-        <label><!-- Campaign Execution Channels --></label>
+    <fields>
+        <label>実行チャネル</label>
         <name>Campaign_Execution_Channels__c</name>
         <picklistValues>
             <masterLabel>DM</masterLabel>
@@ -239,7 +239,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>キャンペーンメンバーの共有ルール</label>
+        <label>販売店アサインルール</label>
         <name>Campaign_Member_Sharing_Rule__c</name>
         <picklistValues>
             <masterLabel>One Account Multiple Dealer</masterLabel>
@@ -254,8 +254,8 @@
         <label>キャンペーン名</label>
         <name>Campaign_Name__c</name>
     </fields>
-	<fields>
-        <label>キャンペーン種別</label>
+    <fields>
+        <label>レポート区分</label>
         <name>Campaign_Sub_Type__c</name>
         <picklistValues>
             <masterLabel>Finance - &gt; Prematurity</masterLabel>
@@ -532,7 +532,7 @@
             <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>実行ステータス</label>
         <name>Child_Campaign_Status__c</name>
         <picklistValues>
@@ -560,7 +560,7 @@
         <label><!-- City --></label>
         <name>City__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>終了日</label>
         <name>Close_Date__c</name>
     </fields>
@@ -568,8 +568,8 @@
         <label><!-- Comments --></label>
         <name>Comments__c</name>
     </fields>
-	<fields>
-        <label>DMテンプレート</label>
+    <fields>
+        <label>カタログ</label>
         <name>DM_Template__c</name>
         <relationshipLabel><!-- Retail Campaigns --></relationshipLabel>
     </fields>
@@ -646,8 +646,8 @@
         <label><!-- Delay Reason --></label>
         <name>Delay_Reason__c</name>
     </fields>
-	<fields>
-        <label>説明</label>
+    <fields>
+        <label>キャンペーンの詳細</label>
         <name>Description__c</name>
     </fields>
     <fields>
@@ -679,7 +679,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>イベントの種類</label>
+        <label>イベントタイプ</label>
         <name>Event_Type__c</name>
         <picklistValues>
             <masterLabel>Aftersales_MOT</masterLabel>
@@ -846,11 +846,11 @@
             <translation>サーベイ_SSI</translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>実行日</label>
         <name>Execution_Start_Date__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>実行タイプ</label>
         <name>Execution_Type__c</name>
         <picklistValues>
@@ -906,8 +906,8 @@
         <label><!-- Final Best Practice --></label>
         <name>Final_Best_Practice__c</name>
     </fields>
-	<fields>
-        <label>最終承認済み</label>
+    <fields>
+        <label>リスト確認済</label>
         <name>Final_List_Approved__c</name>
     </fields>
     <fields>
@@ -1201,8 +1201,8 @@
         <label><!-- Q4 Marketing Budget --></label>
         <name>Q4_Marketing_Budget__c</name>
     </fields>
-	<fields>
-        <label>範囲</label>
+    <fields>
+        <label>レンジ</label>
         <name>Range__c</name>
     </fields>
     <fields>
@@ -1231,8 +1231,8 @@
         <name>Relevant_Retail_Campaign__c</name>
         <relationshipLabel><!-- Records (Relevant Retail Campaign) --></relationshipLabel>
     </fields>
-	<fields>
-        <label>回答日</label>
+    <fields>
+        <label>レスポンス日</label>
         <name>Response_Date__c</name>
     </fields>
     <fields>
@@ -1240,8 +1240,8 @@
         <name>Retail_Candidate__c</name>
         <relationshipLabel><!-- Records (Candidate) --></relationshipLabel>
     </fields>
-	<fields>
-        <label>セグメンテーションベース</label>
+    <fields>
+        <label>活動単位</label>
         <name>Segmentation_Base__c</name>
         <picklistValues>
             <masterLabel>Contract</masterLabel>
@@ -1272,8 +1272,8 @@
             <translation>実施中</translation>
         </picklistValues>
     </fields>
-	<fields>
-        <label>分割日</label>
+    <fields>
+        <label>抽出日</label>
         <name>Segmentation_Date__c</name>
     </fields>
     <fields>
@@ -1457,8 +1457,8 @@
         <label><!-- Sub-Region --></label>
         <name>Y_Sub_Region__c</name>
     </fields>
-	<fields>
-        <label>調査</label>
+    <fields>
+        <label>サーベイID</label>
         <name>Survey__c</name>
         <relationshipLabel><!-- Retail Campaigns (Survey) --></relationshipLabel>
     </fields>
