@@ -1585,7 +1585,7 @@
     </validationRules>
     <validationRules>
         <fullName>Address_Line_1_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Address_Line_1_Native__c),
@@ -1607,7 +1607,7 @@ is Mandatory while creating new Address</description>
     </validationRules>
     <validationRules>
         <fullName>Address_Line_2_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Address_Line_2_Native__c),
@@ -1625,7 +1625,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Block_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Block_Native__c),
