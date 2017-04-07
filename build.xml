@@ -1075,6 +1075,7 @@
 							<sf:include name="UserHelperTest"/>
 							<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 											<sf:include name="ContactTableController"/>
+											<sf:include name="contactTableControllerTest"/>
 				<sf:include name="ContactTableControllerTest"/>
 			</sf:typeset>   
 			<sf:typeset name="pages">
