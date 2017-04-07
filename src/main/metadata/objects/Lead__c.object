@@ -22139,6 +22139,41 @@ Company_Account__r.Work_Phone__c  ,
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>All_Lead_Wholesale</fullName>
+        <columns>RECORDTYPE</columns>
+        <columns>Contact__c</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Leads_Retail</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All_Lead</fullName>
         <columns>RECORDTYPE</columns>
         <columns>Contact__c</columns>

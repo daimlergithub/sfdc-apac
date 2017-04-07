@@ -19,7 +19,7 @@ public without sharing class VehicleRelationshipHelperKR
                   map_AccountIdAndListVCId.get(vc.Owner_Dealer__c).add(vc.Id);
             }
             else
-                if(vc.Contact__c != null && vc.RecordTypeId == vehicleRelationship_VRRecordTypeId){
+                if(vc.Contact__c != null && (vc.RecordTypeId == vehicleRelationship_VRRecordTypeId || vc.RecordTypeId == vehicleRelationship_VRRRecordTypeId)){
                     if(!map_AccountIdAndListVCwithVRrecordtypeId.containsKey(vc.Contact__c)){
                         map_AccountIdAndListVCwithVRrecordtypeId.put(vc.Contact__c, new List<Id>());
                     }

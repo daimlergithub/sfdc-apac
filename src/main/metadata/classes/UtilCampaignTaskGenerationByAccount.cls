@@ -37,7 +37,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     private String strCloseStatus = 'Closed';
     private String strVeriStatus = 'Need Verification';
     private String strSentActivityStatus = 'Sent';
-    
+   
+    private String CallCenterSupervisor ='Call Center Supervisor';
     public List<DM_Request__c> dmRequestList = new List<DM_Request__c>();
    
     global Id jobId;
@@ -46,7 +47,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     
     global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList) 
     {    
-        usr = [Select Id, Name,Alias from user where Alias =:alias limit 1]; 
+        usr = [select id, Name,userRole.Name from user  where userRole.Name =: CallCenterSupervisor limit 1];
+        //usr = [Select Id, Name,Alias from user where Alias =:alias limit 1]; 
         CCCQueue = [Select Id from Group where Name = 'CCC Manager KR' and Type = 'Queue'];
         obuserList = [select UserOrGroupId from GroupMember where GroupId =:CCCQueue.Id];
         //intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];
