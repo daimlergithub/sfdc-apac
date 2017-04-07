@@ -530,6 +530,7 @@
 											<sf:include name="LeadcustomClone"/>
 											<sf:include name="LeadMergeController"/>                                                     
 											<sf:include name="UtilShare"/>
+											<sf:include name="UtilShareTest"/>
 											<sf:include name="LeadSharingforDealerJP"/>
 											<sf:include name="LeadSharingforDealerJPTest"/>
 											<sf:include name="DeleteRetailCopy"/>
