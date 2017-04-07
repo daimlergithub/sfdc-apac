@@ -45,7 +45,7 @@ public class TriggerUtil
         }
         List<Trigger__c> triggerInfolst = new List<Trigger__c>(getTriggerInfo(aTriggerName,usr));
         system.debug('*$*$*$* List Value after return in Handler Method  ' + triggerInfolst);
-        if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1)
+        if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1 && usr.profile.Name !='IntegrationAPI' )
         {
             triggerVal = triggerInfolst[0];
             if (isTriggerEnabled(triggerInfolst)) 
