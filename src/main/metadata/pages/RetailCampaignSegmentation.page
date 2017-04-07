@@ -945,6 +945,18 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
+					<div>
+                    <table id="VehicleRetailcopyTable" class="" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="tableHeader">
+                                &nbsp;<th width="10%">Service Dealer</th>
+                                <td>
+                                    <apex:selectList value="{!selectedValueService}" multiselect="false" size="1">
+                                            <apex:selectOptions value="{!items}"/>
+                                    </apex:selectList>
+                                </td>
+                            </tr>
+                      </table>
+                    </div>
                 </div>
               
               

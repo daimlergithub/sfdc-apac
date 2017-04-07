@@ -3,14 +3,14 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用</value>
+            <value>キャンペーンの費用</value>
         </caseValues>
         <name>actual_cost_campaign</name>
     </fields>
 	<fields>
         <caseValues>
             <plural>false</plural>
-            <value>詳細</value>
+            <value>キャンペーンの詳細</value>
         </caseValues>
         <name>description_campaign</name>
     </fields>
@@ -24,7 +24,7 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>予算</value>
+            <value>キャンペーンの予算</value>
         </caseValues>
         <name>budgeted_cost_campaign</name>
     </fields>
@@ -344,6 +344,34 @@
             <translation>MBJ/MBF</translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>実行チャネル</label>
+        <name>Campaign_Execution_Channels__c</name>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation><!-- DM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM Magazine</masterLabel>
+            <translation><!-- DM Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB</masterLabel>
+            <translation><!-- OB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eEmail</masterLabel>
+            <translation><!-- eEmail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eMail</masterLabel>
+            <translation><!-- eMail --></translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label>フォーマット</label>
         <name>Campaign_Format__c</name>
@@ -474,7 +502,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>キャンペーン種別</label>
+        <label>レポート区分</label>
         <name>Campaign_Sub_Type__c</name>
         <picklistValues>
             <masterLabel>After Sales</masterLabel>
@@ -578,7 +606,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>クラス</label>
+        <label>当時クラス＋ボディ</label>
         <name>Car_Model__c</name>
         <picklistValues>
             <masterLabel>A-CLASS</masterLabel>
@@ -798,7 +826,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>クラス</label>
+        <label>当時クラス＋ボディ</label>
         <name>Class__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
@@ -908,7 +936,7 @@
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
 	<fields>
-        <label>DMテンプレート</label>
+        <label>カタログ</label>
         <name>DM_Template__c</name>
         <relationshipLabel><!-- Campaigns (DM Template) --></relationshipLabel>
     </fields>
@@ -918,7 +946,7 @@
         <name>Dealer_Budget__c</name>
     </fields>
 	<fields>
-        <label>主管</label>
+        <label>企画者</label>
         <name>Driven_Type__c</name>
         <picklistValues>
             <masterLabel>Joint</masterLabel>
@@ -1348,7 +1376,7 @@
         <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
 	<fields>
-        <label>確認リスト配信可</label>
+        <label>確認リスト配信済</label>
         <name>Ready_for_List_Maintenance__c</name>
     </fields>
     <fields>
@@ -1455,6 +1483,10 @@
             <translation><!-- Others --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label>レスポンス日</label>
+        <name>Response_Date__c</name>
+    </fields>
     <fields>
         <label>終了日(定期)</label>
         <name>Retail_Due_Date__c</name>
@@ -1528,7 +1560,7 @@
         <name>Scale_Volume__c</name>
     </fields>
 	<fields>
-        <label>稼動日</label>
+        <label>稼働日(営業日)</label>
         <name>SegWorkingDay__c</name>
         <picklistValues>
             <masterLabel>1</masterLabel>
@@ -1656,7 +1688,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>稼動月</label>
+        <label>抽出月(稼働日抽出時)</label>
         <name>SegWorkingMonth__c</name>
         <picklistValues>
             <masterLabel>Apr</masterLabel>
@@ -2245,6 +2277,14 @@
         <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>
         <name>not_check_active_when_new_cac_camapgin</name>
     </validationRules>
+	<webLinks>
+        <label>参加販売店登録</label>
+        <name>Add_Participating_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>リスト統合開始</label>
+        <name>Consolidate_List_Maintenance</name>
+    </webLinks>
     <webLinks>
         <label><!-- Create_Batch_Tasks --></label>
         <name>Create_Batch_Tasks</name>
@@ -2257,6 +2297,10 @@
         <label>子キャンペーン作成</label>
         <name>Create_Child_Campaign</name>
     </webLinks>
+	<webLinks>
+        <label>子キャンペーン作成</label>
+        <name>Create_Child_Campaign_For_Execution</name>
+    </webLinks>
     <webLinks>
         <label>実行キャンペーン作成</label>
         <name>Create_Complex_Execution</name>
@@ -2264,6 +2308,10 @@
     <webLinks>
         <label>簡易キャンペーン実施</label>
         <name>Create_Simple_Execution</name>
+    </webLinks>
+	<webLinks>
+        <label>レコード複製</label>
+        <name>Custom_Clone</name>
     </webLinks>
     <webLinks>
         <label><!-- De_Dup --></label>
@@ -2280,6 +2328,10 @@
     <webLinks>
         <label><!-- Generate_Retail_BP_smart --></label>
         <name>Generate_Retail_BP_smart</name>
+    </webLinks>
+	<webLinks>
+        <label>リストメンテナンス開始</label>
+        <name>List_Ready_Maintenance</name>
     </webLinks>
     <webLinks>
         <label>全てのマーケットアクティビティメンバーを見る</label>

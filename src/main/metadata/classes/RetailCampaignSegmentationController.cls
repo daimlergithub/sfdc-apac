@@ -93,11 +93,10 @@ public with sharing class RetailCampaignSegmentationController {
     public Address__c  address{ get; set; }
     public campaign_member__C camMem {get; set;}
     
-       
-    String[] Values= new String[]{};//define array string to store value in Sales Dealer field in Vf page under accountlink filter
+    public String selectedValueSales {set;get;}
+    public String selectedValueService {set;get;}
     public String selectedValue {set;get;}// holding the value which they selected either 'company' or 'outlet'
   
-    public String[] countries = new String[]{};
     public List<SelectOption> getItems() {
         List<SelectOption> options = new List<SelectOption>();
         options.add(new SelectOption('None','--None--'));
@@ -106,15 +105,7 @@ public with sharing class RetailCampaignSegmentationController {
         return options;
     }
         
-    public String[] getCountries() {
-        return countries;
-    }
-        
-    public void setCountries(String[] countries) {
-        this.countries = countries;
-    }
-    
-        
+       
     public List<String> filterOptions {
         get{
            if(contact == null || String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
@@ -332,7 +323,6 @@ public with sharing class RetailCampaignSegmentationController {
                 
                 system.debug('@@@@@@AddressSoql '+AddressSoql);
                 if(!AddressSoql.endsWith('where ')) {
-                  //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
                    if(AddressSoql.length()>addressLength){
                          List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
                           System.debug('addList '+addList.size());
@@ -345,7 +335,7 @@ public with sharing class RetailCampaignSegmentationController {
                 
                  system.debug('@@@@@@campaignMemSoql'+campaignMemSoql);
                 if(!campaignMemSoql.endsWith('where ')) {
-                  //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
+                  
                     if(campaignMemSoql.length()>campLength){
                          List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                          System.debug('camMemList '+camMemList.size());
@@ -524,7 +514,13 @@ public with sharing class RetailCampaignSegmentationController {
             string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
             string dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-            if(selectedValue == 'Company' || selectedValue == 'Outlet'){
+            if(selectedValueSales == 'Company' || selectedValueService == 'Company'){
+                selectedValue = 'Company';
+                accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
+            }
+            else if(selectedValueSales == 'Outlet' || selectedValueService == 'Outlet'){
+                selectedValue = 'Outlet';
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
                 + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
             }
