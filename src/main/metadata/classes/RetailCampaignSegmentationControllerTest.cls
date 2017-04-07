@@ -78,7 +78,7 @@ Private Static  List<SelectOption> getItems;
                // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
                 extension.addToCampaign();
-                extension.getCountries();
+                //extension.getCountries();
                 extension.first();
                  extension.last();
                  extension.previous();
