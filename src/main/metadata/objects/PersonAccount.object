@@ -175,7 +175,6 @@
                 <default>true</default>
             </values>
         </picklistValues>
-
         <picklistValues>
             <picklist>Annual_Income_Range__c</picklist>
             <values>

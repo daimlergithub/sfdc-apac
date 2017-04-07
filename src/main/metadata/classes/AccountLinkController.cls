@@ -58,10 +58,10 @@ public  class AccountLinkController
                     catch(Exception e){}
                 }
             }
-            companyRT = false;
-            if(acc.RecordTypeid==accCompany_RecordTypeId){
-               companyRT=true;
-            }
+            //companyRT = false;
+            //if(acc.RecordTypeid==accCompany_RecordTypeId){
+               //companyRT=true;
+            //}
         }
         
         
