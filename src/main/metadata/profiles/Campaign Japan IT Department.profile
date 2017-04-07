@@ -24955,10 +24955,6 @@
         <name>ManageDataCategories</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>ManageDynamicDashboards</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>ManageInternalUsers</name>
     </userPermissions>
