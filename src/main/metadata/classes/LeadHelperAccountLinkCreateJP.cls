@@ -143,7 +143,7 @@ public class LeadHelperAccountLinkCreateJP {
          if(!accLst.isEmpty()){
             //insert accLst;
             
-            Database.SaveResult[] srList = Database.insert(accLst,false);
+            Database.SaveResult[] srList = Database.insert(accLst,true);
             
             
             

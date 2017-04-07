@@ -479,31 +479,47 @@
         <name>retail_campaign_is_locked</name>
     </validationRules>
     <webLinks>
-        <label><!-- Convert_To_DM_Request --></label>
+        <label>DMリクエスト変換</label>
         <name>Convert_To_DM_Request</name>
     </webLinks>
     <webLinks>
-        <label><!-- Convert_To_Task --></label>
+        <label>タスク変換</label>
         <name>Convert_To_Task</name>
     </webLinks>
     <webLinks>
-        <label><!-- Convert_to_Lead --></label>
+        <label>リード変換</label>
         <name>Convert_to_Lead</name>
     </webLinks>
     <webLinks>
-        <label><!-- ExportCampaign --></label>
+        <label>リストダウンロード</label>
         <name>ExportCampaign</name>
     </webLinks>
+	<webLinks>
+        <label>キャンペーンメンバーの追加</label>
+        <name>New_Campaign_Member</name>
+    </webLinks>
     <webLinks>
-        <label><!-- Refresh --></label>
+        <label>キャンペーンメンバーの追加</label>
+        <name>New_Retail_Campaign_Member</name>
+    </webLinks>
+    <webLinks>
+        <label>メンバー情報最新化</label>
         <name>Refresh</name>
     </webLinks>
-    <webLinks>
-        <label><!-- Upload_Campaign_Member --></label>
-        <name>Upload_Campaign_Member</name>
+	<webLinks>
+        <label>メンバー情報最新化</label>
+        <name>RetailRefresh</name>
     </webLinks>
     <webLinks>
-        <label><!-- Upload_Retail_Campaign_Member --></label>
+        <label>一括アップロード</label>
+        <name>Upload_Campaign_Member</name>
+    </webLinks>
+	<webLinks>
+        <label>レスポンス一括アップロード</label>
+        <name>Upload_Campaign_Member_Response</name>
+    </webLinks>
+    <webLinks>
+        <label>一括アップロード</label>
         <name>Upload_Retail_Campaign_Member</name>
     </webLinks>
 </CustomObjectTranslation>

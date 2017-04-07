@@ -1146,6 +1146,147 @@ public static testmethod void testbatch2()
         test.stopTest();
         system.assertNotEquals('ggg',usr1.name);
     }
+     public static testmethod void ValidateUserTest222()
+      {
+        
+        Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+        insert dealer1;
+        Contact contact = new Contact(
+            AccountId = dealer1.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        usr = new User(
+            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            FirstName = 'firstname',
+            ProfileId = DealerDelegatedAdmin.Id,            
+            Alias = 'test123',
+            Email = 'test12345@test.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'McTesty',
+            CommunityNickname = System.now().millisecond() + 'test12345',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            LanguageLocaleKey = 'en_US',
+            ContactId=contact.id
+             );
+        
+        insert usr;
+       Set<id> e=new Set<id>();
+       Account dealer12 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+        insert dealer12;
+        Contact contact2 = new Contact(
+            AccountId = dealer1.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact2;
+        
+       User usr2 = new User(
+            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            FirstName = 'firstname',
+            ProfileId = DealerDelegatedAdmin.Id,            
+            Alias = 'test123',
+            Email = 'test12345@test.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'McTesty',
+            CommunityNickname = System.now().millisecond() + 'test12345',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            LanguageLocaleKey = 'en_US',
+            ContactId=contact2.id
+             );
+        
+        insert usr2;
+        e.add(usr2.id);
+        
+       
+        
+        
+            
+        
+        cmpMb = new Campaign();
+        cmpMb.RecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();
+            //cmpMb.IsActive = true; 
+            cmpMb.Name = 'cmpMb'; 
+            cmpMb.Status = 'Started'; 
+            cmpMb.StartDate = System.today(); 
+            cmpMb.EndDate = System.today().addDays(3);
+            insert cmpMb;
+        
+        CampaignShare cmpMbShare = new CampaignShare();
+        cmpMbShare.CampaignId = cmpMb.id;
+        cmpMbShare.UserOrGroupId = usr2.id;
+        cmpMbShare.CampaignAccessLevel = Edit;
+        insert cmpMbShare;
+        
+        
+        test.startTest();
+        UserHelper.ShareBestPracticeToNewUser(dealer1.id,e);
+        test.stopTest();
+        system.assertNotEquals('ggg',usr.name);
+    }
     
+      public static testmethod void ValidateUserTest45()
+      {
+        
+        Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_GC_Code__c='12345',Dealer_ND_Code__c='12345');
+        insert dealer1;
+        Contact contact = new Contact(
+            AccountId = dealer1.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        Group testGroup = new Group();
+        testGroup.Name = 'acme23';
+        testGroup.DeveloperName = 'ABC';
+        INSERT testGroup;
+        list<user> listcampaigns=new list<user>();
+       User usr1 = new User(
+            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            FirstName = 'firstname',
+            ProfileId = DealerDelegatedAdmin.Id,            
+            Alias = 'test123',
+            Email = 'test12345@test.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'McTesty',
+            Market__c = 'KR',
+            CommunityNickname = System.now().millisecond() + 'test12345',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            LanguageLocaleKey = 'en_US',
+            ContactId=contact.id
+             );
+        
+        listcampaigns.add(usr1);
+        insert listcampaigns;
+        
+        system.debug('list---'+listcampaigns);
+ 
+          User listCampaign =[select id,contactId,contact.accountId,Contact.Account.Dealer_GC_Code__c,Contact.Account.name from user where id IN:listcampaigns];
+          system.debug('hey'+listCampaign);
+         list<User> oldList = new  list<User>();
+         oldList.add(listCampaign);
+        map<id,user> oldMap = new map<id,user>();
+         oldMap.put(listCampaign.id, listCampaign);
+        system.debug('hey'+oldMap);
+        Profile objProfile = [Select Id, Name from Profile where Name =: 'System Administrator' limit 1];
+
+         User objeUser = [Select Id, ProfileId from User where Id=: UserInfo.getUserId() and ProfileId=: objProfile.id];
+
+        System.runAs(objeUser){
+        test.startTest();
+        UserHelper.grpCreationandUsergrpAlign(listcampaigns);
+        test.stopTest();
+        system.assertNotEquals('ggg',usr1.name);
+    }
+    }
     
     }
