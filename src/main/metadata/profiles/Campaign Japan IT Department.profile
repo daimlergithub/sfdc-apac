@@ -24795,7 +24795,7 @@
         <name>AssignTopics</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>CanUseNewDashboardBuilder</name>
     </userPermissions>
     <userPermissions>
