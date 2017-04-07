@@ -1813,6 +1813,14 @@
         <errorMessage><!-- You can&apos;t update Feedback information with current feedback status or apply status. --></errorMessage>
         <name>Unlock_Application_Feedback</name>
     </validationRules>
+	<webLinks>
+        <label>リテール子キャンペーン作成</label>
+        <name>Create_Child_Retail_Campaign</name>
+    </webLinks>
+    <webLinks>
+        <label>レコード複製</label>
+        <name>Custom_Clone</name>
+    </webLinks>
     <webLinks>
         <label><!-- Export_Retail_Campaign_Member --></label>
         <name>Export_Retail_Campaign_Member</name>
@@ -1831,6 +1839,10 @@
     </webLinks>
     <webLinks>
         <label><!-- Segment --></label>
+        <name>Segment</name>
+    </webLinks>
+	<webLinks>
+        <label>キャンペーンメンバー条件抽出</label>
         <name>Segment</name>
     </webLinks>
     <webLinks>
