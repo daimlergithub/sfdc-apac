@@ -11,6 +11,10 @@ public class TriggerLeadTriggerHandlerKR
     {
         user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         System.debug('Handletrigger----->1');
+        if(isBefore && isInsert)
+        {
+            LeadHelperJP.updateAssignedDealer(trigger.new);
+        }
         if(isBefore && isUpdate){
             set<id> dealerIds = new set<id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new){

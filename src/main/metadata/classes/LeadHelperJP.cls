@@ -537,6 +537,27 @@ public class LeadHelperJP
 						system.debug('UFR Mail Sending Invalid------>'+emailexe.getMessage());
 					} 
 				} */
-		}   
+		} 
+
+	public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+         
+        for(Lead__c dellead: dealerLeadList)
+        {
+            if(!userList.isEmpty() && userList != null)
+            {
+                for(User u : userList)
+                {
+                    if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
+                    {
+                        dellead.Assigned_Dealer__c = u.Contact.AccountId;
+                    }
+                }
+            }
+        }
+    }
         
-   }
+}

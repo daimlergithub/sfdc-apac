@@ -779,4 +779,25 @@ List<Account> accUpdLst = new List<Account>();
            shareAccountRecord.shareAccountRecordNow(caseIds);
        }
     }
+	
+    public void updateCaseDealer(List<case> dealerCaseList)
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+        
+        for(Case delcase: dealerCaseList)
+        {
+            if(!userList.isEmpty() && userList != null)
+            {
+                for(User u : userList)
+                {
+                    if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
+                    {
+                        delcase.Case_Dealer__c = u.Contact.AccountId;
+                    }
+                }
+            }
+        }
+    }
  }

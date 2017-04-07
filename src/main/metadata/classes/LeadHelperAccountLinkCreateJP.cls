@@ -153,4 +153,33 @@ public class LeadHelperAccountLinkCreateJP
             update updateLeadList;
         }
     }
+    public static void updatingleadcontactDetails(list<Lead__c> leadlst,boolean isInsert, boolean isUpdate )
+    {
+        set<String> contctid = new set<string>();
+        set<String> AssignedDealer = new set<string>();
+        list<lead__c> leadupdate = new list<lead__c>();
+        List<Account_Link__c> acclink = new List<Account_Link__c>();
+        for(Lead__C led : leadlst)
+        {
+            if(led.Assigned_Dealer__c != null)
+            {
+                AssignedDealer.add(led.Assigned_Dealer__c);
+                contctid.add(led.contact__c);
+            }    
+        }
+        //if(!contctid.isempty()){
+        acclink = [select id,Name, RecordType.DeveloperName,fromRole__c ,Torole__c from Account_Link__c WHERE fromRole__c IN: AssignedDealer and Torole__c=:contctid and  (RecordType.DeveloperName = 'Retail_Company' OR RecordType.DeveloperName = 'Retail_Person') limit 1];
+        
+        for(Lead__C led : leadlst)
+        {
+            if(!acclink.isEmpty())
+                led.Retail_Contact__c = acclink[0].id;
+            //leadupdate.add(led);
+        }
+        // update leadupdate;
+        //}
+        
+        // list<Lead__c> leadlistrecords = [select id, Name from Lead__c WHERE ID IN : contactId]; 
+    }
+    
 }
