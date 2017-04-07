@@ -434,7 +434,7 @@
         <name>Delinquency__c</name>
     </fields>
     <fields>
-        <label><!-- Description --></label>
+        <label>상세 설명</label>
         <name>Description__c</name>
     </fields>
     <fields>
@@ -1310,7 +1310,7 @@
         <name>MileageMaximum__c</name>
     </fields>
     <fields>
-        <label><!-- Model --></label>
+        <label>차량 모델</label>
         <name>Model__c</name>
     </fields>
     <fields>
@@ -1719,22 +1719,27 @@
         <name>Re_lease_Prohibit_flag__c</name>
     </fields>
     <fields>
-        <label><!-- Related Contact 2 --></label>
+        <label>연락처 2</label>
         <name>Related_Contact2__c</name>
         <relationshipLabel><!-- Retail Tasks (Related Contact 2) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Related Contact 3 --></label>
+        <label>연락처 3</label>
         <name>Related_Contact3__c</name>
         <relationshipLabel><!-- Retail Tasks (Related Contact 3) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Related Contact --></label>
+        <label><!-- Related Contact 4 --></label>
+        <name>Related_Contact4__c</name>
+        <relationshipLabel><!-- Retail Tasks (Related Contact 4) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>연락처</label>
         <name>Related_Contact__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Contact) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Related Dealer --></label>
+        <label>서비스 딜러</label>
         <lookupFilter>
             <errorMessage>올바른 딜러 계정을 선택하세요</errorMessage>
             <informationalMessage>딜러 계정을 검색하여 선택하세요</informationalMessage>
@@ -1743,7 +1748,7 @@
         <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Related Lead --></label>
+        <label>연관 리드</label>
         <name>Related_Lead__c</name>
         <relationshipLabel><!-- Retail Tasks --></relationshipLabel>
     </fields>
@@ -1839,7 +1844,7 @@
         <name>Service_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Service Code --></label>
+        <label>서비스 코드</label>
         <name>Service_Code__c</name>
         <picklistValues>
             <masterLabel>1year inspection</masterLabel>
@@ -1851,11 +1856,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Blank</masterLabel>
-            <translation><!-- Blank --></translation>
+            <translation>--</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Body Jobs</masterLabel>
-            <translation><!-- Body Jobs --></translation>
+            <translation>판금 작업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Campaign</masterLabel>
@@ -1863,7 +1868,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Electrical Jobs</masterLabel>
-            <translation><!-- Electrical Jobs --></translation>
+            <translation>전기 작업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>First MOT</masterLabel>
@@ -1871,11 +1876,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Free</masterLabel>
-            <translation><!-- Free --></translation>
+            <translation>무상 점검</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>General Repair</masterLabel>
-            <translation><!-- General Repair --></translation>
+            <translation>일반 수리</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB 1year inspection</masterLabel>
@@ -1895,11 +1900,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Not selected</masterLabel>
-            <translation><!-- Not selected --></translation>
+            <translation>미선택</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other Jobs</masterLabel>
-            <translation><!-- Other Jobs --></translation>
+            <translation>기타 작업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Outside Order</masterLabel>
@@ -1907,11 +1912,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Paint Jobs</masterLabel>
-            <translation><!-- Paint Jobs --></translation>
+            <translation>도장 작업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Predelivery inspection</masterLabel>
-            <translation><!-- Predelivery inspection --></translation>
+            <translation>차량 인도 전 점검</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quick Service</masterLabel>
@@ -1923,15 +1928,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Return Jobs</masterLabel>
-            <translation><!-- Return Jobs --></translation>
+            <translation>재입고 차량 작업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Contract</masterLabel>
-            <translation><!-- Service Contract --></translation>
+            <translation>서비스 컨트랙트</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Maintenance</masterLabel>
-            <translation><!-- Service Maintenance --></translation>
+            <translation>정기 점검</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Transfer</masterLabel>
@@ -1939,19 +1944,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Jobs</masterLabel>
-            <translation><!-- Test Jobs --></translation>
+            <translation>진단</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Used car purchase</masterLabel>
-            <translation><!-- Used car purchase --></translation>
+            <translation>중고차 구매</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty</masterLabel>
-            <translation><!-- Warranty --></translation>
+            <translation>보증</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Wear &amp; Tear Jobs</masterLabel>
-            <translation><!-- Wear &amp; Tear Jobs --></translation>
+            <translation>소모품 교환 작업</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1971,15 +1976,15 @@
         <name>Service_Damage_Text__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date In --></label>
+        <label>차량 입고일</label>
         <name>Service_Date_In__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date Out --></label>
+        <label>차량 출고일</label>
         <name>Service_Date_Out__c</name>
     </fields>
     <fields>
-        <label><!-- Service Date --></label>
+        <label>서비스 받은 날짜</label>
         <name>Service_Date__c</name>
     </fields>
     <fields>
@@ -1996,11 +2001,11 @@
         <name>Service_Invoice_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Service Labour Amount --></label>
+        <label>공임</label>
         <name>Service_Labour_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Current Mileage --></label>
+        <label>현재 마일리지</label>
         <name>Service_Mileage__c</name>
     </fields>
     <fields>
@@ -2008,7 +2013,7 @@
         <name>Service_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Service Parts Amount --></label>
+        <label>부품 가격</label>
         <name>Service_Parts_Amount__c</name>
     </fields>
     <fields>
@@ -2016,15 +2021,15 @@
         <name>Service_Position__c</name>
     </fields>
     <fields>
-        <label><!-- Service Total Amount --></label>
+        <label>총 가격</label>
         <name>Service_Total_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Service Vehicle VIN --></label>
+        <label>서비스 대상 차량 VIN</label>
         <name>Service_Vehicle_VIN__c</name>
     </fields>
     <fields>
-        <label><!-- Service Vehicle --></label>
+        <label>서비스 대상 차량</label>
         <name>Service_Vehicle__c</name>
         <relationshipLabel><!-- Retail Tasks (Service Vehicle) --></relationshipLabel>
     </fields>
@@ -2083,6 +2088,10 @@
         <picklistValues>
             <masterLabel>Change Owner</masterLabel>
             <translation><!-- Change Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change of Owner</masterLabel>
+            <translation><!-- Change of Owner --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Consent Termination</masterLabel>
@@ -2455,22 +2464,121 @@
         <name>livetime__c</name>
     </fields>
     <layouts>
+        <layout>Retail Task Layout (Insurance)</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout (Lease)</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Status --></label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Finance Detail Information --></label>
+            <section>Finance Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout (Loan)</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Status --></label>
+            <section>Contract Status</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Finance Detail Information --></label>
+            <section>Finance Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout Dealer KR</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>서비스 가격 및 상세 설명</label>
+            <section>Service Amount and Details</section>
+        </sections>
+        <sections>
+            <label>서비스 이력</label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Task Layout(Contract)</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Details Information --></label>
+            <section>Contract Details Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Retail Task Layout(Retail Activity)</layout>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Retail Task Layout(Service)</layout>
         <sections>
-            <label>사용자 지정 링크</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>서비스 가격 및 상세 설명</label>
+            <section>Service Amount and Details</section>
+        </sections>
+        <sections>
+            <label>서비스 이력</label>
+            <section>Service History Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>
     <recordTypes>
-        <label><!-- Contract --></label>
+        <label>Contract</label>
         <name>Contract</name>
     </recordTypes>
     <recordTypes>
@@ -2486,11 +2594,11 @@
         <name>Loan_Contract</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Retail Activity --></label>
+        <label>Retail Activity</label>
         <name>Retail_Activity</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Service --></label>
+        <label>Service</label>
         <name>Service</name>
     </recordTypes>
     <sharingReasons>
@@ -2505,4 +2613,8 @@
         <label><!-- Service Share --></label>
         <name>Service_Share</name>
     </sharingReasons>
+    <webLinks>
+        <label><!-- New_Case --></label>
+        <name>New_Case</name>
+    </webLinks>
 </CustomObjectTranslation>

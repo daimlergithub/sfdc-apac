@@ -33,6 +33,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>VehicleRel_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
@@ -69,15 +73,12 @@
                 <field>Vehicle_Need_Text__c</field>
             </layoutItems>
             <layoutItems>
-                <height>200</height>
-                <page>MarketCheckOnVehiclePicker</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
+                <behavior>Edit</behavior>
+                <field>Dealer_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comment__c</field>
+                <field>Case__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -221,6 +222,22 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Vehicle Select</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>

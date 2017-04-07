@@ -30,32 +30,31 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
                 <apex:outputField value="{!acclnkdealer.Retail_Comments__c}"/>  
            </apex:pageBlockSectionItem>
               
-           <apex:pageBlockSectionItem >       
-                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}"/>
-                <apex:outputField value="{!acclnkdealer.Retail_OptOutContact_Reason__c}"/> 
-           </apex:pageBlockSectionItem> 
-                 
-           <apex:pageBlockSectionItem >       
+           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}" rendered="{!if(companyRT == false,true,false)}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_OptOutContact_Reason__c}" rendered="{!if(companyRT == false,true,false)}"/>
+           </apex:pageBlockSectionItem>       
+           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">      
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Email_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Email_OptOut__c}"/> 
            </apex:pageBlockSectionItem>   
                
-           <apex:pageBlockSectionItem >       
+           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Fax_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Fax_OptOut__c}"/> 
            </apex:pageBlockSectionItem>    
               
-           <apex:pageBlockSectionItem >       
+           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Phone_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Phone_OptOut__c}"/>  
            </apex:pageBlockSectionItem>  
                 
-           <apex:pageBlockSectionItem >       
+           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Postal_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Postal_OptOut__c}"/> 
            </apex:pageBlockSectionItem>  
            
-            <apex:pageBlockSectionItem >       
+            <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Visit_OptOut__c.Label}"/>
                 <apex:outputField value="{!acclnkdealer.Retail_Visit_OptOut__c}"/> 
            </apex:pageBlockSectionItem>  

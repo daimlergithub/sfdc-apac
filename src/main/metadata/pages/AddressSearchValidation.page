@@ -99,7 +99,7 @@
                   <apex:inputText value="{!TouchPoint}"  />        
                   </apex:pageBlockSectionItem> 
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
-<apex:inputField value="{!objPersonAccount.FirstName}" /> -->
+                <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                    
                     <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
@@ -217,16 +217,13 @@
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>                   
                    </apex:pageBlockSectionItem>  
-                   <apex:inputField value="{!objAccount.Email__c}" />                 
-                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
-                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/> 
-                   <apex:inputField value="{!objAccount.VIN__c}" />                  
-                   
+                   <apex:inputField value="{!objAccount.Email__c}" />          
                    <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
-                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>          
-                          
-                   
-                   <apex:inputField value="{!objAccount.Fax}" /> 
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>            
+                   <apex:inputField value="{!objAccount.Fax}" />
+                   <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
+                   <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>        
+                   <apex:inputField value="{!objAccount.VIN__c}" />   
                 </apex:pageBlockSection>       
                 
          <!--  KOREA MARKET Company Account - End -->

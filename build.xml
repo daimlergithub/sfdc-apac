@@ -179,7 +179,11 @@
 								<sf:include name="RetailTaskLoan"/>
 								<sf:include name="Retailcopybutton"/>
 								<sf:include name="AddressSelectionforExistingCustomer"/>
-								<sf:include name="LeadAssignmentPage"/>								
+								<sf:include name="LeadAssignmentPage"/>
+								<sf:include name="printLeadPDF"/>
+								<sf:include name="LeadPrintPDF"/>
+								<sf:include name="PrintSalesLead_KR"/>
+								<sf:include name="PrintAfterSalesLead_KR"/>
 								<sf:include name="SelectAddress"/>                                    
 								<sf:include name="createRetailCopyKRButton"/>
 								<sf:include name="ViewRetailCopiesPage"/>
@@ -253,6 +257,7 @@
 							   <sf:include name="cSendVehicleInformationtoSPOJP"/>
 							   <sf:include name="cSendVehicleInformationtoSPOJPTest"/>
 							   <sf:include name="VehicleRelationshipHelper"/>
+							   <sf:include name="VehicleRelationshipHelperKR"/>
 							   <sf:include name="CustomerMymercInterfaceController"/>
 							   <sf:include name="CustomerMymercInterfaceControllerTest"/>
 							   <sf:include name="SendToMyMercController"/>
@@ -638,11 +643,13 @@
 			<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="pages">
 											<sf:include name="VehiclePicker"/>
-											<sf:include name="VehiclePickerForCase"/>                                                      
+											<sf:include name="VehiclePickerForCase"/>
+											<sf:include name="VehiclePickerforCaseKR"/>
 							   <sf:include name="LeadMerge"/>
 							   <sf:include name="SelectSlaveLead"/>             
 											<sf:include name="LeadVehiclePickerKR"/>
 											<sf:include name="MarketCheckOnVehiclePicker"/>
+											<sf:include name="MarketCheckOnVehiclePickerCase"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
 							<sf:include name="MisunderstoodTaskGeneration"/>
@@ -662,10 +669,12 @@
 							<sf:include name="VehiclePickerControllerTests"/>
 							<sf:include name="VehiclePickerForCaseController"/>
 							<sf:include name="VehiclePickerForCaseControllerTest"/>
+							<sf:include name="VehiclePickerForCaseControllerKR"/>
 							<sf:include name="LeadVehiclePickerKRController"/>
 							<sf:include name="LeadVehiclePickerKRControllerTests"/>
 							<sf:include name="MarketCheckOnVehiclePickerCon"/>
 							<sf:include name="MarketCheckOnVehiclePickerConTest"/>
+							<sf:include name="MarketCheckOnVehiclePickerConKR"/>
 							<sf:include name="GenerateCatalogueCsv"/>
 							<sf:include name="GenerateCatalogueCsvTest"/>
 							<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>

@@ -1017,7 +1017,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         system.debug('addtrmapUpdate1 :'+addtrmapUpdate1);
         system.debug('addtrmapUpdate1 >> :'+objPersonAccount.LastName);
         system.debug('addtrmapUpdate1 << :'+objAccount.Name);
-        if(objPersonAccount.LastName !=null || objAccount.Name !=null) 
+        if(objPersonAccount.LastName !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response '+response );
@@ -1155,8 +1155,153 @@ If the user is Saving  same address which matches the fields returned by toleran
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
-        }  
-            firstsave = true;       
+        }
+        if(objAccount.Name !=null) 
+        {
+            crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
+            System.debug('@@@@@@@ response >>'+response );
+           
+            String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
+            String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
+            if(recordType !=null && recordType=='Company')
+            {
+                objAccount.Recordtypeid=companyRecordTypeId;
+            }
+            system.debug('recordType------------: >> '+recordType);
+            if(recordType !=null && recordType== 'Person Account')
+            {             
+                objAccount.Recordtypeid=PersonAccountRecordTypeID ;
+            }
+            if(market == System.Label.KR)
+            {
+                if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
+                {                      
+                    objAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+                }
+                else
+                {
+                    objAccount.Individual_Home_Phone__c = '';
+                }
+                if(workPhoneAreaCodePart1!= '' && workPhoneAreaCodePart2 != '' && workPhoneAreaCodePart3 != '')
+                {                         
+                    objAccount.Work_Phone__c = workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+                }
+                else
+                {
+                    objAccount.Work_Phone__c = '';
+                }
+                if(mobileAreaCode!= '' && mobileAreaCodePart2 != '' && mobileAreaCodePart3 != '')
+                {              
+                    objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
+                }
+                else
+                {
+                    objAccount.Mobile__c = '';
+                }               
+            }
+            System.debug('@@@@@@@@@@ objAccount : '+objAccount);
+            System.debug('@@@@@@@@@@ AddressObj : '+AddressObj);
+            Address__c NewAdd=new Address__c();
+            
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null)
+            {   
+                System.debug('@@@@@@@@@@ objAccount 2 :'+objAccount);
+                response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
+            }
+            system.debug('AddressObj :'+AddressObj);
+            system.debug('NewAdd :'+NewAdd);
+            if(AddressObj == NewAdd)
+            {
+                System.debug('@@@@@@@@@@ objAccount 3 :'+objAccount);
+                response =  UtilWebservice.validateCustomerDetails(objAccount); 
+            }
+            System.debug('@@@@@@@@@@ response 4 :'+response);
+            //System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage[0].Customer);
+            if(response != null){
+                if(response.CustomerIdentificationResponseMessage!=null)
+                {
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
+                    {
+                        objAccountDeDup.Lastname=response.CustomerIdentificationResponseMessage[0].Customer.Lastname;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Firstname !=null)
+                    {
+                        objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    {
+                        objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
+                    {
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                    }
+                    system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
+                    {   
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                    }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    {
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    }
+                    // if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
+                    // {
+                    //     objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                    // }
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
+                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        provincetmp = provincetmp.toLowerCase();
+                        
+                        //provincetmp = provincetmp.subString(0,1).toUpperCase();
+                        Integer     i=0;
+                        List<String> newString =  new List<String>();
+                        String[] s= provincetmp.split(' ');
+                        String x,y,finalstring;
+                        for(String str  : s)
+                        {
+                            i=str.length();
+                            //String x,y,finalstring;
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                        }                        
+                        provincetmp = String.valueOf(finalstring);
+                        provincetmp  =provincetmp.replace(',','');
+                      
+                        
+                       // province1 = addtrmapUpdate1.get(provincetmp);
+                        if(addtrmapUpdate1.containsKey(provincetmp)){
+                            province1 = addtrmapUpdate1.get(provincetmp);
+                            system.debug('province1 2:'+province1);
+                        }
+                        system.debug('province1 3:'+province1);
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        
+                        /***                        
+                        AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                        **/
+                        AddressDetails = AddressDetails.replace('null',' ');
+                   }
+                }
+                show = true;
+                if(response.CustomerIdentificationResponseMessage ==null)
+                {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                }
+                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
+                 
+                cResult = lstAcc;  
+                System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
+                System.debug('@@@@@@@    lstAcc   cResult '+cResult );
+            }
+            if(response == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
+            }
+        }       
+        firstsave = true;       
         secondsave = false;         
     }
     Public class addressSelectionWrapper{

@@ -6,7 +6,7 @@
 public class LeadHelperAccountLinkCreateJP {
 
     public static void leadAccountDetails(list<Lead__c> leadlst, map<id,Lead__c> leadOldMap, boolean isInsert, boolean isUpdate){
-        
+        system.debug('leadAccountDetails :');
         set<String> contactId = new set<String>();
         
         for(Lead__c le : leadlst){
@@ -16,7 +16,7 @@ public class LeadHelperAccountLinkCreateJP {
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
                 }
-            } else if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Qualified' && le.MD__c == Label.MarketKR){
+            } else if(le.Assigned_Dealer__c != null && le.MD__c == Label.MarketKR){
                 if(isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)){
                     System.debug('Is Insert OR Update called -----:::::');
                     contactId.add(le.id);
@@ -24,8 +24,9 @@ public class LeadHelperAccountLinkCreateJP {
             }
             
         }
-        
+        system.debug('leadAccountDetails 2:');
         if(! contactId.isEmpty() ){
+            system.debug('leadAccountDetails 3:');
             createAccountLinkRecord(contactId);
         }
         
@@ -116,7 +117,7 @@ public class LeadHelperAccountLinkCreateJP {
                            acclnk.Retail_Foundation_Month__c = String.ValueOf(led.Contact__r.Foundation_Date__c.month())+String.valueOf(led.Contact__r.Foundation_Date__c.year());
                        }*/
                   }
-                  //acclnk.Retail_Fax__c = led.Contact__r.Fax;
+                  acclnk.Name = led.Contact__r.UCID__c;
                   //acclnk.Retail_Industry__c = led.contact__r.Industry;
                   if(led.MD__c == Label.MarketKR){
                       acclnk.Retail_Country__c = 'Korea';   
@@ -144,8 +145,7 @@ public class LeadHelperAccountLinkCreateJP {
             //insert accLst;
             
             Database.SaveResult[] srList = Database.insert(accLst,false);
-            
-            
+            system.debug('accLst :'+accLst);
             
            for(Database.SaveResult sr : srList){
            if (sr.isSuccess()){

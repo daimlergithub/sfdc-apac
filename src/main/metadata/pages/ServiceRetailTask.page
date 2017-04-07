@@ -5,7 +5,13 @@
            <apex:pageBlockTable id="serv" value="{!retlist}" var="ser">
            
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}"> 
-                        <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
+                        <!--apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>   -->                     
+                        <apex:outputPanel rendered="{!IF(communityuser == true,true,false)}">
+                        <apex:outputlink value="#" onclick="window.open('{!$Site.Prefix}/{!ser.Id}','_blank');" >{!ser.Name}</apex:outputlink>                        
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(communityuser == false,true,false)}">
+                        <apex:outputlink value="#" onclick="window.open('/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
+                        </apex:outputPanel>
                     </apex:column>
 
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}">

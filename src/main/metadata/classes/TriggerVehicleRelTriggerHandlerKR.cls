@@ -40,6 +40,11 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
             {
                 VehicleRelationshipHelper.updateRecall(trigger.new);
             }
+            if(trigger.isAfter && trigger.isInsert)
+            {
+                system.debug('VR ');
+                VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
+            }
     }
 
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){

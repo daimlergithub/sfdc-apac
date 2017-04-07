@@ -86,5 +86,118 @@ public class RetailTaskHelperJP {
          if(!accLst.isEmpty()){
             insert accLst;
          }          
+    }
+    
+    public static void afterInsertEvent(List<Retail_Task__c> newList){
+        Id RTRecordTypeId = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();
+        
+        Map<Id, List<Id>> map_AccountIdAndListRTwithRTrecordtypeId = new Map<Id, List<Id>>();
+        Set<Id> currentRTId = new Set<Id>();
+        List<Retail_Task__Share> list_SharingRecord = new List<Retail_Task__Share>();
+        for(Retail_Task__c rt : newList){
+            if(rt.Related_Contact__c != null && rt.RecordTypeId == RTRecordTypeId){
+                if(!map_AccountIdAndListRTwithRTrecordtypeId.containsKey(rt.Related_Contact__c)){
+                    map_AccountIdAndListRTwithRTrecordtypeId.put(rt.Related_Contact__c, new List<Id>());
+                }
+                map_AccountIdAndListRTwithRTrecordtypeId.get(rt.Related_Contact__c).add(rt.Id);
+                currentRTId.add(rt.Id);
+            }
+        }
+        if(map_AccountIdAndListRTwithRTrecordtypeId.size() > 0){
+            list_SharingRecord.addAll(createPersonOrCompanyAccountSharing(map_AccountIdAndListRTwithRTrecordtypeId,currentRTId));
+        }
+        system.debug('map_AccountIdAndListRTwithRTrecordtypeId :'+map_AccountIdAndListRTwithRTrecordtypeId);
+        system.debug('list_SharingRecord:'+list_SharingRecord);
+        if(list_SharingRecord.size() > 0){
+            Database.insert(list_SharingRecord, false);
+        }       
+    }   
+    public static List<Retail_Task__Share> createPersonOrCompanyAccountSharing(Map<Id, List<Id>> map_AccountIdAndListRTwithRTrecordtypeId,Set<Id> currentRTId){
+        system.debug('map_AccountIdAndListRTwithRTrecordtypeId :'+map_AccountIdAndListRTwithRTrecordtypeId);
+        set<Id> toRoleIds = new Set<id>();
+        for(id i : map_AccountIdAndListRTwithRTrecordtypeId.keySet()){
+           system.debug(' >>> :'+i);
+           toRoleIds.add(i);
+        }
+     
+        Set<Id> DealerAccId=new Set<Id>();
+        
+        Map<id,Account_Link__c> ListAlk = new Map<id,Account_Link__c>([select id,fromRole__c,toRole__c from Account_Link__c where 
+                                   toRole__c IN : toRoleIds]);
+        system.debug('ListAlk  >> :'+ListAlk);
+        for(Account_Link__c alk : ListAlk.values()) {
+             system.debug(' >>> 1 :'+alk);                         
+            DealerAccId.add(alk.fromRole__c);
+        }
+        DealerAccId.remove(null);
+       
+        // Start: Share with all Dealer Account with same GC Code
+        /****************************
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(DealerAccId);
+        system.debug('dealerIdToSimilarGCCodeDealerAccountIdsMap :'+dealerIdToSimilarGCCodeDealerAccountIdsMap);
+        for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+            for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
+                DealerAccId.add(similarGCCodeDealerId);
+            }
+        }        
+        ****************************/
+        // Finish: Share with all Dealer Account with same GC Code
+        system.debug('DealerAccId :'+DealerAccId);
+        
+        // Changing Sharing from User to Public Group
+        List<Account> dealerAccList = [select Name,Dealer_ND_Code__c from Account where Id IN: DealerAccId];
+        system.debug('dealerAccList :'+dealerAccList);
+        Set<String> dealerAccNameSet = new Set<String>();
+        Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        for(Account dealerRec : dealerAccList) {
+            dealerAccNameSet.add(dealerRec.Dealer_ND_Code__c);
+            accNameToAccIdMap.put(dealerRec.Dealer_ND_Code__c, dealerRec.Id);
+        }
+       
+        
+        System.debug('DealerAccId  newList'+DealerAccId);
+        System.debug('dealerAccNameSet : '+dealerAccNameSet);
+        List<Retail_Task__Share> list_SharingRecord = new List<Retail_Task__Share>();
+        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+            if(currentRTId != null) {
+                for(Id ids:currentRTId) {
+                    Retail_Task__Share RetailTaskShare= new Retail_Task__Share();
+                    RetailTaskShare.AccessLevel = 'Edit';
+                    RetailTaskShare.UserOrGroupId = groupRec.Id;
+                    RetailTaskShare.ParentId =ids;
+                    RetailTaskShare.RowCause = Schema.Retail_Task__Share.RowCause.Manual;
+                    list_SharingRecord.add(RetailTaskShare);
+                }
+            }
+        }
+        return list_SharingRecord;
+    }
+    
+    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {       
+        Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        system.debug('dealerAccountIdSet :'+dealerAccountIdSet);
+        List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId];
+        system.debug('dealerAccList >> :'+dealerAccList);
+        Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
+        for(Account accRec : dealerAccList) {
+            if(String.isNotBlank(accRec.Dealer_GC_Code__c)) {
+                gcCodeToDealerAccIdMap.put(accRec.Dealer_GC_Code__c, accRec.Id);
+            }
+        }
+       
+        Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
+        if(dealerAccList.size() > 0) {
+            List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
+                                                                    AND RecordTypeId =: Dealer_RecordTypeId AND Id NOT IN: gcCodeToDealerAccIdMap.values()];
+            //system.assert(false, similarGCCodeDealerAccountList);
+            for(Account accRec : similarGCCodeDealerAccountList) {
+                if(!dealerIdToSimilarGCCodeDealerAccountIdsMap.containsKey(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c))) {
+                    dealerIdToSimilarGCCodeDealerAccountIdsMap.put(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c), new Set<Id>());
+                }
+                dealerIdToSimilarGCCodeDealerAccountIdsMap.get(gcCodeToDealerAccIdMap.get(accRec.Dealer_GC_Code__c)).add(accRec.Id);
+            }                                                       
+        }
+        //system.assert(false, dealerIdToSimilarGCCodeDealerAccountIdsMap);
+        return dealerIdToSimilarGCCodeDealerAccountIdsMap;
     }   
 }

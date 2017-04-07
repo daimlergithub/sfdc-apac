@@ -785,6 +785,54 @@ Proxy_Date_Time__c
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
+        <active>false</active>
+        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>No_modification_is_made_in_10_days_All_Modifications</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>216</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
+        <active>false</active>
+        <description>No modification is made in 15 days (All Modifications)</description>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>No_modification_is_made_in_15_days_All_Modifications</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>336</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
+        <active>false</active>
+        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
+        <formula>(NOT(ISNULL(Assigned_Dealer__c)))&amp;&amp; MD__c == 'KR'</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>No_modification_is_made_in_5_days_All_Modifications</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
+            <timeLength>96</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Lead_Lost_DateTime New</fullName>
         <actions>
             <name>Update_Lost_DateTime_field</name>
@@ -805,7 +853,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -864,39 +912,6 @@ Proxy_Date_Time__c
         </actions>
         <active>true</active>
         <formula>AND(ISNEW(),  CONTAINS($Profile.Name , 'Partner Community'),  MD__c = 'JP' )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_10_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>This will send email to lead gate keeper when the lead is untouched for 10 days.</description>
-        <formula>(LastActivityDate - today() == 10) &amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>No modification is made in 15 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_15_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>No modification is made in 15 days (All Modifications)</description>
-        <formula>(LastActivityDate - today()  == 15) &amp;&amp; MD__c == 'KR'</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>No modification is made in 5 days %28All Modifications%29</fullName>
-        <actions>
-            <name>No_modification_is_made_in_5_days_All_Modifications</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <description>This rule will send email if the last activity date on lead record is eqial to 5 days</description>
-        <formula>(LastActivityDate - today() == 5)&amp;&amp; MD__c == 'KR'</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

@@ -759,13 +759,6 @@ List<Account> accUpdLst = new List<Account>();
 
     public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
        List<Id> caseIds = new List<Id>();
-       for(case cs: LstnewCase){
-           if(oldValcase != Null){
-           if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
-               caseIds.add(cs.id);                
-           }
-           }
-       }        
          if(action == 'isUpdate'){
            for(case cs: LstnewCase){
                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){

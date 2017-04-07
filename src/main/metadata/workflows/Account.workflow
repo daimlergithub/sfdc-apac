@@ -125,7 +125,7 @@ Modify Reason:
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
         <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Preferred Language and Country KR</fullName>

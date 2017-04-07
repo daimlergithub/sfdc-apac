@@ -36,8 +36,8 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_Status__c</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -54,6 +54,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Escalate_Date_to_CO__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Relationship__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -100,6 +104,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Type_Comments__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBK_Case_Sub_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -184,9 +200,9 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>VehiclePickerforCase</page>
+                <page>MarketCheckOnVehiclePickerCase</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -288,10 +304,6 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Priority</field>

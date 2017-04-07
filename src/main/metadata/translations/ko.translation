@@ -69,6 +69,14 @@
         <name>Retail_CRM</name>
     </customApplications>
     <customLabels>
+        <label>일본 사용 기능</label>
+        <name>SendToJPOSErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>SendToSPOErrorMSG</name>
+    </customLabels>
+    <customLabels>
         <label>수락됨</label>
         <name>Accepted</name>
     </customLabels>

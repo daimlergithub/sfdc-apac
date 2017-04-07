@@ -20,6 +20,7 @@ public class AddressDisplayInlineEditController {
     public String provincepicklist{get;set;}
     Public Boolean Validation;
     Public Boolean profilename{get;set;}
+    public Boolean Communityuser{get;set;}
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
@@ -33,7 +34,7 @@ public class AddressDisplayInlineEditController {
         }                     
         /*Intitializing address object*/
         addressobj = new Address__c();
-        User u = [SELECT Id,Market__c,Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+        User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
         openPanal = true;
         if(market == 'KR'){
@@ -43,6 +44,10 @@ public class AddressDisplayInlineEditController {
         
         if(u.Profile.Name.contains('Dealer')){
             profilename = TRUE;
+        }
+        Communityuser = false;
+        if(u.contactId != Null){
+            Communityuser = true;
         }
     } 
     public List<SelectOption> getAddressOptions() {
@@ -535,22 +540,29 @@ public class AddressDisplayInlineEditController {
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
+** Modified By: Rakesh Babu
+** Date 2017-3-30
 **/
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(Address);
-        
         if(response != null && response.ValidationStatus == 'OK')
-        {
-            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
-               AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
-            {
-                return response.Addresses[0].Address_Code;
+        {  
+            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode  && 
+               AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
+            {   
+                if(((AddressObj.Block__c == response.Addresses[0].Block) || (response.Addresses[0].Block == '' && AddressObj.Block__c == null))){
+                        if(((AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1) || (response.Addresses[0].Address_Line_1 == '' &&AddressObj.Address_Line_1__c == null))){
+                            if(((AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2) || (response.Addresses[0].Address_Line_2 == '' &&AddressObj.Address_Line_2__c == null))){
+                                return response.Addresses[0].Address_Code;
+                            }
+                    }
+                }
             }
             
             else 
-            {
+            {   
                 return null;
             }
         }

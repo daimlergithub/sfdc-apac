@@ -1889,6 +1889,14 @@
         <name>SellingDealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- SendToJPOSErrorMsg --></label>
+        <name>SendToJPOSErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendToSPOErrorMSG --></label>
+        <name>SendToSPOErrorMSG</name>
+    </customLabels>
+    <customLabels>
         <label><!-- ServiceDealer --></label>
         <name>ServiceDealer</name>
     </customLabels>
