@@ -356,19 +356,27 @@ public class AccountLinkHelper
         Set<Id> accIdSet = new Set<Id>();
         for(Account_Link__c accLinkRec : list_AccountLink) {
             accIdSet.add(accLinkRec.toRole__c);
+            
         }
+        system.debug('++++++++++++++++++'+accIdSet);
         
-        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet];
+        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r Where RecordType.Name =: 'Retail_Person' OR RecordType.Name =: 'Retail_Company'  LIMIT 5000) from Account where Id IN: accIdSet LIMIT 500];
+        
+        if(accIdSet.size() >0 && !accIdSet.isEmpty()){ 
+        //List<Account> accList = [select Id from Account where Id IN: accIdSet  LIMIT 5000];
+        //List<Account_Link__c> accLink = [select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Link__c Where fromRole__c IN: accIdSet   LIMIT 5000];
+        
+        
         for(Account accRec : accList) {
             String dealerAccId;         
-            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r  ) {
                 if(accLinkRec.RecordType.DeveloperName == 'Retail_Person' || accLinkRec.RecordType.DeveloperName == 'Retail_Company' ||
                         accLinkRec.RecordType.DeveloperName == 'Vehicle_External_Link') {
                     dealerAccId = accLinkRec.fromRole__c;
                 } 
             }
             
-            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r  ) {
                 if((accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' || accLinkRec.RecordType.DeveloperName == 'Contact2Contact' 
                     || accLinkRec.RecordType.DeveloperName == 'CompanyExternalLink') && String.isNotBlank(dealerAccId)) {
                     if(!map_FromAccountToListIndividualAccountLinkId.containsKey(dealerAccId)) {
@@ -377,6 +385,7 @@ public class AccountLinkHelper
                     map_FromAccountToListIndividualAccountLinkId.get(dealerAccId).add(accLinkRec.Id);
                 } 
             }
+        }
         }
         
         return map_FromAccountToListIndividualAccountLinkId;
@@ -1289,6 +1298,8 @@ if(LeadUtil.Retailcopy){
     Event            : Before Update
   */
   public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst){
+       
+       if(LeadUtil.updateRetailCopyfromC2C ){ 
         Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
         Set<Id> comId = new Set<Id>();
         Set<Id> perAccIdSet = new Set<Id>();
@@ -1322,4 +1333,7 @@ if(LeadUtil.Retailcopy){
             }
         }        
     }
+    LeadUtil.updateRetailCopyfromC2C=false; 
+    }
+   
 }

@@ -28516,19 +28516,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>EFT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invoice</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36596,6 +36584,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>On-going</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -103009,19 +103001,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>EFT</fullName>
+                <fullName>Invoice</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Financed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoice</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transfer</fullName>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -110163,3 +110151,4 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+

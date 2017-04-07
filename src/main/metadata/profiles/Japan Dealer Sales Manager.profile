@@ -5049,7 +5049,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Selling_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
