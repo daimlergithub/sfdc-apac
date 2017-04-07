@@ -178,6 +178,10 @@
         <apexClass>CheckAccountDuplicateController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>PrintPDFcontroller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
@@ -22606,6 +22610,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>printLeadPDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

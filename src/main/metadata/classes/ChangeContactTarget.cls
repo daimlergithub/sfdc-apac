@@ -1,4 +1,4 @@
-public class ChangeContactTarget {
+public with Sharing class ChangeContactTarget {
 
 private static final String VehicleExternalLinkRT = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
    
@@ -114,7 +114,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             if(vehiclewrpper.aftersalescontactacclink.id!=null){
             acclinklist.add(vehiclewrpper.aftersalescontactacclink);
             }
-        
+         LeadUtil.isAcctrigger = False;
         update acclinklist;
         
         if(!VRid.isEmpty()){

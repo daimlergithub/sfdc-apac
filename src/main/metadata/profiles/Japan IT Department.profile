@@ -178,6 +178,10 @@
         <apexClass>CheckAccountDuplicateController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>PrintPDFcontroller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>true</enabled>
@@ -16644,9 +16648,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Campaign__c.Brand__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
@@ -23620,6 +23624,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>printLeadPDF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>printAfterSaleLeadPdf</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
