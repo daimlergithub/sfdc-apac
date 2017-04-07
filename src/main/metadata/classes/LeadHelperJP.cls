@@ -405,7 +405,7 @@ public class LeadHelperJP
                  {
                      if(lead.MD__c == 'JP'  )
                      {                
-                         if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Approved' )))
+                         if(isInsert || (isUpdate && (lead.CAC_Lead_Status__c != leadOldMap.get(lead.id).CAC_Lead_Status__c && lead.CAC_Lead_Status__c == 'Allocated' )))
                          {
                             
                              system.debug('Insert Method 1');
@@ -476,7 +476,7 @@ public class LeadHelperJP
                          for(Lead__c led : Leadlist)
                          {
                              system.debug('++++++++++'+Leadlist);
-                             if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Approved' )))
+                             if(isInsert || (isUpdate && (led.CAC_Lead_Status__c != leadOldMap.get(led.id).CAC_Lead_Status__c && led.CAC_Lead_Status__c == 'Allocated' )))
                              {                                 
                                  if(isNotificationSendtosalesmanager == true){
                                     led.Lead_Assignment_Notification_Done__c = True;

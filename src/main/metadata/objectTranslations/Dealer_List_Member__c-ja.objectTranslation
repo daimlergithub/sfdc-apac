@@ -5,7 +5,7 @@
         <value><!-- Dealer List Member --></value>
     </caseValues>
     <fields>
-        <label><!-- Campaign Member --></label>
+        <label>キャンペーンメンバーID</label>
         <name>Campaign_Member__c</name>
         <relationshipLabel><!-- Dealer List Members --></relationshipLabel>
     </fields>
@@ -15,47 +15,47 @@
         <relationshipLabel><!-- Dealer List Members --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Company Name --></label>
+        <label>会社名</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Contact Id --></label>
+        <label>対象者</label>
         <name>Contact_Id__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Number --></label>
+        <label>契約番号</label>
         <name>Contract_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Contract Responsible Person --></label>
+        <label>MBF契約担当者</label>
         <name>Contract_Responsible_Person__c</name>
     </fields>
     <fields>
-        <label><!-- Contract --></label>
+        <label>MBF契約</label>
         <name>Contract__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Company Name --></label>
+        <label>MBF法人契約者名</label>
         <name>Contractor_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Contractor Individual Name --></label>
+        <label>MBF契約者名</label>
         <name>Contractor_Individual_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Customer Complete Address --></label>
+        <label>住所</label>
         <name>Customer_Complete_Address__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Address --></label>
+        <label>MBF契約者住所</label>
         <name>Finance_Address__c</name>
     </fields>
     <fields>
-        <label><!-- FirstName --></label>
+        <label>名</label>
         <name>FirstName__c</name>
     </fields>
     <fields>
-        <label><!-- LastName --></label>
+        <label>姓</label>
         <name>LastName__c</name>
     </fields>
     <fields>
@@ -75,8 +75,17 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Model --></label>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label>モデル</label>
         <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>NewAccount__c</name>
+        <relationshipLabel><!-- Dealer List Members --></relationshipLabel>
     </fields>
     <fields>
         <label>参加販売店</label>
@@ -88,31 +97,31 @@
         <name>Reason_for_the_removal__c</name>
     </fields>
     <fields>
-        <label><!-- Removed --></label>
+        <label>除外</label>
         <name>Removed__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Representative --></label>
+        <label>販売担当者</label>
         <name>Sales_Representative__c</name>
     </fields>
     <fields>
-        <label><!-- Service Representative --></label>
+        <label>サービス担当者</label>
         <name>Service_Representative__c</name>
     </fields>
     <fields>
-        <label><!-- VehicleRelationship --></label>
+        <label>車両顧客関係</label>
         <name>VehicleRelationship__c</name>
     </fields>
     <fields>
-        <label><!-- Vehicle --></label>
+        <label>車両</label>
         <name>Vehicle__c</name>
     </fields>
     <fields>
-        <label><!-- Zip Code Finance --></label>
+        <label>MBF郵便番号</label>
         <name>Zip_Code_Finance__c</name>
     </fields>
     <fields>
-        <label><!-- Zip Code --></label>
+        <label>郵便番号</label>
         <name>Zip_Code__c</name>
     </fields>
     <layouts>
@@ -123,6 +132,10 @@
         </sections>
     </layouts>
     <nameFieldLabel><!-- Dealer List Member Name --></nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- List Maintenance is Completed,You Cant Edit And Create --></errorMessage>
+        <name>List_Maintenance_Lock_on_Dealer</name>
+    </validationRules>
     <validationRules>
         <errorMessage><!-- Campaign is Locked --></errorMessage>
         <name>lock_on_campaign</name>
