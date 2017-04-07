@@ -4615,7 +4615,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <language>en_US</language>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <RoleAndInternalSubordinates>ContractAdministration(CA)Manager</RoleAndInternalSubordinates>    
+            <RoleAndInternalSubordinates>MBJCRMDepartment</RoleAndInternalSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -4625,7 +4625,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <language>en_US</language>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <RoleAndInternalSubordinates>ContractAdministration(CA)Manager</RoleAndInternalSubordinates>
+            <RoleAndInternalSubordinates>MBJCRMDepartment</RoleAndInternalSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -4635,7 +4635,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <language>en_US</language>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <RoleAndInternalSubordinates>ContractAdministration(CA)Manager</RoleAndInternalSubordinates>
+            <RoleAndInternalSubordinates>MBJCRMDepartment</RoleAndInternalSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -4645,7 +4645,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <language>en_US</language>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <RoleAndInternalSubordinates>ContractAdministration(CA)Manager</RoleAndInternalSubordinates>
+            <RoleAndInternalSubordinates>MBJCRMDepartment</RoleAndInternalSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
