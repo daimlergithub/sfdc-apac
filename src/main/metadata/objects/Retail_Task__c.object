@@ -4612,36 +4612,40 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <fullName>MBF_Contract_Administration_CA_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Contract Administration (CA) Team</label>
+        <language>en_US</language>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <portalRoleAndSubordinates>JpmarketPartnerExecutive</portalRoleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Customer_Care_CCC_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Customer Care (CCC) Team</label>
+        <language>en_US</language>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <portalRoleAndSubordinates>JpmarketPartnerExecutive</portalRoleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Inbound_Outbound_Supervisor_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Inbound &amp; Outbound Supervisor</label>
+        <language>en_US</language>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <portalRoleAndSubordinates>JpmarketPartnerExecutive</portalRoleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Quotation_Team_Queue_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
+        <language>en_US</language>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <portalRoleAndSubordinates>JpmarketPartnerExecutive</portalRoleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
