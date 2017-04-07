@@ -2277,6 +2277,14 @@
         <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>
         <name>not_check_active_when_new_cac_camapgin</name>
     </validationRules>
+	<webLinks>
+        <label>参加販売店登録</label>
+        <name>Add_Participating_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>リスト統合開始</label>
+        <name>Consolidate_List_Maintenance</name>
+    </webLinks>
     <webLinks>
         <label><!-- Create_Batch_Tasks --></label>
         <name>Create_Batch_Tasks</name>
@@ -2289,6 +2297,10 @@
         <label>子キャンペーン作成</label>
         <name>Create_Child_Campaign</name>
     </webLinks>
+	<webLinks>
+        <label>子キャンペーン作成</label>
+        <name>Create_Child_Campaign_For_Execution</name>
+    </webLinks>
     <webLinks>
         <label>実行キャンペーン作成</label>
         <name>Create_Complex_Execution</name>
@@ -2296,6 +2308,10 @@
     <webLinks>
         <label>簡易キャンペーン実施</label>
         <name>Create_Simple_Execution</name>
+    </webLinks>
+	<webLinks>
+        <label>レコード複製</label>
+        <name>Custom_Clone</name>
     </webLinks>
     <webLinks>
         <label><!-- De_Dup --></label>
@@ -2312,6 +2328,10 @@
     <webLinks>
         <label><!-- Generate_Retail_BP_smart --></label>
         <name>Generate_Retail_BP_smart</name>
+    </webLinks>
+	<webLinks>
+        <label>リストメンテナンス開始</label>
+        <name>List_Ready_Maintenance</name>
     </webLinks>
     <webLinks>
         <label>全てのマーケットアクティビティメンバーを見る</label>
