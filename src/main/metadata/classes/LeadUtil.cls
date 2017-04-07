@@ -14,5 +14,6 @@ public class LeadUtil {
     public static boolean createPCSharingRecord = true;
     public static boolean createSharingRecord  = true;
     public static boolean updateRetailCopyfromC2C  = true;
+	public static boolean isAcctrigger = true;
     
 }
