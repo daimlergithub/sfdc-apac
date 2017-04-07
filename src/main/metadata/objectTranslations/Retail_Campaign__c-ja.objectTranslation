@@ -1837,10 +1837,6 @@
         <label><!-- Search_and_Add_Campaign_Member --></label>
         <name>Search_and_Add_Campaign_Member</name>
     </webLinks>
-    <webLinks>
-        <label><!-- Segment --></label>
-        <name>Segment</name>
-    </webLinks>
 	<webLinks>
         <label>キャンペーンメンバー条件抽出</label>
         <name>Segment</name>

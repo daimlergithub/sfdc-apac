@@ -140,8 +140,4 @@
         <errorMessage><!-- Campaign is Locked --></errorMessage>
         <name>lock_on_campaign</name>
     </validationRules>
-	<webLinks>
-        <label>完了</label>
-        <name>Complete</name>
-    </webLinks>
 </CustomObjectTranslation>
