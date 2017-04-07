@@ -6043,6 +6043,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>OOH</shortDescription>
         <value>OOH</value>
     </labels>
+	 <labels>
+        <fullName>Account_Name</fullName>
+        <categories>This was added to correct the Korean value for Account name, Account name is a standard field thus we will not be able to modify korean value</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressSearchValidation</shortDescription>
+        <value>Account Name</value>
+    </labels>
     <labels>
         <fullName>rcc_Prints_relevant</fullName>
         <categories>Retail Campaign Calendar</categories>

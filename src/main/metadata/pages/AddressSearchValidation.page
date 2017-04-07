@@ -177,7 +177,8 @@
          <!--  KOREA MARKET Company Account - End -->
                 <apex:pageBlockSection id="companyBlockKR" title="{!$Label.Company_Account_Information}" rendered="{!If( AND(RecordType == 'Company',market=='KR') ,true,false)}" >
                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
+                        <!--<apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>-->
+						<apex:outputLabel value="{!$Label.Account_Name}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
