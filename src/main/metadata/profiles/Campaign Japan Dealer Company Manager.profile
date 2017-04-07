@@ -2509,6 +2509,11 @@
         <field>Campaign_Member__c.Payment_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	   <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Customer_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Bonus_Month1__c</field>
