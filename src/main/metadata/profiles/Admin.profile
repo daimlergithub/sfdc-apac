@@ -7537,6 +7537,11 @@
         <field>Campaign_Member__c.Lease_Loan_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.Customer_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.List_Maitenence_Retail_CM_Flag__c</field>
