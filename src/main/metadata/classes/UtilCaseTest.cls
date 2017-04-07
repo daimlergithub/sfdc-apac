@@ -14,14 +14,14 @@ public class UtilCaseTest {
     accobj.LastName = 'galaxy1';
     accobj.ZipCode__c= '1002347';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    //accobj.Mobile__c = '000-0000-9642';
     insert accobj;  
     accobj = new Account();
     accobj.RecordTypeId = personAccRecordTypeId;
     accobj.LastName = 'galaxy1';
     accobj.ZipCode__c= '1002347';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9842';
+    //accobj.Mobile__c = '000-0000-9842';
     insert accobj; 
     
     Caseobj = new Case();
@@ -50,18 +50,34 @@ public class UtilCaseTest {
     system.debug('$$$$$$$$$$$$$$$$$'+caselist);
     catchcase = new list<case>();
     catchcase.add(Caseobjcatch);
-  }      
+    update accobj;
+  }    
+  
+  static void createTestData1() {
+  /*Account accobj1 = new Account();
+  accobj.RecordTypeId = personAccRecordTypeId;
+    accobj.LastName = 'galaxy2';
+    accobj.ZipCode__c= '1002454';
+    accobj.MBK_Data_Source__c='Email1';
+    accobj.Mobile__c = '000-0000-9632';
+    insert accobj1;  */
+    delete  accobj;
+  }  
   
   public static testmethod void rollupAccountComplaintTest() {
-    try {
-      createTestData();
+  createTestData();
+ // createTestData1();
       test.startTest();
         UtilCase.rollupAccountComplaintAmount(caselist);
       test.stopTest();
-      system.assertEquals(caselist.size(),1);
+    try 
+    {
+      UtilCase.rollupAccountComplaintAmount(caselist);
     }
-    catch(Exception e){
-      UtilCase.rollupAccountComplaintAmount(catchcase);
+    catch(DMLException e)
+    {
+    Delete accobj;
     }
+     
   }
 }

@@ -213,11 +213,11 @@
                                   <apex:pageBlockSectionItem >
                                      <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
                                     
-                                            <div class = "requiredInput"  >
+                                            <div>
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td class="dataCol requiredInput" >
+                                                    <td>
                                                     <select  id="brandItems" style="width:160px" ng-blur="setSelectedValue(selectedBrand)" ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand for brand in brands track by brand" />
                                                     </td> 
                                                 </tr> 
@@ -234,16 +234,17 @@
                              
                                     <apex:pageBlockSectionItem > 
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}"  />
-                                         <div class = "requiredInput"  >
+                                         <div>
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td class="dataCol requiredInput" >
-                                         <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>                            
-                                                     </td> 
+                                                    <td>
+                                         <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>
+													 </td> 
                                                 </tr> 
                                              </table>
-                                            </div>                            
+                                            </div>
+										
                                     </apex:pageBlockSectionItem>
                                   
                                    <apex:pageBlockSectionItem >
@@ -266,7 +267,7 @@
                                         <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.BaumusterEx__c.Label}" />
                                         <select id="steeringItems" style="width:174px" ng-change="getSelectedRange(selectedSteering)" ng-model="selectedSteering" ng-options="Steering for Steering in Steerings track by Steering"/>                           
                                   </apex:pageBlockSectionItem>   
-                                  <apex:inputField value="{!vehicle.EuroVIN__c}"/>
+                                  <apex:inputField value="{!vehicle.UsVIN__c}"/>
                                                         
                             <apex:inputField value="{!vehicle.Model_Description__c}"/>
                         
@@ -297,19 +298,18 @@
                
                  <span ng-switch-when="MB">
                     <apex:pageBlockSection title="{!$Label.Date_Information}">
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
-                        <apex:inputField value="{!vehicle.Purchase_Month__c}" required="true"/>
-                        <apex:inputField value="{!vehicle.Purchase_Year__c}" required="true"/>
+                        
                     </apex:pageBlockSection>
                  </span>
                 
                  <span ng-switch-when="MB">
                     <apex:pageBlockSection title="{!$Label.Other_Information}">
                         <apex:inputField value="{!vehicle.Transmission__c}"/>
-                        <apex:inputField value="{!vehicle.RegistrationNo__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                         <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
                         <apex:inputField value="{!vehicle.VehicleStatus__c}"/>
                     </apex:pageBlockSection>
@@ -317,7 +317,7 @@
                     
                 <span ng-switch-when="Competitor">
                
-                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}"> 
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}" > 
                          <apex:pageBlockSectionItem > 
                                    <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Brand__c.Label}" />
                                     <div class = "requiredInput"  >
@@ -332,18 +332,18 @@
                                     </div>
                          </apex:pageBlockSectionItem>
                             
-                         <apex:pageBlockSectionItem> 
+                         <apex:pageBlockSectionItem > 
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}"/>              
                                     <div class = "requiredInput">
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                      <table>
                                         <tr>
                                             <td class="dataCol requiredInput">            
-                                    <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>              
-                                            </td> 
-                                        </tr> 
-                                     </table>
-                                    </div>              
+                                    <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>
+											 </td> 
+                                                </tr> 
+                                             </table>
+                                            </div>
                         </apex:pageBlockSectionItem>
                             
                          <apex:inputField value="{!vehicle.Related_contact__c}"/>
@@ -357,12 +357,10 @@
                 <span ng-switch-when="Competitor">
                     <apex:pageBlockSection title="{!$Label.Date_Information}" > 
                         <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.Related_From__c}"/>
                         <apex:inputField value="{!vehicle.Related_To__c}"/> 
-                         <apex:inputField value="{!vehicle.Purchase_Month__c}" required="true"/>
-                        <apex:inputField value="{!vehicle.Purchase_Year__c}" required="true"/>
-                        <apex:inputField value="{!vehicle.RegistrationNo__c}" required="true"/>
+                        
                     </apex:pageBlockSection>
                 </span>
                  

@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Account Link --></value>
+        <value>계정 링크</value>
     </caseValues>
     <fields>
         <help><!-- Activate Flag --></help>
@@ -1367,6 +1367,10 @@
             <label>정보</label>
             <section>Information</section>
         </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Contact Sector</layout>
@@ -1389,6 +1393,10 @@
             <label>정보</label>
             <section>Information</section>
         </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Contact2Contact</layout>
@@ -1399,6 +1407,10 @@
         <sections>
             <label>정보</label>
             <section>Information</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -1421,6 +1433,10 @@
         <sections>
             <label>정보</label>
             <section>Information</section>
+        </sections>
+        <sections>
+            <label>시스템 정보</label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <nameFieldLabel><!-- Name --></nameFieldLabel>

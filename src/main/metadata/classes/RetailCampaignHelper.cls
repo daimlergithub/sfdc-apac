@@ -217,7 +217,7 @@ public static void emailNotificationRetail (List<Retail_Campaign__c > retCampLis
   Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
 Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-   Id retId; 
+   Set<Id> retId = New Set<Id>(); 
    String mailSales ;
   For(Retail_Campaign__c  camp : retCampList){
   
@@ -225,41 +225,24 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
    
    
         sid.add(camp.Parent_Campaign__c);
-        retId = camp.Id;
+        retId.add(camp.Id);
          }
   
     
     
   }
   EmailTemplate templateId = [Select id from EmailTemplate where name = 'Dealer Campaign Notification'];
-  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-  System.Debug('++++++++++'+CamList );
+  //List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
+     List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
   
-  For(Campaign c : CamList){
+  For(Retail_Campaign__c reCampaign : retList ){
   
-     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
-     
-           if(c.Parent.Campaign_Type__c == 'sales'){ 
- 
-          if(!String.isBlank(parDealer.Dealer__r.Dealer_Sales_Manager_Email__c)){
-                mailSales = parDealer.Dealer__r.Dealer_Sales_Manager_Email__c;    
-          }
-          } else if (c.Parent.Campaign_Type__c == 'After Sales'){
-          
-          if(!String.isBlank(parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c)){
-                mailSales = parDealer.Dealer__r.Dealer_Aftersales_Manager_Email__c;   
-          }
-          
-          }  
-          
-          if(mailSales != null){
-          string[] toaddress = New String []{mailSales};
           
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
-        mail.setTargetObjectId(parDealer.ownerId);
-        mail.setToAddresses(toaddress);
-        mail.setWhatId(parDealer.Id);
+        mail.setTargetObjectId(reCampaign.owner.Id);
+        //mail.setToAddresses(toaddress);
+        mail.setWhatId(reCampaign.Id);
         
         mail.setTemplateID(templateId.Id); 
         mail.setUseSignature(false);
@@ -271,26 +254,29 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
             mails.add(mail);   
 
             }
-     
-     
-     
-    }
-     
-  
-  
-  }
-  
   Messaging.sendEmail(mails);
   
   
    } 
+   /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method change the status of parent based on child retail campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
    
-   public static void parentRetailCampaignSatusChange(List<Retail_Campaign__c> retMainList){ 
+   
+   
+   public static void parentRetailCampaignSatusChange(List<Retail_Campaign__c> retMainList,map<id,Retail_Campaign__c> camOldMap){ 
   
     Id executionRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
     Id planningRecordId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
   Set<id> sid = New Set<Id>();
+  Set<Id> aid = New Set<Id>();
   List<Retail_Campaign__c> camList = New List<Retail_Campaign__c>();
+  List<Retail_Campaign__c> camListMain = New List<Retail_Campaign__c>();
   
             For(Retail_Campaign__c camMain : retMainList){
             
@@ -299,8 +285,10 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                       sid.add(camMain.Parent_Campaign1__c);
             
             } 
-            
-            
+            If(CamMain.RecordTypeId == planningRecordId  && CamMain.Status__c != camOldMap.get(CamMain.id).Status__c && CamMain.Status__c == 'Completed'){
+      
+                    aid.add(camMain.Id);
+                     }
             }
             
             if(sid.size()>0){
@@ -315,49 +303,64 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                       cam.Status__c = 'Ongoing';
                       
                       camList.add(cam);
-                 
-                 }
-               
-               
-               
-               }
-            
-            
-            
-            
-            }
+                       }
+               }}
   
         if(camList.size()>0){
            Update camList;
         
-        }
-         
-  
-  }
-  
-  
-  
-  
+        }}
+         if(aid.size()>0){
+        List<Retail_Campaign__c> camChildList = [Select Id,Parent_Campaign1__c,Child_Campaign_Status__c  From Retail_Campaign__c Where Parent_Campaign1__c =: aid];
+        
+        if(camChildList.size()>0){
+        
+          For(Retail_Campaign__c cam : camChildList ){
+          
+             
+             
+                  if(cam.Child_Campaign_Status__c != 'Completed'){
+                  
+                    cam.Child_Campaign_Status__c = 'Completed';
+                    
+                    camListMain.add(cam);
+                        
+                  }
+                 }} 
+        
+        } 
+        if(camListMain.size()>0){
+               Update camListMain;
+               } 
   } 
-   public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList){
+  /**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method contains Data validations of parent and child retail campaign
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
+   
+   public static void validationParentRetailCampaign(List<Retail_Campaign__c> retList,map<id,Retail_Campaign__c> camOldMap,boolean isInsert,boolean isUpdate){
    
    Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
           
           
            For(Retail_Campaign__c rect : retList){
            
-           if(rect.Parent_Campaign__c == null && rect.RecordTypeId == parentCampaignId){
+           if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == parentCampaignId || (isUpdate && rect.Parent_Campaign__c == null && rect.RecordTypeId == parentCampaignId  && (rect.Start_Date__c != camOldMap.get(rect.id).Start_Date__c || rect.Close_Date__c != camOldMap.get(rect.id).Close_Date__c))){
            
                
                  If(rect.Start_Date__c < System.Today()){
                  
-                   rect.addError('Date error');   
+                   rect.addError('Start Date cant be Lesser Than Today');   
                  
                  }
                  
                  If(rect.Close_Date__c < rect.Start_Date__c){
                  
-                       rect.addError('Date error');
+                       rect.addError('End Date cant be Lesser Than Start Date');
                  }
                   
            
@@ -368,20 +371,25 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
    
  }
  
- public static void validationChildRetailCampaign(List<Retail_Campaign__c> retListMain){
+ public static void validationChildRetailCampaign(List<Retail_Campaign__c> retListMain,map<id,Retail_Campaign__c> camOldMap,boolean isInsert,boolean isUpdate){
  
  Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
- Set<Id> sid = New Set<Id>();         
+ Set<Id> sid = New Set<Id>(); 
+ Set<Id> aid = New Set<Id>();        
           
            For(Retail_Campaign__c rect : retListMain){
            
-if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
+if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign || (isUpdate && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign && (rect.Segmentation_Date__c != camOldMap.get(rect.id).Segmentation_Date__c  || rect.Execution_Start_Date__c  != camOldMap.get(rect.id).Execution_Start_Date__c || rect.Response_Date__c   != camOldMap.get(rect.id).Response_Date__c ))){
                   
                     system.debug('+++++++++++++++'+'WORKING' );
                          sid.add(rect.Parent_Campaign1__c);
                          
                          
                          }
+                         if( isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign){
+       
+                    aid.add(rect.Parent_Campaign1__c); 
+        }
                   }
                   
                   
@@ -396,28 +404,51 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                      For(Retail_Campaign__c recta : retListMain ){
                      
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
-                     if(recta.Segmentation_Date__c <= rec.Start_Date__c ||recta.Segmentation_Date__c > rec.Close_Date__c ){
+                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c <= rec.Start_Date__c  ){
                      
-                         recta.addError('Segmentation Error');
+                         recta.addError('Segmentation Date Error');
                          
                      
                      }
                      
-                     if(recta.Execution_Start_Date__c <= recta.Segmentation_Date__c || recta.Execution_Start_Date__c > rec.Close_Date__c ){
+                     if(recta.Execution_Start_Date__c < System.Today()  || recta.Execution_Start_Date__c > rec.Close_Date__c || recta.Execution_Start_Date__c <= recta.Segmentation_Date__c ){
                      
                      
-                            recta.addError('Execution Error');
+                            recta.addError('Execution Date Error');
                      }
-                  if(recta.Response_Date__c <= recta.Execution_Start_Date__c || recta.Response_Date__c  > rec.Close_Date__c ){
+                  if(recta.Response_Date__c < System.Today()  || recta.Response_Date__c  > rec.Close_Date__c ||recta.Response_Date__c < recta.Execution_Start_Date__c   ){
                      
                      
-                            recta.addError('Response Error');
+                            recta.addError('Response Date Error');
                      }
                   }
                }
      }
+     if(aid.size()>0){
+     
+     List<Retail_Campaign__c> ParentCamp = [Select id, Status__c From Retail_Campaign__c   Where Id =: aid ];
+      For(Retail_Campaign__c  cam : ParentCamp ){
+      
+      For(Retail_Campaign__c  childCam : retListMain){
+         if(cam.Status__c == 'Completed'){
+         childCam.addError('Cant add Child Campaign When Parent Status is Completed');
+       
+       }
+      } 
+     }
+     
+     } 
  
 }
+
+/**
+  *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method insert the campaign Members of Retail campaign on Join Driven Campaign(SFDCJP-1044)
+  
+  *@Author : Abhishekh Dasepalle
+  
+  
+  */ 
    
     public static void afterInsertCopyRetailCampaign(List<Retail_Campaign__c> retCamp){
     
@@ -426,7 +457,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
     Id parentCampaignId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
     Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 
-     Id retailId;       
+     Set<Id> retailId = New Set<Id>();       
     Set<id> sid = New Set<id>();    
         
         for(Retail_Campaign__c retcam : retCamp){
@@ -434,7 +465,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
             if(retcam.Parent_Campaign__c != null && retcam.RecordTypeId == childCampaign ){
                 
                     sid.add(retcam.Parent_Campaign__c);
-                    retailId = retcam.Id;
+                    retailId.add(retcam.Id);
             }
             
             
@@ -447,19 +478,20 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
       
       List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
       
-
+      List<Retail_Campaign__c> retList = [Select id From Retail_Campaign__c Where Id =: retailId];
             
             For(Campaign caMem : caMemList ){
             
             if(caMem.Set_List_Maintenance_Flag__c == false || caMem.Consolidated_List_Completed__c == true ){
                 
+              For(Retail_Campaign__c retail : retList){
               For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
                  
                  if(camo.Status__c !='Removed'){ 
                  
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
                 // newCamRetail.Name = camo.Name;
-                 newCamRetail.Retail_Campaign_Id__c = retailId;
+                 newCamRetail.Retail_Campaign_Id__c = retail.Id;
                  newCamRetail.Status__c = camo.Status__c;
                  newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;
                  newCamRetail.contact_Id__c = camo.contact_Id__c;
@@ -468,7 +500,7 @@ if(rect.Parent_Campaign__c == null && rect.RecordTypeId == childCampaign ){
                }   
               }
 
-
+            }
                                                   
                 
             }

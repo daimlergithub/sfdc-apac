@@ -22,6 +22,12 @@
         text-decoration: underline;
         color: #015BA7;
         }
+        /*input#accountname {
+            display: none;
+        }
+        input#accountnameslave1 {
+            display: none;
+        }*/
     </style>
     
     <apex:includeScript value="{!$Resource.jquery142}"/>
@@ -37,6 +43,7 @@
     });
     
     function setEntityValues (conid) {
+        
         for (var frm = 0; frm < document.forms.length; frm++) {
             for (var fld = 0; fld < document.forms[frm].elements.length; fld++) {
                 var elt = document.forms[frm].elements[fld];
@@ -46,8 +53,8 @@
                     }
                 }
             }
-        }
-    }
+        }       
+    }  
     </script>
     
     <apex:sectionHeader title="{!$Label.Account_Merge}" subtitle="{!$Label.Master_Account}: {!master.Name}"/>
@@ -92,14 +99,16 @@
                                 <td style="width:40%">
                                     <apex:outputField value="{!master[wrap.fieldAPI]}" rendered="{!wrap.isSame}"/>
                                     <apex:outputPanel rendered="{!NOT(wrap.isMasterNull) && NOT(wrap.isSame)}">
-                                        <apex:outputpanel rendered="{!wrap.isMasterChecked}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" checked="checked" value="master"/>
+                                        <apex:outputpanel rendered="{!AND(wrap.fieldAPI != 'Name')}">
+                                            <input type="radio" name="{!wrap.fieldAPI}" value="master" id="masterid"/>
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
                                         </apex:outputpanel>
                                         
-                                        <apex:outputpanel rendered="{!NOT(wrap.isMasterChecked)}">
-                                            <!-- <input type="radio" name="{!wrap.fieldAPI}" value="master"/> -->
+                                        <apex:outputpanel rendered="{NOT(!wrap.isMasterChecked)}">
+                                        <apex:outputpanel rendered="{!(wrap.fieldAPI != 'Name')}">
+                                              <input type="radio" name="{!wrap.fieldAPI}" value="master" id="masterid1"/> 
                                             <apex:inputHidden value="{!wrap.isMasterChecked}" />
+                                            </apex:outputpanel>
                                         </apex:outputpanel>
                                         
                                         <apex:outputField value="{!master[wrap.fieldAPI]}" />
@@ -109,16 +118,17 @@
                                 <td style="width:40%">
                                     <apex:outputField value="{!slave[wrap.fieldAPI]}" rendered="{!wrap.isSame}"/>
                                     <apex:outputPanel rendered="{!NOT(wrap.isSlaveNull) && NOT(wrap.isSame)}">
-                                        <apex:outputpanel rendered="{!wrap.isSlaveChecked}">
-                                            <input type="radio" name="{!wrap.fieldAPI}" checked="checked" value="slave"/>
+                                        <apex:outputpanel rendered="{!AND(wrap.fieldAPI != 'Name')}">
+                                            <input type="radio" name="{!wrap.fieldAPI}" value="slave" id="accountnameslave"/>
                                             <apex:inputHidden value="{!wrap.isSlaveChecked}" />
                                         </apex:outputpanel>
                                         
-                                        <apex:outputpanel rendered="{!NOT(wrap.isSlaveChecked)}">
-                                            <!-- <input type="radio" name="{!wrap.fieldAPI}" value="slave"/> -->
+                                        <apex:outputpanel rendered="{!AND(wrap.isSlaveChecked,wrap.isMasterChecked == true)}">
+                                        <apex:outputpanel rendered="{!(wrap.fieldAPI != 'Name')}">
+                                             <input type="radio" name="{!wrap.fieldAPI}" value="slave" id="accountnameslave1"/>
                                             <apex:inputHidden value="{!wrap.isSlaveChecked}" />
                                         </apex:outputpanel>
-                                        
+                                        </apex:outputpanel>
                                         <apex:outputField value="{!slave[wrap.fieldAPI]}" />
                                     </apex:outputPanel>
                                 </td>         

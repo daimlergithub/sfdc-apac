@@ -6,17 +6,18 @@ public class MBJ_FS_Case_Intermediate_Controller{
     Public String accountId;
     Public String fromAccountId {get;set;}
     public String userid {get;set;}
-    Public String Recordid {get;set;}
+    List<Network> Net;
+    
     public MBJ_FS_Case_Intermediate_Controller(ApexPages.StandardController stdController){
         this.redirectCase = (Case)stdController.getrecord();
+        Net =[SELECT UrlPathPrefix from Network where id=:Network.getNetworkId() LIMIT 1];
+    //  userContact = [Select Id, Name From Contact Where Id In (Select ContactId From User Where Id = :UserInfo.getUserId())];
     }
     
     public PageReference Redirect(){
         PageReference returnURL;
         RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
         retailTaskID = Apexpages.currentpage().getparameters().get('retailTaskID');
-        //Recordid = ApexPages.currentPage().getParameters().get('accountName');
-        Recordid = ApexPages.currentPage().getParameters().get('def_account_id');
         if(retailTaskID != null){
             Retail_Task__c rtlTask = [Select id,Account__r.id from Retail_Task__c where id=:retailTaskID limit 1];
             accountId = rtlTask.Account__r.id;
@@ -91,9 +92,16 @@ public class MBJ_FS_Case_Intermediate_Controller{
             }
             
             else
-            {  
+            { 
+                system.debug('===='+net);
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
                 returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                returnURL.setredirect(false);
+                }
+                 returnURL.setredirect(false);
                 return returnURL;
             }
         }
@@ -182,8 +190,14 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else
             {  
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
                 returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                returnURL.setredirect(false);
+                }
+                 returnURL.setredirect(false);
                 return returnURL;
             }
         }
@@ -195,12 +209,12 @@ public class MBJ_FS_Case_Intermediate_Controller{
             RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
             Schema.DescribeSObjectResult result = Case.SObjectType.getDescribe();
             String retURL = result.getKeyPrefix()+'/o';
-            Recordid = ApexPages.currentPage().getParameters().get('accountName');
+            
             If(RecordTypeid!=Null){
                 RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
          
                 if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Inquiry Case'){
-            
+                    
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_Inquiry_Page');
                     returnURL.getParameters().put('retURL',retURL);
                     returnURL.getParameters().put('RecordType',rt.id);
@@ -247,56 +261,31 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL.getParameters().put('ownerid', userid);
                     returnURL.setredirect(false);
                     return returnURL;
-                }           
+                }
+            
                 
                 else
-                {   
-                    System.debug('=====1' + RecordTypeid);
-                    Recordid = ApexPages.currentPage().getParameters().get('accountName');
-                    System.debug('=====1>>>' + RecordId);
-                    user usr =[select id,Name,ContactId from User where id =: Userinfo.getUserId()];
-                    if(usr.ContactId == null && Recordid != null){
-                        system.debug('test >> 1:'+Recordid);
-                        returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&cas4='+Recordid+'&nooverride=1');
-                        returnURL.setredirect(false);
-                        return returnURL;
-                    }
-                    if(usr.ContactId != null && Recordid != null){                        
-                        Network myCommunity = [SELECT Id,Name,UrlPathPrefix FROM Network WHERE Id =: Network.getNetworkId()];
-                        system.debug('++++ :'+myCommunity.Id);
-                        system.debug('test >> 2:'+Url.getSalesforceBaseUrl().toExternalForm());                        
-                        returnURL = new pagereference(Url.getSalesforceBaseUrl().toExternalForm()+'/'+myCommunity.UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&cas4='+Recordid+'&nooverride=1');
-                        returnURL.setredirect(false);
-                        return returnURL;
-                    }
-                    if(usr.ContactId != null && Recordid == null){                        
-                        Network myCommunity = [SELECT Id,Name,UrlPathPrefix FROM Network WHERE Id =: Network.getNetworkId()];
-                        system.debug('++++ :'+myCommunity.Id);
-                        system.debug('test >> 2:'+Url.getSalesforceBaseUrl().toExternalForm());                        
-                        returnURL = new pagereference(Url.getSalesforceBaseUrl().toExternalForm()+'/'+myCommunity.UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                        returnURL.setredirect(false);
-                        return returnURL;
-                    }
-                    
-                    if(usr.ContactId == null && Recordid == null){
-                        system.debug('test >> 1:'+Recordid);
-                        returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
-                        //returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&cas4='+Recordid+'&nooverride=1');
-                        returnURL.setredirect(false);
-                        return returnURL;
-                    }
-                    
-                    /***                                        
-                    returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                    returnURL.setredirect(false);
-                    return returnURL;
-                    ***/
+                {  
+                if(net.size()>0 &&net[0].UrlPathPrefix!=null){
+                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+               
+                }
+                else{
+                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
+                }
+                 returnURL.setredirect(false);
+                return returnURL;
                 }
             }
-            System.debug('=====2' + RecordTypeid);
-            //returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
-            returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&cas4='+Recordid+'&nooverride=1');
-                        
+            if(net.size()>0 &&net[0].UrlPathPrefix!=null)
+            {
+            returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?retURL=%2F500%2Fo&nooverride=0');
+            }
+            else{
+            returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
+            }
+            
+            
             returnURL.setredirect(false);
             return returnURL;
         //  return Null;

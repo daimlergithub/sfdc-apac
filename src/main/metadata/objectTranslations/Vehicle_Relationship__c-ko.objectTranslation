@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Vehicle Relationship --></value>
+        <value>차량 연결</value>
     </caseValues>
     <fields>
         <label>날짜 추가</label>
@@ -1224,10 +1224,6 @@
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
             <translation><!-- Company Car --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
-            <translation><!-- Daimler Employee --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
@@ -3137,10 +3133,6 @@
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Flag --></label>
-        <name>Warranty_Apply_Flag__c</name>
-    </fields>
-    <fields>
         <label><!-- Warranty Apply NDCode --></label>
         <name>Warranty_Apply_NDCode__c</name>
     </fields>
@@ -3287,6 +3279,98 @@
             <translation><!-- None --></translation>
         </picklistValues>
     </fields>
+    <layouts>
+        <layout>Revised Vehicle Relationship Layout-CAC</layout>
+        <sections>
+            <label>기본 정보</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>종료 설정 정보</label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>차량 주소 정보</label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Layout-CAC</layout>
+        <sections>
+            <label>기본 정보</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Layout-Dealer Portal</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Soft Deleted</layout>
+        <sections>
+            <label>기본 정보</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>종료 설정 정보</label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>차량 주소 정보</label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
     <nameFieldLabel><!-- VehicleRel No. --></nameFieldLabel>
     <recordTypes>
         <label>차량 연결</label>

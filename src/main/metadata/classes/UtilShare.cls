@@ -38,7 +38,7 @@ public without sharing class UtilShare{
                     }               
                 }
             }
-            if(groupsExisting.size() == 0 && dealerName.Dealer_ND_Code__c != Null){
+            if(groupsExisting.size() == 0 && dealerName!= null && dealerName.Dealer_ND_Code__c != Null){
                  Group newGroup = new Group();
                  newGroup.Name = dealerName.Dealer_ND_Code__c;
                  newGroup.DoesIncludeBosses = false; 
@@ -49,7 +49,7 @@ public without sharing class UtilShare{
         }
         system.debug('newGroupMap :'+newGroupMap);
         if(newGroupMap.size() >0){
-            upsert newGroupMap.values();
+            //upsert newGroupMap.values();
         }   
         system.debug('newGroupMap :'+newGroupMap);
         list<User> groupMembers= [Select id,UserRoleId,Contact.AccountId From User where Contact.AccountId In : dealerAccountIds];
@@ -87,15 +87,15 @@ public without sharing class UtilShare{
         Set<Id> parentIdsVRS = new Set<Id>();
         Set<Id> groupIds = new Set<Id>();
         
-        if(allGroups.size() > 0){
+        if(groupsExisting.size() > 0){
             system.debug('test 1 :');                     
             for (Lead__c Led : listLead ) {
                 system.debug('test 2 :');
                 account dealerName = mapAccountall.get(Led.Assigned_Dealer__c);   
-                for(Group groupid : allGroups.values()){
+                for(Group groupid : groupsExisting.values()){
                     system.debug('test 3 :'+dealerName);
                     if(Led.Recordtype.Name == 'Sales Leads' || Led.Recordtype.Name == 'Aftersales Leads'){
-                        if (dealerName.Dealer_ND_Code__c != NULL && dealerName.Dealer_ND_Code__c == groupid.Name) {
+                        if (dealerName!= null && dealerName.Dealer_ND_Code__c != NULL && dealerName.Dealer_ND_Code__c == groupid.Name) {
                             system.debug('test 4 :');
                             accountIds.add(Led.Contact__c);
                             parentIdsVRS.add(Led.VehicleRel_No__c);
@@ -177,6 +177,7 @@ public without sharing class UtilShare{
     
     @future
     public static void DealerGroupCreation(Set<id> dealerAccountIds, Set<id> userIds){
+	/*
         Set<String> groupNames = new Set<String>();
         Map<id,Account> mapAccount = new Map<id,Account>([select id,Name,Dealer_ND_Code__c from account where Id IN : dealerAccountIds]);
         for (Account acc : mapAccount.Values()) {
@@ -201,7 +202,7 @@ public without sharing class UtilShare{
                     }
                 }
             }
-            if(groupsExisting.size() == 0 && dealerName.Dealer_ND_Code__c != Null){
+            if(groupsExisting.size() == 0 && dealerName!= null && dealerName.Dealer_ND_Code__c != Null){
                  Group newGroup = new Group();
                  newGroup.Name = dealerName.Dealer_ND_Code__c;
                  newGroup.DoesIncludeBosses = false; 
@@ -226,6 +227,7 @@ public without sharing class UtilShare{
         system.debug('listGroupMembersToInsert <<:'+listGroupMembersToInsert);
         if(listGroupMembersToInsert.size() > 0){            
             upsert listGroupMembersToInsert; 
-        }        
+        }    
+	*/
     }    
 }

@@ -379,49 +379,6 @@
         <name>Languages__c</name>
     </fields>
     <fields>
-        <name>LeadSource</name>
-        <picklistValues>
-            <masterLabel>After-Sales Event</masterLabel>
-            <translation><!-- After-Sales Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Autoshow</masterLabel>
-            <translation><!-- Autoshow --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DM</masterLabel>
-            <translation><!-- DM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Data marketing</masterLabel>
-            <translation><!-- Data marketing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>IB</masterLabel>
-            <translation><!-- IB --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB Magazine</masterLabel>
-            <translation><!-- MB Magazine --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Online Registration</masterLabel>
-            <translation><!-- Online Registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partnership Event</masterLabel>
-            <translation><!-- Partnership Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SMS</masterLabel>
-            <translation><!-- SMS --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Lead Escalation Recipient Type --></label>
         <name>Lead_Escalation_Recipient_Type__c</name>
         <picklistValues>

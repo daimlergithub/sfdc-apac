@@ -82,7 +82,7 @@ public class LeadHelperAccountLinkCreateJP
                 }
             }
         }
-        retailCopyList = [select id from Account_Link__c where fromRole__c =:leadassignedDealerId 
+        retailCopyList = [select id,toRole__c,fromRole__c,RecordtypeId from Account_Link__c where fromRole__c =:leadassignedDealerId 
                       AND (toRole__c =:leadContactId OR toRole__c =:leadcomapanyAccId) 
                       AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId =:AccountLink_RetailCompanyRecordTypeId)];
     	if(!retailCopyList.isEmpty() && retailCopyList != null && retailCopyList.size() >0)

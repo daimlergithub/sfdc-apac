@@ -209,6 +209,13 @@
         <value>Address is not Validated ,Please click on Validate by entering proper Zipcode</value>
     </labels>
     <labels>
+        <fullName>Advisor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Advisor</shortDescription>
+        <value>Advisor</value>
+    </labels>
+    <labels>
         <fullName>After_Sales_Contact_Target</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1614,6 +1621,13 @@
         <value>Customer Filter</value>
     </labels>
     <labels>
+        <fullName>Customer_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Information</shortDescription>
+        <value>Customer Information</value>
+    </labels>
+    <labels>
         <fullName>Customer_Issue</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1626,6 +1640,14 @@
         <protected>false</protected>
         <shortDescription>Customer Name</shortDescription>
         <value>Customer Name</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Name_Kana</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Name Kana</shortDescription>
+        <value>Customer Name
+       (Kana)</value>
     </labels>
     <labels>
         <fullName>Customer_Profile</fullName>
@@ -1753,7 +1775,7 @@
         <shortDescription>Dealer Outlet</shortDescription>
         <value>Dealer Outlet</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Dealer_login_Url</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1859,6 +1881,13 @@
         <protected>false</protected>
         <shortDescription>Edit</shortDescription>
         <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Email_Assignment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Assignment</shortDescription>
+        <value>you are assigned to the Lead in Salesforce thus we notify you.</value>
     </labels>
     <labels>
         <fullName>Email_LeadDealerAssign1</fullName>
@@ -2003,6 +2032,34 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Email_LeadDealerAssign9</shortDescription>
         <value>This is a very hot customer information, so for the manager please check the lead from the URL below,assign it to the representative, and follow them as your sales operations.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Manager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Manager</shortDescription>
+        <value>Representative</value>
+    </labels>
+    <labels>
+        <fullName>Email_Thankyou</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Thankyou</shortDescription>
+        <value>Thank you for your support.</value>
+    </labels>
+    <labels>
+        <fullName>Email_salesActivities</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_salesActivities</shortDescription>
+        <value>Please make use of it for your sales activities, as this is a very promising customer information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_salesforcelogin</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_salesforcelogin</shortDescription>
+        <value>*You need to log in to Salesforce to check the Case information.</value>
     </labels>
     <labels>
         <fullName>Employee</fullName>
@@ -2944,6 +3001,13 @@ please contact the number below.</value>
         <value>Lead Activity Type</value>
     </labels>
     <labels>
+        <fullName>Lead_Assigned_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Assigned Date</shortDescription>
+        <value>Lead Assigned Date</value>
+    </labels>
+    <labels>
         <fullName>Lead_Conditions</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3593,6 +3657,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Others</value>
     </labels>
     <labels>
+        <fullName>Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Outlet</shortDescription>
+        <value>Out let</value>
+    </labels>
+    <labels>
         <fullName>Owner</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3711,6 +3782,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Person Met(Contacted)</value>
     </labels>
     <labels>
+        <fullName>Person_Or_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person Or Company</shortDescription>
+        <value>Person/Company</value>
+    </labels>
+    <labels>
         <fullName>Person_to_meet_Contact</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3738,6 +3816,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>PhoneService</shortDescription>
         <value>Phone (Service)</value>
+    </labels>
+    <labels>
+        <fullName>Planned_Purchase_Time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Planned Purchase Time</shortDescription>
+        <value>Planned Purchase Time</value>
     </labels>
     <labels>
         <fullName>Please_enter_the_filter_name</fullName>
@@ -4024,6 +4109,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Inspection tasks</value>
     </labels>
     <labels>
+        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
+        <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4138,6 +4230,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Related Account field is empty</value>
     </labels>
     <labels>
+        <fullName>Related_Dealer_View_for_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Dealer View for Contract</shortDescription>
+        <value>Related Dealer View for Contract</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -4196,11 +4295,25 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Request Date</value>
     </labels>
     <labels>
+        <fullName>Request_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Details</shortDescription>
+        <value>Request Details</value>
+    </labels>
+    <labels>
         <fullName>Request_Type</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Request Type</shortDescription>
         <value>Request Type</value>
+    </labels>
+    <labels>
+        <fullName>Requested_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date</value>
     </labels>
     <labels>
         <fullName>Required_Information</fullName>
@@ -4592,6 +4705,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>ServicePersonnel</shortDescription>
         <value>Sales/Service Personnel</value>
+    </labels>
+    <labels>
+        <fullName>Service_Advisor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Advisor</shortDescription>
+        <value>Service Advisor</value>
     </labels>
     <labels>
         <fullName>Service_Fax</fullName>

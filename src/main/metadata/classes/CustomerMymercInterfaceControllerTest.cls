@@ -2,7 +2,7 @@
 private class   CustomerMymercInterfaceControllerTest{
     static testMethod void Invokemeth1(){
     Id p = [select id from profile where name='Partner Community User'].id;
-    Account ac = new Account(name='TestAcc',phone='0123456789',Portal_Email__c='test@gmail.com',LastName_Native_1__c = 'TestLastnamenative',Email2__c = 'testemail2@test1.com') ;
+    Account ac = new Account(name='TestAcc',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com') ;
         insert ac; 
        
         Contact con = new Contact(LastName ='testCon',AccountId = ac.Id);
@@ -31,6 +31,8 @@ custmerobj.showPopup();
 custmerobj.savepop();
 custmerobj.mymercnew();
 custmerobj.saveAndReturn();
+
+
 
     
     }

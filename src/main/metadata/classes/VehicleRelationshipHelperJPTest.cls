@@ -13,7 +13,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
        static List<Vehicle_Relationship__c> vrlst;
        public static void createTestData(Date startDate, Date endDate){ 
            
-           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+           List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
            insert updatecustomsettings;
       
            testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
@@ -32,9 +32,17 @@ public with sharing class VehicleRelationshipHelperJPTest{
            createTestData(today, today.addDays(1));          
            test.StartTest();         
            vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.Id, Start_Date__c=today, End_Date__c=today.addDays(1), End_Reason__c = 'DMS');
-           vrHelperJP.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
+           VehicleRelationshipHelperJP cls = new VehicleRelationshipHelperJP();
+           cls.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
+           map<Id,Vehicle_Relationship__c> mapLst = new map<Id,Vehicle_Relationship__c>();
+           mapLst.put(vehicle_relationship.id, vehicle_relationship);
+           cls.validateOverlappingVehicleRelationshiponUpdate(new List<Vehicle_Relationship__c>{vehicle_relationship},mapLst);
+           map<Id,List<Id>> newmaplist = new map<Id,List<id>>();
+           
            system.assertNotEquals(list_VR, null);
+           
+           
            test.StopTest();
            
        }
@@ -45,7 +53,8 @@ public with sharing class VehicleRelationshipHelperJPTest{
            createTestData(today, today.addDays(1));          
            test.StartTest();
            vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.id, Start_Date__c=today, End_Date__c=today.addDays(2), End_Reason__c = 'DMS');
-           vrHelperJP.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
+           VehicleRelationshipHelperJP cls = new VehicleRelationshipHelperJP();
+           cls.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
            system.assertNotEquals(list_VR, null);
            test.StopTest();
@@ -55,7 +64,8 @@ public with sharing class VehicleRelationshipHelperJPTest{
            Test.startTest();
               
                VehicleRelationshipHelperJP vrjpObj = new VehicleRelationshipHelperJP();
-               vrjpObj.validateOverlappingVehicleRelationshiponInsert(vrlst);
+               //VehicleRelationshipHelperJP cls = new VehicleRelationshipHelperJP();
+           //cls.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
                system.assertNotEquals(vrjpObj ,null);
            Test.stopTest();
        }
@@ -103,7 +113,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
             accList.add(accObj);
             insert accList;
             Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-            vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='12369854789632147',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
+            vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='12369854789632147',EuroVIN__c ='tlikkkkkkkklllll66',CurrentMileage__c=5000,NextMileage__c=6000);
             insert vehicleObj;
             vrlst = new List<Vehicle_Relationship__c>();
             vehicleRelationshipObj = new Vehicle_Relationship__c( Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accList.get(2).Id,Validity__c ='Yes',End_Date__c = system.today().addDays(1),Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');

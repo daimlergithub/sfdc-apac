@@ -194,6 +194,42 @@
         <label><!-- Campaign Code --></label>
         <name>Campaign_Code__c</name>
     </fields>
+	<fields>
+        <label><!-- Campaign Execution Channels --></label>
+        <name>Campaign_Execution_Channels__c</name>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>DM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM Magazine</masterLabel>
+            <translation><!-- DM Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB</masterLabel>
+            <translation><!-- OB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート・調査</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eMail</masterLabel>
+            <translation>メール</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Campaign Member Sharing Rule --></label>
+        <name>Campaign_Member_Sharing_Rule__c</name>
+        <picklistValues>
+            <masterLabel>One Account Multiple Dealer</masterLabel>
+            <translation>複数販売店可</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Account One Dealer</masterLabel>
+            <translation>単一販売店</translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label><!-- Campaign Name --></label>
         <name>Campaign_Name__c</name>
@@ -202,12 +238,20 @@
         <label><!-- Campaign Type --></label>
         <name>Campaign_Type__c</name>
         <picklistValues>
+            <masterLabel>After Sales</masterLabel>
+            <translation>アフターセールス</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Familiarization workshop for dormant customers</masterLabel>
             <translation><!-- Familiarization workshop for dormant customers --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Familiarization workshop for new vehicle owners</masterLabel>
             <translation><!-- Familiarization workshop for new vehicle owners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation>ファイナンス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Idle Hour Promotion</masterLabel>
@@ -244,6 +288,10 @@
         <picklistValues>
             <masterLabel>Promotion on Technical accessories and collections</masterLabel>
             <translation><!-- Promotion on Technical accessories and collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation>セールス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service Product Promotion</masterLabel>
@@ -452,6 +500,30 @@
             <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
+	<fields>
+        <label><!-- Campaign Status --></label>
+        <name>Child_Campaign_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>終了</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execution</masterLabel>
+            <translation>実行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation>計画</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response collection</masterLabel>
+            <translation>対応</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segmentation</masterLabel>
+            <translation>抽出</translation>
+        </picklistValues>
+    </fields>
     <fields>
         <label><!-- City --></label>
         <name>City__c</name>
@@ -565,6 +637,34 @@
         <label><!-- Event Type --></label>
         <name>Event_Type__c</name>
         <picklistValues>
+            <masterLabel>Aftersales_MOT</masterLabel>
+            <translation>アフターセールス_車検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_Mcare Inspection</masterLabel>
+            <translation>アフターセールス_Mケア点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_accessory</masterLabel>
+            <translation>アフターセールス_アクセサリー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_collection</masterLabel>
+            <translation>アフターセールス_コレクション</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_inspections (After 4years)</masterLabel>
+            <translation>アフターセールス_4年目以降点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_new car six month inspections</masterLabel>
+            <translation>アフターセールス_新車6か月点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_service program</masterLabel>
+            <translation>アフターセールス_サービスプログラム</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Auto Show</masterLabel>
             <translation><!-- Auto Show --></translation>
         </picklistValues>
@@ -573,8 +673,44 @@
             <translation><!-- Charity --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Connection/me</masterLabel>
+            <translation>MBコネクション・me</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_display</masterLabel>
+            <translation>イベント_展示</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_motor show</masterLabel>
+            <translation>イベント_モーターショー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_othres</masterLabel>
+            <translation>イベント_その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_participatory</masterLabel>
+            <translation>イベント_参加型</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_sales</masterLabel>
+            <translation>イベント_商談</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Festival</masterLabel>
             <translation><!-- Festival --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_cross point</masterLabel>
+            <translation>ファイナンス_クロスポイント</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_insurance</masterLabel>
+            <translation>ファイナンス_保険</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_maturity</masterLabel>
+            <translation>ファイナンス_契約満了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Joint Event</masterLabel>
@@ -597,6 +733,30 @@
             <translation><!-- Road Show --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Sales_catalogue response</masterLabel>
+            <translation>セールス_カタログレスポンス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_central DM</masterLabel>
+            <translation>セールス_セントラルDM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_fair</masterLabel>
+            <translation>セールス_統一フェア</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_new model target</masterLabel>
+            <translation>セールス_新型モデルターゲット</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_others</masterLabel>
+            <translation>セールス_その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_quarter</masterLabel>
+            <translation>セールス_四半期</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Showroom Event</masterLabel>
             <translation><!-- Showroom Event --></translation>
         </picklistValues>
@@ -607,6 +767,62 @@
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>loyalty_guift</masterLabel>
+            <translation>ロイヤルティ_ギフト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>loyalty_magazine</masterLabel>
+            <translation>ロイヤルティ_マガジン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_CLI</masterLabel>
+            <translation>サーベイ_CLI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_CSI</masterLabel>
+            <translation>サーベイ_CSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_MBF CSI</masterLabel>
+            <translation>サーベイ_MBF CSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_Model</masterLabel>
+            <translation>サーベイ_モデル毎</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_NCBS</masterLabel>
+            <translation>サーベイ_NCBS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_SSI</masterLabel>
+            <translation>サーベイ_SSI</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label><!-- Execution Type --></label>
+        <name>Execution_Type__c</name>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>DM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB Call</masterLabel>
+            <translation>架電</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート・調査</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eMail</masterLabel>
+            <translation>メール</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -957,6 +1173,38 @@
         <label><!-- Retail Candidate --></label>
         <name>Retail_Candidate__c</name>
         <relationshipLabel><!-- Records (Candidate) --></relationshipLabel>
+    </fields>
+	<fields>
+        <label><!-- Segmentation Base --></label>
+        <name>Segmentation_Base__c</name>
+        <picklistValues>
+            <masterLabel>Contract</masterLabel>
+            <translation>契約単位</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation>顧客単位</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle</masterLabel>
+            <translation>車両単位</translation>
+        </picklistValues>
+    </fields>
+	<fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>終了</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation>ドラフト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ongoing</masterLabel>
+            <translation>実施中</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Show up Rate --></label>

@@ -2,6 +2,7 @@
 public with sharing class TaskDeletingControllerTest 
 {
 private static Task t;
+private static Task t1;
 private static User usr;
 private static User user;
 private static User user1;
@@ -21,23 +22,26 @@ public static void preparedTestData(List<Profile> userProfile)
   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
   insert updatecustomsettings;
 
-    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='System Administrator']);
+    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central AS Marketing Manager']);
     //data for user object
        
               preparedTestData(userProfile);                           
               system.runas(usr)
                {
+                   
                Test.startTest();
-               prepareTestData();
+               //prepareTestData();
+               t = new Task(subject='test', ActivityDate=Date.Today(),Status='Not Started',Priority='Normal');
+               insert t;
                ApexPages.StandardController sc = new ApexPages.StandardController(t);
                TaskDeletingController  td=new TaskDeletingController(sc);
                td.removeTask();
                               
                //Assert deleted Task:
-               List<Task> deletedTask = [Select Id, isDeleted From Task Where Subject = 'test'];
+               Integer deletedTask = [Select count() From Task Where id = :t.Id];
                Test.stopTest();
-               system.assertEquals(1,deletedTask.size());
-                }
+               system.assertEquals(0,deletedTask);
+              }
            
   }  
 
@@ -47,25 +51,20 @@ public static void preparedTestData(List<Profile> userProfile)
   insert updatecustomsettings;
         List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='IntegrationAPI']);       
        //data for user object
-    
+               t1 = new Task(subject='test1', ActivityDate=Date.Today(),Status='Not Started',Priority='Normal');
+               insert t1;
               preparedTestData(userProfile);
                system.runas(usr)
                {               
                Test.startTest();
-               prepareTestData();
-               ApexPages.StandardController sc = new ApexPages.StandardController(t);
+              // prepareTestData();
+               ApexPages.StandardController sc = new ApexPages.StandardController(t1);
                TaskDeletingController  td=new TaskDeletingController(sc);
                td.removeTask();
-               List<Task> deletedTask = [Select Id, isDeleted From Task Where Subject = 'test'];
+               Integer deletedTask = [Select count() From Task Where id = :t1.id];
                Test.stopTest();
-               system.assertEquals(1,deletedTask.size());
+               system.assertEquals(1,deletedTask);
                }
   }
   
-  static void prepareTestData()
-      {
-      //Test Data for the task object
-               t = new Task(subject='test', ActivityDate=Date.Today(),Status='Not Started',Priority='Normal');
-               insert t;
-      }
-}
+ }

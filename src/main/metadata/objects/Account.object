@@ -42788,6 +42788,7 @@ else {
 window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
 } 
 }</url>
+
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Leads</fullName>
@@ -43078,9 +43079,6 @@ if (sforce.console.isInConsole()) {
    sforce.console.getEnclosingPrimaryTabId(showTabId); 
 }</url>
     </webLinks>
-   
-    
-    
     <webLinks>
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>

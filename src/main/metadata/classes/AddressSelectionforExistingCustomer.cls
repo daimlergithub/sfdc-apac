@@ -237,6 +237,10 @@ public without sharing class AddressSelectionforExistingCustomer {
     
      public PageReference cancel() 
       {
+     /* PageReference page = new PageReference('{!URLFOR($Site.Prefix)}/'+AccId);
+        page.setRedirect(true);
+        return page; */
+    
         return new PageReference('{!URLFOR($Site.Prefix)}/' + AccId);
       }
 

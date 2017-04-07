@@ -142,6 +142,10 @@
         <relationshipLabel><!-- Templates (Error SMS) --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
         <label><!-- Master Template --></label>
         <name>MasterTemplate__c</name>
         <relationshipLabel><!-- Children Templates --></relationshipLabel>
@@ -153,6 +157,10 @@
     <fields>
         <label><!-- Subject --></label>
         <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- TemplateID --></label>
+        <name>TemplateID__c</name>
     </fields>
     <fields>
         <label><!-- Template ID --></label>

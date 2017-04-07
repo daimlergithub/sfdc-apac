@@ -14,9 +14,12 @@ public static Account Dealer;
     public static Account_Link__c newAccLink;
     public static void createTestData()
     { 
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
         
-     Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+     Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
      insert TriggerShareAccountLinksToDealer;  
+        
       List<Account> accList=new List<Account>();
       List<Lead__c> leadList=new List<Lead__c>();
       Dealer = new Account(Dealer_Default_Flag__c=true,
@@ -60,9 +63,9 @@ public static Account Dealer;
                                     Email2__c='test012@test.com',
                                     Home_Phone_2__c='0000000000',Mobile__c='0000000000',Allow_Data_Sharing_Comment__c='comments',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-      //  insert personAcc;
+        insert personAcc;
          accList.add(personAcc);
-        insert accList;
+       // insert accList;
         objCaseold = new Case(AccountId = personAcc.Id);
         objCaseold.case_Dealer__C=Dealer.Id;
         UtilTestData.createSobject(objCaseold, UtilTestData.CASE_RT_CHRYSLER_COMPLAINT);
@@ -128,9 +131,13 @@ public static Account Dealer;
       newAccLink = new Account_Link__c(toRole__c =Dealer.Id,fromRole__c = personAcc.Id,RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get(UtilTestData.accountLink_Contact2Contact).getRecordTypeId(),Name = 'contact-Contact-Contact-Contact', Vehicle__c = vehicles.Id);
       insert newAccLink;
   }
+    
+    
     public static testmethod void testshareAccountByAccountLink()
 {
-createTestData(); 
+createTestData();
+    
+    
 Map<id,Account_Link__c> newDataAl = new Map<id,Account_Link__c>();
 newDataAl.put(AccLink.id, AccLink);
 Map<id,Account_Link__c> newData = new Map<id,Account_Link__c>();
@@ -138,15 +145,19 @@ newData.put(newAccLink.id, newAccLink);
 Map<id,Account_Link__c> oldDataAl = new Map<id,Account_Link__c>();
 oldDataAl.put(AccLink.id, AccLink); 
 test.startTest(); 
+
 try{
 AccountSharingDataHandler accSdh = new AccountSharingDataHandler('Account_Link__c'); 
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
 accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true); 
 accSdh.shareAccountByAccountLink(newData, oldDataAl, true); 
     
+  
 ShareAccountLinksToDealerTriggerHandler shacc = new ShareAccountLinksToDealerTriggerHandler();
-shacc.handleTrigger(false,false,false,false,false);
-shacc.handleIntegrationTrigger(false,false,false,false,false);
+//shacc.handleTrigger(true,true,true,true,true);
+shacc.handleIntegrationTrigger(true,true,true,true,true);
+
+
 test.stopTest();
 system.assertNotEquals(null,newData);
 }catch(exception e){}

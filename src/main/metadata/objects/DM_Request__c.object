@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -1356,6 +1360,34 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>My_Mercedes</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Delivery_Type__c</columns>
+        <columns>Status__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Status1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Status2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Status3__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Channel__c</field>
+            <operation>equals</operation>
+            <value>My Mercedes</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_WEEK</value>
+        </filters>
+        <label>My Mercedesからのリクエスト</label>
+        <language>ja</language>
+    </listViews>
+    <listViews>
         <fullName>Open_DM_Requests</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
@@ -1424,6 +1456,7 @@ Modify Reason:
         <columns>Status__c</columns>
         <columns>SuggestedName__c</columns>
         <columns>SentName__c</columns>
+        <columns>UPDATEDBY_USER</columns>
         <columns>Expected_DM_Material1__c</columns>
         <columns>Expected_DM_Material2__c</columns>
         <columns>Expected_DM_Material3__c</columns>
@@ -1434,7 +1467,6 @@ Modify Reason:
         <columns>Comment__c</columns>
         <columns>Campaign__c</columns>
         <columns>Customer_Name__c</columns>
-        <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -1680,7 +1712,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Manual_Status_Change_To_Be_Sent</fullName>
         <active>true</active>
         <description>You cannot manually select "to be sent".</description>
-        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c , 'to be sent'),NOT(ISPICKVAL(PRIORVALUE(Status__c),'to be sent')),OR(MD__c = 'JP',MD__c = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>You cannot manually select "to be sent".</errorMessage>
     </validationRules>

@@ -947,6 +947,7 @@ public with sharing class UserHelper {
             UtilShare.DealerGroupCreation(dealerAccountIds,userIds); 
         } 
     }
+
      
     public Static void UserShareforDealers(List<User> usrList, map<id,User> UserOldMap, boolean isInsert, boolean isUpdate)
     {       
@@ -1101,4 +1102,118 @@ public with sharing class UserHelper {
         usershareList = (List<UserShare>)JSON.deserialize(str, List<UserShare>.class);
         insert usershareList;
     }
+
+	
+	public static void grpCreationandUsergrpAlign(List<User> usrInList){
+        List<Id> usrIds = new List<Id>();
+        for(user usr: usrInList){
+            usrIds.add(usr.id);
+        }
+        List<user> usrLst = new List<user>([select id, name, contact.Accountid, contact.Account.Dealer_ND_Code__c from user where IsPortalEnabled  = true and Market__c = 'KR' and isActive = true and contact.Account.Dealer_ND_Code__c != null and contact.Account.RecordType.Name = 'Dealer' and id in:usrIds]);
+
+        Map<Id, set<Id>> accUsrmap = new map<id, set<Id>>();
+        Map<string, set<user>> accDealerNdCodeUsrmap = new map<string, set<user>>();
+        Map<string, id> accDealerNdCodeandAccMap = new map<string,id>();
+        Map<Id, Account> accIdAccMap = new map<Id,Account>();
+        List<Group> groupInsrtLst = new List<Group>();
+        
+        if(usrLst.size()>0){
+            for(user usr: usrLst){          
+                accDealerNdCodeandAccMap.put(usr.contact.Account.Dealer_ND_Code__c,usr.contact.Accountid);
+                accIdAccMap.put(usr.contact.Accountid, usr.contact.Account);
+                
+                if(!accUsrmap.containsKey(usr.contact.Accountid)){
+                    accUsrmap.put(usr.contact.Accountid, new set<Id>());
+                }
+                    accUsrmap.get(usr.contact.Accountid).add(usr.id);
+                    
+                if(!accDealerNdCodeUsrmap.containsKey(usr.contact.Account.Dealer_ND_Code__c)){
+                    accDealerNdCodeUsrmap.put(usr.contact.Account.Dealer_ND_Code__c, new set<user>());
+                }
+                    accDealerNdCodeUsrmap.get(usr.contact.Account.Dealer_ND_Code__c).add(usr);
+            }
+            
+            
+            //This is the groups that was already created for that account
+            List<Group> existingGroupandMemberLst = new List<Group>([select id, name,(select id, userorGroupId from GroupMembers) from group where name in: accDealerNdCodeUsrmap.keySet()]);
+            Map<string, set<Id>> grpNameandGrpUserorGrpId = new map<string, set<Id>>();
+            Map<string, group> grpNameandGrpMap = new map<string,group>();
+            
+            for(Group grp: existingGroupandMemberLst){
+                grpNameandGrpMap.put(grp.Name, grp);
+                grpNameandGrpUserorGrpId.put(grp.Name, new set<Id>());
+                List<GroupMember> grpMemtemp = grp.GroupMembers;
+                if(grpMemtemp.size()>0){
+                    for(GroupMember grm: grp.GroupMembers){
+                        grpNameandGrpUserorGrpId.get(grp.Name).add(grm.userorGroupId);
+                    }
+                }
+            }
+            
+            List<Id> accWithNoGrps = new List<Id>();
+            List<Id> accWithGrps = new List<Id>();
+            for(string str: accDealerNdCodeUsrmap.keySet()){
+                if(!grpNameandGrpMap.containsKey(str)){
+                    accWithNoGrps.add(accDealerNdCodeandAccMap.get(str));
+                }else{
+                    accWithGrps.add(accDealerNdCodeandAccMap.get(str));
+                }
+            }
+            
+            
+            List<string> newInsertedGroupNames = new List<string>();
+            if(accWithNoGrps.size()>0){
+                for(string aid: accWithNoGrps){
+                    Account accMakingGrps = accIdAccMap.get(aid);
+                    Group grp = new Group();
+                    grp.Name = accMakingGrps.Dealer_ND_Code__c;
+                    groupInsrtLst.add(grp);
+                    newInsertedGroupNames.add(accMakingGrps.Dealer_ND_Code__c);
+                }
+                
+                if(groupInsrtLst.size()>0){
+                    insert groupInsrtLst;
+                }
+                
+                List<Group> grpForGrpMem = new List<Group>([select id, name from Group where name in: newInsertedGroupNames]);
+                List<GroupMember> grmInsrtLst = new List<GroupMember>();
+                for(Group grp:grpForGrpMem){
+                    set <User> usrTemp = accDealerNdCodeUsrmap.get(grp.Name);
+                    if(usrTemp.size()>0){
+                        for(user usr : usrTemp){
+                            GroupMember grm = new GroupMember();
+                            grm.GroupId = grp.id;
+                            grm.userorGroupId = usr.Id;
+                            grmInsrtLst.add(grm);
+                        }
+                    }
+                }
+                
+                if(grmInsrtLst.size()>0){
+                    insert grmInsrtLst;
+                }
+                
+            }
+            List<GroupMember> missingGrpMembers = new List<GroupMember>();
+            if(accWithGrps.size()>0){
+                for(string str: accWithGrps){
+                    set<Id> usrTempLst = accUsrmap.get(str);
+                    set<Id> usrTempLstGrp = grpNameandGrpUserorGrpId.get(accIdAccMap.get(str).Dealer_ND_Code__c);
+                    usrTempLst.removeAll(usrTempLstGrp);
+                    for(string id: usrTempLst){
+                        GroupMember grm = new GroupMember();
+                        grm.GroupId = grpNameandGrpMap.get(accIdAccMap.get(str).Dealer_ND_Code__c).id;
+                        grm.userorGroupId = Id;
+                        missingGrpMembers.add(grm);
+                    }
+                }
+                
+                if(missingGrpMembers.size()>0){
+                    insert missingGrpMembers;
+                }
+                
+            }
+        }
+    }
+
 }

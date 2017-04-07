@@ -135,9 +135,11 @@ public class TriggerRetailCampaignTest {
         rcmhJP.handleTrigger(false, false, false, false, false);
         rcmhJP.handleIntegrationTrigger(false, false, false, false, false);
         
-        TriggerRetailTaskTriggerHandler rth = new TriggerRetailTaskTriggerHandler();
-        //rth.handleTrigger(false, false, false, false, false);
-        //rth.handleIntegrationTrigger(false, false, false, false, false);
+
+       /* TriggerRetailTaskTriggerHandler rth = new TriggerRetailTaskTriggerHandler();
+        rth.handleTrigger(false, false, false, false, false);
+        rth.handleIntegrationTrigger(false, false, false, false, false);*/
+
         
         TriggerRetailTaskTriggerHandlerJP rthJP = new TriggerRetailTaskTriggerHandlerJP();
         rthJP.handleTrigger(false, false, false, false, false);

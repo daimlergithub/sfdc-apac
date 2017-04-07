@@ -76,6 +76,7 @@ public with sharing class  DMRequestHelperJP {
         
     }
     
+
 public static void afterInsertEvent(List<DM_Request__c> newList){
         
         Map<Id, List<Id>> mapDmrequest = new Map<Id, List<Id>>();
@@ -356,6 +357,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
         }
         return list_SharingRecord;
     }
+
     /**             
         * @Description: Update Address fields of DMRequest on Address type pickilist of DM request on Insert of DM request
         * @author     : sriram kalluri
@@ -460,79 +462,76 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
              }   
               
         //query for DM_Request__c 
-                if(Usr.Market__C=='JP'){
-                    DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
-                }
-                else If(Usr.Market__C=='KR'){
-                    DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
-                }  
-                if(DMList !=null)
-                {
-             for(DM_Request__c lstDMR:DMList){
-                  mapDMRequest.put(lstDMR.Customer_Name__c,lstDMR);
-              }   
-              }  
-              if(triggerNew!=null)
-            {
-            for(DM_Request__c lstDMR:triggerNew)
-            {
-                if(isUpdate){
-             
-                   if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
-                     &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
-                     ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
-                           if(mapDMRequest !=null && mapDMRequest.get(lstDMR.Customer_Name__c) !=null && mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
-                           if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
-                         if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                                If(Usr.Market__C=='KR'){
-                                     lstDMR.Status__c='Duplicate';
-                                   }                     
-                                 if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                     lstDMR.Status1__c='Duplicate';
-                                     
-                                 }
-                                  if((lstDMR.Expected_DM_Material2__c!=null)&&((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                    
-                                     lstDMR.Status2__c='Duplicate';
-                                     
-                                 }
-                                 if((lstDMR.Expected_DM_Material3__c!=null)&&((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                     
-                                     lstDMR.Status3__c='Duplicate';
-                                 }
-                         }
-                         }
-                    }               
-               }
-                   
-           }
-                if(isInsert){
-                     if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
-                     &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
-                     ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
-                     
-                     
-                      if(mapDMRequest !=null && mapDMRequest.get(lstDMR.Customer_Name__c) !=null && mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
-                      if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
-                                If(Usr.Market__C=='KR'){
-                                     lstDMR.Status__c='Duplicate';
-                                   }                      
-                                 if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                     lstDMR.Status1__c='Duplicate';                                    
-                                 }
-                                  if((lstDMR.Expected_DM_Material2__c!=null) && ((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                    
-                                     lstDMR.Status2__c='Duplicate';                                    
-                                 }
-                                 if((lstDMR.Expected_DM_Material3__c!=null) && ((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
-                                     lstDMR.Status3__c='Duplicate';
-                                 }
-                          }
-                          }
-                }
-           }
-        }
-        }
-    
+           
+		if(Usr.Market__C=='JP')
+		{
+			DMList=[select Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c >= LAST_90_DAYS and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+		}
+		else If(Usr.Market__C=='KR')
+		{
+			DMList=[select Id,Customer_Name__c,Expected_DM_Material1__c,Expected_DM_Material2__c,Expected_DM_Material3__c from DM_Request__c where Customer_Name__c IN:CustomerId and Sent_Date__c <= LAST_N_DAYS:60 and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success')];
+		}  
+		if(!DMList.isEmpty() && DMList.size() > 0)
+		{
+			 for(DM_Request__c lstDMR:DMList)
+			 {
+				  mapDMRequest.put(lstDMR.Customer_Name__c,lstDMR);
+			 }     
+				for(DM_Request__c lstDMR:triggerNew)
+				{
+					if(isUpdate){
+				 
+					   if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
+						 &&((lstDMR.Expected_DM_Material1__c!=oldMap.get(lstDMR.id).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c!=oldMap.get(lstDMR.id).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c!=oldMap.get(lstDMR.id).Expected_DM_Material3__c)
+						 ||(lstDMR.Status__c!=oldMap.get(lstDMR.id).Status__c)||(lstDMR.Status1__c!=oldMap.get(lstDMR.id).Status1__c)||(lstDMR.Status2__c!=oldMap.get(lstDMR.id).Status2__c)||(lstDMR.Status3__c!=oldMap.get(lstDMR.id).Status3__c))){
+							   if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null){
+							 if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
+									If(Usr.Market__C=='KR'){
+										 lstDMR.Status__c='Duplicate';
+									   }                     
+									 if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+										 lstDMR.Status1__c='Duplicate';
+										 
+									 }
+									  if((lstDMR.Expected_DM_Material2__c!=null)&&((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+										
+										 lstDMR.Status2__c='Duplicate';
+										 
+									 }
+									 if((lstDMR.Expected_DM_Material3__c!=null)&&((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+										 
+										 lstDMR.Status3__c='Duplicate';
+									 }
+							 }
+						}               
+				   }
+					   
+			   }
+				if(isInsert)
+				{
+					 if((lstDMR.Status__c=='to be sent')&&((lstDMR.Status1__c=='to be sent')||(lstDMR.Status2__c=='to be sent')||(lstDMR.Status3__c=='to be sent'))
+					 &&((lstDMR.Expected_DM_Material1__c!=NULL)||(lstDMR.Expected_DM_Material2__c!=NULL)||(lstDMR.Expected_DM_Material3__c!=NULL)
+					 ||(lstDMR.Status__c!=NULL)||(lstDMR.Status1__c!=NULL)||(lstDMR.Status2__c!=NULL)||(lstDMR.Status3__c!=NULL))){
+					  if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c != null) {
+					  if(mapDMRequest.get(lstDMR.Customer_Name__c).Customer_Name__c==lstDMR.Customer_Name__c){
+								If(Usr.Market__C=='KR'){
+									 lstDMR.Status__c='Duplicate';
+								   }                      
+								 if((lstDMR.Expected_DM_Material1__c!=null)&&((lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material1__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+									 lstDMR.Status1__c='Duplicate';                                    
+								 }
+								  if((lstDMR.Expected_DM_Material2__c!=null) && ((lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material2__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+									
+									 lstDMR.Status2__c='Duplicate';                                    
+								 }
+								 if((lstDMR.Expected_DM_Material3__c!=null) && ((lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material1__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material2__c)||(lstDMR.Expected_DM_Material3__c==mapDMRequest.get(lstDMR.Customer_Name__c).Expected_DM_Material3__c))){
+									 lstDMR.Status3__c='Duplicate';
+								 }
+						  }
+						  }
+				}
+			   }
+			}
+		}
      }
   }

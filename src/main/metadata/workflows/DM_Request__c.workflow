@@ -47,6 +47,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Change_Status1_ToBe_Sent</fullName>
+        <field>Status1__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status1 To Be Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Change_Status1_To_Be_Sent</fullName>
         <field>Status__c</field>
         <literalValue>to be sent</literalValue>
@@ -60,6 +69,24 @@
         <field>Status1__c</field>
         <literalValue>Not send</literalValue>
         <name>Change Status1 to Not Send</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status2_To_Be_Sent</fullName>
+        <field>Status2__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status2 To Be Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Status3_To_Be_Sent</fullName>
+        <field>Status3__c</field>
+        <literalValue>to be sent</literalValue>
+        <name>Change Status3 To Be Sent</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>

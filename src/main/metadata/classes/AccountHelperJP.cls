@@ -167,8 +167,9 @@ public class AccountHelperJP
 ** Created By: Sudhir 
 ** Date: 2015-12-22
 **/
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)    
-    {        
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,Map<Id,Account> oldMap,boolean isUpdate)
+    {
+
         Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
         {
@@ -176,11 +177,17 @@ public class AccountHelperJP
             string nullValue ='';
             set<id> addressid = new set<id>();                  
             String province;
+			String market;
+            User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+        	market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('JP');
+			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
+            {
+				UtilAddressTranslation.gettranslatedvalues(market);
+			}
             For(Account a:listNewAccounts)
             {      
-                if(a.MD__c == 'JP'|| a.MD__c == 'KR')
+                if((a.MD__c == 'JP'|| a.MD__c == 'KR') && (a.Primary_Address_Reference__c != oldMap.get(a.id).Primary_Address_Reference__c))
                 {                    
                     addressid.add(a.Primary_Address_Reference__c);
                 }
@@ -198,8 +205,24 @@ public class AccountHelperJP
                         system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
                         system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
                         system.debug('*************Account*********'+acc);
-                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c);     
-                        
+
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
+                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                        if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
+                        {
+                            province = addtrmap1.get(add.Province__c);
+                        }
+                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
+                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        system.debug(')&)^%$%&&*(**^^^^'+acc.Primary_Address_Display__c);
+                    }
+                    else If(acc.Primary_Address_Reference__c ==Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null)
+                    {   
+                        system.debug('acc.Primary_Address_Reference__c'+acc.Primary_Address_Reference__c);
+                        system.debug('oldMap.get(acc.id)'+oldMap.get(acc.id).Primary_Address_Reference__c);
+                        system.debug('*************Account 2222*********'+acc);
+                        system.debug('*************Primary Address Reference__c*********'+acc.Primary_Address_Reference__c); 
+
                         Address__c add = addr.get(acc.Primary_Address_Reference__c);
                         if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
                         {
@@ -574,7 +597,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         
       //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
-		if(acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done'){
+    if(acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done'){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
                 if(persongroup1 == true){
                     acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
@@ -676,7 +699,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
             system.debug('AccountlnkUpdate--->'+AccountlnkUpdate);
         }
-		}//End of for loop
+    }//End of for loop
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
@@ -797,6 +820,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     */
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
         try{
+          System.debug('inserting>>>>>>>>>>>>>');
             user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
@@ -928,6 +952,8 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
 }
 
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
+ if(userinfo.getUserType()=='PowerPartner')
+ {
     Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
     Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
      Set<String> UsrAccountIds = new set<String>();   
@@ -1007,7 +1033,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                   }
                   acclnk.Retail_Fax__c = led.Fax;
                   acclnk.Retail_Industry__c = led.Industry;
-				  if(origin != null){
+          if(origin != null){
                       acclnk.CorrelationID__c = origin;
                   }
                   if(led.MD__c == Label.MarketKR){
@@ -1048,5 +1074,5 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
            
          }
      }   
- 
+ }
 }

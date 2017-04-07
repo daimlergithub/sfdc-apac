@@ -475,7 +475,35 @@
     </fields>
     <fields>
         <label>キャンペーン種別</label>
-        <name>Campaign_Sub_Type__c</name>        
+        <name>Campaign_Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>After Sales</masterLabel>
+            <translation>アフターセールス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crosspoint</masterLabel>
+            <translation><!-- Crosspoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance - &gt;  Prematurity</masterLabel>
+            <translation><!-- Finance - &gt;  Prematurity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation>セールス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales -&gt; Crosspoint</masterLabel>
+            <translation><!-- Sales -&gt; Crosspoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales and After Sales</masterLabel>
+            <translation>セールス/アフターセールス</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>キャンペーンタイプ</label>
@@ -925,6 +953,34 @@
         <label>イベントタイプ</label>
         <name>Event_Type__c</name>
         <picklistValues>
+            <masterLabel>Aftersales_MOT</masterLabel>
+            <translation>アフターセールス_車検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_Mcare Inspection</masterLabel>
+            <translation>アフターセールス_Mケア点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_accessory</masterLabel>
+            <translation>アフターセールス_アクセサリー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_collection</masterLabel>
+            <translation>アフターセールス_コレクション</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_inspections (After 4years)</masterLabel>
+            <translation>アフターセールス_4年目以降点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_new car six month inspections</masterLabel>
+            <translation>アフターセールス_新車6か月点検</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aftersales_service program</masterLabel>
+            <translation>アフターセールス_サービスプログラム</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Auto Show</masterLabel>
             <translation><!-- Auto Show --></translation>
         </picklistValues>
@@ -933,8 +989,44 @@
             <translation><!-- Charity --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Connection/me</masterLabel>
+            <translation>MBコネクション・me</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_display</masterLabel>
+            <translation>イベント_展示</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_motor show</masterLabel>
+            <translation>イベント_モーターショー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_othres</masterLabel>
+            <translation>イベント_その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_participatory</masterLabel>
+            <translation>イベント_参加型</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event_sales</masterLabel>
+            <translation>イベント_商談</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Festival</masterLabel>
             <translation><!-- Festival --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_cross point</masterLabel>
+            <translation>ファイナンス_クロスポイント</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_insurance</masterLabel>
+            <translation>ファイナンス_保険</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance_maturity</masterLabel>
+            <translation>ファイナンス_契約満了</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Joint Event</masterLabel>
@@ -961,6 +1053,30 @@
             <translation><!-- Road Show --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Sales_catalogue response</masterLabel>
+            <translation>セールス_カタログレスポンス</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_central DM</masterLabel>
+            <translation>セールス_セントラルDM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_fair</masterLabel>
+            <translation>セールス_統一フェア</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_new model target</masterLabel>
+            <translation>セールス_新型モデルターゲット</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_others</masterLabel>
+            <translation>セールス_その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales_quarter</masterLabel>
+            <translation>セールス_四半期</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Showroom Event</masterLabel>
             <translation><!-- Showroom Event --></translation>
         </picklistValues>
@@ -971,6 +1087,38 @@
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>loyalty_guift</masterLabel>
+            <translation>ロイヤルティ_ギフト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>loyalty_magazine</masterLabel>
+            <translation>ロイヤルティ_マガジン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_CLI</masterLabel>
+            <translation>サーベイ_CLI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_CSI</masterLabel>
+            <translation>サーベイ_CSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_MBF CSI</masterLabel>
+            <translation>サーベイ_MBF CSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_Model</masterLabel>
+            <translation>サーベイ_モデル毎</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_NCBS</masterLabel>
+            <translation>サーベイ_NCBS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>survey_SSI</masterLabel>
+            <translation>サーベイ_SSI</translation>
         </picklistValues>
     </fields>
 	<fields>
@@ -1597,9 +1745,20 @@
             <masterLabel>Closed</masterLabel>
             <translation>終了</translation>
         </picklistValues>
+		<picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation>終了</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Confirmed</masterLabel>
             <translation>計画済み</translation>
+        </picklistValues>
+		<picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation>ドラフト</translation>
+        </picklistValues><picklistValues>
+            <masterLabel>Ongoing</masterLabel>
+            <translation>実施中</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Planned</masterLabel>

@@ -5,7 +5,7 @@
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
-	<tab>Claim__c</tab>
+    <tab>Claim__c</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
@@ -15,7 +15,4 @@
     <tab>Retail_Task__c</tab>
     <tab>Recall__c</tab>
     <tab>Survey__c</tab>
-    <tab>Survey_Question__c</tab>
-    <tab>SurveyQuestionResponse__c</tab>
-    <tab>SurveyTaker__c</tab>
 </CustomApplication>
