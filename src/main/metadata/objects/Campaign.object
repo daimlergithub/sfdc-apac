@@ -13620,10 +13620,6 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Started</fullName>
                 <default>false</default>
             </values>
