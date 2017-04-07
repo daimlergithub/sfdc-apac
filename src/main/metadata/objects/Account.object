@@ -3905,6 +3905,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <fullName>F&amp;I</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18966,7 +18974,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24523,7 +24531,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30156,7 +30164,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35032,7 +35040,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39973,7 +39981,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
