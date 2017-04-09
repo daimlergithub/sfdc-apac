@@ -17,13 +17,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISCHANGED( Province_Native__c) || ISCHANGED(City_Native__c) || 
-ISCHANGED( District_Native__c ) || ISCHANGED( Block_Native__c ) || 
-ISCHANGED( Address_Line_1_Native__c) || ISCHANGED( Address_Line_2_Native__c) || 
-ISCHANGED( Province__c ) || ISCHANGED( City__c ) || 
-ISCHANGED( District__c ) || ISCHANGED( Block__c ) || 
-ISCHANGED( Address_Line_1__c ) || ISCHANGED( Address_Line_2__c) ||
-ISCHANGED( ZipCode__c )</formula>
+        <formula>ISCHANGED( Province_Native__c) || ISCHANGED(City_Native__c) ||  ISCHANGED( District_Native__c ) || ISCHANGED( Block_Native__c ) ||  ISCHANGED( Address_Line_1_Native__c) || ISCHANGED( Address_Line_2_Native__c) ||  ISCHANGED( Province__c ) || ISCHANGED( City__c ) ||  ISCHANGED( District__c ) || ISCHANGED( Block__c ) ||  ISCHANGED( Address_Line_1__c ) || ISCHANGED( Address_Line_2__c) || ISCHANGED( ZipCode__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -51,7 +51,9 @@ public class TriggerUtilTest
         upsert new Trigger__c(Name = testTrigger_1, Trigger_Name__c = testTrigger, enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='JP');
         Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = testString);
         insert testIdea;
-        triggerProcessed = false;
+        
+        TriggerUtil.isTriggerEnabled(testTrigger_1);
+        triggerProcessed = True;
         
         // run test
         Test.startTest();
@@ -323,25 +325,25 @@ public class TriggerUtilTest
         System.assert(!triggerHandlerCalled);
     }
     public static testmethod void TestTriggerHandler(){
-        boolean isInsert= false;
-        boolean isUpdate= false;
-        boolean isBefore= false;
-        boolean isDelete= false;
-        boolean isAfter= false;
+        boolean isInsert= True;
+        boolean isUpdate= True;
+        boolean isBefore= True;
+        boolean isDelete= True;
+        boolean isAfter= True;
         TestTriggerHandler TriggerHandler =new TestTriggerHandler();
          TriggerHandler.handleTrigger( isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
          TriggerHandler.handleIntegrationTrigger(isInsert,isUpdate, isBefore,  isDelete,  isAfter);
-        system.assertEquals(isInsert,false);
+        system.assertEquals(isInsert,True);
     }
     public static testmethod void TaskTriggerHandlerJP(){
-        boolean isInsert= false;
-        boolean isUpdate= false;
-        boolean isBefore= false;
-        boolean isDelete= false;
-        boolean isAfter= false;
+        boolean isInsert= True;
+        boolean isUpdate= True;
+        boolean isBefore= True;
+        boolean isDelete= True;
+        boolean isAfter= True;
         TaskTriggerHandlerJP TriggerHandlers =new TaskTriggerHandlerJP();
-        TriggerHandlers.handleTrigger(isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
+       // TriggerHandlers.handleTrigger(isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
         TriggerHandlers.handleIntegrationTrigger(isInsert,  isUpdate,  isBefore,  isDelete,  isAfter);
-        system.assertEquals(isInsert,false);
+        system.assertEquals(isInsert,True);
     }
 }

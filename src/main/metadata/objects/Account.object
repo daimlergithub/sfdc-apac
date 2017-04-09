@@ -7757,6 +7757,34 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Childcare</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Art &amp; Theatre</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internet Surfing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Movies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home &amp; Gardening</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arts &amp; Crafts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Beauty &amp; Fashion</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -7868,7 +7896,7 @@ Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</descri
     <fields>
         <fullName>Household_Children__c</fullName>
         <externalId>false</externalId>
-        <label>Household Amount</label>
+        <label>Number of Children</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -7940,6 +7968,14 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Passport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>National ID</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8835,6 +8871,34 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Upper Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Middle Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retiree</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Homemaker</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9699,7 +9763,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
@@ -10357,6 +10421,50 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Artist/Entertainer/Celebrity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Building Contractor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctor/Pharmacist/Nurse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engineer/Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Expert</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State Enterprise Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Royalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Agent/Property Agent/Direct Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -11493,6 +11601,18 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bahasa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tamil</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12893,6 +13013,30 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             </picklistValues>
             <picklistValues>
                 <fullName>Army</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Royal Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>National Framework (NFA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Framework (IFA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MPC</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -18104,6 +18248,120 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBTH_Mercede__c</picklist>
+            <values>
+                <fullName>Dining%2FF%26B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Driving Event%2FTest Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf %28Mercedes Trophy%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health%2FBeauty%2FSpa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lifestyle Event%2FWorkshop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music%2FConcert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Product Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sport</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Nationality__c</picklist>
+            <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
                 <fullName>AB Road</fullName>
@@ -18309,6 +18567,33 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Monthly_Income__c</picklist>
+            <values>
+                <fullName>%3C 100%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E 500%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%2C001 - 200%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%2C001 - 300%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>300%2C001 - 400%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>400%2C001 - 500%2C000 THB</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30411,6 +30696,17 @@ MD__c = 'JP'
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Fax__c) ), 
 NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Fax__c</errorDisplayField>
+        <errorMessage>Fax must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax_Validation_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Fax) ), 
+NOT( ISBLANK(Fax) ) ,
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'TH'
+)</errorConditionFormula>
+        <errorDisplayField>Fax</errorDisplayField>
         <errorMessage>Fax must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>

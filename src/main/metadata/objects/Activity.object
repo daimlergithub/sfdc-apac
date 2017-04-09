@@ -147,15 +147,8 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Activity_Comment__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity Comment</inlineHelpText>
-        <label>Activity Comment</label>
         <required>false</required>
-        <type>TextArea</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Activity_DataSource__c</fullName>
@@ -212,6 +205,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -537,6 +531,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -545,381 +540,6 @@
         <label>Activity Date</label>
         <required>false</required>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Activity_InboundCallNumber__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity InboundCallNumber</inlineHelpText>
-        <label>Activity InboundCallNumber</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Activity_InboundExtNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity InboundExtNumber</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Activity_Info__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Activity Info</inlineHelpText>
-        <label>Activity Info</label>
-        <required>false</required>
-        <type>TextArea</type>
-    </fields>
-    <!--<fields>
-        <fullName>Activity_LeadsData__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity LeadsData</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>Picklist</type>
-    </fields>-->
-    <fields>
-        <fullName>Activity_OutboundCallSource__c</fullName>
-        <externalId>false</externalId>
-        <label>Activity OutboundCallSource</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Newspaper/Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Activity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web/Mobile Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Activity_OutboundSubCallSource__c</fullName>
-        <description>Dependent field of Activity OutboundCallSource</description>
-        <externalId>false</externalId>
-        <label>Activity OutboundCallSubSource</label>
-        <picklist>
-            <controllingField>Activity_OutboundCallSource__c</controllingField>
-            <picklistValues>
-                <fullName>Air China</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Artron</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party (Partner) Mail_Minsheng Bank</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party (Partner) Mail _Bank of Communication</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese radio network</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile Phone Web</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Web, Community, Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG Website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China Telecom/189 email</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Advertising</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Outdoor Advertising</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-newsletter</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Email</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Telephone Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Email</controllingFieldValues>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer telephone contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party Telephone Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Products range cards</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Brochure &amp; Price List</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer message contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party Message Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Message Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Show Room</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Friend Recommendation</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Dealer Exhibition Hall</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone Query Service</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>User Guide</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart Official Website (incl. smart community)</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other websites, community, blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Microblog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Activity</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Activity_Purpose__c</fullName>
@@ -953,6 +573,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -986,6 +607,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1279,16 +901,8 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Adhoc_eDM_Template_ID__c</fullName>
-        <externalId>false</externalId>
-        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", ""), "")</formula>
-        <label>Adhoc eDM Template ID</label>
         <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Assignment_Status__c</fullName>
@@ -1299,13 +913,6 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>BlacklistSensitiveWord__c</fullName>
-        <externalId>false</externalId>
-        <label>Blacklist Sensitive Word</label>
-        <required>false</required>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Called__c</fullName>
@@ -1414,6 +1021,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1455,18 +1063,8 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Company__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Company</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Activities</relationshipLabel>
-        <relationshipName>Activities</relationshipName>
         <required>false</required>
-        <type>Lookup</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -1598,6 +1196,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1627,6 +1226,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1644,42 +1244,44 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>MBTH_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Result</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Solved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Un-Resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>More_Than_2_OB_Times__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
-        <label>More Than 2 OB Times</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>MTH_Penetration__c</fullName>
-        <externalId>false</externalId>
-        <label>MTH Penetration</label>
-        <length>20</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Next_Steps__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Steps</label>
-        <required>false</required>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Notification_Email_Flag__c</fullName>
@@ -1763,6 +1365,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1772,13 +1375,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Ordered_Against_Factory__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Ordered Against Factory</label>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Other_Activity__c</fullName>
@@ -1879,14 +1475,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Public__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Public</label>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>QC_ID__c</fullName>
@@ -1968,16 +1558,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Recording_ID__c</fullName>
-        <description>This field could be useless, since we use visualforce page to show the voice record link.
-noted by Lio on 10.28.2013</description>
+        <fullName>RelatedRetailTask__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Recording ID</label>
+        <label>Related Retail Task</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
         <required>false</required>
-        <type>Url</type>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Related_Task_Id__c</fullName>
@@ -1988,13 +1581,6 @@ noted by Lio on 10.28.2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Resource_Required__c</fullName>
-        <externalId>false</externalId>
-        <label>Resource Required</label>
-        <required>false</required>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Result__c</fullName>
@@ -2011,17 +1597,8 @@ noted by Lio on 10.28.2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SMSBatchNumber__c</fullName>
-        <description>When create a SMS Batch and run the batch, give batch value to task</description>
-        <externalId>false</externalId>
-        <label>SMS Batch Number</label>
-        <length>9</length>
         <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>SMSTemplateID__c</fullName>
@@ -2220,6 +1797,7 @@ noted by Lio on 10.28.2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2277,6 +1855,7 @@ noted by Lio on 10.28.2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2297,14 +1876,6 @@ noted by Lio on 10.28.2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Task_Details__c</fullName>
-        <description>This is field is required to store  details</description>
-        <externalId>false</externalId>
-        <label>Task Details</label>
-        <required>false</required>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Task_RecordType_Name__c</fullName>
@@ -2357,16 +1928,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>UniqueCode__c</fullName>
-        <description>For Campaign purpose, will be sent together with SMS</description>
-        <externalId>false</externalId>
-        <label>Unique Code</label>
-        <length>8</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -2400,16 +1961,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>YTD_Penetration__c</fullName>
-        <externalId>false</externalId>
-        <label>YTD Penetration</label>
-        <length>255</length>
         <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>eDM_Template_ID__c</fullName>
@@ -2991,6 +2544,3 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
-
-
-

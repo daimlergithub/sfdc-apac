@@ -1,7 +1,8 @@
 /*
     Type:       Utility methods for triggers
     ---------------------------------------------------------------
-    History:
+    History: 
+    Modified By: Mohammed Touseef Ahmed
     
     1. HNG Created on 2015-04-09
 */
@@ -26,8 +27,7 @@ public class TriggerUtil
     }
     
     public static void handleTrigger(String aTriggerName)
-    {
-
+    {         
         if(!userCreate)
         {
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
@@ -38,8 +38,7 @@ public class TriggerUtil
         if (isTriggerEnabled(triggerInfo) ) 
         {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
-            
-            system.debug('Trigger Handler...' +triggerHandler);
+         
             if (triggerHandler != null) 
             {
                 if( Test.isRunningTest())
@@ -81,7 +80,7 @@ public class TriggerUtil
                     }
                     if (trigger.isDelete && !triggerInfo.delete__c) {
                         continue;
-                    }
+                    }         
                     return triggerInfo;
                 }
             }
@@ -92,22 +91,17 @@ public class TriggerUtil
     }
     
     public static TriggerHandlerIf getTriggerHandler(Trigger__c aTriggerInfo, String aTriggerName)
-    {
+    {                     
         String triggerHandlerName;
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
             triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
-        }
-        /*else {
-            triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
-
-        }*/
+        }                   
         
         Type triggerHandlerType = Type.forName(triggerHandlerName);
             
         if (triggerHandlerType == null) {
             throw new IllegalArgumentException('Trigger handler class ' + triggerHandlerName + ' not found. Please check custom setting Trigger for trigger name ' + aTriggerName);
         }
-            
         return (TriggerHandlerIf)triggerHandlerType.newInstance();
     }
     

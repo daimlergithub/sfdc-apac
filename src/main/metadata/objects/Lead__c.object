@@ -3079,6 +3079,10 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Lost((CCC)</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3990,6 +3994,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Purchased</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9710,6 +9718,14 @@ Modify Reason:
                 <fullName>Lost</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checkout</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10545,6 +10561,20 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>MBTH_FnI_Consultant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads (Contact)</relationshipLabel>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>MBTH_Important_Lead__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -10611,6 +10641,17 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_record_Owner_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_record Owner Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MB_Vehicle_Interest__c</fullName>
@@ -11378,7 +11419,9 @@ Modify Reason:
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'),'TH', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -24355,7 +24398,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24363,8 +24422,16 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Lost%28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
@@ -24384,6 +24451,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24483,6 +24554,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -24508,6 +24583,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Placed%2FService Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27812,7 +27895,15 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
             <values>
+                <fullName>Checkout</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estimation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62558,11 +62649,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62579,6 +62678,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62702,6 +62805,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -62727,6 +62834,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75042,6 +75153,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -75055,6 +75170,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Gave up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -75234,6 +75353,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -75259,6 +75382,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Placed%2FService Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -96903,7 +97034,7 @@ MD__c='KR'
         <active>true</active>
         <description>This Rule is created for thailand</description>
         <errorConditionFormula>AND( 
-NOT(ISBLANK(Assigned_Dealer__c)),OR(RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Aftersales Leads'),NOT(ISNULL(Assigned_Dealer__c)), 
+NOT(ISBLANK(Assigned_Dealer__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),NOT(ISNULL(Assigned_Dealer__c)), 
 NOT(ISNULL(Assigned_Date_Time__c)), 
 ((ISPICKVAL(CAC_Lead_Status__c,'Assigned')&amp;&amp;(MD__c='TH'))),  
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
@@ -96925,9 +97056,9 @@ RecordType.DeveloperName = 'Aftersales_Leads'
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Aftersales_Lead_TH</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND( 
-ISNULL(Purchased_CAC_Date_Time__c), OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),
+ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),
 ISPICKVAL(CAC_Lead_Status__c, 'Purchased'), 
 $Profile.Name != 'IntegrationAPI', 
 MD__c='TH')</errorConditionFormula>
@@ -96958,8 +97089,8 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased(Only Non BDC)"),RecordType.Name = 'Sales Leads',OR( 
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
 ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
         <errorMessage>If CAC Lead Status is “Purchased ”, Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
@@ -97058,14 +97189,14 @@ RecordType.Name == 'Aftersales Leads'
     </validationRules>
     <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead_TH</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'), MD__c = 'TH', 
 ISPICKVAL(Dealer_Lead_Status__c,"Purchased"), 
 OR ( 
-ISNULL(Purchased_Date_Time__c), 
-ISBLANK(Purchased_Date_Time__c))
+ISNULL(Purchased_Date__c), 
+ISBLANK(Purchased_Date__c))
 )</errorConditionFormula>
-        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorDisplayField>Dealer_Lead_Status__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Purchased . Purchase Date is required.</errorMessage>
     </validationRules>
     <validationRules>
@@ -97113,6 +97244,19 @@ ISNULL(First_Contact_Customer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>First_Contact_Customer_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is First Contact Customer, First Contact Customer Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_Contact_Customer_Required_Check_TH</fullName>
+        <active>true</active>
+        <description>If Dealer Lead Status is "First Contact Customer", and if "First Contact Customer date and time” is blank then an error message is shown.</description>
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'TH', 
+ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), 
+OR ( 
+ISNULL(First_Contact_Customer_Date_Time__c), 
+ISBLANK(First_Contact_Customer_Date_Time__c))
+)</errorConditionFormula>
+        <errorDisplayField>First_Contact_Customer_Date_Time__c</errorDisplayField>
+        <errorMessage>If Dealer Lead Status is First Contact Customer, First contact customer Date time is required </errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Native_Single</fullName>

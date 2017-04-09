@@ -185,7 +185,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND ( 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -210,6 +210,11 @@ RecordType.Name,
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
@@ -240,7 +245,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -261,6 +266,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -270,7 +280,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -291,6 +301,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -310,7 +325,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISNEW() || ISCHANGED( Template__c ),MD__c='KR')</formula>
+        <formula>AND(ISNEW() || ISCHANGED( Template__c ),OR(MD__c='KR',MD__c='TH'))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -320,6 +335,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -335,6 +351,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -344,7 +365,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(1=1,MD__c='JP' ||MD__c='KR')</formula>
+        <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH')</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>

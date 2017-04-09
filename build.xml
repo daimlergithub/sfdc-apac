@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12,deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48,deploy49,deploy50,deploy51,deploy52,deployTH01,postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
 	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
@@ -998,6 +998,118 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="reports"/>
 			<sf:typeset name="reportTypes"/>
+		</deploy>
+    </target>
+	<target name="deployTH01">
+		<deploy runAllTests="${sfdc.runAllTests}">
+			<sf:typeset name="objects">
+			    <sf:include name="User"/>
+				<sf:include name="Account"/>
+				<sf:include name="Account_Link__c"/>
+				<sf:include name="Campaign"/>				
+				<sf:include name="CampaignMember"/>
+				<sf:include name="Activity"/>
+				<sf:include name="Address__c"/>
+				<sf:include name="Campaign_Lead__c"/>
+				<sf:include name="Car_Model__c"/>
+				<sf:include name="Case"/>
+				<sf:include name="DM_Material__c"/>
+				<sf:include name="DM_Request__c"/>
+				<sf:include name="Lead__c"/>
+				<sf:include name="RegionMasterInfo__c"/>
+				<sf:include name="Retail_Task__c"/>
+				<sf:include name="SurveyQuestionResponse__c"/>
+				<sf:include name="SurveyTaker__c"/>
+				<sf:include name="Survey_Question__c"/>
+				<sf:include name="Survey__c"/>
+				<sf:include name="Vehicle_Relationship__c"/>
+				<sf:include name="Vehicle__c"/>
+				<sf:include name="AreaCodeTranslation__mdt"/>
+				<sf:include name="Trigger__c"/>
+			</sf:typeset>
+			<sf:typeset name="layouts">
+				<sf:include name="Account.*"/>
+				<sf:include name="Account_Link__c.*"/>
+				<sf:include name="AreaCodeTranslation__mdt.*"/>
+				<sf:include name="Article__kav.*"/>
+				<sf:include name="Campaign.*"/>
+				<sf:include name="Lead__c.*"/>
+				<sf:include name="PersonAccount.*"/>
+				<sf:include name="PersonAccount.*"/>
+				<sf:include name="Lead__c.*"/>
+			</sf:typeset>			
+			<sf:typeset name="applications"/>
+			<sf:typeset name="accountSharingRules"/>
+			<sf:typeset name="campaignSharingRules"/>
+			<sf:typeset name="caseSharingRules"/>
+			<sf:typeset name="customObjectSharingRules"/>
+			<sf:typeset name="documents"/>
+			<sf:typeset name="labels"/>
+			<sf:typeset name="email"/>
+			<sf:typeset name="workflows"/> 
+			<sf:typeset name="flows"/>
+			<sf:typeset name="profiles" suppressChecksumUpdate="true"/>
+			<sf:typeset name="reports"/>
+			<sf:typeset name="reportTypes"/>
+			<sf:typeset name="roles"/>
+			<sf:typeset name="permissionsets"/>
+			<sf:typeset name="weblinks"/>
+			<sf:typeset name="classes">
+				<sf:include name="AccountHelperTH"/>
+				<sf:include name="AccountHelperTest"/>
+				<sf:include name="AccountLinkHelper"/>
+				<sf:include name="AccountLinkHelperTest"/>
+				<sf:include name="AccountMergeController"/>
+				<sf:include name="AddressDisplayInlineEditController"/>
+				<sf:include name="AddressDisplayInlineEditControllerTest"/>
+				<sf:include name="AddressHelperTH"/>
+				<sf:include name="AddressHelperTHTest"/>
+				<sf:include name="AddressSearchValidationController"/>
+				<sf:include name="AddressSearchValidationControllerTest"/>
+				<sf:include name="CampaignHelperTH"/>
+				<sf:include name="CampaignHelperTHTest"/>
+				<sf:include name="ContactTableController"/>
+				<sf:include name="DMRequestHelperTH"/>
+				<sf:include name="DMRequestHelperTHTest"/>
+				<sf:include name="EmailNotificationAfter24Hours"/>
+				<sf:include name="EmailNotificationAfter24HoursTest"/>
+				<sf:include name="LeadReassign"/>
+				<sf:include name="LeadReassignTest"/>
+				<sf:include name="LeadVehiclePickerTHController"/>
+				<sf:include name="TaskHelperTH"/>
+				<sf:include name="TaskTriggerHandlerTH"/>
+				<sf:include name="TriggerAccountTriggerHandlerTH"/>
+				<sf:include name="TriggerAccountTriggerHandlerTHTest"/>
+				<sf:include name="TriggerAddressTriggerHandlerTH"/>
+				<sf:include name="TriggerAddressTriggerHandlerTHTest"/>
+				<sf:include name="TriggerCampaignTriggerHandlerTH"/>
+				<sf:include name="TriggerDMRequestTriggerHandlerTH"/>
+				<sf:include name="TriggerUtil"/>
+				<sf:include name="TriggerUtilTest"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerTH"/>
+				<sf:include name="TriggerVehicleRelTriggerHandlerTHTest"/>
+				<sf:include name="VehicleExtension"/>
+				<sf:include name="VehicleExtensionTest"/>
+				<sf:include name="VehicleRelationshipHelperTH"/>
+				<sf:include name="createRetailCopy"/>
+			</sf:typeset>
+			<sf:typeset name="pages"> 
+				<sf:include name="AccountMerge"/>
+				<sf:include name="AddressDisplayInlineEdit"/>
+				<sf:include name="AddressSearchValidation"/>
+				<sf:include name="ContactTable"/>
+				<sf:include name="Create_Vehicle"/>
+				<sf:include name="LeadVehiclePickerTH"/>
+				<sf:include name="MarketCheckOnVehiclePicker"/>
+				<sf:include name="SelectSlaveAccount"/>
+				<sf:include name="SurveyMerge"/>
+			</sf:typeset>
+			<sf:typeset name="triggers">
+				<sf:include name="TriggerLead"/>
+				<sf:include name="TriggerAccount"/>
+				<sf:include name="TriggerAccountLink"/>
+				<sf:include name="TriggerAddress"/>
+			</sf:typeset>
 		</deploy>
     </target>
 	<target name="loaddata-oliver">

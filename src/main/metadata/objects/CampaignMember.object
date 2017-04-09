@@ -90,6 +90,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -227,6 +228,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -240,6 +242,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -367,10 +370,46 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>MBTH_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Be Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atttended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+		IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>

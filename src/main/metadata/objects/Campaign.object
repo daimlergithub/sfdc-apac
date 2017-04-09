@@ -25,6 +25,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -452,6 +456,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Showroom</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1099,6 +1107,38 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales &amp; Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Network Development</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -1287,6 +1327,16 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>FS_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>FS Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Flow_URL__c</fullName>
         <externalId>false</externalId>
         <label>Flow URL</label>
@@ -1396,10 +1446,134 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>MBTH_CAC_Campaign_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH CAC Campaign Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitions and Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interview, Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ad-hoc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ongoing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Campaign_Channels__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Campaign Channels</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Execution_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Execution Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eDM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -1408,6 +1582,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MPC_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>MPC Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
@@ -3219,10 +3403,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -3239,11 +3419,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4092,10 +4276,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -4112,11 +4292,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4911,7 +5095,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
@@ -4937,10 +5121,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -4957,11 +5137,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5634,10 +5818,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -5654,11 +5834,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6323,10 +6507,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -6343,11 +6523,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6997,7 +7181,8 @@
                 <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
-        </picklistValues><picklistValues>
+        </picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
@@ -7023,10 +7208,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -7043,11 +7224,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7719,10 +7904,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -7739,11 +7920,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8398,7 +8583,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Execution_Type__c</picklist>
             <values>
                 <fullName>DM</fullName>
@@ -8424,10 +8609,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -8444,11 +8625,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9309,10 +9494,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -9329,11 +9510,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10218,10 +10403,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -10238,11 +10419,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11111,10 +11296,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -11131,11 +11312,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11983,10 +12168,6 @@
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
             </values>
@@ -12003,11 +12184,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Out of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12240,7 +12425,7 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'&amp;&amp; ISNEW()</errorConditionFormula>
+        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR'|| UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'&amp;&amp; ISNEW()</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -12257,14 +12442,24 @@
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
         <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
- OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Campaign_Not_Yet_Started_Active_TH</fullName>
+        <active>true</active>
+        <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
+Record Type =  CAS/Central Marketing campaign</description>
+        <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
+OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -12290,19 +12485,19 @@ Record Type =  CAS/Central Marketing campaign</description>
       ISCHANGED( Region__c ), 
       ISCHANGED( Actual_Region_Expense__c ), 
       ISCHANGED( Region_Budget__c ), 
-	  ISCHANGED( Media_Type__c ), 
-	  ISCHANGED( Event_Type__c ), 
-	  ISCHANGED( CBU_PbP__c ), 
-	  ISCHANGED( Other_Media_Type__c ), 
-	  ISCHANGED( Other_Event_Type__c ), 
-	  ISCHANGED( Car_Model__c ), 
-	  ISCHANGED( Campaign_Type__c ), 
-	  ISCHANGED( Driven__c ), 
-	  ISCHANGED( Min_Car_Age__c ), 
-	  ISCHANGED( Max_Car_Age__c ),
-	  ISCHANGED( Purpose__c )
+    ISCHANGED( Media_Type__c ), 
+    ISCHANGED( Event_Type__c ), 
+    ISCHANGED( CBU_PbP__c ), 
+    ISCHANGED( Other_Media_Type__c ), 
+    ISCHANGED( Other_Event_Type__c ), 
+    ISCHANGED( Car_Model__c ), 
+    ISCHANGED( Campaign_Type__c ), 
+    ISCHANGED( Driven__c ), 
+    ISCHANGED( Min_Car_Age__c ), 
+    ISCHANGED( Max_Car_Age__c ),
+    ISCHANGED( Purpose__c )
  ),
- $Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'KR'
+ $Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'KR' , UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
@@ -12380,7 +12575,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
@@ -12410,7 +12605,7 @@ NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
         <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
 ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
-),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR' )
+),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
@@ -12458,7 +12653,7 @@ IsActive = True
         <masterLabel>Create Child Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -12479,7 +12674,8 @@ IsActive = True
         <linkType>url</linkType>
         <masterLabel>Create Simple Execution</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <protected>false</protected>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>

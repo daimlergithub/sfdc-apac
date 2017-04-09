@@ -71,7 +71,7 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Content_Preview__c</field>
             </layoutItems>
@@ -319,6 +319,15 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <fields>MEMBER_TYPE</fields>
+        <fields>STATUS</fields>
+        <fields>FIRST_NAME</fields>
+        <fields>LAST_NAME</fields>
+        <fields>TITLE</fields>
+        <fields>COMPANY</fields>
+        <relatedList>RelatedCampaignMemberList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.TOTAL_NUM_LEADS</fields>
         <fields>CAMPAIGN.TOT_CONVERTED_LEADS</fields>
@@ -359,14 +368,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Campaign__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CreatedDate</fields>
-        <fields>StepStatus</fields>
-        <fields>OriginalActor</fields>
-        <fields>Actor</fields>
-        <fields>Comments</fields>
-        <relatedList>RelatedProcessHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
