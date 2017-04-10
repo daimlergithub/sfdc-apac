@@ -36500,10 +36500,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -36515,24 +36511,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+			<values>
+                <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Gave up</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost%28Dealer%29</fullName>
+			<values>
+                <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36540,35 +36528,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Not Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Received</fullName>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Test Drive</fullName>
+			<values>
+                <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39047,7 +39027,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Wash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Car Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39059,23 +39059,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Participate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Inspection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Repair</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Paint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39084,6 +39072,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Recall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrofit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87530,12 +87526,8 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87548,10 +87540,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87584,10 +87572,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110120,14 +110104,6 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
-        <active>true</active>
-        <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
-        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"), 
-AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
-        <errorMessage>Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC)</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Lost_To_Whom</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -110676,5 +110652,6 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
+
 
 

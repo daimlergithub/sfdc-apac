@@ -1094,7 +1094,7 @@ if(usr.Profile.Name != 'IntegrationAPI'){
                                                                         Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
                                                                         
                                                                         Retail_LastName__c = led.LastName, Retail_FirstName__c = led.FirstName, 
-                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '') + '  ' + (led.FirstName!= null ? led.FirstName : '')),
+                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '')),//+ '  ' + (led.FirstName!= null ? led.FirstName : '')
                                                                         Retail_LastName_Native__c = led.LastName_Native_1__c, Retail_FirstName_Native__c = led.FirstName_Native_1__c,
                                                                         Retail_UCID__c = led.UCID__c);
                   }else if(led.RecordTypeId == AccountCompanyId){

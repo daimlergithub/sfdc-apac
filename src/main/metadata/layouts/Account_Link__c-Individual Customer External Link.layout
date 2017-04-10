@@ -72,7 +72,7 @@
                 <field>Role__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Role2__c</field>
             </layoutItems>
             <layoutItems>

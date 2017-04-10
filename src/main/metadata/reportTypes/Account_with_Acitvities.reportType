@@ -2920,11 +2920,6 @@
             <field>Dealer_Manual_Create__c</field>
             <table>Account</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Annual_Income_Range__c</field>
-            <table>Account</table>
-        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
