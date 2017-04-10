@@ -1,3 +1,11 @@
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to get autosegmentation on retail campaign 
+                         Business Conditions :
+                          * Create Camapign Members Based on Segmentation Criteria SOQL ,                      
+JIRA NO             :    SFDCJP-1609                                              
+************************************************************************************/
 global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Database.Stateful, Schedulable {
     
     global List<Retail_Campaign__c> retNotiList = new List<Retail_Campaign__c>();
@@ -6,7 +14,7 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
     global Database.QueryLocator start(Database.BatchableContext bc) {
         
         Date today = Date.Today();
-        String query = 'Select Id,Name, OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Execution_Start_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
+        String query = 'Select Id,Name, OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
          system.debug('+++++++ Query'+query);
         return Database.getQueryLocator(query);
          
