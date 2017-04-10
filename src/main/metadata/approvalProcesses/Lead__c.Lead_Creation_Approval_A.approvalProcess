@@ -49,7 +49,7 @@
         ISPICKVAL( CAC_Lead_Status__c,&apos;Not Allocated&apos;)), 
         R_IsAssigned__c = 1,  
         OR(($RecordType.DeveloperName = &apos;Aftersales_Leads&apos;),($RecordType.DeveloperName = &apos;Sales_Leads&apos;)), 
-NOT(CONTAINS( $Profile.Name,&apos;Japan Dealer&apos;)),MD__c = &apos;JP&apos;, NOT( Contact__c == Null))</formula>
+NOT(CONTAINS( $Profile.Name,&apos;Japan Dealer&apos;)),NOT(CONTAINS( $Profile.Name,&apos;MBF&apos;)),MD__c = &apos;JP&apos;, NOT( Contact__c == Null))</formula>
     </entryCriteria>
     <finalApprovalActions>
         <action>

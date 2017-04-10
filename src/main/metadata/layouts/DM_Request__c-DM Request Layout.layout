@@ -134,6 +134,10 @@
                 <behavior>Edit</behavior>
                 <field>Comment__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -159,6 +163,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Marketing_Department__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

@@ -3,14 +3,21 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>費用</value>
+            <value>キャンペーンの費用</value>
         </caseValues>
         <name>actual_cost_campaign</name>
     </fields>
-	<fields>
+    <fields>
         <caseValues>
             <plural>false</plural>
-            <value>詳細</value>
+            <value>キャンペーンの予算</value>
+        </caseValues>
+        <name>budgeted_cost_campaign</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>キャンペーンの詳細</value>
         </caseValues>
         <name>description_campaign</name>
     </fields>
@@ -24,18 +31,11 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>予算</value>
-        </caseValues>
-        <name>budgeted_cost_campaign</name>
-    </fields>
-    <fields>
-        <caseValues>
-            <plural>false</plural>
             <value>返答数</value>
         </caseValues>
         <name>total_responses_campaign</name>
     </fields>
-	<fields>
+    <fields>
         <caseValues>
             <plural>false</plural>
             <value>キャンペーンタイプ</value>
@@ -58,7 +58,7 @@
         <label><!-- Actual Region Expense --></label>
         <name>Actual_Region_Expense__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>キャンペーン対象者ID</label>
         <name>Add_Campaign_Member_ID__c</name>
     </fields>
@@ -77,7 +77,7 @@
     <fields>
         <label><!-- Approver --></label>
         <name>Approver__c</name>
-        <relationshipLabel><!-- Campaigns --></relationshipLabel>
+        <relationshipLabel><!-- Campaigns (Approver) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Auto Number --></label>
@@ -295,7 +295,7 @@
             <translation><!-- PbP --></translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>コールセンター管理者</label>
         <name>Campaign_CCC_Manager__c</name>
         <relationshipLabel><!-- Campaigns (Campaign CCC Manager) --></relationshipLabel>
@@ -332,7 +332,7 @@
         <label>キャンペーンコード</label>
         <name>Campaign_Code__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>実行者</label>
         <name>Campaign_Executer__c</name>
         <picklistValues>
@@ -342,6 +342,30 @@
         <picklistValues>
             <masterLabel>WholeSale</masterLabel>
             <translation>MBJ/MBF</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>実行チャネル</label>
+        <name>Campaign_Execution_Channels__c</name>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation><!-- DM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM Magazine</masterLabel>
+            <translation><!-- DM Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB</masterLabel>
+            <translation><!-- OB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eMail</masterLabel>
+            <translation><!-- eMail --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -380,7 +404,7 @@
             <translation>試乗</translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>販売店アサインルール</label>
         <name>Campaign_Member_Sharing_Rule__c</name>
         <picklistValues>
@@ -449,7 +473,7 @@
             <translation><!-- Visit Dealer --></translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label><!-- Campaign Status --></label>
         <name>Campaign_Status__c</name>
         <picklistValues>
@@ -474,7 +498,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>キャンペーン種別</label>
+        <label>レポート区分</label>
         <name>Campaign_Sub_Type__c</name>
         <picklistValues>
             <masterLabel>After Sales</masterLabel>
@@ -508,7 +532,7 @@
     <fields>
         <label>キャンペーンタイプ</label>
         <name>Campaign_Type__c</name>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>After Sales</masterLabel>
             <translation>アフターセールス</translation>
         </picklistValues>
@@ -520,7 +544,7 @@
             <masterLabel>Familiarization workshop for new vehicle owners</masterLabel>
             <translation><!-- Familiarization workshop for new vehicle owners --></translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Finance</masterLabel>
             <translation>ファイナンス</translation>
         </picklistValues>
@@ -560,7 +584,7 @@
             <masterLabel>Promotion on Technical accessories and collections</masterLabel>
             <translation><!-- Promotion on Technical accessories and collections --></translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Sales</masterLabel>
             <translation>セールス</translation>
         </picklistValues>
@@ -578,7 +602,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>クラス</label>
+        <label>当時クラス＋ボディ</label>
         <name>Car_Model__c</name>
         <picklistValues>
             <masterLabel>A-CLASS</masterLabel>
@@ -773,7 +797,7 @@
             <translation><!-- smart --></translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>実行ステータス</label>
         <name>Child_Campaign_Status__c</name>
         <picklistValues>
@@ -798,7 +822,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>クラス</label>
+        <label>当時クラス＋ボディ</label>
         <name>Class__c</name>
         <picklistValues>
             <masterLabel>A-Class</masterLabel>
@@ -886,9 +910,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- CloneCampaign --></label>
+        <name>CloneCampaign__c</name>
+        <relationshipLabel><!-- Campaigns (Campaign) --></relationshipLabel>
+    </fields>
+    <fields>
         <help><!-- Date for the campaign close to dealer. --></help>
         <label>完了日</label>
         <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consolidated List Completed --></label>
+        <name>Consolidated_List_Completed__c</name>
     </fields>
     <fields>
         <label><!-- SMS Preview --></label>
@@ -903,12 +936,16 @@
         <name>Create_Unique_Code__c</name>
     </fields>
     <fields>
+        <label><!-- DM Comments --></label>
+        <name>DM_Comments__c</name>
+    </fields>
+    <fields>
         <label>カタログ</label>
         <name>DM_Material__c</name>
         <relationshipLabel><!-- Campaigns --></relationshipLabel>
     </fields>
-	<fields>
-        <label>DMテンプレート</label>
+    <fields>
+        <label>カタログ</label>
         <name>DM_Template__c</name>
         <relationshipLabel><!-- Campaigns (DM Template) --></relationshipLabel>
     </fields>
@@ -917,8 +954,8 @@
         <label><!-- Dealer Budget --></label>
         <name>Dealer_Budget__c</name>
     </fields>
-	<fields>
-        <label>主管</label>
+    <fields>
+        <label>企画者</label>
         <name>Driven_Type__c</name>
         <picklistValues>
             <masterLabel>Joint</masterLabel>
@@ -1121,7 +1158,11 @@
             <translation>サーベイ_SSI</translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
+        <label><!-- Execution End Date --></label>
+        <name>Execution_End_Date__c</name>
+    </fields>
+    <fields>
         <label>実行日</label>
         <name>Execution_Start_Date__c</name>
     </fields>
@@ -1136,7 +1177,7 @@
             <masterLabel>Event</masterLabel>
             <translation>イベント</translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Lead</masterLabel>
             <translation>リード</translation>
         </picklistValues>
@@ -1144,7 +1185,7 @@
             <masterLabel>MMS</masterLabel>
             <translation><!-- MMS --></translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>My Mercedes</masterLabel>
             <translation>My Mercedes</translation>
         </picklistValues>
@@ -1164,7 +1205,7 @@
             <masterLabel>Segmentation Only</masterLabel>
             <translation>対象抽出のみ</translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>アンケート・調査</translation>
         </picklistValues>
@@ -1172,7 +1213,7 @@
             <masterLabel>eDM</masterLabel>
             <translation><!-- eDM --></translation>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <masterLabel>eMail</masterLabel>
             <translation>メール</translation>
         </picklistValues>
@@ -1193,7 +1234,7 @@
         <label>返答確度</label>
         <name>Expected_Response_Rate__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>リスト確認済</label>
         <name>Final_List_Approved__c</name>
     </fields>
@@ -1217,7 +1258,10 @@
         <label><!-- Is Parent Campaign Active --></label>
         <name>Is_Parent_Campaign_Active__c</name>
     </fields>
-    
+    <fields>
+        <label><!-- Is Sync --></label>
+        <name>Is_Sync__c</name>
+    </fields>
     <fields>
         <label><!-- LastRunDate --></label>
         <name>Last_Run_Date__c</name>
@@ -1274,7 +1318,6 @@
         <label>最少車齢</label>
         <name>Min_Car_Age__c</name>
     </fields>
- 
     <fields>
         <label><!-- NextRunDate --></label>
         <name>Next_Run_Date__c</name>
@@ -1347,8 +1390,16 @@
         <name>Questionnaire__c</name>
         <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
-	<fields>
-        <label>確認リスト配信可</label>
+    <fields>
+        <label><!-- Range --></label>
+        <name>Range__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>確認リスト配信済</label>
         <name>Ready_for_List_Maintenance__c</name>
     </fields>
     <fields>
@@ -1456,6 +1507,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>レスポンス日</label>
+        <name>Response_Date__c</name>
+    </fields>
+    <fields>
         <label>終了日(定期)</label>
         <name>Retail_Due_Date__c</name>
     </fields>
@@ -1527,8 +1582,8 @@
         <label><!-- Scale/Volume --></label>
         <name>Scale_Volume__c</name>
     </fields>
-	<fields>
-        <label>稼動日</label>
+    <fields>
+        <label>稼働日(営業日)</label>
         <name>SegWorkingDay__c</name>
         <picklistValues>
             <masterLabel>1</masterLabel>
@@ -1656,7 +1711,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>稼動月</label>
+        <label>抽出月(稼働日抽出時)</label>
         <name>SegWorkingMonth__c</name>
         <picklistValues>
             <masterLabel>Apr</masterLabel>
@@ -1707,7 +1762,7 @@
             <translation><!-- Sep --></translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>活動単位</label>
         <name>Segmentation_Base__c</name>
         <picklistValues>
@@ -1723,7 +1778,7 @@
             <translation>車両単位</translation>
         </picklistValues>
     </fields>
-	<fields>
+    <fields>
         <label>抽出日</label>
         <name>Segmentation_Date__c</name>
     </fields>
@@ -1732,52 +1787,10 @@
         <name>Segmentation_Report_ID__c</name>
     </fields>
     <fields>
-        <name>Status</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation>承認済み</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cancelled</masterLabel>
-            <translation>キャンセル</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Closed</masterLabel>
-            <translation>終了</translation>
-        </picklistValues>
-		<picklistValues>
-            <masterLabel>Completed</masterLabel>
-            <translation>終了</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Confirmed</masterLabel>
-            <translation>計画済み</translation>
-        </picklistValues>
-		<picklistValues>
-            <masterLabel>Draft</masterLabel>
-            <translation>ドラフト</translation>
-        </picklistValues><picklistValues>
-            <masterLabel>Ongoing</masterLabel>
-            <translation>実施中</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Planned</masterLabel>
-            <translation>準備中</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Published</masterLabel>
-            <translation><!-- Published --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Started</masterLabel>
-            <translation>進行中</translation>
-        </picklistValues>
-    </fields>
-	<fields>
         <label>リスト確認</label>
         <name>Set_List_Maintenance_Flag__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>販売店共有</label>
         <name>Share_Campaign_Participation_Flag__c</name>
     </fields>
@@ -1785,7 +1798,7 @@
         <label><!-- Submission Due Date --></label>
         <name>Submission_Due_Date__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>サーベイID</label>
         <name>Survey__c</name>
         <relationshipLabel><!-- Campaigns (Survey) --></relationshipLabel>
@@ -1858,30 +1871,14 @@
         <relationshipLabel>キャンペーン</relationshipLabel>
     </fields>
     <fields>
-        <help><!-- Region Budget + Dealer Budget --></help>
         <label>費用詳細（text ）</label>
         <name>Total_Budget__c</name>
-    </fields>
-    <fields>
-        <name>Type</name>
-        <picklistValues>
-            <masterLabel>CRM Acquisition Program</masterLabel>
-            <translation><!-- CRM Acquisition Program --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CRM Loyalty Program</masterLabel>
-            <translation><!-- CRM Loyalty Program --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
-	<fields>
+    <fields>
         <label>稼動日抽出</label>
         <name>Use_Segmentation_Criteria__c</name>
     </fields>
@@ -1928,6 +1925,37 @@
         </sections>
         <sections>
             <label>セグメンテーション設定</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Complex layout Lock</layout>
+        <sections>
+            <label><!-- Campaign Statistics --></label>
+            <section>Campaign Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- SQL Statement --></label>
+            <section>SQL Statement</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -1994,6 +2022,33 @@
         </sections>
         <sections>
             <label>セグメンテーション設定</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Simple layout  MBK</layout>
+        <sections>
+            <label><!-- Campaign Statistics --></label>
+            <section>Campaign Statistics</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
             <section>Segmentation Settings</section>
         </sections>
         <sections>
@@ -2091,6 +2146,13 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Campaign Read Only Layout</layout>
+        <sections>
+            <label><!-- Expected Outcome --></label>
+            <section>Expected Outcome</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Central Campaign Layout</layout>
         <sections>
             <label>期待される結果</label>
@@ -2174,12 +2236,24 @@
         <name>Campaign_Execution_Complex</name>
     </recordTypes>
     <recordTypes>
+        <label><!-- Campaign Execution-Complex Lock --></label>
+        <name>Campaign_Execution_Complex_Lock</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Campaign Execution --></label>
+        <name>Campaign_Executiono</name>
+    </recordTypes>
+    <recordTypes>
         <label>Central Marketing Campaign</label>
         <name>Central_Marketing_Campaign</name>
     </recordTypes>
     <recordTypes>
         <label><!-- MB Best Practice --></label>
         <name>MB_Best_Practice</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Planning &amp; Design Campaign --></label>
+        <name>Planning_Design_Campaign</name>
     </recordTypes>
     <recordTypes>
         <label><!-- S&amp;M Event Central Campaign --></label>
@@ -2194,12 +2268,40 @@
         <name>smart_Best_Practice</name>
     </recordTypes>
     <validationRules>
+        <errorMessage><!-- CAC Campaign can&apos;t be active when it is being created. --></errorMessage>
+        <name>CAC_Marketing_Active</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- CAS Marketing Campaign can&apos;t be active when it is being created. --></errorMessage>
         <name>CAS_Marketing_Active</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Status cannot be changed when it is &apos;Completed&apos; --></errorMessage>
+        <name>CamExecution_Staus_Change_form_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status cannot be changed from &apos;Exection&apos; to &apos;Planning or Segmentation&apos; --></errorMessage>
+        <name>CamExecution_Staus_Change_form_Execution</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Status cannot be changed from &apos;Response Collection&apos; to &apos;Planning or Segmentation or Exection&apos; --></errorMessage>
+        <name>CamExecution_Staus_Change_form_Response</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>キャンペーン状況が開始済みでない場合、有効にすることはできません。</errorMessage>
         <name>Campaign_Not_Yet_Started_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campaign Status cannot be changed from Segmentation to Planning --></errorMessage>
+        <name>Campaign_Segmentation_Status_Checking</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Campaign status Completed you cant change End Date --></errorMessage>
+        <name>Campaign_Status_Campleted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- CAS Marketing Campaign can&apos;t be active when it is being created. --></errorMessage>
+        <name>Campaign_Validation_Rule</name>
     </validationRules>
     <validationRules>
         <errorMessage>Execution Typeで「DM」を選択した場合、カタログを選択して下さい。</errorMessage>
@@ -2222,16 +2324,32 @@
         <name>MB_BP_fields_are_required_when_Publish</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Segmentation criteria is on --></errorMessage>
+        <name>Make_segementation_date_inactive</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>キャンペーン状況が開始済みでない場合、有効にすることはできません。</errorMessage>
         <name>Only_Started_Campaign_can_be_activated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Parent Campaign Status ongoing you can not change start date --></errorMessage>
+        <name>Parent_Campaign_Status_Ongoing</name>
     </validationRules>
     <validationRules>
         <errorMessage>親キャンペーンは前回キャンペーンの親キャンペーンと同じものを選択して下さい。</errorMessage>
         <name>Parent_Campign_Not_Same</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- You cannot changed the status --></errorMessage>
+        <name>Parent_Complete_Status_Change</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Previous campaign execution only belong to this parent campaign. --></errorMessage>
         <name>Previous_Campaign_Execution_Parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Record is Locked --></errorMessage>
+        <name>Record_lock_on_campaign</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- SMS task verified can only be true when Execution Type is SMS --></errorMessage>
@@ -2242,9 +2360,29 @@
         <name>SMS_eDM_Template_is_Required</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
+        <name>Start_Date_And_End_date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Start Date can not be less than Today --></errorMessage>
+        <name>Start_date_can_not_be_equal_to_Today</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Segmentation Date is Required --></errorMessage>
+        <name>Use_Segmentation_Criteria</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>キャンペーンチャネルは作成時に有効にすることはできません。</errorMessage>
         <name>not_check_active_when_new_cac_camapgin</name>
     </validationRules>
+    <webLinks>
+        <label>参加販売店登録</label>
+        <name>Add_Participating_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>リスト統合開始</label>
+        <name>Consolidate_List_Maintenance</name>
+    </webLinks>
     <webLinks>
         <label><!-- Create_Batch_Tasks --></label>
         <name>Create_Batch_Tasks</name>
@@ -2258,12 +2396,20 @@
         <name>Create_Child_Campaign</name>
     </webLinks>
     <webLinks>
+        <label>子キャンペーン作成</label>
+        <name>Create_Child_Campaign_For_Execution</name>
+    </webLinks>
+    <webLinks>
         <label>実行キャンペーン作成</label>
         <name>Create_Complex_Execution</name>
     </webLinks>
     <webLinks>
         <label>簡易キャンペーン実施</label>
         <name>Create_Simple_Execution</name>
+    </webLinks>
+    <webLinks>
+        <label>レコード複製</label>
+        <name>Custom_Clone</name>
     </webLinks>
     <webLinks>
         <label><!-- De_Dup --></label>
@@ -2280,6 +2426,22 @@
     <webLinks>
         <label><!-- Generate_Retail_BP_smart --></label>
         <name>Generate_Retail_BP_smart</name>
+    </webLinks>
+    <webLinks>
+        <label>リストメンテナンス開始</label>
+        <name>List_Ready_Maintenance</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- OPRO_Label_Print_PDF --></label>
+        <name>OPRO_Label_Print_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- OPR_Label_Print --></label>
+        <name>OPR_Label_Print</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload --></label>
+        <name>Upload</name>
     </webLinks>
     <webLinks>
         <label>全てのマーケットアクティビティメンバーを見る</label>

@@ -2,7 +2,9 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
-        <type>Default</type>
+        <content>AddToCampaign</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>AdvancedSetup</actionName>
@@ -529,7 +531,7 @@
                 <fullName>Retail</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -562,7 +564,7 @@
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -628,7 +630,7 @@
                 <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -744,7 +746,7 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -784,7 +786,7 @@
                 <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1151,7 +1153,7 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1276,7 +1278,7 @@
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
     </fields>
-	    <fields>
+    <fields>
         <fullName>CloneCampaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1333,7 +1335,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>DM_Comments__c</fullName>
         <externalId>false</externalId>
         <label>DM Comments</label>
@@ -1396,7 +1398,7 @@
                 <fullName>Joint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2955,7 +2957,7 @@
                 <controllingFieldValues>May</controllingFieldValues>
                 <controllingFieldValues>Oct</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3029,7 +3031,7 @@
                 <default>false</default>
                 <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3054,7 +3056,7 @@
                 <fullName>Contract</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13618,10 +13620,6 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Started</fullName>
                 <default>false</default>
             </values>
@@ -20131,6 +20129,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Use_Segmentation_Criteria</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
+        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
+        <errorMessage>Segmentation Date is Required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -20141,7 +20146,7 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
-	<webLinks>
+    <webLinks>
         <fullName>Add_Participating_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -20154,7 +20159,7 @@ IsActive = True
 
 var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Consolidate_List_Maintenance</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -20277,6 +20282,9 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <showsStatus>false</showsStatus>
         <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
+	
+	
+	
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
         <availability>online</availability>
@@ -20299,7 +20307,7 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <protected>false</protected>
         <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
-		    <webLinks>
+    <webLinks>
         <fullName>Custom_Clone</fullName>
         <availability>online</availability>
         <description>Custom button “Clone“ will be available on the parent campaign</description>

@@ -187,6 +187,69 @@ public with sharing class CampaignMembersCustomHelperJP {
         if(listRetCamp.size()> 0)
             update listRetCamp;
     } 
+	     
+/* 
+			Dinesh
+			batch trigger for export set invalid flag
+			
+			*/
+
+
+         Public static void batchbounce(List<Campaign_Member__c> campgnm)
+{
+   List<Account> accMainList = New List<Account>(); 
+     set<id> camAccount = new set<id>();
+     for(Campaign_Member__c camp : campgnm)
+                {
+             
+                        if(camp.Status__c =='Bounced')
+                        {                                   
+                                camAccount.add(camp.Contact_Id__c);
+                         }
+          system.debug('+++++++++++++ camp'+camp);
+                } 
+        
+         List<Account> addList = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: camAccount];
+        
+        For(Account acc : addList )
+        {
+            
+             for(Campaign_Member__c campCheck : campgnm)
+                {
+            
+                        if(acc.Email_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c)
+                        {
+                            acc.Email_Status__c = 'Invalid';
+                
+                        }
+                        if(acc.SMS_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c)
+                        {
+                                acc.Mobile_Status__c = 'Invalid';
+             
+                        }
+                
+              For(Address__c add : acc.Addresses__r )
+             
+               {
+                 
+                 if(add.Address_Last_Modified_Date__c  < campCheck.Campaign_ID__r.Execution_Start_Date__c )
+                {
+                     
+                     add.Status__c = 'Dead Mail';
+                 }               
+                                      
+               }
+               }
+            
+              accMainList.add(acc);              
+              }  
+                                 
+        update accMainList;
+               
+        
+        
+    }
+   
     
     public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
     	List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};

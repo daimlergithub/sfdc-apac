@@ -94,6 +94,13 @@
         <value>Activity History</value>
     </labels>
     <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
         <fullName>Add_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -945,6 +952,41 @@
         <value>Other</value>
     </labels>
     <labels>
+        <fullName>Campaign_Date_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 1</shortDescription>
+        <value>Start Date cant be Lesser Than Today</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 2</shortDescription>
+        <value>End Date cant be Lesser Than Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 3</shortDescription>
+        <value>Segmentation Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 4</shortDescription>
+        <value>Execution Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 5</shortDescription>
+        <value>Response Date Error</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Notification1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1327,6 +1369,13 @@
         <protected>false</protected>
         <shortDescription>Child</shortDescription>
         <value>Child</value>
+    </labels>
+    <labels>
+        <fullName>Choose_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Choose Account</shortDescription>
+        <value>Choose Account</value>
     </labels>
     <labels>
         <fullName>City</fullName>
@@ -1755,6 +1804,13 @@
         <value>Dealer Campaign Notification</value>
     </labels>
     <labels>
+        <fullName>Dealer_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Code</shortDescription>
+        <value>Dealer Code</value>
+    </labels>
+    <labels>
         <fullName>Dealer_Company</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1795,6 +1851,13 @@
         <protected>false</protected>
         <shortDescription>Dealer Outlet</shortDescription>
         <value>Dealer Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Type</shortDescription>
+        <value>Dealer Type</value>
     </labels>
     <labels>
         <fullName>Dealer_login_Url</fullName>
@@ -1910,7 +1973,7 @@
         <shortDescription>Email_Assignment</shortDescription>
         <value>you are assigned to the Lead in Salesforce thus we notify you.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Email_Case</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2274,6 +2337,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Fiinance Estimate Number</shortDescription>
         <value>Fiinance Estimate Number</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
     </labels>
     <labels>
         <fullName>FinanceMethod</fullName>
@@ -3881,6 +3951,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Planned Purchase Time</value>
     </labels>
     <labels>
+        <fullName>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select A Dealer To Add As Participating Dealer</shortDescription>
+        <value>Please Select A Dealer To Add As Participating Dealer</value>
+    </labels>
+    <labels>
         <fullName>Please_enter_the_filter_name</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4205,6 +4282,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RecipientofthisFAX</shortDescription>
         <value>If you are not the recipient of this FAX</value>
+    </labels>
+    <labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
     </labels>
     <labels>
         <fullName>RecordTypeId</fullName>
@@ -5884,6 +5968,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>delete confirmation message</shortDescription>
         <value>This will delete the retail copy and the Account will not be viewable anymore, is this ok?</value>
+    </labels>
+    <labels>
+        <fullName>deleting_campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deleting campaign</shortDescription>
+        <value>You Cant Delete  The Campaign</value>
     </labels>
     <labels>
         <fullName>displayOnly</fullName>

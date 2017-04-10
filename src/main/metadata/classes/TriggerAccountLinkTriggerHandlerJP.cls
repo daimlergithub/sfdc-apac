@@ -13,6 +13,7 @@ public class TriggerAccountLinkTriggerHandlerJP
 { 
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
+	      if(LeadUtil.isAcctrigger ){
           if(Trigger.isAfter && Trigger.isInsert)
           {
           system.debug('Entered aFTER TRIGGER');
@@ -49,7 +50,7 @@ public class TriggerAccountLinkTriggerHandlerJP
             AccountLinkHelper.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
         }
     }
-        
+       } 
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         // Implementation to addedd as required in market
