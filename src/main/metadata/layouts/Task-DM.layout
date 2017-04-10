@@ -75,10 +75,10 @@
                 <behavior>Edit</behavior>
                 <field>ActivityDate</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
-            </layoutItems>			
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

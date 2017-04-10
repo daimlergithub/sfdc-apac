@@ -1,54 +1,56 @@
 @isTest
 public class TestRelatedDealerLease{
 
-public static testmethod void testinit(){
 
-String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
- 
-String leaseRecordTypeId = Schema.SObjectType.Retail_Task__c .getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
-
-
-Profile p1 = [select id,name from profile where name='Japan CRM'];
-        User u = new User(alias = 'test123', email='test123@noemail.com',
-            emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
-            localesidkey='en_US', profileid = p1.Id, country='United States',
-            timezonesidkey='America/Los_Angeles', username='test123@noemail.com');
-        insert u;
- 
-Account DealerAccount= new Account();
-DealerAccount.RecordtypeId=DealerAccRecordTypeId;
-DealerAccount.Name='Test Person 1st';
-DealerAccount.Type='Personal';
-DealerAccount.Dealer_GC_Code__c='123';
-DealerAccount.Status__c='Active';
-DealerAccount.Province__c='Province1';
-DealerAccount.City__c='Test';
-DealerAccount.Email__c='test@mbj.com';
-insert DealerAccount;
-Retail_Task__c rt=new Retail_Task__c();
-rt.Account__c=DealerAccount.id; 
-rt.recordtypeId=leaseRecordTypeId ;
-rt.type__c='lease';
-rt.Related_Dealer__c=dealerAccount.id;
-rt.Supporting_Dealer__c=dealerAccount.id; 
-rt.Name='test retail dealer';
-rt.MD__c = 'JP';
-insert rt;
-system.assertequals('Japan CRM' , p1.name  );
-Retail_Task__c ret=[select id,name,Related_Dealer__r.Dealer_GC_Code__c,Supporting_Dealer__r.Dealer_GC_Code__c from Retail_Task__c  where id=:rt.id ];
-
-Account acc=[select id,Name, Dealer_GC_Code__c from Account where id=:DealerAccount.id];
-id recid=ApexPages.CurrentPage().getparameters().put('Id',rt.id);
-string dealercode=ret.Related_Dealer__r.Dealer_GC_Code__c;
-string suppdealer=ret.Supporting_Dealer__r.Dealer_GC_Code__c;
-Retail_Task__c rettsk=[select id,name,Related_Dealer__r.Dealer_GC_Code__c,Supporting_Dealer__r.Dealer_GC_Code__c from Retail_Task__c where Related_Dealer__r.Dealer_GC_Code__c=:dealercode  And Supporting_Dealer__r.Dealer_GC_Code__c=:suppdealer AND id=:ret.id ]; 
-ApexPages.StandardController std=new ApexPages.StandardController(rettsk); 
-RelatedDealerLease rdl=new RelatedDealerLease(std);
- user ur=rdl.currentuser;
-// List<Retail_Task__c> retlst1=rdl.rettsk;
- List<profile> profilenames=rdl.japanprofiles;
-// system.assertEquals(8,profilenames.size());
-
-}
+public static Retail_Task__c Ins;
+    private static Account dealer;
+    public static Contact contactObj;
+     Private static String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+     public static Id AccountLink_ContactSectorRecordTypeId = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
+    static Testmethod void ValidateInsurance()
+        {
+        Profile profile= [select Id from Profile where name='Japan Dealer Company Manager'];
+          dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123');
+        insert dealer;
+         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');
+        insert dealerContact;
+     // Create User 
+        User objeUser = new User(alias = 'standt',email = 'test@9876test.com',emailencodingkey = 'UTF-8'
+                         , lastname = 'TestLasName', languagelocalekey = 'en_US',ContactID= dealerContact.Id,
+                                      localesidkey = 'en_US', profileid =profile.Id,User_Type__c = 'Dealer',
+                                      timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com' ); 
+        insert objeUser ;  
+        system.runas(objeUser ){
+            Ins=new Retail_Task__c();
+            Ins.RecordtypeId = AccountLink_ContactSectorRecordTypeId ;
+            Ins.Contractor_Address1__c='Test1';
+            Ins.Booking_Month__c='may';
+            Ins.Condition_Change__c='Test2';
+            Ins.Premium_Change__c=3465;
+            Ins.Company_Name__c='Vcs';
+            Ins.Contractor_BirthDate__c=date.today()-10;
+            Ins.Contractor_Name__c='rama';
+            Ins.Contractor_Name_Native__c='rama1';
+            Ins.Condition_Change_Date__c=date.today()-5;
+            Ins.Insurance_Company__c='vccs';
+            Ins.Insured_Name_Native__c='vccs1';
+            Ins.Net_Premium__c=123.00;
+            Ins.Net_Premium2__c=456.00;
+            Ins.Net_Premium3__c=789.00;
+            Ins.Non_MB_Insurance__c='Test4';
+            Ins.Outlet_Name__c='Test5';
+            Ins.Payment_Method__c='cash';
+            Ins.Contractor_Phone1__c='7598623345';
+            Ins.Vehicle_Registration_No__c='456738';
+            Ins.Contractor_ZipCode1__c='5600032';
+            Ins.Related_Dealer__c= dealer.Id;
+        insert Ins;
+        Test.StartTest();
+        ApexPages.currentPage().getParameters().put('Id',Ins.id);
+        ApexPages.StandardController controller = new ApexPages.StandardController(Ins);
+        RelatedDealerLease I= new RelatedDealerLease(controller);
+        Test.StopTest();    
+    }
+  }
 
 }

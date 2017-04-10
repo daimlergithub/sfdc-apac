@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Survey --></value>
+        <value>설문 조사</value>
     </caseValues>
     <fields>
         <label>설문 조사 이름 숨기기</label>
@@ -38,7 +38,7 @@
         <name>Thank_You_Text__c</name>
     </fields>
     <fields>
-        <label><!-- URL --></label>
+        <label>URL</label>
         <name>URL__c</name>
     </fields>
     <fields>

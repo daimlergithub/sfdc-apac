@@ -19,8 +19,29 @@
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Correlation ID --></label>
+        <name>CorrelationID__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>CreatedById__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CreatedDate --></label>
+        <name>CreatedDate__c</name>
+    </fields>
+    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- CurrentMileage --></label>
+        <name>CurrentMileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer ID --></label>
+        <name>CustomerID__c</name>
     </fields>
     <fields>
         <label><!-- Dealer No. --></label>
@@ -31,6 +52,40 @@
         <name>End_Date__c</name>
     </fields>
     <fields>
+        <label><!-- Id --></label>
+        <name>Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsDeleted --></label>
+        <name>IsDeleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>LastModifiedById__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LastModifiedDate --></label>
+        <name>LastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Service Date --></label>
+        <name>LastServiceDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Service Mileage --></label>
+        <name>LastServiceMileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Modified User Type --></label>
+        <name>Last_Modified_User_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Service Dealer --></label>
+        <name>Last_Service_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Last Service Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- MB Connection --></label>
         <name>MBConnection__c</name>
     </fields>
@@ -39,12 +94,33 @@
         <name>MD__c</name>
     </fields>
     <fields>
+        <label><!-- Next Inspection Date --></label>
+        <name>NextInspectionDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- NextMileage --></label>
+        <name>NextMileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Service Date --></label>
+        <name>NextServiceDate__c</name>
+    </fields>
+    <fields>
         <label><!-- Origin --></label>
         <name>Origin__c</name>
     </fields>
     <fields>
+        <label><!-- User --></label>
+        <name>OwnerId__c</name>
+        <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Portal E-Mail --></label>
         <name>Portal_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Mercedes Id --></label>
+        <name>Portal_ID__c</name>
     </fields>
     <fields>
         <label><!-- Portal Message Mail Opt Out --></label>
@@ -87,6 +163,120 @@
         <name>Primary__c</name>
     </fields>
     <fields>
+        <label><!-- Responsible Dealer --></label>
+        <name>Responsible_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Responsible Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Retail Abroad Agreement --></label>
+        <name>Retail_Abroad_Agreement__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Address CreatedDate --></label>
+        <name>Retail_Address_CreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Address LastModifiedDate --></label>
+        <name>Retail_Address_LastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Address Line 1 --></label>
+        <name>Retail_Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Address Line 2 --></label>
+        <name>Retail_Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Address Reference --></label>
+        <name>Retail_Address_Reference__c</name>
+        <relationshipLabel><!-- Account Link --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Retail Address Type --></label>
+        <name>Retail_Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Business</masterLabel>
+            <translation><!-- Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation><!-- Other Address 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation><!-- Other Address 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation><!-- Other Address 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Agreement info processing --></label>
+        <name>Retail_Agreement_Info_Processing__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Agreement --></label>
+        <name>Retail_Agreement__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Allow Data Sharing --></label>
+        <name>Retail_Allow_Data_Sharing__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Choice Yet</masterLabel>
+            <translation><!-- No Choice Yet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Retail Business Type --></label>
         <name>Retail_Business_Type__c</name>
         <picklistValues>
@@ -103,6 +293,42 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail City --></label>
+        <name>Retail_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Comments --></label>
+        <name>Retail_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Commercial Reg No --></label>
+        <name>Retail_Commercial_Reg_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Company Name Native --></label>
+        <name>Retail_Company_Name_Native1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Company Name --></label>
+        <name>Retail_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Company Other Phone --></label>
+        <name>Retail_Company_Other_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Company Phone --></label>
+        <name>Retail_Company_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Complaing Amount --></label>
+        <name>Retail_Complaint_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Consent Form Serial No --></label>
+        <name>Retail_Consent_Form_Serial_No__c</name>
+    </fields>
+    <fields>
         <label><!-- Retail Contact Method --></label>
         <name>Retail_Contact_Method__c</name>
         <picklistValues>
@@ -116,6 +342,26 @@
         <picklistValues>
             <masterLabel>Telephone</masterLabel>
             <translation><!-- Telephone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Country --></label>
+        <name>Retail_Country__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -143,12 +389,710 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail DMS Customer ID --></label>
+        <name>Retail_DMS_Customer_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer GC Code --></label>
+        <name>Retail_Dealer_CompanyCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Dealer Company --></label>
+        <name>Retail_Dealer_Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Delete Flag --></label>
+        <name>Retail_Delete_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Distinct --></label>
+        <name>Retail_Distinct__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Duplicate Flag --></label>
+        <name>Retail_Duplicate_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Email OptOut --></label>
+        <name>Retail_Email_OptOut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Email --></label>
+        <name>Retail_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Fax OptOut --></label>
+        <name>Retail_Fax_OptOut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Fax --></label>
+        <name>Retail_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail FirstName Native --></label>
+        <name>Retail_FirstName_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail FirstName --></label>
+        <name>Retail_FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail First Consent Date --></label>
+        <name>Retail_First_Consent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail First Consent User --></label>
+        <name>Retail_First_Consent_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Foundation Month --></label>
+        <name>Retail_Foundation_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Full Name Native --></label>
+        <name>Retail_Full_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Full Name Title --></label>
+        <name>Retail_Full_Name_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Full Name --></label>
+        <name>Retail_Full_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Gender --></label>
+        <name>Retail_Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation><!-- Female --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation><!-- Male --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Individual Home Phone --></label>
+        <name>Retail_Individual_Home_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Industry --></label>
+        <name>Retail_Industry__c</name>
+        <picklistValues>
+            <masterLabel>Advertising / Marketing</masterLabel>
+            <translation><!-- Advertising / Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agriculture</masterLabel>
+            <translation><!-- Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air transport</masterLabel>
+            <translation><!-- Air transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Banking</masterLabel>
+            <translation><!-- Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Services</masterLabel>
+            <translation><!-- Business Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemical fiber manufacturing</masterLabel>
+            <translation><!-- Chemical fiber manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemical materials manufacturing</masterLabel>
+            <translation><!-- Chemical materials manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coal mining and washing</masterLabel>
+            <translation><!-- Coal mining and washing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction and installation industry</masterLabel>
+            <translation><!-- Construction and installation industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crafts and other manufacturing</masterLabel>
+            <translation><!-- Crafts and other manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution</masterLabel>
+            <translation><!-- Distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electrical equipment manufacturing</masterLabel>
+            <translation><!-- Electrical equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity production and supply</masterLabel>
+            <translation><!-- Electricity production and supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferrous metal mining industry</masterLabel>
+            <translation><!-- Ferrous metal mining industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fisheries</masterLabel>
+            <translation><!-- Fisheries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food Manufacturing</masterLabel>
+            <translation><!-- Food Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forestry</masterLabel>
+            <translation><!-- Forestry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gas Production and Supply</masterLabel>
+            <translation><!-- Gas Production and Supply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General equipment manufacturing</masterLabel>
+            <translation><!-- General equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health</masterLabel>
+            <translation><!-- Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mass and religious organizations</masterLabel>
+            <translation><!-- Mass and religious organizations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nonferrous Metals</masterLabel>
+            <translation><!-- Nonferrous Metals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Services</masterLabel>
+            <translation><!-- Other Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other equipment manufacturing</masterLabel>
+            <translation><!-- Other equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other financial activities</masterLabel>
+            <translation><!-- Other financial activities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paper and paper products industry</masterLabel>
+            <translation><!-- Paper and paper products industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petroleum processing industry</masterLabel>
+            <translation><!-- Petroleum processing industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmaceutical Manufacturing</masterLabel>
+            <translation><!-- Pharmaceutical Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Real Estate</masterLabel>
+            <translation><!-- Real Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Road transport</masterLabel>
+            <translation><!-- Road transport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rubber</masterLabel>
+            <translation><!-- Rubber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Securities Industry</masterLabel>
+            <translation><!-- Securities Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ship building</masterLabel>
+            <translation><!-- Ship building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special equipment manufacturing</masterLabel>
+            <translation><!-- Special equipment manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State institutions</masterLabel>
+            <translation><!-- State institutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications Services</masterLabel>
+            <translation><!-- Telecommunications Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade</masterLabel>
+            <translation><!-- Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation Equipment Manufacturing</masterLabel>
+            <translation><!-- Transportation Equipment Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urban public transport sector</masterLabel>
+            <translation><!-- Urban public transport sector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warehousing</masterLabel>
+            <translation><!-- Warehousing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water Transportation</masterLabel>
+            <translation><!-- Water Transportation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Information Third Party Release --></label>
+        <name>Retail_Information_Third_Party_Release__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Retail LastModifiedDate --></label>
         <name>Retail_LastModifiedDate__c</name>
     </fields>
     <fields>
+        <label><!-- Retail LastName Native --></label>
+        <name>Retail_LastName_Native__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail LastName --></label>
+        <name>Retail_LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Mobile --></label>
+        <name>Retail_Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Occupation --></label>
+        <name>Retail_Occupation__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Athlete</masterLabel>
+            <translation><!-- Athlete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automotive related</masterLabel>
+            <translation><!-- Automotive related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dentist</masterLabel>
+            <translation><!-- Dentist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctor</masterLabel>
+            <translation><!-- Doctor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Freelancers</masterLabel>
+            <translation><!-- Freelancers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government employees</masterLabel>
+            <translation><!-- Government employees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housekeeping</masterLabel>
+            <translation><!-- Housekeeping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Housewife</masterLabel>
+            <translation><!-- Housewife --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawyer</masterLabel>
+            <translation><!-- Lawyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Staff</masterLabel>
+            <translation><!-- Office Staff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Official Dealer</masterLabel>
+            <translation><!-- Official Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pensioner</masterLabel>
+            <translation><!-- Pensioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pilot</masterLabel>
+            <translation><!-- Pilot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Industry (Farming/ Fishing/ Forestry etc)</masterLabel>
+            <translation><!-- Primary Industry (Farming/ Fishing/ Forestry etc) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professionals &amp; Technical</masterLabel>
+            <translation><!-- Professionals &amp; Technical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reject to answer</masterLabel>
+            <translation><!-- Reject to answer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-employee</masterLabel>
+            <translation><!-- Self-employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Show Business</masterLabel>
+            <translation><!-- Show Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student</masterLabel>
+            <translation><!-- Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teacher</masterLabel>
+            <translation><!-- Teacher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician</masterLabel>
+            <translation><!-- Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>enterprise and public institution responsible officer</masterLabel>
+            <translation><!-- enterprise and public institution responsible officer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Denied Activities --></label>
+        <name>Retail_OptOutContact_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Campaign (Aftersales)</masterLabel>
+            <translation><!-- Campaign (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (Finance)</masterLabel>
+            <translation><!-- Campaign (Finance) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign (New Car)</masterLabel>
+            <translation><!-- Campaign (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (Aftersales)</masterLabel>
+            <translation><!-- Event (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event (New Car)</masterLabel>
+            <translation><!-- Event (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation><!-- Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gift</masterLabel>
+            <translation><!-- Gift --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOT Car inspection</masterLabel>
+            <translation><!-- MOT Car inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation><!-- Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Aftersales)</masterLabel>
+            <translation><!-- Product Info (Aftersales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (Finance)</masterLabel>
+            <translation><!-- Product Info (Finance) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info (New Car)</masterLabel>
+            <translation><!-- Product Info (New Car) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail PersonBirthdate --></label>
+        <name>Retail_PersonBirthdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Phone OptOut --></label>
+        <name>Retail_Phone_OptOut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Position --></label>
+        <name>Retail_Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Postal OptOut --></label>
+        <name>Retail_Postal_OptOut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Preferred Contact Method --></label>
+        <name>Retail_Preferred_Contact_Method__c</name>
+        <picklistValues>
+            <masterLabel>Direct Mail</masterLabel>
+            <translation><!-- Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Preferred Language --></label>
+        <name>Retail_Preferred_Language__c</name>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindhi</masterLabel>
+            <translation><!-- Hindhi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation><!-- Portuguese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tagalogue</masterLabel>
+            <translation><!-- Tagalogue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thai</masterLabel>
+            <translation><!-- Thai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation><!-- Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnamese</masterLabel>
+            <translation><!-- Vietnamese --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Primary Phone --></label>
+        <name>Retail_Primary_Phone__c</name>
+        <picklistValues>
+            <masterLabel>Home Phone</masterLabel>
+            <translation><!-- Home Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other1</masterLabel>
+            <translation><!-- Other1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other2</masterLabel>
+            <translation><!-- Other2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Mobile</masterLabel>
+            <translation><!-- Work Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Phone</masterLabel>
+            <translation><!-- Work Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Related Company --></label>
+        <name>Retail_Related_Company__c</name>
+        <relationshipLabel><!-- Account Link --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Retail Responsible --></label>
         <name>Retail_Responsible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Sales Consultant --></label>
+        <name>Retail_Sales_Consultant__c</name>
+        <relationshipLabel><!-- Account Link (Retail Sales Consultant) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Retail Sales Sanction Comments --></label>
+        <name>Retail_Sales_Sanction_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Sales Sanction --></label>
+        <name>Retail_Sales_Sanction__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Special Care --></label>
+        <name>Retail_Special_Care__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Special Needs Class --></label>
+        <name>Retail_Special_Needs_Class__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail UCID --></label>
+        <name>Retail_UCID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Updated Consent Date --></label>
+        <name>Retail_Updated_Consent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Updated Consent User --></label>
+        <name>Retail_Updated_Consent_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Vat No --></label>
+        <name>Retail_Vat_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Visit OptOut --></label>
+        <name>Retail_Visit_OptOut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Web Site --></label>
+        <name>Retail_WebSite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Work Phone --></label>
+        <name>Retail_Work_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail ZipCode --></label>
+        <name>Retail_ZipCode__c</name>
     </fields>
     <fields>
         <label><!-- Role2 --></label>
@@ -190,6 +1134,10 @@
             <translation><!-- Grand parent --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Husband&apos;s Wife</masterLabel>
+            <translation><!-- Husband&apos;s Wife --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Husband・Wife</masterLabel>
             <translation><!-- Husband・Wife --></translation>
         </picklistValues>
@@ -213,6 +1161,10 @@
             <masterLabel>Sales</masterLabel>
             <translation><!-- Sales --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Role Text --></label>
+        <name>Role_Text__c</name>
     </fields>
     <fields>
         <label><!-- Role --></label>
@@ -283,6 +1235,11 @@
         <name>Sales_Person_Id__c</name>
     </fields>
     <fields>
+        <label><!-- Sales Representative --></label>
+        <name>Sales_Representative__c</name>
+        <relationshipLabel><!-- Account Link (Sales Representative) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Sector --></label>
         <name>Sector__c</name>
         <picklistValues>
@@ -305,6 +1262,21 @@
             <masterLabel>Vans</masterLabel>
             <translation><!-- Vans --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Selling Dealer --></label>
+        <name>Selling_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Selling Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Advisor --></label>
+        <name>Service_Advisor__c</name>
+        <relationshipLabel><!-- Account Link (Service Advisor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Dealer --></label>
+        <name>Service_Dealer__c</name>
+        <relationshipLabel><!-- Account Link (Service Dealer) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- SocialMediaAccount ID --></label>
@@ -343,12 +1315,24 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- System --></label>
+        <label><!-- SystemModstamp --></label>
+        <name>SystemModstamp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercedes Me Portal --></label>
         <name>System__c</name>
+    </fields>
+    <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- VIN --></label>
+        <name>VIN__c</name>
     </fields>
     <fields>
         <label><!-- Vehicle --></label>
@@ -398,7 +1382,6 @@
             <section>Fields</section>
         </sections>
     </layouts>
-    
     <layouts>
         <layout>Contact to Dealer</layout>
         <sections>
@@ -470,6 +1453,14 @@
     <recordTypes>
         <label><!-- Individual Customer External Link --></label>
         <name>IndividualExternalLink</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Retail Company --></label>
+        <name>Retail_Company</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Retail Person --></label>
+        <name>Retail_Person</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Vehicle External Link --></label>

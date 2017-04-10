@@ -80,6 +80,10 @@
                 <behavior>Edit</behavior>
                 <field>MBJ_Title__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

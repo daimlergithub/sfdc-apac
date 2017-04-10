@@ -53,18 +53,23 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
         Map<Id,Vehicle_Relationship__c> oldmapVehicleRelation = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
   
        // Update Status , Update Vehicle Relationship and Create Account Link     
-       
-       if(trigger.isAfter && (trigger.isInsert))
+       List<Vehicle_Relationship__c> velRelNewList = Trigger.new;
+        List<Vehicle_Relationship__c> velRelOldList = Trigger.old;
+        if(!isDelete && !velRelNewList.isEmpty() && velRelNewList.size() > 0 && velRelNewList[0].MD__c == 'KR')
         {
-          VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
-        }
-        if(trigger.isAfter && Trigger.isUpdate) {
-          Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-          VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
-        } 
-       if(trigger.isAfter && Trigger.isDelete) {
-          VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
-        }
+		   if(trigger.isAfter && (trigger.isInsert))
+			{
+			  VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+			}
+			if(trigger.isAfter && Trigger.isUpdate) {
+			  Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+			  VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+			} 
+		   if(trigger.isAfter && Trigger.isDelete) 
+		    {
+			  VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
+			}
+		}
     }
     
        

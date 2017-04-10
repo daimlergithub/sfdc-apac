@@ -3883,7 +3883,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Dealer_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Lead Comment</label>
+        <label>Dealer Comment</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -24070,6 +24070,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Company Sales</fullName>
                 <default>false</default>
             </values>
@@ -24078,7 +24082,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24111,6 +24127,18 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost</fullName>
                 <default>false</default>
             </values>
@@ -24124,6 +24152,22 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36048,11 +36092,39 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved %28Waiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gave up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36064,7 +36136,31 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan to Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36103,6 +36199,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
+                <fullName>Authority</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Company Sales</fullName>
                 <default>false</default>
             </values>
@@ -36111,7 +36211,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer%28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36144,7 +36256,23 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36156,7 +36284,31 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Won</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39695,6 +39847,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -86603,11 +86935,51 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved %28Waiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gave up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28CAC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -86619,7 +86991,39 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan to Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -90291,6 +90695,186 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSource__c</picklist>
+            <values>
+                <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_DataSubSource__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>mymb</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lead_Desired_Service__c</picklist>
+            <values>
+                <fullName>Broucher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade-In</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBK_Lost_Situation__c</picklist>
+            <values>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -108708,6 +109292,13 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
+        <active>true</active>
+        <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
+        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK(  Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"),OR($Profile.Name = "Japan Call Center",$Profile.Name = "Japan Data Management"),MD__c="JP")</errorConditionFormula>
+        <errorMessage>Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC)</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lost_To_Whom</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -109111,19 +109702,27 @@ window.location.href  = '/00T/e?what_id={!Lead__c.Id}&amp;who_id={! Lead__c.Cont
         <fullName>Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>page</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Print PDF</masterLabel>
-        <openType>newWindow</openType>
+        <openType>onClickJavaScript</openType>
         <page>LeadPrintPDF</page>
-        <position>none</position>
         <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+ 
+var prName = "{!$Profile.Name}"; 
+var market = "{!Lead__c.MD__c}"; 
+if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID'})
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printAfterSaleLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+}
+else if({!Lead__c.RecordTypeId = 'OBJECT_LEAD_SALES_RECORD_TYPE_ID'})
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/printLeadPdf?Id={!Lead__c.Id}", "_blank","resizable=yes"); 
+} 
+else{ 
+alert("{!$Label.Authorization}"); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>

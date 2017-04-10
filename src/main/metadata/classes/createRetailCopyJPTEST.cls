@@ -15,6 +15,7 @@ public class createRetailCopyJPTEST
   
   Public static void personAccountTestData()
   {
+   dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
   personAcc = new Account(Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
                                Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
@@ -33,6 +34,7 @@ public class createRetailCopyJPTEST
                                Primary_Email__c = 'Email1',
                                Primary_Fax__c = 'FAX2',
                                Primary_Phone__c ='Other2',
+                               Main_Dealer__c = dealer.Id,
                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
        
        insert personAcc;  
@@ -44,6 +46,7 @@ public class createRetailCopyJPTEST
         account.FirstName = 'Test';
         account.Mobile__c = '023482832';
         account.Data_Source__c  = 'Test4';
+       
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
         
         address=new Address__c();
@@ -69,7 +72,7 @@ public class createRetailCopyJPTEST
   Public static void createCompanyAccTestData()
  {
  
-     
+      dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
        
         companyacc = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
@@ -88,6 +91,7 @@ public class createRetailCopyJPTEST
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
+                                 Main_Dealer__c = dealer.Id,
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
       insert companyacc;
@@ -210,6 +214,7 @@ public class createRetailCopyJPTEST
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                  Company__c=dealer.id,
+                                  Main_Dealer__c = dealer.Id,
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
       insert companyacc;

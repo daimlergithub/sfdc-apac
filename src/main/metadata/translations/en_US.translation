@@ -41,6 +41,26 @@
         <name>MBJ_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBK Catalogue Operation --></label>
+        <name>MBK_Catalogue_Operation</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Data Management --></label>
+        <name>MBK_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK File Management --></label>
+        <name>MBK_File_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Master Data Management --></label>
+        <name>MBK_Master_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Reports and Dashboards --></label>
+        <name>MBK_Reports_and_Dashboards</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Private APP Exchange --></label>
         <name>Private_APP_Exchange</name>
     </customApplications>
@@ -145,6 +165,10 @@
         <name>AftersalesContactTarget2</name>
     </customLabels>
     <customLabels>
+        <label><!-- Alert Handling Level --></label>
+        <name>Alert_Handling_Level</name>
+    </customLabels>
+    <customLabels>
         <label><!-- And Criteria --></label>
         <name>And_Criteria</name>
     </customLabels>
@@ -203,6 +227,10 @@
     <customLabels>
         <label><!-- Business Email --></label>
         <name>Business_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Business Email2 --></label>
+        <name>Business_Email2</name>
     </customLabels>
     <customLabels>
         <label><!-- Button Approve --></label>
@@ -621,6 +649,10 @@
         <name>Common_Filter_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- Company --></label>
+        <name>Company</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Company Account Information --></label>
         <name>Company_Account_Information</name>
     </customLabels>
@@ -647,6 +679,10 @@
     <customLabels>
         <label><!-- Confirmed --></label>
         <name>Confirmed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirmed Match --></label>
+        <name>Confirmed_Match</name>
     </customLabels>
     <customLabels>
         <label><!-- Error! Please contact the admin --></label>
@@ -705,6 +741,10 @@
         <name>Customerrelatedinformation</name>
     </customLabels>
     <customLabels>
+        <label><!-- DMRequestTabId --></label>
+        <name>DMRequestTabId</name>
+    </customLabels>
+    <customLabels>
         <label><!-- DMRequest validation error --></label>
         <name>DMRequest_validation_error</name>
     </customLabels>
@@ -731,6 +771,10 @@
     <customLabels>
         <label><!-- Dealer Has SR Code 1 --></label>
         <name>Dealer_Has_SR_Code_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dedup callout failure --></label>
+        <name>Dedup_callout_failure</name>
     </customLabels>
     <customLabels>
         <label><!-- Delete --></label>
@@ -885,6 +929,10 @@
         <name>Has_Referral_Record</name>
     </customLabels>
     <customLabels>
+        <label><!-- HideSurveyName --></label>
+        <name>HideSurveyName</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Home Email --></label>
         <name>Home_Email</name>
     </customLabels>
@@ -909,6 +957,10 @@
         <name>InsufficientAccessToCreate</name>
     </customLabels>
     <customLabels>
+        <label><!-- Insufficient privilege --></label>
+        <name>Insufficient_privilege</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Insurance Promotion --></label>
         <name>Insurance_Promotion</name>
     </customLabels>
@@ -919,6 +971,10 @@
     <customLabels>
         <label><!-- Interest Filter --></label>
         <name>Interest_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KR --></label>
+        <name>KR</name>
     </customLabels>
     <customLabels>
         <label><!-- Kana : --></label>
@@ -1189,6 +1245,10 @@
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
+        <label><!-- LeadTabId --></label>
+        <name>LeadId</name>
+    </customLabels>
+    <customLabels>
         <label><!-- LimitQueries --></label>
         <name>LimitQueries</name>
     </customLabels>
@@ -1207,6 +1267,14 @@
     <customLabels>
         <label><!-- Manager --></label>
         <name>Manager</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketJP --></label>
+        <name>MarketJP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketKR --></label>
+        <name>MarketKR</name>
     </customLabels>
     <customLabels>
         <label><!-- Marketing survey --></label>
@@ -1369,6 +1437,10 @@
         <name>NewLead</name>
     </customLabels>
     <customLabels>
+        <label><!-- NewSurveyMoreQuestions --></label>
+        <name>NewSurveyMoreQuestions</name>
+    </customLabels>
+    <customLabels>
         <label><!-- New Account Information --></label>
         <name>New_Account_Information</name>
     </customLabels>
@@ -1385,12 +1457,28 @@
         <name>New_Customer_Acquisition</name>
     </customLabels>
     <customLabels>
+        <label><!-- No --></label>
+        <name>No</name>
+    </customLabels>
+    <customLabels>
         <label><!-- No Complaint --></label>
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
+        <label><!-- No Match Found --></label>
+        <name>No_Match_Found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Result Found --></label>
+        <name>No_Result_Found</name>
+    </customLabels>
+    <customLabels>
         <label><!-- No target Records --></label>
         <name>No_Target_records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- None --></label>
+        <name>None</name>
     </customLabels>
     <customLabels>
         <label><!-- Not-Accepted --></label>
@@ -1405,12 +1493,24 @@
         <name>Occupation</name>
     </customLabels>
     <customLabels>
+        <label><!-- OnLine Deduplication --></label>
+        <name>OnLine_Deduplication</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Onchu --></label>
         <name>Onchu</name>
     </customLabels>
     <customLabels>
+        <label><!-- Online Dedup callout failure --></label>
+        <name>Online_Dedup_callout_failure</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Operation --></label>
         <name>Operation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OrderNumber --></label>
+        <name>OrderNumber</name>
     </customLabels>
     <customLabels>
         <label><!-- Other Email --></label>
@@ -1459,6 +1559,10 @@
     <customLabels>
         <label><!-- Parts Cross Promotion --></label>
         <name>Parts_Cross_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PersonAccount --></label>
+        <name>PersonAccount</name>
     </customLabels>
     <customLabels>
         <label><!-- Person Account Information --></label>
@@ -1517,6 +1621,26 @@
         <name>Promotion_on_Technical_accessories_and_collections</name>
     </customLabels>
     <customLabels>
+        <label><!-- Q1_ service quality --></label>
+        <name>Q1_service_quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Service_center_employee --></label>
+        <name>Q2_Service_center_employee</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3_Delivery_Service --></label>
+        <name>Q3_Delivery_Service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4_Service Center Information --></label>
+        <name>Q4_Service_Center_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5_Service_Center --></label>
+        <name>Q5_Service_Center</name>
+    </customLabels>
+    <customLabels>
         <label><!-- QCMassCalibrationNotice --></label>
         <name>QCMassCalibrationNotice</name>
     </customLabels>
@@ -1567,6 +1691,10 @@
     <customLabels>
         <label><!-- RecipientofthisFAX --></label>
         <name>RecipientofthisFAX</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecordTypeId --></label>
+        <name>RecordTypeId</name>
     </customLabels>
     <customLabels>
         <label><!-- Registration --></label>
@@ -1741,6 +1869,10 @@
         <name>Search_Customer</name>
     </customLabels>
     <customLabels>
+        <label><!-- Search Duplicates --></label>
+        <name>Search_Duplicates</name>
+    </customLabels>
+    <customLabels>
         <label><!-- [Select All] --></label>
         <name>Select_All</name>
     </customLabels>
@@ -1817,8 +1949,60 @@
         <name>Success_message</name>
     </customLabels>
     <customLabels>
+        <label><!-- SurveyCompleted --></label>
+        <name>SurveyCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyID --></label>
+        <name>SurveyID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuesResponse --></label>
+        <name>SurveyQuesResponse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuesTimeQuestion --></label>
+        <name>SurveyQuesTimeQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionChoices --></label>
+        <name>SurveyQuestionChoices</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionName --></label>
+        <name>SurveyQuestionName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionRequired --></label>
+        <name>SurveyQuestionRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionType --></label>
+        <name>SurveyQuestionType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestions --></label>
+        <name>SurveyQuestions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Response --></label>
+        <name>SurveyResponse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Name --></label>
+        <name>Survey_Name</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Suspected Duplicates --></label>
         <name>Suspected_Duplicates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TaskTriggerErrorMsg --></label>
+        <name>TaskTriggerErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task Assigned User --></label>
+        <name>Task_Assigned_User</name>
     </customLabels>
     <customLabels>
         <label><!-- Task Phone --></label>
@@ -1929,6 +2113,14 @@
         <name>Terminate_Vehicle_Relationship</name>
     </customLabels>
     <customLabels>
+        <label><!-- ThankYouLink --></label>
+        <name>ThankYouLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ThankYouText --></label>
+        <name>ThankYouText</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Thankyouforyourbusiness --></label>
         <name>Thankyouforyourbusiness</name>
     </customLabels>
@@ -1973,12 +2165,20 @@
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
     </customLabels>
     <customLabels>
+        <label><!-- Trade-In related information --></label>
+        <name>Trade_In_related_information</name>
+    </customLabels>
+    <customLabels>
         <label><!-- For Vehicle Picker --></label>
         <name>Trim</name>
     </customLabels>
     <customLabels>
         <label><!-- UCID --></label>
         <name>UCID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- URL --></label>
+        <name>URL</name>
     </customLabels>
     <customLabels>
         <label><!-- Unknown --></label>
@@ -2095,6 +2295,10 @@
     <customLabels>
         <label><!-- Vehicle Picker Purchased --></label>
         <name>Vehicle_Picker_Purchased</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Picker Serviced --></label>
+        <name>Vehicle_Picker_Service</name>
     </customLabels>
     <customLabels>
         <label><!-- Vehicle Picker TradeIn --></label>
@@ -2265,6 +2469,10 @@
         <name>master</name>
     </customLabels>
     <customLabels>
+        <label><!-- purchased vehicle related information --></label>
+        <name>purchased_vehicle_related_information</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Auto Show --></label>
         <name>rcc_Auto_Show</name>
     </customLabels>
@@ -2385,6 +2593,88 @@
         <name>Yearly_Target</name>
     </customTabs>
     <reportTypes>
+        <description><!-- Account with AccountLink --></description>
+        <label><!-- Account with AccountLink --></label>
+        <name>Account_with_AccountLink</name>
+        <sections>
+            <label><!-- Account Links(External Link) --></label>
+            <name>Account Links(External Link)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Account Link and Retail Task --></description>
+        <label><!-- Account with Account Link and Retail Task --></label>
+        <name>Account_with_Account_Link_and_Retail_Task</name>
+        <sections>
+            <label><!-- Account Link --></label>
+            <name>Account Link</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Accountlink1 --></description>
+        <label><!-- Account with Accountlink1 --></label>
+        <name>Account_with_Accountlink2</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 関係者1 --></label>
+            <name>関係者1</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Address --></description>
+        <label><!-- Account with Address --></label>
+        <name>Account_with_Address</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Retail Task --></description>
+        <label><!-- Account with Retail Task --></label>
+        <name>Account_with_Retail_Task</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MKT - Account with Vehicle Relationships --></description>
+        <label><!-- MKT - Account with Vehicle Relationships --></label>
+        <name>Account_with_Vehicle_Relationships</name>
+        <sections>
+            <label><!-- MKT - Vehicle Class Model --></label>
+            <name>MKT - Vehicle Class Model</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Accounts with DM requests --></description>
         <label><!-- Accounts with DM requests --></label>
         <name>Accounts_with_DM_requests</name>
@@ -2496,12 +2786,635 @@
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- Customer Information Reports --></description>
+        <label><!-- Customer Information Reports --></label>
+        <name>Customer_Information_Reports</name>
+        <sections>
+            <label><!-- Customer Information Reports --></label>
+            <name>Customer Information Reports</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Customer Satisfaction Index --></description>
+        <label><!-- Customer Satisfaction Index --></label>
+        <name>Customer_Satisfaction_Index</name>
+        <sections>
+            <columns>
+                <label><!-- Account Name --></label>
+                <name>Account Name</name>
+            </columns>
+            <columns>
+                <label><!-- Agreement to commit info processing --></label>
+                <name>Agreement to commit info processing</name>
+            </columns>
+            <columns>
+                <label><!-- All channel opt-out --></label>
+                <name>All channel opt-out</name>
+            </columns>
+            <columns>
+                <label><!-- Home Phone --></label>
+                <name>Home Phone</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Invoice Date --></label>
+                <name>Latest Invoice Date</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Sales Dealer --></label>
+                <name>Latest Sales Dealer</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Service Dealer --></label>
+                <name>Latest Service Dealer</name>
+            </columns>
+            <columns>
+                <label><!-- Mobile --></label>
+                <name>Mobile</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Personal Agreement --></label>
+                <name>Personal Agreement</name>
+            </columns>
+            <columns>
+                <label><!-- Personal Information Third Party Release --></label>
+                <name>Personal Information Third Party Release</name>
+            </columns>
+            <columns>
+                <label><!-- UsVIN --></label>
+                <name>UsVIN</name>
+            </columns>
+            <columns>
+                <label><!-- Vehicle ID --></label>
+                <name>Vehicle ID</name>
+            </columns>
+            <columns>
+                <label><!-- Work Phone --></label>
+                <name>Work Phone</name>
+            </columns>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Happy Calls Report --></description>
+        <label><!-- Happy Calls Report --></label>
+        <name>Happy_Calls_Reports</name>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Lead_Check --></description>
+        <label><!-- Lead_Check --></label>
+        <name>Lead_Check</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads with  VR --></description>
+        <label><!-- Leads with  VR --></label>
+        <name>Leads_with_VR</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account Link --></description>
+        <label><!-- MBJ Account Link --></label>
+        <name>MBJ_Account_Link</name>
+        <sections>
+            <label><!-- Account Link --></label>
+            <name>Account Link</name>
+        </sections>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+        <sections>
+            <label><!-- Dealer --></label>
+            <name>Dealer</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Account Link --></description>
+        <label><!-- MBJ Account with Account Link --></label>
+        <name>MBJ_Account_with_Account_Link</name>
+        <sections>
+            <label><!-- Account Links(External Link) --></label>
+            <name>Account Links(External Link)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Main Dealer --></label>
+            <name>Main Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Personal --></label>
+            <name>Personal</name>
+        </sections>
+        <sections>
+            <label><!-- Primary Address --></label>
+            <name>Primary Address</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Address --></description>
+        <label><!-- MBJ Account with Address --></label>
+        <name>MBJ_Account_with_Address</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Survey --></description>
+        <label><!-- MBJ Account with Survey --></label>
+        <name>MBJ_Account_with_Survey</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Address --></description>
+        <label><!-- MBJ Address --></label>
+        <name>MBJ_Address</name>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Address with Account --></description>
+        <label><!-- MBJ Address with Account --></label>
+        <name>MBJ_Address_with_Account</name>
+        <sections>
+            <label><!-- Account --></label>
+            <name>Account</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Car Model --></description>
+        <label><!-- MBJ Car Model --></label>
+        <name>MBJ_Car_Model</name>
+        <sections>
+            <label><!-- Car Model --></label>
+            <name>Car Model</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ DM Request --></description>
+        <label><!-- MBJ DM Request --></label>
+        <name>MBJ_DM_Request</name>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Dealer Locator --></description>
+        <label><!-- MBJ Dealer Locator --></label>
+        <name>MBJ_Dealer_Locator</name>
+        <sections>
+            <label><!-- Dealer --></label>
+            <name>Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Dealer Locators --></label>
+            <name>Dealer Locators</name>
+        </sections>
+        <sections>
+            <label><!-- last modified --></label>
+            <name>last modified</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Lead, Survey Taken and Survey Response --></description>
+        <label><!-- MBJ Lead, Survey Taken and Survey Response --></label>
+        <name>MBJ_Lead_and_Survey</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Leads, DM Req, DM Material, Vehicle, Car Model --></description>
+        <label><!-- MBJ Leads, DM Req, DM Material, Vehicle, Car Model --></label>
+        <name>MBJ_Leads_and_DM_Request</name>
+        <sections>
+            <label><!-- Assigned Dealer --></label>
+            <name>Assigned Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle --></label>
+            <name>Compared Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle Car Model --></label>
+            <name>Compared Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 1 --></label>
+            <name>Expected DM Material 1</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 2 --></label>
+            <name>Expected DM Material 2</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 3 --></label>
+            <name>Expected DM Material 3</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle --></label>
+            <name>Interested Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Car Model --></label>
+            <name>Interested Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Personal Account --></label>
+            <name>Personal Account</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Recall --></description>
+        <label><!-- MBJ Recall --></label>
+        <name>MBJ_Recall</name>
+        <sections>
+            <label><!-- Recalls --></label>
+            <name>Recalls</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <name>Vehicle</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Retail Task --></description>
+        <label><!-- MBJ Retail Task --></label>
+        <name>MBJ_Retail_Task</name>
+        <sections>
+            <label><!-- Contractor --></label>
+            <name>Contractor</name>
+        </sections>
+        <sections>
+            <label><!-- Related Dealer --></label>
+            <name>Related Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Related Vehicle --></label>
+            <name>Related Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks --></label>
+            <name>Retail Tasks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Question --></description>
+        <label><!-- MBJ Survey Question --></label>
+        <name>MBJ_Survey_Question</name>
+        <sections>
+            <label><!-- Survey Questions --></label>
+            <name>Survey Questions</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Question Response --></description>
+        <label><!-- MBJ Survey Question Response --></label>
+        <name>MBJ_Survey_Question_Response</name>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Taken and related info --></description>
+        <label><!-- MBJ Survey Taken and related info --></label>
+        <name>MBJ_Survey_Taken_and_related_info</name>
+        <sections>
+            <label><!-- Campaign --></label>
+            <name>Campaign</name>
+        </sections>
+        <sections>
+            <label><!-- Survey --></label>
+            <name>Survey</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question --></label>
+            <name>Survey Question</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Taken By Account --></label>
+            <name>Survey Taken By Account</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Taken By Leads --></label>
+            <name>Survey Taken By Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Vehicle Relationship with Others --></description>
+        <label><!-- MBJ Vehicle Relationship with Others --></label>
+        <name>MBJ_Vehicle_Relationship_with_Others</name>
+        <sections>
+            <label><!-- Address --></label>
+            <name>Address</name>
+        </sections>
+        <sections>
+            <label><!-- Car Model --></label>
+            <name>Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Contact (Personal Account) --></label>
+            <name>Contact (Personal Account)</name>
+        </sections>
+        <sections>
+            <label><!-- Last Service Dealer --></label>
+            <name>Last Service Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Selling Dealer --></label>
+            <name>Selling Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <name>Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Vehicle and Vehicle Relationship --></description>
+        <label><!-- MBJ Vehicle and Vehicle Relationship --></label>
+        <name>MBJ_Vehicle_and_Vehicle_Relationship</name>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Account with Address and Contacts --></description>
+        <label><!-- MBK Account with Address and Contacts --></label>
+        <name>MBK_Account_with_Address_and_Contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Case with task --></description>
+        <label><!-- MBK Case with task --></label>
+        <name>MBK_Case_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></description>
+        <label><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></label>
+        <name>MBK_Lead_vehicle</name>
+        <sections>
+            <label><!-- Assigned Dealer --></label>
+            <name>Assigned Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle --></label>
+            <name>Compared Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle Car Model --></label>
+            <name>Compared Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 1 --></label>
+            <name>Expected DM Material 1</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 2 --></label>
+            <name>Expected DM Material 2</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 3 --></label>
+            <name>Expected DM Material 3</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle --></label>
+            <name>Interested Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Car Model --></label>
+            <name>Interested Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Personal Account --></label>
+            <name>Personal Account</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Lead with task --></description>
+        <label><!-- MBK Lead with task --></label>
+        <name>MBK_Lead_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MKT Raw Data Report --></description>
+        <label><!-- MKT Raw Data Report --></label>
+        <name>MKT_Raw_Data_Report</name>
+        <sections>
+            <label><!-- Raw Data Report --></label>
+            <name>Raw Data Report</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- NCBS (PPS) Report --></description>
+        <label><!-- NCBS (PPS) Report --></label>
+        <name>NCBS_PPS_Report</name>
+        <sections>
+            <columns>
+                <label><!-- Car Model: Model Hierarchy Description --></label>
+                <name>Car Model: Model Hierarchy Description</name>
+            </columns>
+            <columns>
+                <label><!-- Contact: Mobile --></label>
+                <name>Contact: Mobile</name>
+            </columns>
+            <columns>
+                <label><!-- Customer Consent --></label>
+                <name>Customer Consent</name>
+            </columns>
+            <columns>
+                <label><!-- Engine No --></label>
+                <name>Engine No</name>
+            </columns>
+            <columns>
+                <label><!-- Home Phone --></label>
+                <name>Home Phone</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Sales Address Display --></label>
+                <name>Sales Address Display</name>
+            </columns>
+            <label><!-- NCBS Report --></label>
+            <name>NCBS Report</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Process Instance --></description>
         <label><!-- Process Instance --></label>
         <name>Process_Instance</name>
         <sections>
             <label><!-- Process Instance --></label>
             <name>Process Instance</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales Funnel Report --></description>
+        <label><!-- Sales Funnel Report --></label>
+        <name>Sales_Funnel_Report</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales Funnel Report Type --></description>
+        <label><!-- Sales Funnel Report Type --></label>
+        <name>Sales_Funnel_Report_Type</name>
+        <sections>
+            <columns>
+                <label><!-- Account Name --></label>
+                <name>Account Name</name>
+            </columns>
+            <columns>
+                <label><!-- Branch Name Native --></label>
+                <name>Branch Name Native</name>
+            </columns>
+            <columns>
+                <label><!-- Contracted/Purchased Vehicle --></label>
+                <name>Contracted/Purchased Vehicle</name>
+            </columns>
+            <columns>
+                <label><!-- Model of Interest --></label>
+                <name>Model of Interest</name>
+            </columns>
+            <columns>
+                <label><!-- Sales Address Display --></label>
+                <name>Sales Address Display</name>
+            </columns>
+            <label><!-- Sales Funnel Report --></label>
+            <name>Sales Funnel Report</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -2528,6 +3441,28 @@
         <sections>
             <label><!-- Service Contracts --></label>
             <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 車両顧客関係 --></description>
+        <label><!-- 車両顧客関係 --></label>
+        <name>VechRelationShip</name>
+        <sections>
+            <label><!-- 車両 --></label>
+            <name>車両</name>
+        </sections>
+        <sections>
+            <label><!-- 車両顧客関係 --></label>
+            <name>車両顧客関係</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle_VehicleRel --></description>
+        <label><!-- Vehicle_VehicleRel --></label>
+        <name>Vehicle_VehicleRel</name>
+        <sections>
+            <label><!-- 車両顧客関係 --></label>
+            <name>車両顧客関係</name>
         </sections>
     </reportTypes>
 </Translations>

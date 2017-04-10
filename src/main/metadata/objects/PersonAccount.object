@@ -8,62 +8,6 @@
         <active>true</active>
         <description>Record type for person account</description>
         <label>Person Account</label>
-		<picklistValues>
-            <picklist>Dealer_Type__c</picklist>
-            <values>
-                <fullName>Outlet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -118,6 +62,21 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -214,6 +173,77 @@
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -813,6 +843,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
@@ -830,6 +868,10 @@
             </values>
             <values>
                 <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -881,10 +923,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
@@ -894,6 +932,14 @@
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1786,7 +1832,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions – Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2046,6 +2092,17 @@
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
                 <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3349,21 +3406,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Agreement_to_commit_info_processing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -3739,6 +3781,201 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MBK_Occupation__c</picklist>
+            <values>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adviser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artist%2FPainter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Athlete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer%2FIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dentist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freelancers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oriental Medical Doctor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pilot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Producer%2FDirector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professionals %26 Technical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject to answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Show Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock%2FTrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
                 <fullName>AB Road</fullName>
@@ -3757,7 +3994,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3765,7 +4002,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3777,7 +4014,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3785,7 +4022,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28행가집%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3813,7 +4050,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
+                <fullName>Galleria %28겔러리아%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3836,8 +4073,8 @@
                 <fullName>Heren</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
+           <values>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3869,7 +4106,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3889,7 +4126,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28ì‹ ë¼%29</fullName>
+                <fullName>Noblian %28신라%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3897,15 +4134,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
+                <fullName>PreVillage %28롯데%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4388,6 +4625,51 @@
             </values>
             <values>
                 <fullName>Shareholder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5849,7 +6131,7 @@
         <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5857,7 +6139,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cataloue Call</fullName>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5877,19 +6163,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Magazine</fullName>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB website</fullName>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5897,15 +6183,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Academy</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Company call</fullName>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5913,19 +6203,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5937,7 +6231,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Assistant</fullName>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6826,7 +7124,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions – Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8597,7 +8895,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8605,7 +8903,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8617,7 +8915,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8625,7 +8923,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28행가집%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8653,7 +8951,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
+                <fullName>Galleria %28겔러리아%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8677,7 +8975,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8709,7 +9007,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8729,7 +9027,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28ì‹ ë¼%29</fullName>
+                <fullName>Noblian %28신라%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8737,15 +9035,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
+                <fullName>PreVillage %28롯데%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10127,51 +10425,6 @@
         <active>true</active>
         <description>Record type for customer created by dealer</description>
         <label>Person Account Retail</label>
-		<picklistValues>
-            <picklist>Personal_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>		
-		<picklistValues>
-            <picklist>Personal_Abroad_Agreement__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-		<picklistValues>
-            <picklist>Personal_Information_Third_Party_Release__c</picklist>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -11857,7 +12110,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions – Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13592,7 +13845,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13600,7 +13853,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13612,15 +13865,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Cosmopolitan</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+			<values>
+                <fullName>DesignHouse %28행가집%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13648,7 +13901,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
+                <fullName>Galleria %28겔러리아%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13672,7 +13925,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13704,7 +13957,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13724,7 +13977,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28ì‹ ë¼%29</fullName>
+                <fullName>Noblian %28신라%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13732,15 +13985,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
+                <fullName>PreVillage %28롯데%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14282,6 +14535,51 @@
             </values>
             <values>
                 <fullName>Shareholder</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15719,11 +16017,19 @@
         <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cataloue Call</fullName>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15743,15 +16049,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Magazine</fullName>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15759,15 +16069,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Academy</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Company call</fullName>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15775,19 +16089,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15799,7 +16117,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Assistant</fullName>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16624,7 +16946,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions – Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17965,9 +18287,9 @@
             </values>
             <values>
                 <fullName>GLK-Class</fullName>
-				<default>false</default>
+                <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
@@ -18375,7 +18697,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18383,7 +18705,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18395,15 +18717,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Cosmopolitan</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+			<values>
+                <fullName>DesignHouse %28행가집%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18431,7 +18753,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
+                <fullName>Galleria %28겔러리아%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18455,7 +18777,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18487,7 +18809,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18507,7 +18829,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28ì‹ ë¼%29</fullName>
+                <fullName>Noblian %28신라%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18515,15 +18837,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
+                <fullName>PreVillage %28롯데%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19069,6 +19391,36 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -19590,8 +19942,8 @@
             </values>
             <values>
                 <fullName>III</fullName>
-				<default>false</default>
-			</values>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>IV</fullName>
                 <default>false</default>
@@ -20325,10 +20677,10 @@
             </values>
             <values>
                 <fullName>3</fullName>
-				<default>false</default>
-			</values>
-			<values>
-				<fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20349,69 +20701,6 @@
             </values>
             <values>
                 <fullName>9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Language__c</picklist>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
-            <values>                
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hindhi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portuguese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spanish</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tagalogue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21553,7 +21842,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions – Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23496,7 +23785,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L (롯데)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23504,7 +23793,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond (대한_국제선)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23516,15 +23805,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos (홀수,시계)</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Cosmopolitan</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+			<values>
+                <fullName>DesignHouse %28행가집%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23551,8 +23840,8 @@
                 <fullName>GQ</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Galleria %28ê²”ëŸ¬ë¦¬ì•„%29</fullName>
+			<values>
+                <fullName>Galleria %28겔러리아%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23576,7 +23865,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28í•˜ì–íŠ¸%29</fullName>
+                <fullName>JJ Magazine %28하얏트%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23608,7 +23897,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28ëŒ€í•œ_êµ­ë‚´ì™¸ì„ %29</fullName>
+                <fullName>Morning Calm %28대한_국내외선%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23628,7 +23917,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28ì‹ ë¼%29</fullName>
+                <fullName>Noblian %28신라%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23636,15 +23925,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28ë¡¯ë°%29</fullName>
+                <fullName>PreVillage %28롯데%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28í˜„ëŒ€%29</fullName>
+                <fullName>Style H %28현대%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28ë¡¯ë°_ë©´ì„¸ì %29</fullName>
+                <fullName>The Lotte %28롯데_면세점%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24257,7 +24546,67 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -2,7 +2,7 @@
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseValues>
         <plural>false</plural>
-        <value><!-- Script --></value>
+        <value>스크립트</value>
     </caseValues>
     <fields>
         <label>추가 내용</label>
@@ -97,7 +97,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Business Innovation</masterLabel>
-            <translation><!-- Business Innovation --></translation>
+            <translation>Business Innovation</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Customer Contact Center</masterLabel>
@@ -113,7 +113,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Network Development</masterLabel>
-            <translation><!-- Network Development --></translation>
+            <translation>Network Development</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sales</masterLabel>

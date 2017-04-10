@@ -1,6 +1,6 @@
 public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
 {
-    public static boolean isFutureUpdate;
+    public static boolean isFutureUpdate = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         CaseHelperJP caseHelperJP = new CaseHelperJP();
@@ -9,6 +9,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             System.debug('#########################################-->trigger.isBefore && trigger.isInsert');
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new);
+            caseHelperJP.updateCaseDealer(Trigger.New);
             
         }
         if(trigger.isAfter && trigger.isInsert)

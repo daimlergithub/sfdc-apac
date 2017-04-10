@@ -421,7 +421,9 @@
           
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {
-              $scope.brands.sort();
+			  if(vehicleType != 'Competitor Vehicle'){
+				$scope.brands.sort();
+			  }
               $scope.relatedClasses.sort();
               $scope.models.sort();
               $scope.vehicleDetail = false;

@@ -58,7 +58,7 @@ public class AccountLinkControllerTest{
          ApexPages.currentPage().getParameters().put('Id',companyAcc.id);
          ApexPages.StandardController sc1 = new ApexPages.StandardController(companyAcc);
          AccountLinkController spo1=new AccountLinkController(sc1);
-         spo1.ab();
+         //spo1.ab();
          spo1.DeleteRetailCopy();
          test.StopTest();
    }

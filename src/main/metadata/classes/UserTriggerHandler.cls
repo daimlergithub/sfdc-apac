@@ -38,7 +38,9 @@ public class UserTriggerHandler
         }
         if (trigger.isAfter && trigger.isUpdate) {
             UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
+              System.debug('@$@$@$@$ user trigger');
             UserHelper.UserShareforDealers(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+            UserHelper.createGroup(trigger.new);
         }
         if (trigger.isBefore && trigger.isInsert) {
             UserHelper.ValidateUser(Trigger.new);   

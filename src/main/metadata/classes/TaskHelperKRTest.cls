@@ -4,7 +4,9 @@ public class TaskHelperKRTest {
   public static Contact Contobj;
   public static Lead__c leadobj;
   public static Task taskobj;
+
    public static Task taskobj1;
+
   public static List<Task> tasklist;
   public static Campaign camobj;
   public static DM_Request__c dmr;
@@ -20,10 +22,11 @@ public class TaskHelperKRTest {
   static void createTestData() {
     accobj = new Account();
     accobj.RecordTypeId = DealerRecordTypeId ;
-    accobj.Name = 'testaccount'; 
+    accobj.Name = 'testaccount';
+    accobj.Phone = '000-0000-9642';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '00000009642';
-    accobj.ZipCode__c= '1002347';    
+    accobj.Mobile__c = '000-0000-9642';
+    accobj.ZipCode__c= '1002347';
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
@@ -61,6 +64,7 @@ public class TaskHelperKRTest {
     system.debug('$$$$$$$$$$$$'+leadobj.id);
     
     taskobj = new Task();
+
     taskobj.RecordTypeId = OBTaskRecordTypeId ;
     taskobj.Status='open';
     taskobj.Activity_Status__c='Successful';
@@ -75,6 +79,14 @@ public class TaskHelperKRTest {
     tasklist = new List<Task>();
     tasklist.add(taskobj);
     tasklist.add(taskobj1);
+
+    taskobj.RecordTypeId = SSITaskRecordTypeId;
+    taskobj.Status='open';
+    taskobj.Activity_Status__c='Successful';
+    taskobj.Generate_QC__c = true;
+    tasklist = new List<Task>();
+    tasklist.add(taskobj);
+
     insert tasklist;
       
     dmr = new DM_Request__c();
@@ -84,9 +96,10 @@ public class TaskHelperKRTest {
                                          Market__c='JP');
     insert TriggerDMR;
     
-  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+	List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
     insert updatecustomsettings;
-  
+	
+
     Material = new DM_Material__c();
     Material.Name='testname';
     insert Material;

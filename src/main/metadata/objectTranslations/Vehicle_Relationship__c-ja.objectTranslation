@@ -21,7 +21,7 @@
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
-        <label>住所（車両）</label>
+        <label>住所（車両）（TEXT）</label>
         <name>Vehicle_Address_Display__c</name>
     </fields>
     <fields>
@@ -1185,7 +1185,7 @@
     </fields>
     <fields>
         <help><!-- ID of related person --></help>
-        <label>コンタクト</label>
+        <label>顧客</label>
         <lookupFilter>
             <errorMessage><!-- Please select the proper account. --></errorMessage>
         </lookupFilter>
@@ -3102,15 +3102,15 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>モデルレンジ</label>
+        <label>モデル</label>
         <name>Vehicle_Model__c</name>
     </fields>
     <fields>
-        <label>宛先コンタクト先電話番号</label>
+        <label>電話番号（車両）（TEXT）</label>
         <name>Vehicle_Phone__c</name>
     </fields>
     <fields>
-        <label>メール（車両）</label>
+        <label>Eメール（車両）</label>
         <name>vehicle_mail_picklist__c</name>
 		<picklistValues>
             <masterLabel>Email Home</masterLabel>
@@ -3268,11 +3268,11 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>宛先コンタクト先FAX</label>
+        <label>FAX（車両）（TEXT）</label>
         <name>vehicle_fax__c</name>
     </fields>
     <fields>
-        <label>コンタクト先メール</label>
+        <label>Eメール（車両）（TEXT）</label>
         <name>vehicle_mail__c</name>
     </fields>
     <layouts>
@@ -3318,20 +3318,16 @@
         </sections>
         <sections>
             <label>手放し設定情報</label>
-            <section>End Setting Information</section>
+            <section>End Information</section>
         </sections>
         <sections>
-            <label>車検情報</label>
+            <label>車検証情報</label>
             <section>MOT Information</section>
         </sections>
-		<sections>
-            <label>新しい項目</label>
-            <section>New Fields</section>
-        </sections>
-		<sections>
-            <label>車両住所情報</label>
-            <section>Vehicle Address Information</section>
-        </sections>
+		<sections>	            
+			<label>この車両の連絡先</label>
+			<section>Vehicle Contact Information</section>
+		</sections>
         <sections>
             <label>車両情報</label>
             <section>Vehicle Information</section>

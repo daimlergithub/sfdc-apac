@@ -2,19 +2,14 @@ public with sharing class PrintPDFcontroller
 {
     public List<Address__c> addresList = new List<Address__c>();
     public List<Address__c> companyAccaddList = new List<Address__c>();
-    public List<Vehicle_Relationship__c> vRList = new List<Vehicle_Relationship__c>();
+    public List<Vehicle_Relationship__c> vRList{get;set;}
     public List<Task> HistoryList = new List<Task>();
     public List<Task> activityList{get;set;}
     public set<string> pickListValueSet = new Set<string>();
     public set<string> taskPickListValueSet = new Set<string>();
     public List<Task> activityhistoryList{get;set;}
     public Lead__c cas{get;set;}
-    public string companyname{get;set;}    
-    public string legalOwner{get;set;}
-    public string purchaseType{get;set;}
-    public string registrationinspec{get;set;}
-    public string rangeModel{get;set;}
-    public string registrationMileage{get;set;}
+    public string companyname{get;set;}
     public string homeaddress{get;set;}
     public boolean isConatct{get;set;}
     public boolean isVisited{get;set;}
@@ -74,11 +69,11 @@ public with sharing class PrintPDFcontroller
         system.debug('cas account>>>>' + cas.Contact__c);
         if(cas.Contact__c != null)
         {
-          addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
-          vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
+        	addresList = [select id,Customer__c,Address_Type__c,Company_Name__c from Address__c where Customer__c =:cas.Contact__c];
+        	vRList = [select id,Vehicle_ID__c,End_Date__c,Car_Relation__c,Validity__c,Vehicle_ID__r.FirstRegistrationDate__c,
                       Vehicle_ID__r.Range__c,Vehicle_ID__r.Model__c,Vehicle_ID__r.CurrentMileage__c,Registration_Date__c,Vehicle_ID__r.NextInspectionDate__c,
                       MOT_USER_NAME__c,Finance_Method__c
-                      from Vehicle_Relationship__c where contact__c =:cas.Contact__c AND Car_Relation__c = 'Purchaser' AND Validity__c = 'Yes'];
+                      from Vehicle_Relationship__c where contact__c =:cas.Contact__c AND Car_Relation__c = 'Purchaser' AND Validity__c = 'Yes' ORDER BY CreatedDate DESC limit 3];
         }
         HistoryList = [select id,whatId,Intention_status__c from Task where whatId =:ApexPages.currentPage().getParameters().get(System.Label.Id)];
         activityList = [select id,whatId,SentTime__c,OwnerId,Owner.Lastname,Owner.FirstName,Intention_status__c,Subject,Description from Task where whatId =:ApexPages.currentPage().getParameters().get(System.Label.Id) AND SentTime__c > Today ORDER BY CreatedDate DESC limit 5];
@@ -88,7 +83,7 @@ public with sharing class PrintPDFcontroller
         {
             for(Task tsk : HistoryList)
             {
-                 if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
+               	if(tsk.Intention_Status__c != null && tsk.Intention_Status__c != '')
                 {
                     pickListValueSet.add(tsk.Intention_Status__c);
                 }
@@ -137,51 +132,7 @@ public with sharing class PrintPDFcontroller
         system.debug('activityhistoryList>>>>' + activityhistoryList);
         if(cas.Company_Account__c != null)
         {
-            companyAccaddList = [select id,Customer__c,Address_Type__c ,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];          
-        }
-        if(!vRList.isEmpty() && vRList != null)
-        {
-            for(Vehicle_Relationship__c vR : vRList)
-            {
-                if(vR.End_Date__c == null && vR.Car_Relation__c == 'Purchaser' && vR.Validity__c == 'Yes')
-                {
-                    if(vR.Vehicle_ID__c != null)
-                    {
-                        if(vR.Vehicle_ID__r.Range__c != null && vR.Vehicle_ID__r.Range__c != '')
-                        {
-                          rangeModel = vR.Vehicle_ID__r.Range__c;
-                        }
-                        if(vR.Vehicle_ID__r.Model__c != null && vR.Vehicle_ID__r.Model__c != '')
-                        {
-                            rangeModel = rangeModel+ vR.Vehicle_ID__r.Model__c;
-                        }
-                        if(string.valueOf(vR.Vehicle_ID__r.FirstRegistrationDate__c) != null && string.valueOf(vR.Vehicle_ID__r.FirstRegistrationDate__c) != '')
-                        {
-                            registrationMileage = string.valueOf(vR.Vehicle_ID__r.FirstRegistrationDate__c);
-                        }
-                        if(vR.Vehicle_ID__r.CurrentMileage__c != null && string.valueOf(vR.Vehicle_ID__r.CurrentMileage__c) != '')
-                        {
-                            registrationMileage = registrationMileage +string.valueOf(vR.Vehicle_ID__r.CurrentMileage__c);
-                        }
-                        if(string.valueOf(vR.Registration_Date__c) != null && string.valueOf(vR.Registration_Date__c) != '')
-                        {
-                            registrationinspec = string.valueOf(vR.Registration_Date__c);
-                        }
-                        if(string.valueOf(vR.Vehicle_ID__r.NextInspectionDate__c) != null && string.valueOf(vR.Vehicle_ID__r.NextInspectionDate__c) != '')
-                        {
-                            registrationinspec = registrationinspec +string.valueOf(vR.Vehicle_ID__r.NextInspectionDate__c);
-                        }
-                        if(vR.MOT_USER_NAME__c != null && vR.MOT_USER_NAME__c != '')
-                        {
-                            legalOwner = vR.MOT_USER_NAME__c;
-                        }
-                        if(vR.Finance_Method__c != null && vR.Finance_Method__c != '')
-                        {
-                            purchaseType = vR.Finance_Method__c;
-                        }
-                    }
-                }
-            }
+            companyAccaddList = [select id,Customer__c,Address_Type__c ,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =:cas.Company_Account__c];        	
         }
         system.debug('addressList>>' + addresList);
         if(!addresList.isEmpty() && addresList !=null)

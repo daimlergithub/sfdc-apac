@@ -401,7 +401,7 @@
         <name>Retail_Delete_Flag__c</name>
     </fields>
     <fields>
-        <label>Autoline用住所 5行目</label>
+        <label>Autoline用住所 3行目</label>
         <name>Retail_Distinct__c</name>
     </fields>
     <fields>
@@ -473,7 +473,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>自宅電話</label>
+        <label>自宅電話番号</label>
         <name>Retail_Individual_Home_Phone__c</name>
     </fields>
     <fields>
@@ -701,7 +701,7 @@
         <name>Retail_LastName__c</name>
     </fields>
     <fields>
-        <label>携帯電話</label>
+        <label>携帯電話番号</label>
         <name>Retail_Mobile__c</name>
     </fields>
     <fields>
@@ -977,7 +977,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>優先連絡先電話</label>
+        <label>優先連絡先電話番号</label>
         <name>Retail_Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
@@ -1087,7 +1087,7 @@
         <name>Retail_WebSite__c</name>
     </fields>
     <fields>
-        <label>勤務先電話</label>
+        <label>勤務先電話番号</label>
         <name>Retail_Work_Phone__c</name>
     </fields>
     <fields>
