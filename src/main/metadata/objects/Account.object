@@ -2473,7 +2473,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
                 <fullName>Range 17</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3541,30 +3541,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Customer_Consent_Happy_Calls__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR(AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Information_Third_Party_Release__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Abroad_Agreement__c , 'Yes'),ISPICKVAL(  Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
-			AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(  Personal_Abroad_Agreement__c , 'Yes'))),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Customer_Consent__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(OR(AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes'),ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes')),
-		AND(ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'),ISPICKVAL( Personal_Agreement__c , 'Yes')),
-		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL(Personal_Agreement__c , 'Yes')),
-		AND(ISPICKVAL( Personal_Information_Third_Party_Release__c , 'Yes'),ISPICKVAL( Agreement_to_commit_info_processing__c, 'Yes'))),true,false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Customer Consent</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Customer_LastUpdatedDate__c</fullName>
@@ -20584,6 +20560,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <label>Company_Manual_Merge</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -20779,6 +20766,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23025,6 +23083,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -25972,6 +26041,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -26577,6 +26657,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <active>true</active>
         <label>CompanySoftDeleted</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -26658,6 +26749,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26757,6 +26863,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28545,6 +28722,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dealer_Rollout_Status__c</picklist>
+            <values>
+                <fullName>Done</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In_Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>none</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Dealer_Sales_Type__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -28660,6 +28856,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>STHN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dealer_Type__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outlet</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28929,6 +29136,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -31214,6 +31432,70 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Personal_Abroad_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_Release__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting for confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>none</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Portal_Email__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -31604,6 +31886,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -32039,6 +32332,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>UsedLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>none</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>VAN_Status__c</picklist>
             <values>
                 <fullName>Customer</fullName>
@@ -32077,6 +32377,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>none</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -32150,6 +32465,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Company_Manual_Merge</fullName>
         <active>true</active>
         <label>Company Manual Merge</label>
+        <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -32346,6 +32672,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -34592,6 +34989,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -37539,6 +37947,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -48618,6 +49037,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <description>Recordtype for dealer</description>
         <label>Dealer1</label>
         <picklistValues>
+            <picklist>ASLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -48813,6 +49243,77 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>Range 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50627,6 +51128,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Valid</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FinanceLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -53077,6 +53589,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>SalesLead_Notification_Timing__c</picklist>
+            <values>
+                <fullName>3 times a day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immediately</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -55096,7 +55619,6 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
-        
         <linkType>javascript</linkType>
         <masterLabel>New Case</masterLabel>
         <openType>onClickJavaScript</openType>
@@ -55108,10 +55630,10 @@ if('{!User.ContactId}' !=null &amp;&amp; {!CONTAINS( $Profile.Name ,'Dealer')} )
 var main = '{!User.ContactId}';
 var accountId =sforce.connection.query("select id from Contact where Id='{!User.ContactId}' limit 1");
 var qrerecords = accountId.getArray("records");
-window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="CF00Np0000000Kdtq"={!User.Name}&amp;id="CF00Np0000000Kdtq"_lkid={!User.Id}&amp;CF00Np0000000Kdtr={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
+window.open('/500/e?nooverride=1&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;retURL={!Account.Id}&amp;id="OBJECT_CASE_USERNAME_ID"={!User.Name}&amp;id="OBJECT_CASE_USERNAME_ID"_lkid={!User.Id}&amp;OBJECT_CASE_PRIMARYCASEDEALER_ID={!User.Dealer_Outlet_Name__c} &amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}','_self'); 
 }
 else {
-window.open('/500/e?nooverride=1&amp;RecordType=012p00000008VJ1&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
+window.open('/500/e?nooverride=1&amp;RecordType=OBJECT_CASE_INQUIRY_RECORDTYPEID&amp;cas4={!Account.Name}&amp;cas4_lkid={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", "");
 }</url>
     </webLinks>
     <webLinks>

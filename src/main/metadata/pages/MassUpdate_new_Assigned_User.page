@@ -40,8 +40,18 @@
                             <apex:inputCheckbox value="{!var.selected}"/>
                         </apex:column>
                         <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!var.selected}"/></apex:column>-->
-                        <apex:column value="{!var.veh.VIN__c}"/>
-                        <apex:column value="{!var.veh.Service_Advisor__c}"/>
+                           <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.Id.Label}">                    
+                        <apex:outputField value="{!var.veh.Id}"/>
+                    </apex:Column>
+                           <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!var.veh.VIN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.Service_Advisor__c.Label}">                    
+                        <apex:outputField value="{!var.veh.Service_Advisor__c}"/>
+                    </apex:Column>
+                    
+                       <!-- <apex:column value="{!var.veh.VIN__c}"/>
+                        <apex:column value="{!var.veh.Service_Advisor__c}"/> -->
                     </apex:pageBlockTable>
                 </apex:pageBlock>
                 <apex:pageBlock title="Lead Records" id="pbled">
