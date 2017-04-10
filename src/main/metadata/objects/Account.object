@@ -11964,7 +11964,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description>
         <externalId>false</externalId>
-        <label>DM Opt Out</label>
+        <label>Postal opt out</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

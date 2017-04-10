@@ -36700,6 +36700,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Won</fullName>
                 <default>false</default>
             </values>
@@ -39043,6 +39059,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Participate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repair</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Paint</fullName>
                 <default>false</default>
             </values>
@@ -40117,7 +40149,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>TA%26C</fullName>
@@ -40986,7 +41018,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Financed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87751,6 +87795,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
@@ -92006,6 +92058,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Loan</fullName>
                 <default>false</default>
             </values>
@@ -92215,6 +92271,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Considering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Inspection Timing</fullName>
                 <default>false</default>
             </values>
             <values>

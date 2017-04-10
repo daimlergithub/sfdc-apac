@@ -9,15 +9,15 @@
         <name>Account_information_updates__c</name>
     </fields>
     <fields>
-        <label><!-- Add Campaign Member ID --></label>
+        <label>キャンペーン対象者ID</label>
         <name>Add_Campaign_Member_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Add Sales Staff --></label>
+        <label>販売担当者印字</label>
         <name>Add_Sales_Staff__c</name>
     </fields>
     <fields>
-        <label><!-- Add Service Staff --></label>
+        <label>サービス担当者印字</label>
         <name>Add_Service_Staff__c</name>
     </fields>
     <fields>
@@ -134,7 +134,7 @@
         <name>Customer_Complete_Address__c</name>
     </fields>
     <fields>
-        <label><!-- Customer Email --></label>
+        <label>顧客メールアドレス</label>
         <name>Customer_Email__c</name>
     </fields>
     <fields>
@@ -190,7 +190,7 @@
         <name>Gaurantor2_Name__c</name>
     </fields>
     <fields>
-        <label>MBF保証人3</label>
+        <label>MBF契約保証人3</label>
         <name>Gaurantor3_Name__c</name>
     </fields>
     <fields>
@@ -202,7 +202,7 @@
         <name>Indemnity_Amount__c</name>
     </fields>
     <fields>
-        <label>顧客金利</label>
+        <label>金利</label>
         <name>Interest_Rate__c</name>
     </fields>
     <fields>
@@ -307,7 +307,7 @@
         <relationshipLabel><!-- Campaign Members (Preferred Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Purchase Timing --></label>
+        <label>販売時期</label>
         <name>Purchase_Timing__c</name>
     </fields>
     <fields>
@@ -441,7 +441,7 @@
         <name>UsVIN__c</name>
     </fields>
     <fields>
-        <label>VehicleRelationship</label>
+        <label>車両顧客関係</label>
         <name>Vehicle_Relationship__c</name>
         <relationshipLabel><!-- Campaign Members --></relationshipLabel>
     </fields>
@@ -465,7 +465,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Campaign Member Name --></nameFieldLabel>
+    <nameFieldLabel>キャンペーンメンバーID</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Status cannot be changed from &apos;Executed&apos; to &apos;Ready or Removed&apos; --></errorMessage>
         <name>StatusChangingFromExecuted</name>

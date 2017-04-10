@@ -79,7 +79,7 @@
         </actions>
         <active>true</active>
         <description>When Address type field  is updated and user profile is NOT Integration API, then update the field Address Type Last Modified Date.</description>
-        <formula>IF(MD__c = &apos;JP&apos; &amp;&amp;  ISCHANGED(Address_Type__c) , true, false)</formula>
+        <formula>IF(MD__c = &apos;JP&apos; &amp;&amp;  ISCHANGED(Address_Type__c) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;, true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -90,7 +90,7 @@
         </actions>
         <active>true</active>
         <description>When address record is updated and user profile is NOT Integration API, then update the field Address Last Modified Date.</description>
-        <formula>IF(MD__c = &apos;JP&apos;, true, false)</formula>
+        <formula>IF(MD__c = &apos;JP&apos; &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;, true, false)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

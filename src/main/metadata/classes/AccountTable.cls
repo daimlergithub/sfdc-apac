@@ -1,3 +1,11 @@
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to display All Dealers Account Based on Search Criteria 
+                         Business Conditions :
+                          * Search Filter to get All Dealers Account Which Will Be Added As Participating Dealer                      
+JIRA NO             :    SFDCJP-1606                                               
+************************************************************************************/
 Public class AccountTable{
     public String size { get; set; }
 
