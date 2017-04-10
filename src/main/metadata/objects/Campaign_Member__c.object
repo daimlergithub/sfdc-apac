@@ -360,6 +360,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cross_Point_Model__c</fullName>
         <externalId>false</externalId>
         <label>Cross Point Model</label>
@@ -412,7 +422,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Customer_Mobile__c</fullName>
         <externalId>false</externalId>
         <formula>Contact_Id__r.Mobile__c</formula>
@@ -666,7 +676,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -953,30 +963,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Created_By_EP_Transaction__c</fullName>
-        <externalId>false</externalId>
-        <label>Created By EP Transaction</label>
-        <length>20</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Updated_By_EP_Transactions__c</fullName>
-        <externalId>false</externalId>
-        <label>Updated By EP Transactions</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <fields>
         <fullName>Retail_Campaign_Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1112,7 +1098,7 @@
                 <fullName>Not Responded</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1144,6 +1130,16 @@
         <externalId>false</externalId>
         <label>Total Vehicle Price without tax</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1255,7 +1251,7 @@ ISPICKVAL( Status__c , "Not Responded")
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
-	<webLinks>
+    <webLinks>
         <fullName>Add_Campaign</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>

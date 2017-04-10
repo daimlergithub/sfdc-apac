@@ -59,8 +59,8 @@ implements TriggerHandlerIf
            // User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
             system.debug('Entered aFTER insert TRIGGER');
             serializedObject=json.serialize(ListAccNew);
-             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-            AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+			AccountHelperJP.createUCID(Trigger.new,trigger.isInsert);
+             AccountHelperJP.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);            
           //  if(usr.Profile.Name.contains('Dealer') && LeadUtil.Campaigntrigger){
            
         //  }
