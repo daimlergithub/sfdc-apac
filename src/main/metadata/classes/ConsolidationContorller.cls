@@ -1,3 +1,11 @@
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to Do Consolidation List Maintenance
+                         Business Conditions :
+                          * Updating Campaign Member Status Based on Dealer List Member                     
+                                         
+************************************************************************************/
 Public Class ConsolidationContorller {
 
 Public  Id camId {set;get;} 
