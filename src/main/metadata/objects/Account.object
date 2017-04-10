@@ -13200,7 +13200,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified By</label>
+        <label>SMS/MMS/IM Last Modified By</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -13220,7 +13220,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified DateTime</label>
+        <label>SMS/MMS/IM Last Modified Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -14804,6 +14804,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>All third-party data</label>
         <language>en_US</language>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_dealers_MBK</fullName>
@@ -14841,7 +14844,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
+			<role>MBK_Management</role>
+		</sharedTo>
     </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
@@ -14884,10 +14888,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>MBK All Customer Accounts</label>
+        <label>MBK All Customer Account</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+			<role>MBK_Management</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -14918,6 +14923,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <value>LAST_WEEK</value>
         </filters>
         <label>New Last Week</label>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>NewThisWeek</fullName>
@@ -14950,6 +14958,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>Platinum and Gold SLA Customers</label>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
