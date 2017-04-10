@@ -39,17 +39,24 @@ public without sharing class MassUpdatenewAssignedusercontroller
             caseList.add(new WrapperMassUpdate(cs));
         }
         }
+        System.debug('Case Records'+ caseList);
         return caseList;
     }
 
     public List<WrapperMassUpdate> getVehicles() {
+     
+     Boolean b = true;
      vehicleList = new List<WrapperMassUpdate>();
      if(accUsr.OwnerId !=null)
         {
-        for(Account_Link__c acc : [SELECT ID,Name,torole__c,Service_Advisor__c,VIN__c,ownerID  FROM Account_Link__c WHERE Service_Advisor__c=:accUsr.OwnerId ]){
-            vehicleList .add(new WrapperMassUpdate(acc));
+        List<Account_Link__c> vehiclalk=new List<Account_Link__c>();
+          vehiclalk=[SELECT ID,Name,torole__c,Service_Advisor__c,VIN__c,ownerID  FROM Account_Link__c WHERE Service_Advisor__c=:accUsr.OwnerId ];
+       System.debug('&&*&*&&*&*&*& vehiclalk'+vehiclalk); 
+        for(Account_Link__c vechicle : vehiclalk){ 
+            vehicleList.add(new WrapperMassUpdate(vechicle,b)); 
         }    
         }
+        system.debug('vehicleList>>>>' + vehicleList);
         return vehicleList ;
     }
 
@@ -87,24 +94,29 @@ public without sharing class MassUpdatenewAssignedusercontroller
         getUserDetails();
          
     }
-    public class WrapperMassUpdate{
+    public class WrapperMassUpdate
+    {
         public Account_Link__c acc{get;set;}
         public Account_Link__c veh{get;set;}
         public Lead__c led{get;set;}
         public case cse{get;set;}
         public Boolean selected{get;set;}
         
-        public WrapperMassUpdate(Account_Link__c a){
-        acc = a;
-        //veh = (Vehicle__c)a;
-       // led = (Lead__c)a;
-        selected = False;
+        public WrapperMassUpdate(Account_Link__c a)
+        {
+            acc = a;
+            //veh = (Vehicle__c)a;
+            // led = (Lead__c)a;
+            selected = False;
         }
-         public WrapperMassUpdate(SObject vh){
-        //acc = (Account)a;
-        veh = (Account_Link__c)vh;
-       // led = (Lead__c)a;
-        selected = False;
+        public WrapperMassUpdate(Account_Link__c vh,Boolean b)
+        {
+            system.debug('vehicle %^%^%%%^'+vh);
+            //acc = (Account)a;
+            veh = (Account_Link__c)vh;
+            // led = (Lead__c)a;
+             system.debug('vehicle %^%^%%%^'+veh);
+            selected = False;
         }
          public WrapperMassUpdate(Lead__c a){
         //acc = (Account)a;
@@ -124,12 +136,18 @@ public without sharing class MassUpdatenewAssignedusercontroller
     
     system.debug('user record: '+usr);
     system.debug('user record: '+usr.id);
+    
+    system.debug('user record:accountList '+accountList);
+    system.debug('user record:vehicleList  '+vehicleList );
+    system.debug('user record:caseList '+caseList);
+    system.debug('user record:LeadList  '+LeadList );
+    
 
          List<Account_Link__c> SelectedAccount =new List<Account_Link__c>();
          List<Account_Link__c> SelectedVehicle =new List<Account_Link__c>();
          List<Lead__c> SelectedLead =new List<Lead__c>();
          List<case> Selectedcase =new List<case>();
-         
+          system.debug('user record: '+usr);
          for(WrapperMassUpdate accupdte: accountList){
              if(accupdte.selected==true){
                  SelectedAccount.add(accupdte.acc);
