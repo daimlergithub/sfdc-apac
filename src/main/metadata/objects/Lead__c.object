@@ -39047,7 +39047,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Wash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Car Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39059,23 +39079,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Participate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Inspection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Repair</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Buy</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Paint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Participate</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39084,6 +39092,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Recall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrofit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
