@@ -36500,10 +36500,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -36516,19 +36512,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Distributed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gave up</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36544,31 +36528,12 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Received</fullName>
-                <default>false</default>
-            </values>
+            
             <values>
                 <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87531,14 +87496,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved %28Waiting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
@@ -87548,10 +87505,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87584,10 +87537,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
