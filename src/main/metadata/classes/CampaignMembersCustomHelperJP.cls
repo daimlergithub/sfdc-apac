@@ -199,6 +199,7 @@ public with sharing class CampaignMembersCustomHelperJP {
 {
    List<Account> accMainList = New List<Account>(); 
    List<Address__c> AddNewList = New List<Address__c>();
+   
      set<id> camAccount = new set<id>();
      for(Campaign_Member__c camp : campgnm)
                 {
@@ -230,16 +231,16 @@ public with sharing class CampaignMembersCustomHelperJP {
                         }
                         
                         }
+						
                 
               For(Address__c add : acc.Addresses__r )
              
                {
                  system.debug('++++++++++'+acc.Addresses__r);
-                 if(add.Address_Last_Modified_Date__c  < campCheck.Campaign_ID__r.Execution_Start_Date__c )
-                {
+                
                      
                      add.Status__c = 'Dead Mail';
-                 }               
+                                
                    AddNewList.add(add);                   
                }
                

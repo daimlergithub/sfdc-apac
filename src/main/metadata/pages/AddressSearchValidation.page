@@ -385,7 +385,7 @@
                 </apex:PageBlock>
                 
                 <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccount}" var="cr" >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
                      
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>    
