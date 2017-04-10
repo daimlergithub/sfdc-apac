@@ -60,7 +60,7 @@ dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
 dev_sb_asia_mrdev=
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
-dev_sb_asia_dev16=avishek.roy@@asia.daimler-apac.com.asiadev16
+dev_sb_asia_dev16=avishek.roy.ntt@mbj.daimler-apac.com.asiadev16
 dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
 dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes

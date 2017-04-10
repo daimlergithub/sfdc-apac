@@ -4,6 +4,9 @@
   Date: 2016-9-23
 */
 public class LeadHelperAccountLinkCreateJP {
+    private static final String alkCompanyRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+    private static final String alkpersonRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+ 
 
     public static void leadAccountDetails(list<Lead__c> leadlst, map<id,Lead__c> leadOldMap, boolean isInsert, boolean isUpdate){
         
@@ -86,10 +89,12 @@ public class LeadHelperAccountLinkCreateJP {
          }*/
          //end
          //Integer dealercount = [select count() from Account_Link__c WHERE toRole__c IN : dealerId AND (fromRole__c IN : AcclinkContactId OR fromRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
-         Integer dealercount = [select count() from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
+         List<Account_Link__c> dealercount = [select id from Account_Link__c WHERE fromRole__c IN : dealerId AND (toRole__c IN : AcclinkContactId OR toRole__c IN : CompanyId) AND (RecordTypeId = :recordTypes.get('Retail_Company') OR RecordTypeId = :recordTypes.get('Retail_Person'))];
          system.debug('########'+dealercount);
+         system.debug('########'+dealercount.size());
+         system.debug('########'+dealercount.isEmpty());
          for(Lead__c led : leadlst){            
-            if(led.Assigned_Dealer__c != null && dealercount == 0){
+            if(led.Assigned_Dealer__c != null && (dealercount.isEmpty() || dealercount==null || dealercount.size() == 0 )){
                  Account_Link__c acclnk = new Account_Link__c(RecordTypeId = recordTypes.get('ContactSector'), toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
                  //accLst.add(acclnk);
                  if(led.Contact__r.RecordTypeId == PersonRecordTypeId){
@@ -140,10 +145,11 @@ public class LeadHelperAccountLinkCreateJP {
                    accLst.add(acclnk);
             }
          }  
+         system.debug('$%%$%$%$$$%'+accLst);
          if(!accLst.isEmpty()){
             //insert accLst;
             
-            Database.SaveResult[] srList = Database.insert(accLst,true);
+            Database.SaveResult[] srList = Database.insert(accLst,false);
             
             
             
@@ -159,8 +165,29 @@ public class LeadHelperAccountLinkCreateJP {
         insert acclinkupdate;    
         }*/
     if(! actlnkids.isEmpty() ){
+    system.debug('%%^%^%^%contactId^%'+actlnkids);
+    system.debug('%%^%^%contactId^%^%'+contactId);
+      if(contactId !=null && actlnkids!=null )
+      {
                LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(contactId, actlnkids);
+               }
            }       
+    }
+    
+    Set<string>  leadrecId=new set<string>();
+   Set<string>   accountlnkid=new set<string>();
+    for(Lead__c leds: leadlst){            
+            if(leds.Assigned_Dealer__c != null && dealercount.size() == 1){
+            for(Account_Link__c alk:dealercount)
+            {
+            accountlnkid.add(alk.id);
+            leadrecId.add(leds.id);
+            }
+    }
+    }
+    if(accountlnkid !=null && leadrecId!=null)
+    {
+    LeadHelperAccountLinkCreateJP.updatingleadAccountDetails(leadrecId, accountlnkid);
     }
     }
     /*Update Retail_Contact__c with the record Id of retail copy of the corresponding Account linked to the Leads record that belongs to the assigned dealer
@@ -169,14 +196,36 @@ public class LeadHelperAccountLinkCreateJP {
      *Japan 2.0
      */
     public static void updatingleadAccountDetails(set<String> leadrecId, set<string> accountlnkid){
+    
+     if(LeadUtil.updatingleadAccountDetails)
+     {
   list<lead__c> leadupdate = new list<lead__c>();
-      list<Lead__c> leadlistrecords = [select id, Name from Lead__c WHERE ID IN : leadrecId]; 
-      Account_Link__c acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: accountlnkid AND (RecordType.DeveloperName = 'Retail_Company' OR RecordType.DeveloperName = 'Retail_Person') limit 1];
+  Account_Link__c acclink=new Account_Link__c ();
+  list<Lead__c> leadlistrecords= new list<lead__c>();
+  if(leadrecId !=null)
+  {
+        leadlistrecords = [select id, Name from Lead__c WHERE ID IN : leadrecId];
+      } 
+      if(accountlnkid !=null )
+      {
+      system.debug('alkCompanyRecordTypeId'+alkCompanyRecordTypeId);
+       system.debug('alkpersonRecordTypeId'+alkpersonRecordTypeId);
+      acclink = [select id,Name, RecordType.DeveloperName from Account_Link__c WHERE id IN: accountlnkid AND (RecordTypeId=:alkCompanyRecordTypeId  OR RecordTypeId =:alkpersonRecordTypeId ) limit 1];
+      
+      }
+      if(leadlistrecords!=null)
+      {
       for(Lead__c ld : leadlistrecords ){
           ld.Retail_Contact__c = acclink.id;
           leadupdate.add(ld);          
       }
+      }
+      if(leadupdate!=null)
+      {
       update leadupdate;
+      }
+      }
+      LeadUtil.updatingleadAccountDetails=false;
   }
   public static void updatingleadcontactDetails(list<Lead__c> leadlst,boolean isInsert, boolean isUpdate ){
   set<String> contctid = new set<string>();

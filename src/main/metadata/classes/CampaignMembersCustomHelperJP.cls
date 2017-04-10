@@ -195,8 +195,7 @@ public with sharing class CampaignMembersCustomHelperJP {
 			*/
 
 
-
-		 Public static void batchbounce(List<Campaign_Member__c> campgnm)
+         Public static void batchbounce(List<Campaign_Member__c> campgnm)
 {
    List<Account> accMainList = New List<Account>(); 
      set<id> camAccount = new set<id>();
@@ -228,17 +227,19 @@ public with sharing class CampaignMembersCustomHelperJP {
                                 acc.Mobile_Status__c = 'Invalid';
              
                         }
-                }
-               /*For(Address__c add : acc.Addresses__r )
+                
+              For(Address__c add : acc.Addresses__r )
+             
                {
                  
-                // if(add.Hardcopy_Last_Modified_Date__c  < campCheck.Campaign_ID__r.Execution_Start_Date__c )
+                 if(add.Address_Last_Modified_Date__c  < campCheck.Campaign_ID__r.Execution_Start_Date__c )
                 {
                      
-                    // acc.Primary_Address_Validity__c = 'Invalid';
-                 //}               
+                     add.Status__c = 'Dead Mail';
+                 }               
                                       
-               }*/
+               }
+               }
             
               accMainList.add(acc);              
               }  
@@ -248,6 +249,7 @@ public with sharing class CampaignMembersCustomHelperJP {
         
         
     }
+   
     
     public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
     	List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};
