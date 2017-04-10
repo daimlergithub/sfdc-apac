@@ -13,9 +13,9 @@
         var recordTypeValue = document.getElementById("singleSelect").value;
         if(recordTypeValue == 'MB'){
         var brandVal = document.getElementById("brandItems").value;
-        var 
-        
-        Val = document.getElementById("classItems").value;
+           
+        var classVal = document.getElementById("classItems").value;
+        Var classVal   = document.getElementById("classItems").value;
         var modelVal = document.getElementById("modelItems").value;  
         var rangeVal = document.getElementById("rangeItems").value; 
         var modpackVal = document.getElementById("mpItems").value; 
