@@ -17,9 +17,10 @@ public class LeadHelperAccountLinkCreateJP
         
         for(Lead__c le : leadlst)
         {
-            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && (le.MD__c == label.MarketJP))
+            
+            if(le.Assigned_Dealer__c != null && le.CAC_Lead_Status__c == 'Allocated' && (le.MD__c == label.MarketJP))
             {
-                if(isInsert || (isUpdate && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c))
+                if(isInsert || (isUpdate && leadOldMap.get(le.id).CAC_Lead_Status__c == 'Approved' && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c))
                 {
                     System.debug('Is Insert OR Update called -----:::::');
                     leadId.add(le.id);
@@ -64,6 +65,7 @@ public class LeadHelperAccountLinkCreateJP
         {
             leadList = [select id,Assigned_Dealer__c,contact__c,Contact__r.RecordTypeId,Company_Account__c,Company_Account__r.RecordTypeId from Lead__c where id =:contactId];
         }
+        system.debug('leadList>>>' + leadList);
         if(!leadList.isEmpty() && leadList != null)
         {
         	for(Lead__c led : leadList)
@@ -81,11 +83,15 @@ public class LeadHelperAccountLinkCreateJP
                     leadassignedDealerId.add(led.Assigned_Dealer__c);
                 }
             }
+            system.debug('leadContactId>>>>' + leadContactId);
+            system.debug('leadcomapanyAccId>>>>' + leadcomapanyAccId);
+            system.debug('leadassignedDealerId>>>>' + leadassignedDealerId);
         }
         retailCopyList = [select id,toRole__c,fromRole__c,RecordtypeId from Account_Link__c where fromRole__c =:leadassignedDealerId 
                       AND (toRole__c =:leadContactId OR toRole__c =:leadcomapanyAccId) 
                       AND (RecordtypeId =:AccountLink_RetailPersonRecordTypeId OR RecordtypeId =:AccountLink_RetailCompanyRecordTypeId)];
-    	if(!retailCopyList.isEmpty() && retailCopyList != null && retailCopyList.size() >0)
+    	system.debug('retailCopyList>>>' +retailCopyList);
+        if(!retailCopyList.isEmpty() && retailCopyList != null && retailCopyList.size() >0)
         {
             for(Lead__c lead : leadList)
             {
@@ -94,14 +100,13 @@ public class LeadHelperAccountLinkCreateJP
                     if(lead.Contact__c == acclnk.toRole__c && lead.Assigned_Dealer__c == acclnk.fromRole__c)
                     {
                         lead.Retail_Contact__c = acclnk.id;
-                        updateLeadList.add(lead);
                     }
                     else if(lead.Company_Account__c == acclnk.toRole__c && lead.Assigned_Dealer__c == acclnk.fromRole__c)
                     {
                         lead.Retail_Company__c = acclnk.Id;
-                        updateLeadList.add(lead);
                     }
                 }
+                updateLeadList.add(lead);
             }
         }
         else
@@ -126,6 +131,7 @@ public class LeadHelperAccountLinkCreateJP
                 }
             }
         }
+        system.debug('insertRetailCopyList>>>' + insertRetailCopyList);
         if(!insertRetailCopyList.isEmpty() && insertRetailCopyList != null)
         {
             Database.SaveResult[] srList = Database.insert(insertRetailCopyList,true);
@@ -148,6 +154,7 @@ public class LeadHelperAccountLinkCreateJP
                 updateLeadList.add(newLeads);
             }
         }
+        system.debug('updateLeadList>>>' + updateLeadList);
         if(!updateLeadList.isEmpty() && updateLeadList != null)
         {
             update updateLeadList;
