@@ -138,6 +138,7 @@
 				<sf:include name="SSI__c"/>
 				<sf:include name="AreaCodeTranslation__mdt"/>
 				<sf:include name="Account_Object__mdt"/>
+				<sf:include name="RegionMasterInfo__c"/>
 			</sf:typeset>
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">						
