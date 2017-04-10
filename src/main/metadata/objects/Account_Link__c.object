@@ -482,7 +482,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
-        <label>Portal Mail Address</label>
+        <label>Portal E-Mail</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -861,7 +861,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Sales_Person_Id__c</fullName>
         <externalId>false</externalId>
-        <label>Sales Representative</label>
+        <label>Sales Person Id</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
@@ -958,7 +958,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>System__c</fullName>
         <externalId>false</externalId>
-        <label>System</label>
+        <label>Mercedes Me Portal</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

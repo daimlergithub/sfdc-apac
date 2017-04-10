@@ -1058,7 +1058,7 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <label>TitleOfHonor</label>
+        <label>Title</label>
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
