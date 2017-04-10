@@ -106,4 +106,478 @@ public static Contact contactObj;
      delete contact2Contact;
       test.stopTest();
    }  
+   
+    public static testMethod void beforeupdateEventAddressTest(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+            
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,Retail_UCID__c,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Gender__c='Male';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+   
+   public static testMethod void beforeupdateEventAddressTest1(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+            
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,Retail_UCID__c,RecordTypeId,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Full_Name__c='sai saranya';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+        public static testMethod void beforeupdateEventAddressTest12(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,Retail_UCID__c,RecordTypeId,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Full_Name_Title__c='Ms';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          //AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+    public static testMethod void beforeupdateEventAddressTest13(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,Retail_UCID__c,RecordTypeId,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_FirstName__c='Sai';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+         public static testMethod void beforeupdateEventAddressTest14(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_Preferred_Language__c='English',Retail_Company_Name__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Company_Name__c='Sai';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                 al1.Retail_Preferred_Language__c='Japan';
+           update al1;
+           update listcampaigns1;
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+   
+    public static testMethod void beforeupdateEventAddressTest15(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_Position__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Position__c='Sai';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
+           al1.Vehicle__c=vecle.id;
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+   
+   public static testMethod void beforeupdateEventAddressTest16(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_Preferred_Language__c='English',Retail_Position__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           
+           al1.Retail_Preferred_Language__c='Japan';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
+           al1.Vehicle__c=vecle.id;
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+       
+        public static testMethod void beforeupdateEventAddressTest17(){
+           
+           
+           Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+            Account accObj1 = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605');
+            insert accobj1;
+            
+             Id recordTypeAccDealerAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId,Name='Dealer',Phone ='09874760605');
+            insert accobj2;
+            
+             Id recordTypeAccDealerAccountObjId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            Account accObj3 = new Account(RecordTypeId = recordTypeAccDealerAccountObjId1,Name='Dealer',Phone ='09874760605');
+            insert accobj3;
+             list<Account_Link__c> listcampaigns=new list<Account_Link__c>();
+             
+            Address__c address1=new Address__c();
+            address1.Address_Type__c='Home';
+            address1.Province__c='test1';
+            address1.City__c='bangalore';
+            address1.District__c='test2';
+            address1.Block__c='test3';
+            address1.Address_Line_1__c='testaddress1';
+            address1.Address_Line_2__c='testaddress2';
+            address1.Customer__c=accobj1.id;
+            address1.TitleOfHonor__c = 'To Person'; 
+            insert address1;
+          
+           
+       
+           List<Account_Link__c> listcampaigns1=new List<Account_Link__c>();
+           
+           Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=accobj1.id,fromRole__c=accobj2.id,Retail_Preferred_Language__c='English',status__c='Last Selling',Retail_Position__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
+            
+            
+           listcampaigns1.add(al1);
+           insert listcampaigns1;
+           
+           Account_Link__c listCampaign =[select Name,toRole__c,Retail_Gender__c,RecordTypeId,Retail_UCID__c,Retail_LastName__c,Status__c,Retail_Full_Name__c,Retail_Full_Name_Title__c,Retail_Full_Name_Native__c,Retail_FirstName__c,Retail_LastName_Native__c,Retail_FirstName_Native__c,Retail_Company_Name__c,Retail_Company_Name_Native1__c,Retail_Preferred_Language__c,Retail_Special_Care__c,Retail_Special_Needs_Class__c,Retail_PersonBirthdate__c,Retail_Occupation__c,Retail_Vat_No__c,Retail_Commercial_Reg_No__c,Retail_Foundation_Month__c,Retail_Website__c,Retail_Industry__c,Retail_Primary_Phone__c,Retail_Allow_Data_Sharing__c,Retail_Delete_Flag__c,Retail_Duplicate_Flag__c,Retail_Email__c,Retail_Individual_Home_Phone__c,Retail_Work_Phone__c,Retail_Mobile__c,Retail_Company_Phone__c,Retail_Company_Other_Phone__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,Retail_ZipCode__c,Retail_Related_Company__c,Retail_Position__c from Account_Link__c where id IN:listcampaigns1 ];
+           list<Account_Link__c> oldList = new  list<Account_Link__c>();
+           oldList.add(listCampaign);
+           map<id,Account_Link__c> oldMap = new map<id,Account_Link__c>();
+           oldMap.put(listCampaign.id, listCampaign);
+           al1.fromRole__c=accobj3.id;
+           al1.Retail_Preferred_Language__c='Japan';
+           al1.Status__c='My Shop';
+           update al1;
+           update listcampaigns1;
+          
+          AccountLinkHelper.ExportNotification(listcampaigns1,oldMap);
+          AccountLinkHelper.afterUpdateEvent(listcampaigns1,oldMap);
+          AccountLinkHelper.afterInsertEvent(listcampaigns1);
+          al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Company Customer External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+           Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accobj1.id);
+           al1.Vehicle__c=vecle.id;
+            al1.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
+          update al1;
+          update listcampaigns1;
+           AccountLinkHelper.afterInsertEvent(listcampaigns1);
+         // AccountLinkHelper.getRelatedIndividualCustomerRecordTypeAccountLink(listcampaigns1);
+                
+         
+               system.assertNotEquals('ggg',listcampaigns1[0].Name);
+           
+       }
+   
 }
