@@ -465,7 +465,7 @@
             <section>Custom Links</section>
         </sections>
     </layouts>
-    <nameFieldLabel><!-- Campaign Member Name --></nameFieldLabel>
+    <nameFieldLabel>キャンペーンメンバーID</nameFieldLabel>
     <validationRules>
         <errorMessage><!-- Status cannot be changed from &apos;Executed&apos; to &apos;Ready or Removed&apos; --></errorMessage>
         <name>StatusChangingFromExecuted</name>
