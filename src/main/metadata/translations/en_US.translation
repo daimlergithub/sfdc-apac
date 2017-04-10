@@ -2864,27 +2864,6 @@
         </sections>
     </reportTypes>
     <reportTypes>
-        <description><!-- Happy Calls Report for aftersales Lead --></description>
-        <label><!-- Happy Calls Report for aftersales Lead --></label>
-        <name>Happy_Calls_Report_for_aftersales_Lead</name>
-        <sections>
-            <label><!-- Accounts --></label>
-            <name>Accounts</name>
-        </sections>
-        <sections>
-            <label><!-- Leads --></label>
-            <name>Leads</name>
-        </sections>
-        <sections>
-            <label><!-- Other_Vehicles --></label>
-            <name>Other_Vehicles</name>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Relationships --></label>
-            <name>Vehicle Relationships</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
         <description><!-- Happy Calls Report --></description>
         <label><!-- Happy Calls Report --></label>
         <name>Happy_Calls_Reports</name>
