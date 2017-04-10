@@ -13281,7 +13281,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified By</label>
+        <label>SMS/MMS/IM Last Modified By</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -13301,7 +13301,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified DateTime</label>
+        <label>SMS/MMS/IM Last Modified Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
