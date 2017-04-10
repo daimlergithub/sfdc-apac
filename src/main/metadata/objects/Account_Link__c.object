@@ -1982,7 +1982,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husbandãƒ»Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2069,7 +2069,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husbandãƒ»Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
