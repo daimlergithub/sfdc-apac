@@ -230,7 +230,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Position__c</field>
+                <field>Retail_Position__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

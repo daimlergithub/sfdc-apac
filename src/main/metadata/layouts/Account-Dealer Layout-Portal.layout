@@ -7,6 +7,9 @@
     <customButtons>New_MB_Complaint</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -571,8 +574,7 @@
         <fields>EndDate__c</fields>
         <fields>Service_Vehicle_VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Account__c</relatedList>
+        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -600,6 +602,37 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>Activity_Status__c</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Start_Call_Time__c</fields>
+        <fields>TASK.CALLDURATION</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>

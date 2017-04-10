@@ -22301,7 +22301,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All aftermarket sales leads</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_presales_leads</fullName>
@@ -22319,7 +22321,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All pre sales cue</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <role>Central</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_smart_Lead</fullName>

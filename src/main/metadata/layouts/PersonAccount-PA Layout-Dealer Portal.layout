@@ -348,11 +348,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Occupation__c</field>
+                <field>Household_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Household_Children__c</field>
+                <field>Occupation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -425,11 +425,11 @@
                 <field>Marital_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Household_Amount__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Household_Children__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -582,10 +582,9 @@
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
-        <fields>VIN__c</fields>
+        <fields>Service_Vehicle_VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Account__c</relatedList>
+        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Competitor_Brand__c</fields>
@@ -659,6 +658,38 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>NewEvent</excludeButtons>
+        <excludeButtons>NewProposeMeeting</excludeButtons>
+        <excludeButtons>NewTask</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>MailMerge</excludeButtons>
+        <excludeButtons>RequestUpdate</excludeButtons>
+        <excludeButtons>SendEmail</excludeButtons>
+        <excludeButtons>ViewAll</excludeButtons>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>Activity_Status__c</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Start_Call_Time__c</fields>
+        <fields>TASK.CALLDURATION</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>

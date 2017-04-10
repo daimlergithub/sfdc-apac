@@ -278,6 +278,9 @@
         <fields>CASES.CASE_NUMBER</fields>
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
