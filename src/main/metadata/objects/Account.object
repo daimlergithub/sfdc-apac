@@ -14844,8 +14844,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-			<role>MBK_Management</role>
-        </sharedTo>
+			<role>MBK_Managements</role>
+		</sharedTo>
     </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
@@ -14888,10 +14888,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>MBK All Customer Accounts</label>
+        <label>MBK All Customer Account</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+			<role>MBK_Managements</role>
         </sharedTo>
     </listViews>
     <listViews>

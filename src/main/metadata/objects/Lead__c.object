@@ -36511,12 +36511,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Lost%28Dealer%29</fullName>
+			<values>
+                <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36524,16 +36528,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Not Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
-            
+            <values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87509,6 +87524,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
