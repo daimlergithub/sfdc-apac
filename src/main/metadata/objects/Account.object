@@ -14844,7 +14844,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-			<role>MBK_Managements</role>
+			<role>MBK_Management</role>
 		</sharedTo>
     </listViews>
     <listViews>
@@ -14892,7 +14892,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-			<role>MBK_Managements</role>
+			<role>MBK_Management</role>
         </sharedTo>
     </listViews>
     <listViews>
