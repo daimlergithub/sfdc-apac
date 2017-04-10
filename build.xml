@@ -116,6 +116,7 @@
 					<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 						<sf:typeset name="objects">
 						<sf:include name="Account"/>
+						<sf:include name="Lead__c"/>
 						</sf:typeset>
 						<sf:typeset name="queues"/>
 						<sf:typeset name="email"/>
