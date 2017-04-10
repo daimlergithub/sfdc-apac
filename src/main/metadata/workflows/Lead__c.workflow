@@ -1309,11 +1309,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
+        <formula>IF(MD__c == &apos;JP&apos; &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;,true,false)</formula>
         <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
