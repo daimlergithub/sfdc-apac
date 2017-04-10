@@ -7,9 +7,12 @@
 public with sharing class AddressHelperJP {
 	static User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
         
-		public static Id personAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+       public static Id personAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+       public static Id comAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
        public static Id retPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();     
+       public static Id retCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();     
        public static Id individualAddRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();     
+    
        
             
        /**             
