@@ -36528,10 +36528,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
-                <fullName>Purchased</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
