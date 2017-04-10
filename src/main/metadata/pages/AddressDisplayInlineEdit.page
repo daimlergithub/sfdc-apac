@@ -233,7 +233,7 @@
                      <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      
                     <apex:inputField value="{!addressobj.Status__c}"/>
-                    <apex:inputField value="{!addressobj.Preferred__c}" rendered="{!IF(AND(market != 'JP',market != 'KR' ),true, false)}"/>
+                    <apex:inputField value="{!addressobj.Preferred__c}" rendered="{!IF(market == 'KR',true, false)}"/>
                     <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>
                     <apex:inputField value="{!addressobj.Temp_Address__c}"/> &nbsp;
                     <apex:pageBlockSectionItem rendered="{!IF(market == 'JP', true, false)}">       
