@@ -202,7 +202,7 @@
     <fields>
         <fullName>Campaign_Member_ID__c</fullName>
         <description>Autonumber field for Campaign Member.</description>
-        <displayFormat>CM-{000000}</displayFormat>
+        <displayFormat>CM-{0000000000}</displayFormat>
         <externalId>false</externalId>
         <label>Campaign Member ID</label>
         <trackTrending>false</trackTrending>

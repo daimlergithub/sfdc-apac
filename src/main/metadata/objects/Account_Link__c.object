@@ -1982,7 +1982,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husbandãƒ»Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2033,10 +2033,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Husband's Wife</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2069,7 +2065,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husbandãƒ»Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2510,7 +2506,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2565,7 +2561,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2746,7 +2742,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2801,7 +2797,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2950,7 +2946,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3005,7 +3001,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3150,7 +3146,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3205,7 +3201,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4914,7 +4910,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4969,7 +4965,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5192,3 +5188,5 @@ alert("Web service callout failed");
 }</url>
     </webLinks>
 </CustomObject>
+
+
