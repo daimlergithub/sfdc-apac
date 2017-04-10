@@ -227,10 +227,6 @@
                 <behavior>Edit</behavior>
                 <field>Primary_Fax_Display__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Annual_Income_Range__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

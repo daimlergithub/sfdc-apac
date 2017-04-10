@@ -1095,10 +1095,10 @@ If the user is Saving  same address which matches the fields returned by toleran
                     {
                         objAccountDeDup.Firstname=response.CustomerIdentificationResponseMessage[0].Customer.Firstname;
                     }
-                  /*  if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
                         objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    } */
+                    } 
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
@@ -1130,26 +1130,26 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {                    
                 CompanyConfirmedMatch=true;
                      
-                   /* if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
+                    if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
                     {
-                        objAccount.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
-                    } */
+                        objAccountDeDup.Id=response.CustomerIdentificationResponseMessage[0].Customer.Id;
+                    } 
                      if(response.CustomerIdentificationResponseMessage[0].Customer.Name!=null)
                     {
-                        objAccount.Name=response.CustomerIdentificationResponseMessage[0].Customer.Name;
+                        objAccountDeDup.Name=response.CustomerIdentificationResponseMessage[0].Customer.Name;
                     }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.vin!=null)
                     {
-                        objAccount.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
+                        objAccountDeDup.vin__c=response.CustomerIdentificationResponseMessage[0].Customer.vin;
                     }
                     system.debug('&&& :'+response.CustomerIdentificationResponseMessage[0].Customer.Email_xc);
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Email_xc != null)
                     {   
-                        objAccount.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
+                        objAccountDeDup.Email__c =response.CustomerIdentificationResponseMessage[0].Customer.Email_xc;
                     }
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc !=null)
                     {
-                        objAccount.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
+                        objAccountDeDup.Mobile__c=response.CustomerIdentificationResponseMessage[0].Customer.Mobile_xc;
                     }
                     
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
@@ -1164,7 +1164,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName OR Name=:objAccount.Name];// and FirstName =: objPersonAccount.FirstName];
+                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName OR Name=:objAccountDeDup.Name];// and FirstName =: objPersonAccount.FirstName];
                  
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
