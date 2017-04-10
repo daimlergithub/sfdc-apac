@@ -1982,7 +1982,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husband・Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2033,10 +2033,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Husband's Wife</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2069,7 +2065,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Husband・Wife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2510,7 +2506,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2565,7 +2561,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2746,7 +2742,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2801,7 +2797,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2950,7 +2946,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3005,7 +3001,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3150,7 +3146,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3205,7 +3201,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4914,7 +4910,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4969,7 +4965,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
+                <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5079,7 +5075,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Retail_Company_Name_Native1__c),
-REGEX(Retail_Company_Name_Native1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(Retail_Company_Name_Native1__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_Company_Name_Native1__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>
@@ -5090,7 +5086,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Retail_FirstName_Native__c),
-REGEX(Retail_FirstName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(Retail_FirstName_Native__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
         <errorMessage>IT Should be KANA Characters</errorMessage>
@@ -5101,7 +5097,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Retail_Full_Name_Native__c),OR(CONTAINS(Retail_Full_Name_Native__c, ' ') ,
-REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")))),$Profile.Name != 'IntegrationAPI', 
+REGEX(Retail_Full_Name_Native__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*")))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_Full_Name_Native__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>
@@ -5112,7 +5108,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Retail_LastName_Native__c),
-REGEX(Retail_LastName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+REGEX(Retail_LastName_Native__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),$Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_LastName_Native__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>
@@ -5192,3 +5188,5 @@ alert("Web service callout failed");
 }</url>
     </webLinks>
 </CustomObject>
+
+

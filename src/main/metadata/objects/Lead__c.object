@@ -36700,6 +36700,22 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Won</fullName>
                 <default>false</default>
             </values>
@@ -39031,7 +39047,27 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Wash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Car Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39047,11 +39083,23 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Participate</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Plus Check</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Recall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retrofit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -40117,7 +40165,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Service</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>TA%26C</fullName>
@@ -40986,7 +41034,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Financed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invoice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -87751,6 +87811,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
@@ -92006,6 +92074,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Loan</fullName>
                 <default>false</default>
             </values>
@@ -92215,6 +92287,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Considering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Inspection Timing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -110060,14 +110136,6 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
-        <active>true</active>
-        <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
-        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"), 
-AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
-        <errorMessage>Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC)</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Lost_To_Whom</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -110616,5 +110684,4 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
-
 
