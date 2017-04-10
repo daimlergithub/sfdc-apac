@@ -2401,87 +2401,6 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Annual_Income_Range__c</fullName>
-        <externalId>false</externalId>
-        <label>Annual Income Range</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Annual_Mileage__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -13281,7 +13200,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified By</label>
+        <label>SMS/MMS/IM Last Modified By</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -13301,7 +13220,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>SMS_Last_Modified_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Mobile Last Modified DateTime</label>
+        <label>SMS/MMS/IM Last Modified Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -14885,6 +14804,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>All third-party data</label>
         <language>en_US</language>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_dealers_MBK</fullName>
@@ -14922,6 +14844,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+			<role>MBK_Management</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -14999,6 +14922,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <value>LAST_WEEK</value>
         </filters>
         <label>New Last Week</label>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>NewThisWeek</fullName>
@@ -15031,6 +14957,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>Platinum and Gold SLA Customers</label>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -15230,77 +15159,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Annual_Income_Range__c</picklist>
-            <values>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20766,77 +20624,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Annual_Income_Range__c</picklist>
-            <values>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26867,77 +26654,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Annual_Income_Range__c</picklist>
-            <values>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Behavioural_Group__c</picklist>
             <values>
                 <fullName>Attriter</fullName>
@@ -32672,77 +32388,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Annual_Income_Range__c</picklist>
-            <values>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -49247,77 +48892,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Annual_Income_Range__c</picklist>
-            <values>
-                <fullName>Range 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 11</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 12</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 13</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 14</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 15</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 16</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 17</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Range 9</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Behavioural_Group__c</picklist>
             <values>
                 <fullName>Attriter</fullName>
@@ -54164,20 +53738,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
-        <fullName>Account_Name_Fullchar</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-RecordType.DeveloperName = 'Company',
-ISBLANK( Name ),
-REGEX(Name , 
-"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>Account Name should be entered in KANA characters.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
@@ -54580,20 +54140,6 @@ FirstName  value &gt; 20 letters.</description>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>First_Name_Fullchar</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-RecordType.DeveloperName = 'Person Account',
-ISBLANK( FirstName ),
-REGEX(FirstName , 
-"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>FirstName</errorDisplayField>
-        <errorMessage>First Name should be entered in KANA characters.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>First_Name_Native_1_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(
@@ -54829,20 +54375,6 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Last_Name_Fullchar</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT(
-OR(
-RecordType.DeveloperName = 'Person Account',
-ISBLANK( LastName ),
-REGEX(LastName , 
-"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'JP')</errorConditionFormula>
-        <errorDisplayField>LastName</errorDisplayField>
-        <errorMessage>Last Name should be entered in KANA characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Native_1_Fullchar</fullName>
