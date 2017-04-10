@@ -545,7 +545,7 @@
         <name>CaseContentStatus</name>
     </customLabels>
     <customLabels>
-        <label>伝票番号</label>
+        <label>ケース番号</label>
         <name>CaseNumber</name>
     </customLabels>
     <customLabels>
@@ -1577,6 +1577,10 @@
         <label><!-- QC Mass Calibration Title --></label>
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
+	<customLabels>
+        <label>詳細は別設計書を参照シート</label>
+        <name>RET_02_01_ServiceAmountView</name>
+    </customLabels>
     <customLabels>
         <label>受付</label>
         <name>Reception</name>
@@ -1608,6 +1612,10 @@
     <customLabels>
         <label><!-- Label used in Task View Acc button --></label>
         <name>Related_Acc_not_present</name>
+    </customLabels>
+	<customLabels>
+        <label>契約詳細情報</label>
+        <name>Related_Dealer_View_for_Contract</name>
     </customLabels>
     <customLabels>
         <label><!-- Report Title1 TA Tracing --></label>

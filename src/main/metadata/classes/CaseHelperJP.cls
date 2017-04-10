@@ -1,4 +1,5 @@
-public class CaseHelperJP {
+public class CaseHelperJP 
+{
     
     public Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
@@ -6,41 +7,71 @@ public class CaseHelperJP {
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+   public List<Account> accUpdLst = new List<Account>();    
+
         
-    public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map){
+    public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map)
+    {
         system.debug('Trigger Old Map...' +case_Map);
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
-        for (Case c : cases){
-            if (c.MD__c == 'JP' || c.MD__c == 'KR'){
+		List<Id> newAccoutIds = new List<Id>();
+        for (Case c : cases)
+        {
+            if (c.MD__c == 'JP' || c.MD__c == 'KR')
+            {
+
                 Case caseRec = (Case)case_Map.get(c.Id);
-                if (c.AccountId != caseRec.AccountId){
+                if (c.AccountId != caseRec.AccountId)
+                {
                     List<Integer> count = acc_Count.get(caseRec.AccountId);
-                    if (count == null){
+                    if (count == null)
+                    {
                         acc_Count.put(caseRec.AccountId, new List<Integer>{1});
-                    }else{
+                    }
+                    else
+                    {
                         count[0]++;
                     }
                     accounts.add(caseRec.AccountId);               
+                }else{
+                    newAccoutIds.add(c.AccountId);
                 }
-             }
+            }
         }
         
         System.debug('Count of the Accounts changed...' +acc_Count);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
-                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
-                                      AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
-                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];    
+                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND (MD__c = 'JP' OR MD__c = 'KR')
+                                      AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')];  
         
-        
-                   
-        for(Case c : case_acc){
-            tmpCaseIds = accountCaseMap.get(c.AccountId);
-            if (tmpCaseIds == null){
-                accountCaseMap.put(c.AccountId, new List<Id>{c.Id});
+
+        List<Account> accLst = new List<Account>([select id, Complaint_Amount__c from Account where id in: newAccoutIds]);
+        for(Account acc: accLst){
+            if(acc.Complaint_Amount__c > 0){
+                acc.Complaint_Amount__c = acc.Complaint_Amount__c+1;
             }else{
+                acc.Complaint_Amount__c = 1;
+            }
+                accUpdLst.add(acc);
+        }
+        if(accUpdLst.size()>0){
+            update accUpdLst;
+        }
+
+        
+        
+        for(Case c : case_acc)
+        {
+            tmpCaseIds = accountCaseMap.get(c.AccountId);
+            if (tmpCaseIds == null)
+            {
+                accountCaseMap.put(c.AccountId, new List<Id>{c.Id});
+            }
+            else
+            {
                 tmpCaseIds.add(c.Id);
             }
         }
@@ -48,40 +79,52 @@ public class CaseHelperJP {
         accounts = new Set<Id>();
         accounts = accountCaseMap.keySet();
         List<Account> accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts];
-        for (Account acc : accRecords){
-           List<Id> caseIds = accountCaseMap.get(acc.Id);
-           List<Integer> caseCount = acc_Count.get(acc.Id);
-           acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
-           updateAccount.add(acc);
+
+        for (Account acc : accRecords)
+        {
+            List<Id> caseIds = accountCaseMap.get(acc.Id);
+            List<Integer> caseCount = acc_Count.get(acc.Id);
+            acc.Complaint_Amount__c = caseIds.size()-caseCount[0];
+            updateAccount.add(acc);
         }
         system.debug('Accounts to be updated...' +updateAccount);
-        update updateAccount;
+        if(updateAccount.size()>0){
+            update updateAccount;
+        }
     }
     
-    public void calculateComplaintAmount(List<Case> cases){
+    public void calculateComplaintAmount(List<Case> cases)
+    {
         system.debug('Incoming Cases...' +cases);
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
-        for(Case c : cases){
-            if(c.MD__c == 'JP' || c.MD__c == 'KR'){
+        for(Case c : cases)
+        {
+            if(c.MD__c == 'JP' || c.MD__c == 'KR')
+            {
                 accounts.add (c.AccountId);
             } 
         }                       
         system.debug('Accounts...' +accounts);
         
         List<Case> case_acc = [Select Id, AccountId From Case 
-                                      Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
+                               Where (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
                                       AND Case_Class__c = 'Complaint') OR (AccountId IN :accounts AND RecordTypeId =:caseInquiryRec_Id AND MD__c = 'JP'
-                                      AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
-                                      AND Case_Class__c = 'Complaint' and MD__c = 'KR')]; 
+                                                                           AND Case_Class__c = 'Claim') OR (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id 
+                                                                                                            AND Case_Class__c = 'Complaint' and MD__c = 'KR')]; 
         
         system.debug('Case_acc...' +case_acc);
-        if (case_acc != null && !case_acc.isEmpty()){                                         
-            for(Case c : case_acc){
+        if (case_acc != null && !case_acc.isEmpty())
+        {                                         
+            for(Case c : case_acc)
+            {
                 tmpCaseIds = accountCaseMap.get(c.AccountId);
-                if (tmpCaseIds == null){
+                if (tmpCaseIds == null)
+                {
                     accountCaseMap.put(c.AccountId, new List<Id>{c.Id});
-                }else{
+                }
+                else
+                {
                     tmpCaseIds.add(c.Id);
                 }
             }
@@ -90,21 +133,26 @@ public class CaseHelperJP {
             accounts = new Set<Id>();
             accounts = accountCaseMap.keySet();
             accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts];
-            for (Account acc : accRecords){
-               List<Id> caseIds = accountCaseMap.get(acc.Id);
-               acc.Complaint_Amount__c = caseIds.size();
-               updateAccount.add(acc);
+            for (Account acc : accRecords)
+            {
+                List<Id> caseIds = accountCaseMap.get(acc.Id);
+                acc.Complaint_Amount__c = caseIds.size();
+                updateAccount.add(acc);
             }
             system.debug('Accounts to be updated...' +updateAccount);
-        }else{
+        }
+        else
+        {
             Set<Id> accountIds = new Set<Id>();
-            for (Id accId : accounts){
+            for (Id accId : accounts)
+            {
                 accountIds.add(accId);
             }
             accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accountIds];
-            for (Account acc : accRecords){
-               acc.Complaint_Amount__c = 0;
-               updateAccount.add(acc);
+            for (Account acc : accRecords)
+            {
+                acc.Complaint_Amount__c = 0;
+                updateAccount.add(acc);
             } 
         }
         update updateAccount;                                                                                                                 
@@ -134,7 +182,7 @@ public class CaseHelperJP {
         
      for(Case ca :CaseList){
        
-       ca.Status = 'In Progress';
+       ca.Status = 'Waiting for Response approval';
       
      
      }
@@ -596,115 +644,126 @@ List<Account> accUpdLst = new List<Account>();
         
     }
     
+
     
-      public static void countchildcase(List<Case> cases,List<case> oldcases){
-      Id caseinquiryrt= Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
-        Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Id companyacctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-        string dealercode;
-      set<case > newcaseids=new set<case >();
-      Set<id> casedealeraccids=new Set<Id>();
-    Set<id> delaccidcase=new Set<Id>();
-    Set<id> delcasedealer=new Set<Id>();
-     
-       set<id> accdealerids=new set<id>();
-       if(trigger.isInsert||trigger.isUpdate){
- 
-      for(case ca:cases) {
-         newcaseids.add(ca);
-         casedealeraccids.add(ca.Case_Dealer__c);
-      }          
-           
-        // fetch all the account records which are related with case and have same dealer GC Code value.
-    String dealerGCcode;
-    List<Account> accdealer =[select id,name, Dealer_GC_Code__c ,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Links1__r),(select id, Case_Dealer__c,accountId from Dealer__r) from Account where id=:casedealeraccids  AND RecordTypeId=:dealeracctrt ];
-    for(Account ac:accdealer){
-      dealerGCcode=ac.Dealer_GC_Code__c; 
-    }
-    List<Account> sameaccdealer=[select id,name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c=:dealerGCcode AND RecordTypeId=:dealeracctrt];
-  
-   
-        for(Account adeal: sameaccdealer){
+      public static void countchildcase(List<Case> cases,List<case> oldcases)
+      {
+          Id caseinquiryrt= Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+          Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+          Id companyacctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+          string dealercode;
+          List<Account> accdealer = new List<Account>();
+          set<case > newcaseids=new set<case >();
+          Set<id> casedealeraccids=new Set<Id>();
+          Set<id> delaccidcase=new Set<Id>();
+          Set<id> delcasedealer=new Set<Id>();
+          List<Account_Link__c> relatedacctlnkList = new List<Account_Link__c>();
+          set<id> accdealerids=new set<id>();
+          for(case ca:cases) 
+              {
+                  if(ca.RecordTypeId == caseinquiryrt && (ca.Case_Class__c =='Complaint' || ca.Case_Class__c == 'Claim'))
+                  {
+                      newcaseids.add(ca);
+                      casedealeraccids.add(ca.Case_Dealer__c);
+                  }
+              }          
+              
+              // fetch all the account records which are related with case and have same dealer GC Code value.
+              String dealerGCcode;
+          if(!casedealeraccids.isEmpty() && casedealeraccids != null)
+          {
+              accdealer =[select id,name, Dealer_GC_Code__c ,(select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Links1__r),(select id, Case_Dealer__c,accountId from Dealer__r) from Account where id=:casedealeraccids  AND RecordTypeId=:dealeracctrt ];
+          }
+              for(Account ac:accdealer)
+              {
+                  dealerGCcode=ac.Dealer_GC_Code__c; 
+              }
+              List<Account> sameaccdealer=[select id,name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c=:dealerGCcode AND RecordTypeId=:dealeracctrt];
+              
+              
+              for(Account adeal: sameaccdealer)
+              {
+                  
+                  accdealerids.add(adeal.id);
+              } 
+              Map<id,id> mapofcasefromids=new Map<id,id>(); 
+              Map<id,id> mapofcasetoids=new Map<id,id>();
+              List<case> casedealercount=new List<case>(); 
+              set<id> caseaccountid=new set<id>(); 
+              set<id> casedealeraccid=new set<id>(); 
+              // fetch all the case records related to Accounts having same dealer GC code
+              List<case> caselst= [select id,accountId ,Case_Dealer__r.Dealer_GC_Code__c,Case_Dealer__c from case where Case_Dealer__c=:accdealerids AND  RecordTypeId=:caseinquiryrt];
+              
+              for(case cs:caselst)
+              {
+                  caseaccountid.add(cs.accountId);
+                  casedealeraccid.add(cs.Case_Dealer__c );
+                  casedealercount.add(cs);
+                  mapofcasefromids.put(cs.accountId, cs.accountId );
+                  
+                  mapofcasetoids.put(cs.Case_Dealer__c , cs.Case_Dealer__c );
+                  
+              }   
+              
+              //fetch all  the account link record which is related with case
+              List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
+              
+              system.debug('relatedacctlnk>>>>>>' + relatedacctlnk);
+              // for insert and update trigger 
+              for(Account_Link__c al :relatedacctlnk)
+              {  
+                  if(mapofcasetoids.containsKey(al.fromRole__c) &&  mapofcasefromids.containsKey(al.toRole__c ) )
+                      if((mapofcasetoids.get(al.fromRole__c)==al.fromRole__c) &&( mapofcasefromids.get(al.toRole__c )==al.toRole__c) )
+                  {
+                      al.Retail_Complaint_Amount__c=casedealercount.size();
+                      relatedacctlnkList.add(al);
+                  }
+              }
+          system.debug('relatedacctlnkList>>>>' + relatedacctlnkList);
+              update relatedacctlnkList; 
           
-        accdealerids.add(adeal.id);
-          } 
-            Map<id,id> mapofcasefromids=new Map<id,id>(); 
-            Map<id,id> mapofcasetoids=new Map<id,id>();
-        List<case> casedealercount=new List<case>(); 
-        set<id> caseaccountid=new set<id>(); 
-         set<id> casedealeraccid=new set<id>(); 
-         // fetch all the case records related to Accounts having same dealer GC code
-   List<case> caselst= [select id,accountId ,Case_Dealer__r.Dealer_GC_Code__c,Case_Dealer__c from case where Case_Dealer__c=:accdealerids AND  RecordTypeId=:caseinquiryrt];
-  
-         for(case cs:caselst){
-         caseaccountid.add(cs.accountId);
-         casedealeraccid.add(cs.Case_Dealer__c );
-         casedealercount.add(cs);
-         mapofcasefromids.put(cs.accountId, cs.accountId );
-         
-          mapofcasetoids.put(cs.Case_Dealer__c , cs.Case_Dealer__c );
-         
-         }   
-  
-    //fetch all  the account link record which is related with case
-List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
-  
-     
-       // for insert and update trigger 
-    
-           
-         
-            for(Account_Link__c al :relatedacctlnk){  
-            if(mapofcasetoids.containsKey(al.fromRole__c) &&  mapofcasefromids.containsKey(al.toRole__c ) )
-            if((mapofcasetoids.get(al.fromRole__c)==al.fromRole__c) &&( mapofcasefromids.get(al.toRole__c )==al.toRole__c) )
-            
-            al.Retail_Complaint_Amount__c=casedealercount.size();
-            }
-           
-           
-           
-           update relatedacctlnk; 
-           }
-           
-     // for delete trigger
-      List<case> deletedcasedealer=new List<case>();
-    Map<Id,Id> MapOfaccountId =new Map<Id,Id>();
-      Map<Id,Id> MapOfdealerId=new Map<Id,Id>();
-      set<case > oldcaseids=new Set<case >();
-      
-      if(trigger.isDelete){
-   
-  for(case c:oldcases){
-                   delaccidcase.add(c.accountId);
-             delcasedealer.add(c.Case_Dealer__c);
-         deletedcasedealer.add(c);
-       MapOfaccountId.put(c.accountId,c.accountId);
-       MapOfdealerId.put(c.Case_Dealer__c,c.Case_Dealer__c);
-  }
-  
-  //fetch all the account link records whose Account1 and Account2 are related with case record which we are trying to delete
-  
-    List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delcasedealer  AND toRole__c  IN:delaccidcase ];
-                
-    for(Account_Link__c al :relatedacclnk){  
-            if((MapOfdealerId.get(al.fromRole__c)==al.fromRole__c) && (MapOfaccountId.get(al.toRole__c)==al.toRole__c)){
-                   al.Retail_Complaint_Amount__c=al.Retail_Complaint_Amount__c-deletedcasedealer.size();
-               } 
-           }  
-      update relatedacclnk;
-      }     
- }
+          
+          // for delete trigger
+          List<case> deletedcasedealer=new List<case>();
+          Map<Id,Id> MapOfaccountId =new Map<Id,Id>();
+          Map<Id,Id> MapOfdealerId=new Map<Id,Id>();
+          set<case > oldcaseids=new Set<case >();
+          
+          if(trigger.isDelete)
+          {
+              
+              for(case c:oldcases)
+              {
+                  delaccidcase.add(c.accountId);
+                  delcasedealer.add(c.Case_Dealer__c);
+                  deletedcasedealer.add(c);
+                  MapOfaccountId.put(c.accountId,c.accountId);
+                  MapOfdealerId.put(c.Case_Dealer__c,c.Case_Dealer__c);
+              }
+              
+              //fetch all the account link records whose Account1 and Account2 are related with case record which we are trying to delete
+              
+              List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delcasedealer  AND toRole__c  IN:delaccidcase ];
+              
+              for(Account_Link__c al :relatedacclnk)
+              {  
+                  if((MapOfdealerId.get(al.fromRole__c)==al.fromRole__c) && (MapOfaccountId.get(al.toRole__c)==al.toRole__c))
+                  {
+                      al.Retail_Complaint_Amount__c=al.Retail_Complaint_Amount__c-deletedcasedealer.size();
+                  } 
+              }  
+              update relatedacclnk;
+          }     
+      }
+
 
     public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
        List<Id> caseIds = new List<Id>();
-         if(action == 'isUpdate')
-         {
-           for(case cs: LstnewCase)
-           {
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c)
-               {
+         if(action == 'isUpdate'){
+           for(case cs: LstnewCase){
+               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
                    caseIds.add(cs.id);                
-               }
+                }
            }        
        }
         if(action == 'isInsert'){
@@ -719,5 +778,26 @@ List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_
            
            shareAccountRecord.shareAccountRecordNow(caseIds);
        }
+    }
+	
+    public void updateCaseDealer(List<case> dealerCaseList)
+    {
+        List<User> userList = new List<User>();
+        set<id> userid = new set<id>();
+        userList = [select id,Market__c,Profile.UserLicense.Name,ContactId,Contact.Accountid from User where id =:Userinfo.getUserId()];
+        
+        for(Case delcase: dealerCaseList)
+        {
+            if(!userList.isEmpty() && userList != null)
+            {
+                for(User u : userList)
+                {
+                    if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
+                    {
+                        delcase.Case_Dealer__c = u.Contact.AccountId;
+                    }
+                }
+            }
+        }
     }
  }

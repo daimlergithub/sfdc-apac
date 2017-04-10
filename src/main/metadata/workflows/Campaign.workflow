@@ -29,6 +29,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Active</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Active flag check</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approved</fullName>
         <field>Status</field>
@@ -289,6 +298,32 @@ RecordType.Name,
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Active Flag For Campaign Management</fullName>
+        <actions>
+            <name>Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <description>Automaticall make active field true for Planning &amp; design /Campaign Execution record types of campaign</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 	<rules>
         <fullName>Execution start date Notification to WS Users</fullName>

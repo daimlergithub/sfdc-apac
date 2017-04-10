@@ -21,15 +21,22 @@ public  class UtilCustomSettingsJP {
   */ 
   public static  List<Trigger__c> customSettingDetails()
   {
-    
-      Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-      updatecustomsetting.add(AttachmentAfter);
+      // ***************   JP Market   ***************
       
+      Trigger__c AttachmentAfter=new Trigger__c(Name='AttachmentAfter',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+      updatecustomsetting.add(AttachmentAfter);
+	  
+	  Trigger__c AttachmentAfterKER=new Trigger__c(Name='AttachmentAfterKER',Trigger_Name__c='AttachmentAfter',Trigger_Handler__c='AttachmentAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(AttachmentAfterKER);
+
       Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerAddress);
       
       Trigger__c CampaignMemberAfterTrigger=new Trigger__c(Name='CampaignMemberAfterTrigger',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(CampaignMemberAfterTrigger);
+	  
+	  Trigger__c CampaignMemberAfterTriggerKER=new Trigger__c(Name='CampaignMemberAfterTriggerKER',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(CampaignMemberAfterTriggerKER);
       
       Trigger__c CaseTrigger=new Trigger__c(Name='CaseTrigger',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='CaseTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(CaseTrigger);
@@ -63,6 +70,9 @@ public  class UtilCustomSettingsJP {
       
       Trigger__c TriggerCampaign=new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaign);
+	  
+	  Trigger__c TriggerCampaignCityKER=new Trigger__c(Name='TriggerCampaignCityKER',Trigger_Name__c='TriggerCampaignCity',Trigger_Handler__c='TriggerCampaignCityTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
+      updatecustomsetting.add(TriggerCampaignCityKER);
       
       Trigger__c TriggerCampaignCity=new Trigger__c(Name='TriggerCampaignCity',Trigger_Name__c='TriggerCampaignCity',Trigger_Handler__c='TriggerCampaignCityTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerCampaignCity);
@@ -88,8 +98,37 @@ public  class UtilCustomSettingsJP {
       Trigger__c TriggerLead=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
       updatecustomsetting.add(TriggerLead);
     
-    Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
-       updatecustomsetting.add(TriggerVehicleRelationship);        
+      Trigger__c TriggerVehicleRelationship=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+      updatecustomsetting.add(TriggerVehicleRelationship);    
+      
+      // ***************   KR Market   ***************
+      
+      Trigger__c CaseTriggerKR=new Trigger__c(Name='CaseTriggerKR',Trigger_Name__c='CaseTrigger',Trigger_Handler__c='TriggerCaseTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(CaseTriggerKR);   
+
+      Trigger__c RetailTaskTriggerKR=new Trigger__c(Name='RetailTaskTriggerKR',Trigger_Name__c='RetailTaskTrigger',Trigger_Handler__c='RetailTaskTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(RetailTaskTriggerKR);
+      
+      Trigger__c TaskTriggerKr=new Trigger__c(Name='TaskTriggerKr',Trigger_Name__c='TaskTrigger',Trigger_Handler__c='TaskTriggerHandlerKr',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TaskTriggerKr);
+      
+      Trigger__c TriggerAccountKR=new Trigger__c(Name='TriggerAccountKR',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerAccountKR);
+      
+      Trigger__c TriggerAddressKR=new Trigger__c(Name='TriggerAddressKR',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerAddressKR);
+      
+      Trigger__c TriggerCampaignKR=new Trigger__c(Name='TriggerCampaignKR',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerCampaignKR);
+      
+      Trigger__c TriggerDMRequestKR=new Trigger__c(Name='TriggerDMRequestKR',Trigger_Name__c='TriggerDMRequest',Trigger_Handler__c='TriggerDMRequestTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerDMRequestKR);
+      
+      Trigger__c TriggerLeadKR=new Trigger__c(Name='TriggerLeadKR',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerLeadKR);
+      
+      Trigger__c TriggerVehicleRelationshipKR=new Trigger__c(Name='TriggerVehicleRelationshipKR',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+      updatecustomsetting.add(TriggerVehicleRelationshipKR);
    
       
    return updatecustomsetting;

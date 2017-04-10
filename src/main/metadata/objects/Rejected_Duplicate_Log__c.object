@@ -58,6 +58,19 @@ Description: To support this solution we can create a new custom object to track
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>DUPNumber__c</fullName>
+        <description>Requirement: US-DD-002
+CreateBy: Mouse Liu
+CreatedDate: 2013-06-08</description>
+        <externalId>false</externalId>
+        <label>DUP Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Duplicate_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Requirement: US-DD-002
@@ -80,19 +93,6 @@ CreatedDate: 2013-06-08</description>
         <externalId>false</externalId>
         <label>Duplicate Reason Code</label>
         <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>DUPNumber__c</fullName>
-        <description>Requirement: US-DD-002
-CreateBy: Mouse Liu
-CreatedDate: 2013-06-08</description>
-        <externalId>false</externalId>
-        <label>DUP Number</label>
-        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -154,6 +154,7 @@ CreatedDate: 2013-06-08</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>

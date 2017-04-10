@@ -71,7 +71,7 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Content_Preview__c</field>
             </layoutItems>

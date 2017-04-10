@@ -21,6 +21,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -51,7 +55,7 @@
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AMG_Classification__c</fullName>
         <externalId>false</externalId>
@@ -515,7 +519,7 @@
                 <fullName>Opel</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2399,12 +2403,5 @@ IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'), '
         <searchResultsAdditionalFields>Series__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Read</sharingModel>
-    <validationRules>
-        <fullName>Model_Required</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(OR(ISBLANK(TEXT(Model__c)),ISBLANK(TEXT(Brand__c)),ISBLANK(TEXT(Series__c))),$Profile.Name != 'IntegrationAPI',MD__c= 'KR')</errorConditionFormula>
-        <errorDisplayField>Model__c</errorDisplayField>
-        <errorMessage>Model is Mandatory.</errorMessage>
-    </validationRules>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

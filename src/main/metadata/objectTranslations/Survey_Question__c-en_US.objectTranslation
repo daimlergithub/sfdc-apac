@@ -43,6 +43,11 @@
         <name>Single_FreeText_Next_Question_No__c</name>
     </fields>
     <fields>
+        <label><!-- Survey Answer Id --></label>
+        <name>Survey_Answer_Id__c</name>
+        <relationshipLabel><!-- Survey Questions --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Survey --></label>
         <name>Survey__c</name>
         <relationshipLabel><!-- SurveyQuestions --></relationshipLabel>

@@ -97,9 +97,12 @@ public class SendAccountInfoToSPO {
     }
      Catch(CalloutException e)
                    {
-                   
+                    String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
                    ShowHideError=True; 
-                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));     
+                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, errMessageText));     
                   
                   }          
     

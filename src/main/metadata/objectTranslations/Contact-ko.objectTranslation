@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>전화 수신 거부</value>
+        </caseValues>
+        <name>do_not_call_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>이름(영문)</value>
+        </caseValues>
+        <name>first_name_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>이름(한글)</value>
+        </caseValues>
+        <name>last_name_contact</name>
+    </fields>
+    <fields>
         <label><!-- Business Phone --></label>
         <name>Business_Phone__c</name>
     </fields>

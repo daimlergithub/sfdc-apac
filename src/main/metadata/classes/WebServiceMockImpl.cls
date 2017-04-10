@@ -20,23 +20,22 @@ global class WebServiceMockImpl implements WebServiceMock {
                address.Province = 'province';
                address.ZipCode = '1040041';
                address.MarketDiscriminator = 'JP';
-			   address.valid = true;
+               address.valid = true;
+               address.ValidFields = 'Address_Line_1__c,Address_Line_2__c,Block__c,City__c,District__c,Province__c';
                list<crmasiaDaimlerApacComValidateaddress.Address> addresses = new list<crmasiaDaimlerApacComValidateaddress.Address>();
+               system.debug('## single address value'+address);
                addresses.add(address);
+               system.debug('## list of addressess'+addresses);
+               
                crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType responseMsg = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
+               
                responseMsg.ValidationStatus  = 'OK';
                responseMsg.Addresses = addresses;
-               
-               
-               
-               
-               
+               system.debug('responseMsg  :'+responseMsg );
                crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse response_x = new crmasiaDaimlerApacComValidateaddress.ValidateAddressResponse();
                response_x.AddressValidationResponseMessage = responseMsg;
-          
-       
-               
-       response.put('response_x',response_x );
+  
+       response.put('response_x',response_x);
                
    }
 }

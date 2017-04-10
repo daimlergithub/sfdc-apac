@@ -100,7 +100,7 @@ public class GenerateCatalogueCsvTest
         test.startTest();
         string retString = GenerateCatalogueCsv.getDMRequests();
         test.stopTest();
-        //system.assertNotEquals('true', retString);
+        system.assertNotEquals('true', retString);
         
     } 
     
@@ -137,7 +137,7 @@ public class GenerateCatalogueCsvTest
         DealerAccount.Province__c='Province1';
         DealerAccount.City__c='Test';
         DealerAccount.Email__c='test@mbj.com';
-      
+        DealerAccount.Mobile__c ='111-111-1111';
         DealerAccount.ZipCode__c = '1021421';
         DealerAccount.MBK_Data_Source__c = 'IB Call';
         insert DealerAccount;
@@ -151,7 +151,7 @@ public class GenerateCatalogueCsvTest
         objAccount.City__c='Test';
         objAccount.ZipCode__c = '1003425';
         objAccount.Email__c='test@mbj.com';
-       
+        objAccount.Mobile__c ='111-111-1111';
         objAccount.Phone = '08022420181';
         objAccount.Main_Dealer__c = DealerAccount.id;
         objAccount.MBK_Data_Source__c = 'IB Call';
@@ -188,7 +188,7 @@ public class GenerateCatalogueCsvTest
         Dmr2.Expected_DM_Material2__c = Dmm.id;
         Dmr2.Expected_DM_Material3__c = Dmm.id;
          Dmr2.Zip_Code__c = '1040031';
-        
+
         Dl = new Dealer_Locator__c();
         Dl.Post_Code__c = '1040031';
         Dl.Dealer_Name__c = DealerAccount.id;

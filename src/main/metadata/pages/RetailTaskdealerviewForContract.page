@@ -1,6 +1,6 @@
 <apex:page standardController="Retail_Task__c" extensions="dealerViewForContract" showHeader="false" sidebar="false">
     <apex:form >
-        <apex:pageBlock title="Related Dealer view for Contract">
+        <apex:pageBlock title="{!$Label.Related_Dealer_View_for_Contract}">
             <apex:pageBlockSection columns="2">
             
               <apex:pageBlockSectionItem >                 
@@ -105,5 +105,3 @@
         </apex:pageBlock>
     </apex:form>
 </apex:page>
-                
-				

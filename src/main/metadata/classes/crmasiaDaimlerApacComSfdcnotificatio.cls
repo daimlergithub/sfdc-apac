@@ -3,6 +3,7 @@
 public class crmasiaDaimlerApacComSfdcnotificatio {
     public class SFDCNotificationResponseMessageType {
         public String TransactionId;
+        public  SFDCNotificationFaultType f=new SFDCNotificationFaultType();
         private String[] TransactionId_type_info = new String[]{'TransactionId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','false','false'};
         private String[] field_order_type_info = new String[]{'TransactionId'};
@@ -148,6 +149,9 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
             crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
             Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
             response_map_x.put('response_x', response_x);
+            SFDCNotificationFaultType fault=new SFDCNotificationFaultType();
+             crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType fal=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType();
+                
             WebServiceCallout.invoke(
               this,
               request_x,
@@ -160,7 +164,19 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
               'SFDCNotificationResponse',
               'crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType'}
             );
+             
+           
             response_x = response_map_x.get('response_x');
+            String tranaction;
+             fal.ErrorCode=response_x.f.ErrorCode;
+             System.debug('@@@@@@  fal.ErrorCode'+fal.ErrorCode);
+            String falutcodes=fault.ErrorMessageText;
+             System.debug('@@@@@@ falutcodes'+falutcodes);
+            tranaction=response_x.TransactionId +' '+ response_x.f.TransactionId;
+            tranaction=response_x.f.TransactionId;
+            tranaction=response_x.f.ErrorCode;
+            System.debug('@@@@@@ tranaction'+tranaction);
+            System.debug('@@@@@@ response_x'+response_x);
             return response_x.TransactionId;
         }
         public String SPOCustomerNotification(String Organization,String MarketDiscriminator,String CustomerId,String DealerId) {

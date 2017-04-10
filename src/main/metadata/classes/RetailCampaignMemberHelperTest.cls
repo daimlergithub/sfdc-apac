@@ -22,16 +22,22 @@ public class RetailCampaignMemberHelperTest {
               }
               
             public static void prepareTestData()
-            {List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            {
+				List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+
             //insert updatecustomsettings;
             Trigger__c newtrg = new Trigger__c(Name= 'TriggerDMRequest1',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
                                enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
-        insert newtrg;
-          
+			insert newtrg;
+
+            insert updatecustomsettings;
+            
+				/*
+
                List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerRetailCampaignMember'];
                    if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
                        upsert new Trigger__c(Name = 'TriggerRetailCampaignMember', Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true,Market__c='JP');
-                   }
+                   }*/
                   thirdParty = new Account(LastName = 'Test Amit', RecordTypeId =thirdPartyRTID, Phone ='02345678921',PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989',Retail_Mobile__c='0231456949',Retail_Work_Phone__c='0231056989');
                    insert thirdParty;
                    dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType,Name = 'Test Amit Test');

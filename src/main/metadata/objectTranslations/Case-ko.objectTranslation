@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>문의 및 불만</value>
+    </caseValues>
     <fields>
         <label><!-- Accident Location Details --></label>
         <name>Accident_Location_Details__c</name>
@@ -6009,7 +6013,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ND</masterLabel>
-            <translation><!-- ND --></translation>
+            <translation>ND</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -6985,7 +6989,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>PR</masterLabel>
-            <translation><!-- PR --></translation>
+            <translation>PR</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Personal Profile Change</masterLabel>
@@ -7297,7 +7301,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>DAG</masterLabel>
-            <translation><!-- DAG --></translation>
+            <translation>DAG</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
@@ -7734,7 +7738,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company</masterLabel>
-            <translation><!-- Company --></translation>
+            <translation>회사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Court</masterLabel>
@@ -7750,19 +7754,19 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Embassy</masterLabel>
-            <translation><!-- Embassy --></translation>
+            <translation>대사관</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>General</masterLabel>
-            <translation><!-- General --></translation>
+            <translation>일반</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Individual</masterLabel>
-            <translation><!-- Individual --></translation>
+            <translation>개인</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance company</masterLabel>
-            <translation><!-- Insurance company --></translation>
+            <translation>보험회사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Land transportation</masterLabel>
@@ -7770,15 +7774,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lawyer</masterLabel>
-            <translation><!-- Lawyer --></translation>
+            <translation>변호사</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Media</masterLabel>
-            <translation><!-- Media --></translation>
+            <translation>미디어</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Ministry of Land</masterLabel>
-            <translation><!-- Ministry of Land --></translation>
+            <translation>국토교통부</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Newspaper</masterLabel>
@@ -7790,11 +7794,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner</masterLabel>
-            <translation><!-- Owner --></translation>
+            <translation>소유자</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner agent</masterLabel>
-            <translation><!-- Owner agent --></translation>
+            <translation>소유자 대리인</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Parallel import owner</masterLabel>
@@ -7802,15 +7806,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Prospect</masterLabel>
-            <translation><!-- Prospect --></translation>
+            <translation>잠재 고객</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Publisher</masterLabel>
-            <translation><!-- Publisher --></translation>
+            <translation>출판사/출판업</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Regular dealer</masterLabel>
-            <translation><!-- Regular dealer --></translation>
+            <translation>정규 딜러</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Regular owner</masterLabel>
@@ -7834,15 +7838,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>ex-owner</masterLabel>
-            <translation><!-- ex-owner --></translation>
+            <translation>전 소유자</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>fire office</masterLabel>
-            <translation><!-- fire office --></translation>
+            <translation>소방서</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>police</masterLabel>
-            <translation><!-- police --></translation>
+            <translation>경찰</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7854,19 +7858,19 @@
         <name>Data_Source__c</name>
         <picklistValues>
             <masterLabel>24 hours Touring Support</masterLabel>
-            <translation><!-- 24 hours Touring Support --></translation>
+            <translation>24시간 긴급출동 서비스</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3rd party data</masterLabel>
-            <translation><!-- 3rd party data --></translation>
+            <translation>제 3자 제공 데이터</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
+            <translation>캠페인</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
-            <translation><!-- Dealer --></translation>
+            <translation>딜러</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -7874,7 +7878,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation><!-- Email --></translation>
+            <translation>이메일</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
@@ -7882,11 +7886,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
-            <translation><!-- Event --></translation>
+            <translation>이벤트</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fax</masterLabel>
-            <translation><!-- Fax --></translation>
+            <translation>팩스</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>IB</masterLabel>
@@ -7894,7 +7898,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Letter</masterLabel>
-            <translation><!-- Letter --></translation>
+            <translation>우편</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Connection</masterLabel>
@@ -7914,15 +7918,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Magazine Survey</masterLabel>
-            <translation><!-- Mercedes Magazine Survey --></translation>
+            <translation>MB 매거진 설문</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes Me Haneda</masterLabel>
-            <translation><!-- Mercedes Me Haneda --></translation>
+            <translation>Mercedes me</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes call</masterLabel>
-            <translation><!-- Mercedes call --></translation>
+            <translation>인바운드 콜</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Mercedes-Benz Owner Hotline</masterLabel>
@@ -7950,7 +7954,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>On-site</masterLabel>
-            <translation><!-- On-site --></translation>
+            <translation>현장</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -9733,6 +9737,1142 @@
         <name>MBDA_feedback__c</name>
     </fields>
     <fields>
+        <label>케이스 분류</label>
+        <name>MBK_Case_Class__c</name>
+        <picklistValues>
+            <masterLabel>Complaint</masterLabel>
+            <translation>고객 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inquiry</masterLabel>
+            <translation>문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA</masterLabel>
+            <translation>24시 긴급출동 서비스</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>문의 및 불만 소분류</label>
+        <name>MBK_Case_Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>ABC</masterLabel>
+            <translation>ABC경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ABS</masterLabel>
+            <translation>ABS경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIR MATIC</masterLabel>
+            <translation>AIR MATIC 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATTENTION ASSIST</masterLabel>
+            <translation>ATTENTION ASSIST 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acceleration malfunction</masterLabel>
+            <translation>가속불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accident recovery/estimation</masterLabel>
+            <translation>사고 수리/견적 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ad blue</masterLabel>
+            <translation>Ad blue 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adblue charge</masterLabel>
+            <translation>요소수 보충 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>After sales campaign</masterLabel>
+            <translation>AS 캠페인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air conditioner / heater</masterLabel>
+            <translation>에어컨/히터 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air-bag</masterLabel>
+            <translation>에어백경고등문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antifreeze leak</masterLabel>
+            <translation>부동액 누수</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Application</masterLabel>
+            <translation>어플문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audio/DVD</masterLabel>
+            <translation>오디오/DVD 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Availble service center for accident recovery</masterLabel>
+            <translation>사고차 입고 가능 센터 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BAS</masterLabel>
+            <translation>BAS 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BRAKE WEAR</masterLabel>
+            <translation>BRAKE WEAR경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Battery</masterLabel>
+            <translation>배터리 관련</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blackbox</masterLabel>
+            <translation>블랙 박스 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bluetooth</masterLabel>
+            <translation>블루투스 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bonnet smoke</masterLabel>
+            <translation>보닛 연기</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bonnet/trunk</masterLabel>
+            <translation>보닛 / 트렁크 열기 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brake Fluid</masterLabel>
+            <translation>Brake Fluid 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COOLANT</masterLabel>
+            <translation>COOLANT 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Callcenter miscommunication</masterLabel>
+            <translation>상담원 오안내 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Callcenter processing time</masterLabel>
+            <translation>상담원 처리 속도 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Callcenter response attitude</masterLabel>
+            <translation>상담원 응대 태도 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel contact/Direct mail/Email</masterLabel>
+            <translation>옵트아웃 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel the order</masterLabel>
+            <translation>주문취소</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car fire</masterLabel>
+            <translation>차량 화재 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car key</masterLabel>
+            <translation>차량 키 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car starting malfunction(discharging)</masterLabel>
+            <translation>시동불능(방전)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car starting malfunction(freezing)</masterLabel>
+            <translation>시동불능(결빙)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card Issue</masterLabel>
+            <translation>카드 발급</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card alliance</masterLabel>
+            <translation>카드 제휴사 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card close</masterLabel>
+            <translation>카드 해지</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card customer info change</masterLabel>
+            <translation>카드 회원정보 변경</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card re-issue</masterLabel>
+            <translation>카드 재발급</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card receipt</masterLabel>
+            <translation>카드 수령확인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card registration</masterLabel>
+            <translation>카드 가입</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card renewal</masterLabel>
+            <translation>카드 갱신발급</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card return</masterLabel>
+            <translation>카드 반송</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card service point</masterLabel>
+            <translation>서비스 포인트 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Circle of excellence</masterLabel>
+            <translation>서클 오브 엑셀런스</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collection</masterLabel>
+            <translation>컬렉션 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collection purchase</masterLabel>
+            <translation>기타</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coolant replenshment</masterLabel>
+            <translation>냉각수 보충 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate-Sales</masterLabel>
+            <translation>법인판매</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coupon</masterLabel>
+            <translation>쿠폰 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crisis Management</masterLabel>
+            <translation>끊김</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAG</masterLabel>
+            <translation><!-- DAG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DPF</masterLabel>
+            <translation>DPF 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DTK</masterLabel>
+            <translation>DTK 관련사항</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dashboard</masterLabel>
+            <translation>계기판 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dashboard malfunction</masterLabel>
+            <translation>계기판 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer - Environment And Facility of Rest Area/Workshop</masterLabel>
+            <translation>딜러 시설 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer - Test drive postponement request</masterLabel>
+            <translation>딜러-시승 예약 연기 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Campaign</masterLabel>
+            <translation>딜러 캠페인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Others</masterLabel>
+            <translation>딜러 기타</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer feedback</masterLabel>
+            <translation>딜러 응대 및 처리 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer morality</masterLabel>
+            <translation>딜러 도덕성 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer-Event Inquiry</masterLabel>
+            <translation>딜러-이벤트 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer-Event Registration</masterLabel>
+            <translation>딜러-이벤트 등록</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealership genenral</masterLabel>
+            <translation>딜러사 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery Enquiry</masterLabel>
+            <translation>배송문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diplomatic-Sales</masterLabel>
+            <translation>외교판매</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distronic</masterLabel>
+            <translation>디스트로닉 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Door lock</masterLabel>
+            <translation>도어락 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Door malfunction</masterLabel>
+            <translation>도어 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Door operation</masterLabel>
+            <translation>도어 작동 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Driving program</masterLabel>
+            <translation>변속프로그램(운행모드)문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENGINE</masterLabel>
+            <translation>ENGINE 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENGINE Alarm</masterLabel>
+            <translation>ENGINE 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENGINE OIL LEVEL</masterLabel>
+            <translation>ENGINE OIL LEVEL 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESP</masterLabel>
+            <translation>ESP경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electricity</masterLabel>
+            <translation>전기 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency fueling</masterLabel>
+            <translation>비상급유문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency refueling</masterLabel>
+            <translation>비상 급유</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine Displacement</masterLabel>
+            <translation>배기량 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine Temperature</masterLabel>
+            <translation>엔진 온도 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine malfuction</masterLabel>
+            <translation>엔진 이상 소음</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine noise</masterLabel>
+            <translation>시동 후 엔진 이상 소음 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine overheating</masterLabel>
+            <translation>엔진 과열 (소음/냄새)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine thrill</masterLabel>
+            <translation>엔진떨림 증상</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engine vibration</masterLabel>
+            <translation>엔진떨림</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events Enquiry</masterLabel>
+            <translation>이벤트 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events Registration</masterLabel>
+            <translation>이벤트 등록/취소</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extended warranty contract</masterLabel>
+            <translation>무상 서비스 연장 계약 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation>할부금융</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flat tire</masterLabel>
+            <translation>타이어 펑크</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuel Efficiency</masterLabel>
+            <translation>연비 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuel efficiency calculation</masterLabel>
+            <translation>연비 계산법 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuel leak</masterLabel>
+            <translation>연료 누유</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Handle noise</masterLabel>
+            <translation>핸들 작동시 소음 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Happy call</masterLabel>
+            <translation>해피콜문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Highpass</masterLabel>
+            <translation>하이패스 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISP</masterLabel>
+            <translation>ISP (통합패키지) 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Key inability</masterLabel>
+            <translation>차량 키 인식 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light</masterLabel>
+            <translation>라이트 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light malfunction</masterLabel>
+            <translation>라이트 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Locked vehicle</masterLabel>
+            <translation>차량안에 키 넣고 잠김</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost key</masterLabel>
+            <translation>키 분실</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty card process</masterLabel>
+            <translation>카드 프로세스 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty card usage</masterLabel>
+            <translation>포인트 이용 관련 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MALFUNCTION</masterLabel>
+            <translation>MALFUNCTION 경고등</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK Loyalty</masterLabel>
+            <translation>MBK 로열티 프로그램</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK Mercedes me</masterLabel>
+            <translation>Mercedes me</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK Others</masterLabel>
+            <translation>MBK 기타</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK Survey</masterLabel>
+            <translation>MBK 설문조사</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK website</masterLabel>
+            <translation>MBK 웹사이트</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine return</masterLabel>
+            <translation>MB 매거진 반송</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine sending</masterLabel>
+            <translation>MB 매거진 발송</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance specialty deficiency</masterLabel>
+            <translation>정기점검 전문성 및 기술 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mixed oil</masterLabel>
+            <translation>혼유</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Muffler smoke</masterLabel>
+            <translation>머플러 연기</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nevigation</masterLabel>
+            <translation>네비게이션 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New car release</masterLabel>
+            <translation>신차 출고 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>News article</masterLabel>
+            <translation>뉴스기사 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nighttime service</masterLabel>
+            <translation>차량 야간 입고 여부 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Noise while driving</masterLabel>
+            <translation>주행시 하부 소음 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil leak</masterLabel>
+            <translation>오일 누유</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil-hole</masterLabel>
+            <translation>주유구 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other brand</masterLabel>
+            <translation>타 브랜드 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other oil related inquiry</masterLabel>
+            <translation>각종 오일 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>기타</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PARKING BRAKE</masterLabel>
+            <translation>PARKING BRAKE 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRE-SAFE</masterLabel>
+            <translation>PRE-SAFE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parking pilot operation</masterLabel>
+            <translation>파킹파일럿 작동법 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parking sensor</masterLabel>
+            <translation>파킹 센서 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts order pending</masterLabel>
+            <translation>부품 주문 지연 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts price</masterLabel>
+            <translation>부품 가격 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts stock</masterLabel>
+            <translation>부품재고/입고문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending delivery</masterLabel>
+            <translation>신차 계약 이후 출고 지연 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending loyalty card issue</masterLabel>
+            <translation>카드 발급 지연</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending magazine sending</masterLabel>
+            <translation>매거진 발송 지연</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal Profile Change</masterLabel>
+            <translation>개인정보 변경</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal information</masterLabel>
+            <translation>개인정보문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pick-up &amp; Delivery</masterLabel>
+            <translation>Pick-up &amp; Delivery 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Place an order</masterLabel>
+            <translation>주문</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Power off</masterLabel>
+            <translation>시동 꺼짐</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Owned / Trade-In</masterLabel>
+            <translation>중고/보상 판매</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-sales</masterLabel>
+            <translation>사전 판매</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing &amp; Benchmarking</masterLabel>
+            <translation>차량 가격 정보</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RESERVE FUEL</masterLabel>
+            <translation>RESERVE FUEL 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RPM malfuction</masterLabel>
+            <translation>RPM 이상</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA accident recovery request</masterLabel>
+            <translation>사고 수리 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA accident towing request</masterLabel>
+            <translation>사고 견인 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA application</masterLabel>
+            <translation>어플 접수</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA cancellation</masterLabel>
+            <translation>긴급출동취소</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA completion</masterLabel>
+            <translation>출동완료</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA cost</masterLabel>
+            <translation>출동 비용 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA dealer</masterLabel>
+            <translation>긴급 출동 딜러 접수</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA dispatch</masterLabel>
+            <translation>출동견인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA flooding towing request</masterLabel>
+            <translation>침수 견인 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA pending</masterLabel>
+            <translation>긴급출동지연</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA service attitude</masterLabel>
+            <translation>긴급 출동 서비스 태도 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA towing</masterLabel>
+            <translation>견인처리</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rear camera</masterLabel>
+            <translation>후방카메라 작동법 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation>Recall 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund</masterLabel>
+            <translation>환불문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular check</masterLabel>
+            <translation>정기점검 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular inspection interval</masterLabel>
+            <translation>정기점검 주기 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular inspection message</masterLabel>
+            <translation>정기점검 메시지 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental car</masterLabel>
+            <translation>대차 관련 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repair period</masterLabel>
+            <translation>수리기간문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repair price</masterLabel>
+            <translation>수리 비용 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request for Brochure / Catalog</masterLabel>
+            <translation>브로슈어 및 카달로그 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request for MB Magazine</masterLabel>
+            <translation>MB 매거진 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request for Product Information</masterLabel>
+            <translation>제품 설명 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request for service booking</masterLabel>
+            <translation>예약 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request handbook</masterLabel>
+            <translation>사용설명서 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request test drive</masterLabel>
+            <translation>딜러-시승 예약 요청</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SBC</masterLabel>
+            <translation>SBC경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales campaign</masterLabel>
+            <translation>Sales 캠페인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Search for job opportunities</masterLabel>
+            <translation>키 분실</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seat malfuction</masterLabel>
+            <translation>시트 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seat operation</masterLabel>
+            <translation>시트 작동 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service booking status</masterLabel>
+            <translation>예약 상황 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service center facility</masterLabel>
+            <translation>서비스 센터 시설 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service duration</masterLabel>
+            <translation>서비스 기간 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service quality</masterLabel>
+            <translation>서비스 품질 문제 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service response</masterLabel>
+            <translation>서비스 응대 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service vehicle</masterLabel>
+            <translation>대차문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom Working Hours</masterLabel>
+            <translation>전시장 근무 시간 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom contact</masterLabel>
+            <translation>전시장 연락처 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom facility</masterLabel>
+            <translation>전시장 시설 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom location</masterLabel>
+            <translation>전시장 위치 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Side mirror</masterLabel>
+            <translation>사이드미러 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sidebrake</masterLabel>
+            <translation>사이드브레이크 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spare parts quality</masterLabel>
+            <translation>교체용 부품 품질 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speed</masterLabel>
+            <translation>속도문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Start malfunction</masterLabel>
+            <translation>시동불능문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steering wheel malfuction</masterLabel>
+            <translation>스티어링 휠 작동불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steering wheel setting</masterLabel>
+            <translation>스티어링 휠 셋팅 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunroof malfuction</masterLabel>
+            <translation>썬루프 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunroof operation</masterLabel>
+            <translation>썬루프 작동 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension malfuction</masterLabel>
+            <translation>서스펜션(Air-Matic) 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TIRE PRESSURE</masterLabel>
+            <translation>TIRE PRESSURE 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tire</masterLabel>
+            <translation>타이어 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Towing</masterLabel>
+            <translation>견인문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Towing for accident</masterLabel>
+            <translation>사고 견인 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transmission malfuction</masterLabel>
+            <translation>변속 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trunk malfuction</masterLabel>
+            <translation>트렁크 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Color code</masterLabel>
+            <translation>차량 색상 코드 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Warranty</masterLabel>
+            <translation>차량 보증</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle foreign eximport</masterLabel>
+            <translation>차량 해외 반출입</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle insurance</masterLabel>
+            <translation>차량 보험</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle option</masterLabel>
+            <translation>차량 옵션 사항 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle others</masterLabel>
+            <translation>차량(기타)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle problem</masterLabel>
+            <translation>차량 문제 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle quality</masterLabel>
+            <translation>신차 품질 문제 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle related operation</masterLabel>
+            <translation>차량 각종 작동법 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle stock</masterLabel>
+            <translation>차량입고문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle term</masterLabel>
+            <translation>차량 용어</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle year number</masterLabel>
+            <translation>차량 연식</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WASHER FLUID</masterLabel>
+            <translation>WASHER FLUID 경고등 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty Parts</masterLabel>
+            <translation>보증 부품 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty and ISP</masterLabel>
+            <translation>보증 불가 및 ISP 적용 불가 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Washer liquid</masterLabel>
+            <translation>워셔액 관련 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Window brush</masterLabel>
+            <translation>윈도우 브러시 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Window brush malfuction</masterLabel>
+            <translation>윈도우 브러쉬 작동 불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Window noise</masterLabel>
+            <translation>창문 소음 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wiper noise</masterLabel>
+            <translation>와이퍼 작동시 소음 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workshop Working Hours</masterLabel>
+            <translation>근무 시간 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workshop contact</masterLabel>
+            <translation>서비스 센터 연락처 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workshop location</masterLabel>
+            <translation>서비스 센터 위치 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>World Wide Warranty</masterLabel>
+            <translation>World Wide Warranty 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong number</masterLabel>
+            <translation>잘못 걸린 전화</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>other after sales complaint</masterLabel>
+            <translation>기타 AS서비스 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>s24h warranty period</masterLabel>
+            <translation>출동 무상 보증 기간 문의</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>문의 및 불만 분류</label>
+        <name>MBK_Case_Type__c</name>
+        <picklistValues>
+            <masterLabel>AD Sale</masterLabel>
+            <translation><!-- AD Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accident</masterLabel>
+            <translation>사고문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advisory Mercedes-Benz driving Academy</masterLabel>
+            <translation><!-- Advisory Mercedes-Benz driving Academy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>After-Sales</masterLabel>
+            <translation>애프터세일즈</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breakdown</masterLabel>
+            <translation><!-- Breakdown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CCC</masterLabel>
+            <translation>콜센터 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CSR</masterLabel>
+            <translation><!-- CSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Center</masterLabel>
+            <translation><!-- Call Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign</masterLabel>
+            <translation>캠페인</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Type</masterLabel>
+            <translation><!-- Case Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Circle of excellence</masterLabel>
+            <translation>서클 오브 엑셀런스</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complain &amp; feedback</masterLabel>
+            <translation><!-- Complain &amp; feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAG</masterLabel>
+            <translation><!-- DAG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation>딜러</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>이벤트</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance service</masterLabel>
+            <translation>비용문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guarantee repair &amp; maintenance</masterLabel>
+            <translation><!-- Guarantee repair &amp; maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Happycall</masterLabel>
+            <translation>해피콜문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instructor</masterLabel>
+            <translation><!-- Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instructor call</masterLabel>
+            <translation><!-- Instructor call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Campaign</masterLabel>
+            <translation><!-- MB Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Card</masterLabel>
+            <translation>메르세데스 카드</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBDA business</masterLabel>
+            <translation><!-- MBDA business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBDA service</masterLabel>
+            <translation><!-- MBDA service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBK</masterLabel>
+            <translation><!-- MBK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation>MB 매거진</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation>마케팅 관련 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing chance</masterLabel>
+            <translation><!-- Marketing chance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing crisis</masterLabel>
+            <translation><!-- Marketing crisis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network development department</masterLabel>
+            <translation><!-- Network development department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Noise</masterLabel>
+            <translation>소음문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>기타</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Sales</masterLabel>
+            <translation>사전 판매</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product information</masterLabel>
+            <translation>제품 정보</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Profile update</masterLabel>
+            <translation>프로필 업데이트</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase &amp; deliver</masterLabel>
+            <translation>구매 &amp; 배송</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA</masterLabel>
+            <translation>24시 긴급출동 서비스</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA - Accident</masterLabel>
+            <translation>24시 긴급출동 서비스 - 사고문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA - Workshop dispatch</masterLabel>
+            <translation>24시 긴급출동 서비스-서비스 센터 자체출동</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSA - unable to drive</masterLabel>
+            <translation>24시 긴급 출동 서비스 - 주행불능</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation>차량 리콜 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation>세일즈 불만</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom</masterLabel>
+            <translation>전시장문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle</masterLabel>
+            <translation>차량</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle operate</masterLabel>
+            <translation>차량 사용 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warning sign</masterLabel>
+            <translation>경고등문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty</masterLabel>
+            <translation>보증 문의</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workshop</masterLabel>
+            <translation>서비스센터문의</translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- MB Settlement Amount --></label>
         <name>MB_Settlement_Amount__c</name>
     </fields>
@@ -11513,7 +12653,7 @@
         <name>Transport_Car_Model__c</name>
     </fields>
     <fields>
-        <label><!-- US VIN --></label>
+        <label>US VIN</label>
         <name>US_VIN__c</name>
     </fields>
     <fields>
@@ -11798,6 +12938,10 @@
         <picklistValues>
             <masterLabel>GLA-Class</masterLabel>
             <translation><!-- GLA-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLC SUC</masterLabel>
+            <translation><!-- GLC SUC --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLC SUV</masterLabel>
@@ -12490,6 +13634,10 @@
         <picklistValues>
             <masterLabel>C240E Elegance (not current series)</masterLabel>
             <translation><!-- C240E Elegance (not current series) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C253</masterLabel>
+            <translation><!-- C253 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C260</masterLabel>
@@ -14555,6 +15703,14 @@
         <name>customercare_cn__c</name>
     </fields>
     <layouts>
+        <layout>Case Feed Layout</layout>
+        <layoutType>CaseInteraction</layoutType>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Chrysler Complaint Layout - CAC</layout>
         <sections>
             <label><!-- Case Information --></label>
@@ -14563,6 +15719,10 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
         </sections>
         <sections>
             <label><!-- Description --></label>
@@ -14597,6 +15757,10 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
             <label>설명 정보</label>
             <section>Description Information</section>
         </sections>
@@ -14620,31 +15784,39 @@
     <layouts>
         <layout>Dealer Complaint Read Only Layout</layout>
         <sections>
-            <label><!-- Case Detail --></label>
+            <label>케이스 세부정보</label>
             <section>Case Detail</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>사용자 지정 링크</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- On-site Manager --></label>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>현장 매니저</label>
             <section>On-site Manager</section>
         </sections>
         <sections>
-            <label><!-- Other Info --></label>
+            <label>기타 정보</label>
             <section>Other Info</section>
         </sections>
         <sections>
-            <label><!-- Repeat Complaint --></label>
+            <label>반복되는 불만사항</label>
             <section>Repeat Complaint</section>
         </sections>
         <sections>
-            <label><!-- System Info --></label>
+            <label>시스템 정보</label>
             <section>System Info</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Info --></label>
+            <label>차량 정보</label>
             <section>Vehicle Info</section>
         </sections>
     </layouts>
@@ -14655,26 +15827,11 @@
             <section>Case Feedback</section>
         </sections>
         <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
             <label><!-- Inquiry Information --></label>
-            <section>Inquiry Information</section>
-        </sections>
-        <sections>
-            <label><!-- Other Information --></label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Inquiry Layout - CAC(IB/OB)</layout>
-        <sections>
-            <label>문의 피드백</label>
-            <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label>문의 정보</label>
             <section>Inquiry Information</section>
         </sections>
         <sections>
@@ -14687,6 +15844,25 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>JP Inquiry Layout - CAC(IB/OB)</layout>
+        <sections>
+            <label><!-- Case Feedback --></label>
+            <section>Case Feedback</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Info --></label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Inquiry Information --></label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MB Complaint Layout - CAC</layout>
         <sections>
             <label>케이스 세부정보</label>
@@ -14695,6 +15871,14 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>필드</label>
+            <section>Fields</section>
         </sections>
         <sections>
             <label>현장 매니저</label>
@@ -14726,6 +15910,14 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>필드</label>
+            <section>Fields</section>
         </sections>
         <sections>
             <label>기타 정보</label>
@@ -14761,6 +15953,14 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>딜러 정보</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>필드</label>
+            <section>Fields</section>
         </sections>
         <sections>
             <label>현장 매니저</label>
@@ -14933,20 +16133,6 @@
         <sections>
             <label>차량 소유자 세부정보</label>
             <section>Vehicle Owner Details</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>MBF Contract Closing Cases</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>MBF Quotation Cases Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
         </sections>
     </layouts>
     <recordTypes>

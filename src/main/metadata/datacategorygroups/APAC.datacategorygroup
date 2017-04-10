@@ -5,130 +5,130 @@
         <dataCategory>
             <dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 공통</label>
+                    <label>Script - Overview</label>
                     <name>Script_Overview</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 문의</label>
+                    <label>Script - Inquiry</label>
                     <name>Script_Inquiry</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 민원</label>
+                    <label>Script - Complaint</label>
                     <name>Script_Complaint</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 리드</label>
+                    <label>Script - Lead</label>
                     <name>Script_Lead</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 24시 긴급출동</label>
+                    <label>Script - Emergency Call</label>
                     <name>Script_Emergency_Call</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>콜 스크립트 - 기타</label>
+                    <label>Script - Others</label>
                     <name>Script_Others</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>정보 - 차량 운행</label>
+                    <label>Information - Vehicle Operation</label>
                     <name>Information_Vehicle_Operation</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>정보 - 경고등 문의</label>
+                    <label>Information - Warning Light</label>
                     <name>Information_Warning_Light</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>정보 - 서비스 센터</label>
+                    <label>Information - Service Center</label>
                     <name>Information_Service_Center</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>정보 - 전시장</label>
+                    <label>Information - Showroom</label>
                     <name>Information_Showroom</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>정보 - 기타</label>
+                    <label>Information - Others</label>
                     <name>Information_Others</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>매뉴얼 - 세일즈포스 시스템</label>
+                    <label>Manual - Salesforce System</label>
                     <name>Manual_Salesforce_System</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>매뉴얼 - 운영</label>
+                    <label>Manual - Operations</label>
                     <name>Manual_Operations</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>매뉴얼 - 상담 스킬</label>
-                    <name>Manual_Conversation_skills</name>
+                    <label>Manual - Conversation Skills</label>
+                    <name>Manual_Conversation_Skills</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>매뉴얼 - 기타</label>
+                    <label>Manual - Others</label>
                     <name>Manual_Others</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>소개 - 메르세데스-벤츠</label>
+                    <label>Introduction - Mercedes Benz</label>
                     <name>Introduction_Mercedes_Benz</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>소개 - 기타</label>
+                    <label>Introduction - Others</label>
                     <name>Introduction_Others</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>기타</label>
+                    <label>Others</label>
                     <name>Others</name>
                 </dataCategory>
-                <label>고객 컨텍 센터</label>
+                <label>Customer Contact Center</label>
                 <name>Customer_Contact_Center</name>
             </dataCategory>
             <dataCategory>
                 <dataCategory>
-                    <label>캠패인 / 이벤트</label>
+                    <label>Campaign / Event</label>
                     <name>Campaign_Event</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>메르세데스 카드</label>
+                    <label>Mercedes Card</label>
                     <name>Mercedes_Card</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>CI &amp; 브랜드</label>
+                    <label>CI &amp; Brand</label>
                     <name>CI_Brand</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>세일즈</label>
+                    <label>Sales</label>
                     <name>Sales</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>기타</label>
+                    <label>Others</label>
                     <name>SMOthers</name>
                 </dataCategory>
-                <label>세일즈 &amp; 마케팅</label>
+                <label>Sales &amp; Marketing</label>
                 <name>Sales_Marketing</name>
             </dataCategory>
             <dataCategory>
                 <dataCategory>
-                    <label>점검 &amp; 수리</label>
+                    <label>Maintenance &amp; Repair</label>
                     <name>Maintenance_Repair</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>부품</label>
+                    <label>Parts</label>
                     <name>Parts</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>캠패인</label>
+                    <label>Campaign</label>
                     <name>Campaign</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>액세서리 &amp; 콜렉션</label>
+                    <label>Accessories &amp; Collection</label>
                     <name>Accessories_Collection</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>보증</label>
+                    <label>Warranty</label>
                     <name>Warranty</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>기타</label>
+                    <label>Others</label>
                     <name>ASOthers</name>
                 </dataCategory>
-                <label>애프터세일즈</label>
+                <label>After Sales</label>
                 <name>After_Sales</name>
             </dataCategory>
             <dataCategory>
@@ -233,10 +233,10 @@
                     <name>POthers</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>가격 정보</label>
+                    <label>Vehicle Price</label>
                     <name>Vehicle_Price</name>
                 </dataCategory>
-                <label>차량</label>
+                <label>Product</label>
                 <name>Product</name>
             </dataCategory>
             <dataCategory>
@@ -249,22 +249,22 @@
             </dataCategory>
             <dataCategory>
                 <dataCategory>
-                    <label>딜러 임직원 현황</label>
+                    <label>Dealer Employee List</label>
                     <name>Dealer_Employee_List</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>전시장</label>
+                    <label>Dealer Showroom</label>
                     <name>Dealer_Showroom</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>서비스 센터</label>
+                    <label>Service Center</label>
                     <name>Service_Center</name>
                 </dataCategory>
                 <dataCategory>
-                    <label>캠패인 / 이벤트</label>
+                    <label>Campaign / Event</label>
                     <name>DCampaign_Event</name>
                 </dataCategory>
-                <label>딜러</label>
+                <label>Dealer</label>
                 <name>Dealer</name>
             </dataCategory>
             <label>Korea</label>

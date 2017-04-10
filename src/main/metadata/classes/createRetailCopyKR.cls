@@ -5,26 +5,25 @@ public class createRetailCopyKR {
     public List<Address__c> sample {set;get;}
     public List<Address__c> ress   {set;get;}
     public List<Address__c> sample1{set;get;}
-    public List<Address__c> din  {set;get;}
     public List<Account> accc {set;get;}
 
     public createRetailCopyKR(ApexPages.StandardController controller){
         account = (Account)controller.getRecord();
-        sample = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,
-            District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,
-            Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c,City__c,Preferred__c  FROM  Address__c where  Customer__c =: account.Id];
+        sample = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,
+                  Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,
+                  Temp_ZipCode__c ,Temp_Address__c,City__c,Preferred__c  FROM  Address__c where  Customer__c =: account.Id];
         system.debug('+++++++++'+sample );
     }
    
     public pageReference getSelected(){ 
-        addId =ApexPages.currentPage().getParameters().get('idselected');  
+        addId = ApexPages.currentPage().getParameters().get('idselected');  
         system.debug('+++++++++'+ addId );
         addId = System.currentPageReference().getParameters().get('Status');
         return null;
     }
       
     public void  getAccount(){ 
-        accc =[Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,
+        accc = [Select id,name,( Select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,
                 Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,City__c ,Preferred__c,
                 Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c ,Temp_Address__c from Addresses__r LIMIT 1) from Account where id =: account.Company__c];
         system.debug('accc $$$ :'+accc); 
@@ -32,31 +31,25 @@ public class createRetailCopyKR {
     
     public PageReference Save(){
         ID RDType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); 
-        List<Address__c> button    = New List<Address__c>();
+        List<Address__c> button = New List<Address__c>();
         List<Account_Link__c> acclink = New List<Account_Link__c>();
-        List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Id AND RecordTypeID =: RDType];  //SFDCJP-730
+        List<Account_Link__c> Accountlinklist = [select id, fromRole__c, toRole__c from Account_Link__c WHERE fromRole__c =: account.Id AND RecordTypeID =: RDType];
         Account_Link__c newals; 
         if(Accountlinklist.isEmpty()){
-            newals = new Account_Link__c();
-            newals.fromRole__c = account.Id ;
-            newals.toRole__c = account.Company__c ;
-            newals.Retail_DMS_Customer_ID__c = 'TEST' ;       
-            newals.RecordTypeId = RDType;
+            newals = new Account_Link__c(fromRole__c = account.Id,toRole__c = account.Company__c,Retail_DMS_Customer_ID__c = 'TEST',RecordTypeId = RDType);
             insert newals;
         }      
         else if(!Accountlinklist.isEmpty()){
            for(Account_Link__c accountLink : Accountlinklist){
-               accountLink.fromRole__c = account.Id;
-               accountLink.toRole__c =  account.Company__c;
+               accountLink = new Account_Link__c(fromRole__c = account.Id,toRole__c =  account.Company__c);
                acclink.add(accountLink);
            }
            update acclink;
         }
         system.debug('newals $$$ :'+newals);
-        sample1 = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,
-                        District_Native__c ,Block__c ,Block_Native__c ,Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c,
-                        Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,Temp_ZipCode__c,City__c ,Preferred__c,
-                        Temp_Address__c  FROM  Address__c where id =:addId  Limit 1];
+        sample1 = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,
+                   Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,
+                   Temp_ZipCode__c,City__c ,Preferred__c,Temp_Address__c  FROM  Address__c where id =:addId  Limit 1];
         System.debug('sample1 $$$ :'+sample1);
         
         for(Account abc : accc){
@@ -65,27 +58,7 @@ public class createRetailCopyKR {
                     if(ress.Address_Type__c != cdf.Address_Type__c){
                         ress.Address_Type__c = cdf.Address_Type__c ;
                     }
-                    ress.ZipCode__c = cdf.ZipCode__c ;  
-                    ress.Province__c=cdf.Province__c;
-                    ress.Province_Native__c=cdf.Province_Native__c;
-                    ress.City_Native__c=cdf.City_Native__c;
-                    ress.District__c=cdf.District__c;
-                    ress.District_Native__c=cdf.District_Native__c;
-                    ress.Block__c=cdf.Block__c;
-                    ress.Block_Native__c=cdf.Block_Native__c;
-                    ress.Address_Line_1__c=cdf.Address_Line_1__c;
-                    ress.Address_Line_1_Native__c=cdf.Address_Line_1_Native__c;
-                    ress.Address_Line_2__c=cdf.Address_Line_2__c;
-                    ress.Address_Line_2_Native__c=cdf.Address_Line_2_Native__c;
-                    ress.Company_Name__c=cdf.Company_Name__c;
-                    ress.Company_Name_Native__c=cdf.Company_Name_Native__c;
-                    ress.TitleOfHonor__c =cdf.TitleOfHonor__c;
-                    ress.Status__c =cdf.Status__c;
-                    ress.Temp_ZipCode__c =cdf.Temp_ZipCode__c;
-                    ress.Temp_Address__c =cdf.Temp_Address__c;
-                    ress.Customer__c = abc.Id;
-                    ress.City__c = cdf.City__c;
-                    ress.Preferred__c= cdf.Preferred__c;
+                    ress = new Address__c (ZipCode__c = cdf.ZipCode__c,Province__c=cdf.Province__c,Province_Native__c=cdf.Province_Native__c,City_Native__c=cdf.City_Native__c,District__c=cdf.District__c,District_Native__c=cdf.District_Native__c,Block__c=cdf.Block__c,Block_Native__c=cdf.Block_Native__c,Address_Line_1__c=cdf.Address_Line_1__c,Address_Line_1_Native__c=cdf.Address_Line_1_Native__c,Address_Line_2__c=cdf.Address_Line_2__c,Address_Line_2_Native__c=cdf.Address_Line_2_Native__c,Company_Name__c=cdf.Company_Name__c,Company_Name_Native__c=cdf.Company_Name_Native__c,TitleOfHonor__c =cdf.TitleOfHonor__c,Status__c =cdf.Status__c,Temp_ZipCode__c =cdf.Temp_ZipCode__c,Temp_Address__c =cdf.Temp_Address__c,Customer__c = abc.Id,City__c = cdf.City__c,Preferred__c= cdf.Preferred__c);                    
                     button.add(ress);
                 }
             }
@@ -95,8 +68,7 @@ public class createRetailCopyKR {
         }
        
       
-        list<Account> accList = [SELECT Primary_Address_Reference__c,(select id from Addresses__r ORDER BY LastModifiedDate desc limit 1 ) 
-                                FROM Account where Id =: account.Company__c]; 
+        list<Account> accList = [SELECT Primary_Address_Reference__c,(select id from Addresses__r ORDER BY LastModifiedDate desc limit 1)FROM Account where Id =: account.Company__c]; 
         List<Account> listAccount = new List<Account>();
         for(Account aont : accList){
             for(Address__c aress : aont.Addresses__r){

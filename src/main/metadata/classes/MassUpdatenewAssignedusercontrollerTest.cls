@@ -48,6 +48,7 @@ Public class MassUpdatenewAssignedusercontrollerTest{
     MassUpdatenewAssignedusercontroller Munauc = new MassUpdatenewAssignedusercontroller();
         Munauc.accUsr.ownerid=UserInfo.getUserId();
         Munauc.NewAsignUsr.Dealer_Lead_Gate_Keeper__c =UserInfo.getUserId(); 
+        Munauc.NewAsignUsr.Portal_Apply_User__c = UserInfo.getUserId();
         Munauc.getLeads();
         Munauc.getCases();
         Munauc.getVehicles();

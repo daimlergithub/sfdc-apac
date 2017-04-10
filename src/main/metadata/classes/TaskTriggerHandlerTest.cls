@@ -41,7 +41,7 @@ public static void preparedTestData()
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569',
                 MBK_Data_Source__c = 'Email',
-                Mobile__c = '000-0000-9842',
+                Mobile__c = '00000009842',
                Last_Successful_Call__c =DateTime.now().addMinutes(10)
             );
             
@@ -74,6 +74,7 @@ public static void preparedTestData()
         {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
         insert updatecustomsettings;
+            
                  preparedTestData();                      
             Test.startTest();
            
@@ -128,9 +129,10 @@ public static void preparedTestData()
             //System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
            //System.assertEquals(customer.Last_Successful_Call_Office_Phone__c, endCallTime);
            
-           TaskTriggerHandlerKR ttr = new TaskTriggerHandlerKR();
+
+           /*TaskTriggerHandlerKR ttr = new TaskTriggerHandlerKR();
            ttr.handleTrigger(false,false,false,false,false);
-           ttr.handleIntegrationTrigger(false,false,false,false,false);
+           ttr.handleIntegrationTrigger(false,false,false,false,false);*/
         }    
     }
     

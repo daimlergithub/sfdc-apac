@@ -2004,7 +2004,6 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Financ
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -4813,7 +4812,6 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -21592,7 +21590,8 @@ Modify Reason:
 	LEN( EuroVIN__c ) &lt;&gt; 17,
 	LEN( EuroVIN__c ) &lt;&gt; 18,
 $Profile.Name != 'IntegrationAPI',
- RecordType.DeveloperName = 'MB'
+ RecordType.DeveloperName = 'MB',
+ISPICKVAL($User.Market__c, 'KR') 
 )</errorConditionFormula>
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>EURO-VIN must be 17 or 18 characters.</errorMessage>

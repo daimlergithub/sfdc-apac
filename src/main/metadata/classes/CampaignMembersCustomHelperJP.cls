@@ -28,7 +28,7 @@ public with sharing class CampaignMembersCustomHelperJP {
         String FINAL_CAMPAIGN_STATUS = 'Response collection';
         Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
         for(Campaign_Member__c campaignMemberRec : newList) {
-            if(oldMap.get(campaignMemberRec.Id).Status__c == 'Executed' && campaignMemberStatusSet.contains(newMap.get(campaignMemberRec.Id).Status__c)) {
+            if(campaignMemberStatusSet.contains(newMap.get(campaignMemberRec.Id).Status__c)) {
                 campaignIdSet.add(campaignMemberRec.Campaign_ID__c);
             }
         }
@@ -161,7 +161,7 @@ public with sharing class CampaignMembersCustomHelperJP {
      
      /*trigger  : After Update Campaign Members
        Added by : Lokesh 
-       Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' then update the related campaing status to 'Response collection'
+       Desc     : If campaign member status is 'Responded' or 'Not Responded' or 'Bounced' and status not in 'completed' then update the related 
                     and retail campaign status to 'Response collection'
        date     : 15th Mar, 2017
      */
@@ -178,12 +178,27 @@ public with sharing class CampaignMembersCustomHelperJP {
         List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();
         if(parentRetailCampIds != NULL && !parentRetailCampIds.isEmpty()){
             for(Retail_Campaign__c retCmp : [SELECT Child_Campaign_Status__c FROM Retail_Campaign__c WHERE Id IN : parentRetailCampIds]){
-                retCmp.Child_Campaign_Status__c = 'Response Collection';
-                listRetCamp.add(retCmp);
-            }
+				if(retCmp.Child_Campaign_Status__c != 'Completed' && retCmp.Child_Campaign_Status__c != 'Response Collection'){
+					retCmp.Child_Campaign_Status__c = 'Response Collection';
+					listRetCamp.add(retCmp);
+				}
+			}
         }
         if(listRetCamp.size()> 0)
             update listRetCamp;
     } 
     
+    public static void beforeDeleteOperation(List<Campaign_Member__c> oldList) {
+    	List<String> CHILD_CAMPAIGN_STATUS_LIST = new List<String> {'Execution', 'Response collection', 'Completed'};
+    	Map<Id, Campaign_Member__c> campaignMemberMap = 
+    				new Map<Id, Campaign_Member__c>([select Id from Campaign_Member__c where Id IN: oldList 
+    															AND (Campaign_ID__r.Child_Campaign_Status__c IN: CHILD_CAMPAIGN_STATUS_LIST
+    																  OR Retail_Campaign_Id__r.Child_Campaign_Status__c IN: CHILD_CAMPAIGN_STATUS_LIST )]);
+    	
+    	for(Campaign_Member__c campaignMemberRec : oldList) {
+    		if(campaignMemberMap.containsKey(campaignMemberRec.Id)) {
+    			campaignMemberRec.addError('You can\'t delete the Campaign Member for this Campaign Status.');
+    		}
+    	}
+    }
 }

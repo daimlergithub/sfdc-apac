@@ -4982,11 +4982,6 @@
             <field>Wholesale_Comment__c</field>
             <table>Account.Lead_Contact__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Purchased_VIN__c</field>
-            <table>Account.Lead_Contact__r</table>
-        </columns>
         <masterLabel>Leads (Contact)</masterLabel>
     </sections>
     <sections>
@@ -5768,11 +5763,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>UsedWarranty_Apply_User__c</field>
-            <table>Account.Lead_Contact__r.Vehicle_Relationship__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Warranty_Apply_Flag__c</field>
             <table>Account.Lead_Contact__r.Vehicle_Relationship__r</table>
         </columns>
         <columns>

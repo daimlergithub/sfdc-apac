@@ -4100,37 +4100,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Self Registered Layout-CAC</layout>
-        <sections>
-            <label><!-- Competitor Information --></label>
-            <section>Competitor Information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Other Information --></label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Detail --></label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle information --></label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>
         <sections>
             <label><!-- Custom Links --></label>

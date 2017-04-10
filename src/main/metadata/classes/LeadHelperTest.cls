@@ -132,6 +132,7 @@ public with sharing class LeadHelperTest {
     public static testMethod void testUpdateLeadOwner() {       
        List<Lead__c> leadsForUpdate= new List<Lead__c>(); 
        Set<id> setDealerId = new Set<id>();
+	    map<id,Lead__c> leadMap = new map<id, Lead__c>();
        createuserrecord('System Administrator');     
          system.runAs(user1) {
          preparedTestData();  
@@ -147,10 +148,10 @@ public with sharing class LeadHelperTest {
          update lead;
          update usr;
              
-       
+        leadMap.put(lead.id, lead);
          leadsForUpdate.add(lead); 
           LeadHelper.UpdateLeadOwner(setDealerId,leadsForUpdate);
-          LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(setDealerId,leadsForUpdate);
+          LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(setDealerId,leadsForUpdate,leadMap);
       }
     }
      public static testMethod void testUpdateLeadOwnerFromContact() {       

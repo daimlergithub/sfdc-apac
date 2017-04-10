@@ -15,16 +15,18 @@ dev_sb_asia_Test=arun.iyer.ntt@asia.daimler-apac.com.test
 dev_sb_asia_TestKorea=arun.iyer.ntt@mbj.daimler-apac.com.testkorea
 # Asia Stage Sandbox
 dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
+# Asia Stage2 Sandbox
+#dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
 dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com
 
 # Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
-dev_sb_kernel_dev2=sneha.chail.ntt@kernel.daimler-apac.com.dev2
+dev_sb_kernel_dev2=
 dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
 dev_sb_kernel_dev4=arun.iyer.ntt@kernel.daimler-apac.com.dev4
-dev_sb_kernel_dev5=shivashankar.nalluri.ntt@kernel.daimler-apac.com.dev5,mohanaraja.alla.ntt@kernel.daimler-apac.com.dev5
+dev_sb_kernel_dev5=mohanaraja.alla.ntt@kernel.daimler-apac.com.dev5
 dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
@@ -55,16 +57,17 @@ dev_sb_asia_dev10=sergio.kobayashi@nttdata.com.asiadev10
 dev_sb_asia_dev12=kiran.pedinenikalva@asia.daimler-apac.com.asiadev12
 dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga@daimler.com.daimler-apac.asiadev15
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
-dev_sb_asia_mrdev=narasimha.gundurao@nttdata.com.mrdev
+dev_sb_asia_mrdev=
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
 dev_sb_asia_dev16=avishek.roy@@asia.daimler-apac.com.asiadev16
+dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
 
 # Asia Korea Dev Sandboxes
-dev_sb_asia_dev11=sneha.chail@nttdata.com.asiadev11
+dev_sb_asia_dev11=
 dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
 
 # Asia MBKphase2 sandbox

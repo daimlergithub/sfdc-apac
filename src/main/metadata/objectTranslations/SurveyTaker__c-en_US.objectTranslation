@@ -33,6 +33,11 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Account --></label>
+        <name>Dealer_Account__c</name>
+        <relationshipLabel><!-- Surveys Taken (Dealer Account) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Last Answered Question --></label>
         <name>Last_Answered_Question__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
@@ -50,6 +55,10 @@
         <label><!-- Survey Taken By Vehicle Relationship --></label>
         <name>SurveyTakenByVehicle__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Survey Taken Date --></label>
+        <name>Survey_Taken_Date__c</name>
     </fields>
     <fields>
         <label><!-- Survey Taking Status --></label>
@@ -77,6 +86,10 @@
         <name>Task_ID__c</name>
     </fields>
     <fields>
+        <label><!-- To Be Deleted --></label>
+        <name>To_Be_Deleted__c</name>
+    </fields>
+    <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
@@ -85,7 +98,17 @@
         <name>User__c</name>
         <relationshipLabel><!-- Surveys Taken --></relationshipLabel>
     </fields>
-    
+    <fields>
+        <label><!-- View By All --></label>
+        <name>View_By_All__c</name>
+    </fields>
+    <layouts>
+        <layout>Revised SurveyTaker Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <layouts>
         <layout>SurveyTaker Layout</layout>
         <sections>

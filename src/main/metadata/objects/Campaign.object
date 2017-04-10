@@ -543,7 +543,7 @@
         <label>Campaign Execution Channels</label>
         <picklist>
             <picklistValues>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -757,11 +757,31 @@
         <label>Campaign Sub Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Prematurity</fullName>
+                <fullName>Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Crosspoint</fullName>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales and After Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance - &gt;  Prematurity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -1301,6 +1321,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	    <fields>
+        <fullName>DM_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>DM Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>DM_Material__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1445,6 +1475,126 @@
             </picklistValues>
             <picklistValues>
                 <fullName>New Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_Mcare Inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_inspections (After 4years)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_service program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_new car six month inspections</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_accessory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales_collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_motor show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_display</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event_othres</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Connection/me</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_SSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>survey_Model</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3756,7 +3906,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3879,10 +4029,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4935,7 +5081,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5058,10 +5204,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6090,7 +6232,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6209,10 +6351,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7269,7 +7407,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7392,10 +7530,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8264,7 +8398,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8382,11 +8516,19 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Crosspoint</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prematurity</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9275,7 +9417,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9394,10 +9536,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9665,7 +9803,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MMS</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyM</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9677,7 +9819,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eDM</fullName>
+                <fullName>Segmentation Only</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10041,11 +10183,23 @@
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
+                <fullName>Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contact</fullName>
                 <default>true</default>
             </values>
             <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10273,7 +10427,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10392,10 +10546,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11359,7 +11509,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11482,10 +11632,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11886,51 +12032,123 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Showroom</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_othres</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12633,7 +12851,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12752,10 +12970,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13628,7 +13842,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13751,10 +13965,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14579,10 +14789,6 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Started</fullName>
                 <default>false</default>
             </values>
@@ -14906,7 +15112,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15028,11 +15234,19 @@
         <picklistValues>
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
-                <fullName>Crosspoint</fullName>
+                <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prematurity</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15389,51 +15603,123 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Auto Show</fullName>
+                <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Charity</fullName>
+                <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Festival</fullName>
+                <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Joint Event</fullName>
+                <fullName>Aftersales_collection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Car Launch</fullName>
+                <fullName>Aftersales_inspections %28After 4years%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Showroom</fullName>
+                <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Aftersales_service program</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Prints relevant</fullName>
+                <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road Show</fullName>
+                <fullName>Event_display</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Showroom Event</fullName>
+                <fullName>Event_motor show</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports Marketing</fullName>
+                <fullName>Event_othres</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Event_participatory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event_sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_cross point</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_catalogue response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_central DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_new model target</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_guift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>loyalty_magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CLI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_MBF CSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_NCBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16124,7 +16410,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16247,10 +16533,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17323,7 +17605,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17446,10 +17728,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18509,7 +18787,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>eEmail</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18632,10 +18910,6 @@
             <picklist>Campaign_Sub_Type__c</picklist>
             <values>
                 <fullName>Crosspoint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prematurity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19556,16 +19830,68 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'&amp;&amp; ISNEW()</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'KR',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CAS_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>RecordType.Name = 'CAC Campaign' &amp;&amp; IsActive &amp;&amp;(UPPER(MD__c) = 'JP' || UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAS_Marketing_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'JP',$Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAS Marketing Campaign can't be active when it is being created.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Completed</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Completed'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+  ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
+
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed when it is 'Completed'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Execution</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Execution' then it can' t be changed to 'Planning' or 'Segmentation'</description>
+        <errorConditionFormula>AND( ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Execution'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, '')
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Exection' to 'Planning or Segmentation'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CamExecution_Staus_Change_form_Response</fullName>
+        <active>true</active>
+        <description>If campaign execution is 'Response Collection' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution'</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(
+PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
+     OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
+      ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
+      ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
+      ISPICKVAL(Child_Campaign_Status__c, '')
+     ),
+     MD__c = 'JP', 
+     $Profile.Name != 'IntegrationAPI',
+       RecordType.DeveloperName = 'Campaign_Executiono' 
+)</errorConditionFormula>
+        <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Campaign_Not_Yet_Started_Active</fullName>
@@ -19577,7 +19903,7 @@ Record Type =  CAS/Central Marketing campaign</description>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Campaign_Segmentation_Status_Checking</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Segmentation'),ISPICKVAL(Child_Campaign_Status__c, 'Planning'),  MD__c = 'JP',  $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Campaign_Executiono' )</errorConditionFormula>
@@ -19837,7 +20163,7 @@ IsActive = True
         <protected>false</protected>
         <url>/701/e?RecordType=012280000006I7dAAE&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
-	    <webLinks>
+    <webLinks>
         <fullName>Create_Child_Campaign_For_Execution</fullName>
         <availability>online</availability>
         <description>create child campaign for execution</description>
@@ -19866,7 +20192,7 @@ IsActive = True
         <masterLabel>Create Complex Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>

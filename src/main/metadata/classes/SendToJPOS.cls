@@ -419,7 +419,11 @@ public class SendToJPOS{
               if(AddreesSedntoJPOS!=null  && AssignedDealer!=null)
               {
               String src;
+              
+                      
            src= UtilWebservice.AccountIfnoSendToJPOS(AccId,AddreesSedntoJPOS.id,AssignedDealer.Id); 
+             
+             
              
             ShowHideError=false; 
             }
@@ -429,8 +433,13 @@ public class SendToJPOS{
            Catch(Exception e)
            {
           
+           String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
+                   ShowHideError=True; 
            ShowHideError=True; 
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getmessage()));     
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, errMessageText));     
           
           }
          }  
@@ -459,9 +468,13 @@ public class SendToJPOS{
                     }
                    Catch(CalloutException e)
                    {
-                   
+                     
+             String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
                    ShowHideError=True; 
-                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getStackTraceString()));     
+                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, errMessageText));     
                   
                   }          
           } 

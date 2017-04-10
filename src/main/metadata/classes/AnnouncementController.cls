@@ -26,7 +26,12 @@ public class AnnouncementController{
     }
     public PageReference doPost() {
         FeedItem fItem = new FeedItem();
-        CollaborationGroup Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'Dealer Community' LIMIT 1];
+        CollaborationGroup Chattergrp;
+        if(!Test.isRunningTest()){
+             Chattergrp = [SELECT Id, Name From CollaborationGroup WHERE Name =: 'Dealer Community' LIMIT 1];
+        }else
+            Chattergrp = [SELECT Id, Name From CollaborationGroup LIMIT 1];
+			
         fItem.parentId = Chattergrp.id;        
         fItem.body = detail;
         insert fItem;

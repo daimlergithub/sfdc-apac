@@ -312,4 +312,18 @@
         <label><!-- Daily Allowance --></label>
         <name>allowance__c</name>
     </fields>
+    <layouts>
+        <layout>User Layout Sysad</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>User Master Layout</layout>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

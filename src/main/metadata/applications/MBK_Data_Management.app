@@ -2,11 +2,11 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBK Data Management</label>
-	<logo>Logo/MB_LOGO.png</logo>
+    <logo>Logo/MB_LOGO.png</logo>
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
-	<tab>standard-report</tab>
+    <tab>standard-report</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
@@ -19,4 +19,6 @@
     <tab>Survey_Question__c</tab>
     <tab>SurveyQuestionResponse__c</tab>
     <tab>SurveyTaker__c</tab>
+    <tab>standard-Knowledge</tab>
+    <tab>standard-KnowledgePublishing</tab>
 </CustomApplication>
