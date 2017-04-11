@@ -14845,7 +14845,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
 			<role>MBK_Management</role>
-        </sharedTo>
+		</sharedTo>
     </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
@@ -14888,10 +14888,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>MBK All Customer Accounts</label>
+        <label>MBK All Customer Account</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+			<role>MBK_Management</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -55449,3 +55450,4 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
+

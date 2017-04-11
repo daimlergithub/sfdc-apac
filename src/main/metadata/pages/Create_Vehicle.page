@@ -14,6 +14,7 @@
         if(recordTypeValue == 'MB'){
         var brandVal = document.getElementById("brandItems").value;
            
+        var classVal = document.getElementById("classItems").value;
         Var classVal   = document.getElementById("classItems").value;
         var modelVal = document.getElementById("modelItems").value;  
         var rangeVal = document.getElementById("rangeItems").value; 
