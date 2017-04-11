@@ -34,7 +34,9 @@ public class DeleteRetailCopy{
         }        
     }  
     public static void updateAccoutOwner(set<Id> dealerId){
-        List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
+        user DealerUser = [select id, profileId, profile.Name from user WHERE userInfo.getUserID()];
+		  if(DealerUser.profile.Name.Contains('Japan Dealer')){
+		List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
         List<Account> accountupdateList = new List<Account>();
         //List<Account_Link__c> accountlink = [select id,fromRole__c from Account_Link__c WHERE toRole__c = : dealerId];
         for(Account_Link__c acc : [select id,Retail_Delete_Flag__c, fromRole__c from Account_Link__c WHERE toRole__c = : dealerId AND (RecordType.Developername = 'Retail_Company' OR RecordType.Developername = 'Retail_Person')]){
@@ -60,5 +62,6 @@ public class DeleteRetailCopy{
 		
 		if(!AccountsharesToDelete.isEmpty())
         database.delete(AccountsharesToDelete,false);
+   }
    }
 }
