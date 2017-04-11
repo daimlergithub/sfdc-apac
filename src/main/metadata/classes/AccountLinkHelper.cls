@@ -351,7 +351,7 @@ public class AccountLinkHelper
     }
     
     // Get all the Account Link records of "Individual Customer External Link" record Type.
-    private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
+   @TestVisible private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
         Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> accIdSet = new Set<Id>();
         for(Account_Link__c accLinkRec : list_AccountLink) {
@@ -360,7 +360,7 @@ public class AccountLinkHelper
         }
         system.debug('++++++++++++++++++'+accIdSet);
         
-        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r Where RecordType.Name =: 'Retail_Person' OR RecordType.Name =: 'Retail_Company'  LIMIT 5000) from Account where Id IN: accIdSet LIMIT 500];
+        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet ];
         
         if(accIdSet.size() >0 && !accIdSet.isEmpty()){ 
         //List<Account> accList = [select Id from Account where Id IN: accIdSet  LIMIT 5000];
