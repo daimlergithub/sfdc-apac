@@ -1470,6 +1470,10 @@
         <apexClass>UtilLead</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	    <classAccesses>
+        <apexClass>Updatecampaignmemwithrefresh</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>UtilLeadEmailEscalation</apexClass>
         <enabled>false</enabled>
