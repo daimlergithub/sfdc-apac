@@ -578,6 +578,10 @@
         <apexClass>DeleteRetailCopy</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+		<classAccesses>
+        <apexClass>exportCampaignMembers</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>DeleteRetailCopyTest</apexClass>
         <enabled>true</enabled>
@@ -1340,6 +1344,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UserHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	    <classAccesses>
+        <apexClass>Updatecampaignmemwithrefresh</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -23657,6 +23665,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>BandwidthExceeded</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+		<pageAccesses>
+        <apexPage>ExportAsCsvCampaign</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

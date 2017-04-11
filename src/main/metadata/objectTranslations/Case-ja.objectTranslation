@@ -13469,7 +13469,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GL SUV</masterLabel>
-            <translation>GLS SUV</translation>
+            <translation>GL SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GL-Class</masterLabel>
@@ -13500,8 +13500,12 @@
             <translation><!-- GLC SUV --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLE SUV</masterLabel>
+            <masterLabel>GLE SUC</masterLabel>
             <translation>GLE SUC (SUクーペ)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLE SUV</masterLabel>
+            <translation>GLE SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK SUV</masterLabel>
@@ -13510,6 +13514,10 @@
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
             <translation><!-- GLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS SUV</masterLabel>
+            <translation><!-- GLS SUV --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GRAND VOYAGER</masterLabel>
@@ -13525,7 +13533,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class SUV</masterLabel>
-            <translation>GLE SUV</translation>
+            <translation>Mクラス SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MARCO POLO</masterLabel>
