@@ -12,10 +12,13 @@
     <columns>
         <field>COMPANY</field>
     </columns>
+    <columns>
+        <field>Campaign.Resource_Channels__c</field>
+    </columns>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Campaign.Resource_Channels__c</field>
+        <field>Campaign.Execution_Type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Target Customer of New Campaign By Sourc</name>
