@@ -44608,6 +44608,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
