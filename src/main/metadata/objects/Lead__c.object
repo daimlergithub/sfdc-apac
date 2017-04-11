@@ -22866,7 +22866,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Contract Administration (CA) Team</label>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22875,7 +22875,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Customer Care (CCC) Team</label>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22893,7 +22893,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Quotation Team Queue</label>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22919,6 +22919,21 @@ Company_Account__r.Work_Phone__c  ,
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+	<listViews>
+        <fullName>All_MBK_Leads</fullName>
+        <columns>NAME</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Dealer_Lead_Status__c</columns>
+        <columns>Lead_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All MBK Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>MBK_Management</role>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
