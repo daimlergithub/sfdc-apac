@@ -3467,6 +3467,10 @@
             <value>1</value>
         </filters>
         <label>All Active CAS Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
@@ -3507,6 +3511,10 @@
             <value>1</value>
         </filters>
         <label>All Active Central Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Active_Campaign_Execution</fullName>
