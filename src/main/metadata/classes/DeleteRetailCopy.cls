@@ -34,7 +34,7 @@ public class DeleteRetailCopy{
         }        
     }  
     public static void updateAccoutOwner(set<Id> dealerId){
-        user DealerUser = [select id, profileId, profile.Name from user WHERE userInfo.getUserID()];
+        user DealerUser = [select id, profileId, profile.Name from user WHERE Id =: userInfo.getUserID()];
 		  if(DealerUser.profile.Name.Contains('Japan Dealer')){
 		List<AccountShare> AccountsharesToDelete = new  List<AccountShare>();
         List<Account> accountupdateList = new List<Account>();
