@@ -553,78 +553,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Annual Income Range --></label>
-        <name>Annual_Income_Range__c</name>
-        <picklistValues>
-            <masterLabel>Range 1</masterLabel>
-            <translation>300万円未満</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 10</masterLabel>
-            <translation>1250万円-1499万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 11</masterLabel>
-            <translation>1500万円-1749万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 12</masterLabel>
-            <translation>1750万円-1999万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 13</masterLabel>
-            <translation>2000万円-2499万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 14</masterLabel>
-            <translation>2500万円-2999万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 15</masterLabel>
-            <translation>3000万円-3499万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 16</masterLabel>
-            <translation>3500万円-3999万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 17</masterLabel>
-            <translation>4000万円以上</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 2</masterLabel>
-            <translation>300万円-399万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 3</masterLabel>
-            <translation>400万円-499万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 4</masterLabel>
-            <translation>500万円-599万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 5</masterLabel>
-            <translation>600万円-699万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 6</masterLabel>
-            <translation>700万円-799万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 7</masterLabel>
-            <translation>800万円-899万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 8</masterLabel>
-            <translation>900万円-999万円</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Range 9</masterLabel>
-            <translation>1000万円-1249万円</translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Annual Mileage --></label>
         <name>Annual_Mileage__c</name>
     </fields>
@@ -1464,6 +1392,14 @@
         <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>アンケート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation>特別リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation>ダイムラーグループ従業員特別リース</translation>
         </picklistValues>
     </fields>
     <fields>

@@ -459,10 +459,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignSchedulerAndNotificationJPTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CampaignSchedulerAndNotificationJP_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -795,10 +791,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadMergeControllerTest1</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -839,15 +831,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_ContractClosing_InlineTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Inquiry_Controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Inquiry_ControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -855,24 +839,12 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_Intermediate_ControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Quotation_InlineController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBJ_FS_Case_Quotation_Inline_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBJ_FS_Case_Request_InlineController</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBJ_FS_Case_Request_InlineTest</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
@@ -1487,10 +1459,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerCaseTriggerHandlerKRTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1516,10 +1484,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandlerKR</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerLeadTriggerHandlerKRTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1604,10 +1568,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Updatecampaignmemwithrefresh</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UpdatecampaignmemwithrefreshTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2163,11 +2123,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Annual_Income_Range__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Annual_Mileage__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2409,16 +2364,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.CustomerPriority__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Customer_Consent_Happy_Calls__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Customer_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12153,11 +12098,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>EP_Export_Notification__c.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -18637,11 +18577,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.Contractor_Company_Esatblished_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Contractor_Company_Established_Date__c</field>
         <readable>true</readable>
@@ -23018,11 +22953,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Vehicle_Relationship__c.Warranty_Apply_Flag__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Vehicle_Relationship__c.Warranty_Apply_NDCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -25161,10 +25091,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>PrintPDF</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Print_Dealer_PDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -26046,10 +25972,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Address__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
