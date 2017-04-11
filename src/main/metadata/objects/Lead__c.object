@@ -8768,6 +8768,14 @@ Modify Reason:
                 <fullName>MB Card</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -90182,6 +90190,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
@@ -101715,6 +101731,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special lease for employees</fullName>
                 <default>false</default>
             </values>
             <values>

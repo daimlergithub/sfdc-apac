@@ -1393,6 +1393,14 @@
             <masterLabel>Survey</masterLabel>
             <translation>アンケート</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation>特別リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation>ダイムラーグループ従業員特別リース</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>タッチポイント詳細</label>
