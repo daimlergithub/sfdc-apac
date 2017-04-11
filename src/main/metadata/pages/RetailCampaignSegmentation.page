@@ -1127,10 +1127,10 @@
                 </apex:outputPanel>
                 <apex:outputPanel rendered="{!wrapAccountList!= null && wrapAccountList.size > 0}" id="buttons">
                     <div style="margin:6px;">Records: {!IF(noOfRecords == null, 0, noOfRecords)}</div>
-                    <apex:commandbutton action="{!first}" value="FirstPage" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!previous}" value="PrevPage" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
-                    <apex:commandbutton action="{!next}" value="NextPage" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
-                    <apex:commandbutton action="{!last}" value="LastPage" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!first}" value="<<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!previous}" value="<" reRender="accounts,buttons" disabled="{!!hasPrevious}" status="loading"/>
+                    <apex:commandbutton action="{!next}" value=">" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
+                    <apex:commandbutton action="{!last}" value=">>" reRender="accounts,buttons" disabled="{!!hasNext}" status="loading"/>
                     <apex:actionStatus id="loading">
                         <apex:facet name="start">
                             <img src="/img/loading24.gif" style="vertical-align:middle;"/>
