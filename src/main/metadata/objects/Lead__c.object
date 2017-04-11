@@ -22152,7 +22152,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>All Leads</label>
+        <label>All set</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
@@ -22167,7 +22167,7 @@ Company_Account__r.Work_Phone__c  ,
             <operation>equals</operation>
             <value>KR</value>
         </filters>
-        <label>All Leads</label>
+        <label>All set</label>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
