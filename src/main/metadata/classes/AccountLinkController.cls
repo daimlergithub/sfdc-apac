@@ -16,7 +16,7 @@ public  class AccountLinkController
      public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Id accPersonAccountSoftDeleted_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
-    
+    public boolean companyRT {get;set;}
       public AccountLinkController (ApexPages.StandardController controller){
         this.stdController = stdController;
         shouldRedirect = false;
@@ -58,10 +58,10 @@ public  class AccountLinkController
                     catch(Exception e){}
                 }
             }
-            //companyRT = false;
-            //if(acc.RecordTypeid==accCompany_RecordTypeId){
-               //companyRT=true;
-            //}
+            companyRT = false;
+            if(acc.RecordTypeid==accCompany_RecordTypeId){
+               companyRT=true;
+            }
         }
         
         
