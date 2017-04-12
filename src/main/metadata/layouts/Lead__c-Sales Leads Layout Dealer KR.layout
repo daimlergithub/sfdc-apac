@@ -249,7 +249,7 @@
             <layoutItems>
                 <height>200</height>
                 <page>MarketCheckOnVehiclePicker</page>
-                <showLabel>true</showLabel>
+                <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
