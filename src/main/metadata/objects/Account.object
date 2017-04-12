@@ -47597,9 +47597,12 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     </validationRules>
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
-        <active>false</active>
-        <errorConditionFormula>OR(AND(MD__c == 'KR',NOT(ISBLANK(Vat_No__c)),(RecordType.Name = 'Company')), AND(MD__c == 'KR',NOT(ISBLANK(Commercial_Reg_No__c)),(RecordType.Name = 'Company')))</errorConditionFormula>
-        <errorMessage>Please enter Business registration number / Vat registration number</errorMessage>
+        <active>true</active>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula>
+        <errorMessage>Please Enter Numbers in Commercial Register Number / Vat No</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompAccountName_NoOfDigits</fullName>
