@@ -175,6 +175,14 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
+        <apexClass>VehiclePickerForCaseControllerKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerConKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>PrintPDFcontroller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22503,6 +22511,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>MarketCheckOnVehiclePickerCase</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>VehiclePickerforCaseKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>

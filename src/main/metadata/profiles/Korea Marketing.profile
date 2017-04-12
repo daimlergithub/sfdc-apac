@@ -175,6 +175,14 @@
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
+        <apexClass>VehiclePickerForCaseControllerKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerConKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>AccountMergeControllerKR</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -21714,6 +21722,14 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>MarketCheckOnVehiclePickerCase</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>VehiclePickerforCaseKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
