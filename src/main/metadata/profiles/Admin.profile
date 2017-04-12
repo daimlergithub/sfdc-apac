@@ -15378,9 +15378,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-                <editable>false</editable>
+      <editable>true</editable>
         <field>Participating_Dealer__c.Approve_the_List__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19930,6 +19930,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Segmentation_Criteria__c.Criteria__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Segmentation_Criteria__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
