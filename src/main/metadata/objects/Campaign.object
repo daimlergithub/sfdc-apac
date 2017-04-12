@@ -20184,14 +20184,15 @@ IsActive = True
         <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
-		<fullName>Create_Complex_Execution</fullName>
+        <fullName>Create_Complex_Execution</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>New AfterSales Leads</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Complex Execution</masterLabel>
+        <openType>replace</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}if('{!Campaign.MD__c}' == 'JP'){ 	window.open("/701/e?retURL=%2F{!Campaign.Id}&RecordType=012N0000000957p&ent=Campaign&Parent={!Campaign.Name}&Parent_lkid={!Campaign.Id}&retURL={!Campaign.Id}&cancelURL={!Campaign.Id}") }else if('{!Campaign.MD__c}' == 'KR'){ alert('Not assigned for you Market'); }</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>
