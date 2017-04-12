@@ -14747,44 +14747,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>AllDealerAccounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Dealer_ND_Code__c</columns>
-        <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_Lead_System__c</columns>
-        <columns>Dealer_DMS_CRM_Code__c</columns>
-        <columns>Dealer_DMS_SR_Code__c</columns>
-        <columns>Dealer_DMS_AS_Code__c</columns>
-        <columns>Dealer_Region__c</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>Dealer_City_EN__c</columns>
-        <columns>Dealer_Active__c</columns>
-        <columns>ACCOUNT.LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>All dealers</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>All_3rd_Party_Data</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>PC_SALUTATION</columns>
