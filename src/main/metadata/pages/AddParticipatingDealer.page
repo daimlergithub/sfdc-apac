@@ -30,7 +30,11 @@ function closeWin() {
         <apex:outputPanel id="accounts" >
             <apex:pageblock >
                 <apex:pageblocktable value="{!Account}" var="cc" id="page" >
-                    <apex:column headerValue="{!$Label.Choose_Account}">
+                    <apex:column headerValue="Select">
+                                <apex:facet name="header">
+                                        <c:selectAllChkBox />
+                                </apex:facet>
+                    <!--<apex:column headerValue="{!$Label.Choose_Account}"> -->
                         <apex:inputCheckbox value="{!cc.bool}"/>
                     </apex:column><apex:column value="{!cc.con.Name}"/>
                     <apex:column value="{!cc.con.City__c}"/>
