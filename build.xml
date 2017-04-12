@@ -212,6 +212,8 @@
 								<sf:include name="AssignCaseToDealer"/>
 								<sf:include name="RetailCampaignSegmentation"/>
 								<sf:include name="ContactTable"/>
+								<sf:include name="VehiclePickerforCaseKR"/>
+								<sf:include name="MarketCheckOnVehiclePickerCase"/>
 							</sf:typeset>
 							<sf:typeset name="classes">
 							   <sf:include name="UtilConstant"/>
@@ -671,6 +673,8 @@
 								<sf:include name="ContactTableController"/>
 								<sf:include name="ContactTableControllerTest"/>
 								<sf:include name="GenerateAndAttachPDFTest"/>
+								<sf:include name="VehiclePickerForCaseControllerKR"/>
+								<sf:include name="MarketCheckOnVehiclePickerConKR"/>
 							</sf:typeset>
 							<sf:typeset name="triggers">
 								<sf:include name="TriggerUtilTestTrigger"/>
