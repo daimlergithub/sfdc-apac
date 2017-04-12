@@ -367,7 +367,7 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>VehiclePickerforCase</page>
+                <page>MarketCheckOnVehiclePickerCase</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
