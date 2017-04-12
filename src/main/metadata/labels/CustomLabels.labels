@@ -30,6 +30,13 @@
         <value>Account Link</value>
     </labels>
     <labels>
+        <fullName>DealerKoreaLoginURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DealerKoreaLoginURL</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBKorea</value>
+    </labels>	
+	<labels>
         <fullName>AccountMergeFields</fullName>
         <language>en_US</language>
         <protected>false</protected>
