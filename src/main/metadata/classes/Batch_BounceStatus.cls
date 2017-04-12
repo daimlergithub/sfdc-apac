@@ -1,66 +1,66 @@
 global class Batch_BounceStatus implements Database.Batchable<SObject>, Database.Stateful, Schedulable {
     
     
-    global Set<Id> camAccount = new Set<Id>();
-    
-    global Database.QueryLocator start(Database.BatchableContext bc) {
-        String newStatus = 'Bounced' ;
+   
+     global Database.QueryLocator start(Database.BatchableContext bc) {
+        Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+       // String Response = 'Response collection' ;
         
-        String query = 'Select Id,Name,Status__c,Contact_Id__c, Campaign_ID__r.Execution_Start_Date__c from Campaign_Member__c Where Status__c =: newStatus  ';
-         system.debug('+++++++ Query'+query);
-        return Database.getQueryLocator(query);
+       // String query = 'Select Id,Name,(Select id,Campaign_ID__c From Campaign_Members1__r) from Campaign Where Child_Campaign_Status__c =:Response';
+         //system.debug('+++++++ Query'+query);
+        return Database.getQueryLocator([Select Id,Name,(Select id,Campaign_ID__c From Campaign_Members1__r Where Status__c !='Bounced') from Campaign Where Child_Campaign_Status__c = 'Response collection']);
          
+       // return Database.getQueryLocator(query); 
     }
     
     
-    global void execute(Database.BatchableContext bc, List<Campaign_Member__c> scope) {
+    global void execute(Database.BatchableContext bc, List<Campaign> scope) {
        
-       List<Account> accMainList = New List<Account>(); 
-     List<Campaign_Member__c> campMemList = new List<Campaign_Member__c>();
+       
+       
+       String MainString ;
+       
+     List<Attachment> campMemList = new List<Attachment>();
 
-        for(Campaign_Member__c camp : scope){
-             
-               camAccount.add(camp.Contact_Id__c);
+        For(Campaign cam : Scope){
         
-        } 
+        system.debug('+++++++++++'+Scope);
         
-        List<Account> addList = [Select Email__c,Email_Status__c,Mobile_Status__c,Email_Last_Modified_Date__c,Mobile__c,SMS_Last_Modified_Date__c,(Select id ,Hardcopy_Last_Modified_Date__c From Addresses__r ) From Account Where Id =: camAccount];
-        
-        For(Account acc : addList ){
+        for(Campaign_Member__c camp : cam.Campaign_Members1__r){
+         system.debug('+++++++++++'+cam.Campaign_Members1__r);
+         
+          
+          String Recordmain= camp.id+','+camp.Campaign_ID__c+'\n';
+           MainString = MainString +Recordmain ;
+          
+          }
+          
+         
+         
+        // string MainString  = string.join(recordString,'/n');
+         
+          
+          system.debug('+++++++++++'+MainString );
+            if(!String.isBlank(MainString)){
             
-             for(Campaign_Member__c campCheck : scope){
-            
-            if(acc.Email_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c){
-                acc.Email_Status__c = 'Invalid';
-                
-            }
-            if(acc.SMS_Last_Modified_Date__c < campCheck.Campaign_ID__r.Execution_Start_Date__c){
-              acc.Mobile_Status__c = 'Invalid';
-             
-            }
-               For(Address__c add : acc.Addresses__r ){
-                 
-                // if(add.Hardcopy_Last_Modified_Date__c  < campCheck.Campaign_ID__r.Execution_Start_Date__c ){
-                     
-                    // acc.Primary_Address_Validity__c = 'Invalid';
-                 //}               
-                   
-                   
-               }
-            
-            
-             }  
-             
-            accMainList.add(acc); 
-            
-        }
-           
-           
-        update accMainList;
-        
+      
+       Attachment attach = new Attachment();
+    attach.Body = Blob.valueOf(MainString);
+    attach.Name = 'test.csv';
+    //attach.ContentType = 'csv';
+    attach.IsPrivate = false;
+    attach.ParentId = cam.Id;
+    //attach.ParentId = 
+
+    
+      
+     campMemList.add(attach);
+      
+      }
+    
     }
-    
-    
+    insert campMemList;
+    }
     
     
     global void finish(Database.BatchableContext bc) {
@@ -74,8 +74,8 @@ global class Batch_BounceStatus implements Database.Batchable<SObject>, Database
        global void execute(SchedulableContext ctx) {
        
        Batch_BounceStatus batchSch = New Batch_BounceStatus();
-       String sch='0 1 * * * ?';
+       
         Database.executeBatch(new Batch_BounceStatus());
-        System.schedule('Batch Schedule', sch , batchSch);
+        
     }
 }
