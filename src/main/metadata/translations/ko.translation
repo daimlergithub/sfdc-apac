@@ -2568,6 +2568,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <name>slave</name>
     </customLabels>
     <customLabels>
+        <label>일본 사용 기능</label>
+        <name>Error_Msg_for_KR_Users</name>
+    </customLabels>
+    <customLabels>
         <label><!-- &amp;slaveId= --></label>
         <name>slaveId</name>
     </customLabels>
