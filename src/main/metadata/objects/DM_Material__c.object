@@ -1910,6 +1910,18 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>My_DM_Material</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>My DM Material</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>View1</fullName>
         <columns>NAME</columns>
         <columns>DM_Material_External_Id__c</columns>
