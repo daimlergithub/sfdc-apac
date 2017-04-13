@@ -391,6 +391,7 @@
 							</sf:typeset>
 							<sf:typeset name="pages">
 							   <sf:include name="GeneratePDF"/>
+							   <sf:include name="GeneratePDFKR"/>
 							   <sf:include name="Print_Dealer_PDF"/>
 							   <sf:include name="printAfterSaleLeadPdf"/>
 							   <sf:include name="SelectSlaveAccount"/>
@@ -436,6 +437,7 @@
 											<sf:include name="TaskHelperKR"/>
 											<sf:include name="TaskHelperKRTest"/>
 											<sf:include name="GenerateAndAttachPDF"/>
+											<sf:include name="GeneratePDFControllerKR"/>
 											<sf:include name="UtilTestData"/>
 											<sf:include name="UtilRecordTypeTest"/>
 											<sf:include name="UtilRecordType"/>                                                 
