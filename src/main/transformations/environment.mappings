@@ -77,3 +77,6 @@ dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
 # InitLoad Sandbox
 dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
 
+#Stage Org K7.0
+dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
+
