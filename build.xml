@@ -674,7 +674,9 @@
 								<sf:include name="ContactTableControllerTest"/>
 								<sf:include name="GenerateAndAttachPDFTest"/>
 								<sf:include name="VehiclePickerForCaseControllerKR"/>
+								<sf:include name="VehiclePickerForCaseControllerKRTest"/>
 								<sf:include name="MarketCheckOnVehiclePickerConKR"/>
+								<sf:include name="MarketCheckOnVehiclePickerConKRTest"/>
 							</sf:typeset>
 							<sf:typeset name="triggers">
 								<sf:include name="TriggerUtilTestTrigger"/>
