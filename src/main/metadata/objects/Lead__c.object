@@ -863,7 +863,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>Attriters</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3290,7 +3289,6 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <fullName>TV</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10125,7 +10123,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>TV (new value)</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10698,7 +10695,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Web/Mobile Phone</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10772,7 +10768,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>mymb</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10834,7 +10829,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Trade-In</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10869,7 +10863,6 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <fullName>Purhcased at othe MB stores</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12469,7 +12462,6 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12602,7 +12594,6 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -21943,7 +21934,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Personal</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22401,7 +22391,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Competitive Reasons</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22547,6 +22536,21 @@ Company_Account__r.Work_Phone__c  ,
             <role>RM_AS_W</role>
             <role>Regional</role>
             <role>Regional_AS_Retail_Marketing</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_MBK_Leads</fullName>
+        <columns>NAME</columns>
+        <columns>Assigned_Dealer__c</columns>
+        <columns>CAC_Lead_Status__c</columns>
+        <columns>Dealer_Lead_Status__c</columns>
+        <columns>Lead_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All MBK Leads</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>MBK_Management</role>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22927,21 +22931,6 @@ Company_Account__r.Work_Phone__c  ,
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-	<listViews>
-        <fullName>All_MBK_Leads</fullName>
-        <columns>NAME</columns>
-        <columns>Assigned_Dealer__c</columns>
-        <columns>CAC_Lead_Status__c</columns>
-        <columns>Dealer_Lead_Status__c</columns>
-        <columns>Lead_Type__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All MBK Leads</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>MBK_Management</role>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -36523,6 +36512,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -36534,15 +36527,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Allocated</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
@@ -36554,7 +36543,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Qualified</fullName>
                 <default>false</default>
             </values>
@@ -36562,7 +36551,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
@@ -36699,19 +36688,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Service Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -87545,7 +87534,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -87798,14 +87787,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
@@ -87815,6 +87796,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -92069,11 +92058,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transfer</fullName>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loan</fullName>
+                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -110139,6 +110128,14 @@ ISNULL(Lost_Dealer_Date__c)
         <errorMessage>Dealer Lost Reason and Lost Situation cannot be Null</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</fullName>
+        <active>true</active>
+        <description>On change of status to "Lost(CAC)" there is no validation of entering the Lost Reason &amp; "Lost(CAC) Date" is not updated</description>
+        <errorConditionFormula>AND( OR(ISBLANK( Lost_CAC_Date__c ),(ISBLANK( Lost_Comment__c ))),ISPICKVAL(CAC_Lead_Status__c,"Lost(CAC)"), 
+AND($Profile.Name != 'IntegrationAPI'),MD__c="JP")</errorConditionFormula>
+        <errorMessage>Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC)</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Lost_To_Whom</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -110687,6 +110684,3 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
 </CustomObject>
-
-
-
