@@ -675,6 +675,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GeneratePDFControllerKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GenerateCatalogueCsv</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -24394,10 +24398,6 @@
         <apexPage>GeneratePDFKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <classAccesses>
-        <apexClass>GeneratePDFControllerKR</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <pageAccesses>
         <apexPage>GenericUploader</apexPage>
         <enabled>false</enabled>
