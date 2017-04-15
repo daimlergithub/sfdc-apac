@@ -21626,7 +21626,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-AfterSales Lead</layout>
-        <recordType>Lead__c.Dealer_Aftersales_Leads_ReadOnly</recordType>
+        <recordType>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Dealer AfterSales Lead ReadOnly</layout>
