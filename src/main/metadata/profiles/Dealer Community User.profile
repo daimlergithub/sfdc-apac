@@ -21625,8 +21625,8 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-AfterSales Lead</layout>
-        <recordType>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</recordType>
+        <layout>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</layout>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Dealer AfterSales Lead ReadOnly</layout>
