@@ -21,7 +21,7 @@
                 <field>Subject</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
             <layoutItems>
