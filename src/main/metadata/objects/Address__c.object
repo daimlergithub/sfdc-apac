@@ -1785,7 +1785,7 @@ MD__c = 'JP',
     </validationRules>
     <validationRules>
         <fullName>Town_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(District_Native__c),
