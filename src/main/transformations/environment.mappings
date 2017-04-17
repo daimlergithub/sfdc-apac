@@ -19,7 +19,7 @@ dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
 #dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
-dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com
+dev_sb_asia_prod=deployment.user@mbj.daimler-apac.com
 
 # Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
@@ -76,4 +76,7 @@ dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
 
 # InitLoad Sandbox
 dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
+
+#Stage Org K7.0
+dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
 

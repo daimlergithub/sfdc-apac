@@ -3390,6 +3390,10 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Purchase
                 <fullName>Refinance existing vehicle</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Re-purchase</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
