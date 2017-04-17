@@ -24294,14 +24294,14 @@
         <visible>true</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Campaign.Campaign_Executiono</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
         <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Planning_Design_Campaign</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
      <recordTypeVisibilities>
         <default>true</default>
@@ -24421,7 +24421,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
         <visible>true</visible>
