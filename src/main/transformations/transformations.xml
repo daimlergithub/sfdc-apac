@@ -2,39 +2,39 @@
 <transformations>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Created_inquiry_cases_by_priorities.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Created inquiry cases by priorities']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Created_lead_number_by_customer_status.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Created lead number by customer status']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Lead_Converted_By_Week1.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Lead Converted By Week']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/New_account_number_by_data_source.dashboard</filename>
-		<xpath>/dashboard/[title/text()='New account number by data source']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Open_Status_Of_Case_Management.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Open Status of Case Management']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Target_Customer_Number_For_Outbound_Camp.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Target Customer Number For Outbound Camp']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>dashboards/MBK_Dashboards/Target_Customer_Of_New_Campaign_By_Source.dashboard</filename>
-		<xpath>/dashboard/[title/text()='Target Customer Of New Campaign By Source']/runningUser/text()</xpath>
+		<xpath>/dashboard/runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
-	</changetext> 
+	</changetext>
 	<changetext>
 		<filename>workflows/Lead__c.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Link_Social_Media_Leads']/integrationUser/text()</xpath>
