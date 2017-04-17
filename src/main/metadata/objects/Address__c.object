@@ -1653,7 +1653,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>City_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(City_Native__c),
@@ -1755,7 +1755,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
     </validationRules>
     <validationRules>
         <fullName>Prefecture_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Province_Native__c),
