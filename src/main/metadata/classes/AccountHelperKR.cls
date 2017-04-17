@@ -394,7 +394,7 @@ public class AccountHelperKR{
                         AccountIds.add(acc.id); 
                         persongroup9 = true;
                     }
-                    if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c){
+                    if(oldAccountmap.get(acc.id).Name != acc.Name || oldAccountmap.get(acc.id).Company_Name_Native_1__c != acc.Company_Name_Native_1__c || oldAccountmap.get(acc.id).Company_Name__c != acc.Company_Name__c){
                         AccountIds.add(acc.id);
                         companygroup1 = true;
                     }
