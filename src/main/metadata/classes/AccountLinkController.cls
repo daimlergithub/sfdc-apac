@@ -31,7 +31,7 @@ public  class AccountLinkController
         {
          acc=[select id,recordtypeid from account where id=:aid];
          
-         listalk=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and fromRole__c !=null and recordtypeId !=:con2con_RecordTypeId ];
+         listalk=[Select id,Name,Retail_FirstName__c,Retail_LastName__c,Retail_Comments__c,Selling_Dealer__c,Retail_OptOutContact_Reason__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where toRole__c=:aid and fromRole__c !=null and (recordtypeId =:accPerson_RecordTypeId or recordtypeId=:accCompany_RecordTypeId) ];
        if(listalk !=null && !listalk.isempty())
        {
        if(acc.recordtypeid ==accPerson_RecordTypeId)
