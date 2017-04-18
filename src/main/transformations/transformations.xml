@@ -601,6 +601,8 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Vans_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_WEBLINK_RECORDTYPEID_VANS</token>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_VEHICLERELATIONSHIP_NO_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Dealer_Locator__c.object</filename>
