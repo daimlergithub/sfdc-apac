@@ -523,6 +523,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GeneratePDFControllerKR</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GenerateCatalogueCsv</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3067,7 +3071,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Loyalty_Card_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11020,9 +11024,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Appointment_DateTime__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -21838,6 +21842,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>GeneratePDF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>GeneratePDFKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

@@ -638,7 +638,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Successful</masterLabel>
-            <translation>--</translation>
+            <translation>성공</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Unable to Contact Qualified Interviewee</masterLabel>

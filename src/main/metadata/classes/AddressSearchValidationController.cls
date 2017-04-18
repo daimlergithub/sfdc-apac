@@ -211,7 +211,7 @@ public class AddressSearchValidationController{
                     {              
                         objAccount.Mobile__c = '';
                     }
-                    else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
+                    else if((mobileAreaCode != ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
                         if(objAccount.Mobile__c.startsWith(' -'))
@@ -226,8 +226,8 @@ public class AddressSearchValidationController{
                     } system.debug(objAccount.Individual_Home_Phone__c + '   *$*$*$ objAccount.Individual_Home_Phone__c   ' + objAccount.Mobile__c + '   *$*$*$*  objAccount.Work_Phone__c   ' + objAccount.Work_Phone__c + '   *$*$*$* objAccount.Email__c   ' + objAccount.Email__c);                   
                     if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' && objAccount.Work_Phone__c == '' && objAccount.Email__c == null){
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
-                    }
-                    if(objAccount.Vat_No__c == null && objAccount.Commercial_Reg_No__c == null){
+                    
+                       if(objAccount.Vat_No__c == null && objAccount.Commercial_Reg_No__c == null)
                         //ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter Business registration number / Vat registration '));
                     }
@@ -281,7 +281,7 @@ public class AddressSearchValidationController{
                     {              
                         objPersonAccount.Mobile__c = '';
                     }
-                    else if((mobileAreaCode != ' ' || mobileAreaCode == ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
+                    else if((mobileAreaCode != ' ') && (mobileAreaCodePart2 != '' || mobileAreaCodePart2 == '') && (mobileAreaCodePart3 !='' || mobileAreaCodePart3 == ''))
                     {              
                         objPersonAccount.Mobile__c= mobileAreaCode+'-'+mobileAreaCodePart2+'-'+mobileAreaCodePart3;
                         if(objPersonAccount.Mobile__c.startsWith(' -'))

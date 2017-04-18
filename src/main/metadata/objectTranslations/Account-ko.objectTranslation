@@ -609,7 +609,7 @@
         <name>Company_Name_Native_2__c</name>
     </fields>
     <fields>
-        <label>회사 이름</label>
+        <label>사업자 등록명</label>
         <name>Company_Name__c</name>
     </fields>
     <fields>
