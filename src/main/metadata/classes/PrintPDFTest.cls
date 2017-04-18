@@ -8,7 +8,7 @@ public static Lead__c objLead;
      ApexPages.currentPage().getParameters().put('Id','objLead.id');     
      ApexPages.StandardController objSc = new ApexPages.StandardController(objLead);
    try{
-    PrintPDF  objLeadController = new PrintPDF(objSc); 
+    PrintPDFcontroller  objLeadController = new PrintPDFcontroller(objSc); 
     }Catch(exception e){}   
      Test.stopTest();     
     }

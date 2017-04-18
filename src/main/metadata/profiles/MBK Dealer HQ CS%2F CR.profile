@@ -415,10 +415,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignSchedulerAndNotificationJPTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CaseEscalationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
