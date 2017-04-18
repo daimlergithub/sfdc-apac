@@ -1,4 +1,4 @@
-<apex:page standardController="Case" extensions="GenerateAndAttachPDF" action="{!GenerateAndAttachPDF}" renderAs="pdf" applyBodyTag="false" standardStylesheets="false" > 
+<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" applyBodyTag="false" standardStylesheets="false" > 
    <!-- Stylesheets -->
    
      <head>      
