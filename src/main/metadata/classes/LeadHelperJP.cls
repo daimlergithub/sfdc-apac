@@ -152,7 +152,7 @@ public class LeadHelperJP
             update AccountsToBeUpdated;
         }
         if(!contactIdsUpd.isEmpty()){
-            createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
+            //createAccountLinkFromDealer(listNewLeads,LeadNewMap,contactIdsUpd,DealerIds,ContactDealerMap);
         }
     }
     
