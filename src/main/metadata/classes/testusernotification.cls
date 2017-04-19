@@ -9,7 +9,7 @@ Profile p = [select id from profile where name='Standard User'];
             emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
             localesidkey='en_US', profileid = p.Id, country='United States',
            Notification_Lead_Dealer_Assignment__c='789',Notification_Lead_Not_Assigned__c='123', Notification_Lead_No_Update__c='456',
-            timezonesidkey='America/Los_Angeles', username='test123@noemail.com');
+            timezonesidkey='America/Los_Angeles', username='testtest126733@noemail.com');
         insert u;
        
 System.runas(u){
@@ -48,7 +48,7 @@ String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByNa
             emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
             localesidkey='en_US', profileid = p.Id, country='United States',
            Notification_Lead_Dealer_Assignment__c='789',Notification_Lead_Not_Assigned__c='123', Notification_Lead_No_Update__c='456',
-            timezonesidkey='America/Los_Angeles', username='test123@noemail.com');
+            timezonesidkey='America/Los_Angeles', username='testtest124434@noemail.com');
         insert u;
      Account a2=new Account();       
         a2.RecordtypeId=DealerAccRecordTypeId;
