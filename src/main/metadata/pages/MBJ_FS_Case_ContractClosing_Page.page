@@ -1,0 +1,174 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_Inquiry_Controller">
+    <apex:form >
+        <apex:pageBlock id="pb1id" title="Case Edit" mode="edit">
+        
+            <apex:pageblockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageblockButtons>
+            
+            <apex:pageblockSection id="pbs1id" title="General Information">
+                <apex:inputField value="{!Case.Subject}"/>
+                <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Retail_Task__c}">
+                    <apex:actionSupport event="onchange" action="{!populateContractNumber}" reRender="contractNoId"/>
+                </apex:inputField>
+                <apex:outputField value="{!Case.RecordTypeid}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLink id="contractNoId" value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!Case.Case_Complainant__c}"/>
+                <apex:inputField value="{!Case.Ownerid}"/>
+                <apex:inputField value="{!Case.Lead__c}"/>
+                <apex:inputField value="{!Case.Case_Class__c}"/>
+                <apex:inputField value="{!Case.Inquiry_Comments__c  }" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Case_Type__c}">
+                    <apex:actionSupport event="onchange" action="{!nullifyContractClosingPageSection}" reRender="earlyTerminationid,payoutActualid,releaseActualid,returnCloseSWPid,returnOpenid,reloanActualid"/>
+                </apex:inputField>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
+            </apex:pageblockSection>
+            
+            <apex:outputPanel id="earlyTerminationid">
+                <apex:pageblockSection title="Early Termination Actual" rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}">
+                    <apex:inputField value="{!Case.Confirmation_person__c}"/>
+                    <apex:inputField value="{!Case.Confirmed_with_Person_name__c}"/>
+                    <apex:inputField value="{!Case.Payer_input_check__c}"/>
+                    <apex:inputField value="{!Case.Address_for_Transfer_Certificate__c}"/>
+                    <apex:inputField value="{!Case.Date_of_application_input__c}"/>
+                    <apex:inputField value="{!Case.ET_calculation_sheet_availability_check__c}"/>
+                    <apex:inputField value="{!Case.Final_monthly_payment_date_check__c}"/>
+                    <apex:inputField value="{!Case.Regarding_Vehicle_transfer_doc__c}"/>
+                    <apex:inputField value="{!Case.Govt_Subsidy_reimburse__c}"/>
+                    <apex:inputField value="{!Case.Regarding_ET_for_insurance__c}"/>
+                    <apex:inputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:inputField value="{!Case.Date_Received__c}"/>
+                    <apex:inputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="payoutActualid">
+                <apex:pageblockSection title="Payout Actual" rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}">
+                    <apex:inputField value="{!Case.Buyer__c}"/>
+                    <apex:inputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:inputField value="{!Case.Regarding_Payment_due_date__c}"/>
+                    <apex:inputField value="{!Case.Regarding_Vehicle_transfer_doc__c}"/>
+                    <apex:inputField value="{!Case.Regarding_ET_for_insurance__c}"/>
+                    <apex:inputField value="{!Case.Govt_Subsidy_reimburse__c}"/>
+                    <apex:inputField value="{!Case.Date_Received__c}"/>
+                    <apex:inputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="releaseActualid">
+                <apex:pageblockSection title="Re-lease Actual" rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}">
+                    <apex:inputField value="{!Case.Quotation_number__c}"/>
+                    <apex:inputField value="{!Case.Quotation_Case_Number__c}"/>
+                    <apex:inputField value="{!Case.CA_application_submitted__c}"/>
+                    <apex:inputField value="{!Case.CA_Requested__c}"/>
+                    <apex:inputField value="{!Case.CA_Number__c}"/>
+                    <apex:inputField value="{!Case.CA_Result__c}"/>
+                    <apex:inputField value="{!Case.CA_result_shared__c}"/>
+                    <apex:inputField value="{!Case.Date_Received__c}"/>
+                    <apex:inputField value="{!Case.Contract_document_requested_date__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="returnCloseSWPid">
+                <apex:pageblockSection title="Return(Close end & SWP) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Close End)' || Case.Case_Type__c == 'Return (SWP)',true,false)}">
+                    <apex:inputField value="{!Case.Pre_app_result_shared__c}"/>
+                    <apex:inputField value="{!Case.Final_app_payment_confirmation__c}"/> 
+                    <apex:inputField value="{!Case.Final_app_billing_date_of_penalty_charge__c}"/>
+                    <apex:inputField value="{!Case.Final_app_due_date_of_penalty_charge__c}"/>
+                    <apex:inputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
+                    <apex:inputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
+                    <apex:inputField value="{!Case.Final_app_date__c}"/>
+                    <apex:inputField value="{!Case.Final_app_result_Invoice_amount_Penalty__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="returnOpenid">
+                <apex:pageblockSection title="Retun(Open end) Actual" rendered="{!IF(Case.Case_Type__c == 'Return (Open End)',true,false)}">
+                    <apex:inputField value="{!Case.Final_app_Planned_repossession_date__c}"/>
+                    <apex:inputField value="{!Case.Invoice_amount_of_adjustment_charge__c}"/>
+                    <apex:inputField value="{!Case.Due_date_of_adjustment_charge__c}"/>
+                    <apex:inputField value="{!Case.Place_of_vehicle_repossession__c}"/>
+                    <apex:inputField value="{!Case.Vehicle_repossession_date__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="reloanActualid">
+                <apex:pageblockSection title="Re-loan Actual" rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}">
+                    <apex:inputField value="{!Case.Quotation_number__c}"/>
+                    <apex:inputField value="{!Case.Enclosure_of_new_contract__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:pageblockSection title="Authentification">
+                <apex:inputField value="{!Case.Full_Name__c}"/>
+                <apex:inputField value="{!Case.DOB__c}"/>
+                <apex:inputField value="{!Case.Registered_Phone_no__c}"/>
+                <apex:inputField value="{!Case.Authentification_Address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="pbs2id" title="Requestor">
+                <apex:inputField id="reqId" value="{!Case.Requestor__c}">
+                    <apex:actionSupport event="onchange" action="{!nullifyReqCompPersonPhone}" reRender="pbs2id,pbs3id,pbs4id,rssid,rcvId,rcvCppId,rcvInDlrId,rcvSprtDlrId,psrid,pyrId,pyrCppId,pyrInDlrId,pyrSprtDlrId"/>
+                </apex:inputField>
+                <apex:outputText rendered="{!IF(Case.Requestor__c == '' || Case.Requestor__c == 'Contractor' || Case.Requestor__c == 'Guarantor',true,false)}"/>
+                <apex:inputField id="reqCppId" value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c = 'Others',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!CallReceiverAndPayer}" reRender="rcvCppId,pyrCppId"/>
+                </apex:inputField>
+                
+                <apex:inputField id="reqlookupId" value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!CallReceiverAndPayer}" reRender="rcvInDlrId,pyrInDlrId"/>
+                </apex:inputField>
+                <apex:inputField id="reqSprtDlr" value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!CallReceiverAndPayer}" reRender="rcvSprtDlrId,pyrSprtDlrId"/>
+                </apex:inputField>
+                
+                <apex:inputField value="{!Case.Evidence_Check__c}"/>
+                <apex:inputField value="{!Case.Request_date_time__c}"/>
+                <apex:inputField value="{!Case.Requires_Dealer_Contact__c}" rendered="{!IF(Case.Requestor__c == 'Other Dealer',true,false)}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="pbs3id" title="Receiver">
+                <apex:inputcheckbox id="rssid" value="{!Case.Receiver_Same_as_Requestor__c}" disabled="{!Case.Requestor__c == ''}">
+                    <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" rerender="pbs3id,rcvOutputText,rcvId,rcvCppId,rcvInDlrId,rcvSprtDlrId"/>
+                </apex:inputcheckbox>
+                <apex:outputText ></apex:outputText>
+                <apex:inputField id="rcvId" value="{!Case.Receiver1_For_quotation__c}">
+                    <apex:actionSupport event="onchange" reRender="pbs3id"/>
+                </apex:inputField>
+                <apex:outputText id="rcvOutputText" rendered="{!IF(Case.Receiver1_For_quotation__c == '' || Case.Receiver1_For_quotation__c == 'Contractor' || Case.Receiver1_For_quotation__c == 'Guarantor',true,false)}"/>
+                <apex:inputField id="rcvCppId" value="{!Case.Receiver_Company_Person_Phone__c}"  rendered="{!IF(Case.Receiver1_For_quotation__c == 'Others',true,false)}"/>
+                <apex:inputField id="rcvInDlrId" value="{!Case.Receiver_Initial_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Initial Dealer' || Case.Receiver1_For_quotation__c == 'Other Dealer',true,false)}"/>
+                <apex:inputField id="rcvSprtDlrId" value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
+                <apex:inputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
+                <apex:inputField value="{!Case.Receiver_address_type__c}"/>
+                <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
+                <apex:inputField value="{!Case.Receiver_address__c}" style="width:300px; height:100px"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="pbs4id" title="Payer">
+                <apex:inputcheckbox id="psrid" value="{!Case.Payer_Same_as_Requestor__c}" disabled="{!Case.Requestor__c == ''}">
+                    <apex:actionSupport event="onchange" action="{!PayerSameAsRequestor}" rerender="pbs4id,pyrId,pyrOutputText,pyrCppId,pyrInDlrId,pyrSprtDlrId"/>
+                </apex:inputcheckbox>
+                <apex:outputText ></apex:outputText>
+                <apex:inputField id="pyrId" value="{!Case.Payer__c}">
+                    <apex:actionSupport event="onchange" reRender="pbs4id"/>
+                </apex:inputField>
+                <apex:outputText id="pyrOutputText" rendered="{!IF(Case.Payer__c == '' || Case.Payer__c == 'Contractor' || Case.Payer__c == 'Guarantor',true,false)}"/>
+                <apex:inputField id="pyrCppId" value="{!Case.Payer_Company_Person_Phone__c}"  rendered="{!IF(Case.Payer__c == 'Others',true,false)}"/>
+                <apex:inputField id="pyrInDlrId" value="{!Case.Payer_Initial_Dealer__c}" rendered="{!IF(Case.Payer__c == 'Initial Dealer' || Case.Payer__c == 'Other Dealer',true,false)}"/>
+                <apex:inputField id="pyrSprtDlrId" value="{!Case.Payer_Supporting_Dealer__c}" rendered="{!IF(Case.Payer__c == 'Supporting dealer',true,false)}"/>
+                <apex:inputField value="{!Case.Payer_Preferred_comm_Channel__c}"/>
+                <apex:inputField value="{!Case.Payer_address_type__c}"/>
+                <apex:inputField value="{!Case.Payer_Fax_Email_address__c}"/>
+                <apex:inputField value="{!Case.Payer_address__c}" rendered="{!IF(Case.Payer_address_type__c == 'Others',true,false)}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Payer_address__c}" style="width:300px; height:100px"/>
+            </apex:pageblockSection>
+                
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -3,29 +3,67 @@ public class CaseTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+            if(Trigger.isBefore && Trigger.isupdate)
+        {
+           CaseHelperJP.caseOwner(Trigger.New, (Map<Id,Case>) Trigger.OldMap);
+            
+        }
+    
+     if (trigger.isAfter)
+    {
+    if (trigger.isInsert){
+    System.debug('$$$$$$@@@@'+trigger.new);
+    caseHelperJP.shareCaseWithDealers(trigger.new);
+    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+    }
+    if (trigger.isUpdate){
+    System.debug('$$$$$$@@@@'+trigger.new);
+    caseHelperJP.shareCaseWithDealers(trigger.new);
+    caseHelperJP.SendEmailToNotifyDealer(trigger.new);
+    }
+    } 
         system.debug('Entered handler...JP handler');
         system.debug('Trigger IsDelete...' +trigger.isDelete);
-        CaseHelperJP caseHelperJP = new CaseHelperJP();
+        CaseHelperJP caseHelperJPd = new CaseHelperJP();
         if (trigger.isBefore){  
             if (trigger.isInsert)
-                caseHelperJP.updateCaseDeadline(trigger.new);
+                caseHelperJPd.updateCaseDeadline(trigger.new);
             if (trigger.isUpdate){
-                caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
-                caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);      
+                caseHelperJPd.calculateComplaintAmount(trigger.new,trigger.oldMap);
+                caseHelperJPd.updateCaseDeadline(trigger.new,trigger.oldMap); 
+                   
                 }      
         }else if (trigger.isAfter){
             if (trigger.isDelete){
                system.debug('Entered delete condition...');
-               caseHelperJP.calculateComplaintAmount(trigger.old);
+               caseHelperJPd.calculateComplaintAmount(trigger.old);
             }else if (trigger.isInsert){
-               caseHelperJP.calculateComplaintAmount(trigger.new); 
+               caseHelperJPd.calculateComplaintAmount(trigger.new); 
             }else if (trigger.isUpdate){
-               caseHelperJP.calculateComplaintAmount(trigger.new);
+            caseHelperJPd.updateCase(trigger.new);
+               caseHelperJPd.calculateComplaintAmount(trigger.new);
+                 
+            }
+        
+        }
+        
+        if (trigger.isAfter){
+            if (trigger.isInsert||trigger.isUpdate){
+               caseHelperJP.countchildcase(trigger.new,trigger.old); 
             }
         }
+        if(trigger.isBefore){
+            if(trigger.isDelete){
+                
+              caseHelperJP.countchildcase(trigger.new,trigger.old);    
+                
+            }
+        }    
+        
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
     }
+    
 }

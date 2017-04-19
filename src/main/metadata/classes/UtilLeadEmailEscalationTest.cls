@@ -8,7 +8,10 @@ public static void preparedTestData()
 {
     
   List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-  insert updatecustomsettings;
+  //insert updatecustomsettings;
+  Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccountLink',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
      
  customer1 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='',
@@ -23,7 +26,7 @@ public static void preparedTestData()
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',Allow_Data_Sharing_Comment__c='comments',MBK_Data_Source__c ='Email',
-                                    Mobile__c ='000-123-4567'); 
+                                    Mobile__c ='0001234567'); 
                                     insert customer1;
                                     
                      listacc = new List<Account>();

@@ -1,0 +1,89 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+        
+            <apex:pageblockSection >
+                <apex:outputField value="{!Case.Retail_Task__c}"/>
+                <apex:outputField value="{!Case.RecordTypeid}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLink value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!Case.Case_Complainant__c}"/>
+                <apex:outputField value="{!Case.ownerId}"/>
+                <apex:outputField value="{!Case.Case_Class__c}"/>
+                <apex:outputField value="{!Case.Lead__c}"/>
+                <apex:outputField value="{!Case.Internal_Comments__c}"/>
+                <apex:outputField value="{!Case.Case_Type__c}"/>
+                <apex:outputField value="{!Case.Inquiry_Comments__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="MBF Change Request (WO CA)" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!Case.Name__c}"/>
+                <apex:outputField value="{!Case.Company_Name__c}"/>
+                <apex:outputField value="{!Case.Registered_Address__c}"/>
+                <apex:outputField value="{!Case.Registered_Phone_Number__c}"/>
+                <apex:outputField value="{!Case.Mailing_Address__c}"/>
+                <apex:outputField value="{!Case.Mailing_Phone_Number__c}"/>
+                <apex:outputField value="{!Case.Present_Address__c}"/>
+                <apex:outputField value="{!Case.Present_Phone_Number__c}"/>
+                <apex:outputField value="{!Case.New_Bank_Name__c}"/> 
+                <apex:outputField value="{!Case.Bank_Account_of_Change_Date__c}"/>
+                <apex:outputField value="{!Case.Existing_Account_Availability_Date__c}"/>
+                <apex:outputField value="{!Case.Vehicle_Inspection_Certificate_Change__c}"/>
+                <apex:outputField value="{!Case.Reason__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="MBF Documentation Request" rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
+                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!Case.Certificate_of_Outstanding_Balance__c}"/>
+                <apex:outputField value="{!Case.Account_Closing_Month__c}"/>
+                <apex:outputField value="{!Case.Required_Period__c}"/>
+                <apex:outputField value="{!Case.DeadLine__c}"/>
+                <apex:outputField value="{!Case.Reason__c}"/>
+            </apex:pageblockSection>
+          
+            <apex:pageblockSection title="MBF Change Request (W CA)" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
+                <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                <apex:outputField value="{!Case.Reason__c}"/> 
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Authentification">
+                <apex:outputField value="{!Case.Full_Name__c}"/>
+                <apex:outputField value="{!Case.DOB__c}"/>
+                <apex:outputField value="{!Case.Registered_Phone_no__c}"/>
+                <apex:outputField value="{!Case.Authentification_Address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Requestor">
+                <apex:outputField value="{!Case.Requestor__c}"/>
+                <apex:outputText rendered="{!IF(Case.Requestor__c == '' || Case.Requestor__c == 'Contractor' || Case.Requestor__c == 'Guarantor',true,false)}"/>
+                <apex:outputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c == 'Others',true,false)}"/>
+                <apex:outputField value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:outputField value="{!Case.Evidence_Check__c}"/>
+                <apex:outputField value="{!Case.Request_date_time__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Receiver">
+                <apex:outputfield value="{!Case.Receiver_Same_as_Requestor__c}"/>
+                <apex:outputText ></apex:outputText>
+                <apex:outputField value="{!Case.Receiver1_For_quotation__c}"/>
+                <apex:outputText rendered="{!IF(Case.Receiver1_For_quotation__c == '' || Case.Receiver1_For_quotation__c == 'Contractor' || Case.Receiver1_For_quotation__c == 'Guarantor',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Company_Person_Phone__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Others',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Initial_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Initial Dealer' || Case.Receiver1_For_quotation__c == 'Other Dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
+                <apex:outputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
+                <apex:outputField value="{!Case.Receiver_address_type__c}"/>
+                <apex:outputField value="{!Case.Receiver_address__c}"/>
+                <apex:outputField value="{!Case.Receiver_Fax_Email_address__c}"/>
+                <apex:outputField value="{!Case.Document_sending_date__c}"/>
+                <apex:outputField value="{!Case.TL_Reviewed__c}"/>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -62,9 +62,6 @@
         <fullName>Email</fullName>
     </fields>
     <fields>
-        <fullName>IsRecurrence</fullName>
-    </fields>
-    <fields>
         <fullName>IsVisibleInSelfService</fullName>
     </fields>
     <fields>
@@ -541,7 +538,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -2298,7 +2295,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -2706,7 +2703,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>IB_Status__c</picklist>
             <values>
                 <fullName>Error</fullName>
@@ -2720,27 +2717,47 @@
                 <fullName>Valid</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues> 
+		<picklistValues>
             <picklist>Intention_Status__c</picklist>
             <values>
-                <fullName>Hand Back</fullName>
+                <fullName>Contact</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quoted</fullName>
+                <fullName>Finance Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Retain Payout</fullName>
+                <fullName>Insurance Proposal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Retain Refinance</fullName>
+                <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade In</fullName>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Trade-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4323,7 +4340,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -5463,7 +5480,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -6604,7 +6621,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -7505,7 +7522,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -9315,7 +9332,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -10299,7 +10316,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -11172,7 +11189,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues>  
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -12080,7 +12097,7 @@
                 <fullName>Xcar</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+        </picklistValues> 
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
@@ -12650,6 +12667,19 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
         <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>After_Sales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>After Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID"); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>
         <availability>online</availability>
@@ -12697,6 +12727,43 @@ srcUp("/apex/TaskMassChangeOwner?isdtp=vw&amp;objIds=" + idList + "&amp;retURL="
 } else { 
 window.location.href = "/apex/TaskMassChangeOwner?objIds=" + idList + "&amp;retURL=" + retURL;
 }
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_Assign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass Assign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>// Include and initialize the AJAX toolkit library 
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+var idList = {!GETRECORDIDS($ObjectType.Task)}; 
+var retURL = window.location.toString(); 
+var proceed = true; 
+if(idList.length &lt;= 0){ 
+alert('Please select record(s).'); 
+proceed = false; 
+} 
+if ((navigator.userAgent.indexOf('MSIE')) &gt;= 0) { 
+if(idList.length &gt; 100){ 
+alert('Only maximum of 100 records can be selected.'); 
+proceed = false; 
+} 
+} 
+if(proceed){ 
+//window.open("/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;objCount=" + idList.length + "&amp;retURL=" + retURL, 'Popup', 'height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no'); 
+//window.location.href = "/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;retURL=" + retURL; 
+
+if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!='undefined') { 
+srcUp("/apex/TaskMassAssignChangeOwnerJP?isdtp=vw&amp;objIds=" + idList + "&amp;retURL=" + retURL); 
+} else { 
+window.location.href = "/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;retURL=" + retURL; 
+} 
 }</url>
     </webLinks>
     <webLinks>
@@ -12808,6 +12875,19 @@ else{
 	url += "Task_RelatedTo={!Task.What}&amp;Task_CustomerId={!Task.Who}&amp;CurrentUser_UserName={!$User.LastName}{!$User.FirstName}&amp;Task_Id={!Task.Id}&amp;Redo=true"; 
 
 	window.open(url, "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Sales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -12931,6 +13011,35 @@ else {
 	url += "Task_RelatedTo={!Task.What}&amp;Task_CustomerId={!Task.Who}&amp;CurrentUser_UserName={!$User.LastName}{!$User.FirstName}&amp;Task_Id={!Task.Id}";
 
 	window.open(url, "", "width = 800,height = 600");
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Task_Mass_Assign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Task Mass Assign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>// Include and initialize the AJAX toolkit library 
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+var idList = {!GETRECORDIDS($ObjectType.Task)}; 
+var retURL = window.location.toString(); 
+var proceed = true; 
+if(idList.length &lt;= 0){ 
+alert('Please select record(s).'); 
+proceed = false; 
+} 
+if ((navigator.userAgent.indexOf('MSIE')) &gt;= 0) { 
+if(idList.length &gt; 1000){ 
+alert('Only maximum of 1000 records can be selected.'); 
+proceed = false; 
+} 
+} 
+if(proceed){ 
+window.location.href = "{!URLFOR($Site.Prefix)}/apex/TaskMassAssignChangeOwnerJP?objIds=" + idList + "&amp;retURL=" + retURL; 
 }</url>
     </webLinks>
     <webLinks>

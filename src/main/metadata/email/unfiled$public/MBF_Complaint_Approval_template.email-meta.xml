@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>MBF Complaint Approval template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>MBF Complaint Approval template</name>
+    <style>none</style>
+    <subject>Case Approval required</subject>
+    <textOnly>Record has been submitted for Approval and the link is as below: {!Case.Link}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

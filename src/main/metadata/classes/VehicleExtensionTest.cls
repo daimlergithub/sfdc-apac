@@ -86,6 +86,7 @@ public class VehicleExtensionTest {
       objVehicleExtension.saveVal();
       //objVehicleExtension.save();
       objVehicleExtension.saveAndNew();
+      objVehicleExtension.save();
       
       //stop test
       test.stopTest();
@@ -123,7 +124,8 @@ public class VehicleExtensionTest {
        objVehicleExtension.brand=UtilConstant.Question;
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
-       objVehicleExtension.Cancel();
+       //objVehicleExtension.save();
+       //objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         
@@ -159,7 +161,8 @@ public class VehicleExtensionTest {
        objVehicleExtension.brand=objCarmodel.Brand__c;
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
-       objVehicleExtension.Cancel();
+     // objVehicleExtension.save();
+       //objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         
@@ -168,44 +171,44 @@ public class VehicleExtensionTest {
       //system.assertEquals('smart', vehicle.Brand__c);     
     }
 
-	public static testMethod void testVehicleSave(){
-		//create test data
-      	createCarModel();
+    public static testMethod void testVehicleSave(){
+        //create test data
+        createCarModel();
          
-      	//start test
-      	test.startTest();
-      	
-      	// Vehicle
-      	Vehicle__c vehicle = new Vehicle__c(Recall__c = false, EuroVIN__c = '12345678901111111', UsVIN__c = '12345678902222222'
-      											,Brand__c ='Mercedes-Benz', FirstRegistrationDate__c = date.today(), Purchase_Month__c ='02'
-      												, Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
-      													,RegistrationNo__c = '12345');
-		
-		ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle); 
-		VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
-       	
-       	objVehicleExtension.recordType= 'Vehicle Product';
-		objVehicleExtension.brand= 'Smart';
-		objVehicleExtension.model= 'A160';
-		objVehicleExtension.compBrand= 'Smart';
-		objVehicleExtension.compModel= 'A160';
-		objVehicleExtension.saveVal();
-		
-		system.assertEquals(vehicle.Brand__c,objVehicleExtension.brand);
-		system.assertEquals(vehicle.Model__c,objVehicleExtension.model);
-		
-       	objVehicleExtension.recordType= 'Vehicle Product';
-		objVehicleExtension.brand= 'Smart';
-		objVehicleExtension.model= 'A160';
-		objVehicleExtension.compBrand= 'Smart';
-		objVehicleExtension.compModel= 'A160';
-		objVehicleExtension.saveAndNew();
+        //start test
+        test.startTest();
+        
+        // Vehicle
+        Vehicle__c vehicle = new Vehicle__c(Recall__c = false, EuroVIN__c = '12345678901111111', UsVIN__c = '12345678902222222'
+                                                ,Brand__c ='Mercedes-Benz', FirstRegistrationDate__c = date.today(), Purchase_Month__c ='02'
+                                                    , Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
+                                                        ,RegistrationNo__c = '12345');
+        
+        ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle); 
+        VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
+        
+        objVehicleExtension.recordType= 'Vehicle Product';
+        objVehicleExtension.brand= 'Smart';
+        objVehicleExtension.model= 'A160';
+        objVehicleExtension.compBrand= 'Smart';
+        objVehicleExtension.compModel= 'A160';
+        objVehicleExtension.saveVal();
+        
+        system.assertEquals(vehicle.Brand__c,objVehicleExtension.brand);
+        system.assertEquals(vehicle.Model__c,objVehicleExtension.model);
+        
+        objVehicleExtension.recordType= 'Vehicle Product';
+        objVehicleExtension.brand= 'Smart';
+        objVehicleExtension.model= 'A160';
+        objVehicleExtension.compBrand= 'Smart';
+        objVehicleExtension.compModel= 'A160';
+        objVehicleExtension.saveAndNew();
 
-		system.assertEquals(vehicle.Brand__c,objVehicleExtension.brand);
-		system.assertEquals(vehicle.Model__c,objVehicleExtension.model);
+        system.assertEquals(vehicle.Brand__c,objVehicleExtension.brand);
+        system.assertEquals(vehicle.Model__c,objVehicleExtension.model);
       
-		//stop test
-		test.stopTest();   
+        //stop test
+        test.stopTest();   
     }
 
 

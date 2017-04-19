@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>JP_MarketVehicle_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Vehicle Soft Deleted</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Vehicle with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <name>JP_MarketVehicle_Readable_to_MBJ_Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketVehicle_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>

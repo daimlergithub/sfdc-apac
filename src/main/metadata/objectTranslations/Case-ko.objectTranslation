@@ -7973,14 +7973,6 @@
             <translation>--</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Special lease</masterLabel>
-            <translation><!-- Special lease --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special lease for employees</masterLabel>
-            <translation><!-- Special lease for employees --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Survey</masterLabel>
             <translation>설문조사</translation>
         </picklistValues>
@@ -12956,10 +12948,6 @@
             <translation><!-- GLC SUV --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLE SUC</masterLabel>
-            <translation><!-- GLE SUC --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>GLE SUV</masterLabel>
             <translation><!-- GLE SUV --></translation>
         </picklistValues>
@@ -12970,10 +12958,6 @@
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
             <translation><!-- GLK-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLS SUV</masterLabel>
-            <translation><!-- GLS SUV --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GRAND VOYAGER</masterLabel>
@@ -15860,29 +15844,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Inquiry Layout - CAC(IB/OB)</layout>
-        <sections>
-            <label>문의 피드백</label>
-            <section>Case Feedback</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Info</section>
-        </sections>
-        <sections>
-            <label>문의 정보</label>
-            <section>Inquiry Information</section>
-        </sections>
-        <sections>
-            <label>기타 정보</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>JP Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
             <label><!-- Case Feedback --></label>
@@ -16172,60 +16133,6 @@
         <sections>
             <label>차량 소유자 세부정보</label>
             <section>Vehicle Owner Details</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>MBF Contract Closing Cases</layout>
-        <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Early termination Actual --></label>
-            <section>Early termination Actual</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Non-Usable Section --></label>
-            <section>Non-Usable Section</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>MBF Quotation Cases Layout</layout>
-        <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Early Termination Quotation --></label>
-            <section>Early Termination Quotation</section>
-        </sections>
-        <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Non Usable Section --></label>
-            <section>Non Usable Section</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 1 --></label>
-            <section>Quotation Request 1</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 2 --></label>
-            <section>Quotation Request 2</section>
         </sections>
     </layouts>
     <recordTypes>

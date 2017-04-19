@@ -13,11 +13,11 @@
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Notification --></label>
+        <label>営業担当者通知</label>
         <name>Sales_Notification__c</name>
     </fields>
     <fields>
-        <label><!-- Service Notification --></label>
+        <label>サービス担当者通知</label>
         <name>Service_Notification__c</name>
     </fields>
     <fields>
@@ -52,8 +52,12 @@
     <layouts>
         <layout>Survey Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
         </sections>
     </layouts>
     <nameFieldLabel>サーベイ名</nameFieldLabel>
@@ -62,3 +66,4 @@
         <name>Preview</name>
     </webLinks>
 </CustomObjectTranslation>
+

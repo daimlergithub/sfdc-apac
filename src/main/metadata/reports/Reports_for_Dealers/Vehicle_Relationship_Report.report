@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <description>Report for all Vehicle Relationship records with &quot;Warranty Apply Status&quot; is NOT &quot;to be sent&quot; NOR &quot;sent&quot;.</description>
+    <filter>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c.Warranty_Apply_Status__c</column>
+            <operator>notEqual</operator>
+            <value>To be Sent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Vehicle_Relationship__c.Warranty_Apply_Status__c</column>
+            <operator>notEqual</operator>
+            <value>Sent</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Vehicle Relationship Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Vehicle_Relationship__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <endDate>2017-01-02</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-12-02</startDate>
+    </timeFrameFilter>
+</Report>
+
+
+
+
+
+

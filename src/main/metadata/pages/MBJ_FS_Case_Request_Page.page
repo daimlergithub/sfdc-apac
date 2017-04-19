@@ -1,0 +1,122 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_Inquiry_Controller">
+    <apex:form >
+        <apex:pageBlock id="pb1id" title="Case Edit" mode="edit">
+            <apex:pageblockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageblockButtons>  
+            
+            <apex:pageblockSection id="section1" title="General Information">
+                <apex:inputField value="{!Case.Subject}"/>
+                <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Retail_Task__c}">
+                    <apex:actionSupport event="onchange" action="{!populateContractNumber}" reRender="contractNoId"/>
+                </apex:inputField>
+                <apex:outputField value="{!Case.RecordTypeid}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLink id="contractNoId" value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!Case.Case_Complainant__c}"/>
+                <apex:inputField value="{!Case.ownerId}"/>
+                <apex:inputField value="{!Case.Case_Class__c}"/>
+                <apex:inputField value="{!Case.Lead__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Case_Type__c}">
+                    <apex:actionSupport event="onchange" action="{!nullifyRequestPageSection}" reRender="WOCAid,DocReqid,WCAid"/>
+                </apex:inputField>
+                <apex:inputField value="{!Case.Inquiry_Comments__c}" style="width:300px; height:100px"/>
+            </apex:pageblockSection>
+               
+            <apex:outputPanel id="WOCAid"> 
+                <apex:pageBlockSection title="MBF Change Request (WO CA)" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+                    <apex:inputField value="{!Case.Narrative_of_Type__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+                    <apex:inputField value="{!Case.Name__c}"/>
+                    <apex:inputField value="{!Case.Company_Name__c}"/>
+                    <apex:inputField value="{!Case.Registered_Address__c}" style="width:300px; height:100px"/>
+                    <apex:inputField value="{!Case.Registered_Phone_Number__c}"/>
+                    <apex:inputField value="{!Case.Mailing_Address__c}" style="width:300px; height:100px"/>
+                    <apex:inputField value="{!Case.Mailing_Phone_Number__c}"/>
+                    <apex:inputField value="{!Case.Present_Address__c}" style="width:300px; height:100px"/>
+                    <apex:inputField value="{!Case.Present_Phone_Number__c}"/>
+                    <apex:inputField value="{!Case.New_Bank_Name__c}"/> 
+                    <apex:inputField value="{!Case.Bank_Account_of_Change_Date__c}"/>
+                    <apex:inputField value="{!Case.Existing_Account_Availability_Date__c}"/>
+                </apex:pageblockSection>
+                <apex:pageblockSection columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+                    <apex:inputField value="{!Case.Vehicle_Inspection_Certificate_Change__c}"/>
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/> 
+                </apex:pageblockSection>
+            </apex:outputPanel>
+               
+            <apex:outputPanel id="DocReqid">
+                <apex:pageBlockSection title="MBF Documentation Request" rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
+                    <apex:inputField value="{!Case.Narrative_of_Type__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
+                    <apex:inputField value="{!Case.Certificate_of_Outstanding_Balance__c}"/>
+                    <apex:inputField value="{!Case.Account_Closing_Month__c}"/>
+                    <apex:inputField value="{!Case.Required_Period__c}"/>
+                    <apex:inputField value="{!Case.DeadLine__c}"/>
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="WCAid">    
+                <apex:pageblockSection title="MBF Change Request (W CA)" columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
+                    <apex:inputField value="{!Case.Narrative_of_Type__c}"/>
+                    <apex:inputField value="{!Case.Reason__c}" style="width:600px; height:100px"/> 
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:pageblockSection title="Authentification">
+                <apex:inputField value="{!Case.Full_Name__c}"/>
+                <apex:inputField value="{!Case.DOB__c}"/>
+                <apex:inputField value="{!Case.Registered_Phone_no__c}"/>
+                <apex:inputField value="{!Case.Authentification_Address__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="section2" title="Requestor">
+                <apex:inputField id="reqId" value="{!Case.Requestor__c}">
+                    <apex:actionSupport event="onchange" action="{!nullifyReqCompPersonPhone}" reRender="section2,section3,rssid,rfqId,rCppId,rcvInDlrId"/>
+                </apex:inputField>
+                <apex:outputText rendered="{!IF(Case.Requestor__c == '' || Case.Requestor__c == 'Contractor' || Case.Requestor__c == 'Guarantor',true,false)}"/>
+                <apex:inputField value="{!Case.Requestor_Company_Person_Phone__c}" rendered="{!IF(Case.Requestor__c == 'Others',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" reRender="rCppId"/>
+                </apex:inputField>
+                <apex:inputField id="reqlookupId" value="{!Case.Requester_Initial_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Initial Dealer' || Case.Requestor__c == 'Other Dealer',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" reRender="rcvInDlrId"/>
+                </apex:inputField>
+                <apex:inputField id="reqSprtDlr" value="{!Case.Requestor_Supporting_Dealer__c}" rendered="{!IF(Case.Requestor__c == 'Supporting dealer',true,false)}">
+                    <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" reRender="rcvSprtDlrId"/>
+                </apex:inputField>
+                <apex:inputField value="{!Case.Communicated_with_Previous_dealer__c}"/>
+                <apex:inputField value="{!Case.Evidence_Check__c}"/>
+                <apex:inputField value="{!Case.Request_date_time__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection id="section3" title="Receiver">
+                <apex:inputcheckbox id="rssid" value="{!Case.Receiver_Same_as_Requestor__c}" disabled="{!Case.Requestor__c == ''}">
+                    <apex:actionSupport event="onchange" action="{!ReceiverSameAsRequestor}" rerender="section3,rfqId,rcvOutputText,rCppId,rcvInDlrId,rcvSprtDlrId"/>
+                </apex:inputcheckbox>
+                <apex:outputText ></apex:outputText>
+                <apex:inputField id="rfqId" value="{!Case.Receiver1_For_quotation__c}">
+                    <apex:actionSupport event="onchange" reRender="section3"/>
+                </apex:inputField>
+                <apex:outputText id="rcvOutputText" rendered="{!IF(Case.Receiver1_For_quotation__c == '' || Case.Receiver1_For_quotation__c == 'Contractor' || Case.Receiver1_For_quotation__c == 'Guarantor',true,false)}"/>
+                <apex:inputField id="rCppId" value="{!Case.Receiver_Company_Person_Phone__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Others',true,false)}"/>
+                <apex:inputField id="rcvInDlrId" value="{!Case.Receiver_Initial_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Initial Dealer' || Case.Receiver1_For_quotation__c == 'Other Dealer',true,false)}"/>
+                <apex:inputField id="rcvSprtDlrId" value="{!Case.Receiver_Supporting_Dealer__c}" rendered="{!IF(Case.Receiver1_For_quotation__c == 'Supporting dealer',true,false)}"/>
+                <apex:inputField value="{!Case.Receiver_Preferred_comm_Channel__c}"/>
+                <apex:inputField value="{!Case.Receiver_address_type__c}"/>
+                <apex:inputField value="{!Case.Receiver_address__c}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Receiver_Fax_Email_address__c}"/>
+                <apex:inputField value="{!Case.Document_sending_date__c}"/>
+                <apex:inputField value="{!Case.TL_Reviewed__c}"/>
+            </apex:pageblockSection>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -18,9 +18,14 @@ public class RetailCampaignTriggerHandler
         if (trigger.isBefore && trigger.isUpdate) {
             RetailCampaignHelper.beforeInsertUpdateEvents(Trigger.new,(Map<Id,Retail_Campaign__c>)Trigger.oldmap,Trigger.isInsert,Trigger.isUpdate);
         }
+        if(Trigger.isBefore && Trigger.isDelete)
+        {
+           RetailCampaignHelper.beforeDeleteEvents(Trigger.old);
+           RetailCampaignHelper.beforeDeleteRetailCampaignStatus(Trigger.old);  
+        }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }

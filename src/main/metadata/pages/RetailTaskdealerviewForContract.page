@@ -1,0 +1,107 @@
+<apex:page standardController="Retail_Task__c" extensions="dealerViewForContract" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="{!$Label.Related_Dealer_View_for_Contract}">
+            <apex:pageBlockSection columns="2">
+            
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Contractor_Name__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Name_Native__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Contractor_Name_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Vehicle_Registration_No__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Vehicle_Registration_No__c}"/>  
+              </apex:pageBlockSectionItem> &nbsp;
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Guarantor1_ZipCode__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Guarantor1_ZipCode__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Contractor_Address1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}" />
+                        <apex:outputText value="{!AddressActual}" />  
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId ==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Name__c.Label}" />
+                        <apex:outputfield value="{!displayRetail.MOT_User_Name__c}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Name__c.Label}" />
+                        <apex:outputText value="{!MotuserName}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Name_Native__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_User_Name_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Name_Native__c.Label}" />
+                        <apex:outputText value="{!MotuserNameNative}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Postal__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_User_Postal__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Postal__c.Label}" />
+                        <apex:outputText value="{!MotuserPostal}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Address__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_User_Address__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Address__c.Label}" />
+                        <apex:outputText value="{!MotuserAddress}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Phone__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_User_Phone__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_User_Phone__c.Label}" />
+                        <apex:outputText value="{!MotuserPhone}" /> 
+              </apex:pageBlockSectionItem> &nbsp;
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Name__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_Owner_Name__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Name__c.Label}" />
+                        <apex:outputText value="{!MotownerName}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Name_Native__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_Owner_Name_Native__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Name_Native__c.Label}" />
+                        <apex:outputText value="{!MotuserownerNameNative}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Address__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.MOT_Owner_Address__c}"/>  
+              </apex:pageBlockSectionItem> 
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.MOT_Owner_Address__c.Label}" />
+                        <apex:outputText value="{!MotOwnerAddress}" />  
+              </apex:pageBlockSectionItem> &nbsp;
+             
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Related_Dealer__c}"/>  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Latest_Sales_Person__c.Label}"/>
+                        <apex:outputField value="{!displayRetail.Latest_Sales_Person__c}"/>  
+              </apex:pageBlockSectionItem>
+           </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

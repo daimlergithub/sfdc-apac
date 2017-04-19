@@ -12,7 +12,7 @@
 public class TriggerVehicleRelationshipTest {
     public static testMethod void testTriggerVehicleRelationship() {
     
-        User testUser = TestUserCreate.createuserrecord('KR');
+        User testUser = TestUserCreate.createuserrecord('JP');
         System.runAs(testUser){
             List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
             insert updatecustomsettings;
@@ -27,8 +27,8 @@ public class TriggerVehicleRelationshipTest {
                 UtilTestData.ACCOUNT_RT_DEALER);
             
             // Create Person Account
-            Account personAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c ='Email',
-                                       Mobile__c ='000-123-4567'), 
+            Account personAccount = (Account)UtilTestData.createSobject(new Account(
+                                       Mobile__c ='09865234112'), 
                 UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
             
             // Create Vehicle

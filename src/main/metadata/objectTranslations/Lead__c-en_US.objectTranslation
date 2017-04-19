@@ -13,19 +13,6 @@
         <name>Accepted_Date_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Additional Service --></label>
-        <name>Additional_Services__c</name>
-    </fields>
-    <fields>
-        <label><!-- Aftersales VIN --></label>
-        <name>AfterSales_VIN__c</name>
-    </fields>
-    <fields>
-        <label><!-- Aftersales Vehicle --></label>
-        <name>AfterSales_Vehicle__c</name>
-        <relationshipLabel><!-- Leads (Aftersales Vehicle) --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Aftersales Vehicle Brand --></label>
         <name>Aftersales_Vehicle_Brand__c</name>
     </fields>
@@ -36,10 +23,6 @@
     <fields>
         <label><!-- Amount(Hours) --></label>
         <name>Amount_Hours__c</name>
-    </fields>
-    <fields>
-        <label><!-- Appointment Date --></label>
-        <name>Appointment_DateTime__c</name>
     </fields>
     <fields>
         <label><!-- Assigned Date Time --></label>
@@ -75,40 +58,12 @@
         <name>Assigned_to_Dealer_Directly__c</name>
     </fields>
     <fields>
-        <label><!-- Attachment Flag --></label>
-        <name>Attachment_Flag__c</name>
-    </fields>
-    <fields>
         <label><!-- Base Rate --></label>
         <name>Base_Rate__c</name>
     </fields>
     <fields>
         <label><!-- Batch No. --></label>
         <name>Batch_No__c</name>
-    </fields>
-    <fields>
-        <label><!-- Behavioural group --></label>
-        <name>Behavioural_group__c</name>
-        <picklistValues>
-            <masterLabel>Attriters</masterLabel>
-            <translation><!-- Attriters --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Keepers</masterLabel>
-            <translation><!-- Keepers --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>New to brand</masterLabel>
-            <translation><!-- New to brand --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Revolvers</masterLabel>
-            <translation><!-- Revolvers --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Body Type --></label>
-        <name>Body_Type__c</name>
     </fields>
     <fields>
         <label><!-- Bought Vehicle Brand --></label>
@@ -1770,10 +1725,6 @@
             <translation><!-- Approved --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Approved (Waiting)</masterLabel>
-            <translation><!-- Approved (Waiting) --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Approving</masterLabel>
             <translation><!-- Approving --></translation>
         </picklistValues>
@@ -1784,10 +1735,6 @@
         <picklistValues>
             <masterLabel>Contact Failed For 3 Days(Only Non BDC)</masterLabel>
             <translation><!-- Contact Failed For 3 Days(Only Non BDC) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Distributed</masterLabel>
-            <translation><!-- Distributed --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>First Contact Customer</masterLabel>
@@ -1842,14 +1789,6 @@
             <translation><!-- Rejected --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Service Booking</masterLabel>
-            <translation><!-- Service Booking --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Completed</masterLabel>
-            <translation><!-- Service Completed --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
         </picklistValues>
@@ -1883,111 +1822,6 @@
         <name>CAC_SourceId__c</name>
     </fields>
     <fields>
-        <label><!-- CA Applicant --></label>
-        <name>CA_Applicant__c</name>
-        <relationshipLabel><!-- Leads (CA Applicant) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- CA Application Number --></label>
-        <name>CA_Application_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- CA Status --></label>
-        <name>CA_Lead_Status__c</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Conditionally Approved</masterLabel>
-            <translation><!-- Conditionally Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Suspended</masterLabel>
-            <translation><!-- Suspended --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Under Credit Assessment</masterLabel>
-            <translation><!-- Under Credit Assessment --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- CA Submission Date --></label>
-        <name>CA_Updated_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- CA status change date --></label>
-        <name>CA_status_change_date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign Channel --></label>
-        <name>Campaign_Channel__c</name>
-        <picklistValues>
-            <masterLabel>Active Prospecting</masterLabel>
-            <translation><!-- Active Prospecting --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BDC</masterLabel>
-            <translation><!-- BDC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Billboard</masterLabel>
-            <translation><!-- Billboard --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CRM</masterLabel>
-            <translation><!-- CRM --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Event/Sâ€™Ship</masterLabel>
-            <translation><!-- Event/Sâ€™Ship --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Local</masterLabel>
-            <translation><!-- Local --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Online</masterLabel>
-            <translation><!-- Online --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Print</masterLabel>
-            <translation><!-- Print --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Radio</masterLabel>
-            <translation><!-- Radio --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Referral-External</masterLabel>
-            <translation><!-- Referral-External --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Referral-In Dealership</masterLabel>
-            <translation><!-- Referral-In Dealership --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Repeat</masterLabel>
-            <translation><!-- Repeat --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>TV</masterLabel>
-            <translation><!-- TV --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Car License --></label>
         <name>Car_License__c</name>
     </fields>
@@ -2000,14 +1834,6 @@
         <label><!-- Case --></label>
         <name>Case__c</name>
         <relationshipLabel><!-- Leads --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Check In Date --></label>
-        <name>Check_In_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Check Out Date --></label>
-        <name>Check_Out_Date__c</name>
     </fields>
     <fields>
         <label><!-- Close Date --></label>
@@ -2027,10 +1853,6 @@
         <name>Combine_Interested_Vehicle_Brand__c</name>
     </fields>
     <fields>
-        <label><!-- Commission No. --></label>
-        <name>CommissionNumber__c</name>
-    </fields>
-    <fields>
         <label><!-- Company Account --></label>
         <lookupFilter>
             <errorMessage><!-- Please select the proper company account. --></errorMessage>
@@ -2038,10 +1860,6 @@
         </lookupFilter>
         <name>Company_Account__c</name>
         <relationshipLabel><!-- Leads (Company Account) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Contact Date --></label>
-        <name>Contact_Date__c</name>
     </fields>
     <fields>
         <label><!-- Contact Failed For 3 Days Date Time --></label>
@@ -2081,16 +1899,8 @@
         <name>Contract_Rate__c</name>
     </fields>
     <fields>
-        <label><!-- Correlation ID --></label>
-        <name>Correlation_ID__c</name>
-    </fields>
-    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
-    </fields>
-    <fields>
-        <label><!-- Credit Limit Request --></label>
-        <name>Credit_Limit_Request__c</name>
     </fields>
     <fields>
         <label><!-- CurrentMileage --></label>
@@ -2120,18 +1930,6 @@
         <relationshipLabel><!-- Leads --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Customer Information --></label>
-        <name>Customer_Information__c</name>
-    </fields>
-    <fields>
-        <label><!-- Customer Intention --></label>
-        <name>Customer_Intention__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Customer Name --></label>
         <name>Customer_Name__c</name>
     </fields>
@@ -2143,10 +1941,6 @@
         <label><!-- Customer Type --></label>
         <name>Customer_Type__c</name>
         <picklistValues>
-            <masterLabel>Authority</masterLabel>
-            <translation><!-- Authority --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Company Sales</masterLabel>
             <translation><!-- Company Sales --></translation>
         </picklistValues>
@@ -2155,20 +1949,8 @@
             <translation><!-- Existing Customer --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Fleet</masterLabel>
-            <translation><!-- Fleet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Government</masterLabel>
-            <translation><!-- Government --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>New Customer</masterLabel>
             <translation><!-- New Customer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>New Customer(Used Car)</masterLabel>
-            <translation><!-- New Customer(Used Car) --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2186,10 +1968,6 @@
     <fields>
         <label><!-- Direct Debit Authority --></label>
         <name>DD_Authority__c</name>
-    </fields>
-    <fields>
-        <label><!-- DMS Sent Flag --></label>
-        <name>DMS_Sent_Flag__c</name>
     </fields>
     <fields>
         <label><!-- DUP Number --></label>
@@ -2228,10 +2006,6 @@
         <name>Dealer_Commission__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer DMS Comments --></label>
-        <name>Dealer_DMS_Comments__c</name>
-    </fields>
-    <fields>
         <label><!-- Dealer LMS --></label>
         <name>Dealer_LMS__c</name>
     </fields>
@@ -2253,10 +2027,6 @@
         <picklistValues>
             <masterLabel>First Contact Customer</masterLabel>
             <translation><!-- First Contact Customer --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lost</masterLabel>
-            <translation><!-- Lost --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Lost(Dealer)</masterLabel>
@@ -2283,24 +2053,12 @@
             <translation><!-- Received --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Service Booking</masterLabel>
-            <translation><!-- Service Booking --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Completed</masterLabel>
-            <translation><!-- Service Completed --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Test Drive</masterLabel>
             <translation><!-- Test Drive --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Visited Showroom</masterLabel>
             <translation><!-- Visited Showroom --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Won</masterLabel>
-            <translation><!-- Won --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2460,25 +2218,9 @@
         <name>EuroVIN__c</name>
     </fields>
     <fields>
-        <label><!-- Existing Contract End Date --></label>
-        <name>Existing_Contract_End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Existing Contract No. --></label>
-        <name>Existing_Contract_No__c</name>
-    </fields>
-    <fields>
         <label><!-- CRM1 Existing Contract No. --></label>
         <name>Existing_Contract__c</name>
         <relationshipLabel><!-- Leads --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Expected Close Date --></label>
-        <name>Expected_Close_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Expected Registration Date --></label>
-        <name>Expected_Registration_Date__c</name>
     </fields>
     <fields>
         <label><!-- Fax --></label>
@@ -2519,142 +2261,6 @@
     <fields>
         <label><!-- Finance Approved --></label>
         <name>Finance_Approved__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Closing Option --></label>
-        <name>Finance_Closing_Option__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Finance Closing Reason --></label>
-        <name>Finance_Closing_Reason__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Comment --></label>
-        <name>Finance_Comment__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Contract Term --></label>
-        <name>Finance_Contract_Term__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Interest Rate --></label>
-        <name>Finance_Interest_Rate__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Monthly Payment --></label>
-        <name>Finance_Monthly_Payment__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Product Name --></label>
-        <name>Finance_Product_Name__c</name>
-        <picklistValues>
-            <masterLabel>Close End Lease</masterLabel>
-            <translation><!-- Close End Lease --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select Plus) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dual Auto Loan</masterLabel>
-            <translation><!-- Dual Auto Loan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Normal Loan</masterLabel>
-            <translation><!-- Normal Loan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open End Lease</masterLabel>
-            <translation><!-- Open End Lease --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open End Lease (Select Plus)</masterLabel>
-            <translation><!-- Open End Lease (Select Plus) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open End Lease (Select)</masterLabel>
-            <translation><!-- Open End Lease (Select) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
-            <translation><!-- Re-lease (Close End Mileage Plan) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Re-lease (Close End)</masterLabel>
-            <translation><!-- Re-lease (Close End) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Re-lease (Open End)</masterLabel>
-            <translation><!-- Re-lease (Open End) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Re-loan</masterLabel>
-            <translation><!-- Re-loan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Start Up Plan</masterLabel>
-            <translation><!-- Start Up Plan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Super Welcome Plan</masterLabel>
-            <translation><!-- Super Welcome Plan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Super Welcome Plan Plus</masterLabel>
-            <translation><!-- Super Welcome Plan Plus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Welcome Plan</masterLabel>
-            <translation><!-- Welcome Plan --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Welcome Plan Plus</masterLabel>
-            <translation><!-- Welcome Plan Plus --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Finance Proposal Date --></label>
-        <name>Finance_Proposal_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Quotation Date --></label>
-        <name>Finance_Quotation_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Quotation No History --></label>
-        <name>Finance_Quotation_No_History__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Quotation No --></label>
-        <name>Finance_Quotation_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance RV Ballon --></label>
-        <name>Finance_RV_Ballon__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Total V Price NoTax --></label>
-        <name>Finance_Total_V_Price_NoTax__c</name>
-    </fields>
-    <fields>
-        <label><!-- Finance Total V Price Tax --></label>
-        <name>Finance_Total_V_Price_Tax__c</name>
     </fields>
     <fields>
         <label><!-- Financial Product --></label>
@@ -2725,10 +2331,6 @@
         <name>Gender__c</name>
     </fields>
     <fields>
-        <label><!-- Handover Date --></label>
-        <name>Handover_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Home Phone --></label>
         <name>Home_Phone__c</name>
     </fields>
@@ -2736,34 +2338,6 @@
         <label><!-- Instructor --></label>
         <name>Instructor__c</name>
         <relationshipLabel><!-- Leads (Instructor) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Insurance Details --></label>
-        <name>Insurance_Details__c</name>
-    </fields>
-    <fields>
-        <label><!-- Insurance Proposal Date --></label>
-        <name>Insurance_Proposal_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Insurance Type --></label>
-        <name>Insurance_Type__c</name>
-        <picklistValues>
-            <masterLabel>No insurance</masterLabel>
-            <translation><!-- No insurance --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other outlet</masterLabel>
-            <translation><!-- Other outlet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>This outlet</masterLabel>
-            <translation><!-- This outlet --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Interest Rate --></label>
@@ -5244,26 +4818,6 @@
         <relationshipLabel><!-- Leads (Interested Vehicle) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Invoice Amount History --></label>
-        <name>Invoice_Amount_History__c</name>
-    </fields>
-    <fields>
-        <label><!-- Invoice Amount --></label>
-        <name>Invoice_Amount__c</name>
-    </fields>
-    <fields>
-        <label><!-- Invoice Date --></label>
-        <name>Invoice_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Invoice Number History --></label>
-        <name>Invoice_Number_History__c</name>
-    </fields>
-    <fields>
-        <label><!-- Invoice Number --></label>
-        <name>Invoice_Number__c</name>
-    </fields>
-    <fields>
         <label><!-- Is Active --></label>
         <name>Is_Active__c</name>
     </fields>
@@ -5316,14 +4870,6 @@
         <name>Is_Qualify__c</name>
     </fields>
     <fields>
-        <label><!-- Job Card Date --></label>
-        <name>Job_Card_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Job Card No --></label>
-        <name>Job_Card_Number__c</name>
-    </fields>
-    <fields>
         <label><!-- Last Name Native --></label>
         <name>LastName_Native_1__c</name>
     </fields>
@@ -5332,24 +4878,12 @@
         <name>LastName__c</name>
     </fields>
     <fields>
-        <label><!-- Last Nonassign Notification Date --></label>
-        <name>Last_Nonassign_Notification_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Last Successful Call --></label>
         <name>Last_Successful_Call__c</name>
     </fields>
     <fields>
         <label><!-- Lead Additional Service --></label>
         <name>Lead_Additional_Service__c</name>
-        <picklistValues>
-            <masterLabel>1 Year Inspection</masterLabel>
-            <translation><!-- 1 Year Inspection --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>6 month Inspection</masterLabel>
-            <translation><!-- 6 month Inspection --></translation>
-        </picklistValues>
         <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation><!-- Buy --></translation>
@@ -5363,10 +4897,6 @@
             <translation><!-- General Car Care --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>General Repair</masterLabel>
-            <translation><!-- General Repair --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Inspection</masterLabel>
             <translation><!-- Inspection --></translation>
         </picklistValues>
@@ -5375,28 +4905,8 @@
             <translation><!-- Insurance --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MOT</masterLabel>
-            <translation><!-- MOT --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Paint</masterLabel>
-            <translation><!-- Paint --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Participate</masterLabel>
             <translation><!-- Participate --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Plus Check</masterLabel>
-            <translation><!-- Plus Check --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Recall</masterLabel>
-            <translation><!-- Recall --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Repair</masterLabel>
@@ -5406,10 +4916,6 @@
             <masterLabel>Retrofit</masterLabel>
             <translation><!-- Retrofit --></translation>
         </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Lead Assignment Notification Done --></label>
-        <name>Lead_Assignment_Notification_Done__c</name>
     </fields>
     <fields>
         <label><!-- Lead DataSource --></label>
@@ -5427,20 +4933,8 @@
             <translation><!-- BBAC --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CCC</masterLabel>
-            <translation><!-- CCC --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Campaign</masterLabel>
             <translation><!-- Campaign --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>DSC</masterLabel>
-            <translation><!-- DSC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealer Outlet</masterLabel>
-            <translation><!-- Dealer Outlet --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -5471,28 +4965,12 @@
             <translation><!-- Letter --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Letter to Executive</masterLabel>
-            <translation><!-- Letter to Executive --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB Card</masterLabel>
-            <translation><!-- MB Card --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MB Connection</masterLabel>
-            <translation><!-- MB Connection --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB Magazine</masterLabel>
             <translation><!-- MB Magazine --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB website</masterLabel>
             <translation><!-- MB website --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>MCare</masterLabel>
-            <translation><!-- MCare --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach call</masterLabel>
@@ -5559,10 +5037,6 @@
             <translation><!-- Other --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Outbound Call</masterLabel>
-            <translation><!-- Outbound Call --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Partners</masterLabel>
             <translation><!-- Partners --></translation>
         </picklistValues>
@@ -5581,14 +5055,6 @@
         <picklistValues>
             <masterLabel>Social media</masterLabel>
             <translation><!-- Social media --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special lease</masterLabel>
-            <translation><!-- Special lease --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special lease for employees</masterLabel>
-            <translation><!-- Special lease for employees --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -6151,14 +5617,6 @@
         <label><!-- Lead Desired Service --></label>
         <name>Lead_Desired_Service__c</name>
         <picklistValues>
-            <masterLabel>Book-in</masterLabel>
-            <translation><!-- Book-in --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Broucher</masterLabel>
-            <translation><!-- Broucher --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Buy</masterLabel>
             <translation><!-- Buy --></translation>
         </picklistValues>
@@ -6175,32 +5633,12 @@
             <translation><!-- Financial --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Leasing</masterLabel>
             <translation><!-- Leasing --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Product Information</masterLabel>
-            <translation><!-- Product Information --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Quotation</masterLabel>
             <translation><!-- Quotation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Information</masterLabel>
-            <translation><!-- Service Information --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Program</masterLabel>
-            <translation><!-- Service Program --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
@@ -6209,10 +5647,6 @@
         <picklistValues>
             <masterLabel>Trade-In</masterLabel>
             <translation><!-- Trade-In --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Used Car</masterLabel>
-            <translation><!-- Used Car --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6425,194 +5859,6 @@
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
             <translation><!-- Web/Mobile Phone --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Lead Items --></label>
-        <name>Lead_Items__c</name>
-    </fields>
-    <fields>
-        <label><!-- Lead Latest Phase --></label>
-        <name>Lead_Latest_Phase__c</name>
-        <picklistValues>
-            <masterLabel>CA Submission</masterLabel>
-            <translation><!-- CA Submission --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Check Out</masterLabel>
-            <translation><!-- Check Out --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Confirmation</masterLabel>
-            <translation><!-- Confirmation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Contact</masterLabel>
-            <translation><!-- Contact --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Finance Proposal</masterLabel>
-            <translation><!-- Finance Proposal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Finance Quotation</masterLabel>
-            <translation><!-- Finance Quotation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Handover</masterLabel>
-            <translation><!-- Handover --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Insurance Proposal</masterLabel>
-            <translation><!-- Insurance Proposal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Invoiced</masterLabel>
-            <translation><!-- Invoiced --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Job Card Issue</masterLabel>
-            <translation><!-- Job Card Issue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Lost</masterLabel>
-            <translation><!-- Lost --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Needs Check</masterLabel>
-            <translation><!-- Needs Check --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Order Confirmed</masterLabel>
-            <translation><!-- Order Confirmed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Order Placed</masterLabel>
-            <translation><!-- Order Placed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Product Proposal</masterLabel>
-            <translation><!-- Product Proposal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Quotation</masterLabel>
-            <translation><!-- Quotation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Registration</masterLabel>
-            <translation><!-- Registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Program Proposal</masterLabel>
-            <translation><!-- Service Program Proposal --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Simple Estimation</masterLabel>
-            <translation><!-- Simple Estimation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Trade-in</masterLabel>
-            <translation><!-- Trade-in --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Vehicle Registration</masterLabel>
-            <translation><!-- Vehicle Registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Visited</masterLabel>
-            <translation><!-- Visited --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>WIP Linkage</masterLabel>
-            <translation><!-- WIP Linkage --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Lead Lost Date Time --></label>
-        <name>Lead_Lost_Date_Time__c</name>
-    </fields>
-    <fields>
-        <label><!-- Lead Possibility --></label>
-        <name>Lead_Possibility__c</name>
-    </fields>
-    <fields>
-        <label><!-- Lead Possibility Text --></label>
-        <name>Lead_Possibility_text__c</name>
-    </fields>
-    <fields>
-        <label><!-- Lead Priority --></label>
-        <name>Lead_Priority__c</name>
-        <picklistValues>
-            <masterLabel>A (Highest priority)</masterLabel>
-            <translation><!-- A (Highest priority) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>B (Medium priority)</masterLabel>
-            <translation><!-- B (Medium priority) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>C (Lowest priority)</masterLabel>
-            <translation><!-- C (Lowest priority) --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Lead Source Channel --></label>
-        <name>Lead_Source_Channel__c</name>
-        <picklistValues>
-            <masterLabel>Active Prospecting (new value)</masterLabel>
-            <translation><!-- Active Prospecting (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>BDC (new value)</masterLabel>
-            <translation><!-- BDC (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Billboard (new value)</masterLabel>
-            <translation><!-- Billboard (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CRM (new value)</masterLabel>
-            <translation><!-- CRM (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Event/S’Ship (new value)</masterLabel>
-            <translation><!-- Event/S’Ship (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Local (new value)</masterLabel>
-            <translation><!-- Local (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Print (new value)</masterLabel>
-            <translation><!-- Print (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Radio (new value)</masterLabel>
-            <translation><!-- Radio (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Referral-External (new value)</masterLabel>
-            <translation><!-- Referral-External (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Referral-In Dealership (rename Dealership)</masterLabel>
-            <translation><!-- Referral-In Dealership (rename Dealership) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Repeat (new value)</masterLabel>
-            <translation><!-- Repeat (new value) --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>TV (new value)</masterLabel>
-            <translation><!-- TV (new value) --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -6938,190 +6184,6 @@
     <fields>
         <label><!-- Lost To --></label>
         <name>Lost_To__c</name>
-    </fields>
-    <fields>
-        <label><!-- MBK Lead DataSource --></label>
-        <name>MBK_Lead_DataSource__c</name>
-        <picklistValues>
-            <masterLabel>24 hours Touring Support</masterLabel>
-            <translation><!-- 24 hours Touring Support --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Dealers</masterLabel>
-            <translation><!-- Dealers --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>IB Call</masterLabel>
-            <translation><!-- IB Call --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes Me Haneda</masterLabel>
-            <translation><!-- Mercedes Me Haneda --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mercedes-Benz</masterLabel>
-            <translation><!-- Mercedes-Benz --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>My Mercedes</masterLabel>
-            <translation><!-- My Mercedes --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partners</masterLabel>
-            <translation><!-- Partners --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Social media</masterLabel>
-            <translation><!-- Social media --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Web/Mobile Phone</masterLabel>
-            <translation><!-- Web/Mobile Phone --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- MBK Lead_DataSubSource --></label>
-        <name>MBK_Lead_DataSubSource__c</name>
-        <picklistValues>
-            <masterLabel>APP</masterLabel>
-            <translation><!-- APP --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Auto Show</masterLabel>
-            <translation><!-- Auto Show --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Auto Show2012</masterLabel>
-            <translation><!-- Auto Show2012 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Online event registration</masterLabel>
-            <translation><!-- Online event registration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Other Event</masterLabel>
-            <translation><!-- Other Event --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>People</masterLabel>
-            <translation><!-- People --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Site information</masterLabel>
-            <translation><!-- Site information --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Skynod</masterLabel>
-            <translation><!-- Skynod --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Telephone</masterLabel>
-            <translation><!-- Telephone --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Used car</masterLabel>
-            <translation><!-- Used car --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Weibo</masterLabel>
-            <translation><!-- Weibo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>eDM-PC</masterLabel>
-            <translation><!-- eDM-PC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>eMB</masterLabel>
-            <translation><!-- eMB --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>mymb</masterLabel>
-            <translation><!-- mymb --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- MBK Lead Desired Service --></label>
-        <name>MBK_Lead_Desired_Service__c</name>
-        <picklistValues>
-            <masterLabel>Broucher</masterLabel>
-            <translation><!-- Broucher --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Buy</masterLabel>
-            <translation><!-- Buy --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Campaign</masterLabel>
-            <translation><!-- Campaign --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Catalogue</masterLabel>
-            <translation><!-- Catalogue --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Financial</masterLabel>
-            <translation><!-- Financial --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Leasing</masterLabel>
-            <translation><!-- Leasing --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Product Information</masterLabel>
-            <translation><!-- Product Information --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Quotation</masterLabel>
-            <translation><!-- Quotation --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Service Information</masterLabel>
-            <translation><!-- Service Information --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Trade-In</masterLabel>
-            <translation><!-- Trade-In --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- MBK Lost Situation --></label>
-        <name>MBK_Lost_Situation__c</name>
-        <picklistValues>
-            <masterLabel>Changed car in different company</masterLabel>
-            <translation><!-- Changed car in different company --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Continued using current car</masterLabel>
-            <translation><!-- Continued using current car --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Purchased Competitor&apos;s Car</masterLabel>
-            <translation><!-- Purchased Competitor&apos;s Car --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Purhcased at othe MB stores</masterLabel>
-            <translation><!-- Purhcased at othe MB stores --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- MB Vehicle Interest --></label>
@@ -7820,10 +6882,6 @@
         <name>Need_Contact__c</name>
     </fields>
     <fields>
-        <label><!-- Needs Check Date --></label>
-        <name>Needs_Check_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Network Registration Date --></label>
         <name>Network_Registration_Date__c</name>
     </fields>
@@ -7836,36 +6894,12 @@
         <name>NextMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Next Contact Contents --></label>
-        <name>Next_Contact_Contents__c</name>
-    </fields>
-    <fields>
-        <label><!-- Next Contact Customer Date --></label>
-        <name>Next_Contact_Customer_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Next Contact --></label>
-        <name>Next_Contact__c</name>
-    </fields>
-    <fields>
         <label><!-- No Assigned Dealer --></label>
         <name>No_Assigned_Dealer__c</name>
     </fields>
     <fields>
         <label><!-- Number of Units --></label>
         <name>Number_of_Units__c</name>
-    </fields>
-    <fields>
-        <label><!-- Nurture Date --></label>
-        <name>Nurture_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Nurture Date --></label>
-        <name>Nurture_Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Nurture --></label>
-        <name>Nurtured__c</name>
     </fields>
     <fields>
         <label><!-- OB Call Amount --></label>
@@ -7880,10 +6914,6 @@
         <name>Opportunity_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Order Confirmation Date --></label>
-        <name>Order_Confirmation_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Order No. --></label>
         <name>Order_No__c</name>
     </fields>
@@ -7894,10 +6924,6 @@
     <fields>
         <label><!-- Order Placed Date --></label>
         <name>Order_Placed_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Order Print Date --></label>
-        <name>Order_Print_Date__c</name>
     </fields>
     <fields>
         <label><!-- Orig Fee --></label>
@@ -7960,20 +6986,8 @@
         <name>Payment__c</name>
     </fields>
     <fields>
-        <label><!-- Person Assign Notificaton Done --></label>
-        <name>Person_Assign_Notificaton_Done__c</name>
-    </fields>
-    <fields>
         <label><!-- Phone --></label>
         <name>Phone__c</name>
-    </fields>
-    <fields>
-        <label><!-- Photo URL1 --></label>
-        <name>Photo_URL1__c</name>
-    </fields>
-    <fields>
-        <label><!-- Photo URL2 --></label>
-        <name>Photo_URL2__c</name>
     </fields>
     <fields>
         <label><!-- Pick-up Time --></label>
@@ -8056,98 +7070,6 @@
         <name>Preferred_Contact_Time__c</name>
     </fields>
     <fields>
-        <label><!-- Preferred Date --></label>
-        <name>Preferred_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Preferred Drop-off Time --></label>
-        <name>Preferred_Drop_off_Time__c</name>
-        <picklistValues>
-            <masterLabel>10:00 am</masterLabel>
-            <translation><!-- 10:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>10:30 am</masterLabel>
-            <translation><!-- 10:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:00 am</masterLabel>
-            <translation><!-- 11:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:30 am</masterLabel>
-            <translation><!-- 11:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:00 pm</masterLabel>
-            <translation><!-- 12:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:30 pm</masterLabel>
-            <translation><!-- 12:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:00 pm</masterLabel>
-            <translation><!-- 1:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:30 pm</masterLabel>
-            <translation><!-- 1:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:00 pm</masterLabel>
-            <translation><!-- 2:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:30 pm</masterLabel>
-            <translation><!-- 2:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:00 pm</masterLabel>
-            <translation><!-- 3:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:30 pm</masterLabel>
-            <translation><!-- 3:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:00 pm</masterLabel>
-            <translation><!-- 4:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:30 pm</masterLabel>
-            <translation><!-- 4:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:00 pm</masterLabel>
-            <translation><!-- 5:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:30 pm</masterLabel>
-            <translation><!-- 5:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>6:00 pm</masterLabel>
-            <translation><!-- 6:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:00 am</masterLabel>
-            <translation><!-- 8:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:30 am</masterLabel>
-            <translation><!-- 8:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:00 am</masterLabel>
-            <translation><!-- 9:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:30 am</masterLabel>
-            <translation><!-- 9:30 am --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Preferred Negotiation DateTime --></label>
         <name>Preferred_Negotiation_DateTime__c</name>
     </fields>
@@ -8165,94 +7087,6 @@
         <picklistValues>
             <masterLabel>none</masterLabel>
             <translation><!-- none --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Preferred Pickup Time --></label>
-        <name>Preferred_Pickup_Time__c</name>
-        <picklistValues>
-            <masterLabel>10:00 am</masterLabel>
-            <translation><!-- 10:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>10:30 am</masterLabel>
-            <translation><!-- 10:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:00 am</masterLabel>
-            <translation><!-- 11:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>11:30 am</masterLabel>
-            <translation><!-- 11:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:00 pm</masterLabel>
-            <translation><!-- 12:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>12:30 pm</masterLabel>
-            <translation><!-- 12:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:00 pm</masterLabel>
-            <translation><!-- 1:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>1:30 pm</masterLabel>
-            <translation><!-- 1:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:00 pm</masterLabel>
-            <translation><!-- 2:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2:30 pm</masterLabel>
-            <translation><!-- 2:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:00 pm</masterLabel>
-            <translation><!-- 3:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>3:30 pm</masterLabel>
-            <translation><!-- 3:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:00 pm</masterLabel>
-            <translation><!-- 4:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>4:30 pm</masterLabel>
-            <translation><!-- 4:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:00 pm</masterLabel>
-            <translation><!-- 5:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>5:30 pm</masterLabel>
-            <translation><!-- 5:30 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>6:00 pm</masterLabel>
-            <translation><!-- 6:00 pm --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:00 am</masterLabel>
-            <translation><!-- 8:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>8:30 am</masterLabel>
-            <translation><!-- 8:30 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:00 am</masterLabel>
-            <translation><!-- 9:00 am --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>9:30 am</masterLabel>
-            <translation><!-- 9:30 am --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -8348,20 +7182,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Priority Score --></label>
-        <name>Priority_Score__c</name>
-    </fields>
-    <fields>
-        <label><!-- Product Proposal Date --></label>
-        <name>Product_Proposal_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- *Proxy Date Time --></label>
         <name>Proxy_Date_Time__c</name>
-    </fields>
-    <fields>
-        <label><!-- Public --></label>
-        <name>Public__c</name>
     </fields>
     <fields>
         <label><!-- Purchase Amount --></label>
@@ -8472,10 +7294,6 @@
         <name>Purchased_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Purchased VIN --></label>
-        <name>Purchased_VIN__c</name>
-    </fields>
-    <fields>
         <label><!-- New Purchase Model Description --></label>
         <name>Purchased_Vehicle_Text__c</name>
     </fields>
@@ -8491,31 +7309,6 @@
     <fields>
         <label><!-- Questionnair memo --></label>
         <name>Questionnair__c</name>
-    </fields>
-    <fields>
-        <label><!-- Quotation Amount --></label>
-        <name>Quotation_Amount__c</name>
-    </fields>
-    <fields>
-        <label><!-- Quotation Date --></label>
-        <name>Quotation_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Quotation Model --></label>
-        <name>Quotation_Model__c</name>
-        <relationshipLabel><!-- Leads (Car Model) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Quotation No Histry --></label>
-        <name>Quotation_Number_History__c</name>
-    </fields>
-    <fields>
-        <label><!-- Quotation No --></label>
-        <name>Quotation_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Quotation Print Date --></label>
-        <name>Quotation_Print_Date__c</name>
     </fields>
     <fields>
         <label><!-- RORAC --></label>
@@ -8682,10 +7475,6 @@
         <name>R_isDealer__c</name>
     </fields>
     <fields>
-        <label><!-- Re-visit --></label>
-        <name>Re_visit__c</name>
-    </fields>
-    <fields>
         <label><!-- Received Date Time --></label>
         <name>Received_Date_Time__c</name>
     </fields>
@@ -8724,17 +7513,8 @@
         <name>Registration_No__c</name>
     </fields>
     <fields>
-        <label><!-- Registration No. --></label>
-        <name>Registration_Number__c</name>
-    </fields>
-    <fields>
         <label><!-- MB Online Code1 --></label>
         <name>Related_Configuration_Codes__c</name>
-    </fields>
-    <fields>
-        <label><!-- Related Leads --></label>
-        <name>Related_Leads__c</name>
-        <relationshipLabel><!-- RelatedLeads --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Relation With The Leads --></label>
@@ -8778,23 +7558,11 @@
     </fields>
     <fields>
         <label><!-- Service requested date1 --></label>
-        <name>Requested_Service_Date1__c</name>
-    </fields>
-    <fields>
-        <label><!-- Service requested date2 --></label>
-        <name>Requested_Service_Date2__c</name>
-    </fields>
-    <fields>
-        <label><!-- Service requested date1 --></label>
         <name>Requested_Service_DateTime1__c</name>
     </fields>
     <fields>
         <label><!-- Service requested date2 --></label>
         <name>Requested_Service_DateTime2__c</name>
-    </fields>
-    <fields>
-        <label><!-- Service requested hour --></label>
-        <name>Requested_Service_Hour__c</name>
     </fields>
     <fields>
         <label><!-- Reserve Flag --></label>
@@ -8807,16 +7575,6 @@
     <fields>
         <label><!-- Retail Campaign Name --></label>
         <name>Retail_Campaign_Name__c</name>
-        <relationshipLabel><!-- Leads --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Retail Company --></label>
-        <name>Retail_Company__c</name>
-        <relationshipLabel><!-- Leads (Retail Company) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Retail Contact --></label>
-        <name>Retail_Contact__c</name>
         <relationshipLabel><!-- Leads --></relationshipLabel>
     </fields>
     <fields>
@@ -11613,53 +10371,9 @@
         <name>Selling_Dealer__c</name>
     </fields>
     <fields>
-        <label><!-- Service Program Proposal Date --></label>
-        <name>ServiceProgram_Proposal_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Assigned Service Adviser --></label>
         <name>Service_Advisor__c</name>
         <relationshipLabel><!-- Leads (Assigned Service Adviser) --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Service Date --></label>
-        <name>Service_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Service Loan Car --></label>
-        <name>Service_Loan_Car__c</name>
-    </fields>
-    <fields>
-        <label><!-- Service Program --></label>
-        <name>Service_Program__c</name>
-        <picklistValues>
-            <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maintenance Plus</masterLabel>
-            <translation><!-- Maintenance Plus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Maintenance Plus Lite</masterLabel>
-            <translation><!-- Maintenance Plus Lite --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Touring Support Plus</masterLabel>
-            <translation><!-- Touring Support Plus --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Warranty Plus</masterLabel>
-            <translation><!-- Warranty Plus --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Simple Estimation Date --></label>
-        <name>Simple_Estimation_Date__c</name>
     </fields>
     <fields>
         <label><!-- Source Campaign --></label>
@@ -11669,10 +10383,6 @@
     <fields>
         <label><!-- Source System --></label>
         <name>Source_System__c</name>
-    </fields>
-    <fields>
-        <label><!-- Special Offer --></label>
-        <name>Special_Offer__c</name>
     </fields>
     <fields>
         <label><!-- Status Category --></label>
@@ -11755,20 +10465,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Submission Time --></label>
-        <name>Submission_Time__c</name>
-    </fields>
-    <fields>
         <label><!-- Successful Call Number --></label>
         <name>Successful_Call_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Task Update Flag --></label>
-        <name>Task_Update_Flag__c</name>
-    </fields>
-    <fields>
-        <label><!-- Team --></label>
-        <name>Team__c</name>
     </fields>
     <fields>
         <label><!-- Term (Month) --></label>
@@ -11815,16 +10513,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Threshold Date --></label>
-        <name>Threshold_Date__c</name>
-    </fields>
-    <fields>
         <label><!-- Title --></label>
         <name>Title__c</name>
-    </fields>
-    <fields>
-        <label><!-- To Be Deleted --></label>
-        <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
         <label><!-- Trade-In MB Vehicle Model --></label>
@@ -13239,11 +11929,6 @@
         <name>Trade_In_Other_Vehicle_Model__c</name>
     </fields>
     <fields>
-        <label><!-- Trade In Vehicle2 --></label>
-        <name>Trade_In_Vehicle2__c</name>
-        <relationshipLabel><!-- Leads (Trade In Vehicle2) --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Trade-In Vehicle Brand --></label>
         <name>Trade_In_Vehicle_Brand__c</name>
         <picklistValues>
@@ -13661,20 +12346,8 @@
         <relationshipLabel><!-- Leads (Trade In Vehicle) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Trade-in Date --></label>
-        <name>Trade_in_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Trade in Vehicle Text2 --></label>
-        <name>Trade_in_Vehicle_Text2__c</name>
-    </fields>
-    <fields>
         <label><!-- UCID --></label>
         <name>UCID__c</name>
-    </fields>
-    <fields>
-        <label><!-- Units for Prospect --></label>
-        <name>Units_for_Prospect__c</name>
     </fields>
     <fields>
         <label><!-- Updated By EP Transactions --></label>
@@ -13683,46 +12356,6 @@
     <fields>
         <label><!-- UsVIN --></label>
         <name>UsVIN__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Brand --></label>
-        <name>Used_Brand__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car request ID --></label>
-        <name>Used_Car_RequestID__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Class --></label>
-        <name>Used_Class__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Color --></label>
-        <name>Used_Color__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car FirstRegistration Date --></label>
-        <name>Used_FirstRegistrationDate__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Inspection Date --></label>
-        <name>Used_InspectionDate__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Mileage --></label>
-        <name>Used_Mileage__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Model --></label>
-        <name>Used_Model__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Price --></label>
-        <name>Used_Price__c</name>
-    </fields>
-    <fields>
-        <label><!-- Used Car Steering --></label>
-        <name>Used_Steering__c</name>
     </fields>
     <fields>
         <label><!-- VIN --></label>
@@ -15134,24 +13767,8 @@
         <name>Vehicle_Purchase_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Vehicle Registration No --></label>
-        <name>Vehicle_Registration_No__c</name>
-    </fields>
-    <fields>
         <label><!-- Selling Dealer --></label>
         <name>Vehicle_Rel_Selling_Dealer__c</name>
-    </fields>
-    <fields>
-        <label><!-- Vehicle Use --></label>
-        <name>Vehicle_Use__c</name>
-        <picklistValues>
-            <masterLabel>Business</masterLabel>
-            <translation><!-- Business --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Personal</masterLabel>
-            <translation><!-- Personal --></translation>
-        </picklistValues>
     </fields>
     <fields>
         <label><!-- Vehicle Year - Current --></label>
@@ -15506,38 +14123,6 @@
         <name>Visited_Showroom_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Volume --></label>
-        <name>Volume__c</name>
-    </fields>
-    <fields>
-        <label><!-- WIP Created Date --></label>
-        <name>WIP_Created_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- WIP No --></label>
-        <name>WIP_Number__c</name>
-    </fields>
-    <fields>
-        <label><!-- Waived Reason --></label>
-        <name>Waived_Reason__c</name>
-        <picklistValues>
-            <masterLabel>Competitive Reasons</masterLabel>
-            <translation><!-- Competitive Reasons --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Customer Loyalty</masterLabel>
-            <translation><!-- Customer Loyalty --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Existing Relationship</masterLabel>
-            <translation><!-- Existing Relationship --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Wholesale Comment --></label>
-        <name>Wholesale_Comment__c</name>
-    </fields>
-    <fields>
         <label><!-- Work Phone --></label>
         <name>Work_Phone__c</name>
     </fields>
@@ -15549,139 +14134,6 @@
         <label><!-- *72H Untouched --></label>
         <name>X72H_Untouched__c</name>
     </fields>
-    <layouts>
-        <layout>AfterSales Lead</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Information --></label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Customer Information --></label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Processing Information --></label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Request Information --></label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Dealer AfterSales Lead ReadOnly</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Information --></label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Customer Information --></label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Processing Information --></label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Request Information --></label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Dealer Sales Leads Layout (CAC) ReadOnly</layout>
-        <sections>
-            <label><!-- Assigned Dealer Reminder --></label>
-            <section>Assigned Dealer Reminder</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Dealer Information --></label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Customer Information --></label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Processing Information --></label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Request Information --></label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Miscelleneous Section --></label>
-            <section>Miscelleneous Section</section>
-        </sections>
-        <sections>
-            <label><!-- Referal/Referee Information --></label>
-            <section>Referal/Referee Information</section>
-        </sections>
-        <sections>
-            <label><!-- Source Information --></label>
-            <section>Source Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
     <layouts>
         <layout>Sales Leads Admin</layout>
         <sections>
@@ -15785,57 +14237,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Sales Leads Layout (Dealer)</layout>
-        <sections>
-            <label><!-- Activity Date Information --></label>
-            <section>Activity Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- CA Details --></label>
-            <section>CA Details</section>
-        </sections>
-        <sections>
-            <label><!-- Cross-point information --></label>
-            <section>Cross-point information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- DSC Request Information --></label>
-            <section>DSC Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Information --></label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lead Request Information --></label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label><!-- Lost Information --></label>
-            <section>Lost Information</section>
-        </sections>
-        <sections>
-            <label><!-- Order Confirmed Information --></label>
-            <section>Order Confirmed Information</section>
-        </sections>
-        <sections>
-            <label><!-- Reference Information --></label>
-            <section>Reference Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Sales Leads Soft Deleted</layout>
         <sections>
             <label><!-- Assigned Dealer Reminder --></label>
@@ -15844,10 +14245,6 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
         </sections>
         <sections>
             <label><!-- Dealer Information --></label>
@@ -15899,14 +14296,6 @@
         <name>Aftersales_Leads</name>
     </recordTypes>
     <recordTypes>
-        <label><!-- Dealer Aftersales Leads ReadOnly --></label>
-        <name>Dealer_Aftersales_Leads_ReadOnly</name>
-    </recordTypes>
-    <recordTypes>
-        <label><!-- Dealer Sales leads ReadOnly --></label>
-        <name>Dealer_Sales_leads_ReadOnly</name>
-    </recordTypes>
-    <recordTypes>
         <label><!-- Retail Sales Leads --></label>
         <name>Retail_Sales_Leads</name>
     </recordTypes>
@@ -15928,11 +14317,11 @@
         <name>CAC_Lead_Status_Check_After_Assigned</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If CAC Lead Status is Service Completed, Service Date is required. --></errorMessage>
+        <errorMessage><!-- If CAC Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
         <name>CAC_Purchase_Check_Aftersales_Lead</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If CACDealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
+        <errorMessage><!-- If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required. --></errorMessage>
         <name>CAC_Purchase_Check_Sales_Lead</name>
     </validationRules>
     <validationRules>
@@ -15948,16 +14337,12 @@
         <name>Contact_Failed_Required_Check</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If Dealer Lead Status is Service Completed, Service Date is required. --></errorMessage>
+        <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Aftersales_Lead</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
+        <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required. --></errorMessage>
         <name>Dealer_Purchase_Check_Sales_Lead</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Finance Quotation No History cannot be changed manually --></errorMessage>
-        <name>Finance_Quotation_No_History_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is First Contact Customer, First Contact Customer Date is required. --></errorMessage>
@@ -15976,24 +14361,8 @@
         <name>Last_Name_Native_Single</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Lead status should be &quot;Assigned&quot; once dealer is assigned to the Lead --></errorMessage>
-        <name>Lead_assignment</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Lost(Dealer), Lost(Dealer) Date is required. --></errorMessage>
         <name>Lost_Dealer_Required_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Dealer Lost Reason and Lost Situation cannot be Null --></errorMessage>
-        <name>Lost_Reason_Mandatory</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- “Lost To” field is mandatory when the lead has been lost --></errorMessage>
-        <name>Lost_To_Whom</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- “Lost To” field is mandatory when the CAC lead status has been set to lost(CAC) --></errorMessage>
-        <name>Lost_To_Whom_CAC</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- You cannot manually select &quot;Approving&quot;. --></errorMessage>
@@ -16012,24 +14381,8 @@
         <name>Order_Placed_Required_Check_Dealer</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lead Status cannot be changed --></errorMessage>
-        <name>Purchase_Leads_NoChange_Los</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Lead Latest Phase cannot be changed. --></errorMessage>
-        <name>Purchase_Leads_NoChange_Lost</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Aftersales Vehicle cannot be changed --></errorMessage>
-        <name>Purchased_Leads_NoChange_Lost</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- Please fill in the Recommended Dealer. --></errorMessage>
         <name>RecommendedDealerMandatory</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Service Date Field is Mandatory --></errorMessage>
-        <name>Service_Date_is_Mandatory</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Test Drive, Test Drive Date is required. --></errorMessage>
@@ -16044,7 +14397,7 @@
         <name>TradeIn_Fields_Required_Check_Others</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- If Dealer Lead Status is Visited Showroom, Visited Showroom Date is required. --></errorMessage>
+        <errorMessage><!-- If Dealer Lead Status is Visited Showroom(Only Non BDC), Visited Showroom Date is required. --></errorMessage>
         <name>Visited_Showroom_Required_Check</name>
     </validationRules>
     <webLinks>
@@ -16056,23 +14409,11 @@
         <name>Merge</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_AfterSales_Lead --></label>
-        <name>New_AfterSales_Lead</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- New_Sales_Lead --></label>
-        <name>New_Sales_Lead</name>
-    </webLinks>
-    <webLinks>
         <label><!-- SMS --></label>
         <name>SMS</name>
     </webLinks>
     <webLinks>
         <label><!-- Select_Assigned_Dealer --></label>
         <name>Select_Assigned_Dealer</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- Submit_Survey --></label>
-        <name>Submit_Survey</name>
     </webLinks>
 </CustomObjectTranslation>

@@ -1,0 +1,43 @@
+<apex:page standardController="Vehicle__c" extensions="cSendVehicleInformationtoSPOJP">
+ 
+ 
+<apex:form >
+<apex:pageBlock title="SPO Interface Customer & Vehicle Info" id="Selected_PBS">
+          <apex:pageBlockSection title="Customer Vehicle_Information" collapsible="false">
+              <apex:selectRadio layout="pageDirection"  value="{!SelectedType}">
+                          <apex:selectOption itemLabel="Individual Customer" itemValue="1"></apex:selectOption>
+                          <apex:selectOption itemLabel="Company Customer"    itemValue="2" ></apex:selectOption>
+                          
+                      <apex:actionSupport event="onchange" action="{!checkSelectedValue}" reRender="pgblock" >
+                      </apex:actionSupport>
+             </apex:selectRadio>
+        </apex:pageBlockSection>
+</apex:pageBlock>
+
+<apex:pageblock Title="Related Company List" id="pgblock">
+
+                 <apex:pageblockTable value="{!newacc}" var="vehicleRec" id="vehicleRec">                      
+                         <apex:column headerValue="Select Company" width="10%">  
+                          <input value="{!vehicleRec.Id}" Name="SelectedCustomer" type="radio">        
+                                      
+                           <apex:actionSupport event="onclick" action="{!getSelected}" rerender="dummy" immediate="true" >
+                           
+                                       <apex:param name="idselected" value="{!vehicleRec.id}"  />
+                                      
+                                  </apex:actionSupport>         
+      
+                            </input>                  
+                        
+                         </apex:column>
+                          
+                         <apex:column value="{!vehicleRec.Name}"/>
+                       
+                   
+                </apex:pageblockTable>
+                <apex:commandButton value="Confirmation" action="{!Navigate}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+</apex:pageBlock>
+ <apex:outputPanel id="dummy" rendered="false"> selected Account : {!aeeId } </apex:outputPanel>
+</apex:form>
+
+</apex:page>

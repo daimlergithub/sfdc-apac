@@ -12,7 +12,7 @@ public class MassApproveToolKitControllerTest {
     static testMethod void myUnitTest() {
         
          List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+        // insert updatecustomsettings;
         
         Account dealer = new Account(
             RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(),

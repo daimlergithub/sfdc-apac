@@ -26,10 +26,13 @@ TriggerAccountLinkJP,TRUE,TRUE,TRUE,TriggerAccountLink,TRUE,TRUE,TRUE,TriggerAcc
 TriggerVehicleRelationshipJP,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerJP,JP
 TriggerAccountKR,TRUE,TRUE,TRUE,TriggerAccount,TRUE,TRUE,TRUE,TriggerAccountTriggerHandlerKR,KR
 TriggerVehicleRelationshipKR,TRUE,TRUE,TRUE,TriggerVehicleRelationship,TRUE,TRUE,TRUE,TriggerVehicleRelTriggerHandlerKR,KR
-TriggerAddressKR,TRUE,TRUE,TRUE,TriggerAddress,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerKR,KR
-TaskTriggerKR,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerKR,KR
-TriggerLeadKR,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,TriggerLeadTriggerHandlerKR,KR
+TriggerAddressKr,TRUE,TRUE,TRUE,TriggerAddress,TRUE,TRUE,TRUE,TriggerAddressTriggerHandlerKR,KR
+TaskTriggerKr,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerKr,KR
+TriggerLeadKR,TRUE,TRUE,TRUE,TriggerLeadKR,TRUE,TRUE,TRUE,TriggerLeadTriggerHandlerKR,KR
 RetailTaskTriggerJP,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTriggerHandlerJP,JP
 RetailTaskTriggerKR,TRUE,TRUE,TRUE,RetailTaskTrigger,TRUE,TRUE,TRUE,RetailTaskTriggerHandlerKR,KR
 CaseTriggerKR,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,TriggerCaseTriggerHandlerKR,KR
-TriggerDMRequestKR,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,KR
+TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurvey,TRUE,TRUE,TRUE,TriggerSurveyTriggerHandlerJP,JP
+TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTaker,TRUE,TRUE,TRUE,TriggerSurveyTakerTriggerHandlerJP,JP
+TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignmembersCustom,TRUE,TRUE,TRUE,TriggerCampaignMembersCustomHandlerJP,JP
+DealerListMember,TRUE,TRUE,TRUE,DealerListMember,TRUE,TRUE,TRUE,TriggerDealerListMemberHandlerJP,JP

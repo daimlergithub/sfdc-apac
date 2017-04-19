@@ -24,11 +24,23 @@ public class UserTriggerHandler
         Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
         Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
         
+        if(trigger.isAfter && trigger.isInsert)
+        {
+        
+        System.debug('@$@$@$@$ user trigger');
+        UserHelper.createGroup(trigger.new);
+        System.debug('@$@$@$@$ user trigger'+trigger.new);
+        }
+        
         if (trigger.isAfter && trigger.isInsert) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
+            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+             UserHelper.UserShareforDealers(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);            
         }
         if (trigger.isAfter && trigger.isUpdate) {
             UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
+              System.debug('@$@$@$@$ user trigger');
+            UserHelper.UserShareforDealers(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+            UserHelper.createGroup(trigger.new);
         }
         if (trigger.isBefore && trigger.isInsert) {
             UserHelper.ValidateUser(Trigger.new);   

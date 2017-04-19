@@ -1,12 +1,13 @@
-<apex:page standardController="Vehicle__c" extensions="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c">
+<apex:page controller="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c" docType="html-5.0">
+
  <apex:form id="Myform">
   <apex:pageBlock >
       <apex:pageBlockSection title="{!$Label.Vehicle_Information}" collapsible="false">
-               <apex:outputField value="{!Vehicle__c.Name}"/>
-               <apex:outputField value="{!Vehicle__c.UsVIN__c}"/>
-               <apex:outputField value="{!Vehicle__c.Brand__c}"/>
-               <apex:outputField value="{!Vehicle__c.Class__c}"/>
-               <apex:outputField value="{!Vehicle__c.Model__c}"/>              
+               <apex:outputField value="{!vehiclerec.Name}"/>
+               <apex:outputField value="{!vehiclerec.UsVIN__c}"/>
+               <apex:outputField value="{!vehiclerec.Brand__c}"/>
+               <apex:outputField value="{!vehiclerec.Class__c}"/>
+               <apex:outputField value="{!vehiclerec.Model__c}"/>              
       </apex:pageBlockSection>
       <apex:pageBlockSection title="{!$Label.VehicleRelationshipInformation}" collapsible="false">
              <apex:pageBlockTable value="{!lstVehicleRelation}" var="Ve_Rel" rendered="{!lstVehicleRelation.size!=0}">
@@ -18,14 +19,34 @@
               <apex:pageMessage summary="{!$Label.Terminate_Vehicle_Relationship}" severity="info" strength="3" rendered="{!lstVehicleRelation.size==0}"/>
               <apex:pageMessages />               
         </apex:pageBlockSection>
-        <apex:pageBlockSection title="{!$Label.TerminateVehicleRelationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}">
-               <apex:inputField value="{!objVehicleRelation.End_Date__c}" required="true"/>
-               <apex:inputField value="{!objVehicleRelation.End_Reason__c}" required="true"/>
-               <apex:inputField value="{!objVehicleRelation.Comments__c}"/>                
+        <apex:pageBlockSection title="{!$Label.TerminateVehicleRelationship}" collapsible="false" rendered="{!lstVehicleRelation.size!=0}" columns="2">
+             
+             
+             
+             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label}">   
+             <apex:inputfield value="{!newacc.Dealer_Active_to__c}" />
+             </apex:outputLabel>  
+                 <!--  Date: <apex:inputText value="{!datename}" size="10" id="demo" onfocus="DatePicker.pickDate(false, this , false);" />    
+    
+             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Date__c.Label} (mm/dd/yyyy)">  
+
+             <apex:input type="date"  value="{!End_Date}"  required="true" title="Date Format MM/DD/YYYY"/> 
+             </apex:outputLabel>  -->
+             
+             <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.End_Reason__c.Label}">
+            
+              <apex:selectList value="{!selectedEndReason}" multiselect="false" size="1" label="Please enter End Reason" required="true" >
+                <apex:selectOptions value="{!EndReason}"/>
+            </apex:selectList>
+            </apex:outputLabel>
+            <apex:outputLabel value="{!$ObjectType.Vehicle_Relationship__c.fields.Comments__c.Label}">
+             <apex:inputTextarea value="{!End_ReasonText}" /> 
+             </apex:outputLabel>  
+                           
        </apex:pageBlockSection>
        <apex:pageBlockButtons >
-              <apex:commandButton value="{!$Label.Save_Button}" action="{!Save}" rendered="{!lstVehicleRelation.size!=0}"/>
-               <apex:commandButton value="{!$Label.Cancel_Button}" action="{!Cancel}"/>
+          <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveRecords}" rendered="{!lstVehicleRelation.size!=0}"/>
+            <apex:commandButton value="{!$Label.Cancel_Button}" action="{!cancelpage}" immediate="true"   html-formnovalidate="formnovalidate"/>  
         </apex:pageBlockButtons>           
   </apex:pageBlock>
  </apex:form>

@@ -1,0 +1,65 @@
+<!--
+Description : This Page will display the list of Dealer users.
+Author : Kiran
+Date : 20/12/2016
+Dev Item : P3 
+-->
+<apex:page standardController="Lead__c" extensions="LeadDealerAssignmentProcess" id="page1">
+    <apex:pageMessages ></apex:pageMessages>
+    <script type="text/javascript"> 
+         function fnbuttoncheck(id)  
+            { 
+               
+             var radiobutton = document.getElementById(id);
+              
+                 if  (radiobutton.checked == true )       
+                    {  
+                       
+                         document.getElementById("{!$Component.page1.form1.pageblock1.btnblock1.theHiddenInput}").value = id;                       
+                         
+                     }  
+            }
+           window.onload = setValue;
+   function setValue(){
+     var id=  document.getElementById("{!$Component.page1.form1.pageblock1.btnblock1.theHiddenInput}").value ;
+      
+       if ( id != null) {
+           document.getElementById(id).checked=true;
+
+           }
+       }
+       function RelodeParent(){
+          window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+  
+       }
+    </script>
+    <apex:form id="form1">
+       
+     <apex:pageblock id="pageblock1">
+         
+        <apex:pageBlockTable value="{!DealerAssignment}" var="dealer" id="myTable" >
+             <apex:column id="Rdbtn"><input type="radio" name="selectRadio" onclick="fnbuttoncheck(this.id)" checked="{!dealer.isSelected }" id="{!dealer.usr.id}" /></apex:column>
+            <apex:column value="{!dealer.usr.Name}"/>
+            <apex:column value="{!dealer.usr.ProfileID}">
+            </apex:column>
+            <apex:column value="{!dealer.usr.Title}"/>
+            <apex:column value="{!dealer.usr.Dealer_Outlet_Name__c}"/>
+            <apex:column value="{!dealer.usr.Dealer_Title__c}"/>
+            <apex:column value="{!dealer.usr.CompanyName}"/>
+           </apex:pageBlockTable>
+           
+          
+           <apex:pageBlockButtons id="btnblock1" location="top">
+           <apex:commandButton value="Assign" oncomplete="RelodeParent()" action="{!AssignLeadtoDealer}" rendered="{!isAvailable }"/>
+          
+        <apex:inputHidden value="{!userid1}" id="theHiddenInput"/> 
+ 
+           <apex:commandButton value="Cancel" oncomplete="RelodeParent()" rendered="{!isAvailable }"/>
+           
+           </apex:pageBlockButtons>
+           </apex:pageblock>
+        <!--<input type="text" name="userid" value="{!userStr}"/>-->
+       
+   </apex:form>
+</apex:page>

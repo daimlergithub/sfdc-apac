@@ -7,10 +7,11 @@ public without sharing class VehiclePickerControllerTests{
     private static List<Car_Model__c> carModels;
     private static List<Map<String, Set<String>>> carModelMap;
     /*private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1', 'CurrentVehicle2', 'TradeIn', 'Purchased'};*/
-	private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1'};
+    private static List<String> vehicleTypes = new List<String> {'Interested Vehicle', 'Competitor Vehicle', 'CurrentVehicle1'};
     public static id SalesLeadsRecordtypeid = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
     public static id VehicleProductRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('Vehicle Product').getRecordTypeId();
     public static id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+    public static id VehicleselfregRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('Self Registered').getRecordTypeId();
     public static id personRecordtypeid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     
     
@@ -23,7 +24,7 @@ public without sharing class VehiclePickerControllerTests{
 
         UtilConstant utilConst = new UtilConstant();     
         //testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
-        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9842');
+        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email',Mobile__c ='00000009842');
         insert ta;
         system.debug('Accounts... :' +ta );
         testLead = new Lead__c(RecordTypeId=SalesLeadsRecordtypeid,Contact__c = ta.Id,CAC_Lead_Status__c = 'Qualified',Lead_Type__c = 'New Car');
@@ -34,7 +35,7 @@ public without sharing class VehiclePickerControllerTests{
         testVehicleMB = new Vehicle__c(RecordTypeId=VehicleMBRecordtypeid,Recall__c = FALSE,EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',
                                                                               FirstRegistrationDate__c = date.today(),Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', 
                                                                               Purchase_Year__c = '2004',RegistrationNo__c = '12345');
-		insert testVehicleMB;
+        insert testVehicleMB;
         system.debug('Test Vehicle1' +testVehicleMB);                                              
         
         //testVehicle_VehicleProduct = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), utilConst.VEHICLE_PRODUCT);
@@ -241,8 +242,8 @@ public without sharing class VehiclePickerControllerTests{
         }
         test.stopTest();
         
-    }
-    */
+    }*/
+    
     public static testMethod void testLookupVehicle(){
         UtilConstant utilConst = new UtilConstant();
         createTestData();
@@ -250,7 +251,7 @@ public without sharing class VehiclePickerControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         VehiclePickerController vpc = new VehiclePickerController(sc);
         Map<String,String> tempMap = new Map<String,String>();
-		/*Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];*/
+        /*Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];*/
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -260,7 +261,7 @@ public without sharing class VehiclePickerControllerTests{
             String vehicleDetails = JSON.serialize(tempMap);
             system.debug('Vehicle Detials for Lookup...' +vehicleDetails);
             VehiclePickerController.updateVehicleDetails(vehicleDetails);
-			Lead__c leadDetails;
+            Lead__c leadDetails;
             
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
@@ -294,7 +295,7 @@ public without sharing class VehiclePickerControllerTests{
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         VehiclePickerController vpc = new VehiclePickerController(sc);
         test.startTest();
-   		 Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+         Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for (String vehicle : vehicleTypes){
             String leadId = testLead.Id;
             String vehicleDetials;      
@@ -416,21 +417,27 @@ public without sharing class VehiclePickerControllerTests{
     
     
     public static testMethod void testLookupSearch(){
+        
         UtilConstant utilConst = new UtilConstant();
-        createTestData();
-        ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
-        VehiclePickerController vpc = new VehiclePickerController(sc);
+        
+       // createTestData();
+        
         
         //Creating associated data for search test.
         //Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
         
-        Account testAccount = new Account(RecordTypeid=personRecordtypeid,LastName='asme23',MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642');
+        Account testAccount = new Account(RecordTypeid=personRecordtypeid,LastName='asme23',MBK_Data_Source__c='Email',Mobile__c = '00000009642');
         insert testAccount;
         system.debug('$$$$$$$$$$$$$$$'+personRecordtypeid);
         system.debug('$$$$$$$$$$$$$$$'+testAccount.id);
+        
+        testLead = new Lead__c();
         testLead.Contact__c = testAccount.Id;
         system.debug('$$$$$$$$$$$$$$$'+testLead.Contact__c);
-        update testLead;
+        insert testLead;
+        
+         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
+        VehiclePickerController vpc = new VehiclePickerController(sc);
         
         String Vin = '87465345982346578';
         //Vehicle__c testVIN_Vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB); 
@@ -441,8 +448,9 @@ public without sharing class VehiclePickerControllerTests{
         update testVIN_Vehicle;
         
         //Vehicle__c testVR_vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilConstant.MB);
-        Vehicle__c testVR_vehicle = new Vehicle__c(RecordTypeId=VehicleMBRecordtypeid,Vehicle_Name__c ='Test1',UsVIN__c ='abchgdtrsghtredfr',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),
-                                                    Purchase_Month__c ='02',Model__c = 'R350L 4MATIC',Class__c = 'A-Class',Purchase_Year__c = '2004',RegistrationNo__c = '333');                                                   
+        Vehicle__c testVR_vehicle = new Vehicle__c(RecordTypeId=VehicleselfregRecordtypeid ,Vehicle_Name__c ='Test1',UsVIN__c ='abchgdtrsghtredfr',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today(),
+                                                    Purchase_Month__c ='02',Model__c = 'R350L 4MATIC',Class__c = 'A-Class',Purchase_Year__c = '2004',RegistrationNo__c = '333');    
+                                                    insert testVR_vehicle;                                               
         Vehicle_Relationship__c testVR  = new Vehicle_Relationship__c();//(Vehicle_Relationship__c)UtilTestData.createSobject(new Vehicle_Relationship__c(), UtilConstant.Vehicle_Relationship_Retail);
         testVR.RegistrationProvince__c = 'Shanghai';
         testVR.Registration_City__c = 'Shanghai';
@@ -456,21 +464,19 @@ public without sharing class VehiclePickerControllerTests{
         testVR.Registration_Date__c = System.today();
         testVR.recordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
         testVR.Contact__c = testAccount.Id;
-        testVR.Vehicle_ID__c = testVehicleMB.Id;
+        testVR.Vehicle_ID__c = testVR_vehicle.id;
         testVR.Car_Relation__c = 'Purchaser';
         insert testVR;
         testVR.Contact__c = testAccount.Id;
-        testVR.Vehicle_ID__c = testVehicleMB.Id;
+        testVR.Vehicle_ID__c = testVR_vehicle.Id;
         testVR.Car_Relation__c = 'Purchaser';
         update testVR;
         
-        testVR_vehicle.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c', 'Self Registered');
-        testVR_vehicle.Related_contact__c = testAccount.Id;
-        insert testVR_vehicle;
+       
         testVR_vehicle.Related_contact__c = testAccount.Id;
         update testVR_vehicle;
         
-        test.startTest();
+       // test.startTest();
         for (String vehicle : vehicleTypes){
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) || vehicle.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE)){
                 //Search With VIN : Interested and Purchased:
@@ -481,7 +487,7 @@ public without sharing class VehiclePickerControllerTests{
                 List<Vehicle__c> resultVehicles = VehiclePickerController.searchVehicles(JSON.serialize(searchDetails));
                 system.debug('Searched Vehicle :' +resultVehicles[0]);
                 
-                Vehicle__c tmpVehicle = [Select UsVIN__c from Vehicle__c Where Id =:resultVehicles[0].Id];
+                Vehicle__c tmpVehicle = [Select UsVIN__c from Vehicle__c Where Id =:resultVehicles[0].Id limit 1];
                 system.debug('Vehicle VIn number :' +tmpVehicle.UsVIN__c);
                 System.assertEquals(tmpVehicle.UsVIN__c,'87465345982346578');
                 
@@ -493,10 +499,10 @@ public without sharing class VehiclePickerControllerTests{
                 List<Vehicle__c> resultVehicles = VehiclePickerController.searchVehicles(JSON.serialize(searchDetails));
                 system.debug('Searched Other Vehicles:' +resultVehicles);
                 system.debug('Searched Other Vehicles count:' +resultVehicles.size());
-                System.assertEquals(resultVehicles.size(),2);
+                System.assertEquals(resultVehicles.size(),1);
             }
         }
-        test.StopTest();
+       // test.StopTest();
     }       
 
     public static testMethod void testupdateVehicleDetailsEdit(){
@@ -506,14 +512,12 @@ public without sharing class VehiclePickerControllerTests{
         UtilConstant utilConst = new UtilConstant();
         
         // Account
-        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9842');
+        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email',Mobile__c ='00090000842');
         insert ta;
         
-        // Lead
-        testLead = new Lead__c(RecordTypeId=SalesLeadsRecordtypeid,Contact__c = ta.Id,CAC_Lead_Status__c = 'Qualified',Lead_Type__c = 'New Car');
-        insert testLead;
         
-        // Vehicle 1
+        
+      // Vehicle 1
         testVehicleMB = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(Recall__c = FALSE,EuroVIN__c = '12345678901111111'
                                         ,UsVIN__c = '12345678902222222',Brand__c ='Mercedes-Benz',FirstRegistrationDate__c = date.today()
                                             ,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
@@ -549,16 +553,15 @@ public without sharing class VehiclePickerControllerTests{
                                             ,Purchase_Month__c ='02', Model__c = 'R350L 4MATIC', Class__c = 'A-Class', Purchase_Year__c = '2004'
                                                 ,RegistrationNo__c = '12345'), utilConst.VEHICLE_PRODUCT);
 
+        // Lead
+        testLead = new Lead__c(RecordTypeId=SalesLeadsRecordtypeid,Contact__c = ta.Id,CAC_Lead_Status__c = 'Qualified',Purchased_Vehicle__c = PurchasedVehicle.Id,Current_Vehicle_2__c = currentVehicle2.Id,Trade_In_Vehicle__c = TradeInVehicle.Id,Lead_Type__c = 'New Car',Interested_Vehicle__c = testVehicleMB.Id,Interested_Competitor_Vehicle__c = testVehicle_VehicleProduct.Id,Current_Vehicle_1__c = currentVehicle1.Id);
+        insert testLead;
+        
+      
+        
+       
 
-        testLead.Interested_Vehicle__c = testVehicleMB.Id;
-        testLead.Interested_Competitor_Vehicle__c = testVehicle_VehicleProduct.Id;
-        testLead.Current_Vehicle_1__c = currentVehicle1.Id;
-        testLead.Current_Vehicle_2__c = currentVehicle2.Id;
-        testLead.Trade_In_Vehicle__c = TradeInVehicle.Id;
-        testLead.Purchased_Vehicle__c = PurchasedVehicle.Id;
-        update testLead;
-
-        System.assertEquals(testLead.Purchased_Vehicle__c,PurchasedVehicle.Id);
+       System.assertEquals(testLead.Purchased_Vehicle__c,PurchasedVehicle.Id);
         System.assertEquals(testLead.Trade_In_Vehicle__c,TradeInVehicle.Id);
         System.assertEquals(testLead.Current_Vehicle_2__c,currentVehicle2.Id);
         System.assertEquals(testLead.Current_Vehicle_1__c,currentVehicle1.Id);

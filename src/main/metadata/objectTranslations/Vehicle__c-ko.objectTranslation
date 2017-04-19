@@ -4224,37 +4224,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Self Registered Layout-CAC</layout>
-        <sections>
-            <label>경쟁 모델 정보</label>
-            <section>Competitor Information</section>
-        </sections>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>기타 정보</label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label>시스템 정보</label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label>차량 세부 정보</label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label>차량 정보</label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>
         <sections>
             <label>사용자 지정 링크</label>

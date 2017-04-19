@@ -33,16 +33,16 @@ public class SMSControllerExtensionTest {
     static List<SelectOption> Templates_ADDRESS ;
     //Created Record
     private static void init(){
-          customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888888', RecordTypeId = personAccountRecordTypeId,MBK_Data_Source__c='Email',Mobile__c='000-123-4567');
+          customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888888', RecordTypeId = personAccountRecordTypeId,MBK_Data_Source__c='Email');
           accountList.add(customer);    
           
-          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08889888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',MBK_Data_Source__c='Email',Mobile__c='000-123-4567');
+          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08889888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',MBK_Data_Source__c='Email');
           accountList.add(customer_PersonMobilePhone);
           
-          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888818', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111',MBK_Data_Source__c='Email',Mobile__c='000-123-4567');
+          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888818', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111',MBK_Data_Source__c='Email');
           accountList.add(customer_PersonOtherPhone);   
           
-          dealer = new Account(Name = 'Acme Dealer', Phone = '08888848', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151',MBK_Data_Source__c='Email',Mobile__c='000-123-4567');
+          dealer = new Account(Name = 'Acme Dealer', Phone = '08888848', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151',MBK_Data_Source__c='Email');
           accountList.add(dealer);
           
           insert accountList;
@@ -231,7 +231,7 @@ public class SMSControllerExtensionTest {
         Test.startTest();           
             extension = new SMSControllerExtension(new ApexPages.standardController(new SMS__c()));      
             extension.send(); 
-            extension.customer=new Account(MBK_Data_Source__c='Email',Mobile__c='000-123-4567');     
+            extension.customer=new Account(MBK_Data_Source__c='Email',Mobile__c='0001234567');     
             extension.customer.Name='Account';           
             extension.send();   
             extension.templateId='';

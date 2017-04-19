@@ -108,6 +108,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Address Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Address_Line_1_Native__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1 Native</label>
@@ -150,6 +160,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Type_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Address Type Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Address_Type__c</fullName>
@@ -1564,6 +1584,17 @@
         <errorMessage>Address Line 2 should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Address_Line_1_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Address_Line_1_Native__c),
+REGEX(Address_Line_1_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Address_Line_1_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_Line_1_is_mandatory</fullName>
         <active>false</active>
         <description>Address_Line_1__c
@@ -1575,11 +1606,33 @@ is Mandatory while creating new Address</description>
         <errorMessage>Address_Line_1__c is Mandatory</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Address_Line_2_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Address_Line_2_Native__c),
+REGEX(Address_Line_2_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Address_Line_2_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Address_Type_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'), ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
         <errorDisplayField>Address_Type__c</errorDisplayField>
         <errorMessage>Address Type is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Block_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Block_Native__c),
+REGEX(Block_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Block_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Block_NoOfDigits</fullName>
@@ -1599,6 +1652,17 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>City_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(City_Native__c),
+REGEX(City_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>City_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>City_NoOfDigit</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( City__c ) &gt; 12 ,true,false) )</errorConditionFormula>
@@ -1610,6 +1674,17 @@ $Profile.Name != 'IntegrationAPI'
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN( Company_Name__c ) &gt; 50 ,true,false) )</errorConditionFormula>
         <errorMessage>Company Name should be less than or equal to 50 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Company_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Company_Name_Native__c),
+REGEX(Company_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Company_Name_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Company_Name_Required</fullName>
@@ -1679,6 +1754,17 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
         <errorMessage>ZIPCODE is mandatory</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Prefecture_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Province_Native__c),
+REGEX(Province_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Province_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Province_is_mandatory</fullName>
         <active>false</active>
         <description>Province__c is Mandatory while creating new Address</description>
@@ -1693,8 +1779,19 @@ MD__c = 'JP',
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'JP'</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
-        <errorMessage>TitleOfHonor is required.</errorMessage>
+        <errorMessage>TitleOfHonor</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Town_Native_Kana</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(District_Native__c),
+REGEX(District_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>District_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
 </CustomObject>

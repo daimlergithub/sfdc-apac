@@ -1,0 +1,26 @@
+<apex:page Controller="DeleteRetailCopy" sidebar="false" showHeader="false">
+<script>
+      function RelodeParent(){
+          window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+  
+       }
+      
+      </script>
+  <apex:form >
+      
+      <apex:pageBlock >
+      <div Style="margin: 7px 100px 7px;">
+      {!$Label.delete_confirmation_message}</div>
+          <apex:pageBlockButtons location="Bottom">
+              <br/>
+             
+              <apex:commandButton value="Delete"  oncomplete="RelodeParent()" action="{!updateRetailCopy}"/>
+              <!--<apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />-->
+			  <apex:CommandButton value="Cancel" onclick="window.close();" />
+               
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

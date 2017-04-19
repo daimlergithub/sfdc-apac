@@ -26,6 +26,7 @@ public with sharing class UserHelper {
     
     public Static id DealerComplaintUserId;
     public Static id DealerDelegatedAdminId;
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     public Static id CACSSICSRId;
     public Static id CACSSIQCId;
@@ -836,6 +837,91 @@ public with sharing class UserHelper {
             }
         }
     }
+    public static void createGroup(List<User> newUserList)
+    {
+    system.debug('#$#$#$#$#$#$#$#$# newUserList'+newUserList);
+        set<id> userid = new set<id>();
+        set<id> newuserid = new set<id>();
+        set<string> dealername = new set<string>();
+        List<Group> listgp=new List<Group>();
+        List<Group> insertlistgp=new List<Group>();
+         List<GroupMember> listGroupMember =new List<GroupMember>();  
+         
+        for(User pu:newUserList)
+        {
+        system.debug('#$#$#$#$ ContactId newUserList'+pu.ContactId);
+          
+            if(pu.ContactId !=null )
+            {
+                userid.add(pu.id);
+            }
+        }
+        system.debug('#$#$#$#$ ContactId ne'+userid);
+        List<User> users=[Select Id,Name,contactId,Contact.AccountId,Contact.Account.Name,Profile.userlicense.name from user where Id =:userid];
+       system.debug('#$#$#$#$ users usersne'+users);
+        for(User u:users)
+        {
+        system.debug(' Contact.AccountId ContactId newUserList'+u.Contact.AccountId);
+    system.debug(' Contact.u.Profile.userlicense.name st'+u.Profile.userlicense.name);
+            if(u.Profile.userlicense.name == 'Partner Community' && u.Contact.AccountId != null)
+            {
+                dealername.add(u.Contact.Account.Name);
+            }
+        }
+        listgp=[select id,Name ,Developername from group where Name =:dealername];
+        if(listgp.size()>0 && listgp!=null)
+        {
+            for(User Us:users)
+            {
+                for(Group gp:listgp)
+                {
+                    if(Us.Contact.Account.Name == gp.Name)
+                    {
+                        GroupMember gm= new GroupMember(); 
+                        gm.GroupId=gp.id;
+                        gm.UserOrGroupId = Us.id;
+                        listGroupMember.add(gm);
+                    }
+                }
+            }       
+            
+            insert listGroupMember;
+        }
+        else if(listgp.size()==0 )
+        {
+            for(User u : users)
+            {
+                Group g  = new group();
+                if(dealername.contains(u.Contact.Account.Name))
+                {
+                    newuserid.add(u.Id);
+                    g.name=u.Contact.Account.Name;
+                    insertlistgp.add(g);
+                }
+            }
+            insert insertlistgp;
+            
+             userhelper.addGroupmembers(insertlistgp,newuserid);
+        }
+         
+    }
+    public static void addGroupmembers(List<Group> listGroup,Set<Id> UsersID)
+    {
+        List<GroupMember> listGroupMember =new List<GroupMember>();
+        List<User> partUserList = new List<User>();
+            partUserList=[Select id from User where id=:UsersID];
+        for(Group g:listGroup)
+        {
+            for(User u:partUserList)
+            {
+              GroupMember gm= new GroupMember(); 
+              gm.GroupId=g.id;
+              gm.UserOrGroupId = U.id;
+              listGroupMember.add(gm); 
+            }    
+        }
+        insert listGroupMember;
+    }
     public Static void ApexShare(List<User> usrList){   
         system.debug('usrList '+usrList);
         Set<Id> userIds = new Set<Id>();
@@ -861,8 +947,164 @@ public with sharing class UserHelper {
             UtilShare.DealerGroupCreation(dealerAccountIds,userIds); 
         } 
     }
-	
-	public static void grpCreationandUsergrpAlign(List<User> usrInList){
+
+     
+    public Static void UserShareforDealers(List<User> usrList, map<id,User> UserOldMap, boolean isInsert, boolean isUpdate)
+    {       
+        // inserting new records
+        Set<String> DealerGccode = new Set<String>();
+        List<Account> DealeAcc=new List<Account>();  
+        map<string,id> assgroupMap = new map<string,id>();
+        list<string>assignlist=new list<string>();
+        list<String> AccountNAme = new List<String>();
+        if (Trigger.isInsert || Trigger.isUpdate) 
+        {
+            List<User> userList = new List<User>();
+            Set<Id> userAcc = new Set<Id>();
+            Set<Id> usrConId = new Set<Id>();
+            List<UserShare> shares = new List<UserShare>();
+            for(User u : usrList)
+            {
+                if(u.ContactId != Null)
+                {
+                    System.debug('u.ContactId>>>>>'+u.ContactId);
+                    usrConId.add(u.ContactId);
+                }
+            }
+            if(!usrConId.isEmpty() && usrConId!= null)
+            {
+                userList = [select id,contactId,contact.accountId,Contact.Account.Dealer_GC_Code__c,Contact.Account.name from user where contactId IN:usrConId];
+            }
+            if(!userList.isEmpty() && userList != null)
+            {
+                System.debug('userList>>>>> '+userList);
+                for(User ur : userList)
+                {
+                    if(ur.Contact.AccountId != null)
+                    {
+                        System.debug('ur.Contact.AccountId>>>>>>>'+ur.Contact.AccountId);
+                        userAcc.add(ur.Contact.AccountId);
+                        DealerGccode.add(ur.Contact.Account.Dealer_GC_Code__c);
+                        System.debug('uconaccdcode>>>>>'+ur.Contact.Account.Dealer_GC_Code__c);
+                        assignlist.add(ur.Contact.Account.name);
+                    }
+                }
+                
+            }
+            
+            DealeAcc=[Select id,name,Dealer_GC_Code__c from Account where RecordtypeId=:Dealer_RecordTypeId and Dealer_GC_Code__c =:DealerGccode];
+            
+            for(Account dealerac:DealeAcc)
+            {
+                userAcc.add(dealerac.ID);
+                AccountNAme.add(dealerac.name);
+            }
+            list<Group>grplist=new list<Group>([select id ,Name ,Type from Group where Name IN:assignlist OR Name IN: AccountNAme]);
+            for(Group assg:grplist)
+            {
+                system.debug('grplist>>>>>>>>'+grplist);
+                assgroupMap.put(assg.Name, assg.id);
+                system.debug('assg.Name'+assg.Name);
+                
+            }
+            
+            string inVar='Dealer';
+            string tempInput = '%' + inVar + '%';
+            Map<Id,User> userMap = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : userAcc AND Profile.name like  : tempInput ]);        
+            if(userMap.size() > 0){
+                
+                System.debug('userMap.Values()>>>>>>'+userMap.Values());
+                for (User u : userList)
+                {
+                    for(User ur : userMap.Values())
+                    {
+                        for(id m:assgroupMap.values())
+                        {
+                            UserShare userShr = new UserShare();
+                            userShr.UserId = u.id;
+                            userShr.UserOrGroupId = m;
+                            if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
+                                
+                                userShr.UserAccessLevel = 'Read';
+                            }
+                            else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
+                                userShr.UserAccessLevel = 'Read';
+                            }
+                            shares.add(userShr);
+                        }
+                    }
+                }   
+            }
+            // do the DML to create shares
+            if (!shares.isEmpty() && shares != null)
+            {
+                String JSONStr = JSON.serialize(shares);
+               //System.debug('Serialized list of invoices into JSON format: ' + JSONStr);
+                usershare(JSONStr);
+            }
+        }                   
+        else 
+        {    
+            List<UserShare> sharesToCreate = new List<UserShare>();
+            List<ID> shareIdsToDelete = new List<ID>();
+            List<ID> shareIdsToCreate = new List<ID>(); 
+            set<Id> usersToDelete = new set<Id>();
+            for (User Led : usrList) {
+                User oldlead = UserOldMap.get(Led.id);                  
+                if (Led.Contact.AccountId != Null && Led.Contact.AccountId != oldlead.Contact.AccountId) {
+                    System.debug('Led.Contact.AccountId>>>>>>>>>'+Led.Contact.AccountId);
+                    shareIdsToDelete.add(oldlead.Contact.AccountId);  
+                    shareIdsToCreate.add(Led.Contact.AccountId);  
+                }
+            }
+            string inVar='Dealer';
+            string tempInput = '%' + inVar + '%';
+            Map<Id,User> userMapUpdate = new  Map<Id,User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToCreate AND Profile.name like  : tempInput]);  
+            List<User> TobeDeleted = new List<User>([select Id,Name,Contact.AccountId,Profile.name from user where Contact.AccountId In : shareIdsToDelete AND Profile.name like  : tempInput]);
+            for(User ur : TobeDeleted){
+                usersToDelete.add(ur.Id);
+            }
+            if(userMapUpdate.size() > 0){
+                for (User u : usrList){
+                    for(User ur : userMapUpdate.Values()){
+                        UserShare userShr = new UserShare();
+                        userShr.UserId = u.id;
+                        userShr.UserOrGroupId = ur.id;
+                        if(ur.Profile.name == 'Japan Dealer Company Manager' || ur.Profile.name == 'Japan Dealer Sales Manager' || ur.Profile.name == 'Japan Dealer Service Manager'){
+                            userShr.UserAccessLevel = 'Read';
+                        }
+                        else if(ur.Profile.name == 'Japan Dealer Sales Representative' || ur.Profile.name == 'Japan Dealer Service Advisor' ){
+                            userShr.UserAccessLevel = 'Read';
+                        }
+                        sharesToCreate.add(userShr);
+                    }
+                }   
+            }
+            if(!sharesToCreate.isEmpty() && sharesToCreate != null)
+            {
+                System.debug('upd>>>>');
+                String JSONString = JSON.serialize(sharesToCreate);
+                System.debug('Serialized list of invoices into JSON format: ' + JSONString);
+                usershare(JSONString);
+            }
+            /*do the DML to delete shares
+            if (!TobeDeleted.isEmpty())
+                delete [select id from UserShare where UserOrGroupId IN :usersToDelete];
+            // do the DML to create shares
+            if (!sharesToCreate.isEmpty())
+                insert sharesToCreate;*/
+        }
+    }
+    @future
+    public static void usershare(string str)
+    {
+        List<UserShare> usershareList = new List<UserShare>();
+        usershareList = (List<UserShare>)JSON.deserialize(str, List<UserShare>.class);
+        insert usershareList;
+    }
+
+    
+    public static void grpCreationandUsergrpAlign(List<User> usrInList){
         List<Id> usrIds = new List<Id>();
         for(user usr: usrInList){
             usrIds.add(usr.id);
@@ -973,4 +1215,5 @@ public with sharing class UserHelper {
             }
         }
     }
+
 }

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>アクティブなアクセス権セット</label>
+        <name>Active_Permission_Set__c</name>
+    </fields>
+    <fields>
+        <label>アクティブ</label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label>原価</label>
+        <name>Cost_Price__c</name>
+    </fields>
+    <fields>
+        <label>AutolineユーザーID</label>
+        <name>DMS_UserID__c</name>
+    </fields>
+    <fields>
+        <label>日歩</label>
+        <name>Daily_Rate__c</name>
+    </fields>
+    <fields>
+        <label>販売店法人名</label>
+        <name>Dealer_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label>リテーラーID</label>
+        <name>Dealer_DMS_Retailer_ID__c</name>
+    </fields>
+    <fields>
+        <label>法人コード（GSSN）</label>
+        <name>Dealer_GC_Code__c</name>
+    </fields>
+    <fields>
+        <label>拠点コード（GSSN)</label>
+        <name>Dealer_ND_Code__c</name>
+    </fields>
+    <fields>
+        <label>販売店拠点名</label>
+        <name>Dealer_Outlet_Name__c</name>
+    </fields>
+    <fields>
+        <label>販売店役職名</label>
+        <name>Dealer_Title__c</name>
+    </fields>
+    <fields>
+        <label>フライトチケットの予算</label>
+        <name>Flight_Ticket_Budget__c</name>
+    </fields>
+    <fields>
+        <label>役職名</label>
+        <name>MBJ_Title__c</name>
+        <picklistValues>
+            <masterLabel>Auditor</masterLabel>
+            <translation>監査役</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BP Mechanic</masterLabel>
+            <translation>ＢＰメカニック</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS Manager</masterLabel>
+            <translation>ＣＳマネージャー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cleaning Representative</masterLabel>
+            <translation>清掃担当者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clerk/Service Operation</masterLabel>
+            <translation>クラーク/サービス業務</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environtment Management Executive</masterLabel>
+            <translation>環境管理責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive</masterLabel>
+            <translation>取締役・執行役員</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Executive</masterLabel>
+            <translation>ファイナンス責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreman</masterLabel>
+            <translation>フォアマン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT Engineer</masterLabel>
+            <translation>情報システム担当者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT Manager</masterLabel>
+            <translation>情報システム責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance Representative</masterLabel>
+            <translation>メンテナンス担当者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mechanic</masterLabel>
+            <translation>メカニック</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Car Sales Representative</masterLabel>
+            <translation>新車セールスマン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operation Management(HR/Finance/Admin)</masterLabel>
+            <translation>管理業務（人事・経理・総務）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outlet Managing Director</masterLabel>
+            <translation>拠点責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Clerk</masterLabel>
+            <translation>部品担当者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Manager</masterLabel>
+            <translation>部品マネージャー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal Information Manager</masterLabel>
+            <translation>個人情報管理責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Picker/Service Operation</masterLabel>
+            <translation>ピッカー/サービス業務</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Expert</masterLabel>
+            <translation>プロダクトエキスパート</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality Management Executive</masterLabel>
+            <translation>品質管理責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Representative</masterLabel>
+            <translation>代表者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Executive</masterLabel>
+            <translation>営業責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Manager</masterLabel>
+            <translation>セールスマネージャー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Advisor</masterLabel>
+            <translation>サービスアドバイザー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Executive</masterLabel>
+            <translation>サービス責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Manager</masterLabel>
+            <translation>サービスマネージャー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom Staff</masterLabel>
+            <translation>ショールームスタッフ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Manager</masterLabel>
+            <translation>トレーニング責任者</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Car Manager</masterLabel>
+            <translation>中古車マネージャー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Car Sales Representative</masterLabel>
+            <translation>中古車セールスマン</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Management</masterLabel>
+            <translation>車両業務</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Market</label>
+        <name>Market__c</name>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation><!-- AU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CN</masterLabel>
+            <translation><!-- CN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP</masterLabel>
+            <translation><!-- JP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>顧客コンタクト情報更新通知受領設定</label>
+        <name>Notification_Account_Contact_Update__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not receive</masterLabel>
+            <translation><!-- Not receive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>ファイナンス関連顧客更新通知受領設定</label>
+        <name>Notification_Account_Finance_Update__c</name>
+    </fields>
+    <fields>
+        <label>リード展開通知受領対象拠点コード</label>
+        <name>Notification_Lead_Dealer_Assignment__c</name>
+    </fields>
+    <fields>
+        <label>リードマージ通知受領対象拠点コード</label>
+        <name>Notification_Lead_Merged__c</name>
+    </fields>
+    <fields>
+        <label>リード更新無し通知受領対象拠点コード</label>
+        <name>Notification_Lead_No_Update__c</name>
+    </fields>
+    <fields>
+        <label>リード担当者未割り当て通知受領対象拠点コード</label>
+        <name>Notification_Lead_Not_Assigned__c</name>
+    </fields>
+    <fields>
+        <label>新規顧客追加情報通知受領設定</label>
+        <name>Notification_Retail_Copy_Created__c</name>
+    </fields>
+    <fields>
+        <label>車両顧客関係新規作成通知受領設定</label>
+        <name>Notification_VR_Created__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not receive</masterLabel>
+            <translation><!-- Not receive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>車両顧客関係削除通知受領設定</label>
+        <name>Notification_VR_Terminated__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not receive</masterLabel>
+            <translation><!-- Not receive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>単価</label>
+        <name>Unit_Price__c</name>
+    </fields>
+    <fields>
+        <label>ロール</label>
+        <name>User_Role__c</name>
+    </fields>
+    <fields>
+        <label>ユーザ種別</label>
+        <name>User_Type__c</name>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation><!-- Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External System</masterLabel>
+            <translation><!-- External System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF</masterLabel>
+            <translation><!-- MBF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBJ</masterLabel>
+            <translation><!-- MBJ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>日当</label>
+        <name>allowance__c</name>
+    </fields>
+    <layouts>
+        <layout>Dealer Management Layout</layout>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>ロール階層のマネージャ</label>
+            <section>Managers in the Role Hierarchy</section>
+        </sections>
+        <sections>
+            <label>権限セットの割り当て</label>
+            <section>Permission Set Assignments</section>
+        </sections>
+        <sections>
+            <label>権限セットライセンスの割り当て</label>
+            <section>Permission Set License Assignments</section>
+        </sections>
+        <sections>
+            <label>チーム</label>
+            <section>Team</section>
+        </sections>
+        <sections>
+            <label>ユーザプロビジョニングアカウント</label>
+            <section>User Provisioning Accounts</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Non-management Layout</layout>
+        <sections>
+            <label>カスタムリンク</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>ロール階層のマネージャ</label>
+            <section>Managers in the Role Hierarchy</section>
+        </sections>
+        <sections>
+            <label>権限セットの割り当て</label>
+            <section>Permission Set Assignments</section>
+        </sections>
+        <sections>
+            <label>権限セットライセンスの割り当て</label>
+            <section>Permission Set License Assignments</section>
+        </sections>
+        <sections>
+            <label>チーム</label>
+            <section>Team</section>
+        </sections>
+        <sections>
+            <label><!-- User Provisioning Accounts --></label>
+            <section>User Provisioning Accounts</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>
+    
+	
+	

@@ -241,19 +241,15 @@ Modify Reason:
         <label>Touch Point</label>
         <picklist>
             <picklistValues>
-                <fullName>Event</fullName>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Campaign</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -266,6 +262,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -285,7 +285,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -293,15 +305,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -309,7 +317,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Call Catalogue</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -317,11 +325,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MCare</fullName>
+                <fullName>DSC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -334,6 +338,14 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MCare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -392,7 +404,7 @@ Modify Reason:
         <fullName>Customer_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Customer Name</label>
+        <label>Customer</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select the proper account.</errorMessage>
@@ -664,7 +676,7 @@ Modify Reason:
                 <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -752,6 +764,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Sales_Department__c</fullName>
@@ -1139,6 +1164,12 @@ Modify Reason:
         </filters>
         <label>All_temp</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
@@ -1166,18 +1197,28 @@ Modify Reason:
         <fullName>MBJ_CRM_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1361,6 +1402,12 @@ Modify Reason:
         </filters>
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -1454,13 +1501,18 @@ Modify Reason:
             <role>Central</role>
         </sharedTo>
     </listViews>
-    <listViews>
+   <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>

@@ -2770,22 +2770,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__Called__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AES_SFConnector__Called__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Called__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__Caller__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>
@@ -2801,11 +2791,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CallObject</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__CallReference__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>
@@ -2851,11 +2836,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>IsClosed</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Communication_date__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>
@@ -3155,11 +3135,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__Queue__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Reason__c</field>
             <table>Lead__c.Activities</table>
         </columns>
@@ -3265,11 +3240,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__UCID__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AES_SFConnector__UCID__c</field>
             <table>Lead__c.Activities</table>
         </columns>
@@ -3296,11 +3266,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Updated_By_EP_Transactions__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AES_CNTR__UUI__c</field>
             <table>Lead__c.Activities</table>
         </columns>
         <columns>

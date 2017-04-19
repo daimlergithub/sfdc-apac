@@ -17,16 +17,18 @@ public class AddToRetailCampaignControllerTet
     public Static String ErrorMessageInvalidId = 'Invalid Case Id.';
      static void preparedTestData()
       {
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+         //List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         //insert updatecustomsettings;
+         Trigger__c TriggerDMR=new Trigger__c(Name='TriggerAccount',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerJP',update__c=false,insert__c=false,delete__c=false,after__c=false,before__c=false,enabled__c=false,Market__c='JP');
+        upsert TriggerDMR;
          cls=new Community_License_Switch__c();
          cls.Enable__c=true;
          cls.name='Community Enabled';
          insert cls;
          list<Account> lstAccount=new List<Account>();
-         acc= new Account(LastName='acme', Phone='011111222', Area_Code__c = '010', MBK_Data_Source__c ='Email',Mobile__c = '000-0000-9642',RecordTypeId = personRecordtypeid);
+         acc= new Account(LastName='acme', Phone='011111222', Area_Code__c = '010',RecordTypeId = personRecordtypeid);
          lstAccount.add(acc);
-         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer',MBK_Data_Source__c ='Email',Mobile__c = '000-0000-9642');
+         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
          lstAccount.add(dealer);
          insert lstAccount;
          ve1=new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'),Purchase_Month__c ='02',Purchase_Year__c = '2004',RegistrationNo__c = '12345');
@@ -53,7 +55,7 @@ public class AddToRetailCampaignControllerTet
         { 
            preparedTestData();
              
-           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
+           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1 , Campaign_Execution_Channels__c = 'DM');     
            insert rc;        
            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
            
@@ -81,7 +83,7 @@ public class AddToRetailCampaignControllerTet
         { 
            preparedTestData();
              
-           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
+           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1,Campaign_Execution_Channels__c = 'DM');     
            insert rc;        
            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
            
@@ -108,7 +110,7 @@ public class AddToRetailCampaignControllerTet
         { 
            preparedTestData();
              
-           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
+           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1,Campaign_Execution_Channels__c = 'DM');     
            insert rc;        
            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
            
@@ -137,7 +139,7 @@ public class AddToRetailCampaignControllerTet
         { 
            preparedTestData();
              
-           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=2);     
+           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=2,Campaign_Execution_Channels__c = 'DM');     
            insert rc;        
            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
            
@@ -164,7 +166,7 @@ public class AddToRetailCampaignControllerTet
         { 
            preparedTestData();
              
-           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=null);     
+           Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=null,Campaign_Execution_Channels__c = 'DM');     
            insert rc;        
            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
            
@@ -181,5 +183,19 @@ public class AddToRetailCampaignControllerTet
             addRetail.addTo();       
            
     }
+    static testMethod void RetailCampaignTestupdatecatchexception3()
+   {
    
+   Test.startTest();              
+            PageReference pr  = new PageReference('/apex/AddToRetailCampaign?id=' );
+            Test.setCurrentPage(pr);
+            AddToRetailCampaignController addRetail = new AddToRetailCampaignController();
+            
+            addRetail.addTo();       
+            //rc=[select Id, Total_CAC_Source_Campaign_Member__c from Retail_Campaign__c where Id = :c1.Retail_Campaign__c];    
+            //Case caselst = [select Case_Status__c,Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,Retail_Campaign__c,VIN_Code__c from case where id=:c1.id];
+            //List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];        
+            Test.stopTest();      
+   
+   }
 }

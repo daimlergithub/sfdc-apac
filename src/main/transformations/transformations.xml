@@ -56,6 +56,11 @@
 		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
 	</changetext>
 	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
+	</changetext>
+    <changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Sales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID</token>
@@ -103,6 +108,11 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
 	</changetext>
 	<changetext>
@@ -117,6 +127,11 @@
 	</changetext>
 	 <changetext>
 		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ASSIGNED_DEALER</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
 	</changetext>
@@ -124,6 +139,26 @@
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+    <changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Print_PDF']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
 	 <changetext>
 		<filename>objects\Account.object</filename>
@@ -326,8 +361,18 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_LKID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
@@ -353,6 +398,41 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Leads']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_LEAD_COMPANY_ACCOUNT_LKID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_INQUIRY_RECORDTYPEID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_USERNAME_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_PRIMARYCASEDEALER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_USER_ID_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_USER_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
@@ -437,7 +517,62 @@
 	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext> 
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CONTACT_ID</token>
+	</changetext>
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE_ID</token>
+	</changetext>		
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
+	</changetext>	
+	 <changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_CASE</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_CASE_DEALER_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Account.object</filename>
@@ -459,10 +594,42 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Complex_Execution']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID</token>
 	</changetext>
+		<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID</token>
+	</changetext>
+	
+		<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Campaign_For_Execution']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID</token>
+	</changetext>
+	
+	<changetext>
+		<filename>objects\Campaign_Member__C.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__C.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID</token>
 	</changetext>
 	<changetext>
 		<filename>caseSharingRules\Case.sharingRules</filename>
@@ -485,6 +652,16 @@
 		<token tokenonly="true">CENTRAL_OFFICE_QUEUE_ID</token>
 	</changetext>
 	
+		<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID</token>
+	</changetext>
 	<changetext>
 		<filename>objects\Campaign_Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
@@ -603,6 +780,26 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_END_DATE_FIELD_ID</token>
 	</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID</token>
+		</changetext>
+			<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID</token>
+		</changetext>
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
@@ -638,7 +835,21 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_MEDIA_TYPE_FIELD_ID</token>
 	</changetext>
-	
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID</token>
+	</changetext>	
 	<changetext>
 		<filename>objects\Car_Enquiry__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
@@ -705,6 +916,21 @@
 		<token tokenonly="true">LEAD_OBJECT_ID</token>
 	</changetext>
 	<changetext>
+	<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_TAB_ID</token>
+	</changetext>	
+	<changetext>
+	<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">LEAD_OBJECT_ID</token>
+	</changetext>	
+	<changetext>
+	<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_AfterSales_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_AFTERSALES_VEHICLE</token>
+	</changetext>
+	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">CONTACT_FIELD_ID_IN_LEAD</token>
@@ -724,7 +950,16 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
 	</changetext> 
-	
+	 <changetext>
+		<filename>objects\Leads__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Convert']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_SALES_RECORD_TYPE_ID</token>
+	</changetext>
+		<changetext>
+			<filename>objects\Leads__c.object</filename>
+			<xpath>/CustomObject/webLinks[fullName/text()='Convert']/url/text()</xpath>
+			<token tokenonly="true">OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID</token>
+		</changetext>
 	<changetext>
 		<filename>settings\Case.settings</filename>
 		<xpath>/CaseSettings/defaultCaseOwner/text()</xpath>
@@ -877,10 +1112,10 @@
 		CanUseNewDashboardBuilder,ChatterFileLink,ChatterInternalUser,ChatterInviteExternalUsers,ChatterOwnGroups,ConnectOrgToEnvironmentHub,ContentAdministrator,
 		ConvertLeads,CreateCustomizeFilters,CreatePackaging,CreateTopics,CreateWorkspaces,CustomizeApplication,DataExport,DeleteActivatedContract,DeleteTopics,
 		DistributeFromPersWksp,EditActivatedOrders,EditBrandTemplates,EditCaseComments,EditEvent,EditHtmlTemplates,EditOppLineItemUnitPrice,EditPublicDocuments,
-		EditPublicFilters,EditPublicReports,EditPublicTemplates,EditReadonlyFields,EditReports,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
+		EditPublicFilters,EditPublicTemplates,EditReadonlyFields,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
 		ExportReport,ImportLeads,ImportPersonal,InboundMigrationToolsUser,InstallPackaging,IPRestrictRequests,ManageAnalyticSnapshots,ManageAuthProviders,
 		ManageBusinessHourHolidays,ManageCallCenters,ManageCases,ManageCategories,ManageContentPermissions,ManageContentProperties,ManageContentTypes,ManageCssUsers,
-		ManageCustomPermissions,ManageCustomReportTypes,ManageDashboards,ManageDataCategories,ManageDataIntegrations,ManageDynamicDashboards,ManageEmailClientConfig,
+		ManageCustomPermissions,ManageCustomReportTypes,ManageDataCategories,ManageDataIntegrations,ManageDynamicDashboards,ManageEmailClientConfig,
 		ManageEntitlements,ManageExchangeConfig,ManageInteraction,ManageInternalUsers,ManageIpAddresses,ManageLeads,ManageLoginAccessPolicies,ManageMobile,
 		ManagePackageLicenses,ManagePasswordPolicies,ManageProfilesPermissionsets,ManageRemoteAccess,ManageRoles,ManageSharing,ManageSolutions,ManageUnlistedGroups,
 		ManageUsers,MassInlineEdit,MergeTopics,ModerateChatter,ModifyAllData,NewReportBuilder,OutboundMigrationToolsUser,PasswordNeverExpires,PublishPackaging,
@@ -889,3 +1124,4 @@
 		</permissions>
 	</defaultpermissions>
 </transformations>
+

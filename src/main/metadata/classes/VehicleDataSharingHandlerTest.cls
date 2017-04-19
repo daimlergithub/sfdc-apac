@@ -132,7 +132,7 @@ public With Sharing class VehicleDataSharingHandlerTest
         accList.add(accObj);
         insert accList;
         Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll',EuroVIN__c ='tlikkkkkkkklllll',CurrentMileage__c=5000,NextMileage__c=6000);
+        vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='tlikkkkkkkklllll',EuroVIN__c ='tlikkkkkkkkllllll',CurrentMileage__c=5000,NextMileage__c=6000);
         insert vehicleObj;
         Id recordTypeVehicleRObjId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
         

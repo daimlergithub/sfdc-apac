@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.fromRole__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.toRole__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Active__c</field>
+    </columns>
+    <description>Account Link records with Vehicle_External_Link record type and Service_Dealer__c value as blank(null).</description>
+    <filter>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Account_Link__c.Vehicle_External_Link</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account_Link__c.Service_Dealer__c</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Accountlink Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Account_Link__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account_Link__c.CreatedDate__c</dateColumn>
+        <endDate>2017-01-02</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-12-02</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,102 @@
+<apex:page standardController="Account" extensions="AccountLinkController">
+    <apex:form >
+       <script>
+function test(){
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!acclnkdealer.id}", "_blank","resizable=yes,top=250,left=500,width=400,height=350");
+}
+function edit(){
+window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.Prefix)}/{!acclnkdealer.id} ", "_blank");
+}
+</script>
+       
+       
+       
+       
+       
+       <apex:pageBlock >
+       
+           <apex:pageBlockSection title="Retail Copy View Area For Dealer User" columns="2">
+           
+            
+       
+           
+        <apex:pageBlockSectionItem > 
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Name.Label}"/>   
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.id}')">{!acclnkdealer.Name}</apex:outputlink>
+           </apex:pageBlockSectionItem>
+              
+           <apex:pageBlockSectionItem >                 
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Comments__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Comments__c}"/>  
+           </apex:pageBlockSectionItem>
+              
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_OptOutContact_Reason__c}"/> 
+           </apex:pageBlockSectionItem> 
+                 
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Email_OptOut__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Email_OptOut__c}"/> 
+           </apex:pageBlockSectionItem>   
+               
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Fax_OptOut__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Fax_OptOut__c}"/> 
+           </apex:pageBlockSectionItem>    
+              
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Phone_OptOut__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Phone_OptOut__c}"/>  
+           </apex:pageBlockSectionItem>  
+                
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Postal_OptOut__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Postal_OptOut__c}"/> 
+           </apex:pageBlockSectionItem>  
+           
+            <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Visit_OptOut__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Visit_OptOut__c}"/> 
+           </apex:pageBlockSectionItem>  
+           
+           
+            
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Sales_Sanction__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Sales_Sanction__c}"/> 
+           </apex:pageBlockSectionItem> 
+           
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Selling_Dealer__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Selling_Dealer__c}"/> 
+           </apex:pageBlockSectionItem>  
+           
+             
+           <apex:pageBlockSectionItem >       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Sales_Sanction_Comment__c.Label}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_Sales_Sanction_Comment__c}"/> 
+           </apex:pageBlockSectionItem> 
+              
+                <apex:pageBlockSectionItem >
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Sales_Consultant__c.Label}"/>
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.Retail_Sales_Consultant__r.id}')">{!acclnkdealer.Retail_Sales_Consultant__r.Name}</apex:outputlink>
+           </apex:pageBlockSectionItem>
+         
+            
+        
+          
+        </apex:pageBlockSection>
+      <apex:pageblockButtons location="Top">
+   <!----< <apex:commandButton action="{!ab}" value="Edit" /> ------->
+        <!--<<apex:commandButton onclick="window.open('{!ab}');" value="Edit"/>-->
+        <!--<apex:commandlink action="{!ab}" target="_blank">
+            <apex:commandButton value="Edit"/>
+        </apex:commandLink>-->
+        <apex:commandButton value="Edit" onclick="edit();"/>
+        <apex:commandButton value="Delete" onclick="test();"/>
+    </apex:pageblockButtons>
+    </apex:pageBlock>
+            
+  </apex:form>
+</apex:page>

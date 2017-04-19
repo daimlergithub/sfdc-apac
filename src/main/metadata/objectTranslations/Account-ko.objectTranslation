@@ -7433,26 +7433,7 @@ Allows up to 240 characters --></help>
         <name>smart_Account_Owner__c</name>
         <relationshipLabel><!-- Accounts (smart Account Owner) --></relationshipLabel>
     </fields>
-    <layouts>
-        <layout>3rd Pary Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>필드</label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label>기타 정보</label>
-            <section>Other information</section>
-        </sections>
-        <sections>
-            <label>소매 정보</label>
-            <section>Retail Information</section>
-        </sections>
-    </layouts>
+  
     <layouts>
         <layout>Account Layout</layout>
         <sections>
@@ -7582,7 +7563,7 @@ Allows up to 240 characters --></help>
             <section>GSSN Information</section>
         </sections>
     </layouts>
-    <layouts>
+  <!--  <layouts>
         <layout>PA Layout-CAC IB/OB (CSR/TL/OM)</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -7738,26 +7719,7 @@ Allows up to 240 characters --></help>
             <section>Profile Information</section>
         </sections>
     </layouts>
-    <layouts>
-        <layout>Person Account Read Only Layout</layout>
-        <layoutType>PersonAccount</layoutType>
-        <sections>
-            <label>연락처 정보</label>
-            <section>Contact Information</section>
-        </sections>
-        <sections>
-            <label>주 연락처 및 동의</label>
-            <section>Main Contact and Consent</section>
-        </sections>
-        <sections>
-            <label>신규 섹션</label>
-            <section>New Section</section>
-        </sections>
-        <sections>
-            <label>프로파일 정보</label>
-            <section>Profile Information</section>
-        </sections>
-    </layouts>
+   
     <recordTypes>
         <label><!-- Company --></label>
         <name>Company</name>

@@ -60,7 +60,7 @@ public class ContactTableController
         system.debug('p.Name :'+p.Name);
         if(p.Name.contains('Dealer')){
             system.debug('Test 123');            
-            disableButtons = false;          
+            disableButtons = true;          
         }
         if(disableButtons == true){
              //editMode = true;
@@ -150,6 +150,8 @@ public class ContactTableController
          }
       }
     
+     
+    
     /**
   *@Description : This method updates the Account with the values entered by user to phone number and email fields.
   *@Date : 26/10/2015
@@ -161,6 +163,7 @@ public class ContactTableController
     public void UpdateAccount()  
     {
      if(ParAcc != null && ParAcc.Md__c =='KR' )
+
             {
        if((String.isBlank(homePhoneAreaCodePart1)) && (String.isBlank(homePhoneAreaCodePart2)) && (String.isBlank(homePhoneAreaCodePart3)))
        {
@@ -212,11 +215,15 @@ public class ContactTableController
              ParAcc.Mobile__c='';
         }
       }
+
         try
         {
-            if(ParAcc != null)
+            if(ParAcc != null )
+            {
                 refreshPage = true;
-                update ParAcc;            
+                update ParAcc;         
+                }   
+                
         }
         
         catch(DMLException de)

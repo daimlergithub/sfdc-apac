@@ -15,30 +15,6 @@
         <name>name_activity</name>
     </fields>
     <fields>
-        <label><!-- CallReference --></label>
-        <name>AES_CNTR__CallReference__c</name>
-    </fields>
-    <fields>
-        <label><!-- Called --></label>
-        <name>AES_CNTR__Called__c</name>
-    </fields>
-    <fields>
-        <label><!-- Caller --></label>
-        <name>AES_CNTR__Caller__c</name>
-    </fields>
-    <fields>
-        <label><!-- Queue --></label>
-        <name>AES_CNTR__Queue__c</name>
-    </fields>
-    <fields>
-        <label><!-- UCID --></label>
-        <name>AES_CNTR__UCID__c</name>
-    </fields>
-    <fields>
-        <label><!-- UUI --></label>
-        <name>AES_CNTR__UUI__c</name>
-    </fields>
-    <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
     </fields>
@@ -109,7 +85,7 @@
             <masterLabel>9=CSI Call</masterLabel>
             <translation><!-- 9=CSI Call --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label>タッチポイント</label>
         <name>Activity_DataSource__c</name>
@@ -766,11 +742,11 @@
             <masterLabel>wrong number</masterLabel>
             <translation><!-- wrong number --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Assignment Status --></label>
         <name>Assignment_Status__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Called --></label>
         <name>Called__c</name>
@@ -872,10 +848,6 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Comm Date --></label>
-        <name>Communication_date__c</name>
-    </fields>
-    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
     </fields>
@@ -941,33 +913,9 @@
         <picklistValues>
             <masterLabel>Valid</masterLabel>
             <translation><!-- Valid --></translation>
-        </picklistValues>
+        </picklistValues> 
     </fields>
-    <fields>
-        <label><!-- Intention Status --></label>
-        <name>Intention_Status__c</name>
-        <picklistValues>
-            <masterLabel>Hand Back</masterLabel>
-            <translation><!-- Hand Back --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Quoted</masterLabel>
-            <translation><!-- Quoted --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Retain Payout</masterLabel>
-            <translation><!-- Retain Payout --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Retain Refinance</masterLabel>
-            <translation><!-- Retain Refinance --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Trade In</masterLabel>
-            <translation><!-- Trade In --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
+    <fields>  
         <label><!-- InteractionIds --></label>
         <name>InteractionIds__c</name>
     </fields>
@@ -978,11 +926,7 @@
     <fields>
         <label><!-- MD --></label>
         <name>MD__c</name>
-    </fields>
-    <fields>
-        <label><!-- Next Steps --></label>
-        <name>Next_Steps__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Notification Email Flag --></label>
         <name>Notification_Email_Flag__c</name>
@@ -1070,6 +1014,21 @@
     <fields>
         <label><!-- Phone number --></label>
         <name>Phone_number__c</name>
+    </fields>
+    <fields>
+        <name>Priority</name>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>優先度</label>
@@ -1170,11 +1129,11 @@
             <masterLabel>Scheduled Call Back</masterLabel>
             <translation><!-- Scheduled Call Back --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- *Related Task Id --></label>
         <name>Related_Task_Id__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Result --></label>
         <name>Result__c</name>
@@ -1186,7 +1145,7 @@
             <masterLabel>Unsolved</masterLabel>
             <translation><!-- Unsolved --></translation>
         </picklistValues>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- SMS/MMS Template ID --></label>
         <name>SMSTemplateID__c</name>
@@ -1340,6 +1299,17 @@
         <name>Start_Call_Time__c</name>
     </fields>
     <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label>状況</label>
         <name>Status__c</name>
         <picklistValues>
@@ -1382,7 +1352,7 @@
     <fields>
         <label><!-- UniqueCampaignMobile --></label>
         <name>UniqueCampaignMobile__c</name>
-    </fields>
+    </fields> 
     <fields>
         <label><!-- Updated By EP Transactions --></label>
         <name>Updated_By_EP_Transactions__c</name>

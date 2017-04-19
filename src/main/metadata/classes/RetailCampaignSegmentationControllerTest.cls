@@ -14,7 +14,15 @@ Private Static List<String> filterOptions ;
  Private Static  List<SelectOption> leadAdditionalServiceOptions ;
  Private Static  List<SelectOption> leadClassOptions;
  Private Static  List<SelectOption> VehicleClassOptions;
+ Private Static  List<SelectOption> SpecialMarkonAccount;
+ Private Static  List<SelectOption> Customerphase;
+ Private Static  List<SelectOption> RetailOptOutContactReason;
+ Private Static  List<SelectOption> status;
+ Private Static  List<SelectOption> RetailSalesSanction;
 Private Static Retail_Campaign__c rc;
+Private Static  List<SelectOption> getItems;
+    public static String filtername = 'Name';
+ 
     public static testMethod void testRetailCampaignSegmentationController()
     {
      Community_License_Switch__c cls=new Community_License_Switch__c();
@@ -43,7 +51,7 @@ Private Static Retail_Campaign__c rc;
                                              Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989', Retail_Mobile__c='0231456949', Retail_Work_Phone__c='0231056989',Area_code__c = '010',Age_Range__c = '26-35',
                                             LastName = 'galaxy2', ZipCode__c='000000',Branch_name__c = '2014/06/05', File_Name__pc = 'C://User/folder',RecordTypeId=acc3rdPartyRTId);
                 insert customer;
-                 rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId);
+                 rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId ,Campaign_Execution_Channels__c ='DM' );
                 insert rc;
                 
                 String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"","bracket":false}]}}]';
@@ -54,17 +62,35 @@ Private Static Retail_Campaign__c rc;
                 RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
                 
                  filterOptions = extension.filterOptions;
-                 hobbyOptions = extension.hobbyOptions;
-                 leadDesiredServiceOptions = extension.leadDesiredServiceOptions;
-                leadAdditionalServiceOptions = extension.leadAdditionalServiceOptions;
-                leadClassOptions=extension.leadClassOptions;
+                // hobbyOptions = extension.hobbyOptions;
+                // leadDesiredServiceOptions = extension.leadDesiredServiceOptions;
+               // leadAdditionalServiceOptions = extension.leadAdditionalServiceOptions;                
+                //leadClassOptions=extension.leadClassOptions;
+                RetailSalesSanction =extension.RetailSalesSanction;
+                getItems =extension.getItems();
                 VehicleClassOptions=extension.VehicleClassOptions;
+                SpecialMarkonAccount = extension.SpecialMarkonAccount;
+                Customerphase = extension.Customerphase;
+                RetailOptOutContactReason = extension.RetailOptOutContactReason;
+                status = extension.status;
                 RetailCampaignSegmentationController.saveFilter(filterString);
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
-                extension.attendedCampaign = 'testCampaign';
+               // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
                 extension.addToCampaign();
-                extension.getlimitAccounts();
+                //extension.getCountries();
+                extension.first();
+                 extension.last();
+                 extension.previous();
+                 extension.next();
+                 extension.hasnext = True;
+                 extension.hasPrevious= True;                
+                //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
+            try{
+                RetailCampaignSegmentationController.deleteFilter(filtername);
+                }catch(Exception e){}
+               // extension.getlimitAccounts();
+        
             }
             
             RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
@@ -81,15 +107,9 @@ Private Static Retail_Campaign__c rc;
             RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
             extension.searchAccount();
             extension.addToCampaign();
-            extension.getlimitAccounts();
+           // extension.getlimitAccounts();
             Test.stoptest();
-            System.assertNotequals(null,rc);
-            System.assertequals(filterOptions,extension.filterOptions);
-             System.assertequals(hobbyOptions,extension.hobbyOptions);
-              System.assertequals(leadDesiredServiceOptions,extension.leadDesiredServiceOptions);
-               System.assertequals(leadAdditionalServiceOptions,extension.leadAdditionalServiceOptions);
-                System.assertequals(leadClassOptions,extension.leadClassOptions);
-                System.assertequals(VehicleClassOptions,extension.VehicleClassOptions);
+           
             
        }
     }

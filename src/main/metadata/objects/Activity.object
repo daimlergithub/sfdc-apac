@@ -1123,13 +1123,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Communication_date__c</fullName>
-        <externalId>false</externalId>
-        <label>Comm Date</label>
-        <required>false</required>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -1262,11 +1255,47 @@
         <required>false</required>
         <type>Picklist</type>
     </fields>
-    <fields>
+   <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
         <picklist>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Hand Back</fullName>
                 <default>false</default>
@@ -1285,6 +1314,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Quoted</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Trade-in</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1315,6 +1348,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields> 
+    <fields>
+        <fullName>MTH_Penetration__c</fullName>
+        <externalId>false</externalId>
+        <label>MTH Penetration</label>
+        <length>20</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -2014,7 +2056,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields> 
+	
     <fields>
         <fullName>eDM_Type__c</fullName>
         <description>eDM Type with 3 types of values: Brochure, Price List	, Brochure+Price List. Auto from trigger. Used by eDM Template ID field.</description>

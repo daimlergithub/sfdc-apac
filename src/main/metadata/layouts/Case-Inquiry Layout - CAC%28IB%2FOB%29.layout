@@ -332,7 +332,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Dealer Info</label>
+        <label>Dealer Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -367,7 +367,7 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>VehiclePickerforCase</page>
+                <page>MarketCheckOnVehiclePickerCase</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>

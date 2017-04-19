@@ -1,0 +1,128 @@
+<apex:page standardController="Retail_Task__c" extensions="RelatedDealerViewForInsurance" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="Related Dealer view for Insurance">
+            <apex:pageBlockSection columns="2">
+             <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Contractor_Address1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Address1__c.Label}"/>
+                        <apex:outputText value="{!AddressActual}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Booking_Month__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Booking_Month__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Booking_Month__c.Label}"/>
+                        <apex:outputText value="{!BonusMonth}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Condition_Change__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Condition_Change__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Condition_Change__c.Label}"/>
+                        <apex:outputText value="{!ChangeofContractCondition}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Premium_Change__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Premium_Change__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Premium_Change__c.Label}"/>
+                        <apex:outputText value="{!Changeofpremium}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">               
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Company_Name__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Company_Name__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Company_Name__c.Label}"/>
+                        <apex:outputText value="{!CompanyName}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_BirthDate__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Contractor_BirthDate__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                  
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_BirthDate__c.Label}"/>
+                        <apex:outputText value="{!ContractorBirthdate}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">               
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Net_Premium__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium__c.Label}"/>
+                        <apex:outputText value="{!Netpremium}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium2__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Net_Premium2__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium2__c.Label}"/>
+                        <apex:outputText value="{!Netpremium2nd}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium3__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Net_Premium3__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Net_Premium3__c.Label}"/>
+                        <apex:outputText value="{!Netpremium3rd}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outlet_Name__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Outlet_Name__c}"/>  
+              </apex:pageBlockSectionItem> 
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">               
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outlet_Name__c.Label}"/>
+                        <apex:outputText value="{!OutletName}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Method__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Payment_Method__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Payment_Method__c.Label}"/>
+                        <apex:outputText value="{!Paymentmethodoflongterm}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone1__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Contractor_Phone1__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Contractor_Phone1__c.Label}"/>
+                        <apex:outputText value="{!Phone1Actual}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Common_Comments__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Common_Comments__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Common_Comments__c.Label}"/>
+                        <apex:outputText value="{!CommonComments}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Source_System__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Source_System__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Source_System__c.Label}"/>
+                        <apex:outputText value="{!SourceSystem}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Balance_Update_Date__c.Label}"/>
+                        <apex:outputField value="{!displayInsurance.Balance_Update_Date__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Balance_Update_Date__c.Label}"/>
+                        <apex:outputText value="{!Updatedate}"/>  
+              </apex:pageBlockSectionItem>
+          </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

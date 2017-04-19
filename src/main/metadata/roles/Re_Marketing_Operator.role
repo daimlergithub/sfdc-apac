@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Re-Marketing Operator</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Re-Marketing Operator</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Re_Marketing_Supervisor</parentRole>
+</Role>

@@ -292,6 +292,10 @@
                 <field>Main_Dealer__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sales_Address_Type__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_Out_Portal_Reason__c</field>
             </layoutItems>
@@ -514,46 +518,14 @@
         <quickActionListItems>
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>SendEmail</quickActionName>
-        </quickActionListItems>
     </quickActionList>
-    <relatedContent>
-        <relatedContentItems>
-            <layoutItem>
-                <component>runtime_sales_social:socialPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-    </relatedContent>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>System__c</fields>
-        <fields>Role__c</fields>
-        <fields>toRole__c</fields>
-        <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
-        <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
-        <sortField>RECORDTYPE</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>System__c</fields>
-        <fields>fromRole__c</fields>
-        <fields>Role__c</fields>
-        <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
-        <fields>Portal_Mail_Opt_Out__c</fields>
-        <fields>Portal_Message_Opt_Out__c</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
-        <sortField>RECORDTYPE</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

@@ -1,0 +1,34 @@
+<apex:page standardController="Account" extensions="Duplicatecheck_controller">
+<apex:pagemessages />
+     <apex:form id="addfrm" >
+        <!--OutPutPanel starts here-->
+        <apex:outputPanel layout="block" style="overflow:auto;">
+            
+            <!--PageBlock starts here-->
+            
+            <apex:pageBlock title="Duplicate Accounts" id="pageBlock"> 
+                    <apex:pageBlocktable value="{!listwrap}" var="retail">
+                
+                    <apex:column headerValue="Account">
+                        <!--out put field to display address Name  --> 
+                        <apex:outputLink value="/{!retail.acc.id}" id="theLink"><apex:outputText value="{!retail.acc.Lastname}" style="width:9%; white-space:nowrap;"/></apex:outputLink>
+
+                        
+                    </apex:column>
+                    <apex:column headerValue="Duplicate">
+                        <!--out put field to display address Type  --> 
+                        <apex:inputCheckbox value="{!retail.duplicatecheck}" style="width:7%; white-space:none;" disabled="true">
+                        </apex:inputCheckbox>
+                        
+                    </apex:column>
+                    
+                   
+                    
+                </apex:pageBlocktable>
+                
+                
+            </apex:pageBlock>
+                   
+        </apex:outputPanel>                   
+    </apex:form>
+</apex:page>

@@ -1,0 +1,55 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_Inquiry_Controller">
+    <apex:form >
+        <apex:pageBlock id="pb1id" title="Case Edit" mode="edit">
+            <apex:pageblockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageblockButtons>  
+            
+            <apex:pageblockSection title="General Information">
+                <apex:inputField value="{!Case.Subject}"/>
+                <apex:inputField value="{!Case.Status}"/>
+                <apex:inputField value="{!Case.Description}"/>
+                <apex:inputField value="{!Case.Priority}"/>
+                <apex:inputField value="{!Case.Contactid}"/>
+                <apex:inputField value="{!Case.Origin}"/>
+                <apex:inputField value="{!Case.Case_Complainant__c}"/>
+                <apex:outputField value="{!Case.RecordTypeid}"/>
+                <apex:inputField value="{!Case.Case_Class__c}"/>
+                <apex:inputField value="{!Case.ownerId}"/>
+                <apex:inputField value="{!Case.Case_Type__c}"/>
+                <apex:inputField value="{!Case.Case_SubSubType__c}"/>
+                <apex:inputField value="{!Case.Case_Situation__c}"/>
+                <apex:inputField value="{!Case.Case_Department__c}"/>
+                <apex:inputField value="{!Case.Cause__c}"/>
+                <apex:inputField value="{!Case.Result__c}"/>
+                <apex:inputField value="{!Case.Internal_Comments__c}" style="width:300px; height:100px"/>
+                <apex:inputField value="{!Case.Customer_Satisfaction__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Query Information">
+                <apex:inputField value="{!Case.Customer_Type__c}"/>
+                <apex:inputField value="{!Case.Retail_Task__c}">
+                    <apex:actionSupport event="onchange" action="{!populateContractNumber}" reRender="contractNoId"/>
+                </apex:inputField>
+                <apex:inputField value="{!Case.Related_Department__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contract Number"/>
+                    <apex:outputLink id="contractNoId" value="/{!Case.Retail_Task__c}" target="_blank">{!Case.Contract_Number__c}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Dealer Information">
+                <apex:inputField value="{!Case.Case_Dealer__c}"/>
+                <apex:inputField value="{!Case.Case_Dealer_User__c}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection title="Description information" columns="1">
+                <apex:inputField value="{!Case.Customer_Statement__c}"/>
+                <apex:inputField value="{!Case.MPC_Internal_Notes__c}"/>
+                <apex:inputField value="{!Case.PR_Comment_for_Dealer__c}"/>
+            </apex:pageblockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

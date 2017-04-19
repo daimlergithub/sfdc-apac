@@ -86,7 +86,7 @@ public class crmasiaDaimlerApacComValidateaddress {
         public String clientCertName_x;
         public String clientCert_x;
         public String clientCertPasswd_x;
-        public Integer timeout_x;
+        public Integer timeout_x=50000;
         private String[] ns_map_type_info = new String[]{'http://crmasia.daimler-apac.com/ValidateAddress_1.0', 'crmasiaDaimlerApacComValidateaddress'};
         public crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType ValidateAddress(crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType AddressValidationRequestMessage) {
             crmasiaDaimlerApacComValidateaddress.ValidateAddress request_x = new crmasiaDaimlerApacComValidateaddress.ValidateAddress();

@@ -1387,6 +1387,7 @@
         <members>Suburb_Zip_Mapping__c</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
+        <members>Question__c</members>
         <members>Survey_Question__c</members>
         <members>Survey__c</members>
         <members>TSP_Subscription__c</members>

@@ -17,7 +17,7 @@
         <name>AfterSales_VIN__c</name>
     </fields>
     <fields>
-        <label><!-- Aftersales Vehicle --></label>
+        <label><!-- Aftersales Vehicle --></label>15844
         <name>AfterSales_Vehicle__c</name>
         <relationshipLabel><!-- Leads (Aftersales Vehicle) --></relationshipLabel>
     </fields>
@@ -5577,14 +5577,6 @@
         <picklistValues>
             <masterLabel>Social media</masterLabel>
             <translation><!-- Social media --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special lease</masterLabel>
-            <translation><!-- Special lease --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Special lease for employees</masterLabel>
-            <translation><!-- Special lease for employees --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -15799,14 +15791,6 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- DSC Request Information --></label>
-            <section>DSC Request Information</section>
-        </sections>
-        <sections>
-            <label>설명 정보</label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
             <label>리드 정보</label>
             <section>Lead Information</section>
         </sections>
@@ -15819,77 +15803,11 @@
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label><!-- Order Confirmed Information --></label>
-            <section>Order Confirmed Information</section>
-        </sections>
-        <sections>
             <label><!-- Reference Information --></label>
             <section>Reference Information</section>
         </sections>
-        <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
-        </sections>
     </layouts>
-    <layouts>
-        <layout>Sales Leads Soft Deleted</layout>
-        <sections>
-            <label>할당된 딜러 알림</label>
-            <section>Assigned Dealer Reminder</section>
-        </sections>
-        <sections>
-            <label>사용자 지정 링크</label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label>날짜 정보</label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label>딜러 정보</label>
-            <section>Dealer Information</section>
-        </sections>
-        <sections>
-            <label>설명 정보</label>
-            <section>Description Information</section>
-        </sections>
-        <sections>
-            <label>리드 고객 정보</label>
-            <section>Lead Customer Information</section>
-        </sections>
-        <sections>
-            <label>리드 정보</label>
-            <section>Lead Information</section>
-        </sections>
-        <sections>
-            <label>리드 처리 정보</label>
-            <section>Lead Processing Information</section>
-        </sections>
-        <sections>
-            <label>리드 요청 정보</label>
-            <section>Lead Request Information</section>
-        </sections>
-        <sections>
-            <label>기타 섹션</label>
-            <section>Miscelleneous Section</section>
-        </sections>
-        <sections>
-            <label>소개/추천인 정보</label>
-            <section>Referal/Referee Information</section>
-        </sections>
-        <sections>
-            <label>할당된 딜러 선택</label>
-            <section>Select Assigne Dealer</section>
-        </sections>
-        <sections>
-            <label>경로 정보</label>
-            <section>Source Information</section>
-        </sections>
-        <sections>
-            <label>차량 선택</label>
-            <section>Vehicle Select</section>
-        </sections>
-    </layouts>
+    
     <nameFieldLabel><!-- Lead No. --></nameFieldLabel>
     <recordTypes>
         <label><!-- Aftersales Leads --></label>

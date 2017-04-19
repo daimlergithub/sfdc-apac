@@ -1,0 +1,43 @@
+<messaging:emailTemplate subject="Notify to Dealer" recipientType="User" relatedToType="Case">
+<messaging:htmlEmailBody > 
+
+   <html>
+   <style type="text/css">
+   </style>
+   <body>
+    <p>{!$Label.Email_Case_Record}:{!relatedTo.CaseNumber}.</p>
+    
+    <p> {!$Label.Email_LeadDealerAssign1} {!relatedTo.Case_Dealer__r.Name} {!$Label.Email_LeadDealerAssign2}</p>
+    
+    <p> {!$Label.Email_LeadDealerAssign3}</p>
+    
+    <p>{!$Label.Email_Case}</p>
+    
+     <p> {!$Label.Email_LeadDealerAssign4}</p>
+    
+    <p>{!$Label.Email_LeadDealerAssign5} <apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText> {!$Label.Email_Case_information}</p>
+    
+    <p>{!$Label.Email_Case}</p>
+    
+    <apex:outputLink value="{!$Label.Dealer_login_Url}/{!relatedTo.Id}" id="theLink"> Direct link URL to the Cases detail pag</apex:outputLink>
+    
+    <p> {!$Label.Email_salesforcelogin}</p>
+    
+   <p> {!$Label.Email_Thankyou} </p>
+    
+   <p> {!$Label.Email_LeadDealerAssign13} </p>
+     
+     <p> {!$Label.Email_LeadDealerAssign14} </p>
+     
+     ----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign15}</p>
+     <p> {!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}</p>
+     <p> {!$Label.Email_LeadDealerAssign18}</p>
+    -----------------------------------------------
+
+   </body>
+   </html>
+     
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

@@ -133,21 +133,19 @@ public with sharing class AccountSharingDataHandlerTest
        }               
      public static void createTestData()
      {
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;
       List<Account> accList=new List<Account>();
       List<Lead__c> leadList=new List<Lead__c>();
       Dealer = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_CRM_Code__c='test code',
                                     Status__c='xCustomer',
                                     City__c='Beijing',
-                                    Phone = '080-800-1010',
+                                    Phone = '0808001010',
                                     Name = 'test dealer1', 
-                                    Mobile__c = '000-000-0000',
+                                    Mobile__c = '0000000000',
                                     Area_code__c = '010',                                    
                                     ZipCode__c='1234567',
                                     Allow_Data_Sharing_Comment__c = 'yes',
-                                    MBK_Data_Source__c ='Email',
+                                    //MBK_Data_Source__c ='Email',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        
        //insert Dealer;
@@ -156,13 +154,13 @@ public with sharing class AccountSharingDataHandlerTest
                                     Dealer_DMS_CRM_Code__c='test code',
                                     Status__c='xCustomer',
                                     City__c='Beijing',
-                                    Phone = '080-800-1010',
-                                    Mobile__c = '000-000-0000',
+                                    Phone = '0808001010',
+                                    Mobile__c = '0000000000',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
                                     ZipCode__c='1234567',
                                     Allow_Data_Sharing_Comment__c = 'yes',
-                                    MBK_Data_Source__c ='Email',
+                                    //MBK_Data_Source__c ='Email',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
       accList.add(newDealer);
                                    
@@ -171,8 +169,8 @@ public with sharing class AccountSharingDataHandlerTest
                                     Status__c='NoCustomer',
                                     City__c='Beijing',
                                     Gender__c = 'Male',
-                                    Phone = '080-180-0101',
-                                    Mobile__c = '000-000-0000',
+                                    Phone = '0801800101',
+                                    Mobile__c = '0000000000',
                                     Area_code__c = '0101',
                                     LastName = 'galaxy1',
                                     FirstName = 'First Name',
@@ -186,7 +184,7 @@ public with sharing class AccountSharingDataHandlerTest
                                     Email2__c='test012@test.com',
                                     //Home_Phone_2__c='08-945-8745',
                                     Allow_Data_Sharing_Comment__c = 'yes',
-                                    MBK_Data_Source__c ='Email',
+                                    //MBK_Data_Source__c ='Email',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
       //  insert personAcc;
          accList.add(personAcc);

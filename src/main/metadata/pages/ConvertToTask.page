@@ -1,0 +1,39 @@
+<apex:page controller="ConvertToTaskController" sidebar="false">
+    <script language="javascript">
+        function converttoleadfin() {
+            alert("Convert to Lead successfully.");
+        }
+        function RelodeParent(){
+          
+          window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.CampaignId}";          
+          window.top.close();
+  
+       }
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for (var i = 0; i < inputElem.length; i++) {
+                if (inputElem[i].id.indexOf("checkedone") != -1) {
+                    inputElem[i].checked = cb.checked;
+                }
+            };
+        }
+    </script>
+    <apex:form id="frm">
+        <apex:pageBlock title="Convert to task" id="block">
+            <!--  <apex:outputText value="{!leadRT}">{!$Label.CL_Lead_Record_Type}</apex:outputText> -->
+            <apex:pageBlockTable value="{!campaignMembers}" var="cMember">
+                <apex:column >
+                    <apex:facet name="header"> 
+                        <apex:inputCheckbox onclick="checkAll(this)" />
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!cMember.isSelected}"  id="checkedone" />
+                </apex:column>
+                <apex:column value="{!cMember.campaignMember.Name}" headerValue="{!$Label.CL_Member_Name}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons location="bottom"> 
+            <apex:commandButton oncomplete="RelodeParent()" action="{!convertToTask}" value="Convert to task"/>
+                <apex:commandButton oncomplete="RelodeParent()" action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

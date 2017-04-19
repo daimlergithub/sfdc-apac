@@ -97,7 +97,7 @@
                 <behavior>Readonly</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
-        </layoutColumns>
+           </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

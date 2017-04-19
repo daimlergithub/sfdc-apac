@@ -16,10 +16,46 @@ public class TriggerCampaignTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        // Implementation to addedd as required in market
+      if(Trigger.isBefore && Trigger.isInsert)
+        {
+           CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+            
+        }
+        if(Trigger.isBefore && Trigger.isUpdate)
+        {
+           CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+           CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+        }
+        if(Trigger.isAfter && Trigger.isInsert || Trigger.isAfter && Trigger.isUpdate ){
+        
+        CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
+        
+        }
+             
+         if(Trigger.isBefore && Trigger.isDelete){
+             CampaignHelper.beforeDeleteEvents(Trigger.old);
+         }
+               
+        if(Trigger.isAfter && Trigger.isDelete )
+        {
+            //CampaignHelper.beforeDeleteEvents(Trigger.old);
+            CampaignHelper.beforeDeleteCampaignStatus(Trigger.old);
+            
+            
+        }
+        if(Trigger.isAfter && Trigger.isUpdate)
+        {
+            CampaignHelper.emailNotificationToDealer (Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
+            CampaignHelper.copyCampaignToRetailCampaign(Trigger.New);
+            CampaignHelper.parentCampaignSatus(Trigger.New,(Map<ID,Campaign>)trigger.oldMap);
+            CampaignHelper.updateLogic(Trigger.New);
+        }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }

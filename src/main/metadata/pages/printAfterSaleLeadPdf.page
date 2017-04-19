@@ -1,0 +1,237 @@
+<apex:page standardController="Lead__c" showHeader="false" sidebar="false" renderAs="pdf">
+    <apex:form >
+        <head>
+            <style type="text/css" media="print">
+                body 
+                { 
+                font-family: 'Arial Unicode MS';    
+                }
+                @page 
+                { 
+                    size: A4;
+                    margin-top:15mm;
+                    margin-left:10mm;
+                    margin-right:10mm;
+                    margin-bottom:15mm;                
+                    padding-top: 10px;
+                    @top-left 
+                    {
+                    content: element(header_left);
+                    }
+                    @bottom-right 
+                    {
+                    content: element(footer_right);
+                    }      
+                    @bottom-center 
+                    {
+                    content: element(footer_center);
+                    }      
+                }
+            </style>
+        </head>
+        <body style="padding-top:50px;">
+            <div class="header" style="padding-top:2px;">
+                <div class="Table">                     
+                    <div style="font-size:25px;text-align: left;font-family:Arial Unicode MS">{!$Label.Customer_Name} &nbsp;&nbsp;
+                        <apex:outputField value="{!Lead__c.Contact__r.Name}"/></div> 
+                </div>
+            </div><br/><br/>
+            <b>{!$Label.Service_Advisor}</b>
+            <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
+                <tr>
+                    <td width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.Company}"/>                    
+                    </td>
+                    <td width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Company_Name__c}"/>
+                    </td>
+                    <td width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.Outlet}"/>
+                    </td>
+                    <td width="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Name}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Advisor}"/>                    
+                    </td>
+                    <td width="25%">
+                        <apex:outputText value="{!Lead__c.Service_Advisor__r.Name}"/>
+                    </td>
+                    <td width="25%">                   
+                    </td>
+                    <td width="25%">
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <b>{!$Label.Request}</b>
+            <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
+                <tr>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Request}"/>                    
+                    </td>
+                    <td colspan ="3" width="75%">
+                        <apex:outputField value="{!Lead__c.Lead_Desired_Service__c}"/><br/>
+                        <apex:outputField value="{!Lead__c.Collectioner_Notes__c}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Touch_Point}"/>
+                    </td>
+                    <td colspan ="3" width="75%">
+                        <apex:outputField value="{!Lead__c.Lead_DataSource__c}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Lead_Assigned_Date}"/>                    
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!Lead__c.Assigned_Date_Time__c}"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Requested_Date}"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!Lead__c.Drop_off_Time__c}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="25%">
+                        <apex:outputLabel value="{!$Label.Planned_Purchase_Time}"/>
+                    </td>
+                    <td colspan ="3" width="75%">
+                        <apex:outputField value="{!Lead__c.Purchase_Time__c}"/>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <b>{!$Label.Customer_Information}</b>
+            <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
+                <tr>
+                    <td width ="25%">
+                        <apex:outputLabel value="{!$Label.UCID}"/>  
+                    </td>
+                    <td width ="25%">
+                        <apex:outputField value="{!Lead__c.Contact__r.UCID__c}"/>   
+                    </td>
+                    <td width ="25%">
+                        <apex:outputLabel value="{!$Label.Allow_Data_Sharing}"/>    
+                    </td>
+                    <td width ="25%">
+                        <apex:outputField value="{!Lead__c.Contact__r.Allow_Data_Sharing2__c}"/>    
+                    </td>
+                </tr>
+                <tr>
+                    <td width ="25%">
+                        <apex:outputLabel value="{!$Label.Customer_Name}"/> 
+                    </td>
+                    <td colspan ="6" width ="75%" style ="font-family:Arial Unicode MS">
+                        <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width ="25%" style ="font-family:Arial Unicode MS">
+                        <apex:outputLabel value="{!$Label.Customer_Name_Kana}"/>    
+                    </td>
+                    <td colspan = "6" width ="75%" style ="font-family:Arial Unicode MS">
+                        <apex:outputField value="{!Lead__c.Contact__r.LastName_Native_1__c}"/>&nbsp;
+                        <apex:outputField value="{!Lead__c.Contact__r.FirstName_Native_1__c}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2" width ="25%" height ="40">
+                        <apex:outputLabel value="{!$Label.Address}"/>   
+                    </td>
+                    <td colspan = "6" width ="75%">
+                        <apex:outputText value="{!LEFT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                        <apex:outputLabel rendered="{!If(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
+                        <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
+                    </td>
+                    <tr>
+                        <td colspan = "6" width ="75%" style ="font-family:Arial Unicode MS">
+                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}"/>
+                        </td>
+                </tr>
+            </tr>
+            <tr>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Gender}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.Gender__c}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Birthdate}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.PersonBirthdate}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Sales_TEL}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone_Display__c}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Sales_Mail}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.Primary_Email_Display__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Home_Phone}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.Individual_Home_Phone__c}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Mobile}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Person_Or_Company}"/>
+                </td>
+                <td width ="25%">
+                    <apex:outputField value="{!Lead__c.Customer_Type__c}"/>
+                </td>
+                <td width ="25%">
+                </td>
+                <td width ="25%">
+                </td>
+            </tr>
+            <tr>
+                <td width ="25%">
+                    <apex:outputLabel value="{!$Label.Memo}"/>
+                </td>
+                <td colspan ="6" width ="75%">
+                    <apex:outputField value="{!Lead__c.Dealer_Comments__c}"/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <b>{!$Label.SurveyID}</b>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td width="25%">
+                    <apex:outputLabel value="{!$Label.Request_Details}"/>
+                </td>
+                <td width="75%">
+                    <apex:outputField value="{!Lead__c.Lead_Additional_Service__c}"/>
+                </td>
+            </tr>
+        </table>                
+    </body>
+    </apex:form>
+</apex:page>

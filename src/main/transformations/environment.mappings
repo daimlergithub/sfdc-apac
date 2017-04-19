@@ -19,7 +19,7 @@ dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
 #dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
-dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com
+dev_sb_asia_prod=deployment.user@mbj.daimler-apac.com
 
 # Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
@@ -30,7 +30,8 @@ dev_sb_kernel_dev5=mohanaraja.alla.ntt@kernel.daimler-apac.com.dev5
 dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
-dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev11
+dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev1
+
 
 #kernel PROD org
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
@@ -39,18 +40,29 @@ kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
 # Asia Dev Sandboxes
 dev_sb_asia_dev1=sukumar.rajashekaran.ntt@mbj.daimler-apac.com.asiadev1
 dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2,sekhara.vanga.ntt@asia.daimler-apac.com.asiadev2
-dev_sb_asia_dev3=
-dev_sb_asia_dev4=rakeshbabugoud.balagani@nttdata.com.asiadev4,psm@nttdata.com.asiadev4
-dev_sb_asia_dev5=
+dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
+dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4,rakeshbabugoud.balagani@nttdata.com.asiadev4
+dev_sb_asia_dev5=arun.iyer.ntt@asia.daimler-apac.com.asiadev5
 dev_sb_asia_dev6=sriram.kalluri.ntt@asia.daimler-apac.com.asiadev6,sudhirkumar.acharya.ntt@mbj.daimler-apac.com.asiadev6
-dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7,vineet.srivastava.ntt@mbj.daimler-apac.com.asiadev7
+dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7,snehal.pradhan@asia.daimler-apac.com.asiadev7
 dev_sb_asia_dev8=sreeram.kantamani.ntt@asia.daimler-apac.com.asiadev8
 dev_sb_asia_dev9=shikha.shrivastava@asia.daimler-apac.com.asiadev9,mohanaraja.alla.ntt@asia.daimler-apac.com.asiadev9
+dev_sb_asia_dev19=sivakrishna.kutakula@asia.daimler-apac.com.asiadev19
 dev_sb_asia_dev10=sergio.kobayashi@nttdata.com.asiadev10
+dev_sb_asia_dev14=ayyavari.venkateswarlu.ntt@daimler-asia.com-dev14
+dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga@daimler.com.daimler-apac.asiadev15
+dev_sb_asia_dev18=neeraj.sathyanarayana@asia.daimler-apac.com.asiadev18
+dev_sb_asia_dev21=dinesh.govindaswamy@asia.daimler-apac.com.asiadev21
+dev_sb_asia_dev10=sergio.kobayashi@nttdata.com.asiadev10
+dev_sb_asia_dev12=kiran.pedinenikalva@asia.daimler-apac.com.asiadev12
+dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga@daimler.com.daimler-apac.asiadev15
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
 dev_sb_asia_mrdev=
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
+dev_sb_asia_dev16=avishek.roy.ntt@mbj.daimler-apac.com.asiadev16
+dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
+dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
@@ -58,3 +70,13 @@ dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
 dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
+
+# Traning Sandbox
+dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
+
+# InitLoad Sandbox
+dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
+
+#Stage Org K7.0
+dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
+

@@ -460,10 +460,6 @@
             <translation><!-- Opel --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Other</masterLabel>
-            <translation><!-- Other --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>PGO</masterLabel>
             <translation><!-- PGO --></translation>
         </picklistValues>
@@ -794,10 +790,6 @@
             <translation><!-- GLK-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLS-Class</masterLabel>
-            <translation><!-- GLS-Class --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation><!-- M-Class --></translation>
         </picklistValues>
@@ -820,10 +812,6 @@
         <picklistValues>
             <masterLabel>SL-Class</masterLabel>
             <translation><!-- SL-Class --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>SLC-Class</masterLabel>
-            <translation><!-- SLC-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLK-Class</masterLabel>
@@ -1516,14 +1504,6 @@
         <name>FinanceType__c</name>
     </fields>
     <fields>
-        <label><!-- Finance Method --></label>
-        <name>Finance_Method__c</name>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- FirstRegistrationDate --></label>
         <name>FirstRegistrationDate__c</name>
     </fields>
@@ -1531,80 +1511,8 @@
         <label><!-- Fuel --></label>
         <name>Fuel__c</name>
         <picklistValues>
-            <masterLabel>ANG</masterLabel>
-            <translation><!-- ANG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>CNG</masterLabel>
-            <translation><!-- CNG --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>D</masterLabel>
             <translation><!-- D --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>E</masterLabel>
-            <translation><!-- E --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Electricity</masterLabel>
-            <translation><!-- Electricity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ethanol</masterLabel>
-            <translation><!-- Ethanol --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gasoline</masterLabel>
-            <translation><!-- Gasoline --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gasoline/Electricity</masterLabel>
-            <translation><!-- Gasoline/Electricity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gasoline/Kerosene</masterLabel>
-            <translation><!-- Gasoline/Kerosene --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gasoline/LPG</masterLabel>
-            <translation><!-- Gasoline/LPG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hydrogen</masterLabel>
-            <translation><!-- Hydrogen --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kerosene</masterLabel>
-            <translation><!-- Kerosene --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>LNG</masterLabel>
-            <translation><!-- LNG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>LPG</masterLabel>
-            <translation><!-- LPG --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>LPG/Electricity</masterLabel>
-            <translation><!-- LPG/Electricity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Light Oil</masterLabel>
-            <translation><!-- Light Oil --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Light Oil/Electricity</masterLabel>
-            <translation><!-- Light Oil/Electricity --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Methanol</masterLabel>
-            <translation><!-- Methanol --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>U</masterLabel>
@@ -1856,10 +1764,6 @@
         <name>LastServiceDate__c</name>
     </fields>
     <fields>
-        <label><!-- LastServiceMileage --></label>
-        <name>LastServiceMileage__c</name>
-    </fields>
-    <fields>
         <label><!-- Latest Contract Date --></label>
         <name>Latest_Contract_Date__c</name>
     </fields>
@@ -1886,10 +1790,6 @@
     <fields>
         <label><!-- Market Discriminator --></label>
         <name>MD__c</name>
-    </fields>
-    <fields>
-        <label><!-- MOT Expired Date --></label>
-        <name>MOT_Expired_Date__c</name>
     </fields>
     <fields>
         <label><!-- Year Of Manufacture --></label>
@@ -2037,14 +1937,6 @@
         <picklistValues>
             <masterLabel>2016</masterLabel>
             <translation><!-- 2016 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2017</masterLabel>
-            <translation><!-- 2017 --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>2018</masterLabel>
-            <translation><!-- 2018 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;1980</masterLabel>
@@ -3744,22 +3636,6 @@
         <name>National_Model__c</name>
     </fields>
     <fields>
-        <label><!-- New Used --></label>
-        <name>New_Used__c</name>
-        <picklistValues>
-            <masterLabel>New</masterLabel>
-            <translation><!-- New --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Used</masterLabel>
-            <translation><!-- Used --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- NextEmissionsCheckDate --></label>
         <name>NextEmissionsCheckDate__c</name>
     </fields>
@@ -3818,11 +3694,6 @@
     <fields>
         <label><!-- RegistrationNo --></label>
         <name>RegistrationNo__c</name>
-    </fields>
-    <fields>
-        <label><!-- Related Dealer --></label>
-        <name>Related_Dealer__c</name>
-        <relationshipLabel><!-- Vehicles (Related Dealer) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Start Date --></label>
@@ -4024,6 +3895,7 @@
     <fields>
         <label><!-- Trim --></label>
         <name>Trim__c</name>
+        
     </fields>
     <fields>
         <help><!-- The integration layer (EP) needs this field for defect handling and debugging: --></help>
@@ -4228,37 +4100,6 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Self Registered Layout-CAC</layout>
-        <sections>
-            <label><!-- Competitor Information --></label>
-            <section>Competitor Information</section>
-        </sections>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
-        </sections>
-        <sections>
-            <label><!-- Other Information --></label>
-            <section>Other Information</section>
-        </sections>
-        <sections>
-            <label><!-- System Information --></label>
-            <section>System Information</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle Detail --></label>
-            <section>Vehicle Detail</section>
-        </sections>
-        <sections>
-            <label><!-- Vehicle information --></label>
-            <section>Vehicle information</section>
-        </sections>
-    </layouts>
-    <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>
         <sections>
             <label><!-- Custom Links --></label>
@@ -4329,10 +4170,6 @@
     <validationRules>
         <errorMessage><!-- End date should not before Start date. --></errorMessage>
         <name>Invalid_Start_End_Date</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- The marked fields are required. --></errorMessage>
-        <name>RequiredFields</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- US VIN Has Invalid Syntax. --></errorMessage>

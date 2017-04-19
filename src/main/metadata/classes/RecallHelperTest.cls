@@ -6,7 +6,7 @@ private with sharing class RecallHelperTest {
     static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.                                        
     static Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE, EuroVIN__c = '12345678901011000',
                                                 UsVIN__c = '12345678901011000', RecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId());
-    static Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE); 
+    static Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE , Vehicle_ID__c= vehicles.Id); 
     static Account account = new Account(Recall__c = FALSE, Phone = '1234567',
                                         Area_Code__c ='010',
                                          RecordTypeId = accPerson_RecordTypeId,
@@ -31,10 +31,16 @@ private with sharing class RecallHelperTest {
     private static void testMain(){
         list<Account> accList = new List<Account>();
          List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+         //insert updatecustomsettings;
+          Trigger__c TriggerVehicleRelationshipKR=new Trigger__c(Name='TriggerVehicleRelationship',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerJP',
+                                                         update__c=False,insert__c=False,delete__c=False,after__c=False,before__c=False,enabled__c=False,Market__c='KR');                                                         
+    insert TriggerVehicleRelationshipKR;  
+         
         insert vehicles;
         accList.add(account);
+
         //insert accList;
+
         //insert account;
         //VR.Contact__c = accList[0].id;
         VR.Vehicle_ID__c = vehicles.id;

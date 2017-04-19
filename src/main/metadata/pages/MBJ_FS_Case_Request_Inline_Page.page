@@ -1,0 +1,49 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_Request_InlineController" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+        
+            <apex:outputPanel >  
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (WO CA)',true,false)}">
+                    <apex:outputField value="{!Case.Case_Type__c}"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                    <apex:outputText ></apex:outputText>
+                    <apex:outputField value="{!Case.Name__c}"/>
+                    <apex:outputField value="{!Case.Company_Name__c}"/>
+                    <apex:outputField value="{!Case.Registered_Address__c}"/>
+                    <apex:outputField value="{!Case.Registered_Phone_Number__c}"/>
+                    <apex:outputField value="{!Case.Mailing_Address__c}"/>
+                    <apex:outputField value="{!Case.Mailing_Phone_Number__c}"/>
+                    <apex:outputField value="{!Case.Present_Address__c}"/>
+                    <apex:outputField value="{!Case.Present_Phone_Number__c}"/>
+                    <apex:outputField value="{!Case.New_Bank_Name__c}"/>
+                    <apex:outputField value="{!Case.Bank_Account_of_Change_Date__c}"/>
+                    <apex:outputField value="{!Case.Existing_Account_Availability_Date__c}"/>
+                    <apex:outputField value="{!Case.Vehicle_Inspection_Certificate_Change__c}"/>
+                    <apex:outputField value="{!Case.Reason__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'MBF Documentation Request',true,false)}">
+                    <apex:outputField value="{!Case.Case_Type__c}"/>
+                    <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                    <apex:outputField value="{!Case.Certificate_of_Outstanding_Balance__c}"/>
+                    <apex:outputField value="{!Case.Account_Closing_Month__c}"/>
+                    <apex:outputField value="{!Case.Required_Period__c}"/>
+                    <apex:outputField value="{!Case.DeadLine__c}"/>
+                    <apex:outputField value="{!Case.Reason__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >   
+                <apex:pageblockSection columns="1" rendered="{!IF(Case.Case_Type__c == 'MBF Change Request (W CA)',true,false)}">
+                    <apex:outputField value="{!Case.Case_Type__c}"/>
+                    <apex:outputField value="{!Case.Narrative_of_Type__c}"/>
+                    <apex:outputField value="{!Case.Reason__c}"/> 
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

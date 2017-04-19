@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Cooperative_society_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Cooperative society TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cooperative_society__c</fullName>
+        <externalId>false</externalId>
+        <label>Cooperative society</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Education_insitution_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Education insitution TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Education_insitution__c</fullName>
+        <externalId>false</externalId>
+        <label>Education insitution</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Joint_venture_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Joint venture TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Joint_venture__c</fullName>
+        <externalId>false</externalId>
+        <label>Joint venture</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Limited_liability_company_T__c</fullName>
+        <externalId>false</externalId>
+        <label>Limited liability company TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Limited_liability_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Limited liability company</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Limited_partnership_company_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Limited partnership company TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Limited_partnership_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Limited partnership company</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medical_corporation_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical corporation TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medical_corporation__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical corporation</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medical_enterprise_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical enterprise TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Medical_enterprise__c</fullName>
+        <externalId>false</externalId>
+        <label>Medical enterprise</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mutual_aid_association_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Mutual aid association TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mutual_aid_association__c</fullName>
+        <externalId>false</externalId>
+        <label>Mutual aid association</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mutual_company_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Mutual company TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mutual_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Mutual company</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object__c</fullName>
+        <externalId>false</externalId>
+        <label>Object</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Others_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Others TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Others__c</fullName>
+        <externalId>false</externalId>
+        <label>Others</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Picklist_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Picklist Name</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Religious_corporation_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Religious corporation TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Religious_corporation__c</fullName>
+        <externalId>false</externalId>
+        <label>Religious corporation</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_welfare_institution_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Social welfare institution TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_welfare_institution__c</fullName>
+        <externalId>false</externalId>
+        <label>Social welfare institution</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stock_company_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Stock company TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stock_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Stock company</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unlimited_partnership_company_TL__c</fullName>
+        <externalId>false</externalId>
+        <label>Unlimited partnership company TL</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unlimited_partnership_company__c</fullName>
+        <externalId>false</externalId>
+        <label>Unlimited partnership company</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>company legal form</label>
+    <pluralLabel>company legal form</pluralLabel>
+</CustomObject>

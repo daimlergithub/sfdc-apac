@@ -44,6 +44,14 @@
             <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>DSC</masterLabel>
+            <translation>DSC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Outlet</masterLabel>
+            <translation>販売店</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation>販売店対応相談窓口</translation>
         </picklistValues>
@@ -62,6 +70,10 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter to Executive</masterLabel>
+            <translation>役員宛て書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Care</masterLabel>

@@ -32,7 +32,7 @@
         <name>AfterSales_Department__c</name>
     </fields>
     <fields>
-        <label><!-- Assigned Dealer --></label>
+        <label>販売店</label>
         <name>Assigned_Dealer__c</name>
         <relationshipLabel><!-- DM Request (Assigned Dealer) --></relationshipLabel>
     </fields>
@@ -79,6 +79,14 @@
             <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>DSC</masterLabel>
+            <translation>DSC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Outlet</masterLabel>
+            <translation>販売店</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealers</masterLabel>
             <translation>販売店対応相談窓口</translation>
         </picklistValues>
@@ -97,6 +105,10 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter to Executive</masterLabel>
+            <translation>役員宛て書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Connection</masterLabel>
@@ -601,7 +613,7 @@
     <layouts>
         <layout>DM Request Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>カスタムリンク</label>
             <section>Custom Links</section>
         </sections>
         <sections>
@@ -611,6 +623,10 @@
         <sections>
             <label>カタログ情報</label>
             <section>DM Material Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Field</section>
         </sections>
         <sections>
             <label>その他</label>

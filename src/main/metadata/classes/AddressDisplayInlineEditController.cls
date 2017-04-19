@@ -27,7 +27,8 @@ public class AddressDisplayInlineEditController {
         system.debug('######'+ aid); 
         if(ApexPages.currentPage().getParameters().get('id')!=Null){            
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                    Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Customer__c =: aid ];        
+                    Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,        
+                    Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: aid ];        
             system.debug('@Account Information :' +adds);
         }                     
         /*Intitializing address object*/
@@ -84,7 +85,8 @@ public class AddressDisplayInlineEditController {
     @TestVisible private void loadData() {
         system.debug('@Loading Addresses...' +aid);
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c =: aid];
+                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,       
+                Address_Line_2_Native__c  from Address__c where Customer__c =: aid];
     }
     
     /**    
@@ -122,7 +124,7 @@ public class AddressDisplayInlineEditController {
     public void addEditOptions(){    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
         adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate  from Address__c where Customer__c=:acc.id];
+               Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c=:acc.id];
         if(adds.size()>=5){
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
@@ -141,7 +143,7 @@ public class AddressDisplayInlineEditController {
         Address__c editadds;
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate from Address__c where Id =: editaddressId];
+                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Id =: editaddressId];
             // if for any reason we are missing the reference           
         }
         
@@ -163,6 +165,12 @@ public class AddressDisplayInlineEditController {
             addressobj.Preferred__c = editadds.Preferred__c;
             addressobj.Temp_ZipCode__c = editadds.Temp_ZipCode__c ;
             addressobj.Temp_Address__c = editadds.Temp_Address__c ;
+            addressobj.Block_Native__c = editadds.Block_Native__c;      
+            addressobj.City_Native__c = editadds.City_Native__c;        
+            addressobj.Province_Native__c = editadds.Province_Native__c;        
+            addressobj.District_Native__c = editadds.District_Native__c;        
+            addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
+            addressobj.Address_Line_2_Native__c = editadds.Address_Line_2_Native__c;
         }      
         ShowpageBlockFlag = true;        
     }
@@ -176,7 +184,7 @@ public class AddressDisplayInlineEditController {
         Validation = false;
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
-            AddressObj.Address_Type__c = addresspicklist;
+            //AddressObj.Address_Type__c = addresspicklist;
             if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  
@@ -264,8 +272,8 @@ public class AddressDisplayInlineEditController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));  
         }
         
-        if(AddressObj.Address_Line_2__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Block__c != null || AddressObj.City__c != null ||
-           AddressObj.District__c != null || AddressObj.Province__c != null )
+        if(AddressObj.Address_Line_2__c != null ||  AddressObj.Address_Line_2_Native__c != null || AddressObj.Address_Line_1__c != null || AddressObj.Address_Line_1_Native__c != null || AddressObj.Block__c != null || AddressObj.Block_Native__c != null ||  AddressObj.City__c != null || AddressObj.City_Native__c != null ||
+           AddressObj.District__c != null || AddressObj.District_Native__c != null || AddressObj.Province__c != null || AddressObj.Province_Native__c != null )
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_fields_not_null)); 
             
@@ -379,6 +387,12 @@ public class AddressDisplayInlineEditController {
                 addressobj.City__c = '';
                 addressobj.District__c = '';
                 addressobj.Province__c = '';  
+                addressobj.Block_Native__c = '';
+                addressobj.City_Native__c = '';
+                addressobj.Province_Native__c = '';     
+                addressobj.District_Native__c = '';     
+                addressobj.Address_Line_1_Native__c = '';       
+                addressobj.Address_Line_2_Native__c = '';
                 addressobj.MD__c = '';              
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Zipcode_validation));                              
             }
@@ -421,6 +435,12 @@ public class AddressDisplayInlineEditController {
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
                     
+					 if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_1_Native__c= response.Addresses[i].Address_Line_1_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObjtemp.Address_Line_1_Native__c);
+                    }
+					
                     if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
@@ -431,6 +451,13 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
+					
+					 if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_2_Native__c= response.Addresses[i].Address_Line_2_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObjtemp.Address_Line_2_Native__c);
+                    }
+					
                     if(ValidStr.contains('Block__c') && Market == 'JP')
                     {
                       addressobj.Block__c = response.Addresses[i].Block;
@@ -441,6 +468,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Block__c = response.Addresses[i].Block;
                         system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
                     }
+					
+					if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Block_Native__c= response.Addresses[i].Block_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + addressobj.Block_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('City__c') && Market == 'JP')
                     {
                       addressobj.City__c = response.Addresses[i].City;
@@ -452,6 +487,15 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
+					
+					if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      addressobj.City_Native__c= response.Addresses[i].City_Native;
+                        //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + addressobj.City_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('District__c') && Market == 'JP')
                     {
                       addressobj.District__c = response.Addresses[i].District;
@@ -462,6 +506,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
+					
+					   if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      addressobj.District_Native__c= response.Addresses[i].District_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + addressobj.District_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       addressobj.Province__c = response.Addresses[i].Province;
@@ -472,6 +524,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
+					
+					 if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Province_Native__c= response.Addresses[i].Province_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + addressobj.Province_Native__c);
+                    }
+					
+					
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
                 }
                 else if(!response.Addresses[i].Valid){
@@ -521,22 +581,29 @@ public class AddressDisplayInlineEditController {
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
+** Modified by : Rakesh Babu
+** Date : 2017-3-30
 **/
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
         response =  UtilWebservice.validateAddressByZipCode(Address);
-        
         if(response != null && response.ValidationStatus == 'OK')
-        {
-            if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode && AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1 && AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2 &&
-               AddressObj.Block__c == response.Addresses[0].Block && AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
-            {
-                return response.Addresses[0].Address_Code;
+        {  
+			if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode  && 
+               AddressObj.City__c == response.Addresses[0].City && AddressObj.District__c == response.Addresses[0].District && AddressObj.Province__c == response.Addresses[0].Province )
+            {   
+				if(((AddressObj.Block__c == response.Addresses[0].Block) || (response.Addresses[0].Block == '' && AddressObj.Block__c == null))){
+						if(((AddressObj.Address_Line_1__c == response.Addresses[0].Address_Line_1) || (response.Addresses[0].Address_Line_1 == '' &&AddressObj.Address_Line_1__c == null))){
+							if(((AddressObj.Address_Line_2__c == response.Addresses[0].Address_Line_2) || (response.Addresses[0].Address_Line_2 == '' &&AddressObj.Address_Line_2__c == null))){
+								return response.Addresses[0].Address_Code;
+							}
+					}
+				}
             }
             
             else 
-            {
+            {	
                 return null;
             }
         }
