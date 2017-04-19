@@ -5,6 +5,6 @@ Lead [{!Lead__c.Name}] has been updated by dealer [{!User.Name}].
 Please go to the following URL to login to CRM and view the details of the lead.
 
 If you are wholesale user, please use the link 
-https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+{!Lead__c.Link}
 If you are dealer user, please use the link
-https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+{!Lead__c.Link}
