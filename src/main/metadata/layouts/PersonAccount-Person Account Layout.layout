@@ -10,7 +10,6 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
     <customButtons>Send_to_MyMercedes</customButtons>
-    <customButtons>New_Case</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
