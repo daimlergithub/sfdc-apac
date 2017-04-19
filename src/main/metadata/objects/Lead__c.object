@@ -109870,7 +109870,7 @@ RecordType.DeveloperName = 'Sales_Leads',MD__c = 'KR')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Cannnot_Change_Lead_Status</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>"Lead status changed to ""Approved(waiting)"" or ""Allocated""
 AND User profile is Call center agent"</description>
         <errorConditionFormula>AND($Profile.Name ='Japan Call Center' || $Profile.Name ='Korea Call Center', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp; 
