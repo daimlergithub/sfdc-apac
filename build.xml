@@ -431,6 +431,7 @@
 											<sf:include name="AccountHelperJPTest"/>
 											<sf:include name="TestUserCreate"/>
 											<sf:include name="CaseHelperJP"/>
+											<sf:include name="CaseHelperKR"/>
 											<sf:include name="CaseHelperJPTest"/>
 											<sf:include name="CaseHelper"/>
 											<sf:include name="CaseHelperTest"/>
@@ -485,6 +486,7 @@
 											<sf:include name="LeadHelperAccountLinkCreateJP"/>
 											<sf:include name="LeadHelperAccountLinkCreateJPTest"/>
 											<sf:include name="LeadHelper"/>
+											<sf:include name="LeadHelperKR"/>
 											<sf:include name="LeadHelperTest"/>
 											<sf:include name="LeadLatestPhaseUpdateJP"/>
 											<sf:include name="ReservationMessageTemplate"/>
