@@ -34,7 +34,7 @@
     <rightSection>
         <columnSize>Medium</columnSize>
     </rightSection>
-    <runningUser>alvinjohn.lomod@nttdata.com</runningUser>
+    <runningUser>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</runningUser>
     <textColor>#000000</textColor>
     <title>Created Complaint Cases</title>
     <titleColor>#000000</titleColor>
