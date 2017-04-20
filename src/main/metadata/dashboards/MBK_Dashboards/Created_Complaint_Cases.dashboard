@@ -3,7 +3,7 @@
     <backgroundEndColor>#FFFFFF</backgroundEndColor>
     <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
     <backgroundStartColor>#FFFFFF</backgroundStartColor>
-    <dashboardType>LoggedInUser</dashboardType>
+    <dashboardType>SpecifiedUser</dashboardType>
     <leftSection>
         <columnSize>Wide</columnSize>
         <components>
@@ -13,16 +13,15 @@
                 <axisBinding>y</axisBinding>
                 <column>RowCount</column>
             </chartSummary>
-            <componentType>LineGroupedCumulative</componentType>
+            <componentType>LineCumulative</componentType>
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
-            <groupingColumn>CUST_CREATED_DATE</groupingColumn>
-            <groupingColumn>Lead__c.Lead_Latest_Phase__c</groupingColumn>
-            <legendPosition>Right</legendPosition>
-            <report>MBK_CRM_Reports/Lead_Converted_By_Week</report>
+            <groupingColumn>CREATED_DATE</groupingColumn>
+            <legendPosition>Bottom</legendPosition>
+            <report>unfiled$public/Created_complaint_cases</report>
             <showPercentage>false</showPercentage>
             <showValues>false</showValues>
             <sortBy>RowLabelAscending</sortBy>
@@ -37,7 +36,7 @@
     </rightSection>
     <runningUser>alvinjohn.lomod@nttdata.com</runningUser>
     <textColor>#000000</textColor>
-    <title>Lead Converted By Week</title>
+    <title>Created Complaint Cases</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
 </Dashboard>
