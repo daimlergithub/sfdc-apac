@@ -115,6 +115,7 @@
 				<sf:include name="Campaign"/>
 				<sf:include name="CampaignMember"/>				
 			    <sf:include name=".*__c"/>
+				<sf:include name="Due_Date_Overdue__mdt"/>
 				<sf:include name="Lead_Priority_Score__mdt"/>
 				<sf:include name="Vehicle_Class_Priority_Score__mdt"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
@@ -166,6 +167,7 @@
 				<sf:include name="UtilConstant"/>
 				<sf:include name="utilVehicleClass"/>
 				<sf:include name="utilPriorityScore"/>
+				<sf:include name="TriggerLeadTriggerHandler"/>
 				<sf:include name="LeadHelper"/>
 				<sf:include name="LeadHelperTest"/>				  	
 				<sf:include name="AccountHelper"/>
@@ -549,7 +551,6 @@
 			<sf:include name="LeadHelperTest"/>
 			<sf:include name="ReservationMessageTemplate"/>
 			<sf:include name="LeadSharingWrapService"/>
-			<sf:include name="TriggerLeadTriggerHandler"/>
 			<sf:include name="UtilLead"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerRecallTriggerHandler"/>

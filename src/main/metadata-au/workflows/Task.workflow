@@ -137,7 +137,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_DRM_User_After_24hrs_DueDate</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>
@@ -155,7 +155,7 @@ Content of email will be reference the task number and due date.</description>
     </rules>
     <rules>
         <fullName>Send_Email_To_NSR_User_After_48hrs_DueDate</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Task.Status</field>
             <operation>notEqual</operation>

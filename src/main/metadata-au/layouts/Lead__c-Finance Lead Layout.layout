@@ -81,13 +81,13 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Address Details</label>
+        <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
-                <page>Lead_Address</page>
+                <height>300</height>
+                <page>LeadContactInformation</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
+                <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -263,7 +263,7 @@
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>Status__c</fields>
+        <fields>TASK.STATUS</fields>
         <fields>Priority__c</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>Reason__c</fields>

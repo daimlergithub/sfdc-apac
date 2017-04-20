@@ -2393,6 +2393,17 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>MBF_base_interest_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Compensation usually interest rates</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ', 
 IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -3160,7 +3171,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <relationshipLabel>Retail Tasks (Related Contact 4)</relationshipLabel>
         <relationshipName>Retail_Tasks7</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -4325,6 +4335,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Total_Split_Payment__c</fullName>
         <externalId>false</externalId>
         <label>Total Payment Amount</label>
@@ -4619,7 +4637,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>Voluntary Insurance Premium(Dealer)</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>

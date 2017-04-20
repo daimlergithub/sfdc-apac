@@ -164,7 +164,7 @@ Used By:
     </rules>
     <rules>
         <fullName>Final End of Contract Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -183,7 +183,7 @@ Used By:
     </rules>
     <rules>
         <fullName>First End of Contract Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -221,7 +221,7 @@ Used By:
     </rules>
     <rules>
         <fullName>Second End of Contract Call Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
