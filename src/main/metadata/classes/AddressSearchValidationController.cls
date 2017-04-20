@@ -1145,11 +1145,23 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
+                lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
+                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
+                          PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
+                          Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
+                          Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                  
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
                 System.debug('@@@@@@@    lstAcc   cResult '+cResult );
+                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty() && Userinfo.getUserType() == 'PowerPartner')
+                {
+                    system.debug('Entered>>>>');
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                }
             }
             if(response == null)
             {
@@ -1290,11 +1302,24 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
                 }
-                lstAcc = [Select Name,FirstName,LastName,Phone ,Email__c,Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c From Account where  LastName=:objAccountDeDup.LastName];// and FirstName =: objPersonAccount.FirstName];
+                
+                lstAcc = [Select Name,MD__c,DMS_Customer_ID__c,Company_Name__c,FirstName,LastName,Phone ,Email__c,
+                          Dealer_Address_EN__c,PersonAssistantPhone,Dealer_General_Manager_Email__c,PersonHasOptedOutOfEmail,
+                          PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,PersonDoNotCall,Postal_Opt_Out__c,
+                          Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
+                          Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
+                          UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                  
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );
                 System.debug('@@@@@@@    lstAcc   cResult '+cResult );
+                if(market == System.Label.KR && lstAcc != null && !lstAcc.isEmpty() && Userinfo.getUserType() == 'PowerPartner')
+                {
+                    system.debug('Entered>>>>');
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                }
             }
             if(response == null)
             {
