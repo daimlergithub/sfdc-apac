@@ -7,14 +7,20 @@
     <leftSection>
         <columnSize>Wide</columnSize>
         <components>
-            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
             <chartAxisRange>Auto</chartAxisRange>
+            <chartSummary>
+                <axisBinding>y</axisBinding>
+                <column>RowCount</column>
+            </chartSummary>
             <componentType>LineGroupedCumulative</componentType>
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
+            <groupingColumn>CUST_CREATED_DATE</groupingColumn>
+            <groupingColumn>Lead__c.Lead_Latest_Phase__c</groupingColumn>
             <legendPosition>Right</legendPosition>
             <report>MBK_CRM_Reports/Lead_Converted_By_Week</report>
             <showPercentage>false</showPercentage>

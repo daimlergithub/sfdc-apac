@@ -3,7 +3,7 @@
     <backgroundEndColor>#FFFFFF</backgroundEndColor>
     <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
     <backgroundStartColor>#FFFFFF</backgroundStartColor>
-    <dashboardType>LoggedInUser</dashboardType>
+    <dashboardType>SpecifiedUser</dashboardType>
     <leftSection>
         <columnSize>Wide</columnSize>
         <components>
@@ -13,17 +13,17 @@
                 <axisBinding>y</axisBinding>
                 <column>RowCount</column>
             </chartSummary>
-            <componentType>Column</componentType>
+            <componentType>LineCumulative</componentType>
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
             <enableHover>true</enableHover>
             <expandOthers>false</expandOthers>
-            <groupingColumn>Campaign.Execution_Type__c</groupingColumn>
+            <groupingColumn>CREATED_DATE</groupingColumn>
             <legendPosition>Bottom</legendPosition>
-            <report>MBK_CRM_Reports/Target_Customer_of_New_Campaign_By_Sourc</report>
+            <report>unfiled$public/Created_complaint_cases</report>
             <showPercentage>false</showPercentage>
-            <showValues>true</showValues>
+            <showValues>false</showValues>
             <sortBy>RowLabelAscending</sortBy>
             <useReportChart>false</useReportChart>
         </components>
@@ -36,7 +36,7 @@
     </rightSection>
     <runningUser>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</runningUser>
     <textColor>#000000</textColor>
-    <title>Target Customer Of New Campaign By Source</title>
+    <title>Created Complaint Cases</title>
     <titleColor>#000000</titleColor>
     <titleSize>12</titleSize>
 </Dashboard>

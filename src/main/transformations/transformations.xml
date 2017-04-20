@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
 	<changetext>
+		<filename>dashboards/MBK_Dashboards/Created_Complaint_Cases.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
 		<filename>dashboards/MBK_Dashboards/Created_inquiry_cases_by_priorities.dashboard</filename>
 		<xpath>runningUser/text()</xpath>
 		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
