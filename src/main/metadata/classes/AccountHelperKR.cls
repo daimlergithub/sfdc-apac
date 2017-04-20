@@ -9,6 +9,8 @@ public class AccountHelperKR
     
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id retailPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+    public static Id retailCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
     public static boolean persongroup3 = false;
@@ -248,171 +250,189 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
     //Creating Retail copy from dealer #SFDCKR-696
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate)
     {
-        user usr = [select id,Name,ContactId from user where Id =: UserInfo.getUserId()];
-        if(usr.ContactId != Null)
+        User usr = [select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c from user where Id =: UserInfo.getUserId()];
+        if(usr.Profile.UserLicense.Name == 'Partner Community')
         {
-            Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
-            Set<String> OwnerIds = new set<String>();//Set initialization to add Owner Id's \
-            Set<String> UsrAccountIds = new set<String>();   
+            List<group> dealergrpList = new List<group>();
+            set<id> accid = new set<id>();
+            List<AccountShare> insertAccshList = new List<AccountShare>();
+            List<Address__c> addressList = new List<Address__c>();
+            List<Account_Link__c> retailCopyList = new List<Account_Link__c>();
+            List<Account_Link__c> insertAcclnkList = new List<Account_Link__c>();
+            map<string,id> dealerGroupMap = new map<string,id>();
+            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+            string regexForNullValue ='null';
+            string nullValue ='';
+            UtilAddressTranslation.gettranslatedvalues('KR');
             for(Account acc : accLst)
             {
-                if(isInsert && acc.MD__c == 'KR'){ //Checking Market for updated account
-                    AccountIds.add(acc.id); //Adding accountId's to set
-                    OwnerIds.add(acc.Ownerid);//Adding Owner Id's to set
-                    System.debug('AccountID--->'+acc.id);        
+                if(acc.MD__c == 'KR')
+                {
+                    accid.add(acc.Id);
                 }
             }
-            String origin = ApexPages.currentPage().getParameters().get('CLNID');
-            string regexForNullValue ='null';
-            string nullValue ='';                            
-            String province;
-            Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            UtilAddressTranslation.gettranslatedvalues('KR');
-            
-            Map<ID,User> ownermap = new Map<ID,User>([select id , name , ContactId , Contact.AccountId from user where id IN : OwnerIds]);
-            List<Account> AccList = [select Id,UCID__c,ownerid,DMS_Customer_ID__c,Company_Name__c,PersonHasOptedOutOfEmail,PersonHasOptedOutOfFax,Primary_Phone_Display__c,Sales_Sanction__c,
-                                     PersonDoNotCall,Opt_Out_Portal__c,Visit_Opt_Out__c,Fax,Industry,Commercial_Reg_No__c,Vat_No__c,Foundation_Date__c,
-                                     Website,Dealer_GC_Code__c,Primary_Address_Reference__r.CreatedDate,Primary_Address_Reference__r.LastModifiedDate,
-                                     RecordTypeId,Name,LastName,FirstName,Complaint_Amount__c,Allow_Data_Sharing__c,PersonMobilePhone,Postal_Opt_Out__c,
-                                     Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,PersonBirthdate,MBK_Occupation__c,
-                                     Job__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
-                                     Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Primary_Address_Reference__r.Address_Type__c,Primary_Address_Reference__r.Address_Line_1__c,Primary_Address_Reference__r.Address_Line_2__c,Primary_Address_Reference__r.ZipCode__c,Primary_Address_Reference__r.Province__c,Primary_Address_Reference__r.City__c,Primary_Address_Reference__r.District__c,Primary_Address_Reference__r.Block__c
-                                     from Account WHERE id IN : AccountIds];
-            List<Account_Link__c> acckLst = new List<Account_Link__c>();                             
-            Map<String,Id> recordTypes = new Map<String,Id>();
-            for(RecordType rt : [select id,DeveloperName from RecordType WHERE DeveloperName IN ( 'ContactSector' ,'Retail_Company', 'Retail_Person' ) ] )
+            if(!accid.isEmpty() && accid != null)
             {
-                recordTypes.put(rt.DeveloperName,rt.Id) ;
+                addressList = [select id,Address_Type__c,City__c,District__c,Address_Line_1__c,Address_Line_2__c,Customer__c,Preferred__c,
+                               ZipCode__c,Province__c,CreatedDate,LastModifiedDate from Address__c where Customer__c =:accid AND Preferred__c = true];   
+            	retailCopyList = [select id from Account_Link__c where toRole__c =:accid AND fromRole__c =:usr.Contact.AccountId AND (RecordtypeId =:retailPerson_RecordTypeId OR RecordtypeId =:retailCompany_RecordTypeId)];
             }
-            Id PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            Id AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
-            Account_Link__c retailCompany = new Account_Link__c();
-            try
+            if(retailCopyList.isEmpty())
             {
-                retailCompany = [select id,Name from Account_Link__c where RecordType.Name = 'Retail_Company' and toRole__c In : AccountIds];
-            }catch(Exception e)
-            {}
-            for(Account acc : AccList)
-            {            
-                if(ownermap.containskey(acc.ownerid) )
+                for(Account retailacc: accLst)
                 {
                     Account_Link__c acclnk = new Account_Link__c();
-                    if(acc.RecordTypeId == AccountCompanyId)
+                    if(retailacc.RecordTypeId == accCompany_RecordTypeId)
                     {
-                        acclnk = new Account_Link__c(
-                            //Name = acc.UCID__c,
-                            RecordTypeId = recordTypes.get('Retail_Company'), 
-                            fromRole__c = ownermap.get(acc.ownerid).Contact.AccountId, 
-                            toRole__c = acc.Id,
-                            Retail_DMS_Customer_ID__c = acc.DMS_Customer_ID__c,                 
-                            Retail_Company_Name__c = acc.Company_Name__c,
-                            Retail_Email_OptOut__c = acc.PersonHasOptedOutOfEmail,
-                            Retail_Fax_OptOut__c = acc.PersonHasOptedOutOfFax,
-                            Retail_Primary_Phone__c = acc.Primary_Phone_Display__c,
-                            Retail_Sales_Sanction__c =acc.Sales_Sanction__c,
-                            Retail_Phone_OptOut__c = acc.PersonDoNotCall,
-                            Retail_Postal_OptOut__c = acc.Postal_Opt_Out__c,
-                            Retail_Visit_OptOut__c = acc.Visit_Opt_Out__c,
-                            Retail_Fax__c = acc.fax,                        
-                            Retail_Industry__c = acc.Industry,
-                            Retail_Commercial_Reg_No__c = acc.Commercial_Reg_No__c,
-                            Retail_Vat_No__c = acc.Vat_No__c,                        
-                            Retail_WebSite__c = acc.Website,
-                            Retail_UCID__c = acc.UCID__c,
-                            Retail_Agreement__c = acc.Personal_Agreement__c,
-                            Retail_Information_Third_Party_Release__c = acc.Personal_Information_Third_Party_Release__c,
-                            Retail_Abroad_Agreement__c = acc.Personal_Abroad_Agreement__c,
-                            Retail_Agreement_Info_Processing__c = acc.Agreement_to_commit_info_processing__c,
-                            //Retail_Dealer_CompanyCode__c = acc.Dealer_GC_Code__c,
-                            Retail_Address_CreatedDate__c = Date.ValueOf(acc.Primary_Address_Reference__r.CreatedDate),
-                            Retail_Address_LastModifiedDate__c = Date.valueOf(acc.Primary_Address_Reference__r.LastModifiedDate)); 
-                        if(acc.Foundation_Date__c != null)
+                        acclnk.Retail_UCID__c = retailacc.UCID__c;
+                        acclnk.RecordTypeId = retailCompany_RecordTypeId;
+                        acclnk.fromRole__c = usr.Contact.AccountId;
+                        acclnk.toRole__c = retailacc.Id;
+                        acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;                 
+                        acclnk.Retail_Company_Name__c = retailacc.Company_Name__c;
+                        acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
+                        acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
+                        acclnk.Retail_Primary_Phone__c = retailacc.Primary_Phone_Display__c;
+                        acclnk.Retail_Sales_Sanction__c = retailacc.Sales_Sanction__c;
+                        acclnk.Retail_Phone_OptOut__c = retailacc.PersonDoNotCall;
+                        acclnk.Retail_Postal_OptOut__c = retailacc.Postal_Opt_Out__c;
+                        acclnk.Retail_Visit_OptOut__c = retailacc.Visit_Opt_Out__c;
+                        acclnk.Retail_Fax__c = retailacc.fax;                        
+                        acclnk.Retail_Industry__c = retailacc.Industry;
+                        acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
+                        acclnk.Retail_Vat_No__c = retailacc.Vat_No__c;                        
+                        acclnk.Retail_WebSite__c = retailacc.Website;
+                        acclnk.Retail_Agreement__c = retailacc.Personal_Agreement__c;
+                        acclnk.Retail_Information_Third_Party_Release__c = retailacc.Personal_Information_Third_Party_Release__c;
+                        acclnk.Retail_Abroad_Agreement__c = retailacc.Personal_Abroad_Agreement__c;
+                        acclnk.Retail_Agreement_Info_Processing__c = retailacc.Agreement_to_commit_info_processing__c;
+                        if(retailacc.Foundation_Date__c != null)
                         {
-                            acclnk.Retail_Foundation_Month__c = String.ValueOf(acc.Foundation_Date__c.month())+String.valueOf(acc.Foundation_Date__c.year());
+                            acclnk.Retail_Foundation_Month__c = String.ValueOf(retailacc.Foundation_Date__c.month())+String.valueOf(retailacc.Foundation_Date__c.year());
                         }
                     }
-                    else if(acc.RecordTypeId == PersonRecordTypeId)
+                    else if(retailacc.RecordTypeId == accPerson_RecordTypeId)
                     {
-                        acclnk = new Account_Link__c(
-                            //Name = acc.UCID__c,
-                            RecordTypeId = recordTypes.get('Retail_Person'), 
-                            fromRole__c = ownermap.get(acc.ownerid).Contact.AccountId, 
-                            toRole__c = acc.Id,   
-                            Retail_DMS_Customer_ID__c = acc.DMS_Customer_ID__c,
-                            Retail_Full_Name__c = acc.Name,
-                            Retail_LastName__c =  acc.LastName,
-                            Retail_FirstName__c = acc.FirstName,                      
-                            Retail_Complaint_Amount__c = acc.Complaint_Amount__c,
-                            Retail_Sales_Sanction__c = acc.Sales_Sanction__c,
-                            Retail_UCID__c = acc.UCID__c,
-                            Retail_Allow_Data_Sharing__c = acc.Allow_Data_Sharing__c,
-                            Retail_Mobile__c = acc.PersonMobilePhone,
-                            Retail_Individual_Home_Phone__c = acc.Individual_Home_Phone__c,
-                            Retail_Work_Phone__c = acc.Work_Phone__c,
-                            Retail_Email__c = acc.PersonEmail,
-                            Retail_Fax__c =acc.Fax,
-                            Retail_Preferred_Contact_Method__c = acc.Preferred_Contact_Method__c,
-                            //Retail_OptOutContact_Reason__c
-                            Retail_Email_OptOut__c = acc.PersonHasOptedOutOfEmail,
-                            Retail_Fax_OptOut__c = acc.PersonHasOptedOutOfFax,
-                            Retail_Primary_Phone__c = acc.Primary_Phone_Display__c,
-                            Retail_Phone_OptOut__c = acc.PersonDoNotCall,
-                            Retail_Postal_OptOut__c = acc.Postal_Opt_Out__c,
-                            Retail_Visit_OptOut__c = acc.Visit_Opt_Out__c,
-                            Retail_PersonBirthdate__c = acc.PersonBirthdate,                     
-                            Retail_Occupation__c = acc.MBK_Occupation__c,
-                            Retail_Position__c = acc.Job__c,
-                            Retail_Preferred_Language__c = acc.Preferred_Language__c,
-                            Retail_Gender__c = acc.Gender__c,
-                            Retail_Industry__c = acc.industry,
-                            Retail_WebSite__c = acc.Website,
-                            // Retail_Dealer_CompanyCode__c = acc.Dealer_GC_Code__c,                        
-                            //Retail_Company_Name__c = acc.Company_Name__c, 
-                            Retail_Company_Name_Native1__c = acc.Company_Name_Native_1__c, 
-                            Retail_Commercial_Reg_No__c = acc.Commercial_Reg_No__c, 
-                            //Retail_Website__c = acc.website,
-                            Retail_Company_Phone__c = acc.Individual_Home_Phone__c,
-                            Retail_Company_Other_Phone__c = acc.Work_Phone__c, 
-                            Retail_Agreement__c = acc.Personal_Agreement__c,
-                            Retail_Information_Third_Party_Release__c = acc.Personal_Information_Third_Party_Release__c,
-                            Retail_Abroad_Agreement__c = acc.Personal_Abroad_Agreement__c,
-                            Retail_Agreement_Info_Processing__c = acc.Agreement_to_commit_info_processing__c,
-                            Retail_Vat_No__c = acc.Vat_No__c); 
-                        acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acc.Primary_Address_Reference__r.CreatedDate);
-                        acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acc.Primary_Address_Reference__r.LastModifiedDate);
-                        if(acc.Foundation_Date__c != null)
+                        acclnk.RecordTypeId = retailPerson_RecordTypeId; 
+                        acclnk.fromRole__c = usr.Contact.AccountId; 
+                        acclnk.toRole__c = retailacc.Id;   
+                        acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
+                        acclnk.Retail_Full_Name__c = retailacc.Name;
+                        acclnk.Retail_LastName__c =  retailacc.LastName;
+                        acclnk.Retail_FirstName__c = retailacc.FirstName;                      
+                        acclnk.Retail_Complaint_Amount__c = retailacc.Complaint_Amount__c;
+                        acclnk.Retail_Sales_Sanction__c = retailacc.Sales_Sanction__c;
+                        acclnk.Retail_UCID__c = retailacc.UCID__c;
+                        acclnk.Retail_Allow_Data_Sharing__c = retailacc.Allow_Data_Sharing__c;
+                        acclnk.Retail_Mobile__c = retailacc.PersonMobilePhone;
+                        acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c;
+                        acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c;
+                        acclnk.Retail_Email__c = retailacc.PersonEmail;
+                        acclnk.Retail_Fax__c =retailacc.Fax;
+                        acclnk.Retail_Preferred_Contact_Method__c = retailacc.Preferred_Contact_Method__c;
+                        acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
+                        acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
+                        acclnk.Retail_Primary_Phone__c = retailacc.Primary_Phone_Display__c;
+                        acclnk.Retail_Phone_OptOut__c = retailacc.PersonDoNotCall;
+                        acclnk.Retail_Postal_OptOut__c = retailacc.Postal_Opt_Out__c;
+                        acclnk.Retail_Visit_OptOut__c = retailacc.Visit_Opt_Out__c;
+                        acclnk.Retail_PersonBirthdate__c = retailacc.PersonBirthdate;                     
+                        acclnk.Retail_Occupation__c = retailacc.MBK_Occupation__c;
+                        acclnk.Retail_Position__c = retailacc.Job__c;
+                        acclnk.Retail_Preferred_Language__c = retailacc.Preferred_Language__c;
+                        acclnk.Retail_Gender__c = retailacc.Gender__c;
+                        acclnk.Retail_Industry__c = retailacc.industry;
+                        acclnk.Retail_WebSite__c = retailacc.Website; 
+                        acclnk.Retail_Company_Name_Native1__c = retailacc.Company_Name_Native_1__c; 
+                        acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
+                        acclnk.Retail_Company_Phone__c = retailacc.Individual_Home_Phone__c;
+                        acclnk.Retail_Company_Other_Phone__c = retailacc.Work_Phone__c; 
+                        acclnk.Retail_Agreement__c = retailacc.Personal_Agreement__c;
+                        acclnk.Retail_Information_Third_Party_Release__c = retailacc.Personal_Information_Third_Party_Release__c;
+                        acclnk.Retail_Abroad_Agreement__c = retailacc.Personal_Abroad_Agreement__c;
+                        acclnk.Retail_Agreement_Info_Processing__c = retailacc.Agreement_to_commit_info_processing__c;
+                        acclnk.Retail_Vat_No__c = retailacc.Vat_No__c;
+                        if(retailacc.Foundation_Date__c != null)
                         {
-                            acclnk.Retail_Foundation_Month__c = String.ValueOf(acc.Foundation_Date__c.month())+String.valueOf(acc.Foundation_Date__c.year());
-                        }
-                        if(retailCompany != Null)
-                        {
-                            acclnk.Retail_Related_Company__c = retailCompany.id;
+                            acclnk.Retail_Foundation_Month__c = String.ValueOf(retailacc.Foundation_Date__c.month())+String.valueOf(retailacc.Foundation_Date__c.year());
                         }
                     }
-                    if(acc.Primary_Address_Reference__c != null)
+                    if(!addressList.isEmpty() && addressList != null)
                     {
-                        acclnk.Retail_Address_Type__c = (acc.Primary_Address_Reference__r.Address_Type__c!=null ?acc.Primary_Address_Reference__r.Address_Type__c : '' );
-                        acclnk.Retail_Address_Line_1__c = (acc.Primary_Address_Reference__r.Address_Line_1__c != null ? acc.Primary_Address_Reference__r.Address_Line_1__c: '' ).left(17);
-                        acclnk.Retail_Address_Line_2__c  = (acc.Primary_Address_Reference__r.Address_Line_2__c!= null ? acc.Primary_Address_Reference__r.Address_Line_2__c : '' ).left(17);
-                        acclnk.Retail_ZipCode__c= (acc.Primary_Address_Reference__r.ZipCode__c!=null ? acc.Primary_Address_Reference__r.ZipCode__c : '');
-                        //acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acc.Primary_Address_Reference__r.CreatedDate);
-                        //acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(acc.Primary_Address_Reference__r.LastModifiedDate);
-                        if(addtrmap1.containsKey(acclnk.Retail_Address_Reference__r.Province__c) )
+                        for(Address__c add : addressList)
                         {
-                            province = addtrmap1.get(acclnk.Retail_Address_Reference__r.Province__c);
-                        } 
-                        acclnk.Retail_Province__c = province ; 
-                        acclnk.Retail_Province__c  =acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
-                        //acclnk.Retail_Province__c = (acc.Primary_Address_Reference__r.Province__c!= null ? acc.Primary_Address_Reference__r.Province__c : '');
-                        acclnk.Retail_City__c = (acc.Primary_Address_Reference__r.City__c != null ? acc.Primary_Address_Reference__r.City__c : '').left(17);
-                        acclnk.Retail_Distinct__c = ((acc.Primary_Address_Reference__r.District__c != null ? acc.Primary_Address_Reference__r.District__c : '') + ' ' + (acc.Primary_Address_Reference__r.Block__c != null ? acc.Primary_Address_Reference__r.Block__c : '' )).left(17);
-                    }                   
-                    acckLst.add(acclnk);
-                }
-            }    
-            if(!accLst.isEmpty())
+                            if(add.Customer__c == retailacc.Id)
+                            {
+                                acclnk.Retail_Address_Reference__c = add.Id;
+                                acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(add.CreatedDate);
+                                acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(add.LastModifiedDate);
+                                acclnk.Retail_Address_Type__c = add.Address_Type__c;
+                                if(add.Address_Line_1__c != null && add.Address_Line_1__c != '')
+                                {
+                                    acclnk.Retail_Address_Line_1__c = add.Address_Line_1__c;
+                                }
+                                if(add.Address_Line_2__c != null && add.Address_Line_2__c != '')
+                                {
+                                    acclnk.Retail_Address_Line_1__c = add.Address_Line_2__c;
+                                }
+                                if(add.ZipCode__c != null && add.ZipCode__c != '')
+                                {
+                                    acclnk.Retail_ZipCode__c = add.ZipCode__c;
+                                }
+                                if(add.City__c != null && add.City__c != '')
+                                {
+                                    acclnk.Retail_City__c = add.City__c;
+                                }
+                                if(add.District__c != null && add.District__c != '')
+                                {
+                                    acclnk.Retail_Distinct__c = add.District__c;
+                                }
+                                if(addtrmap1.containsKey(add.Province__c))
+                                {
+                                    acclnk.Retail_Province__c = addtrmap1.get(add.Province__c);
+                                }
+                                acclnk.Retail_Province__c = acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
+                            }
+                        }
+                    }
+                insertAcclnkList.add(acclnk);
+            }
+        }
+            if(!insertAcclnkList.isEmpty() && insertAcclnkList != null)
             {
-                insert acckLst;
+                insert insertAcclnkList;
+            }
+            
+            if(usr != null)
+            {
+                dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
+            }
+            system.debug('dealergrpList>>>>' + dealergrpList);
+            if(!dealergrpList.isEmpty() && dealergrpList != null)
+            {
+                for(Group g : dealergrpList)
+                {
+                   dealerGroupMap.put(g.Name, g.Id);
+                }
+            }
+            system.debug('dealerGroupMap>>>' + dealerGroupMap);
+            for(Account shareacc : accLst)
+            {
+                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id)
+                {
+                    AccountShare accshr = new AccountShare();
+                    accshr.AccountId = shareacc.Id;
+                    accshr.AccountAccessLevel = 'Edit';
+                    accshr.CaseAccessLevel = 'None';
+                    accshr.OpportunityAccessLevel = 'None';
+                    accshr.UserOrGroupId = dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c);
+                    insertAccshList.add(accshr);
+                }
+            }
+            system.debug('insertAccshList>>>>' + insertAccshList);
+            if(!insertAccshList.isEmpty() && insertAccshList != null)
+            {
+                insert insertAccshList;
             }
         }
     }
