@@ -819,6 +819,7 @@
 							<sf:include name="AddressHelperJP"/>
 							<sf:include name="AddressHelperJPTest"/>
 							<sf:include name="TriggerAddressTriggerHandlerJP"/>
+							<sf:include name="TriggerAddressTriggerHandlerKR"/>
 			</sf:typeset>
 
 			<sf:typeset name="triggers">
@@ -1037,7 +1038,7 @@
 			<sf:typeset name="approvalProcesses"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="workflows"/>
-			<!--<sf:typeset name="flows"/> -->
+			<sf:typeset name="flows"/> 
 			</deploy>                                                                          
 </target>
 
