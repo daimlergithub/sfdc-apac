@@ -69,53 +69,39 @@ public with sharing class AddressHelperJP {
         * @see:       : AddressHelperJP
         */
     
-       public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap){
-        
-                 set<id> accountId = new set<id>();  
-                 list<Account> accountList = new list<Account>();
-                 string regexForNullValue ='null';
-				 
-				 // addded by rakesh 
-                 string nullValue ='';
-                  String province;         
-                 
-                 Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-                 UtilAddressTranslation.gettranslatedvalues('JP'); 
-				 // end by rakesh
-				 
-                 //get the related accountIds
-                 for(Address__c add:newMap.values()){
-                        accountId.add(add.Customer__c);
-                  } 
-
-            
-                 for(Account acc:[select id,Primary_Address_Reference__c,Primary_Address_Reference__r.Province__c from Account where id IN:accountId]){
-                     if((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))){
-                     
-                         if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
-                                 Address__c add =newMap.get(acc.Primary_Address_Reference__c);
-
-								 //added by rakesh
-                                  if(addtrmap1.containsKey(add.Province__c) && add.Customer__c==acc.id)
-                                    {
-                                        province = addtrmap1.get(add.Province__c);
-                                    }
-                                 //acc.Primary_Address_Display__c=add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
-                                 acc.Primary_Address_Display__c=province+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
-								 //end by rakesh
-                                 acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);   
-                                 accountList.add(acc);
-                         }
-                     }
-                 }
-            
-                if(!accountList.isEmpty()||accountList!=null)
-                {
-                  //update accountList; 
-                }
-                 
-        
-          }
+       public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap)
+    {
+        list<Account> accountList = new list<Account>();
+        string regexForNullValue ='null';
+        string nullValue ='';
+        String province;         
+        String market;
+        User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+    	market = usr.Market__c;
+        Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
+		if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
+        {
+			UtilAddressTranslation.gettranslatedvalues(market);
+		}
+        for(Address__c addr:newMap.values())
+        {
+        	if(addr.preferred__c == true)
+        	{
+	        	if(addtrmap1.containsKey(addr.Province__c))
+	            {
+	                province = addtrmap1.get(addr.Province__c);
+	            }
+	            Account accnt = new Account(Id = addr.Customer__c);
+	            accnt.Primary_Address_Display__c = province+ ' ' +addr.City__c+ ' ' +addr.District__c+ ' ' +addr.Block__c+ ' ' +addr.Address_Line_1__c+ ' ' +addr.Address_Line_2__c;
+	            accnt.Primary_Address_Display__c = accnt.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+	            accountList.add(accnt);
+        	}
+        }
+        if(!accountList.isEmpty()||accountList!=null)
+        {
+            update accountList; 
+        }
+    }
      /**             
         * @Description: update Account on Delete of address       
         * @Date       : 15/11/2016
