@@ -8,12 +8,13 @@
             <axisBinding>y</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>Pie</chartType>
+        <chartType>VerticalColumnStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
-        <expandOthers>false</expandOthers>
-        <groupingColumn>CREATED_DATE</groupingColumn>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>CUST_CREATED_DATE</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
+        <secondaryGroupingColumn>Lead__c.Lead_Priority__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -26,55 +27,48 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>CASE_NUMBER</field>
+        <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>SUBJECT</field>
+        <field>Lead__c.Lead_Type__c</field>
     </columns>
     <columns>
-        <field>DESCRIPTION</field>
+        <field>Lead__c.Contact__c</field>
     </columns>
     <columns>
-        <field>OWNER</field>
+        <field>Lead__c.Customer_Name__c</field>
     </columns>
     <columns>
-        <field>CREATED_DATEONLY</field>
+        <field>Lead__c.Customer_Type__c</field>
     </columns>
     <columns>
-        <field>CLOSED_DATEONLY</field>
+        <field>Lead__c.Description__c</field>
     </columns>
     <columns>
-        <field>PRIORITY</field>
+        <field>Lead__c.R_Lead_Status__c</field>
     </columns>
-    <description>Created MB complaint cases</description>
-    <filter>
-        <criteriaItems>
-            <column>RECORDTYPE</column>
-            <operator>equals</operator>
-            <value>Case.MB_Complaint</value>
-        </criteriaItems>
-        <language>en_US</language>
-    </filter>
+    <description>Created lead number by customer status</description>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>CREATED_DATE</field>
+        <field>CUST_CREATED_DATE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Created complaint cases</name>
-    <params>
-        <name>units</name>
-        <value>d</value>
-    </params>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Lead_Priority__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Created lead number by customer status</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CaseList</reportType>
-    <scope>organization</scope>
+    <reportType>CustomEntity$Lead__c</reportType>
+    <scope>user</scope>
     <showDetails>true</showDetails>
     <timeFrameFilter>
-        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
         <interval>INTERVAL_THISMONTH</interval>
     </timeFrameFilter>
 </Report>
