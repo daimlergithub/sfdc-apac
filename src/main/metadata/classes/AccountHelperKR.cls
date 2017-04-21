@@ -266,6 +266,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             UtilAddressTranslation.gettranslatedvalues('KR');
             for(Account acc : accLst)
             {
+                system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 if(acc.MD__c == 'KR')
                 {
                     accid.add(acc.Id);
@@ -339,7 +340,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_PersonBirthdate__c = retailacc.PersonBirthdate;                     
                         acclnk.Retail_Occupation__c = retailacc.MBK_Occupation__c;
                         acclnk.Retail_Position__c = retailacc.Job__c;
-                        acclnk.Retail_Preferred_Language__c = retailacc.Preferred_Language__c;
+                        acclnk.Retail_Preferred_Language__c = 'Korean';
                         acclnk.Retail_Gender__c = retailacc.Gender__c;
                         acclnk.Retail_Industry__c = retailacc.industry;
                         acclnk.Retail_WebSite__c = retailacc.Website; 
@@ -567,7 +568,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
                 acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
                 acclnk.Retail_Occupation__c = acclnk.toRole__r.MBK_Occupation__c;                
-                acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
+                acclnk.Retail_Preferred_Language__c = 'Korean';
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
                 acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
