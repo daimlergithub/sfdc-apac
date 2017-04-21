@@ -1123,6 +1123,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Communication_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication_date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -1255,7 +1262,7 @@
         <required>false</required>
         <type>Picklist</type>
     </fields>
-   <fields>
+    <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
@@ -1316,7 +1323,7 @@
                 <fullName>Quoted</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Trade-in</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1351,7 +1358,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
+    </fields>
     <fields>
         <fullName>MTH_Penetration__c</fullName>
         <externalId>false</externalId>
@@ -2056,8 +2063,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
-	
+    </fields>
     <fields>
         <fullName>eDM_Type__c</fullName>
         <description>eDM Type with 3 types of values: Brochure, Price List	, Brochure+Price List. Auto from trigger. Used by eDM Template ID field.</description>

@@ -4190,10 +4190,29 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Competitor Vehicle Layout-CAC-KR</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MB Vehicle Layout-CAC</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>日付情報</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>その他</label>
+            <section>Other Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
@@ -4205,6 +4224,33 @@
         </sections>
         <sections>
             <label>車両情報</label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MB Vehicle Layout-CAC-KR</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
             <section>Vehicle information</section>
         </sections>
     </layouts>
@@ -4236,6 +4282,33 @@
     </layouts>
     <layouts>
         <layout>Vehicle Layout-Soft Deleted</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Layout-Soft Deleted-KR</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>

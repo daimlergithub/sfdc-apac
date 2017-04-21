@@ -650,7 +650,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-         <picklistValues>
+        <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
                 <fullName>24 hours Touring Support</fullName>
@@ -5396,7 +5396,7 @@
                 <fullName>Service</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>		
+        </picklistValues>
         <picklistValues>
             <picklist>Warranty_Apply_Status__c</picklist>
             <values>

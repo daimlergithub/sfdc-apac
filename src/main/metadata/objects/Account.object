@@ -14747,6 +14747,44 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>AllDealerAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Dealer_ND_Code__c</columns>
+        <columns>Dealer_Default_Flag__c</columns>
+        <columns>Dealer_Lead_System__c</columns>
+        <columns>Dealer_DMS_CRM_Code__c</columns>
+        <columns>Dealer_DMS_SR_Code__c</columns>
+        <columns>Dealer_DMS_AS_Code__c</columns>
+        <columns>Dealer_Region__c</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>Dealer_City_EN__c</columns>
+        <columns>Dealer_Active__c</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Dealer</value>
+        </filters>
+        <filters>
+            <field>Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>All MBK dealers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All_3rd_Party_Data</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>PC_SALUTATION</columns>
@@ -14766,7 +14804,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </filters>
         <label>All third-party data</label>
         <language>en_US</language>
-		<sharedTo>
+        <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
@@ -14805,9 +14843,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>All MBK dealers</label>
         <language>en_US</language>
         <sharedTo>
+            <role>MBK_Management</role>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-			<role>MBK_Management</role>
-		</sharedTo>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBDA_DM</fullName>
@@ -14853,8 +14891,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <label>MBK All Customer Account</label>
         <language>en_US</language>
         <sharedTo>
+            <role>MBK_Management</role>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-			<role>MBK_Management</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -14885,7 +14923,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <value>LAST_WEEK</value>
         </filters>
         <label>New Last Week</label>
-		<sharedTo>
+        <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
@@ -14920,7 +14958,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>Platinum and Gold SLA Customers</label>
-		<sharedTo>
+        <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
@@ -55096,6 +55134,46 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>New_After_Sales_Lead_WS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New After Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
+
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Account.RecordTypeId}' == '012280000000f0p') 
+{	
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+{ 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+
+} 
+) 
+}	
+else { 
+if('{!Account.RecordTypeId}' == '012280000000f0p') 
+{	
+window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+{ 
+window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>New_After_Sales_Leads</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -55116,17 +55194,17 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
     {
         window.open("/objLead.Id");
     }</url>
-    </webLinks> 
-	<webLinks>
+    </webLinks>
+    <webLinks>
         <fullName>New_Case</fullName>
         <availability>online</availability>
         <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>
         <masterLabel>New Case</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-		<encodingKey>UTF-8</encodingKey>
         <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
     </webLinks>
     <webLinks>
@@ -55183,6 +55261,44 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_
         <openType>replace</openType>
         <protected>false</protected>
         <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Sales_Lead_WS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
+if (sforce.console.isInConsole()) { 
+javascript:sforce.console.getEnclosingPrimaryTabId( 
+function openPrimaryTab(result) { 
+if('{!Account.RecordTypeId}' == '012280000000f0p') 
+{	
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+{ 
+sforce.console.openPrimaryTab(result.id,'/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
+} 
+
+} 
+) 
+}	
+else { 
+if('{!Account.RecordTypeId}' == '012280000000f0p') 
+{	
+window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+else if ('{!Account.RecordTypeId}' == '012280000000f14') 
+{ 
+window.open("/a13/e?RecordType=012280000006I7s&amp;ent=Account&amp;00N2800000A9Ck9={!Account.FirstName}&amp;00N2800000A9Ckk={!Account.LastName}&amp;00N2800000A9Ck8={!Account.FirstName_Native_1__c}&amp;00N2800000A9Ckj={!Account.LastName_Native_1__c}&amp;00N2800000A9CkD={!Account.Primary_Address_Display__c}&amp;00N2800000A9ClV={!Account.Primary_Phone_Display__c}&amp;00N2800000A9Ck0={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjS={!Account.Name}&amp;CF00N2800000A9CjS_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Survey</fullName>
@@ -55409,5 +55525,172 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didResub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("et4ae5/jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didResub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didResub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didResub=="success")
+{
+alert("{!Account.Name} was resubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didUnsub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("et4ae5/jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didUnsub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didUnsub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didUnsub=="success")
+{
+alert("{!Account.Name} was unsubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://et4ae5."+urlPrefix+"/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
 </CustomObject>
-

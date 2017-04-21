@@ -1226,6 +1226,22 @@
             <translation><!-- Company Car --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Daimler Employee Car</masterLabel>
+            <translation><!-- Daimler Employee Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Lease</masterLabel>
+            <translation><!-- Daimler Employee Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Rental Car</masterLabel>
+            <translation><!-- Daimler Employee Rental Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Company Car</masterLabel>
+            <translation><!-- Dealer Company Car --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
             <translation><!-- Dealer Employee Car --></translation>
         </picklistValues>
@@ -1236,6 +1252,18 @@
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
             <translation><!-- Demo Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Company Car</masterLabel>
+            <translation><!-- Fuso Company Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Car</masterLabel>
+            <translation><!-- Fuso Employee Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Lease</masterLabel>
+            <translation><!-- Fuso Employee Lease --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
@@ -1889,6 +1917,10 @@
     <fields>
         <label><!-- Portal Apply Date --></label>
         <name>Portal_Apply_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Portal Apply Flag --></label>
+        <name>Portal_Apply_Flag__c</name>
     </fields>
     <fields>
         <label><!-- Portal Apply Status --></label>
@@ -2583,8 +2615,20 @@
             <translation><!-- Original car replacement (Non-Benz) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Re-purchase</masterLabel>
             <translation><!-- Re-purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refinance existing vehicle</masterLabel>
+            <translation><!-- Refinance existing vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Replace existing vehicle</masterLabel>
+            <translation><!-- Replace existing vehicle --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2848,6 +2892,10 @@
             <masterLabel>5</masterLabel>
             <translation><!-- 5 --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- To Be Actioned --></label>
+        <name>ToBeActioned__c</name>
     </fields>
     <fields>
         <label><!-- To Be Deleted --></label>
@@ -3129,6 +3177,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Vehicle Status --></label>
+        <name>Vehicle_Status__c</name>
+    </fields>
+    <fields>
         <label><!-- Warranty Apply Date --></label>
         <name>Warranty_Apply_Date__c</name>
     </fields>
@@ -3240,6 +3292,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Year Of Manufacture --></label>
+        <name>Year_Of_Manufacture__c</name>
+    </fields>
+    <fields>
         <label><!-- Vehicle Address --></label>
         <lookupFilter>
             <errorMessage>연락처와 연결된 올바른  주소를 선택하세요</errorMessage>
@@ -3251,8 +3307,24 @@
         <label><!-- vehicle address picklist --></label>
         <name>vehicle_address_picklist__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>Home Address</masterLabel>
+            <translation><!-- Home Address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation><!-- Other Address 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation><!-- Other Address 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation><!-- Other Address 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work address</masterLabel>
+            <translation><!-- Work address --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -3263,8 +3335,12 @@
         <label><!-- vehicle fax picklist --></label>
         <name>vehicle_fax_picklist__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>FAX</masterLabel>
+            <translation><!-- FAX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work FAX</masterLabel>
+            <translation><!-- Work FAX --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -3274,6 +3350,18 @@
     <fields>
         <label><!-- vehicle mail picklist --></label>
         <name>vehicle_mail_picklist__c</name>
+        <picklistValues>
+            <masterLabel>Email Home</masterLabel>
+            <translation><!-- Email Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Work</masterLabel>
+            <translation><!-- Email Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyMercedes Email</masterLabel>
+            <translation><!-- MyMercedes Email --></translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
@@ -3325,8 +3413,47 @@
             <section>Date Information</section>
         </sections>
         <sections>
+            <label><!-- End Information --></label>
+            <section>End Information</section>
+        </sections>
+        <sections>
             <label><!-- MOT Information --></label>
             <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Contact Information --></label>
+            <section>Vehicle Contact Information</section>
+        </sections>
+        <sections>
+            <label>차량 정보</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Layout-CAC-KR</layout>
+        <sections>
+            <label>기본 정보</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label>사용자 지정 링크</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>날짜 정보</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
         </sections>
         <sections>
             <label>차량 정보</label>
@@ -3338,6 +3465,33 @@
         <sections>
             <label>사용자 지정 링크</label>
             <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Retail</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     <layouts>

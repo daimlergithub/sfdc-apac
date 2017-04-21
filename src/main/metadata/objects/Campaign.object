@@ -531,7 +531,6 @@
                 <fullName>Retail</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -564,7 +563,6 @@
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -630,7 +628,6 @@
                 <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -746,7 +743,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -786,7 +782,6 @@
                 <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1153,7 +1148,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1398,7 +1392,6 @@
                 <fullName>Joint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2957,7 +2950,6 @@
                 <controllingFieldValues>May</controllingFieldValues>
                 <controllingFieldValues>Oct</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3031,7 +3023,6 @@
                 <default>false</default>
                 <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3056,7 +3047,6 @@
                 <fullName>Contract</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3328,13 +3318,13 @@
     </fields>
     <fields>
         <fullName>Total_Budget__c</fullName>
-        <description>This field is used to capture the total budget being allocated for the campaign activity</description>
         <externalId>false</externalId>
-        <label>Total Budget</label>
+        <formula>Region_Budget__c +  Dealer_Budget__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total_Budget</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
+        <scale>2</scale>
         <type>Currency</type>
     </fields>
     <fields>
@@ -20288,11 +20278,8 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
-	
-	
-	
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
         <availability>online</availability>
@@ -20333,7 +20320,7 @@ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID=&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID={!Campaign.Name}</url>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;00N2800000A9CfQ=&amp;CF00N2800000IkqW9_lkid={!Campaign.Id}&amp;CF00N2800000IkqW9={!Campaign.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>
@@ -20471,6 +20458,156 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
      {
           alert("Already True");
      }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_OPR</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+oprLimitPages:10000,
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").opr();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(PDF)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_Label_Print_PDF</fullName>
@@ -20679,5 +20816,47 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Marketing Cloud Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}
+catch (e)
+{
+var theUrl = "/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
+parent.location.href = theUrl;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign.Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
     </webLinks>
 </CustomObject>

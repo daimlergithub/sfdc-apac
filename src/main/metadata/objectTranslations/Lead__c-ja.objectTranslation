@@ -1892,15 +1892,15 @@
         <name>CA_Lead_Status__c</name>
         <picklistValues>
             <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
+            <translation>承認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <translation>キャンセル</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Conditionally Approved</masterLabel>
-            <translation><!-- Conditionally Approved --></translation>
+            <translation>条件付承認</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -1908,15 +1908,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
+            <translation>否決/謝絶</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Suspended</masterLabel>
-            <translation><!-- Suspended --></translation>
+            <translation>保留</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Under Credit Assessment</masterLabel>
-            <translation><!-- Under Credit Assessment --></translation>
+            <translation>審査中</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2036,6 +2036,30 @@
         <relationshipLabel>リード(法人アカウント)</relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Consultant Assignment Age --></label>
+        <name>Consultant_Assignment_Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Assignment Date --></label>
+        <name>Consultant_Assignment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Due Date --></label>
+        <name>Consultant_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Overdue Flag --></label>
+        <name>Consultant_Overdue_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Override Overdue --></label>
+        <name>Consultant_Override_Overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Reassignment Date --></label>
+        <name>Consultant_Reassignment_Date__c</name>
+    </fields>
+    <fields>
         <label>コンタクト日</label>
         <name>Contact_Date__c</name>
     </fields>
@@ -2079,6 +2103,18 @@
     <fields>
         <label><!-- Correlation ID --></label>
         <name>Correlation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Courtesy Car Date In --></label>
+        <name>Courtesy_Car_Date_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Courtesy Car Date Return --></label>
+        <name>Courtesy_Car_Date_Return__c</name>
+    </fields>
+    <fields>
+        <label><!-- Courtesy Car Provided by Dealer --></label>
+        <name>Courtesy_Car_Provided_by_Dealer__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -2232,6 +2268,10 @@
         <name>Dealer_Aftersales_Manager_Email__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Assignment Date --></label>
+        <name>Dealer_Assignment_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Dealer Audit Result --></label>
         <name>Dealer_Audit_Result__c</name>
         <picklistValues>
@@ -2266,6 +2306,10 @@
     <fields>
         <label>Autoline送信用メモ</label>
         <name>Dealer_DMS_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Due Date --></label>
+        <name>Dealer_Due_Date__c</name>
     </fields>
     <fields>
         <label><!-- Dealer LMS --></label>
@@ -2328,11 +2372,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Test Drive</masterLabel>
-            <translation><!-- Test Drive --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Visited Showroom</masterLabel>
-            <translation><!-- Visited Showroom --></translation>
+            <translation>使用しないでください</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Won</masterLabel>
@@ -2384,7 +2428,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lead Merge</masterLabel>
-            <translation><!-- Lead Merge --></translation>
+            <translation>マージ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No serious interest</masterLabel>
@@ -2416,7 +2460,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Vehicle</masterLabel>
-            <translation><!-- Purchased Vehicle --></translation>
+            <translation>車両購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Quotation request from other dealer</masterLabel>
@@ -2438,6 +2482,10 @@
             <masterLabel>Unsatisfied with service</masterLabel>
             <translation>営業対応</translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealer Overdue Flag --></label>
+        <name>Dealer_Overdue_Flag__c</name>
     </fields>
     <fields>
         <label><!-- Dealer Owner Email --></label>
@@ -2494,6 +2542,10 @@
     <fields>
         <label>E-mail アドレス</label>
         <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalation Flag Report --></label>
+        <name>Escalation_Flag_Report__c</name>
     </fields>
     <fields>
         <label><!-- Escalation Flag --></label>
@@ -2633,23 +2685,23 @@
         <name>Finance_Product_Name__c</name>
         <picklistValues>
             <masterLabel>Close End Lease</masterLabel>
-            <translation><!-- Close End Lease --></translation>
+            <translation>クローズエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select Plus)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select Plus) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan Select)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan Select) --></translation>
+            <translation>クローズエンドリース（マイレージプラン　セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Close End Lease (Mileage Plan)</masterLabel>
-            <translation><!-- Close End Lease (Mileage Plan) --></translation>
+            <translation>クローズエンドリース（マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dual Auto Loan</masterLabel>
-            <translation><!-- Dual Auto Loan --></translation>
+            <translation>デュアルオートローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -2657,55 +2709,55 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal Loan</masterLabel>
-            <translation><!-- Normal Loan --></translation>
+            <translation>通常ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease</masterLabel>
-            <translation><!-- Open End Lease --></translation>
+            <translation>オープンエンドリース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select Plus)</masterLabel>
-            <translation><!-- Open End Lease (Select Plus) --></translation>
+            <translation>オープンエンドリース（セレクトプラス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Open End Lease (Select)</masterLabel>
-            <translation><!-- Open End Lease (Select) --></translation>
+            <translation>オープンエンドリース（セレクト）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End Mileage Plan)</masterLabel>
-            <translation><!-- Re-lease (Close End Mileage Plan) --></translation>
+            <translation>再リース（クローズエンド　マイレージプラン）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Close End)</masterLabel>
-            <translation><!-- Re-lease (Close End) --></translation>
+            <translation>再リース（クローズエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-lease (Open End)</masterLabel>
-            <translation><!-- Re-lease (Open End) --></translation>
+            <translation>再リース（オープンエンド）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Re-loan</masterLabel>
-            <translation><!-- Re-loan --></translation>
+            <translation>再ローン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Start Up Plan</masterLabel>
-            <translation><!-- Start Up Plan --></translation>
+            <translation>スタートアッププラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan</masterLabel>
-            <translation><!-- Super Welcome Plan --></translation>
+            <translation>スーパーウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Super Welcome Plan Plus</masterLabel>
-            <translation><!-- Super Welcome Plan Plus --></translation>
+            <translation>スーパーウェルカムプランプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan</masterLabel>
-            <translation><!-- Welcome Plan --></translation>
+            <translation>ウェルカムプラン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Welcome Plan Plus</masterLabel>
-            <translation><!-- Welcome Plan Plus --></translation>
+            <translation>ウェルカムプランプラス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2783,6 +2835,10 @@
     <fields>
         <label>名</label>
         <name>FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Activity Date --></label>
+        <name>First_Activity_Date__c</name>
     </fields>
     <fields>
         <label><!-- First Contact Customer Date Time --></label>
@@ -5492,6 +5548,10 @@
         <name>Lead_Assignment_Notification_Done__c</name>
     </fields>
     <fields>
+        <label><!-- Lead Closed Date --></label>
+        <name>Lead_Closed_Date__c</name>
+    </fields>
+    <fields>
         <label>タッチポイント</label>
         <name>Lead_DataSource__c</name>
         <picklistValues>
@@ -5663,16 +5723,16 @@
             <translation><!-- Social media --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Survey</masterLabel>
-            <translation>アンケート</translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Special lease</masterLabel>
             <translation>特別リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Special lease for employees</masterLabel>
             <translation>ダイムラーグループ従業員特別リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
@@ -6256,7 +6316,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
+            <translation>保険</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Leasing</masterLabel>
@@ -6512,6 +6572,118 @@
         <name>Lead_Items__c</name>
     </fields>
     <fields>
+        <label><!-- Lead Last Modified Date --></label>
+        <name>Lead_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label>最新フェーズ</label>
+        <name>Lead_Latest_Phase__c</name>
+        <picklistValues>
+            <masterLabel>CA Submission</masterLabel>
+            <translation>審査申込</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check Out</masterLabel>
+            <translation><!-- Check Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmation</masterLabel>
+            <translation><!-- Confirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation>コンタクト</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estimation</masterLabel>
+            <translation>見積書印刷</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Proposal</masterLabel>
+            <translation>ファイナンス提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Quotation</masterLabel>
+            <translation>ファイナンス見積</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Handover</masterLabel>
+            <translation>納車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Proposal</masterLabel>
+            <translation>自動車保険提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoiced</masterLabel>
+            <translation>請求</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Job Card Issue</masterLabel>
+            <translation>リペアオーダー印刷</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Check</masterLabel>
+            <translation>ニーズ把握</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Confirmed</masterLabel>
+            <translation>受注確定</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Placed</masterLabel>
+            <translation>注文書印刷</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Proposal</masterLabel>
+            <translation>商品説明提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quotation</masterLabel>
+            <translation>見積書印刷</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration</masterLabel>
+            <translation><!-- Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Program Proposal</masterLabel>
+            <translation>サービスプログラム提案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple Estimation</masterLabel>
+            <translation>簡易見積</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>試乗</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade-in</masterLabel>
+            <translation>下取査定</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Registration</masterLabel>
+            <translation>登録</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visited</masterLabel>
+            <translation>来店</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WIP Linkage</masterLabel>
+            <translation><!-- WIP Linkage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Lead Lost Date Time --></label>
         <name>Lead_Lost_Date_Time__c</name>
     </fields>
@@ -6668,7 +6840,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Daimler Employee Rental Car</masterLabel>
-            <translation><!-- Daimler Employee Rental Car --></translation>
+            <translation>販売店レンタカー</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Company Car</masterLabel>
@@ -6844,6 +7016,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Loan Car Date In --></label>
+        <name>Loan_Car_Date_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Car Date out --></label>
+        <name>Loan_Car_Date_out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Car Provided by Dealer --></label>
+        <name>Loan_Car_Provided_by_Dealer__c</name>
+    </fields>
+    <fields>
         <label>展開予定日</label>
         <name>Lodgment_Date__c</name>
     </fields>
@@ -6896,7 +7080,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lead Merge</masterLabel>
-            <translation><!-- Lead Merge --></translation>
+            <translation>マージ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -6904,7 +7088,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Owner Change</masterLabel>
-            <translation><!-- Owner Change --></translation>
+            <translation>オーナー変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Competitor&apos;s Car</masterLabel>
@@ -6916,7 +7100,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Vehicle</masterLabel>
-            <translation><!-- Purchased Vehicle --></translation>
+            <translation>車両購入</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purhcased MB from other importer</masterLabel>
@@ -6932,11 +7116,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Service at other shops (other Company)</masterLabel>
-            <translation><!-- Service at other shops (other Company) --></translation>
+            <translation>他店入庫（ネットワーク外）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Service at other shops (within Company)</masterLabel>
-            <translation><!-- Service at other shops (within Company) --></translation>
+            <translation>他店入庫（ネットワーク内）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Stopped activity</masterLabel>
@@ -6956,7 +7140,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Unknown</masterLabel>
-            <translation><!-- Unknown --></translation>
+            <translation>不明</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7926,6 +8110,10 @@
     <fields>
         <label><!-- Orig Fee --></label>
         <name>Orig_Fee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Override Overdue --></label>
+        <name>Override_Overdue__c</name>
     </fields>
     <fields>
         <label><!-- Parts Required? --></label>
@@ -11628,6 +11816,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail update Consultant overdue --></label>
+        <name>Retail_update_Consultant_overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail update Dealer overdue --></label>
+        <name>Retail_update_Dealer_overdue__c</name>
+    </fields>
+    <fields>
         <label>担当セールス</label>
         <name>Sales_Consultant__c</name>
         <relationshipLabel><!-- Leads (Sales Consultant) --></relationshipLabel>
@@ -11658,15 +11854,15 @@
         <name>Service_Program__c</name>
         <picklistValues>
             <masterLabel>Insurance</masterLabel>
-            <translation><!-- Insurance --></translation>
+            <translation>保険サービス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Plus</masterLabel>
-            <translation><!-- Maintenance Plus --></translation>
+            <translation>メンテナンスプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maintenance Plus Lite</masterLabel>
-            <translation><!-- Maintenance Plus Lite --></translation>
+            <translation>メンテナンスプラスライト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -11674,15 +11870,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
-            <translation><!-- Others --></translation>
+            <translation>その他</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Touring Support Plus</masterLabel>
-            <translation><!-- Touring Support Plus --></translation>
+            <translation>ツーリングサポートプラス</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Warranty Plus</masterLabel>
-            <translation><!-- Warranty Plus --></translation>
+            <translation>保障プラス</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -11795,6 +11991,14 @@
         <name>Task_Update_Flag__c</name>
     </fields>
     <fields>
+        <label><!-- Task create Consultant over due date --></label>
+        <name>Task_create_Consultant_over_due_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task create Dealer over due date --></label>
+        <name>Task_create_dealer_over_due_date__c</name>
+    </fields>
+    <fields>
         <label><!-- Team --></label>
         <name>Team__c</name>
     </fields>
@@ -11845,6 +12049,14 @@
     <fields>
         <label><!-- Threshold Date --></label>
         <name>Threshold_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time since Last Activity --></label>
+        <name>Time_since_Last_Activity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time to First Activity --></label>
+        <name>Time_to_First_Activity__c</name>
     </fields>
     <fields>
         <label><!-- Title --></label>
@@ -15578,9 +15790,6 @@
         <name>X72H_Untouched__c</name>
     </fields>
     <layouts>
-        <layout>After Sales Leads</layout> 
-    </layouts>
-    <layouts>
         <layout>After-Sales Leads Layout for Dealer Users</layout>
         <sections>
             <label>アクティビティ日付情報</label>
@@ -15718,6 +15927,45 @@
         </sections>
         <sections>
             <label>車両情報</label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AfterSales Lead_KR</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
             <section>Vehicle Select</section>
         </sections>
     </layouts>
@@ -15922,6 +16170,61 @@
         </sections>
         <sections>
             <label>車両情報</label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Leads Layout (CAC)_KR</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Miscelleneous Section --></label>
+            <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label><!-- Referal/Referee Information --></label>
+            <section>Referal/Referee Information</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
             <section>Vehicle Select</section>
         </sections>
     </layouts>
@@ -16173,22 +16476,6 @@
         <name>Last_Name_Native_Single</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Latest Phase Can not Changed Manually Into Quotation,Order Placed,Order Confirmed, Vehicle Registration and Invoiced --></errorMessage>
-        <name>Latest_Phase_Can_not_Changed_Mannually</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Latest Phase can not change manually into WIP Linkage, Job Card Issue, Invoiced, Check Out --></errorMessage>
-        <name>Latest_Phase_cant_change_for_After_Sales</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Latest Phase is Read Only --></errorMessage>
-        <name>Latest_Phase_is_Read_Only</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Company account  cannot be null if Customer type value is Company sales. --></errorMessage>
-        <name>Lead_Company_Account_Check</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- &quot;Invoice Amount&quot; cannot be changed manually. --></errorMessage>
         <name>Lead_Invoice_Amount_Check</name>
     </validationRules>
@@ -16209,16 +16496,8 @@
         <name>Lead_Latest_Phase_Manual_Check_AS</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Lead Status can not be change purchased --></errorMessage>
-        <name>Lead_Status_Can_Not_Change_To_Purchased</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- Dealer Lead Status&quot; cannot be changed into “Lost --></errorMessage>
         <name>Lead_Status_Lost_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- Lead Status is read only. --></errorMessage>
-        <name>Lead_Status_is_Read_Only</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Lead status should be &quot;Assigned&quot; once dealer is assigned to the Lead --></errorMessage>
@@ -16231,6 +16510,10 @@
     <validationRules>
         <errorMessage><!-- Dealer Lost Reason and Lost Situation cannot be Null --></errorMessage>
         <name>Lost_Reason_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC) --></errorMessage>
+        <name>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- “Lost To” field is mandatory when the lead has been lost --></errorMessage>
@@ -16321,10 +16604,6 @@
         <name>Merge</name>
     </webLinks>
     <webLinks>
-        <label><!-- Merge_Leads --></label>
-        <name>Merge_Leads</name>
-    </webLinks>
-    <webLinks>
         <label><!-- New_AfterSales_Lead --></label>
         <name>New_AfterSales_Lead</name>
     </webLinks>
@@ -16356,10 +16635,4 @@
         <label><!-- Submit_Survey --></label>
         <name>Submit_Survey</name>
     </webLinks>
-    <webLinks>
-        <label><!-- Test_PrintPDF --></label>
-        <name>Test_PrintPDF</name>
-    </webLinks>
 </CustomObjectTranslation>
-
-

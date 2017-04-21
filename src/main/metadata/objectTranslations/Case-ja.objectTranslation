@@ -5464,7 +5464,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Car Model</label>
+        <label>モデル</label>
         <name>Car_Model__c</name>
         <picklistValues>
             <masterLabel>2013 smart Chocolate Special Edition</masterLabel>
@@ -6077,7 +6077,7 @@
             <informationalMessage>販売店の検索と選択が可能です。</informationalMessage>
         </lookupFilter>
         <name>Case_Dealer__c</name>
-        <relationshipLabel><!-- Cases (Dealer) --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label>要求(誰に)</label>
@@ -8369,16 +8369,16 @@
             <translation>レスポンスシート</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Survey</masterLabel>
-            <translation>アンケート</translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Special lease</masterLabel>
             <translation>特別リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Special lease for employees</masterLabel>
             <translation>ダイムラーグループ従業員特別リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation>アンケート</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Web/Mobile Phone</masterLabel>
@@ -9239,7 +9239,7 @@
         <name>Feedback_Read__c</name>
     </fields>
     <fields>
-        <label><!-- Feedback Required --></label>
+        <label>VOCフラグ</label>
         <name>Feedback_Required__c</name>
     </fields>
     <fields>
@@ -11289,7 +11289,7 @@
         <name>MB_Settlement_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Market discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -11381,8 +11381,16 @@
         <name>Notice_Others__c</name>
     </fields>
     <fields>
+        <label><!-- Notice Parts --></label>
+        <name>Notice_Parts__c</name>
+    </fields>
+    <fields>
         <label><!-- Notice SM --></label>
         <name>Notice_SM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notice Service --></label>
+        <name>Notice_Service__c</name>
     </fields>
     <fields>
         <label><!-- Number of Contracts --></label>
@@ -13073,7 +13081,7 @@
         <name>Share_to_Regional_Office__c</name>
     </fields>
     <fields>
-        <label><!-- Solution Title --></label>
+        <label>ナレッジ番号</label>
         <name>Solution_Title__c</name>
     </fields>
     <fields>
@@ -13140,6 +13148,10 @@
         <name>TL_Reviewed__c</name>
     </fields>
     <fields>
+        <label><!-- TSM --></label>
+        <name>TSM__c</name>
+    </fields>
+    <fields>
         <label><!-- CO Tech Comments --></label>
         <name>Technical_Comments__c</name>
     </fields>
@@ -13188,7 +13200,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- To Be Deleted --></label>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
@@ -13517,7 +13529,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GLS SUV</masterLabel>
-            <translation><!-- GLS SUV --></translation>
+            <translation>GLS SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GRAND VOYAGER</masterLabel>
@@ -14273,7 +14285,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>C292</masterLabel>
-            <translation><!-- C292 --></translation>
+            <translation>C292</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C300</masterLabel>
@@ -15213,15 +15225,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>R170</masterLabel>
-            <translation><!-- R170 --></translation>
+            <translation>R170</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R171</masterLabel>
-            <translation><!-- R171 --></translation>
+            <translation>R171</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R172</masterLabel>
-            <translation><!-- R172 --></translation>
+            <translation>R172</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R197</masterLabel>
@@ -15625,15 +15637,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>W163</masterLabel>
-            <translation><!-- W163 --></translation>
+            <translation>W163</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W164</masterLabel>
-            <translation><!-- W164 --></translation>
+            <translation>W164</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W166</masterLabel>
-            <translation><!-- W166 --></translation>
+            <translation>W166</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W168</masterLabel>
@@ -15705,11 +15717,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>X164</masterLabel>
-            <translation><!-- X164 --></translation>
+            <translation>X164</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>X166</masterLabel>
-            <translation><!-- X166 --></translation>
+            <translation>X166</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>X204</masterLabel>
@@ -16470,6 +16482,10 @@
     <layouts>
         <layout>Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
+            <label><!-- Case Feedback --></label>
+            <section>Case Feedback</section>
+        </sections>
+        <sections>
             <label>販売店情報</label>
             <section>Dealer Information</section>
         </sections>
@@ -16480,6 +16496,10 @@
         <sections>
             <label>その他の情報</label>
             <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
         </sections>
     </layouts>
     <layouts>
@@ -16510,7 +16530,30 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>JP Inquiry Layout - CAC(IB/OB)</layout>
+        <sections>
+            <label><!-- Case Feedback --></label>
+            <section>Case Feedback</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Info --></label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Inquiry Information --></label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MB Complaint Layout - CAC</layout>
+        <sections>
+            <label>詳細情報</label>
+            <section>Case Detail</section>
+        </sections>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -16520,11 +16563,11 @@
             <section>Dealer Info</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>販売店情報</label>
             <section>Fields</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- On-site Manager --></label>
             <section>On-site Manager</section>
         </sections>
         <sections>
@@ -16567,11 +16610,11 @@
             <section>On-site Manager</section>
         </sections>
         <sections>
-            <label><!-- Other Info --></label>
+            <label>システム情報</label>
             <section>Other Info</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label><!-- Repeat Complaint --></label>
             <section>Repeat Complaint</section>
         </sections>
         <sections>
@@ -16594,11 +16637,11 @@
             <section>Case Notes &amp; Comments</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>システム情報</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label><!-- Dealer Info --></label>
             <section>Dealer Info</section>
         </sections>
         <sections>
@@ -16629,11 +16672,11 @@
     <layouts>
         <layout>MB Complaint Layout - Dealer Gate Keeper</layout>
         <sections>
-            <label><!-- Car Owner Details --></label>
+            <label>顧客情報</label>
             <section>Car Owner Details</section>
         </sections>
         <sections>
-            <label>顧客情報</label>
+            <label><!-- Complainant Information --></label>
             <section>Complainant Information</section>
         </sections>
         <sections>
@@ -16676,14 +16719,14 @@
             <section>System Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Details --></label>
+            <label>顧客情報</label>
             <section>Vehicle Details</section>
         </sections>
     </layouts>
     <layouts>
         <layout>MB Complaint Layout - RO/CO</layout>
         <sections>
-            <label>顧客情報</label>
+            <label><!-- CAC fields --></label>
             <section>CAC fields</section>
         </sections>
         <sections>
@@ -16776,6 +16819,96 @@
         <sections>
             <label><!-- Vehicle Owner Details --></label>
             <section>Vehicle Owner Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Complaint Management Case</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Complaint Management Case Operator</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Contract Closing Cases</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Customer Information Change Request</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Finance Inquiry Case</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Quotation Cases Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
         </sections>
     </layouts>
     <recordTypes>
@@ -17059,6 +17192,10 @@
         <name>New_AfterSales_Lead</name>
     </webLinks>
     <webLinks>
+        <label>新規アフターセールスリード</label>
+        <name>New_AfterSales_Lead_Wholesale</name>
+    </webLinks>
+    <webLinks>
         <label><!-- New_AfterSales_Lead_kr --></label>
         <name>New_AfterSales_Lead_kr</name>
     </webLinks>
@@ -17105,6 +17242,10 @@
     <webLinks>
         <label><!-- New_SSI_Complaint --></label>
         <name>New_SSI_Complaint</name>
+    </webLinks>
+    <webLinks>
+        <label>新規セールスリード</label>
+        <name>New_Sales_Lead_Wholesale</name>
     </webLinks>
     <webLinks>
         <label>販売店に通知</label>
