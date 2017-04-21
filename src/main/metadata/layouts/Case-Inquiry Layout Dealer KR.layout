@@ -36,10 +36,6 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Response_Type__c</field>
             </layoutItems>
@@ -58,10 +54,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Escalate_Date_to_CO__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Relationship__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -313,6 +305,10 @@
                 <field>Priority</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Origin</field>
             </layoutItems>
@@ -352,6 +348,21 @@
         <fields>Lead_DataSource__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Case__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Delivery_Type__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>CREATED_DATE</fields>
+        <relatedList>DM_Request__c.Case_Number__c</relatedList>
+        <sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

@@ -11,21 +11,21 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>Lead__c.CAC_Lead_Status__c</column>
+            <column>Lead__c.Lead_Latest_Phase__c</column>
             <operator>equals</operator>
-            <value>Purchased(Only Non BDC)</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Lead__c.R_IsConvertedLead__c</column>
-            <operator>equals</operator>
-            <value>1</value>
+            <value>Invoiced</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Lead__c.CAC_Lead_Status__c</field>
+        <field>CUST_CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Lead_Latest_Phase__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Lead Converted By Week</name>

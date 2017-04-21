@@ -615,12 +615,35 @@
         </div>
         <div>
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">  
                         <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
+                        <apex:outputField value="{!cr.firstName}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
+                        <apex:outputField value="{!cr.Mobile__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>                     
+                </apex:PageBlockTable>
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'KR', true, false)}">
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}">  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
                         <apex:outputField value="{!cr.firstName}"/>

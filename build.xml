@@ -454,6 +454,7 @@
 							<sf:include name="AddressHelperJP"/>
 							<sf:include name="AddressHelperJPTest"/>
 							<sf:include name="TriggerAddressTriggerHandlerJP"/>
+							<sf:include name="TriggerAddressTriggerHandlerKR"/>
 							<sf:include name="TriggerRecallTriggerHandler"/>
 							<sf:include name="TriggerRecallTriggerHandlerTest"/>
 							<sf:include name="RecallHelper"/>       

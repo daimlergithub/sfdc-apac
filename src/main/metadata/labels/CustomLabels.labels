@@ -8226,4 +8226,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>&amp;slaveId=</shortDescription>
         <value>&amp;slaveId=</value>
     </labels>
+	<labels>
+        <fullName>Error_Msg_for_KR_Users</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Msg for Create Complex Execution</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
 </CustomLabels>

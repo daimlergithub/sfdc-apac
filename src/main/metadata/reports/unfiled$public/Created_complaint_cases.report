@@ -11,7 +11,7 @@
         <chartType>Pie</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>PRIORITY</groupingColumn>
+        <groupingColumn>CREATED_DATE</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
         <showAxisLabels>true</showAxisLabels>
@@ -43,6 +43,9 @@
     <columns>
         <field>CLOSED_DATEONLY</field>
     </columns>
+    <columns>
+        <field>PRIORITY</field>
+    </columns>
     <description>Created MB complaint cases</description>
     <filter>
         <criteriaItems>
@@ -55,7 +58,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>PRIORITY</field>
+        <field>CREATED_DATE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Created complaint cases</name>

@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
 	<changetext>
+		<filename>dashboards/MBK_Dashboards/Created_Complaint_Cases.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Created_inquiry_cases_by_priorities.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Created_lead_number_by_customer_status.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Lead_Converted_By_Week1.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/New_account_number_by_data_source.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Open_Status_Of_Case_Management.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Target_Customer_Number_For_Outbound_Camp.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
+		<filename>dashboards/MBK_Dashboards/Target_Customer_Of_New_Campaign_By_Source.dashboard</filename>
+		<xpath>runningUser/text()</xpath>
+		<token>DASHBOARD_RUNNINGUSER_INTEGRATION_USER</token> 
+	</changetext>
+	<changetext>
 		<filename>workflows/Lead__c.workflow</filename>
 		<xpath>/Workflow/outboundMessages[fullName/text()='Link_Social_Media_Leads']/integrationUser/text()</xpath>
 		<token>WORKFLOW_INTEGRATION_USER</token> 

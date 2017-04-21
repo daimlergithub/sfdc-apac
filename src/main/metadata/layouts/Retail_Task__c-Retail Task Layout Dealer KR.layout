@@ -39,6 +39,10 @@
                 <behavior>Edit</behavior>
                 <field>Related_Lead__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_Vehicle__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -66,6 +70,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Related_Dealer__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

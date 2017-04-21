@@ -16,6 +16,26 @@ public class TriggerAccountLinkTriggerHandlerKR
             AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
             system.debug('Trigger 5 :');
         }     
+        if(Trigger.isBefore &&  Trigger.isInsert)
+        {        
+            system.debug('Entered before TRIGGER');
+            
+            AccountLinkHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
+            AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+           
+        }
+                
+        if(Trigger.isBefore && Trigger.isUpdate)
+        {
+            system.debug('Entered b efore update TRIGGER');
+            AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
+            
+        }  
+        if(Trigger.isAfter && Trigger.isUpdate)
+        {   system.debug('Entered After TRIGGER');
+            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+            AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+        }     
     }        
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {

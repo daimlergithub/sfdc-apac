@@ -25,10 +25,6 @@
                 <behavior>Readonly</behavior>
                 <field>DeadLine__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Relationship__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

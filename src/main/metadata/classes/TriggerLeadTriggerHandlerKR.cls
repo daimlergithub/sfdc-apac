@@ -24,12 +24,14 @@ public class TriggerLeadTriggerHandlerKR
         }       
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated){
             system.debug('Isafter is working');
             LeadHelperAccountLinkCreateJP.leadAccountDetails(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadSharingforDealerJP.LeadSharingforDealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
         }
         if((isUpdate || isInsert) && usr.Profile.Name != 'IntegrationAPI'){
