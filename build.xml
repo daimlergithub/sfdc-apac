@@ -250,6 +250,8 @@
 							<sf:include name="dealerViewForContractTest"/>
 							<sf:include name="TriggerAccountTriggerHandlerJP"/>
 							<sf:include name="TriggerCaseTriggerHandlerJP"/>
+							<sf:include name="LeadHelperKR"/>
+							<sf:include name="CaseHelperKR"/>
 							<sf:include name="TriggerCaseTriggerHandlerKR"/>
 							<sf:include name="shareAccountRecord"/>
 							<sf:include name="shareAccountRecordTest"/>
@@ -592,6 +594,7 @@
 							<sf:include name="MarketCheckOnVehiclePickerConKRTest"/>
 							<sf:include name="AccountLinkHelperKR"/>
 							<sf:include name="TriggerAccountLinkTriggerHandlerKR"/>
+							<sf:include name="GeneratePDFControllerKR"/>
 							<!-- Added for Thaland Rollout..............................Start -->
 							<sf:include name="AccountHelperTH"/>
 							<sf:include name="AddressHelperTH"/>
@@ -663,6 +666,7 @@
 							<sf:include name="ConvertToTask"/>
 							<sf:include name="ALKDeleteConformationpage"/>
 							<sf:include name="RetailTaskdealerviewForContract"/>
+							<sf:include name="GeneratePDFKR"/>
 							<!-- Added by Naga Start-->
 							<sf:include name="MBJ_FS_Case_Inquiry_Page"/>
 							<sf:include name="MBJ_FS_Case_Request_Page"/>
