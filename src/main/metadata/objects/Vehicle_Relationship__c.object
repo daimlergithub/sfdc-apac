@@ -2084,7 +2084,9 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'),'TH',
+IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -2593,6 +2595,15 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Apply_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Portal Apply Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Portal_Apply_Status__c</fullName>
@@ -4396,9 +4407,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>vehicle tel picklist</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Home Phone</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Work Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Phone 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>

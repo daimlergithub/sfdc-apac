@@ -21,4 +21,21 @@
 trigger TriggerLead on Lead__c(before insert, before update, after update,after insert) 
 {
     TriggerUtil.handleTrigger('TriggerLead');
+        LeadReassign leadRS= new LeadReassign();
+                
+        if(Trigger.isbefore&&Trigger.isUpdate){
+                
+          
+                leadRS.updateOwner(Trigger.new);
+               
+            
+        }
+        
+        if(Trigger.isbefore&&(/*Trigger.isUpdate||*/Trigger.isinsert)){
+            
+          
+                leadRS.updateOwnerwithDealer(Trigger.new/*, trigger.isinsert,trigger.isupdate*/);
+               
+            
+        }
 }

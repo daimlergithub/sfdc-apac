@@ -210,10 +210,4 @@ public class VehicleExtensionTest {
 		//stop test
 		test.stopTest();   
     }
-
-
-
-
-
-
 }

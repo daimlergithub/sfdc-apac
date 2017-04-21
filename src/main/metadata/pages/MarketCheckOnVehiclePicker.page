@@ -1,4 +1,8 @@
 <apex:page standardController="Lead__c" extensions="MarketCheckOnVehiclePickerCon">
   <apex:include pageName="LeadVehiclePickerKR" rendered="{!marketChecker}"/>
   <apex:include pageName="VehiclePicker" rendered="{!!marketChecker}"/>
+  <apex:include pageName="LeadVehiclePickerTH" rendered="{!marketChecker}"/>
 </apex:page>
+
+
+ 

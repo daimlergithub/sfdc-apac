@@ -123,27 +123,7 @@
                                     </apex:outputPanel>
                                 </td>         
                             </tr>
-                        </apex:repeat>
-                     <!--   <apex:repeat var="wrapouter" value="{!AddWrapList}">
-                            <apex:repeat var="wrap" value="{!fieldAddressAPIList}">
-                                <tr onmouseover="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}" 
-                                    onfocus="if (window.hiOn){hiOn(this);}" onblur="if (window.hiOff){hiOff(this);}">
-                                    
-                                    <td style="text-align:right; width:20%; background-color: #EEEEEE">
-                                        <b>{!$ObjectType.Address__c.Fields[wrap].Label}</b>
-                                    </td>
-                                    
-                                    <td style="width:40%">
-                                        <apex:outputField value="{!wrapouter.MasterAddress[wrap]}"/>
-                                        
-                                    </td>
-                                    
-                                    <td style="width:40%">
-                                        <apex:outputField value="{!wrapouter.SlaveAddress[wrap]}"/>
-                                    </td>         
-                                </tr>
-                            </apex:repeat>  
-                        </apex:repeat> -->
+                        </apex:repeat>                     
                     </tbody>
                 </table>
             </apex:outputpanel>

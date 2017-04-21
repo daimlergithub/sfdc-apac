@@ -21,10 +21,22 @@ public class AddressDisplayInlineEditController {
     Public Boolean Validation;
     Public Boolean profilename{get;set;}
     public Boolean Communityuser{get;set;}
+	public List<SelectOption> lstDistrict{get; set;}
+    public List<SelectOption> lstSubDistrict{get; set;}
+    public List<SelectOption> lstZip{get; set;}
+    public List<SelectOption> lstProvince{get; set;}
+    public String district {get;set;}
+    public String subdistrict {get;set;}
+    public String zip {get;set;}
+    public String province {get;set;}
+    public String LanguageSelected{get; set;}
+    public boolean IsForeignNational{get; set;}
+	
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
         Address_Validated_Flag = false;
+		IsForeignNational=false;
         system.debug('######'+ aid); 
         if(ApexPages.currentPage().getParameters().get('id')!=Null){            
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
@@ -50,6 +62,83 @@ public class AddressDisplayInlineEditController {
             Communityuser = true;
         }
     } 
+	
+	public void LoadProvince()
+      {          
+        lstProvince=new List<SelectOption>();
+        Set<string> setProvinces = new set<string>();
+        lstProvince.add(new SelectOption('--Select--','--Select--'));
+        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected])
+        {
+            if(!setProvinces.contains(lsttempProvince.Province__c))
+            {
+                lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                setProvinces.add(lsttempProvince.Province__c);
+            }
+        }
+        lstDistrict=new List<SelectOption>();
+        lstSubDistrict=new List<SelectOption>();
+        lstZip=new List<SelectOption>();
+      }
+      
+      public void LoadDistrict()
+      {         
+        lstDistrict=new List<SelectOption>();
+        Set<string> setDistricts = new set<string>();
+        lstDistrict.add(new SelectOption('--Select--','--Select--'));        
+        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province])
+        {
+            if(!setDistricts.contains(lsttempDistrict.District__c))
+            {
+                lstDistrict.add(new SelectOption(lsttempDistrict.District__c,lsttempDistrict.District__c));
+                setDistricts.add(lsttempDistrict.District__c);
+            }
+        }
+        lstSubDistrict=new List<SelectOption>();
+        lstZip=new List<SelectOption>();
+      }
+      
+      public void LoadSubDistrict()
+      {
+        lstSubDistrict=new List<SelectOption>();
+        Set<string> setSubDistricts = new set<string>();
+        lstSubDistrict.add(new SelectOption('--Select--','--Select--'));
+        for(RegionMasterInfo__c lsttempSubDistrict : [select id,Sub_DIstrict__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district])
+        {
+            if(!setSubDistricts.contains(lsttempSubDistrict.Sub_DIstrict__c))
+            {
+                lstSubDistrict.add(new SelectOption(lsttempSubDistrict.Sub_DIstrict__c,lsttempSubDistrict.Sub_DIstrict__c));
+                setSubDistricts.add(lsttempSubDistrict.Sub_DIstrict__c);
+            }
+        }
+        lstZip=new List<SelectOption>();
+      }
+      
+      public void LoadZip()
+      {
+        lstZip=new List<SelectOption>();
+        Set<string> setZip = new set<string>();
+        lstZip.add(new SelectOption('--Select--','--Select--'));
+        for(RegionMasterInfo__c lsttempSubDistrict : [select id,ZipCode__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district and Sub_DIstrict__c=:subdistrict])
+        {
+            if(!setZip.contains(lsttempSubDistrict.ZipCode__c))
+            {
+                lstZip.add(new SelectOption(lsttempSubDistrict.ZipCode__c,lsttempSubDistrict.ZipCode__c));
+                setZip.add(lsttempSubDistrict.ZipCode__c);
+            }
+        }
+    }
+      
+       public void ShowHideFields()
+      {
+        if(AddressObj.Foreign_Nationals__c==true)
+            IsForeignNational=true;
+        else
+            IsForeignNational=false;
+      }
+      
+	
+	
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){           
@@ -148,7 +237,7 @@ public class AddressDisplayInlineEditController {
         Address__c editadds;
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Id =: editaddressId];
+                        Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId];
             // if for any reason we are missing the reference           
         }
         
@@ -176,6 +265,18 @@ public class AddressDisplayInlineEditController {
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
             addressobj.Address_Line_2_Native__c = editadds.Address_Line_2_Native__c;
+			
+			addressobj.Foreign_Nationals__c=editadds.Foreign_Nationals__c;
+            zip=editadds.ZipCode__c;
+            province=editadds.Province__c;
+            district=editadds.District__c;
+            subdistrict=editadds.Sub_District__c;
+            LanguageSelected=editadds.Language__c;
+            ShowHideFields();
+            LoadProvince();
+            LoadDistrict();
+            LoadSubDistrict();
+            LoadZip();
         }      
         ShowpageBlockFlag = true;        
     }
@@ -190,11 +291,15 @@ public class AddressDisplayInlineEditController {
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             //AddressObj.Address_Type__c = addresspicklist;
-            if(editaddressId ==null){
+			if(addresspicklist!=null)
+				AddressObj.Address_Type__c = addresspicklist;
+			if(provincepicklist!=null)
+				AddressObj.Province__c = provincepicklist;
+		   if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  
                     if(Address_Validated_Flag == false)
-          {
+					{
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
                     }
@@ -216,6 +321,7 @@ public class AddressDisplayInlineEditController {
           {
             refreshPage= true;
             addressObj.Id = null;
+			//Thailand market not to have address valdation button
             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
             insert addressobj;
           }
@@ -250,6 +356,7 @@ public class AddressDisplayInlineEditController {
                     else 
                     {   if(Validation == False){
                             refreshPage= true;
+							
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                             update addressobj;
                         }
@@ -265,6 +372,105 @@ public class AddressDisplayInlineEditController {
         }  
     }
     
+	
+	/**    
+        * @Description : creates and validate new address record  
+        * @author      : Mohammed Touseef Ahmed
+        * @Date        : 02/8/2017    
+    **/ 
+    
+    public void SaveAddressTH()
+    {
+        try
+        {
+            Validation=false;
+            if(province!='' && province!='--Select--')
+                addressobj.Province__c=province;
+            if(district!='' && district!='--Select--')
+                addressobj.District__c=district;
+            if(subdistrict!='' && subdistrict!='--Select--')
+                addressobj.Sub_District__c=subdistrict;
+            if(zip!='' && zip!='--Select--')
+                addressobj.ZipCode__c=zip;
+            if(addresspicklist!=null)
+                addressobj.Address_Type__c = addresspicklist;   
+            
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
+                 Validation = true;                     
+            }
+            if(addressobj.ZipCode__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
+                Validation = true;                      
+            }
+            if(addressobj.Address_Line_1__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
+                Validation = true;                      
+            }
+            else
+            {            
+                if(addressobj.Address_Line_1__c.length()>100)
+                {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));
+                    Validation = true;                      
+                }
+            }
+            if(addressobj.Province__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+            }
+            if(addressobj.District__c == null )
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.')); 
+                Validation = TRUE;                        
+            }
+            if(addressobj.Sub_District__c == null)
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub_District__c is Mandatory.')); 
+                Validation = TRUE;                        
+            }
+            if(addressobj.Address_Line_2__c == null )
+            {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
+                Validation = TRUE;                        
+            }
+            else
+            {            
+                if(addressobj.Address_Line_2__c.length()>100)
+                {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                    Validation = true;                      
+                }
+            }
+            if(Validation == False){        
+            refreshPage = true; 
+                 if (editaddressId ==null)
+                {           
+                    Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                    addressobj.Customer__c = acc.id;  
+                    addressobj.Language__c =LanguageSelected;
+                    insert addressobj;
+                }
+                else
+                {
+                    addressobj.id = editaddressId; 
+                    addressobj.Language__c =LanguageSelected;
+                    update addressobj;
+                }
+            }
+        }
+        catch (DmlException e) 
+        {
+            refreshPage = false;
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                    
+            system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
+        }
+    }
+	
+	
     /**  Address Search based on Zip code.
         Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
         **  Created By: Sudhir  

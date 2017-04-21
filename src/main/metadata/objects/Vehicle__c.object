@@ -2049,7 +2049,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Methanol</fullName>
+            <fullName>Methanol</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2114,6 +2114,10 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Petrol</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2503,7 +2507,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
     </fields>
     <fields>
         <fullName>Latest_Sales_Person__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_LatestSalesPersonÃ¢â‚¬Å“</description>
+        <description>Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_LatestSalesPersonâ€œ</description>
         <externalId>false</externalId>
         <label>Latest Sales Person</label>
         <length>18</length>
@@ -2540,7 +2544,8 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'),'TH', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -5430,7 +5435,9 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
+
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_UsVINÃ¢â‚¬Å“</description>
+
         <externalId>true</externalId>
         <label>UsVIN</label>
         <length>17</length>
@@ -5452,7 +5459,9 @@ Modify History
 Modify By: Mouse Liu
 Modify Reason: Just change the field type to Picklist with LOV 'Unknown Yes No'
 */
+
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ValidÃ¢â‚¬Å“</description>
+
         <externalId>false</externalId>
         <label>Validity</label>
         <picklist>
