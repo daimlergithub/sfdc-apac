@@ -139,6 +139,7 @@
         <dataType>String</dataType>
         <expression>{!$Label.SurveyCompleted}</expression>
     </formulas>
+    <interviewLabel>Survey Star Assist {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Survey Star Assist</label>
     <processType>Flow</processType>
     <recordCreates>
@@ -467,6 +468,7 @@
         <locationY>37</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2</targetReference>
         </connector>
@@ -494,6 +496,7 @@
         <locationY>38</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3</targetReference>
         </connector>
@@ -521,6 +524,7 @@
         <locationY>40</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -548,6 +552,7 @@
         <locationY>40</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q5</targetReference>
         </connector>
@@ -575,6 +580,7 @@
         <locationY>41</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q6</targetReference>
         </connector>
@@ -602,6 +608,7 @@
         <locationY>42</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q7</targetReference>
         </connector>
@@ -629,6 +636,7 @@
         <locationY>39</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q8</targetReference>
         </connector>
@@ -656,6 +664,7 @@
         <locationY>130</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -678,6 +687,7 @@
         <locationY>248</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <fields>
             <name>surveyComplete</name>
             <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#3366FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;{!surveyCompleted}&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>

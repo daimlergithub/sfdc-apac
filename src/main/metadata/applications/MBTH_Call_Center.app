@@ -2,6 +2,7 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>MBTH Call Center</label>
+    <logo>Logo/MBTH_LOGO_FV2.png</logo>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
     <tab>Claim__c</tab>

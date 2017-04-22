@@ -601,6 +601,9 @@
 							<sf:include name="AddressHelperTHTest"/>
 							<sf:include name="CampaignHelperTH"/>
 							<sf:include name="CampaignHelperTHTest"/>
+							<sf:include name="CaseHelperTH"/>
+							<sf:include name="caseHelperTHTest"/>
+							<sf:include name="CaseTriggerHandlerTH"/>
 							<sf:include name="DMRequestHelperTH"/>
 							<sf:include name="DMRequestHelperTHTest"/>
 							<sf:include name="EmailNotificationAfter24Hours"/>
@@ -608,6 +611,7 @@
 							<sf:include name="LeadReassign"/>
 							<sf:include name="LeadReassignTest"/>
 							<sf:include name="LeadVehiclePickerTHController"/>
+							<sf:include name="LeadVehiclePickerTHControllerTests"/>
 							<sf:include name="TaskHelperTH"/>
 							<sf:include name="TaskTriggerHandlerTH"/>
 							<sf:include name="TriggerAccountTriggerHandlerTH"/>

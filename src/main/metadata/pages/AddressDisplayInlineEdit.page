@@ -291,7 +291,7 @@
                             onclick="ForeignNationalFields(this.value)"/>  
                     </apex:pageBlockSectionItem>
                     
-                    <apex:pageBlockSectionItem >
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,false,true)}">
                      <apex:outputLabel value="Language"/>
                     <apex:selectRadio value="{!LanguageSelected}" id="idLanguage" onclick="loadProvince(this.value)" >
                         <apex:selectOption itemValue="English" itemlabel="English"/>

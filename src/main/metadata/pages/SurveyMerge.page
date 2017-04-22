@@ -412,72 +412,11 @@
     
     
     
-    function survey6(){ 
-        
-        var SurveyName="Survey after welcome call"; 
-        var SurveyQuestionsList; 
-        var SurveyQuestionRecords; 
-        var SQ1; 
-        var SQ2; 
-        
-        var url = '/flow/Survey_after_welcome_call?LeadID='; 
-        sforce.connection.sessionId = "{!$Api.Session_ID}";
-        var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'"); 
-        var SurveyRecords = SurveyList.getArray("records"); 
-        var SurveyID=SurveyRecords[0].Id; 
-        
-        if(SurveyID == null) { 
-            alert("Oops!! No Survey after welcome call "); 
-        }else{ 
-            SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
-            SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
-            
-            for(var i=0;i<SurveyQuestionRecords.length;i++){ 
-                
-                var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
-                if(SurveyQuestionOrderNumber==1){ 
-                    SQ1=SurveyQuestionRecords[i].Id; 
-                } 
-                else if(SurveyQuestionOrderNumber==2){ 
-                    SQ2=SurveyQuestionRecords[i].Id; 
-                } 
-                
-            } 
-            var li;
-            var id="{!Task.What.Id}";
-            
-            if(id.startsWith("a13")){
-                
-                li=id;
-                url += li+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
-            }
-            else if(id.startsWith("a10")){
-                
-                
-                
-                
-                
-                
-                sforce.connection.sessionId = "{!$Api.Session_ID}";
-                li=sforce.connection.query("SELECT Lead__c from Campaign_Lead__c where id='"+id+"'") ;
-                
-                li=li.records.Lead__c;
-                cam=sforce.connection.query("SELECT Campaign__c from Campaign_Lead__c where id='"+id+"'") ;
-                cam=cam.records.Campaign__c;
-                
-                url += li+'&CampaignID='+cam+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
-            }
-            
-            
-            
-            
-            window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
-            
-        }
-    }
+    
     
     function survey5(){
-        alert("1")
+    
+       // alert("1");
         var SurveyName="Welcome Call Survey"; 
         var SurveyQuestionsList; 
         var SurveyQuestionRecords; 
@@ -630,7 +569,7 @@
                                                                 }
             } 
             
-            alert("2");
+           
            
             var ld;
             var id="{!Task.What.Id}";
@@ -642,15 +581,53 @@
             
             acc=sforce.connection.query("SELECT Contact__c from Lead__c where id='"+ld+"'") ;
             acc=acc.records.Contact__c;
+            
+            
+            
+            
+            adid=sforce.connection.query("SELECT id from Address__c where Customer__c='"+acc+"'") ;
+            
+            
+            if(adid.size == 1){
+                
+                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"'");
+            }
+            else{ 
+                                add=sforce.connection.query("SELECT Province__c,Address_Line_1__c,Address_Line_2__c,Block__c,ZipCode__c,City__c from Address__c where Customer__c='"+acc+"' and Preferred__c=true") ;
+            }
+            
+            
+            ad1 = add.records.Address_Line_1__c;
+            ad2 = add.records.Address_Line_2__c;
+            ad3 = add.records.Block__c;
+            ad4 = add.records.City__c;
+            ad5 = add.records.Province__c;
+            ad6 = add.records.ZipCode__c;
+            
+            
+            if(ad1 == null)
+                ad1 = "";
+            if(ad2 == null)
+                ad2 = "";
+            if(ad3 == null)
+                ad3 = "";                            
+            if(ad4 == null)
+                ad4 = "";
+            if(ad5 == null)
+                ad5 = "";
+            if(ad6 == null)
+                ad6 = "";                     
+            
             rt=sforce.connection.query("SELECT id from Retail_Task__c where Account__c='"+acc+"'") ;
             rt=rt.records.Id;
             
-            alert("3");
+            
             var x="{!Task.RelatedRetailTask__c}";
-            alert(x);
+            
            
             
-            url += acc+'&LeadID='+ld+'&RetailTaskID='+x+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29+'&Q30_ID='+SQ30+'&Q31_ID='+SQ31; 
+            url += acc+'&LeadID='+ld+'&RetailTaskID='+x+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29+'&Q30_ID='+SQ30+'&Q31_ID='+SQ31
+            +'&add1='+ad1+'&add2='+ad2+'&add3='+ad3+'&add4='+ad4+'&add5='+ad5+'&add6='+ad6; 
            
             window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
             
@@ -658,68 +635,7 @@
         
     }
     
-    function survey7(){ 
-        
-        var SurveyName="Survey after Customer receive Star Assist Service"; 
-        var SurveyQuestionsList; 
-        var SurveyQuestionRecords; 
-        var SQ1; 
-        var SQ2; 
-        
-        var url = '/flow/Survey_after_Customer_receive_Star_Assist_Service?LeadID=';
-        sforce.connection.sessionId = "{!$Api.Session_ID}"; 
-        var SurveyList = sforce.connection.query("SELECT id,name FROM Survey__c where Name='"+SurveyName+"'"); 
-        var SurveyRecords = SurveyList.getArray("records"); 
-        var SurveyID=SurveyRecords[0].Id; 
-        
-        if(SurveyID == null) { 
-            alert("Oops!! No Survey after Customer receive Star Assist Service "); 
-        }else{ 
-            SurveyQuestionsList= sforce.connection.query("SELECT id,Survey__c,OrderNumber__c FROM Survey_Question__c where Survey__c='"+SurveyID+"'"); 
-            SurveyQuestionRecords=SurveyQuestionsList.getArray("records"); 
-            
-            for(var i=0;i<SurveyQuestionRecords.length;i++){ 
-                
-                var SurveyQuestionOrderNumber=SurveyQuestionRecords[i].OrderNumber__c; 
-                if(SurveyQuestionOrderNumber==1){ 
-                    SQ1=SurveyQuestionRecords[i].Id; 
-                } 
-                else if(SurveyQuestionOrderNumber==2){ 
-                    SQ2=SurveyQuestionRecords[i].Id; 
-                } 
-                
-            } 
-            
-            var li;
-            var id="{!Task.What.Id}";
-            
-            if(id.startsWith("a13")){
-                
-                li=id;
-                url += li+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
-            }
-            else if(id.startsWith("a10")){
-                
-                
-                sforce.connection.sessionId = "{!$Api.Session_ID}";
-                
-                li=sforce.connection.query("SELECT Lead__c from Campaign_Lead__c where id='"+id+"'") ;
-                
-                li=li.records.Lead__c;
-                cam=sforce.connection.query("SELECT Campaign__c from Campaign_Lead__c where id='"+id+"'") ;
-                cam=cam.records.Campaign__c;
-                
-                url += li+'&CampaignID='+cam+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2; 
-            }
-            
-            
-            
-            
-            
-            window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 
-            
-        }
-    }
+    
     
     
     

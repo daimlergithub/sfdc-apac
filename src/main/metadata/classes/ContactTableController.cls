@@ -81,7 +81,7 @@ public class ContactTableController
 	*/ 
 	public void PhoneNumberFormat(){
       
-		if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && ParAcc.MD__c=='KR'){
+		if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)) && (ParAcc.MD__c=='KR' || ParAcc.MD__c==Label.TH)){
 		  if(!ParAcc.Individual_Home_Phone__c.contains('-')){
 			  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
 		  }
@@ -102,7 +102,7 @@ public class ContactTableController
 		  }              
 		}
 
-		if(!(String.isBlank(ParAcc.Work_Phone__c)) && ParAcc.MD__c=='KR'){ 
+		if(!(String.isBlank(ParAcc.Work_Phone__c)) && (ParAcc.MD__c=='KR' || ParAcc.MD__c==Label.TH)){ 
 			if(!ParAcc.Work_Phone__c.contains('-')){
 				  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
 			}
@@ -122,7 +122,7 @@ public class ContactTableController
 				}
 			}
 		} 
-		if(!(String.isBlank(ParAcc.Mobile__c)) && ParAcc.MD__c=='KR'){ 
+		if(!(String.isBlank(ParAcc.Mobile__c)) && (ParAcc.MD__c=='KR' || ParAcc.MD__c==Label.TH)){ 
 			if(!ParAcc.Mobile__c.contains('-')){
 			  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
 			}
@@ -147,12 +147,120 @@ public class ContactTableController
 	{
 		editMode = true; 
 		editMode1 = true;
-		if(ParAcc.MD__c == 'KR'){
+		if(ParAcc.MD__c == 'KR' || ParAcc.MD__c==Label.TH){
 			PhoneNumberFormat();
 		}
 	}
     
      
+	 public void UpdateAccountTH()  
+    {
+        system.debug('***'+homePhoneAreaCodePart1);
+        system.debug('***'+homePhoneAreaCodePart2);
+        system.debug('***'+homePhoneAreaCodePart3);
+       if
+       (
+       (String.isBlank(homePhoneAreaCodePart1)) && 
+       (String.isBlank(homePhoneAreaCodePart2)) &&
+       (String.isBlank(homePhoneAreaCodePart3))
+       )
+       {
+        system.debug('***');
+           ParAcc.Individual_Home_Phone__c='';
+       } 
+        else if((homePhoneAreaCodePart1.length()>1) && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
+       {
+        system.debug('***');
+           ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+       }
+        else if((homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
+       {
+       system.debug('***');
+           ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
+       }
+       else
+       {
+       system.debug('***');
+           ParAcc.Individual_Home_Phone__c='';
+       }
+       
+      if
+      (
+      (String.isBlank(workPhoneAreaCodePart1)) &&
+      (String.isBlank(workPhoneAreaCodePart2)) && 
+      (String.isBlank(workPhoneAreaCodePart3))
+      )
+      {
+               ParAcc.Work_Phone__c='';
+      }
+       else if((workPhoneAreaCodePart1.length()>1) && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 !='' || workPhoneAreaCodePart3 == ''))
+
+      {
+               ParAcc.Work_Phone__c= workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+      }
+      else if((workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 !='' || workPhoneAreaCodePart3 == ''))
+
+      {
+               ParAcc.Work_Phone__c= workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
+      }
+      else
+      { 
+             ParAcc.Work_Phone__c='';
+      }
+      if
+      (
+      (String.isBlank(mobilePhoneAreaCodePart1)) &&
+      (String.isBlank(mobilePhoneAreaCodePart2)) && 
+      (String.isBlank(mobilePhoneAreaCodePart3))
+      )
+      {
+               ParAcc.Mobile__c='';
+      }
+      else if((mobilePhoneAreaCodePart1.length()>1) && (mobilePhoneAreaCodePart2 != '' || mobilePhoneAreaCodePart2 == '') && (mobilePhoneAreaCodePart3 !='' || mobilePhoneAreaCodePart3 == ''))
+      {
+               ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
+      }
+       else if ((mobilePhoneAreaCodePart2 != '' || mobilePhoneAreaCodePart2 == '') && (mobilePhoneAreaCodePart3 !='' || mobilePhoneAreaCodePart3 == ''))
+      {
+               ParAcc.Mobile__c=mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
+      }
+      else
+      { 
+             ParAcc.Mobile__c='';
+      }
+      
+        try
+        {
+            if
+            (
+            ParAcc.Individual_Home_Phone__c == '' && 
+            ParAcc.Mobile__c == '' && 
+            ParAcc.Work_Phone__c == '' && 
+            ParAcc.Email__c == null
+            )
+            {
+                        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+            } 
+            else
+            {  
+                    
+                    if(ParAcc != null)
+                        refreshPage = true;
+                      
+                        update ParAcc;
+            }            
+        }
+        
+        catch(DMLException de)
+        {
+            refreshPage = false;
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
+            
+        }
+    }
+	 
+	 
     
 	/**
 	*@Description : This method updates the Account with the values entered by user to phone number and email fields.
@@ -217,10 +325,14 @@ public class ContactTableController
              ParAcc.Mobile__c='';
         }
       }
+	  else if(ParAcc != null && ParAcc.Md__c =='TH')
+	  {
+		UpdateAccountTH();
+	  }
 
         try
         {
-            if(ParAcc != null )
+            if(ParAcc != null && ParAcc.Md__c =='KR')
             {
                 refreshPage = true;
                 update ParAcc;         

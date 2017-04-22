@@ -438,7 +438,7 @@
 				   <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
                        <center>
                        <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,myTableTH,Block"  />
-                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableKR,myTableTH,myTableJP" />
+                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,Block,redirectPanel,showmsg" />
               
                     
              <!-- <apex:pageBlockButtons location="bottom" style="align:left;"  >-->

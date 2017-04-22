@@ -308,15 +308,15 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
                         Validation = true;
                     }
-                    if((market == 'KR') && addressobj.Province__c == null)
+                    if(((market == 'KR') || (market == 'TH')) && addressobj.Province__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;
                     }
-                    /*if((market == 'KR') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
+                    if((market == 'TH') &&addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c))){       
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
                         Validation = true;
-                    }*/  
+                    }  
           if(Address_Validated_Flag == true && Validation == False)
           {
             refreshPage= true;
@@ -348,7 +348,7 @@ public class AddressDisplayInlineEditController {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
                         Validation = true;
                     }
-                    if((market == 'KR') && addressobj.Province__c == null)
+                    if((market == 'KR' || market == 'TH')  && addressobj.Province__c == null)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.')); 
                         Validation = true;
@@ -446,17 +446,19 @@ public class AddressDisplayInlineEditController {
                 }
             }
             if(Validation == False){        
-            refreshPage = true; 
-                 if (editaddressId ==null)
+				refreshPage = true; 
+				Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                if (editaddressId ==null)
                 {           
-                    Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                    
                     addressobj.Customer__c = acc.id;  
                     addressobj.Language__c =LanguageSelected;
                     insert addressobj;
                 }
                 else
                 {
-                    addressobj.id = editaddressId; 
+                    addressobj.id = editaddressId;
+					addressobj.Customer__c = acc.id;
                     addressobj.Language__c =LanguageSelected;
                     update addressobj;
                 }

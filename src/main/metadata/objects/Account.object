@@ -48688,6 +48688,26 @@ MD__c = &apos;JP&apos;
         <errorDisplayField>Home_Phone_2__c</errorDisplayField>
         <errorMessage>Home Phone 2 should start with &quot;0&quot;.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>ID_Type</fullName>
+        <active>true</active>
+        <description>&quot;ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
+        <errorConditionFormula>IF( ISPICKVAL( ID_Type__c, &apos;National ID&apos;), 
+AND 
+( 
+OR 
+( 
+ISNULL(ID_Number__c), 
+NOT(LEN(ID_Number__c) = 13), 
+NOT(REGEX( ID_Number__c, &quot;^[A-Za-z0-9]+$&quot;)) 
+), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c==&apos;TH&apos; 
+) 
+,false)</errorConditionFormula>
+        <errorDisplayField>ID_Number__c</errorDisplayField>
+        <errorMessage>If ID Type is ‘National ID’, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_NoChar</fullName>
         <active>true</active>

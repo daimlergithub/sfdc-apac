@@ -6,7 +6,7 @@
         <dataType>String</dataType>
     </choices>
     <choices>
-        <name>A1</name>
+        <name>A21</name>
         <choiceText>{!Label_for_A1}</choiceText>
         <dataType>String</dataType>
         <value>
@@ -1669,6 +1669,7 @@
         <dataType>String</dataType>
         <expression>{!$Profile.Name}</expression>
     </formulas>
+    <interviewLabel>Welcome Call  {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Welcome Call</label>
     <processType>Flow</processType>
     <recordCreates>
@@ -2493,6 +2494,18 @@
             <targetReference>Create_Survey_Question_Response1</targetReference>
         </connector>
         <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>AccountID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead__c</field>
+            <value>
+                <elementReference>LeadID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>MD__c</field>
             <value>
                 <elementReference>MarketDescriminator1</elementReference>
@@ -2586,10 +2599,6 @@
         </filters>
         <object>Account</object>
         <outputAssignments>
-            <assignToReference>Addressid</assignToReference>
-            <field>BillingAddress</field>
-        </outputAssignments>
-        <outputAssignments>
             <assignToReference>CompanyRegType</assignToReference>
             <field>Company_Legal_Form__c</field>
         </outputAssignments>
@@ -2616,6 +2625,10 @@
         <outputAssignments>
             <assignToReference>Home_Phone_2</assignToReference>
             <field>Home_Phone_2__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>HomePhone</assignToReference>
+            <field>Individual_Home_Phone__c</field>
         </outputAssignments>
         <outputAssignments>
             <assignToReference>Lname</assignToReference>
@@ -2646,10 +2659,6 @@
             <field>PersonBirthdate</field>
         </outputAssignments>
         <outputAssignments>
-            <assignToReference>HomePhone</assignToReference>
-            <field>PersonHomePhone</field>
-        </outputAssignments>
-        <outputAssignments>
             <assignToReference>Phone</assignToReference>
             <field>Phone</field>
         </outputAssignments>
@@ -2672,9 +2681,6 @@
         <locationX>396</locationX>
         <locationY>172</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>testprofile</targetReference>
-        </connector>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -2747,7 +2753,7 @@
         <locationY>8</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Fetch_Address_Detail</targetReference>
+            <targetReference>testprofile</targetReference>
         </connector>
         <filters>
             <field>Id</field>
@@ -2815,6 +2821,7 @@
         <locationY>10</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3</targetReference>
         </connector>
@@ -2831,6 +2838,7 @@
         <locationY>223</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision_RecordType_0</targetReference>
         </connector>
@@ -2876,6 +2884,7 @@
         <locationY>118</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q1_1_LT</targetReference>
         </connector>
@@ -2892,6 +2901,7 @@
         <locationY>222</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q1_1_LT</targetReference>
         </connector>
@@ -2908,6 +2918,7 @@
         <locationY>12</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Ans1</targetReference>
         </connector>
@@ -2946,6 +2957,7 @@
         <locationY>223</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_1_1_0</targetReference>
         </connector>
@@ -2984,6 +2996,7 @@
         <locationY>215</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_4_Q2_5</targetReference>
         </connector>
@@ -3021,6 +3034,7 @@
         <locationY>20</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_4_Q2_5</targetReference>
         </connector>
@@ -3070,6 +3084,7 @@
         <locationY>114</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_1_1</targetReference>
         </connector>
@@ -3125,6 +3140,7 @@
         <locationY>220</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0_2</targetReference>
         </connector>
@@ -3145,9 +3161,7 @@
         </fields>
         <fields>
             <name>Q2_5_E_Desc</name>
-            <fieldText>{!LabelS5_Q2_5_E_P1} / {!LabelS5_Q2_5_T_P1_your_address_is} :
-
-{!Address.TitleOfHonor__c} {!Address.Company_Name__c}  {!Address.Address_Line_1__c} {!Address.Address_Line_2__c} {!Address.Block__c}  {!Address.Province__c} {!Address.City__c} {!Address.ZipCode__c}</fieldText>
+            <fieldText>{!LabelS5_Q2_5_E_P1} / {!LabelS5_Q2_5_T_P1_your_address_is} : {!add1} {!add2} {!add3} {!add4} {!add5} {!add6}</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -3168,9 +3182,10 @@
         <name>Q2_6_extra</name>
         <label>Q2.6 extra</label>
         <locationX>704</locationX>
-        <locationY>511</locationY>
+        <locationY>512</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0_0</targetReference>
         </connector>
@@ -3205,6 +3220,7 @@
         <locationY>373</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2_7_LT</targetReference>
         </connector>
@@ -3232,6 +3248,7 @@
         <locationY>669</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3_S</targetReference>
         </connector>
@@ -3259,6 +3276,7 @@
         <locationY>376</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_1</targetReference>
         </connector>
@@ -3305,6 +3323,7 @@
         <locationY>529</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3_S</targetReference>
         </connector>
@@ -3363,6 +3382,7 @@
         <locationY>423</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>testprofile_3_3</targetReference>
         </connector>
@@ -3463,6 +3483,7 @@
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -3492,6 +3513,7 @@
         <locationY>759</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Decision3_0</targetReference>
         </connector>
@@ -3516,6 +3538,7 @@
         <locationY>732</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4_B</targetReference>
         </connector>
@@ -3532,6 +3555,7 @@
         <locationY>855</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>testprofile_2</targetReference>
         </connector>
@@ -3556,6 +3580,7 @@
         <locationY>1119</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -3572,6 +3597,7 @@
         <locationY>803</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -3588,6 +3614,7 @@
         <locationY>1672</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <fields>
             <name>surveycompleted</name>
             <fieldText>{!LabelSurveyCompleted}</fieldText>
@@ -3658,10 +3685,10 @@
     </textTemplates>
     <textTemplates>
         <name>Q3</name>
-        <text>{!LabelS5_Q3_T_TH_P1}{!LabelS5_Q3_T_TH_P2}
+        <text>{!LabelS5_Q3_T_TH_P1} {!LabelS5_Q3_T_TH_P2}
 
 
-{!LabelS5_Q3_E_P1}{!LabelS5_Q3_E_P2}</text>
+{!LabelS5_Q3_E_P1} {!LabelS5_Q3_E_P2}</text>
     </textTemplates>
     <textTemplates>
         <name>Q4_tA</name>
@@ -3723,6 +3750,13 @@
         <text>{!Label_for_yes} / {!LabelYesThai}</text>
     </textTemplates>
     <variables>
+        <name>a1</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
         <name>AccName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -3743,6 +3777,48 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>add1</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>add2</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>add3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>add4</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>add5</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>add6</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>AddId</name>
@@ -3857,6 +3933,13 @@
         <isInput>true</isInput>
         <isOutput>true</isOutput>
         <objectType>Lead__c</objectType>
+    </variables>
+    <variables>
+        <name>LeadID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>Lname</name>

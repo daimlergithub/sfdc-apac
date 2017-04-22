@@ -3962,6 +3962,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Order Placed%2FService Requested</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Purchased(Only Non BDC)</fullName>
                 <default>false</default>
@@ -8385,6 +8389,10 @@ Modify Reason:
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Mercedes Card</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
@@ -9323,6 +9331,10 @@ Modify Reason:
                 <fullName>Book-in</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9982,6 +9994,10 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Daimler Employee</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Rental Car</fullName>
@@ -10649,6 +10665,16 @@ NOT(ISBLANK(Order_Confirmation_Date__c)) )
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Preferred_drop_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Drop Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
 	<fields>
         <fullName>MBTH_Total_Interest_Charged_Amount__c</fullName>
@@ -11980,8 +12006,28 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Payment Mode</label>
         <picklist>
+			<picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Debit Card</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>EFT</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Financed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11989,19 +12035,15 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>EFT</fullName>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Transfer</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Financed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loan</fullName>
+			<picklistValues>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12195,10 +12237,6 @@ Modify Reason:
         <label>Preferred Contact Method</label>
         <picklist>
             <picklistValues>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12206,8 +12244,20 @@ Modify Reason:
                 <fullName>Fax</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12585,6 +12635,42 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Range 17</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>&lt;2.0 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2.0-2.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3.0-4.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.0-6.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7.0-8.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9.0-10.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11.0-12.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13.0-14.99 Million THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&gt;= 15 Million THB</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -36263,6 +36349,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
@@ -36279,6 +36369,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
@@ -36287,8 +36381,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Distributed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>First Contact Customer</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Gave up</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36315,12 +36417,28 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Received</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36432,6 +36550,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Contact Failed For 3 Days</fullName>
                 <default>false</default>
             </values>
@@ -36461,6 +36583,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39476,6 +39602,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
             <values>
+                <fullName>Book-in</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Broucher</fullName>
                 <default>false</default>
             </values>
@@ -39485,6 +39615,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39499,12 +39633,24 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Product Information</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Service Information</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Program</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Trade-In</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39724,6 +39870,10 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Latest_Phase__c</picklist>
+			<values>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -39748,12 +39898,44 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Order Confirmed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Service Program Proposal</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Simple Estimation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Vehicle Registration</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Visited</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -40782,7 +40964,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40799,6 +40993,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -40868,6 +41066,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Phone and Email</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -74818,6 +75024,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
@@ -74844,6 +75054,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77553,6 +77767,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Mercedes Card</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
@@ -78147,6 +78365,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Leasing</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
@@ -78372,6 +78594,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Check Out</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -78382,6 +78608,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lost</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -78398,6 +78628,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79257,8 +79491,16 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
+			<values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -79275,6 +79517,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -79346,6 +79592,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone and Email</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -79368,6 +79622,42 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
+                <fullName>%3C2%2E0 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E%3D 15 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11%2E0-12%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13%2E0-14%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2%2E0-2%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>3%2E0-4%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2E0-6%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7%2E0-8%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E0-10%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
@@ -87158,6 +87448,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Assigned</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
@@ -87354,6 +87648,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Failed For 3 Days</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
                 <default>false</default>
@@ -87380,6 +87682,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89649,12 +89955,20 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_DataSource__c</picklist>
+			<values>
+                <fullName>3rd party data</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CCC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89681,6 +89995,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Event</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Friends recommend</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
@@ -89689,8 +90011,20 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>MB Card</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MB Magazine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MB website</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89717,6 +90051,18 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Mercedes-Benz</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes-Benz driving Academy</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mercedes-Benz financial</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
@@ -89729,12 +90075,20 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Mercedes-Benz phone</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Media advertisement</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -89745,6 +90099,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
@@ -89753,8 +90111,20 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Searching engine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Social media</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -90311,6 +90681,26 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Broucher</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Buy</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Others</fullName>
                 <default>false</default>
@@ -90319,8 +90709,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Product Information</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Service Information</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90548,6 +90946,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>CA Submission</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Check Out</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Confirmation</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contact</fullName>
                 <default>false</default>
@@ -90572,8 +90978,20 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invoiced</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Job Card Issue</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lost</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Needs Check</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90590,6 +91008,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Quotation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90610,6 +91032,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Visited</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>WIP Linkage</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -90724,8 +91150,20 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>car care</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>collection</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Daimler Employee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -90770,6 +91208,26 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>service contract</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>spare part</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>technical accessories</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>wear and tear</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91602,7 +92060,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Payment_Mode__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Credit Card</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Debit Card</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91619,6 +92089,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Transfer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Voucher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91690,6 +92164,14 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Negotiation_Place__c</picklist>
@@ -91716,6 +92198,42 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
+                <fullName>%3C2%2E0 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E%3D 15 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>11%2E0-12%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13%2E0-14%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>2%2E0-2%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3%2E0-4%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>5%2E0-6%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>7%2E0-8%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E0-10%2E99 Million THB</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
@@ -91830,6 +92348,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Next Inspection Timing</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>No Plans</fullName>
                 <default>false</default>
             </values>
@@ -97402,6 +97924,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -1,4 +1,4 @@
-public class LeadReassign{
+public without sharing class  LeadReassign{
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
@@ -63,6 +63,9 @@ public class LeadReassign{
             }
         
         }
+         else if(((Lead__c)Trigger.newMap.get(l.id)).ownerid!=((Lead__c)Trigger.oldMap.get(l.id)).ownerid && l.md__c=='TH' &&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
+        l.ownerID=((Lead__c)Trigger.newMap.get(l.id)).ownerid;
+        }
         
         else if(l.md__c=='TH'&&(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId)){
                 if(l.assigned_dealer__c==null){
@@ -88,6 +91,7 @@ public class LeadReassign{
         
         
         }
+        
        else{
             l.ownerID=l.createdbyId;
         
@@ -108,6 +112,41 @@ public class LeadReassign{
     }
 
     }
+    
+                public  void leadValidation(List<lead__c> leadlist){
+    Id profileId=userinfo.getProfileId();
+String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        for(Lead__c listlead:leadlist){
+        
+                system.debug('validationsTH.leadValidation'+listlead.CAC_Lead_Status__c+listlead.recordtypeid+ listlead.md__c=='TH'+listlead.Purchased_CAC_Date__c);
+            if((listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId) && listlead.md__c=='TH'&& profileName!='IntegrationAPI'){
+                if(listlead.CAC_Lead_Status__c=='Purchased' && listlead.Purchased_CAC_Date__c==null ){
+                system.debug('validationsTH.leadValidation');
+                listlead.CAC_Lead_Status__c.adderror('SARI changing lead statust ot purchased please enter Purchased CAC Date  Field');
+                
+                
+                }
+                if(listlead.recordtypeid==salesRecordTypeId && listlead.CAC_Lead_Status__c=='Purchased' && (listlead.Purchased_CAC_Date__c==null||listlead.Bought_Vehicle_Brand__c==null||listlead.Bought_Vehicle_Class__c==null||listlead.Bought_Vehicle_Model__c==null) ){
+                listlead.CAC_Lead_Status__c.adderror('SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle');
+                
+                }
+            
+            }
+            if((listlead.recordtypeid==retailSalesRecordTypeId||listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId) && listlead.md__c=='TH'&& profileName!='IntegrationAPI'){
+            if(listlead.Dealer_Lead_Status__c=='Order Placed' && listlead.Order_Placed_Date__c==null&&listlead.recordtypeid!=retailSalesRecordTypeId){
+            listlead.Order_Placed_Date__c.adderror('SARI changing lead statust to Order Placed,please enter OrderPlaced Date');
+            
+            }
+             if(listlead.Dealer_Lead_Status__c=='Purchased' && listlead.Purchased_Date__c==null){
+            listlead.Dealer_Lead_Status__c.adderror('SARI changing lead statust to "Purchased" please enter Purchase Date');
+            
+            } 
+            }
+        
+        }
+    
+}
+
     
     
  public Static void updateOwnership(set<id> acc,List<Lead__c> leadlist){

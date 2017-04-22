@@ -211,6 +211,7 @@ public class AddressSearchValidationController
     
     public pagereference saveAccount(){    
         system.debug('enter 1 :');
+		if(addresspicklist!=null)
         AddressObj.Address_Type__c = addresspicklist;
         //AddressObj.Province__c = provincepicklist;
         Validation = false;
@@ -729,7 +730,6 @@ public class AddressSearchValidationController
          if(AddressObj.Address_Type__c != null && 
             (AddressObj.Address_Line_1__c==null ||
             AddressObj.Address_Line_2__c==null ||
-            LanguageSelected==null ||
             province==null ||
             district==null ||
             subdistrict==null ||
