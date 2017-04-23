@@ -90,6 +90,27 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+	<fields>
+        <fullName>MBTH_record_Owner_Manager_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH_record Owner Manager Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>MBTH_Preferred_drop_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Drop Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>MBTH_Assigned_Dealer_Name__c</fullName>
         <externalId>false</externalId>
