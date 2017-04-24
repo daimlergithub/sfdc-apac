@@ -99,7 +99,7 @@
             <label>Initial Criteria</label>
         </rules>
     </decisions>
-    <description>Created Under SFDCJP-637, and also added KR Market</description>
+    <description>Created Under SFDCJP-637</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
