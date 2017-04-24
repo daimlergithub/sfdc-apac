@@ -1,0 +1,71 @@
+<apex:page standardController="Account" extensions="SelectAddressController" rendered="{!IF(market == 'KR',false,true)}">
+    <apex:form id="addfrm" >
+        <apex:outputPanel layout="block" style="overflow:auto;">
+            <apex:pageBlock title="{!$Label.Address_Select}" id="pageBlock">
+                <apex:pageMessages id="pgmsg"/> 
+                
+                <apex:outputPanel rendered="{!addressList.size = 0}">
+                    {!$Label.No_Address_Message}
+                </apex:outputPanel>
+                
+                <apex:pageBlockSection rendered="{!addressList.size > 0}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.Select_Address_Msg}" />
+                        <apex:selectList value="{!selectedAddress}" multiselect="false" onchange="updateAdd(this.value);" size="1">
+                            <apex:selectOptions value="{!addressSelectOptionList}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <!-- <apex:outputPanel rendered="{!addressList.size > 0}">
+                    <apex:pageBlockTable id="acc_address" value="{!addressList}" var="address" style="width:900px;">  
+                        <apex:column width="8%" headervalue="Select">
+                            <input class="accountSelectRadio" type="radio" name="{!$Label.Address_Select}" value="{!address.Id}" onclick="setAddressId('{!address.Id}')"/>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
+                            <apex:outputText value="{!address.Name}" style="width:9%; white-space:nowrap;" />           
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
+                            <apex:outputText value="{!address.Address_Type__c}" style="width:9%; white-space:nowrap;" />            
+                        </apex:column>
+                        <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
+                            <apex:outputText value="{!address.ZipCode__c}" style="width:9%; white-space:nowrap;" />         
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    <apex:commandButton id="updatebutton" value="{!$Label.Update_Address}" onclick="updateAddress()" reRender="dummy"/>
+                </apex:outputPanel> -->
+                
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+        <apex:actionFunction name="updateAdd" action="{!updateAddress}" reRender="addfrm" onComplete="refreshPage(); return false;">
+            <apex:param name="addId" value="" assignTo="{!selectedAddress}" />
+        </apex:actionFunction>
+        
+    </apex:form>
+    
+    <script>
+        var selectedAddress;
+        function setAddressId(addId) {
+            selectedAddress = addId;
+        }
+        
+        function updateAddress() {
+            if(selectedAddress == undefined) {
+                alert('{!$Label.Please_select_Address}');
+            } else {
+                updateAdd(selectedAddress);
+            }
+        }
+        
+        function refreshPage() {
+            try {
+            	window.parent.location = window.parent.location.href;
+        	} catch(e) {
+        		window.top.location='/{!Account.id}';
+        	} 
+        }
+    
+    </script>
+</apex:page>

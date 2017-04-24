@@ -1,6 +1,7 @@
 @istest
 public class SSITriggerHandlerTest {
   public static Account accobj;
+  public static Account customer;
   public static Contact contobj;
   public static Task taskobj;
   public static List<Task> taskobjlist;
@@ -9,7 +10,7 @@ public class SSITriggerHandlerTest {
   public static Map<Id,SSI__c> ssioldmap;
   
   public static User usr;
-  public static User us;
+  public static User ssi_sv;
   public static Id ssitaskid = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
   public static Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -17,9 +18,9 @@ public class SSITriggerHandlerTest {
     accobj = new Account();
     accobj.RecordTypeId = dealerRecordtypeid;
     accobj.Name = 'testaccount';
-    accobj.Phone = '000-0000-9842';
+    accobj.Phone = '00000009842';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    accobj.Mobile__c = '0000009642';
     insert accobj;
     system.debug('$$$$$accobj$$$$$$$'+accobj);
     system.debug('$$$$$accobj.id$$$$$$$'+accobj.id);
@@ -43,19 +44,19 @@ public class SSITriggerHandlerTest {
     ssiold.DealerCheck_Status__c = 'Pending';
     ssiold.CarModelCheck_Status__c = 'Pending';
     ssiold.Need_2nd_Survey__c = false;
-    ssiold.HomeMobilePhone__c = '000-0000-8888';
-    ssiold.OfficePhone__c = '000-0000-9999';
+    ssiold.HomeMobilePhone__c = '00000008888';
+    ssiold.OfficePhone__c = '00000009999';
     ssiold.Mark__c = 'test';
     insert ssiold;
-    
-    // SSI New Map
+     // SSI New Map
+
     
     ssiold.CustomerName__c = 'testcustomernew'; 
     ssiold.Status__c = 'Matched';
     ssiold.DealerCheck_Status__c = 'valid';
     ssiold.CarModelCheck_Status__c = 'valid';
-    ssiold.HomeMobilePhone__c = '000-0000-9562';
-    ssiold.OfficePhone__c = '000-0000-9842';
+    ssiold.HomeMobilePhone__c = '00000009562';
+    ssiold.OfficePhone__c = '00000009842';
     ssiold.Mark__c = '';
     update ssiold;
     
@@ -66,8 +67,8 @@ public class SSITriggerHandlerTest {
     taskobj.recordtypeid = ssitaskid;
     taskobj.Subject = '2nd Survey Call';
     taskobj.WhatId = ssiold.id;
-    taskobj.HomeMobilePhone__c = '000-0000-9999';
-    taskobj.OfficePhone__c = '000-0000-8888';
+    taskobj.HomeMobilePhone__c = '00000009999';
+    taskobj.OfficePhone__c = '00000008888';
     taskobj.Status = 'Open';
     system.debug('$$$$$$taskobj$$$$$$'+taskobj);
     
@@ -80,6 +81,61 @@ public class SSITriggerHandlerTest {
     usr = new User (ProfileId = prof.Id, isActive = true, Username='lai1@nttdata.com',LastName='sichaof',Email='sichao.lai@nttdata.com',Alias='laisc',CommunityNickname='barney1',
                     TimeZoneSidKey='America/Los_Angeles',LocaleSidKey='en_US',EmailEncodingKey='ISO-8859-1',LanguageLocaleKey='en_US');
   }
+    
+
+    static testMethod void myUnitTest1() {
+        
+        ssi_sv = UtilTestData.createUser('SSI Supervisor','System Administrator');
+        
+        System.runAs ( ssi_sv ) {
+                    
+           customer = new Account();
+          customer.RecordTypeId = personRecordtypeid;
+          customer.LastName = 'testaccount';
+          customer.Phone = '00000009842';
+          customer.MBK_Data_Source__c='Email';
+          customer.Mobile__c = '0000009642';
+         insert customer;
+            //customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+            
+            
+            
+            String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
+            
+            // create new ssi record
+            SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
+            insert ssi;
+            Map<Id,SSI__c> newMap = new Map<Id,SSI__c>();
+            Map<Id,SSI__c> oldMap = new Map<Id,SSI__c>();
+            Test.startTest();
+            SSITriggerHandler ssith = new SSITriggerHandler();
+            //ssith.handleTrigger(true,true,true,true,true);
+            //ssith.handleIntegrationTrigger(true,true,true,true,true);
+            SSITriggerHandler.autoGenerate2ndSurveyTasks(newMap, oldMap);
+           SSITriggerHandler.fieldsValidationRule(newMap, oldMap);
+            SSITriggerHandler.fieldUpdates(newMap, oldMap);
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+          insert updatecustomsettings;
+            // create ssi task related to ssi record
+            Id recordtype = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+            Task ssiTask = new Task(recordtypeid = recordtype, WhatId = ssi.Id, Subject = 'Welcome Call');
+            insert ssiTask;
+            
+            ssiTask = [Select Id,Subject, OwnerId From Task Where Id=:ssiTask.Id];
+            System.assertEquals(ssiTask.OwnerId, ssi_sv.Id);
+            
+           
+            ssiTask = [Select Id, OwnerId From Task Where Id=:ssiTask.Id];
+            ssi.Need_2nd_Survey__c = true;         
+            
+            ssiTask = [Select Id, Status,Subject From Task Where WhatId=:ssi.Id And recordtypeid =:recordtype];
+            Test.stopTest();
+            System.assertEquals(ssiTask.Subject, 'Welcome Call');
+            
+        }  
+        
+    }
+   
   
   /*public static testmethod void handleTriggerTest() {
     createTestdata();

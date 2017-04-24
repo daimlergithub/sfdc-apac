@@ -9,7 +9,7 @@ public class UtilCampaignCityTest {
   public static List<Participating_Dealer__c> padealerlist;
   public static Id DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
   public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-  public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+  public static Id centmarcampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
   
   static void createTestData() {
     accobj = new Account();
@@ -17,7 +17,7 @@ public class UtilCampaignCityTest {
     accobj.Name = 'testaccount';
     accobj.Phone = '012310086';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    accobj.Mobile__c = '00000009642';
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
@@ -51,6 +51,7 @@ public class UtilCampaignCityTest {
     padealer.Session_Start_Date__c = system.today();
     padealer.Session_End_Date__c = system.today();
     insert padealer;
+   
     system.debug('$$$$$$$$$$$$'+padealer);
     system.debug('$$$$$$$$$$$$'+padealer);
   }

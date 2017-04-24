@@ -26,11 +26,11 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -41,30 +41,26 @@
     <description>Call center operator B submitting the approval for creating the lead to supervisors.</description>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <criteriaItems>
-            <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>New,Qualified,Purchased(Only Non BDC),Lost(CAC),Allocated,Not Allocated,Rejected</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.R_IsAssigned__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordType</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads,Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
+        <formula>AND( 
+        OR( 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;New&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Allocated&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Rejected&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Lost(CAC)&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Purchased(Only Non BDC)&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Qualified&apos;), 
+        ISPICKVAL( CAC_Lead_Status__c,&apos;Not Allocated&apos;)), 
+        R_IsAssigned__c = 1,  
+        OR(($RecordType.DeveloperName = &apos;Aftersales_Leads&apos;),($RecordType.DeveloperName = &apos;Sales_Leads&apos;)), 
+              NOT(CONTAINS( $Profile.Name,&apos;Japan Dealer&apos;)),NOT(CONTAINS( $Profile.Name,&apos;MBF&apos;)),MD__c = &apos;JP&apos;, NOT( Contact__c == Null))</formula>
     </entryCriteria>
     <finalApprovalActions>
         <action>
             <name>CAC_Lead_Status_to_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>PopulateAssignedDateTimetoCurrent_Date</name>
             <type>FieldUpdate</type>
         </action>
     </finalApprovalActions>

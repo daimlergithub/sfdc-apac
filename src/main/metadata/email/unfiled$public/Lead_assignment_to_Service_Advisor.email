@@ -1,0 +1,49 @@
+<messaging:emailTemplate subject="Lead assignment to dealer outlet" recipientType="User" relatedToType="Lead__c">
+<messaging:htmlEmailBody > 
+
+   <html>
+   <style type="text/css">
+   </style>
+   <body>
+    <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Assigned_Dealer__r.name} {!$Label.Email_LeadDealerAssign2}</p>
+    
+     <p> {!$Label.Email_Manager}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign4}</p>
+     
+     <p> {!$Label.Email_LeadDealerAssign5} <apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText> {!$Label.Email_Assignment}</p>
+     
+     
+     
+     <p> {!$Label.Email_salesActivities}</p>
+     
+     <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
+        Direct link URL to the Lead detail page
+    </a>
+     <!--<apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Lead detail page</apex:outputLink>-->
+     
+     <!--<a href="/{!relatedTo.id}">Lead detail page</a>-->
+     
+      <p> {!$Label.Email_salesforcelogin}</p>
+      
+     
+     <!--<p> {!$Label.Email_LeadDealerAssign11} </p>-->
+     
+     <p> {!$Label.Email_Thankyou} </p>
+     
+     
+     <p> {!$Label.Email_LeadDealerAssign13} </p>
+     
+     <p> {!$Label.Email_LeadDealerAssign14} </p>
+     
+     ----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign15}</p>
+     <p> {!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}</p>
+     <p> {!$Label.Email_LeadDealerAssign18}</p>
+    -----------------------------------------------
+   </body>
+   </html>
+     
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

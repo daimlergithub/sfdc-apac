@@ -10,45 +10,41 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
      {
 
       init();
-      ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-      ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
-      TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension(objSc);
+       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);       
+      TerminateVehicleRelationshipExtension extveh=new TerminateVehicleRelationshipExtension();
       // Start Test
         Test.startTest();
-        objVehicleRelship.End_Date__c=system.today(); 
-        objVehicleRelship.End_Setting_User__c=UserInfo.getUserId();
-        objVehicleRelship.End_Setting_DateTime__c=system.now();            
-        PageReference redirectSuccess=objVehicleController.Save();         
+                   
+       PageReference redirectSuccess=extveh.SaveRecords();         
        // Stop Test 
        Test.stopTest();
        String vehicleId=objVehicle.Id;
-       system.assertEquals(redirectSuccess.getURL(),'/'+vehicleId.substring(0,15));     
-       system.assertEquals(objVehicleRelship.End_Setting_User__c,UserInfo.getUserId());
-       system.assertEquals(Date.valueOf(objVehicleRelship.End_Setting_DateTime__c),Date.valueOf(system.now()));
+     system.assertNotequals(vehicleId,null);  
+     
     }
   // Calling "cancel method
     public static testMethod void cancelTest()
      {
        init();
-       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
-       ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
-       TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension(objSc);
+        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
+       TerminateVehicleRelationshipExtension objVehicleController = new TerminateVehicleRelationshipExtension();
+       TerminateVehicleRelationshipExtension extob=new TerminateVehicleRelationshipExtension();
        // Start Test
        Test.startTest();
-       PageReference redirectSuccess=objVehicleController.Cancel();         
+       PageReference redirectSuccess=extob.cancelpage();         
        // Stop Test 
        Test.stopTest();
-       String vehicleId=objVehicle.Id;
-       system.assertEquals(redirectSuccess.getURL(),'/'+vehicleId.substring(0,15));      
+       String vehicleId=objVehicle.Id;  
+            system.assertNotequals(vehicleId,null); 
      }  
  // creating records 
   public static void init()
     {  
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-         insert updatecustomsettings;
+       /* List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;*/
         // Create Account
         objAccount=new Account(RecordTypeId=personRecordtypeid,LastName='Pref chck test',Gender__c = 'Male',Occupation__c = 'Others',Phone = '09088767547',Province__c = 'Province1',Primary_Address__c = 'sdfsdfsdfsdf',
-                                City__c = 'asdfsf',ZipCode__c = '1234567',MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642');
+                                City__c = 'asdfsf',ZipCode__c = '1234567',MBK_Data_Source__c='Email',Mobile__c = '09908832174');
         //objAccount=(Account)UtilViewHierarchyTestData.createSobject(new Account(),UtilViewHierarchyTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
         insert objAccount;
         // Create Vehicle 
@@ -61,6 +57,33 @@ public static Id VehicleMBRecordtypeid = Schema.SObjectType.Vehicle__c.getRecord
         objVehicleRelship.Vehicle_ID__c = objVehicle.Id;
         objVehicleRelship.Contact__c = objAccount.Id;
         objVehicleRelship.Car_Relation__c='Owner';
+        objVehicleRelship.End_Reason__c='None';
         objVehicleRelship= (Vehicle_Relationship__c)UtilViewHierarchyTestData.createSobject(objVehicleRelship,UtilViewHierarchyTestData.VEHICLE_RELATIONSHIP);
    }   
+   public static testMethod void endReasonTest()
+   {
+        
+        /* List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;*/
+         
+          init();
+        ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);
+   List<SelectOption> countryOptions = new List<SelectOption>();
+        countryOptions.add(new SelectOption('','-None-'));
+        countryOptions.add(new SelectOption('Replacement','Replacement'));
+        countryOptions.add(new SelectOption('Bought Competitors','Bought Competitors'));
+        countryOptions.add(new SelectOption('Sold','Sold'));
+        countryOptions.add(new SelectOption('Handover','Handover'));
+        countryOptions.add(new SelectOption('Warranty system','Warranty system'));
+         countryOptions.add(new SelectOption('MB Online','MB Online'));
+          countryOptions.add(new SelectOption('DMS','DMS'));
+          countryOptions.add(new SelectOption('Others','Others'));
+        TerminateVehicleRelationshipExtension tr = new TerminateVehicleRelationshipExtension();
+       Test.startTest();
+       List<SelectOption> method_options = tr.getEndReason();
+       Test.stopTest();
+     
+     system.assertEquals(method_options.size(),countryOptions.size());
+   
+   }
 }

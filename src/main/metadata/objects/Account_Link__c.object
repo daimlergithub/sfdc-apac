@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>false</enableActivities>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -54,6 +54,260 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
+	<fields>
+        <fullName>CurrentMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>CurrentMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>	
+    <fields>
+        <fullName>LastServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields> 
+	<fields>
+        <fullName>Retail_Updated_Consent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Updated_Consent_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Updated Consent User</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail UCID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastServiceMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Mileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Modified_User_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(LastModifiedBy.User_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Modified User Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NextServiceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Service Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>To_Be_Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>To Be Deleted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NextInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Inspection Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NextMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>NextMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Selling_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Selling Dealer</label>
+		<lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <infoMessage>Search and select accounts.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Selling Dealer)</relationshipLabel>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Representative__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Representative</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
+        <relationshipName>Account_Link3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Dealer_CompanyCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Dealer_GC_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer GC Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Dealer_Company__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Company_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Retail Dealer Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Delete_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Delete Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_LastName__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail LastName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_FirstName__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail FirstName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_LastName_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail LastName Native</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_FirstName_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail FirstName Native</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
@@ -122,30 +376,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CurrentMileage__c</fullName>
-        <externalId>false</externalId>
-        <label>CurrentMileage</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CustomerID__c</fullName>
-        <description>To Store the My Mercedes ID for My Car ID</description>
-        <externalId>false</externalId>
-        <label>Customer ID</label>
-        <length>30</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Dealer_No__c</fullName>
         <externalId>false</externalId>
         <label>Dealer No.</label>
@@ -164,93 +394,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Id__c</fullName>
-        <externalId>false</externalId>
-        <label>Id</label>
-        <length>18</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>IsDeleted__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>IsDeleted</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>LastModifiedById__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Account_Link5</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>LastModifiedDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastModifiedDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>LastServiceDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Service Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>LastServiceMileage__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Service Mileage</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Last_Modified_User_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(LastModifiedBy.User_Type__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Last Modified User Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Last_Service_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Last Service Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Last Service Dealer)</relationshipLabel>
-        <relationshipName>Account_Link1</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>MBConnection__c</fullName>
@@ -278,36 +421,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NextInspectionDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Inspection Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>NextMileage__c</fullName>
-        <externalId>false</externalId>
-        <label>NextMileage</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>NextServiceDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Service Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Origin__c</fullName>
         <externalId>false</externalId>
         <label>Origin</label>
@@ -317,8 +430,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
+    </fields> 
+	<fields>
         <fullName>OwnerId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -330,6 +443,42 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Personal_Abroad_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Abroad Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Personal_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Email_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Email OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Personal_Information_Third_Party_Release__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Information Third Party Release</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
@@ -340,7 +489,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Email</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Portal_ID__c</fullName>
         <externalId>false</externalId>
         <label>My Mercedes Id</label>
@@ -380,7 +529,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -404,7 +552,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -426,6 +573,465 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Primary</label>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Business_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Business Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>S</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Contact_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_CreatedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail CreatedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retail_CustomerType__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail CustomerType</label>
+        <picklist>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Information_Third_Party_Release__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Information Third Party Release</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_LastModifiedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail LastModifiedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Role2__c</fullName>
+        <externalId>false</externalId>
+        <label>Role2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Husband・Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Husband's Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Role_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Role Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Husband・Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields> 
+	<fields>
+        <fullName>Retail_Visit_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Visit OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Person_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Person Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sector__c</fullName>
+        <externalId>false</externalId>
+        <label>Sector</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service &amp; Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SocialMediaAccount_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SocialMediaAccount ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Territory Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign/Project Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>System__c</fullName>
+        <externalId>false</externalId>
+        <label>Mercedes Me Portal</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Account Links</relationshipLabel>
+        <relationshipName>Account_Links</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fromRole__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account 1</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Links (Contact to Contact)</relationshipLabel>
+        <relationshipName>Account_Links1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>CustomerID__c</fullName>
+        <description>To Store the My Mercedes ID for My Car ID</description>
+        <externalId>false</externalId>
+        <label>Customer ID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>IsDeleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IsDeleted</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -459,6 +1065,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -467,50 +1074,140 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_Address_CreatedDate__c</fullName>
-        <description>Readonly</description>
+        <fullName>Retail_Agreement_Info_Processing__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Address CreatedDate</label>
+        <label>Retail Agreement info processing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_Address_LastModifiedDate__c</fullName>
-        <description>Readyonly</description>
+        <fullName>LastModifiedById__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Retail Address LastModifiedDate</label>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Account_Link5</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Retail_Address_Line_1__c</fullName>
-        <description>Readonly</description>
+        <fullName>LastModifiedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Address Line 1</label>
-        <length>35</length>
+        <label>LastModifiedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Last_Service_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Last Service Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Link (Last Service Dealer)</relationshipLabel>
+        <relationshipName>Account_Link1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Phone_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Phone OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Retail_Postal_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Postal OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>SystemModstamp__c</fullName>
+        <externalId>false</externalId>
+        <label>SystemModstamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+	 <fields>
+        <fullName>VIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
+	<fields>
+        <fullName>Retail_DMS_Customer_ID__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail DMS Customer ID</label>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Retail_Address_Line_2__c</fullName>
-        <description>Readonly</description>
+	<fields>
+        <fullName>Retail_Full_Name_Native__c</fullName>
+        <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Address Line 2</label>
-        <length>35</length>
+        <label>Retail Full Name Native</label>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Retail_Company_Name__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Company Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
         <fullName>Retail_Address_Reference__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Read Only</description>
@@ -552,31 +1249,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Agreement_Info_Processing__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Agreement info processing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -598,120 +1270,13 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Allow_Data_Sharing__c</fullName>
-        <description>Readonly</description>
-        <externalId>false</externalId>
-        <label>Retail Allow Data Sharing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Business_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Business Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>S</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>P</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_City__c</fullName>
-        <description>Readonly</description>
-        <externalId>false</externalId>
-        <label>Retail City</label>
-        <length>35</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Comments__c</fullName>
-        <description>Editable only by Dealer</description>
-        <externalId>false</externalId>
-        <label>Retail Comments</label>
-        <length>3200</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Retail_Commercial_Reg_No__c</fullName>
-        <description>Readonly</description>
-        <externalId>false</externalId>
-        <label>Retail Commercial Reg No</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Company_Name_Native1__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail Company Name Native</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Company_Name__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail Company Name</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Company_Other_Phone__c</fullName>
@@ -719,6 +1284,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail Company Other Phone</label>
         <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Company_Name_Native1__c</fullName>
+        <description>Read Only</description>
+        <externalId>false</externalId>
+        <label>Retail Company Name Native</label>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -762,30 +1339,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Retail_Contact_Method__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Contact Method</label>
-        <picklist>
-            <picklistValues>
-                <fullName>No correspondence</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letters to home address</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Retail_Country__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
@@ -815,86 +1368,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Retail_CreatedDate__c</fullName>
+        <fullName>Retail_Address_Line_1__c</fullName>
+        <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail CreatedDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Retail_CustomerType__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail CustomerType</label>
-        <picklist>
-            <picklistValues>
-                <fullName>C</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>P</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_DMS_Customer_ID__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail DMS Customer ID</label>
-        <length>40</length>
+        <label>Retail Address Line 1</label>
+        <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Retail_Dealer_CompanyCode__c</fullName>
+	<fields>
+        <fullName>Retail_Address_Line_2__c</fullName>
+        <description>Readonly</description>
         <externalId>false</externalId>
-        <formula>fromRole__r.Dealer_GC_Code__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Dealer GC Code</label>
+        <label>Retail Address Line 2</label>
+        <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Dealer_Company__c</fullName>
-        <externalId>false</externalId>
-        <formula>fromRole__r.Company_Name__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Retail Dealer Company</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Delete_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Delete Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Retail_Distinct__c</fullName>
@@ -917,17 +1412,32 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
+    </fields> 
     <fields>
-        <fullName>Retail_Email_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
+        <fullName>Retail_Fax__c</fullName>
+        <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Email OptOut</label>
+        <label>Retail Fax</label>
+        <length>15</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Retail_Commercial_Reg_No__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Commercial Reg No</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Retail_Email__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
@@ -949,40 +1459,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Retail_Fax__c</fullName>
+        <fullName>Retail_Foundation_Month__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Fax</label>
-        <length>15</length>
+        <label>Retail Foundation Month</label>
+        <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Retail_FirstName_Native__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail FirstName Native</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_FirstName__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail FirstName</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
+	<fields>
         <fullName>Retail_First_Consent_Date__c</fullName>
         <externalId>false</externalId>
         <label>Retail First Consent Date</label>
@@ -996,30 +1484,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail First Consent User</label>
         <length>15</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Foundation_Month__c</fullName>
-        <description>Readonly</description>
-        <externalId>false</externalId>
-        <label>Retail Foundation Month</label>
-        <length>8</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Full_Name_Native__c</fullName>
-        <description>Read Only</description>
-        <externalId>false</externalId>
-        <label>Retail Full Name Native</label>
-        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1069,7 +1533,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1286,77 +1749,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Information_Third_Party_Release__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Information Third Party Release</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_LastModifiedDate__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail LastModifiedDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Retail_LastName_Native__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail LastName Native</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_LastName__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail LastName</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Mobile__c</fullName>
-        <description>Readonly</description>
-        <externalId>false</externalId>
-        <label>Retail Mobile</label>
-        <length>15</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Occupation__c</fullName>
@@ -1466,7 +1861,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1528,6 +1922,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1547,15 +1942,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Retail_Phone_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Phone OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Retail_Position__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
@@ -1566,15 +1952,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Postal_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Postal OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Retail_Preferred_Contact_Method__c</fullName>
@@ -1604,7 +1981,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1685,7 +2061,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1727,206 +2102,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
-        <fullName>Retail_Province__c</fullName>
+	<fields>
+        <fullName>Retail_City__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Province</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Hokkaido</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aomori</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Iwate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Miyagi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Akita</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yamagata</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fukushima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ibaraki</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tochigi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gunma</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saitama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chiba</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kanagawa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Niigata</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Toyama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ishikawa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fukui</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yamanashi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nagano</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gifu</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shizuoka</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aichi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mie</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shiga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kyoto</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hyogo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nara</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wakayama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tottori</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shimane</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Okayama</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hiroshima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yamaguchi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tokushima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kagawa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ehime</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kochi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fukuoka</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nagasaki</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kumamoto</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oita</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Miyazaki</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kagoshima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Okinawa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Retail City</label>
+        <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Province__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Province</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Related_Company__c</fullName>
@@ -1952,6 +2149,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Retail_Comments__c</fullName>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Retail Comments</label>
+        <length>3200</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Retail_Sales_Consultant__c</fullName>
@@ -1988,7 +2196,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2004,6 +2211,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Allow_Data_Sharing__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Allow Data Sharing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Choice Yet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Retail_Special_Needs_Class__c</fullName>
@@ -2033,41 +2264,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Retail_UCID__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail UCID</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Updated_Consent_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Updated Consent Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Retail_Updated_Consent_User__c</fullName>
-        <externalId>false</externalId>
-        <label>Retail Updated Consent User</label>
-        <length>15</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Vat_No__c</fullName>
@@ -2080,16 +2279,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Retail_Visit_OptOut__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Retail Visit OptOut</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Retail_WebSite__c</fullName>
         <description>Readonly</description>
@@ -2114,6 +2304,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Retail_Mobile__c</fullName>
+        <description>Readonly</description>
+        <externalId>false</externalId>
+        <label>Retail Mobile</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Retail_ZipCode__c</fullName>
         <description>Readonly</description>
@@ -2126,391 +2328,25 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Role2__c</fullName>
+	<fields>
+        <fullName>Retail_Address_LastModifiedDate__c</fullName>
+        <description>Readyonly</description>
         <externalId>false</externalId>
-        <label>Role2</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Husband・Wife</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Husband's Wife</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Role_Text__c</fullName>
-        <externalId>false</externalId>
-        <label>Role Text</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Role__c</fullName>
-        <externalId>false</externalId>
-        <label>Role</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Husband・Wife</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Sales_Person_Id__c</fullName>
-        <externalId>false</externalId>
-        <label>Sales Person Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Sales_Representative__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Sales Representative</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Account_Link</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Sector__c</fullName>
-        <externalId>false</externalId>
-        <label>Sector</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Passenger Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vans</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trucks</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service &amp; Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Selling_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Selling Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Selling Dealer)</relationshipLabel>
-        <relationshipName>Account_Link</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Service_Advisor__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Service Advisor</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Account_Link1</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Service_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Service Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Service Dealer)</relationshipLabel>
-        <relationshipName>Account_Link3</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>SocialMediaAccount_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>SocialMediaAccount ID</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Start_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Start Date</label>
+        <label>Retail Address LastModifiedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
-        <fullName>Status__c</fullName>
+	<fields>
+        <fullName>Retail_Address_CreatedDate__c</fullName>
+        <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Dealer Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>My Shop</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Last Selling</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Last Servicing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Territory Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign/Project Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Shops</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SystemModstamp__c</fullName>
-        <externalId>false</externalId>
-        <label>SystemModstamp</label>
+        <label>Retail Address CreatedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>System__c</fullName>
-        <externalId>false</externalId>
-        <label>Mercedes Me Portal</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>To_Be_Deleted__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>To Be Deleted</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Updated_By_EP_Transactions__c</fullName>
-        <externalId>false</externalId>
-        <label>Updated By EP Transactions</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>VIN__c</fullName>
-        <externalId>false</externalId>
-        <formula>Vehicle__r.UsVIN__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>VIN</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Account Links</relationshipLabel>
-        <relationshipName>Account_Links</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>fromRole__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Account 1</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Links (Contact to Contact)</relationshipLabel>
-        <relationshipName>Account_Links1</relationshipName>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>toRole__c</fullName>
@@ -2530,15 +2366,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
-    </listViews>
-    <listViews>
-        <fullName>CCC_Manager_KR_Account_Link</fullName>
-        <filterScope>Queue</filterScope>
-        <label>CCC Manager KR</label>
-        <queue>CCC_Manager_KR</queue>
-        <sharedTo>
-            <allInternalUsers/>
-        </sharedTo>
     </listViews>
     <nameField>
         <label>Name</label>
@@ -3182,10 +3009,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>My Shop</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>My Shops</fullName>
                 <default>false</default>
             </values>
@@ -3395,7 +3218,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+	 <recordTypes>
         <fullName>Retail_Company</fullName>
         <active>true</active>
         <label>Retail Company</label>
@@ -3403,21 +3226,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             <picklist>Portal_Source__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Type__c</picklist>
-            <values>
-                <fullName>M-Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal %28M-Care%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3437,6 +3245,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>Retail_Address_Type__c</picklist>
             <values>
                 <fullName>Business</fullName>
@@ -3460,21 +3283,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Agreement_Info_Processing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Retail_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3489,14 +3297,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Choice Yet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3535,25 +3339,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Retail_Country__c</picklist>
-            <values>
-                <fullName>Australia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Retail_CustomerType__c</picklist>
             <values>
                 <fullName>C</fullName>
@@ -3572,22 +3357,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Gender__c</picklist>
-            <values>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Advertising %2F Marketing</fullName>
@@ -3797,110 +3567,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Occupation__c</picklist>
-            <values>
-                <fullName>Accounting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Athlete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Automotive related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dentist</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Doctor</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Freelancers</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government employees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Housekeeping</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Housewife</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lawyer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Official Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pensioner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pilot</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professionals %26 Technical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reject to answer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Self-employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Show Business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Student</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Teacher</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technician</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>enterprise and public institution responsible officer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_OptOutContact_Reason__c</picklist>
             <values>
                 <fullName>Campaign %28Aftersales%29</fullName>
@@ -3954,8 +3621,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues>        
+		<picklistValues>
             <picklist>Retail_Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Direct Mail</fullName>
@@ -4049,232 +3716,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Primary_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Province__c</picklist>
-            <values>
-                <fullName>Aichi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Akita</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aomori</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chiba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ehime</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukui</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukuoka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukushima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gifu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gunma</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hiroshima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hokkaido</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hyogo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ibaraki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ishikawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iwate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kagawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kagoshima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kanagawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kochi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kumamoto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kyoto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mie</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Miyagi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Miyazaki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nagano</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nagasaki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nara</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niigata</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oita</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Okayama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Okinawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saitama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shiga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shimane</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shizuoka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tochigi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokushima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tottori</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Toyama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wakayama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamagata</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamaguchi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamanashi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Sales_Sanction__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -4382,21 +3824,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Portal_Type__c</picklist>
-            <values>
-                <fullName>M-Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal %28M-Care%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Retail_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4412,6 +3839,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Retail_Agreement_Info_Processing__c</picklist>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>Retail_Address_Type__c</picklist>
             <values>
                 <fullName>Business</fullName>
@@ -4431,21 +3873,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Other Address 3</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Agreement_Info_Processing__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4471,79 +3898,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Business_Type__c</picklist>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Contact_Method__c</picklist>
-            <values>
-                <fullName>Letters to home address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No correspondence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Country__c</picklist>
-            <values>
-                <fullName>Australia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_CustomerType__c</picklist>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4562,7 +3917,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Advertising %2F Marketing</fullName>
@@ -4875,7 +4230,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_OptOutContact_Reason__c</picklist>
             <values>
                 <fullName>Campaign %28Aftersales%29</fullName>
@@ -4940,6 +4295,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
+
             <values>
                 <fullName>Fax</fullName>
                 <default>false</default>
@@ -4953,7 +4309,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Retail_Preferred_Language__c</picklist>
             <values>
                 <fullName>Chinese</fullName>
@@ -5011,6 +4367,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Tagalogue</fullName>
                 <default>false</default>
             </values>
+
             <values>
                 <fullName>Thai</fullName>
                 <default>false</default>
@@ -5023,238 +4380,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Primary_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Province__c</picklist>
-            <values>
-                <fullName>Aichi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Akita</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aomori</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chiba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ehime</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukui</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukuoka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fukushima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gifu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gunma</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hiroshima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hokkaido</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hyogo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ibaraki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ishikawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iwate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kagawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kagoshima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kanagawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kochi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kumamoto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kyoto</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mie</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Miyagi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Miyazaki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nagano</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nagasaki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nara</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niigata</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oita</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Okayama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Okinawa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saitama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shiga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shimane</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shizuoka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tochigi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokushima</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tottori</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Toyama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wakayama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamagata</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamaguchi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yamanashi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Sales_Sanction__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        </picklistValues>	
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
                 <default>false</default>
             </values>
+
             <values>
                 <fullName>B</fullName>
                 <default>false</default>
@@ -5273,6 +4406,71 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+			
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>After-Sales</fullName>
@@ -5614,4 +4812,122 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
-</CustomObject>
+    <validationRules>
+        <fullName>Retail_Company_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Company_Name_Native1__c),
+REGEX(Retail_Company_Name_Native1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Company_Name_Native1__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_First_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_FirstName_Native__c),
+REGEX(Retail_FirstName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_FirstName_Native__c</errorDisplayField>
+        <errorMessage>IT Should be KANA Characters</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Retail_Full_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_Full_Name_Native__c),OR(CONTAINS(Retail_Full_Name_Native__c, ' ') ,
+REGEX(Retail_Full_Name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*")))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_Full_Name_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Last_Name_Native_Kana</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(
+OR(
+ISBLANK(Retail_LastName_Native__c),
+REGEX(Retail_LastName_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Retail_LastName_Native__c</errorDisplayField>
+        <errorMessage>It should be "Kana" characters.</errorMessage>
+    </validationRules>
+	<webLinks>
+        <fullName>Delete_retail_copy</fullName>
+        <availability>online</availability>
+        <description>Created for SFDCJP-753</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete retail copy</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var RetailCopyflag = "{!Account_Link__c.Retail_Delete_Flag__c}";
+var RTType = "{!Account_Link__c.RecordTypeId}";
+var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Company'"); 
+var rt = RTs.getArray("records"); 
+var RTs1 = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Person'"); 
+var rt1 = RTs1.getArray("records");
+if(RetailCopyflag != true &amp;&amp; RTType != rt[0].Id &amp;&amp; RTType != rt1[0].Id){
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!Account_Link__c.Id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
+}
+else {
+alert("{!$Label.AlreadyProcessed}");
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Send_To_AutoLine</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send To AutoLine</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var r = confirm("Are you sure want to send information to Auto Line interface?");
+
+if(r == true)
+{ 
+var resultMsg= 
+sforce.apex.execute("UtilWebservice","AccountLinkIfnoSendToAL",{RTCustomerId:"{!Account_Link__c.Id__c}",DealerID:"{!Account_Link__c.fromRoleId__c}",CorrelationId:"{!Account_Link__c.CorrelationID__c}"});
+if(resultMsg!=null)
+{
+alert("Successfully Sent Information to AutoLine");
+function updateAccountLink(){
+//Create a New Account and Set the Fields
+var accountlinkToUpdate = new sforce.SObject("Account_Link__c");
+accountlinkToUpdate.Id = "{!Account_Link__c.Id}";
+accountlinkToUpdate.CorrelationID__c = " ";
+
+//Save it to the Database
+var updateResult = sforce.connection.update([accountlinkToUpdate]);
+//If the Update was Successful Refresh the Page
+if(updateResult[0].success === "true"){
+location.reload();
+}
+//Else Show the Error
+else{
+alert(updateResult[0].errors.message);
+}
+}
+var correlation = "{!Account_Link__c.CorrelationID__c}";
+
+if(correlation != " " || correlation !=null){
+updateAccountLink();
+
+}
+
+}
+else
+{
+alert("Web service callout failed");
+}
+}</url>
+    </webLinks> 
+</CustomObject> 

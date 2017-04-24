@@ -30,7 +30,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Limited',
                                     ZipCode__c='1004324',
-                                    Salutation='Brother',MBK_Data_Source__c ='Email',Mobile__c ='000-123-4567',
+                                    Salutation='Brother',Mobile__c ='01234567897',
                                     FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;  
@@ -50,7 +50,7 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
                                 Mobile2__c = '034456232',
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
-                                Primary_Phone__c ='Other2',MBK_Data_Source__c ='Email',
+                                Primary_Phone__c ='Other2',
                                 
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
       

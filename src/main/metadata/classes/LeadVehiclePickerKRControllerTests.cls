@@ -21,11 +21,14 @@ public without sharing class LeadVehiclePickerKRControllerTests{
     /********************* CREATING TEST DATA : START **************************/
         
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-
+        //insert updatecustomsettings;
+Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountLinkTriggerHandlerJP',update__c=False,insert__c=False,delete__c=False,after__c=False,before__c=False,enabled__c=False,Market__c='JP');
+        insert TriggerAddress;
+        Trigger__c TriggerAddress1=new Trigger__c(Name='TriggerLead',Trigger_Name__c='TriggerLead',Trigger_Handler__c='TriggerLeadTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        //insert TriggerAddress1;
         UtilConstant utilConst = new UtilConstant();     
         //testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
-        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9842');
+        Account ta = new Account(RecordTypeId=personRecordtypeid,LastName='test123',MBK_Data_Source__c='Email');
         insert ta;
         system.debug('Accounts... :' +ta );
         testLead = new Lead__c(RecordTypeId=salesleadsRecordtypeid,Contact__c = ta.Id,CAC_Lead_Status__c = 'Qualified',Lead_Type__c = 'New Car');
@@ -346,8 +349,9 @@ public without sharing class LeadVehiclePickerKRControllerTests{
             Map<String,String> clearVehicleDetails = new Map<String,String>();
             clearVehicleDetails.put('VehicleType',vehicle);
             clearVehicleDetails.put('CurrentRecordId',testLead.Id);
+        
             LeadVehiclePickerKRController.clearVehicleFromLead(JSON.serialize(clearVehicleDetails));
-            
+           
             if (vehicle.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                 //leadDetails = [Select Interested_Vehicle__c from Lead__c where Id =:testLead.Id];
                 system.debug('Cleared Vehicle Id:' +leadDetails.Interested_Vehicle__c);
@@ -445,7 +449,7 @@ public without sharing class LeadVehiclePickerKRControllerTests{
         
         //Creating associated data for search test.
         //Account testAccount = (Account)UtilTestData.createSobject(new Account(MBK_Data_Source__c='Email',Mobile__c ='000-123-4567'), UtilConstant.person_Account);
-        Account testAccount = new Account(RecordTypeId=personRecordtypeid,LastName='test23',MBK_Data_Source__c='Email',Mobile__c ='000-0000-9842');
+        Account testAccount = new Account(RecordTypeId=personRecordtypeid,LastName='test23',MBK_Data_Source__c='Email');
         insert testAccount;
         system.debug('$$$$$$$$$$$$'+testAccount);
         system.debug('$$$$$$$$$$$$'+testAccount.Id);

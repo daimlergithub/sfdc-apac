@@ -17,14 +17,14 @@
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>先行伝票番号</value>
+            <value>先行ケース番号</value>
         </caseValues>
         <name>parent_case</name>
     </fields>
     <fields>
         <caseValues>
             <plural>false</plural>
-            <value>先行伝票番号</value>
+            <value>先行ケース番号</value>
         </caseValues>
         <name>parent_case_id</name>
     </fields>
@@ -56,8 +56,60 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Accident repair history --></label>
+        <label>事故修復歴</label>
         <name>Accident_repair_history__c</name>
+    </fields>
+    <fields>
+        <label>決算月</label>
+        <name>Account_Closing_Month__c</name>
+        <picklistValues>
+            <masterLabel>April</masterLabel>
+            <translation><!-- April --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>August</masterLabel>
+            <translation><!-- August --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>December</masterLabel>
+            <translation><!-- December --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>February</masterLabel>
+            <translation><!-- February --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>January</masterLabel>
+            <translation><!-- January --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>July</masterLabel>
+            <translation><!-- July --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>June</masterLabel>
+            <translation><!-- June --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>March</masterLabel>
+            <translation><!-- March --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>May</masterLabel>
+            <translation><!-- May --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>November</masterLabel>
+            <translation><!-- November --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>October</masterLabel>
+            <translation><!-- October --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>September</masterLabel>
+            <translation><!-- September --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Activity Code --></label>
@@ -69,12 +121,16 @@
     </fields>
     <fields>
         <help><!-- Address for Transfer Certificate (Receiver) --></help>
-        <label><!-- Address for Transfer Certificate --></label>
+        <label>譲渡書類の送付先</label>
         <name>Address_for_Transfer_Certificate__c</name>
     </fields>
     <fields>
         <label><!-- Aftersales Manager --></label>
         <name>Aftersales_Manager__c</name>
+    </fields>
+    <fields>
+        <label>販売店コンタクト済</label>
+        <name>Already_Contacted_Dealer__c</name>
     </fields>
     <fields>
         <label>代替手段</label>
@@ -91,12 +147,16 @@
     </fields>
     <fields>
         <help><!-- For Non-Retail --></help>
-        <label><!-- Area manager approval --></label>
+        <label>エリアマネージャー承認</label>
         <name>Area_manager_approval__c</name>
     </fields>
     <fields>
         <label><!-- Authentification Address --></label>
         <name>Authentification_Address__c</name>
+    </fields>
+    <fields>
+        <label>口座変更予定日</label>
+        <name>Bank_Account_of_Change_Date__c</name>
     </fields>
     <fields>
         <label><!-- Best Contact Time --></label>
@@ -107,7 +167,7 @@
         <name>Bonus_payment_amount__c</name>
     </fields>
     <fields>
-        <label><!-- Bonus payment month 1/month 2 --></label>
+        <label>ボーナス月設定1/設定2</label>
         <name>Bonus_payment_month_1_month_2__c</name>
         <picklistValues>
             <masterLabel>Apr</masterLabel>
@@ -163,7 +223,7 @@
         <name>Book_In_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Buyer --></label>
+        <label>売却先</label>
         <name>Buyer__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -187,15 +247,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- CA Number --></label>
+        <label>CA番号</label>
         <name>CA_Number__c</name>
     </fields>
     <fields>
-        <label><!-- CA Requested --></label>
+        <label>審査依頼済み</label>
         <name>CA_Requested__c</name>
     </fields>
     <fields>
-        <label><!-- CA Result --></label>
+        <label>CA結果</label>
         <name>CA_Result__c</name>
         <picklistValues>
             <masterLabel>JPOS status (MBF internal)</masterLabel>
@@ -203,11 +263,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- CA application submitted --></label>
+        <label>審査申込書提出依頼済</label>
         <name>CA_application_submitted__c</name>
     </fields>
     <fields>
-        <label><!-- CA result shared --></label>
+        <label>審査結果連絡済</label>
         <name>CA_result_shared__c</name>
     </fields>
     <fields>
@@ -239,7 +299,7 @@
         <name>Call_Duration__c</name>
     </fields>
     <fields>
-        <label>キャンペーンID</label>
+        <label>対象キャンペーン</label>
         <name>Campaign__c</name>
         <relationshipLabel>ケース</relationshipLabel>
     </fields>
@@ -5404,7 +5464,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>Car Model</label>
+        <label>モデル</label>
         <name>Car_Model__c</name>
         <picklistValues>
             <masterLabel>2013 smart Chocolate Special Edition</masterLabel>
@@ -5880,7 +5940,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Car Owner --></label>
+        <label>担当者</label>
         <name>Car_Owner__c</name>
         <relationshipLabel><!-- Cases(Car Owner) --></relationshipLabel>
     </fields>
@@ -5933,7 +5993,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>カテゴリ</label>
+        <label>ケースカテゴリ</label>
         <name>Case_Class__c</name>
         <picklistValues>
             <masterLabel>After-Sales</masterLabel>
@@ -5946,6 +6006,10 @@
         <picklistValues>
             <masterLabel>Complaint</masterLabel>
             <translation>苦情</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Closing</masterLabel>
+            <translation><!-- Contract Closing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance</masterLabel>
@@ -5980,6 +6044,10 @@
             <translation><!-- Pre-Sales --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Quotation</masterLabel>
+            <translation><!-- Quotation --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Request</masterLabel>
             <translation>リクエスト</translation>
         </picklistValues>
@@ -5995,21 +6063,21 @@
     <fields>
         <label>関係者</label>
         <name>Case_Complainant__c</name>
-        <relationshipLabel><!-- Cases (Case Complainant) --></relationshipLabel>
+        <relationshipLabel>顧客名</relationshipLabel>
     </fields>
     <fields>
-        <label>展開先(販売店担当者)</label>
+        <label>販売店担当者</label>
         <name>Case_Dealer_User__c</name>
         <relationshipLabel><!-- Cases (Escalation to (Dealer PIC)) --></relationshipLabel>
     </fields>
     <fields>
-        <label>展開先(販売店)</label>
+        <label>販売店</label>
         <lookupFilter>
             <errorMessage>適切な販売店を選択して下さい。</errorMessage>
             <informationalMessage>販売店の検索と選択が可能です。</informationalMessage>
         </lookupFilter>
         <name>Case_Dealer__c</name>
-        <relationshipLabel><!-- Cases (Dealer) --></relationshipLabel>
+        <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
         <label>要求(誰に)</label>
@@ -6039,12 +6107,20 @@
             <translation>MBJ（インポーター）</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MBF</masterLabel>
+            <translation>要求(誰に)</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Marketing</masterLabel>
             <translation><!-- Marketing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ND</masterLabel>
             <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other MBF related party</masterLabel>
+            <translation>要求(誰に)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
@@ -6054,13 +6130,21 @@
             <masterLabel>Sales</masterLabel>
             <translation>販売店/サービス工場</translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Shinpan (JACCS)</masterLabel>
+            <translation>要求(誰に)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shinpan (ORICO)</masterLabel>
+            <translation>要求(誰に)</translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Case FieldManager --></label>
         <name>Case_FieldManager__c</name>
     </fields>
     <fields>
-        <label><!-- Case Follow Up --></label>
+        <label>販売店内部メモ</label>
         <name>Case_Follow_Up__c</name>
     </fields>
     <fields>
@@ -6131,6 +6215,14 @@
             <translation>解決できない</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Consultation /Inquiry /Others</masterLabel>
+            <translation><!-- Consultation /Inquiry /Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demand /Request</masterLabel>
+            <translation><!-- Demand /Request --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Do not know</masterLabel>
             <translation>わからない</translation>
         </picklistValues>
@@ -6155,6 +6247,14 @@
             <translation>満足である</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Serious dissatisfaction /Complaint</masterLabel>
+            <translation><!-- Serious dissatisfaction /Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unreasonable dissatisfaction /Complaint</masterLabel>
+            <translation><!-- Unreasonable dissatisfaction /Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Would like to check</masterLabel>
             <translation>聞いてほしい</translation>
         </picklistValues>
@@ -6172,7 +6272,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>ステータス</label>
+        <label>販売店ステータス</label>
         <name>Case_Status__c</name>
         <picklistValues>
             <masterLabel>Accepted</masterLabel>
@@ -6312,7 +6412,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>CSI</masterLabel>
-            <translation><!-- CSI --></translation>
+            <translation>CSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificat of Comfort</masterLabel>
+            <translation>CoC書類</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Certification</masterLabel>
@@ -6387,6 +6491,22 @@
             <translation>活動（ロイヤリティ）その他</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MBF Current Contract (Lease)</masterLabel>
+            <translation><!-- MBF Current Contract (Lease) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF Current Contract (Loan)</masterLabel>
+            <translation><!-- MBF Current Contract (Loan) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF Product (Lease)</masterLabel>
+            <translation><!-- MBF Product (Lease) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF Product (Loan)</masterLabel>
+            <translation><!-- MBF Product (Loan) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Magazine</masterLabel>
             <translation>マガジン</translation>
         </picklistValues>
@@ -6445,6 +6565,10 @@
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation>None</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other MBF related</masterLabel>
+            <translation><!-- Other MBF related --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Out of MBJ scope request</masterLabel>
@@ -6587,6 +6711,26 @@
             <translation><!-- AD Sale --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>About assessment</masterLabel>
+            <translation><!-- About assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About procedure for cancellation</masterLabel>
+            <translation><!-- About procedure for cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About procedure for changes</masterLabel>
+            <translation><!-- About procedure for changes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About procedure for maturity</masterLabel>
+            <translation><!-- About procedure for maturity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>About procedure for new contract creation</masterLabel>
+            <translation><!-- About procedure for new contract creation --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Advertising sales</masterLabel>
             <translation><!-- Advertising sales --></translation>
         </picklistValues>
@@ -6637,6 +6781,10 @@
         <picklistValues>
             <masterLabel>Change your personal information</masterLabel>
             <translation><!-- Change your personal information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed end lease (Mileage plan)</masterLabel>
+            <translation><!-- Closed end lease (Mileage plan) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Collection Others</masterLabel>
@@ -6753,6 +6901,10 @@
         <picklistValues>
             <masterLabel>Dealer attitude</masterLabel>
             <translation>[販売店/サービス工場]対応・姿勢</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer information</masterLabel>
+            <translation><!-- Dealer information --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer location</masterLabel>
@@ -6887,6 +7039,10 @@
             <translation><!-- HR --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Interest campaign</masterLabel>
+            <translation><!-- Interest campaign --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Interested in MB Accessories &amp; Collection</masterLabel>
             <translation><!-- Interested in MB Accessories &amp; Collection --></translation>
         </picklistValues>
@@ -6995,6 +7151,10 @@
             <translation><!-- Network Development --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Open end lease</masterLabel>
+            <translation><!-- Open end lease --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Opt-Out for Contact / DM / EDM</masterLabel>
             <translation><!-- Opt-Out for Contact / DM / EDM --></translation>
         </picklistValues>
@@ -7021,6 +7181,10 @@
         <picklistValues>
             <masterLabel>PR</masterLabel>
             <translation><!-- PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment</masterLabel>
+            <translation><!-- Payment --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Personal Profile Change</masterLabel>
@@ -7139,6 +7303,14 @@
             <translation><!-- Special courses --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Standard loan</masterLabel>
+            <translation><!-- Standard loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super welcome plan</masterLabel>
+            <translation><!-- Super welcome plan --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Technical / Parts / Car Maintenance Enquiry</masterLabel>
             <translation><!-- Technical / Parts / Car Maintenance Enquiry --></translation>
         </picklistValues>
@@ -7233,6 +7405,10 @@
         <picklistValues>
             <masterLabel>Warranty Enquiry</masterLabel>
             <translation><!-- Warranty Enquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Welcome plan</masterLabel>
+            <translation><!-- Welcome plan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>personal</masterLabel>
@@ -7343,12 +7519,32 @@
             <translation><!-- Dealer contact method --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Early Termination</masterLabel>
+            <translation><!-- Early Termination --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Finance &amp; Insurance</masterLabel>
             <translation><!-- Finance &amp; Insurance --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Finance campaign</masterLabel>
+            <translation><!-- Finance campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance contact origination process and procedure</masterLabel>
+            <translation><!-- Finance contact origination process and procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance products (Lease and Loan)</masterLabel>
+            <translation><!-- Finance products (Lease and Loan) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Finance service</masterLabel>
             <translation><!-- Finance service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General contract related (Lease and Loan)</masterLabel>
+            <translation><!-- General contract related (Lease and Loan) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Guarantee repair &amp; maintenance</masterLabel>
@@ -7387,6 +7583,18 @@
             <translation><!-- MBDA service --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>MBF Change Request (W CA)</masterLabel>
+            <translation><!-- MBF Change Request (W CA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF Change Request (WO CA)</masterLabel>
+            <translation><!-- MBF Change Request (WO CA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBF Documentation Request</masterLabel>
+            <translation><!-- MBF Documentation Request --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>MBJ</masterLabel>
             <translation>MBJ（インポーター)</translation>
         </picklistValues>
@@ -7413,6 +7621,18 @@
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation>その他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payout</masterLabel>
+            <translation><!-- Payout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Appraisal (Close End)</masterLabel>
+            <translation><!-- Pre-Appraisal (Close End) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Appraisal (SWP)</masterLabel>
+            <translation><!-- Pre-Appraisal (SWP) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Pre-Sales</masterLabel>
@@ -7443,6 +7663,14 @@
             <translation><!-- RSA --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation><!-- Re-Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-loan</masterLabel>
+            <translation><!-- Re-loan --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Recruit campaign</masterLabel>
             <translation><!-- Recruit campaign --></translation>
         </picklistValues>
@@ -7451,8 +7679,24 @@
             <translation><!-- Recruiting --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Return (Close End)</masterLabel>
+            <translation><!-- Return (Close End) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return (Open End)</masterLabel>
+            <translation><!-- Return (Open End) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return (SWP)</masterLabel>
+            <translation><!-- Return (SWP) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Second car exchange</masterLabel>
             <translation><!-- Second car exchange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sensitive customer information (Lease and Loan)</masterLabel>
+            <translation><!-- Sensitive customer information (Lease and Loan) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Smart</masterLabel>
@@ -7472,6 +7716,10 @@
         <name>Cause__c</name>
     </fields>
     <fields>
+        <label>残高証明書年月日</label>
+        <name>Certificate_of_Outstanding_Balance__c</name>
+    </fields>
+    <fields>
         <label><!-- CheckFlag 48H --></label>
         <name>CheckFlag_48H__c</name>
     </fields>
@@ -7485,7 +7733,39 @@
         <name>Close_Relevant_Repeat_Complaint__c</name>
     </fields>
     <fields>
-        <label><!-- Communicated with Previous dealer --></label>
+        <label><!-- Closing Method --></label>
+        <name>Closing_Method__c</name>
+        <picklistValues>
+            <masterLabel>Early Termination</masterLabel>
+            <translation><!-- Early Termination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay-Out</masterLabel>
+            <translation><!-- Pay-Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation><!-- Re-Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Loan</masterLabel>
+            <translation><!-- Re-Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return (Close-end)</masterLabel>
+            <translation><!-- Return (Close-end) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return (Open-end)</masterLabel>
+            <translation><!-- Return (Open-end) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return (SWP)</masterLabel>
+            <translation><!-- Return (SWP) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>販売店引継済み</label>
         <name>Communicated_with_Previous_dealer__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -7495,6 +7775,10 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>会社名</label>
+        <name>Company_Name__c</name>
     </fields>
     <fields>
         <label><!-- First Name --></label>
@@ -7533,7 +7817,7 @@
         <name>Complaint__c</name>
     </fields>
     <fields>
-        <label><!-- Confirmation person --></label>
+        <label>説明相手</label>
         <name>Confirmation_person__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -7557,11 +7841,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Confirmed with (Person name) --></label>
+        <label>説明相手(名前)</label>
         <name>Confirmed_with_Person_name__c</name>
     </fields>
     <fields>
-        <label><!-- Contact Number --></label>
+        <label>契約番号</label>
         <name>Contact_Number__c</name>
     </fields>
     <fields>
@@ -7577,17 +7861,25 @@
         <name>Contact_Type__c</name>
     </fields>
     <fields>
+        <label>現契約番号</label>
+        <name>Contract_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- CRM1 Contract Number --></label>
         <name>Contract_Number_or_Policy_Number__c</name>
         <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Contract document requested date --></label>
+        <label>契約書類必着日</label>
         <name>Contract_document_requested_date__c</name>
     </fields>
     <fields>
         <label><!-- Contractor UCID --></label>
         <name>Contractor_UCID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contractor UCID --></label>
+        <name>Contractor_UCID_del__c</name>
     </fields>
     <fields>
         <label><!-- Correction --></label>
@@ -7614,6 +7906,30 @@
         <label><!-- Present Possessed Brand 2 --></label>
         <name>Current_Vehicle_2__c</name>
         <relationshipLabel><!-- Cases (Present Possessed Brand 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>住所区分</label>
+        <name>Customer_Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Actual</masterLabel>
+            <translation><!-- Actual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mailing</masterLabel>
+            <translation><!-- Mailing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration</masterLabel>
+            <translation><!-- Registration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>住所</label>
+        <name>Customer_Address__c</name>
     </fields>
     <fields>
         <label><!-- Customer Background Info --></label>
@@ -7716,12 +8032,12 @@
         <label>終了時印象</label>
         <name>Customer_Satisfaction__c</name>
         <picklistValues>
-            <masterLabel>A 満足</masterLabel>
-            <translation><!-- A 満足 --></translation>
+            <masterLabel>A æº€è¶³</masterLabel>
+            <translation><!-- A æº€è¶³ --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>B 納得</masterLabel>
-            <translation><!-- B 納得 --></translation>
+            <masterLabel>B ç´å¾—</masterLabel>
+            <translation><!-- B ç´å¾— --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Compromised</masterLabel>
@@ -7820,6 +8136,10 @@
             <translation>新聞社</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Other MBF related party</masterLabel>
+            <translation><!-- Other MBF related party --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Other department</masterLabel>
             <translation>他部署</translation>
         </picklistValues>
@@ -7852,6 +8172,14 @@
             <translation>正規オーナー</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Shinpan (JACCS)</masterLabel>
+            <translation><!-- Shinpan (JACCS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shinpan (ORICO)</masterLabel>
+            <translation><!-- Shinpan (ORICO) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>TV</masterLabel>
             <translation>テレビ局</translation>
         </picklistValues>
@@ -7881,7 +8209,32 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- DOB --></label>
+        <help><!-- How the customer was feeling when he enter the support case. --></help>
+        <label><!-- Customer emoticon --></label>
+        <name>Customer_emoticon__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer emoticon value --></label>
+        <name>Customer_emoticon_value__c</name>
+        <picklistValues>
+            <masterLabel>annoyed</masterLabel>
+            <translation><!-- annoyed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>confused</masterLabel>
+            <translation><!-- confused --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>frustrated</masterLabel>
+            <translation><!-- frustrated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>happy</masterLabel>
+            <translation><!-- happy --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>生年月日</label>
         <name>DOB__c</name>
     </fields>
     <fields>
@@ -7900,8 +8253,16 @@
             <translation>キャンペーン</translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>DSC</masterLabel>
+            <translation>DSC</translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Dealer</masterLabel>
             <translation>販売店/サービス工場</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Outlet</masterLabel>
+            <translation>販売店</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealers</masterLabel>
@@ -7913,7 +8274,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>English Customer Desk</masterLabel>
-            <translation><!-- English Customer Desk --></translation>
+            <translation>English Customer Desk</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event</masterLabel>
@@ -7930,6 +8291,10 @@
         <picklistValues>
             <masterLabel>Letter</masterLabel>
             <translation>手紙/ハガキ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letter to Executive</masterLabel>
+            <translation>役員宛て書面</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MB Connection</masterLabel>
@@ -8101,7 +8466,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Date Received --></label>
+        <label>書類必着日</label>
         <name>Date_Received__c</name>
     </fields>
     <fields>
@@ -8121,11 +8486,11 @@
         <name>Date_of_Warranty_Expiry__c</name>
     </fields>
     <fields>
-        <label><!-- Date of application input --></label>
+        <label>解約申込書記入日</label>
         <name>Date_of_application_input__c</name>
     </fields>
     <fields>
-        <label>指定終了日時</label>
+        <label>開始日</label>
         <name>DeadLine__c</name>
     </fields>
     <fields>
@@ -8677,19 +9042,19 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Document sending date --></label>
+        <label>書類送付日</label>
         <name>Document_sending_date__c</name>
     </fields>
     <fields>
-        <label><!-- Down payment --></label>
+        <label>頭金有</label>
         <name>Down_payment__c</name>
     </fields>
     <fields>
-        <label><!-- Due date of adjustment charge --></label>
+        <label>差額精算金支払期日</label>
         <name>Due_date_of_adjustment_charge__c</name>
     </fields>
     <fields>
-        <label><!-- ET Type for Close Mileage --></label>
+        <label>合意タイプ</label>
         <name>ET_Type_for_Close_Mileage__c</name>
         <picklistValues>
             <masterLabel>ET A</masterLabel>
@@ -8701,7 +9066,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- ET calculation sheet availability check --></label>
+        <label>解約申込書保有確認</label>
         <name>ET_calculation_sheet_availability_check__c</name>
         <picklistValues>
             <masterLabel>No but can confirm</masterLabel>
@@ -8749,7 +9114,7 @@
         <name>Email__c</name>
     </fields>
     <fields>
-        <label><!-- Enclosure of new contract --></label>
+        <label>新規契約書同時発送/その他同封あり</label>
         <name>Enclosure_of_new_contract__c</name>
     </fields>
     <fields>
@@ -8810,7 +9175,7 @@
         <name>EuroVIN__c</name>
     </fields>
     <fields>
-        <label><!-- Evidence Check --></label>
+        <label>証拠書類チェック</label>
         <name>Evidence_Check__c</name>
         <picklistValues>
             <masterLabel>Checked</masterLabel>
@@ -8824,6 +9189,10 @@
             <masterLabel>Not Required</masterLabel>
             <translation><!-- Not Required --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label>現在の口座可能時期</label>
+        <name>Existing_Account_Availability_Date__c</name>
     </fields>
     <fields>
         <label><!-- External Case ID --></label>
@@ -8870,7 +9239,7 @@
         <name>Feedback_Read__c</name>
     </fields>
     <fields>
-        <label><!-- Feedback Required --></label>
+        <label>VOCフラグ</label>
         <name>Feedback_Required__c</name>
     </fields>
     <fields>
@@ -8894,28 +9263,28 @@
         <name>Final__c</name>
     </fields>
     <fields>
-        <label><!-- Final-app : Planned repossession date --></label>
+        <label>引揚予定日</label>
         <name>Final_app_Planned_repossession_date__c</name>
     </fields>
     <fields>
-        <label><!-- Final-app:billing date of penalty charge --></label>
+        <label>最終査定結果：請求書（ペナルティ）送付依頼日</label>
         <name>Final_app_billing_date_of_penalty_charge__c</name>
     </fields>
     <fields>
-        <label><!-- Final-app : date --></label>
+        <label>最終査定：査定日</label>
         <name>Final_app_date__c</name>
     </fields>
     <fields>
-        <label><!-- Final-app : due date of penalty charge --></label>
+        <label>最終査定結果：支払期日（ペナルティ）</label>
         <name>Final_app_due_date_of_penalty_charge__c</name>
     </fields>
     <fields>
-        <label><!-- Final-app : payment confirmation --></label>
+        <label>最終査定結果：支払承認日</label>
         <name>Final_app_payment_confirmation__c</name>
     </fields>
     <fields>
         <help><!-- Final-app result: Invoice amount_Penalty sum --></help>
-        <label><!-- Final-app result: Invoice amount_Penalty --></label>
+        <label>最終査定結果：請求額_ペナルティ合計</label>
         <name>Final_app_result_Invoice_amount_Penalty__c</name>
     </fields>
     <fields>
@@ -8956,7 +9325,7 @@
         <name>First_OB_Date__c</name>
     </fields>
     <fields>
-        <label><!-- First payment --></label>
+        <label>初回年月</label>
         <name>First_payment__c</name>
     </fields>
     <fields>
@@ -8993,7 +9362,7 @@
         <name>Fourth_OB_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Full Name --></label>
+        <label>氏名</label>
         <name>Full_Name__c</name>
     </fields>
     <fields>
@@ -9061,7 +9430,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Govt. Subsidy reimburse --></label>
+        <label>補助金返還（注意）</label>
         <name>Govt_Subsidy_reimburse__c</name>
         <picklistValues>
             <masterLabel>Explained</masterLabel>
@@ -9721,7 +10090,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Inquiry Comments --></label>
+        <label>コメント（販売店)</label>
         <name>Inquiry_Comments__c</name>
     </fields>
     <fields>
@@ -9735,7 +10104,11 @@
         <relationshipLabel><!-- Cases (Interested Vehicle) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Invoice amount of adjustment charge --></label>
+        <label>コメント（MBFインターナル）</label>
+        <name>Internal_Comments__c</name>
+    </fields>
+    <fields>
+        <label>差額精算金</label>
         <name>Invoice_amount_of_adjustment_charge__c</name>
     </fields>
     <fields>
@@ -9747,7 +10120,7 @@
         <name>Knowledge_Complete_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Mileage --></label>
+        <label>走行距離</label>
         <name>Last_Known_Mileage__c</name>
     </fields>
     <fields>
@@ -10916,7 +11289,7 @@
         <name>MB_Settlement_Amount__c</name>
     </fields>
     <fields>
-        <label><!-- Market discriminator --></label>
+        <label>MD</label>
         <name>MD__c</name>
     </fields>
     <fields>
@@ -10924,15 +11297,23 @@
         <name>MPC_Internal_Notes__c</name>
     </fields>
     <fields>
+        <label>書類送付先住所</label>
+        <name>Mailing_Address__c</name>
+    </fields>
+    <fields>
+        <label>送付先電話番号</label>
+        <name>Mailing_Phone_Number__c</name>
+    </fields>
+    <fields>
         <label>距離</label>
         <name>Mileage__c</name>
     </fields>
     <fields>
-        <label><!-- Name --></label>
+        <label>名前</label>
         <name>Name__c</name>
     </fields>
     <fields>
-        <label><!-- Narrative of Type --></label>
+        <label>MBJ宛申請区分</label>
         <name>Narrative_of_Type__c</name>
         <picklistValues>
             <masterLabel>Action</masterLabel>
@@ -10944,27 +11325,27 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine Number Change</masterLabel>
-            <translation><!-- Magazine Number Change --></translation>
+            <translation>マガジン冊数変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine Opt In</masterLabel>
-            <translation><!-- Magazine Opt In --></translation>
+            <translation>マガジン除外解除申請（拒否アクティビティ解除）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine Opt Out</masterLabel>
-            <translation><!-- Magazine Opt Out --></translation>
+            <translation>マガジン除外申請（拒否アクティビティ）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Marketing Opt In</masterLabel>
-            <translation><!-- Marketing Opt In --></translation>
+            <translation>マーケティング活動除外解除申請（拒否アクティビティ解除）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Marketing Opt Out</masterLabel>
-            <translation><!-- Marketing Opt Out --></translation>
+            <translation>マーケティング活動除外申請（拒否アクティビティ）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Recall Address Chage</masterLabel>
-            <translation><!-- Recall Address Chage --></translation>
+            <translation>リコール宛先変更</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Resolution</masterLabel>
@@ -10974,6 +11355,10 @@
     <fields>
         <label><!-- Nature of Content --></label>
         <name>Nature_of_Content__c</name>
+    </fields>
+    <fields>
+        <label>変更予定銀行名</label>
+        <name>New_Bank_Name__c</name>
     </fields>
     <fields>
         <label><!-- Next Contact Date --></label>
@@ -10996,8 +11381,16 @@
         <name>Notice_Others__c</name>
     </fields>
     <fields>
+        <label><!-- Notice Parts --></label>
+        <name>Notice_Parts__c</name>
+    </fields>
+    <fields>
         <label><!-- Notice SM --></label>
         <name>Notice_SM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notice Service --></label>
+        <name>Notice_Service__c</name>
     </fields>
     <fields>
         <label><!-- Number of Contracts --></label>
@@ -11245,15 +11638,20 @@
         <name>PR_Related__c</name>
     </fields>
     <fields>
-        <label><!-- Payer(Company/Person/Phone) --></label>
+        <label>支払者（会社/担当者/電話番号）</label>
         <name>Payer_Company_Person_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Payer Fax/E-mail address --></label>
+        <label>FAX/メール</label>
         <name>Payer_Fax_Email_address__c</name>
     </fields>
     <fields>
-        <label><!-- Payer Preferred comm. Channel --></label>
+        <label>契約時販売店</label>
+        <name>Payer_Initial_Dealer__c</name>
+        <relationshipLabel>契約時販売店</relationshipLabel>
+    </fields>
+    <fields>
+        <label>ご連絡方法</label>
         <name>Payer_Preferred_comm_Channel__c</name>
         <picklistValues>
             <masterLabel>E-mail</masterLabel>
@@ -11269,11 +11667,16 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payer (Same as Requestor) --></label>
+        <label>依頼者と同じ</label>
         <name>Payer_Same_as_Requestor__c</name>
     </fields>
     <fields>
-        <label><!-- Payer --></label>
+        <label>サポートディーラー</label>
+        <name>Payer_Supporting_Dealer__c</name>
+        <relationshipLabel>サポートディーラー</relationshipLabel>
+    </fields>
+    <fields>
+        <label>支払者</label>
         <name>Payer__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -11295,13 +11698,17 @@
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Supporting dealer</masterLabel>
+            <translation><!-- Supporting dealer --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payer address --></label>
+        <label>支払者住所</label>
         <name>Payer_address__c</name>
     </fields>
     <fields>
-        <label><!-- Payer address type --></label>
+        <label>支払者住所区分</label>
         <name>Payer_address_type__c</name>
         <picklistValues>
             <masterLabel>Actual</masterLabel>
@@ -11321,11 +11728,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Payer input check --></label>
+        <label>解約金の支払者</label>
         <name>Payer_input_check__c</name>
     </fields>
     <fields>
-        <label><!-- Payment term --></label>
+        <label>支払回数</label>
         <name>Payment_term__c</name>
         <picklistValues>
             <masterLabel>12</masterLabel>
@@ -11349,7 +11756,7 @@
         <name>Perferred_Contact_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Place of vehicle repossession --></label>
+        <label>引揚場所</label>
         <name>Place_of_vehicle_repossession__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -11389,7 +11796,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Pre-app.：Location --></label>
+        <label>事前査定：第一希望日/第二希望日</label>
+        <name>Pre_app_1st_requested_date__c</name>
+    </fields>
+    <fields>
+        <label>事前査定：第二希望日</label>
+        <name>Pre_app_2nd_requested_date__c</name>
+    </fields>
+    <fields>
+        <label>事前査定：場所</label>
         <name>Pre_app_Location__c</name>
         <picklistValues>
             <masterLabel>Dealer</masterLabel>
@@ -11401,17 +11816,25 @@
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- Pre-app.：1st requested date / 2nd requested date --></help>
-        <label><!-- Pre-app.：Requested Date --></label>
+        <help><!-- Pre-app.ï¼š1st requested date / 2nd requested date --></help>
+        <label><!-- Pre-app.ï¼šRequested Date --></label>
         <name>Pre_app_Requested_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Pre-app.：requested date to JAAI --></label>
+        <label>事前査定：JAAI査定依頼日</label>
         <name>Pre_app_requested_date_to_JAAI__c</name>
     </fields>
     <fields>
-        <label><!-- Pre-app.： result shared --></label>
+        <label>事前査定：結果連絡日</label>
         <name>Pre_app_result_shared__c</name>
+    </fields>
+    <fields>
+        <label>現住所</label>
+        <name>Present_Address__c</name>
+    </fields>
+    <fields>
+        <label>現住所電話番号</label>
+        <name>Present_Phone_Number__c</name>
     </fields>
     <fields>
         <label>再入電元オペレータ番号</label>
@@ -11419,7 +11842,7 @@
         <relationshipLabel><!-- Cases (Previous Owner) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Primary Case Dealer – Branch name --></label>
+        <label><!-- Primary Case Dealer â€“ Branch name --></label>
         <name>Primary_Case_Dealer_Branch_name__c</name>
     </fields>
     <fields>
@@ -11533,6 +11956,14 @@
             <masterLabel>GC5060</masterLabel>
             <translation><!-- GC5060 --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation><!-- Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Progress Status --></label>
@@ -11594,6 +12025,11 @@
         <label><!-- New Purchase Model --></label>
         <name>Purchased_Vehicle__c</name>
         <relationshipLabel><!-- Cases (New Purchase Model) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quotation Case Number --></label>
+        <name>Quotation_Case_Number__c</name>
+        <relationshipLabel>見積番号</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Quotation number --></label>
@@ -11716,12 +12152,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label>理由</label>
+        <name>Reason__c</name>
+    </fields>
+    <fields>
         <label>リコール番号</label>
         <name>Recall_ID__c</name>
         <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Receiver1 (For quotation) --></label>
+        <label>受領者</label>
         <name>Receiver1_For_quotation__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -11743,17 +12183,26 @@
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Supporting dealer</masterLabel>
+            <translation><!-- Supporting dealer --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Receiver (Company/Person/Phone) --></label>
+        <label>受領者（会社/担当者/電話番号）</label>
         <name>Receiver_Company_Person_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Receiver Fax/E-mail address --></label>
+        <label>FAX/メール</label>
         <name>Receiver_Fax_Email_address__c</name>
     </fields>
     <fields>
-        <label><!-- Receiver Preferred comm. Channel --></label>
+        <label><!-- Receiver Initial Dealer --></label>
+        <name>Receiver_Initial_Dealer__c</name>
+        <relationshipLabel>契約時販売店</relationshipLabel>
+    </fields>
+    <fields>
+        <label>ご連絡方法</label>
         <name>Receiver_Preferred_comm_Channel__c</name>
         <picklistValues>
             <masterLabel>E-mail</masterLabel>
@@ -11769,15 +12218,20 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Receiver (Same as Requestor) --></label>
+        <label>依頼者と同じ</label>
         <name>Receiver_Same_as_Requestor__c</name>
     </fields>
     <fields>
-        <label><!-- Receiver address --></label>
+        <label>サポートディーラー</label>
+        <name>Receiver_Supporting_Dealer__c</name>
+        <relationshipLabel>サポートディーラー</relationshipLabel>
+    </fields>
+    <fields>
+        <label>受領者住所</label>
         <name>Receiver_address__c</name>
     </fields>
     <fields>
-        <label><!-- Receiver address type --></label>
+        <label>受領者住所区分</label>
         <name>Receiver_address_type__c</name>
         <picklistValues>
             <masterLabel>Actual</masterLabel>
@@ -11809,7 +12263,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Reduction of fee (for date1) --></label>
+        <label>割引・免除有無</label>
         <name>Reduction_of_fee_for_date1__c</name>
         <picklistValues>
             <masterLabel>Both</masterLabel>
@@ -11825,7 +12279,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Reduction of fee (for date2) --></label>
+        <label>割引・免除有無</label>
         <name>Reduction_of_fee_for_date2__c</name>
         <picklistValues>
             <masterLabel>Both</masterLabel>
@@ -11849,7 +12303,7 @@
         <name>Ref_No_Regional__c</name>
     </fields>
     <fields>
-        <label><!-- Regarding ET for insurance --></label>
+        <label>任意保険込の契約について</label>
         <name>Regarding_ET_for_insurance__c</name>
         <picklistValues>
             <masterLabel>Explained</masterLabel>
@@ -11862,11 +12316,11 @@
     </fields>
     <fields>
         <help><!-- Regarding Payment due date / Regarding  agreement/Invoice --></help>
-        <label><!-- Regarding Payment due date --></label>
+        <label>支払期日について/請求書の発送について</label>
         <name>Regarding_Payment_due_date__c</name>
     </fields>
     <fields>
-        <label><!-- Regarding Vehicle transfer doc --></label>
+        <label>譲渡書類の発送について</label>
         <name>Regarding_Vehicle_transfer_doc__c</name>
     </fields>
     <fields>
@@ -11890,7 +12344,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Registered Phone no --></label>
+        <label>登録住所</label>
+        <name>Registered_Address__c</name>
+    </fields>
+    <fields>
+        <label>登録電話番号</label>
+        <name>Registered_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label>登録電話番号</label>
         <name>Registered_Phone_no__c</name>
     </fields>
     <fields>
@@ -12282,11 +12744,45 @@
         <name>Request_date_time__c</name>
     </fields>
     <fields>
-        <label><!-- Requestor (Company/Person/Phone) --></label>
+        <label>契約時販売店</label>
+        <name>Requester_Initial_Dealer__c</name>
+        <relationshipLabel>契約時販売店</relationshipLabel>
+    </fields>
+    <fields>
+        <label>ご連絡方法</label>
+        <name>Requester_Preferred_comm_Channel__c</name>
+        <picklistValues>
+            <masterLabel>E-mail</masterLabel>
+            <translation><!-- E-mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postmail</masterLabel>
+            <translation><!-- Postmail --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>依頼者（会社名/担当者名/電話番号）</label>
         <name>Requestor_Company_Person_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Requestor --></label>
+        <label>FAX/メール</label>
+        <name>Requestor_Fax_E_mail_address__c</name>
+    </fields>
+    <fields>
+        <label>サポートディーラー</label>
+        <name>Requestor_Supporting_Dealer__c</name>
+        <relationshipLabel><!-- Cases (Supporting Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>依頼者</label>
         <name>Requestor__c</name>
         <picklistValues>
             <masterLabel>Contractor</masterLabel>
@@ -12308,9 +12804,29 @@
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Supporting dealer</masterLabel>
+            <translation><!-- Supporting dealer --></translation>
+        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Requires Dealer Contact --></label>
+        <label>必要頻度</label>
+        <name>Required_Period__c</name>
+        <picklistValues>
+            <masterLabel>Half-Year Financial Results</masterLabel>
+            <translation><!-- Half-Year Financial Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Financial Results</masterLabel>
+            <translation><!-- Quarterly Financial Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year Financial Results</masterLabel>
+            <translation><!-- Year Financial Results --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>販売店引継済み</label>
         <name>Requires_Dealer_Contact__c</name>
     </fields>
     <fields>
@@ -12365,8 +12881,8 @@
             <translation>返書（受領返信）</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>電話</masterLabel>
-            <translation><!-- 電話 --></translation>
+            <masterLabel>é›»è©±</masterLabel>
+            <translation><!-- é›»è©± --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -12383,11 +12899,11 @@
         <relationshipLabel>ケース</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Case Notice Dealer Flag --></label>
+        <label>販売店通知</label>
         <name>Retail_Case_Notice_Dealer_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Retail/Non-Retail car --></label>
+        <label>リテール/他</label>
         <name>Retail_Non_Retail_car__c</name>
         <picklistValues>
             <masterLabel>Non-Retail</masterLabel>
@@ -12397,6 +12913,11 @@
             <masterLabel>Retail</masterLabel>
             <translation><!-- Retail --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retail Task --></label>
+        <name>Retail_Task__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
     </fields>
     <fields>
         <label>企業リスク区分</label>
@@ -12540,7 +13061,7 @@
         <name>Sensitive_Person__c</name>
     </fields>
     <fields>
-        <label><!-- Service Station --></label>
+        <label>コマンドバージョン</label>
         <name>Service_Station__c</name>
     </fields>
     <fields>
@@ -12556,11 +13077,11 @@
         <name>Setup_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Share to Regional Office --></label>
+        <label>MBJ宛顧客対応相談</label>
         <name>Share_to_Regional_Office__c</name>
     </fields>
     <fields>
-        <label><!-- Solution Title --></label>
+        <label>ナレッジ番号</label>
         <name>Solution_Title__c</name>
     </fields>
     <fields>
@@ -12584,7 +13105,7 @@
         <name>Submit_to_public_solutions__c</name>
     </fields>
     <fields>
-        <label><!-- Support Dealer 1 – Branch name --></label>
+        <label><!-- Support Dealer 1 â€“ Branch name --></label>
         <name>Support_Dealer_1_Branch_name__c</name>
     </fields>
     <fields>
@@ -12593,7 +13114,7 @@
         <relationshipLabel><!-- Cases (Support Dealer 1) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Support Dealer 2 – Branch name --></label>
+        <label><!-- Support Dealer 2 â€“ Branch name --></label>
         <name>Support_Dealer_2_Branch_name__c</name>
     </fields>
     <fields>
@@ -12602,7 +13123,7 @@
         <relationshipLabel><!-- Cases (Support Dealer 2) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Support Dealer 3 – Branch name --></label>
+        <label><!-- Support Dealer 3 â€“ Branch name --></label>
         <name>Support_Dealer_3_Branch_name__c</name>
     </fields>
     <fields>
@@ -12623,8 +13144,12 @@
         <name>TIPS__c</name>
     </fields>
     <fields>
-        <label><!-- TL Reviewed --></label>
+        <label>書類確認済</label>
         <name>TL_Reviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- TSM --></label>
+        <name>TSM__c</name>
     </fields>
     <fields>
         <label><!-- CO Tech Comments --></label>
@@ -12675,7 +13200,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- To Be Deleted --></label>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
@@ -12756,7 +13281,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>クラス</label>
+        <label>当時クラス＋ボディ</label>
         <name>Vehicle_Class__c</name>
         <picklistValues>
             <masterLabel>300C</masterLabel>
@@ -12957,11 +13482,7 @@
         <picklistValues>
             <masterLabel>GL SUV</masterLabel>
             <translation>GL SUV</translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>GLS SUV</masterLabel>
-            <translation>GLS SUV</translation>
-        </picklistValues>
+        </picklistValues>     
         <picklistValues>
             <masterLabel>GL-Class</masterLabel>
             <translation><!-- GL-Class --></translation>
@@ -12996,7 +13517,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>GLE SUV</masterLabel>
-            <translation>GLE SUV </translation>
+            <translation>GLE SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLK SUV</masterLabel>
@@ -13005,6 +13526,10 @@
         <picklistValues>
             <masterLabel>GLK-Class</masterLabel>
             <translation><!-- GLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLS SUV</masterLabel>
+            <translation>GLS SUV</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GRAND VOYAGER</masterLabel>
@@ -13289,6 +13814,34 @@
         <picklistValues>
             <masterLabel>YES</masterLabel>
             <translation><!-- YES --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Inspection Certificate Change --></label>
+        <name>Vehicle_Inspection_Certificate_Change__c</name>
+        <picklistValues>
+            <masterLabel>License Plate Reissue</masterLabel>
+            <translation><!-- License Plate Reissue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Location for Use</masterLabel>
+            <translation><!-- Primary Location for Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Number</masterLabel>
+            <translation><!-- Registration Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User</masterLabel>
+            <translation><!-- User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Address</masterLabel>
+            <translation><!-- User Address --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -13732,7 +14285,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>C292</masterLabel>
-            <translation><!-- C292 --></translation>
+            <translation>C292</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C300</masterLabel>
@@ -14672,11 +15225,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>R170</masterLabel>
-            <translation><!-- R170 --></translation>
+            <translation>R170</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R171</masterLabel>
-            <translation><!-- R171 --></translation>
+            <translation>R171</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>R172</masterLabel>
@@ -15393,7 +15946,7 @@
         <name>Vehicle_in_factory__c</name>
     </fields>
     <fields>
-        <label><!-- Vehicle repossession date --></label>
+        <label>引揚日</label>
         <name>Vehicle_repossession_date__c</name>
     </fields>
     <fields>
@@ -15424,8 +15977,8 @@
             <translation><!-- B-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-Class Coupé</masterLabel>
-            <translation><!-- C-Class Coupé --></translation>
+            <masterLabel>C-Class CoupÃ©</masterLabel>
+            <translation><!-- C-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>C-Class ESTATE</masterLabel>
@@ -15452,16 +16005,16 @@
             <translation><!-- CLK-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLK-Class Coupé</masterLabel>
-            <translation><!-- CLK-Class Coupé --></translation>
+            <masterLabel>CLK-Class CoupÃ©</masterLabel>
+            <translation><!-- CLK-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLS Shooting Brake</masterLabel>
             <translation><!-- CLS Shooting Brake --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLS-Class Coupé</masterLabel>
-            <translation><!-- CLS-Class Coupé --></translation>
+            <masterLabel>CLS-Class CoupÃ©</masterLabel>
+            <translation><!-- CLS-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Canter</masterLabel>
@@ -15528,8 +16081,8 @@
             <translation><!-- E-Class Cabriolet --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-Class Coupé</masterLabel>
-            <translation><!-- E-Class Coupé --></translation>
+            <masterLabel>E-Class CoupÃ©</masterLabel>
+            <translation><!-- E-Class CoupÃ© --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-Class Estate</masterLabel>
@@ -15661,7 +16214,7 @@
         <name>Voice_Record_Link__c</name>
     </fields>
     <fields>
-        <label><!-- Voluntary insurance check --></label>
+        <label>任意保険有無</label>
         <name>Voluntary_insurance_check__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -15734,7 +16287,7 @@
     </fields>
     <fields>
         <help><!-- For Non-Retail --></help>
-        <label><!-- 3 months usage --></label>
+        <label>契約開始より３回以上引落済</label>
         <name>X3_months_usage__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -15748,6 +16301,11 @@
     <fields>
         <label><!-- Customercare_cn Email --></label>
         <name>customercare_cn__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where the customer was when the case has been created --></help>
+        <label><!-- Customer Geolocalization --></label>
+        <name>pkbgeolocalization__c</name>
     </fields>
     <layouts>
         <layout>Case Feed Layout</layout>
@@ -15891,6 +16449,37 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>Dealer-Inquiry Layout-CAC(IB/OB)</layout>
+        <sections>
+            <label>ケースの情報</label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>販売店情報</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>記述情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>問合わせ情報</label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label>システム情報</label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Inquiry Layout - CAC(IB/OB)</layout>
         <sections>
             <label><!-- Case Feedback --></label>
@@ -15898,19 +16487,46 @@
         </sections>
         <sections>
             <label>販売店情報</label>
-            <section>Dealer Info</section>
+            <section>Dealer Information</section>
         </sections>
         <sections>
             <label>問合わせ情報</label>
             <section>Inquiry Information</section>
         </sections>
         <sections>
-            <label>その他</label>
+            <label>その他の情報</label>
             <section>Other Information</section>
         </sections>
         <sections>
             <label><!-- Vehicle Select --></label>
             <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry Layout - Dealer User</layout>
+        <sections>
+            <label>ケース情報</label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>ディーラー情報</label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label>説明情報</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>お問い合わせ情報</label>
+            <section>Inquiry Information</section>
+        </sections>
+        <sections>
+            <label>詳細情報</label>
+            <section>MBJ Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <layouts>
@@ -15943,11 +16559,11 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Info --></label>
             <section>Dealer Info</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
+            <label>販売店情報</label>
             <section>Fields</section>
         </sections>
         <sections>
@@ -15994,7 +16610,7 @@
             <section>On-site Manager</section>
         </sections>
         <sections>
-            <label><!-- Other Info --></label>
+            <label>システム情報</label>
             <section>Other Info</section>
         </sections>
         <sections>
@@ -16013,7 +16629,7 @@
     <layouts>
         <layout>MB Complaint Layout - Customer Care Team</layout>
         <sections>
-            <label>詳細情報</label>
+            <label><!-- Case Detail --></label>
             <section>Case Detail</section>
         </sections>
         <sections>
@@ -16021,11 +16637,11 @@
             <section>Case Notes &amp; Comments</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label>システム情報</label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>販売店情報</label>
+            <label><!-- Dealer Info --></label>
             <section>Dealer Info</section>
         </sections>
         <sections>
@@ -16056,7 +16672,7 @@
     <layouts>
         <layout>MB Complaint Layout - Dealer Gate Keeper</layout>
         <sections>
-            <label><!-- Car Owner Details --></label>
+            <label>顧客情報</label>
             <section>Car Owner Details</section>
         </sections>
         <sections>
@@ -16072,7 +16688,7 @@
             <section>Email Notification</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
         <sections>
@@ -16099,11 +16715,11 @@
             <section>Email Notification</section>
         </sections>
         <sections>
-            <label>システム情報</label>
+            <label><!-- System Information --></label>
             <section>System Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Details --></label>
+            <label>顧客情報</label>
             <section>Vehicle Details</section>
         </sections>
     </layouts>
@@ -16134,7 +16750,7 @@
             <section>Complainant Information</section>
         </sections>
         <sections>
-            <label>顧客情報</label>
+            <label><!-- Customer Information --></label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -16181,7 +16797,7 @@
             <section>Complainant Information</section>
         </sections>
         <sections>
-            <label>顧客情報</label>
+            <label><!-- Customer Information --></label>
             <section>Customer Information</section>
         </sections>
         <sections>
@@ -16206,57 +16822,93 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>MBF Contract Closing Cases</layout>
-        <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
+        <layout>MBF Complaint Management Case</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Early termination Actual --></label>
-            <section>Early termination Actual</section>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Complaint Management Case Operator</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Non-Usable Section --></label>
-            <section>Non-Usable Section</section>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Contract Closing Cases</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Customer Information Change Request</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MBF Finance Inquiry Case</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
         </sections>
     </layouts>
     <layouts>
         <layout>MBF Quotation Cases Layout</layout>
         <sections>
-            <label><!-- Authentication --></label>
-            <section>Authentication</section>
-        </sections>
-        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Early Termination Quotation --></label>
-            <section>Early Termination Quotation</section>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
-        </sections>
-        <sections>
-            <label><!-- Non Usable Section --></label>
-            <section>Non Usable Section</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 1 --></label>
-            <section>Quotation Request 1</section>
-        </sections>
-        <sections>
-            <label><!-- Quotation Request 2 --></label>
-            <section>Quotation Request 2</section>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
         </sections>
     </layouts>
     <recordTypes>
@@ -16274,6 +16926,26 @@
     <recordTypes>
         <label><!-- MBDA Inquiry --></label>
         <name>MBDA_Inquiry</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBF Complaint Management Case --></label>
+        <name>MBF_Complaint</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBF Contract Closing Case --></label>
+        <name>MBF_Contract_Closing_Case</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBF Finance Inquiry Case --></label>
+        <name>MBF_Inquiry</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBF Finance Quotation Case --></label>
+        <name>MBF_Quotation_Case</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MBF Customer Request Case --></label>
+        <name>MBF_Request</name>
     </recordTypes>
     <recordTypes>
         <label><!-- MBJ Inquiry --></label>
@@ -16380,8 +17052,32 @@
         <name>Invalid_US_VIN</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- Only Japan Dealer Company/Sales/Service Manager Profile can modify Share to Regional Office checkbox --></errorMessage>
+        <name>JapanDealerCompany_Sales_Service_Manager</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Japan Dealer Company Manager Profile can modify Share to Regional Office checkbox. --></errorMessage>
+        <name>Japan_Dealer_Company_Manager</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Japan Dealer Sales Manager Profile can modify Share to Regional Office checkbox. --></errorMessage>
+        <name>Japan_Dealer_Sales_Manager</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Japan Dealer Service Manager Profile can modify Share to Regional Office checkbox. --></errorMessage>
+        <name>Japan_Dealer_Service_Manage</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Japan Dealer Service Manager Profile can modify Share to Regional Office checkbox. --></errorMessage>
+        <name>Japan_Dealer_Service_Manager</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Please check Goodwill first before input Goodwill Details, Goodwill Cost or Goodwill Category. --></errorMessage>
         <name>Mandatory_Fields_When_Goodwill_Checked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Escalation to (Delaer PIC) and Primary Case Dealer and Account Name fields are mandatory. --></errorMessage>
+        <name>Mandatory_Fields_for_Dealer_Escalation</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Order Number Must be Number. --></errorMessage>
@@ -16456,7 +17152,7 @@
         <name>Follow_Up_Inquiry</name>
     </webLinks>
     <webLinks>
-        <label>PDFを作成する</label>
+        <label>PDF生成</label>
         <name>Generate_Pdf</name>
     </webLinks>
     <webLinks>
@@ -16468,8 +17164,40 @@
         <name>Input_PR_Comment</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_AfterSales_Lead --></label>
+        <label><!-- MBJ_FS_Case --></label>
+        <name>MBJ_FS_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MBJ_FS_Case_ContractClosing_Page_Edit --></label>
+        <name>MBJ_FS_Case_ContractClosing_Page_Edit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MBJ_FS_Case_Inquiry_Page_Edit --></label>
+        <name>MBJ_FS_Case_Inquiry_Page_Edit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MBJ_FS_Case_Quotation_Page_Edit --></label>
+        <name>MBJ_FS_Case_Quotation_Page_Edit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MBJ_FS_Case_Request_Page_Edit --></label>
+        <name>MBJ_FS_Case_Request_Page_Edit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MBJ_FS_Complaint_Page_Edit --></label>
+        <name>MBJ_FS_Complaint_Page_Edit</name>
+    </webLinks>
+    <webLinks>
+        <label>新規アフターセールスリード</label>
         <name>New_AfterSales_Lead</name>
+    </webLinks>
+    <webLinks>
+        <label>新規アフターセールスリード</label>
+        <name>New_AfterSales_Lead_Wholesale</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_AfterSales_Lead_kr --></label>
+        <name>New_AfterSales_Lead_kr</name>
     </webLinks>
     <webLinks>
         <label><!-- New_Chrysler_Complaint --></label>
@@ -16484,7 +17212,7 @@
         <name>New_Inquiry</name>
     </webLinks>
     <webLinks>
-        <label>リード新規作成</label>
+        <label>新規セールスリード</label>
         <name>New_Lead</name>
     </webLinks>
     <webLinks>
@@ -16494,6 +17222,10 @@
     <webLinks>
         <label><!-- New_MBDA_Inquiry --></label>
         <name>New_MBDA_Inquiry</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_MBF_Case --></label>
+        <name>New_MBF_Case</name>
     </webLinks>
     <webLinks>
         <label><!-- New_MB_Complaint --></label>
@@ -16512,12 +17244,28 @@
         <name>New_SSI_Complaint</name>
     </webLinks>
     <webLinks>
+        <label>新規セールスリード</label>
+        <name>New_Sales_Lead_Wholesale</name>
+    </webLinks>
+    <webLinks>
+        <label>販売店に通知</label>
+        <name>Notify_to_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label>PDF生成</label>
+        <name>Print_Dealer_PDF</name>
+    </webLinks>
+    <webLinks>
         <label>頻出苦情</label>
         <name>Repeated_Complaint</name>
     </webLinks>
     <webLinks>
         <label><!-- SMS --></label>
         <name>SMS</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Test_Case --></label>
+        <name>Test_Case</name>
     </webLinks>
     <webLinks>
         <label><!-- UpsellCrosssellOpportunity --></label>

@@ -1,0 +1,970 @@
+<apex:page standardController="Lead__c" extensions="PrintPDFcontroller" Renderas="pdf" applyBodyTag="false" standardStylesheets="false">
+        <!-- Stylesheets -->    
+    <head>      
+        <style type="text/css" media="print">
+            #table1{width:50%;height:90%;border:1px solid black;float:right;display:inline;margin-bottom:10px}
+            #table2{width:50%;height:40%;border:1px solid blue;float:right;display:inline;}
+            #table3{width:46%;height:50%;border:1px solid blue;float:left;display: inline-block;margin-left:10px;}
+            
+            body 
+            { 
+            	font-family: 'Arial Unicode MS';    
+            }
+            @page 
+            { 
+                size: A4;
+                margin-top:15mm;
+                margin-left:10mm;
+                margin-right:10mm;
+                margin-bottom:15mm;                
+                padding-top: 10px;
+                @top-left 
+                {
+                content: element(header_left);
+                }
+                @bottom-right 
+                {
+                content: element(footer_right);
+                }      
+                @bottom-center 
+                {
+                content: element(footer_center);
+                }      
+            }    
+            .header_left 
+            {
+                display: block;
+                text-align: left;
+                position: running(header_left);
+            }     
+            .footer_right 
+            {
+                display: block;
+                padding: 5px;
+                text-align: right;
+                position: running(footer_right);
+            }      
+            .footer_center 
+            {
+                display: block;
+                padding: 5px;
+                text-align: center;
+                position: running(footer_center);
+            }      
+            .pageNumber:before 
+            {
+            	content: counter(page); 
+            }            
+            .pageCount:before 
+            {
+            	content: counter(pages);  
+            }
+            table,tr,td 
+            {            
+            	border-collapse:collapse;
+            }
+            table,td
+            {    
+                border: 1px solid black;  
+                font-size:12px;
+            }
+            td
+            {
+            	padding-left:1px;
+            }
+            p
+            { 
+            	word-spacing: 100px;
+            }
+            .TopTd
+            {
+            	font-size:14px;          	
+            }
+            .TopTdLabel
+            {
+            	font-size:14px;
+            	font-weight: bold;
+            }       
+            td.TdLabel
+            {
+            	font-weight: bold;
+            }
+            .TopIdCss
+            {
+                width: 200px;
+                font-family: Arial Unicode MS; 
+            }
+            table
+            {
+                width: 702px;
+                font-family: Arial Unicode MS;          
+                -fs-table-paginate: paginate;
+            }
+            
+            thead{display: table-header-group;}
+            .Table
+            {
+                display:table;
+                margin-left:8px;
+                width: 702px;
+                padding-top:14px;
+            }
+            .Row
+            {
+            	display: table-row;
+            }
+            .Cell
+            {
+                display: table-cell;
+                border: solid;
+                border-width: 3px;
+                padding-left:1px;
+                border-collapse:collapse;
+                font-size:12px; 
+                font-family: Arial Unicode MS;  
+                font-weight: bold;
+            }                
+            .CellLabel
+            {
+                display: table-cell;
+                border: solid;
+                border-width: 3px;
+                padding-left:1px;
+                border-collapse:collapse;
+                font-size:12px; 
+                font-family: Arial Unicode MS;
+                font-weight: bold;
+            }                
+            .CellTopLeft
+            {
+                display: table-cell;
+                border: solid;
+                border-width: 3px;
+                border-collapse:collapse;
+                font-size:18px; 
+                font-family: Arial Unicode MS;
+                width:180px;
+                text-align:center;
+            }                
+            .CellTopRight
+            {
+                display: table-cell;
+                border: solid;
+                border-width: 3px;
+                border-collapse:collapse;
+                font-size:18px; 
+                font-family: Arial Unicode MS;              
+                width:50px;
+                text-align:center;
+            } 
+            <!--    .errorClass{
+background-color: blue;
+} -->
+            
+        </style>
+    </head>
+    <body style="padding-top:10px;">
+        <div class="header" style="padding-top:2px;">
+            <div class="Table">                     
+                <div style="font-size:25px;text-align: left;">{!$Label.Lead_Process_Sheet}</div>        
+                <div style="font-size:14px;text-align: right;">{!$Label.Printed_Date}&nbsp;&nbsp;
+                    <apex:outputText value="{0,date,YYYY/MM/dd}"> 
+                        <apex:param value="{!TODAY()}"/> 
+                    </apex:outputText>    
+                </div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Last_Modified_Date}&nbsp;&nbsp;
+                	<apex:outputText value="{0,date,YYYY/MM/dd}">
+                        <apex:param value="{!Lead__c.LastModifiedDate}"/>
+                    </apex:outputText>     
+                </div>
+                <div style="font-size:14px;text-align: right;">{!$Label.Representative}&nbsp;&nbsp;
+                    {!Lead__c.Service_Advisor__r.LastName}&nbsp;{!Lead__c.Service_Advisor__r.FirstName}
+                </div>
+            </div>    
+        </div>
+        <table class = "TopIdCss" border = "1" cellpadding = "0" cellspacing = "0">
+            <tr>                
+                <td class = "TopTdLabel" align = "left" width = "40%" style="border-right-style:hidden;">{!$Label.Lead_Type}</td>
+                <td class = "TopTd" align = "left" width = "40%" style="border-right-style:hidden;">{!Lead__c.Customer_Type__c}</td>                
+            </tr>
+        </table>
+        <br/>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td rowspan="14" width="2%">{!$Label.Customer_Profile} </td>
+                <td colspan="2" width="40%" cellpadding = "100">{!$Label.Customer_Name}&nbsp;
+                    <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
+                    <apex:outputLabel value="Age" style="margin-left:5px;"/>&nbsp;
+                    <apex:outputField value="{!Lead__c.Contact__r.Age__c}" style="margin-left:5px;"/>
+                </td>
+                <td rowspan="2" width="15%">{!$Label.Company}</td>
+                <td colspan="2">                    
+                    <apex:outputLabel value="{!$Label.Company_Name}" style="margin-right:25px;"/>
+                    <apex:outputField value="{!Lead__c.Company_Account__r.Name}"/>                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <apex:outputLabel value="{!$Label.Company}" style="margin-right:45px;"/>
+                    <apex:outputText value="{!companyname}"/>
+                </td>
+                <td colspan="2">
+                    <apex:outputLabel value="{!$Label.Sales_TEL}" style="float:right;margin-left:90px;">
+                    	<apex:outputField value="{!Lead__c.Company_Account__r.Primary_Phone_Display__c}"/>
+                    </apex:outputLabel>
+                    <apex:outputLabel value="{!$Label.Address_PrintPDF}"><br/>
+                    	<apex:outputText value="{!homeaddress}"/>
+                    </apex:outputLabel>
+                </td>
+            </tr> 
+            <tr>
+                <td colspan="2" rowspan="2">
+                    <apex:outputLabel value="{!$Label.Address_PrintPDF}">
+                        <apex:outputText value="{!LEFT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,3)}"></apex:outputText>
+                        <apex:outputLabel rendered="{!If(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c!=Null,true,false)}">-</apex:outputLabel>&nbsp;  
+                        <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
+                        <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}" />
+                    </apex:outputLabel><br/>
+                    <apex:outputLabel value="Address type" style="float:right;margin-left:15px;">&nbsp;
+                        <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Reference__r.Address_Type__c}" />
+                    </apex:outputLabel><br/>
+                    <apex:outputLabel value="Home Phone" style="float:right;margin-left:10px;">
+                        <apex:outputField value="{!Lead__c.Contact__r.Individual_Home_Phone__c}"/>
+                    </apex:outputLabel><br/>
+                    <apex:outputLabel value="Mobile" style="float:right;margin-left:10px;">
+                    	<apex:outputField value="{!Lead__c.Contact__r.Mobile__c}"/>
+                    </apex:outputLabel>
+                </td>
+                
+                <td rowspan="6" width="12%">{!$Label.Current_Vehicle1}</td>
+                <td width="20%">{!$Label.Amount}</td>
+                <td>
+                    <apex:outputField value="{!Lead__c.Company_Account__r.Vehicle_Amount__c}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="{!$Label.Range_Model}">
+                    </apex:outputLabel>
+                </td>
+                <td>
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
+                </td> 
+            </tr>
+            <tr>
+                <td colspan="2">
+                	<apex:outputLabel value="{!$Label.Sales_TEL}">&nbsp;
+                    	<apex:outputField value="{!Lead__c.Contact__r.Primary_Phone_Display__c}"/>
+                    </apex:outputLabel>
+                    <apex:outputLabel value="{!$Label.Sales_TEL_Type}" style="float:right;margin-left:5px;">&nbsp;
+                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Phone__c}"/>                    	
+                    </apex:outputLabel>
+                </td>
+                <td >{!$Label.Registration_Date_Milage} </td>
+                <td>
+                    <apex:outputText value="{0,date,YYYY/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[0].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
+                </td> 
+            </tr>   
+            <tr>
+                <td colspan="2">
+                    <apex:outputLabel value="{!$Label.Sales_Mail_Type}" style="float:right;margin-left:10px;">&nbsp;
+                            <apex:outputField value="{!Lead__c.Contact__r.Primary_Email__c}"/>                    	
+                    </apex:outputLabel>
+                    <apex:outputLabel value="{!$Label.Sales_Mail}">&nbsp;
+                    	<apex:outputField value="{!Lead__c.Contact__r.Primary_Email_Display__c}"/>
+                    </apex:outputLabel>
+                     
+                </td> 
+                <td>{!$Label.Registration_Date_Inspection_Date}</td>
+                <td>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}">
+                        <apex:param value="{!vRList[0].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>            
+            <tr>
+                <td width="20%">
+                    <apex:outputLabel value="{!$Label.Touch_Point}"/>
+                </td>
+                <td>
+                    <apex:outputField value="{!Lead__c.Lead_DataSource__c}"/>
+                </td>
+                <td>
+                    <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
+                </td>
+                <td>
+					<apex:outputText value="{!vrList[0].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputLabel value="{!$Label.Family_Number}" /></td>
+                <td>
+                    <apex:outputField value="{!Lead__c.contact__r.Household_Amount__c}"/>
+                </td>
+                <td>
+                    <apex:outputLabel value="{!$Label.Purchase_Type}"/>
+                </td>
+                <td>
+                	<apex:outputText value="{!vrList[0].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >0,true,false)}"/>
+                </td>
+            </tr>
+            <tr >  
+                <td width="20%">{!$Label.Hobby}</td>
+                <td>
+                	<apex:outputField value="{!Lead__c.contact__r.Hobby__c}"/>
+                </td>
+                <td rowspan="8" width="12%">{!$Label.Current_Vehicle2}</td>
+                <td >
+                    <apex:outputLabel value="{!$Label.Range_Model}">
+                    </apex:outputLabel>
+                </td>
+                <td>
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
+                </td>
+            </tr>
+            <tr> 
+                <td width="20%">{!$Label.UCID} </td>
+                <td>
+                    <apex:outputField value="{!Lead__c.contact__r.UCID__c}"/>
+                </td>
+                <td>{!$Label.Registration_Date_Milage}</td>
+                <td>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[1].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">{!$Label.Allow_Data_Sharing} </td>
+                <td>
+                    <apex:outputField value="{!Lead__c.contact__r.Allow_Data_Sharing2__c}"/>
+                </td>
+                <td>{!$Label.Registration_Date_Inspection_Date}</td>
+                <td>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
+                    	<apex:param value="{!vRList[1].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}">
+                        <apex:param value="{!vRList[1].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">{!$Label.Gender} </td>
+                <td>
+                    <apex:outputField value="{!Lead__c.contact__r.Gender__c}"/>
+                </td>
+                <td height = "30%">
+                    <apex:outputLabel value="{!$Label.Leagl_Owner}"/>
+                </td>
+                <td height = "30%">
+					<apex:outputText value="{!vRList[1].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>              
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">{!$Label.Birthdate} </td>
+                <td>
+                    <apex:outputField value="{!Lead__c.contact__r.PersonBirthDate}"/>
+                </td>
+                <td rowspan = "5">
+                    <apex:outputLabel value="{!$Label.Purchase_Type}"/>
+                </td>
+                <td rowspan = "5">
+                	<apex:outputText value="{!vRList[1].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >1,true,false)}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">{!$Label.Home_Type} </td>
+                <td></td>
+            </tr>
+            <tr>
+            	<td rowspan ="2" width ="10%">
+                    {!$Label.Vehicle}
+                </td>                    
+                <td>
+                    <apex:outputLabel value="{!$Label.Year}"/>               
+                    <apex:outputLabel value="{!$Label.Range_Model}" style="border-left:1px solid #000000;margin-left:20px"/>
+                </td>                                    
+                <td>
+                    <apex:outputLabel value="{!$Label.Interior}"/>               
+                    <apex:outputLabel value="{!$Label.Color}" style="border-left:1px solid #000000;margin-left:5px"/>
+                    <apex:outputLabel value="{!$Label.Interest}" style="border-left:1px solid #000000;margin-left:5px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <apex:outputField value="{!Lead__c.Interested_Vehicle__r.ModelYear__c}"/>
+                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px">
+                    <apex:outputField value="{!Lead__c.Interested_Vehicle__r.Range__c}" style="border-left:1px solid #000000;margin-left:5px"/><apex:outputField value="{!Lead__c.Interested_Vehicle__r.Model__c}"/>
+                	</apex:outputLabel>
+                </td>
+                <td>
+                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:42px"/>
+                    <apex:outputLabel style="border-left:1px solid #000000;margin-left:37px">
+                    <apex:outputField value="{!Lead__c.Car_Model__c}" style="border-left:1px solid #000000;margin-left:5px"/>
+                	</apex:outputLabel>
+                </td>
+            </tr>
+        </table>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td width="48%" style="border-left-style:hidden;" ></td>
+                <td rowspan="5" width="15%">{!$Label.Current_Vehicle3}</td>
+                <td width="19%">{!$Label.Range_Model}</td>
+                <td>
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Range__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>&nbsp;
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.Model__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
+                </td>
+            </tr>
+            <tr>
+                <td width="41%" style="background-color:gray">{!$Label.Possibility} <apex:outputField value="{!Lead__c.Lead_Possibility__c}"/></td>
+                <td>{!$Label.Registration_Date_Milage}</td>
+                <td>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.FirstRegistrationDate__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{!vRList[2].Vehicle_ID__r.CurrentMileage__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
+                </td>
+            </tr>   
+            <tr>
+                <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
+                <td width="17%">{!$Label.Registration_Date_Inspection_Date}</td>
+                <td>
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Registration_Date__c}"/>
+                    </apex:outputText>&nbsp;
+                    <apex:outputText value="{0,date,yyyy/MM/dd}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}">
+                        <apex:param value="{!vRList[2].Vehicle_ID__r.NextInspectionDate__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>   
+            <tr>
+                <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
+                <td width="17%">{!$Label.Leagl_Owner}</td>
+                <td>
+					<apex:outputText value="{!vRList[2].MOT_USER_NAME__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>               
+                </td>
+            </tr>   
+            <tr>
+                <td width="41%" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;" ></td>
+                <td width="17%">{!$Label.Purchase_Type}</td>
+                <td>
+                	<apex:outputText value="{!vRList[2].Finance_Method__c}" rendered="{!if(Lead__c.Contact__c !=null && vRList.size >2,true,false)}"/>
+                </td>
+            </tr>   
+        </table>
+        <br/><br/>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Pruchase_Plan_Date}</td>
+                <td class="TopTd" align="left">
+                	<apex:outputField value="{!Lead__c.Expected_Close_Date__c}"/>
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Purchased_Date}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Order_Confirmation_Date__c}"/>
+                </td>
+            </tr>
+            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Registration_Plan_Date}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Expected_Registration_Date__c}"/>
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Registration_Date}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Network_Registration_Date__c}"/>
+                </td>
+            </tr>
+        </table>        	
+         <br/>
+         <b>Next Activity</b>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
+            </tr>
+            <apex:repeat value="{!activityList}" var="Task">
+                <tr>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!Task.SentTime__c}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!Task.Owner.LastName}"/>
+                        <apex:outputField value="{!Task.Owner.FirstName}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!Task.Intention_Status__c}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!Task.Subject}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!Task.Description}"/>
+                    </td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <!--<table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">            
+            <tr>
+                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;">{!$Label.Date}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">{!$Label.Lead_Activity_Type}</td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;">{!$Label.Subject}</td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;">{!$Label.Memo}</td>
+            </tr>            
+            <tr><td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;"></td>
+            </tr> 
+            <tr><td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;"></td>
+            </tr> 
+            <tr><td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;"></td>
+            </tr> 
+            <tr><td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;"></td>
+            </tr> 
+            <tr><td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;"></td>
+            </tr>            
+        </table>-->
+        <br/><br/>
+         <b>Request</b>        
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Type}</td>
+                <td class="TopTd" align="left">
+                    {!Lead__c.Lead_Desired_Service__c}<br/>
+                    {!Lead__c.Collectioner_Notes__c}
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Request_Date}</td>
+                <td class="TopTd" align="left">{!Lead__c.Order_Confirmation_Date__c}</td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Lead_creation_Assign_Date}</td>
+                <td class="TopTd" align="left">{!Lead__c.Assigned_Date_Time__c}</td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Purchase_Plan}</td>
+                <td class="TopTd" align="left">{!Lead__c.Purchase_Time__c}</td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Lead_Memo}</td>
+                <td class="TopTd" colspan="3" align="left" >{!Lead__c.Dealer_Comments__c}</td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Dealer_Memo}</td>
+                <td class="TopTd" colspan="3" align="left">{!Lead__c.Dealer_Comment__c}</td></tr>
+        </table>
+        <br/>        
+        <apex:form >
+            <apex:pageBlock >
+                <!--<apex:pageBlockSection columns="2">-->
+                <apex:pageBlockTable value="{!cas}" var="lead" style="width:45%;height:90%;float:left;">
+                    <apex:column >
+                        <h1 style ="font-size:15px;text-align: left;">
+                            {!$Label.Latest_Phase_History}
+                        </h1>                    
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isConatct = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isConatct = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.CL_Contact}"/>
+                        <br/>
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isVisited = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isVisited = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Visited}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isNeedsCheck = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isNeedsCheck = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Needs_Check}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isProductProposal = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isProductProposal = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Product_Proposal}"/>
+                        <br/>
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isFinanceProposal = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isFinanceProposal = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Finance_Proposal}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isInsuranceProposal = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isInsuranceProposal = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Insurance_Proposal}"/>
+                        <br/>
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isServiceProgramProposal = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isServiceProgramProposal = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Service_Program_Proposal}"/>
+                        <br/>
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isSimpleEstimation = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isSimpleEstimation = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Simple_Estimation}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isTestDrive = false,true,false)}"/>
+                        <apex:image url="{!$Resource.True_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isTestDrive = true,true,false)}"/>
+                        <apex:outputLabel value="{!$Label.Test_Drive}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Finance_Estimate}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.CA}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Estimate}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Ordered}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Purchased}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Registered}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Invoiced}"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="{!$Label.Hand_Over}"/>
+                        <br/>
+                    </apex:column>
+                </apex:pageBlockTable>
+                <!--</apex:pageBlockSection>-->
+                <table style ="width:50%;height:90%;border:1px solid black;float:right;margin-bottom:10px">
+                    <tr>
+                        <td border= "none" align="left" width="10%" height="25" style="background-color:gray;">
+                        	{!$Label.Needs_Problem_Points}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td border="none" align="right" width="10%" height="25"/>
+                    </tr>
+                    <tr>
+                        <td align="right" width="10%" height="25"/>
+                    </tr>
+                    <tr>
+                        <td align="right" width="10%" height="25"/>
+                    </tr>
+                </table>
+                <table style="width:50%;height:40%;border:1px solid Black;float:right;display:inline;">
+                    <tr>
+                        <td width = "100%" style ="border:none">
+                            <h1 style ="font-size:15px;text-align:left;">
+                                {!$Label.Process_Check_Items}
+                            </h1>                                           	 
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Did_you_visit_home_or_company}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Family_company_hobby_have_you_heard}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Garage_information_and_specifications_have_you_heard}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Do_you_know_when_and_where_you_can_meet}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Customer_Issue}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Stocks_for_interested_vehicle}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Purchase_Reason}"/><br/>
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Highly_interesed}"/><br/>                            
+                            <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                            <apex:outputLabel value="{!$Label.Comparison_is_being_done_actively}"/>
+                        </td>
+                    </tr>                
+                </table>
+                <!--<apex:pageBlockTable value="{!cas}" var="lead" style="width:50%;height:40%;border:1;float:right">                    
+                    <apex:column >  
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left"/>
+                        <apex:outputLabel value="Contact"/>
+                        <br/>
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isVisited = false,true,false)}"/>
+                        <apex:outputLabel value="Visited"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isNeedsCheck = false,true,false)}"/>
+                        <apex:outputLabel value="Needs Check"/>
+                        <br/>   
+                        <apex:image url="{!$Resource.False_Checkbox}" width="10" height="10" style="align:left" rendered="{!IF(isProductProposal = false,true,false)}"/>
+                        <apex:outputLabel value="Product Proposal"/>
+                        <br/>
+                    </apex:column>
+                </apex:pageBlockTable>-->
+            </apex:pageBlock>
+        </apex:form>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="Center" colspan="4" width="30%" height="25" style="border-right-style:solid;background-color:gray">
+                    {!$Label.Lead_Conditions}
+                </td>
+            </tr>    
+            <tr>   
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Print}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
+                
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Finance_Estimate_Creation_Date}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputText value="{0,date,yyyy/MM/dd}">
+                        <apex:param value="{!Lead__c.Finance_Quotation_Date__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Number}</td>
+                <td class="TopTd" align="left">{!Lead__c.Quotation_Number__c}</td>
+                
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Fiinance_Estimate_Number}</td>
+                <td class="TopTd" align="left">{!Lead__c.Finance_Quotation_Number__c}</td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.First_Estimate_Amount}</td>
+                <td class="TopTd" align="left">{!Lead__c.Quotation_Amount__c}</td>
+                
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Finance_Estimate_History}</td>
+                <td class="TopTd" align="left">{!Lead__c.Finance_Quotation_No_History__c}</td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Estimate_Number_History}</td>
+                <td class="TopTd" align="left">{!Lead__c.Quotation_Number_History__c}</td>
+            </tr>                
+        </table>
+        <br/><br/>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
+            <tr>
+                <td border ="0" style="border-right-style:hidden;border-left-style:hidden;border-top-style:hidden;"></td>
+                <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_1}</td>
+                <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_2}</td>
+                <td class="TopTdLabel" align="left" colspan="2"  width="20%" height="25" style="border-right-style:solid;">{!$Label.Proposed_Date_3}</td>
+            </tr>
+            <tr> <td class="TopTdLabel" align="left"   width="40%" height="25" style="border-right-style:hidden;">{!$Label.Vehicle_Price_Maker_option_price}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;align:left">
+                    {!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;align:left">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+            </tr>
+            <tr> <td class="TopTdLabel" align="left"   width="40%" height="25" style="border-right-style:hidden;">{!$Label.Accessory_price_Dealer_Option_price} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+            </tr>
+            
+            <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Total_Price}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;">
+                </td>
+            </tr>
+            
+            <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Trade_in_Price}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+            </tr>
+            <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Trade_in_Vehicle_Remaining}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Triangle_Image}
+                </td>
+            </tr>
+            <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.MBJ_support}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;border-right-style:hidden;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;background-color:gray;"> </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">
+                	{!$Label.Backslash}
+                </td>
+            </tr>
+            <tr> <td class="TopTdLabel" align="left"   width="25%" height="25" style="border-right-style:hidden;">{!$Label.Grand_Total}</td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Payment_Total} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Discount_Total} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Payment_Total} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Discount_Total} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Payment_Total} </td>
+                <td class="TopTdLabel" width="10%" height="25" style="border-right-style:solid;">{!$Label.Discount_Total} </td>
+            </tr>
+            <br/><br/><br/>            
+        </table>
+        <b>Representative Information</b>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Dealer_Company}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Company_Name__c}"/>
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Dealer_Outlet}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Name}"/>
+                </td>
+            </tr>
+            <tr><td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">{!$Label.Representative}</td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Service_Advisor__r.LastName}"/> &nbsp;<apex:outputField value="{!Lead__c.Service_Advisor__r.Firstname}"/>
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;"></td>
+                <td class="TopTd" align="left">
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <b>Survey</b>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="page-break-after: always;border-left-style:hidden;border-top-style:hidden;border-right-style:hidden;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+                    {!$Label.Current_Vehicle_Brand}
+                </td>
+                <td class="TopTd" align="left">
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+                    {!$Label.Current_Vehicle_Model}
+                </td>
+                <td class="TopTd" align="left">
+                </td>
+            </tr>
+            <tr>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+                	{!$Label.Compared_Vehicle_Brand}
+                </td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Brand__c}"/>
+                </td>
+                <td class="TopTdLabel" align="left" width="30%" height="25" style="border-right-style:hidden;">
+                	{!$Label.Compared_Vehicle_Brand}
+                </td>
+                <td class="TopTd" align="left">
+                    <apex:outputField value="{!Lead__c.Interested_Competitor_Vehicle__r.Model__c}"/>
+                </td>
+            </tr>
+        </table><br/>
+        <b>Activity History</b>
+        <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:hidden;border-right-style:solid;border-bottom-style:hidden;">
+            <tr>
+                <td class="TopTdLabel" align="left" width="10%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Date}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Person_to_meet_Contact}</td>
+                <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Lead_Activity_Type}</td>
+                <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Subject}</td>
+                <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;background-color:gray;">{!$Label.Memo}</td>
+            </tr>
+            <apex:repeat value="{!activityhistoryList}" var="TaskHistory">
+                <tr>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!TaskHistory.SentTime__c}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!TaskHistory.Owner.LastName}"/>
+                        <apex:outputField value="{!TaskHistory.Owner.FirstName}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="15%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!TaskHistory.Intention_Status__c}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="20%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!TaskHistory.Subject}"/>
+                    </td>
+                    <td class="TopTdLabel" align="left" width="40%" height="25" style="border-right-style:hidden;">
+                        <apex:outputField value="{!TaskHistory.Description}"/>
+                    </td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </body>
+</apex:page>

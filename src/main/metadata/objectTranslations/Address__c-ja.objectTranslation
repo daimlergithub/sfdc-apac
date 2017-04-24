@@ -9,20 +9,36 @@
         <name>Address_Code__c</name>
     </fields>
     <fields>
-        <label><!-- Address Line 1 Native --></label>
-        <name>Address_Line_1_Native__c</name>
-    </fields>
-    <fields>
         <label>住所1</label>
         <name>Address_Line_1__c</name>
     </fields>
     <fields>
-        <label><!-- Address Line 2 Native --></label>
+        <label>住所2</label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label>住所1（カナ）</label>
+        <name>Address_Line_1_Native__c</name>
+    </fields>
+    <fields>
+        <label>住所2（カナ）</label>
         <name>Address_Line_2_Native__c</name>
     </fields>
     <fields>
-        <label>住所2</label>
-        <name>Address_Line_2__c</name>
+        <label>字名・丁目（カナ）</label>
+        <name>Block_Native__c</name>
+    </fields>
+    <fields>
+        <label>市区郡町村（カナ）</label>
+        <name>City_Native__c</name>
+    </fields>
+    <fields>
+        <label>大字・通称名（カナ）</label>
+        <name>District_Native__c</name>
+    </fields>
+    <fields>
+        <label>都道府県（カナ）</label>
+        <name>Province_Native__c</name>
     </fields>
     <fields>
         <label>住所区分</label>
@@ -49,16 +65,8 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Block Native --></label>
-        <name>Block_Native__c</name>
-    </fields>
-    <fields>
         <label>字名・丁目</label>
         <name>Block__c</name>
-    </fields>
-    <fields>
-        <label><!-- City Native --></label>
-        <name>City_Native__c</name>
     </fields>
     <fields>
         <label>市区郡町村</label>
@@ -106,10 +114,6 @@
         <name>Delivery_Point_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Town Native --></label>
-        <name>District_Native__c</name>
-    </fields>
-    <fields>
         <label>大字・通称名</label>
         <name>District__c</name>
     </fields>
@@ -148,10 +152,6 @@
     <fields>
         <label><!-- Preferred --></label>
         <name>Preferred__c</name>
-    </fields>
-    <fields>
-        <label><!-- Prefecture Native --></label>
-        <name>Province_Native__c</name>
     </fields>
     <fields>
         <label>都道府県</label>
@@ -389,8 +389,8 @@
             <translation>様</translation>
         </picklistValues>
     </fields>
-    <fields>
-        <label><!-- To Be Deleted --></label>
+	<fields>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
@@ -406,6 +406,10 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New</section>
         </sections>
     </layouts>
     <nameFieldLabel>住所番号</nameFieldLabel>

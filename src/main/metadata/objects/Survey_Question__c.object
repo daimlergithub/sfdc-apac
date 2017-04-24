@@ -56,6 +56,20 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Campaign_Question_Ref__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Created lookup with Question List Object for Japan CM requirement</description>
+        <externalId>false</externalId>
+        <label>Question Ref</label>
+        <referenceTo>QuestionList__c</referenceTo>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Choices__c</fullName>
         <externalId>false</externalId>
         <label>Choices</label>
@@ -95,7 +109,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <inlineHelpText>Enter the position of the question within the survey here.</inlineHelpText>
         <label>OrderNumber</label>
         <precision>18</precision>
-        <required>true</required>
+        <required>false</required>
         <scale>0</scale>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>

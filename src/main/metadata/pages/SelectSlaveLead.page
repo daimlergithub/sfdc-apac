@@ -1,0 +1,87 @@
+<apex:page standardController="Lead__c" extensions="LeadMergeController" showHeader="false" sidebar="false">
+    <style>
+        a {
+            color: #015BA7;
+            text-decoration: none;
+        }
+        
+        body a:hover {
+           text-decoration: underline;
+           color: #015BA7;
+        }
+        
+        .compare_table tr:first-child {
+            background-color: #DFE8F6;
+        }
+        
+        /* If showHeader is false, we need this to display section header */
+        .pageTitleIcon {
+            background-image: url(/img/icon/perAccounts32.png);
+            background-position: 0 0;
+            width: 32px;
+            height: 32px;
+        }
+    </style>    
+    
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
+    <apex:pageMessages />     
+    <apex:form id="theForm">
+    <apex:pageBlock title="Current Lead">
+        <apex:pageBlockTable value="{!leads}" var="leads">
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Name.Label}">
+                <apex:outputText value="{!leads.Name}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Contact__c.Label}">
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!leads.Contact__r.id}','_blank');">{!leads.Contact__r.Name}</apex:outputlink>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Service_Advisor__c.Label}">
+                <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!leads.Service_Advisor__r.id}','_blank');">{!leads.Service_Advisor__r.Name}</apex:outputlink>
+                </apex:Column>
+                <apex:Column headervalue="{!$Label.RecordType}">
+                <apex:outputText value="{!leads.RecordType.Name}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.CAC_Lead_Status__c.Label}">
+                <apex:outputField value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+        </apex:pageBlockTable> 
+      <!--  <table>
+            <tr>
+                <th id= "Name"> Lead No.</th>
+                <th id= "Contact"> Contact</th>
+                <th id= "Advisor"> Assigned Service Advisor</th>
+                <th id= "RTName"> Record Type</th>
+                <th id= "Status">CAC Lead Status </th>
+            </tr>
+            <tr>
+                <td  headers = "Name" width="23%">{!leads.Name}</td>
+                <td headers = "Contact" width="23%">{!leads.Contact__r.Name}</td>
+                <td headers = "Advisor" width="23%">{!leads.Service_Advisor__r.Name }</td>
+                <td headers = "RTName" width="23%">{!leads.RecordType.Name}</td>
+                <td headers = "Status" width="23%">{!leads.CAC_Lead_Status__c}</td>
+                
+            </tr>
+        </table>-->
+    </apex:pageBlock>
+        <apex:pageBlock title="{!$Label.Lead_to_be_Merged}" id="resultBlock">
+            <apex:pageblockTable value="{!slaves}" var="slave1" styleclass="compare_table" id="a">  
+                  <apex:column headerValue="Slave Record">
+         <input type="radio" name="Letters" value="{!slave1.acc.Id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');">
+                    <apex:param name="contIdParam" value="{!slave1.acc.Id}" assignTo="{!selectedValue}"/>   
+                </input>       
+                  </apex:column>                              
+                 <apex:repeat value="{!$ObjectType.Lead__c.FieldSets.SuspectLeadFields}" var="column">
+                    <apex:column value="{!slave1.acc[column]}" />
+                 </apex:repeat>                
+            </apex:pageblockTable> 
+             <apex:inputHidden value="{!selectedValue}" id="RadioButtonValue" />                        
+             <apex:commandButton value="Merge" action="{!mergeDup}" rerender="out" rendered="{!!hasMessage}"/> 
+        </apex:pageBlock>
+         <apex:outputText value="{!selectedValue}" id="out"/> 
+    </apex:form>
+    <script>
+        function changeValue(input, textid) {
+            document.getElementById(textid).value = input.value;
+        }
+    </script>
+</apex:page>

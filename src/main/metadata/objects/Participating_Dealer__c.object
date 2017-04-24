@@ -55,7 +55,92 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Approve_the_List__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used to capture if the list maintanence is completed for the dealers</description>
+        <externalId>false</externalId>
+        <label>Approve the List?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Brand__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Brand__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Brand</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign__r.Campaign_Partner__r.Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign__r.EndDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Execution_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Execution_Start_Date__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Execution Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Execution_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Execution_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Execution Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Executor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Campaign_Executer__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Executor</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Campaign_Package__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -79,20 +164,114 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Campaign_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign__r.StartDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Campaign_Sub_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Sub Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Campaign__r.Campaign_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Campaign Execution</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Participating Dealers</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Class__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Class__c , "A-Class"), "A-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "B-Class"), "B-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "C-Class"), "C-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CL-Class"), "CL-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "CLK-Class"), "CLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CLS-Class"), "CLS-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "E-Class"), "E-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "G-Class"), "G-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "GL-Class"), "GL-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "GLK-Class"), "GLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "ML-Class"), "ML-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "R-Class"), "R-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "S-Class"), "S-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "SL-Class"), "SL-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "SLK-Class"), "SLK-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "smart"), "smart", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "AMG"), "AMG", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "Other"), "Other", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "CLA-Class"), "CLA-Class", NULL) + BR() + 
+IF(INCLUDES( Campaign__r.Class__c , "GLA-Class"), "GLA-Class", NULL) + BR() +
+IF(INCLUDES( Campaign__r.Class__c , "GLA 45 AMG"), "GLA 45 AMG", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DMS_Retailer_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Dealer__r.DMS_Retailer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DMS Retailer ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Dealer__r.Dealer_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Dealer</label>
         <lookupFilter>
@@ -107,11 +286,56 @@
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Participating Campaigns</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Dealer__r.Dealer_ND_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ND Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(INCLUDES( Campaign__r.Range__c , "None"), "None", NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Range</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Campaign</label>
+        <referenceTo>Retail_Campaign__c</referenceTo>
+        <relationshipLabel>Participating Dealers</relationshipLabel>
+        <relationshipName>Participating_Dealers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Session_End_Date__c</fullName>
@@ -132,12 +356,9 @@
     <label>Participating Dealer</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
         <columns>Campaign__c</columns>
         <columns>Dealer__c</columns>
-        <columns>Campaign_Package__c</columns>
-        <columns>Session_End_Date__c</columns>
-        <columns>Session_Start_Date__c</columns>
-        <columns>NAME</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -164,7 +385,12 @@
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Participating Dealers</pluralLabel>
+    <pluralLabel>List Maintenance</pluralLabel>
+    <recordTypes>
+        <fullName>Participating_Dealer</fullName>
+        <active>false</active>
+        <label>Participating Dealer</label>
+    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Campaign_Package__c</lookupDialogsAdditionalFields>
@@ -178,7 +404,11 @@
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Participating_Dealer_Share__c</fullName>
+        <label>Participating Dealer Share</label>
+    </sharingReasons>
     <validationRules>
         <fullName>Campaign_Package_cannot_be_empty</fullName>
         <active>true</active>
@@ -188,11 +418,47 @@
         <errorMessage>You can't add a Campaign Package without any Package Items.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>List_Maintenance_lock</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Campaign__r.Consolidated_List_Completed__c = TRUE)</errorConditionFormula>
+        <errorMessage>List Maintenance is Completed,You Cant Edit And Create</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Session_Start_Date_is_less_than_End_Date</fullName>
         <active>true</active>
         <errorConditionFormula>Session_Start_Date__c  &gt;  Session_End_Date__c</errorConditionFormula>
         <errorMessage>Session Start Date must be less than or equal to Session End Date</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Complete</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Complete</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")} 
+
+if({!Participating_Dealer__c.Approve_the_List__c  } == false) 
+{ 
+var c = new sforce.SObject("Participating_Dealer__c"); 
+c.id = "{!Participating_Dealer__c.Id}"; 
+c.Approve_the_List__c   = true; 
+result = sforce.connection.update([c]); 
+if ( result[0].getBoolean( "success" ) ) 
+{ 
+window.location.reload(); 
+} 
+else 
+{ 
+alert( result[0].errors.message); 
+} 
+} 
+else 
+{ 
+alert("Already True"); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Manage_Participating_Dealers</fullName>
         <availability>online</availability>

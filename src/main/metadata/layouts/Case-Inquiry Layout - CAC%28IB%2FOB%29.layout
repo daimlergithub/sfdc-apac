@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Lead</customButtons>
-    <customButtons>New_AfterSales_Lead</customButtons>
+    <customButtons>New_Sales_Lead_Wholesale</customButtons>
+    <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
@@ -332,7 +332,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Dealer Info</label>
+        <label>Dealer Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -367,7 +367,7 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>VehiclePickerforCase</page>
+                <page>MarketCheckOnVehiclePickerCase</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>

@@ -1,9 +1,11 @@
 @isTest
 public class DMRequestHelperJPTest {
-    
+    private static Account dealer;
+     private static Account dealer2;
      private static Account account;
      private static Address__c address;
      private static DM_Request__c dmr;
+       private static DM_Request__c dmr2;
      private static DM_Material__c Material;
      private static DM_Material__c Material1;
      private static Address__c address1;
@@ -17,8 +19,12 @@ public class DMRequestHelperJPTest {
         
         Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
         upsert TriggerAddress;
-        
-           
+        RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
+        dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer', MBK_Data_Source__c ='Email');
+        insert dealer;
+            dealer2 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer2', MBK_Data_Source__c ='Email');
+        insert dealer2;
+              
          Profile profileCAC = [select Id from Profile where Name =:'IntegrationAPI'];
          usr = new User();
         usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';        
@@ -38,7 +44,7 @@ public class DMRequestHelperJPTest {
         account.RecordTypeId = personRecordtypeid;
         account.Phone='09844650654';
         account.MBK_Data_Source__c ='Email';
-        account.Mobile__c ='000-0000-9784';
+        account.Mobile__c ='00000009784';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);  
         system.debug('$$$$$$$$$$$$$'+account.id);      
         
@@ -88,8 +94,21 @@ public class DMRequestHelperJPTest {
          dmr.Expected_DM_Material3__c=Material.id;
          dmr.Status1__c='Success';
          dmr.Status3__c='Success';
+          dmr.View_By_All__c = true;
          dmr.Sent_Date__c=system.today().addDays(-10);
         insert dmr;
+        
+            dmr2 = new  DM_Request__c();
+         dmr2.Status__c='to be sent'; 
+         dmr2.Customer_Name__c=account.id;
+         dmr2.Sending_Address__c='Home';
+         dmr2.TitleOfHonor__c = 'To Person';
+         dmr2.Status2__c='to be sent';     
+         dmr2.Status1__c='to be sent';
+         dmr2.Status3__c='to be sent';
+         dmr2.Assigned_Dealer__c = dealer.Id;
+         dmr2.Sent_Date__c=system.today().addDays(-10);
+        insert dmr2;
         }
     } 
     
@@ -116,6 +135,7 @@ public class DMRequestHelperJPTest {
          dmr.Expected_DM_Material3__c=Material1.id;
          dmr.Status1__c='to be sent';
          dmr.Status3__c='to be sent';
+         dmr.Assigned_Dealer__c = dealer.Id;
          dmr.Sent_Date__c=system.today().addDays(-10);
         insert dmr;
         }
@@ -129,6 +149,8 @@ public class DMRequestHelperJPTest {
         test.startTest();
         dmr.Sending_Address__c='Other Address 1';
         update dmr;        
+        dmr2.Assigned_Dealer__c = dealer2.Id;
+       update dmr2;
         test.stopTest();
         //verify test
         dmr=[select Province__c  from DM_Request__c where id=:dmr.id];

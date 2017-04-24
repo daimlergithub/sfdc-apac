@@ -94,7 +94,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 1</masterLabel>
-            <translation>アフターセールスコンタクト1</translation>
+            <translation>アフターセールスコンタクト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Aftersales Contact Target 2</masterLabel>
@@ -1189,7 +1189,7 @@
     </fields>
     <fields>
         <help><!-- ID of related person --></help>
-        <label>コンタクト</label>
+        <label>顧客</label>
         <lookupFilter>
             <errorMessage><!-- Please select the proper account. --></errorMessage>
         </lookupFilter>
@@ -1223,11 +1223,23 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Company Car</masterLabel>
-            <translation>MBJ/MBFカンパニーカー</translation>
+            <translation>MBJ/MBF社有車</translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
+            <masterLabel>Daimler Employee Car</masterLabel>
+            <translation>MBJ/MBF従業員販売</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Lease</masterLabel>
             <translation>MBJ/MBF従業員リース</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Rental Car</masterLabel>
+            <translation>販売店レンタカー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Company Car</masterLabel>
+            <translation>販売店社有車</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
@@ -1240,6 +1252,18 @@
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
             <translation>デモカー</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Company Car</masterLabel>
+            <translation>FUSO社有車</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Car</masterLabel>
+            <translation>FUSO従業員販売</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Lease</masterLabel>
+            <translation>FUSO従業員リース</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
@@ -1311,7 +1335,7 @@
         <name>End_Reason__c</name>
         <picklistValues>
             <masterLabel>Bought Competitors</masterLabel>
-            <translation>他メーカーへの乗換</translation>
+            <translation>競合車への乗換</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>DMS</masterLabel>
@@ -1566,7 +1590,7 @@
         <name>Insurer__c</name>
     </fields>
     <fields>
-        <label><!-- Last Modified User Type --></label>
+        <label>最終更新者ユーザ種別</label>
         <name>Last_Modified_User_Type__c</name>
     </fields>
     <fields>
@@ -1891,23 +1915,27 @@
         <name>Point_of_Purchase__c</name>
     </fields>
     <fields>
-        <label><!-- Portal Apply Date --></label>
+        <label>MyM申請日</label>
         <name>Portal_Apply_Date__c</name>
     </fields>
     <fields>
-        <label>MM申請フラグ</label>
+        <label><!-- Portal Apply Flag --></label>
+        <name>Portal_Apply_Flag__c</name>
+    </fields>
+    <fields>
+        <label>MyM申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送信済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Portal Apply User --></label>
+        <label>MyM申請者</label>
         <name>Portal_Apply_User__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Portal Apply User) --></relationshipLabel>
     </fields>
@@ -1916,7 +1944,7 @@
         <name>Portal_Invisiblity__c</name>
     </fields>
     <fields>
-        <label><!-- Portal visiblity flag --></label>
+        <label>MyM車両表示フラグ</label>
         <name>Portal_Visiblity__c</name>
     </fields>
     <fields>
@@ -2587,8 +2615,20 @@
             <translation><!-- Original car replacement (Non-Benz) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Re-purchase</masterLabel>
             <translation><!-- Re-purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refinance existing vehicle</masterLabel>
+            <translation><!-- Refinance existing vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Replace existing vehicle</masterLabel>
+            <translation><!-- Replace existing vehicle --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2633,7 +2673,7 @@
         <name>Replacement__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Contact --></label>
+        <label>販売店顧客</label>
         <name>Retail_Contact__c</name>
         <relationshipLabel><!-- Vehicle Relationship --></relationshipLabel>
     </fields>
@@ -2689,7 +2729,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>D</masterLabel>
-            <translation><!-- D --></translation>
+            <translation>社有車(ﾃﾞﾓｶｰ等)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>H</masterLabel>
@@ -2697,7 +2737,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>L</masterLabel>
-            <translation><!-- L --></translation>
+            <translation>ﾘｰｽ販売(ﾃﾞﾓｶｰ等)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>N</masterLabel>
@@ -2705,39 +2745,39 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>R</masterLabel>
-            <translation><!-- R --></translation>
+            <translation>小売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>S</masterLabel>
-            <translation><!-- S --></translation>
+            <translation>社員販売</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>T</masterLabel>
-            <translation><!-- T --></translation>
+            <translation>卸売(使用不可)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>U</masterLabel>
-            <translation><!-- U --></translation>
+            <translation>ﾈｯﾄﾜｰｸ(別法人 G)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>V</masterLabel>
-            <translation><!-- V --></translation>
+            <translation>ｵｰｸｼｮﾝ</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>W</masterLabel>
-            <translation><!-- W --></translation>
+            <translation>業者</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>X</masterLabel>
-            <translation><!-- X --></translation>
+            <translation>ﾈｯﾄﾜｰｸ(同法人 G)</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Y</masterLabel>
-            <translation><!-- Y --></translation>
+            <translation>解体</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Z</masterLabel>
-            <translation><!-- Z --></translation>
+            <translation>その他(使用不可)</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2854,7 +2894,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- To Be Deleted --></label>
+        <label><!-- To Be Actioned --></label>
+        <name>ToBeActioned__c</name>
+    </fields>
+    <fields>
+        <label>夜間削除対象フラグ</label>
         <name>To_Be_Deleted__c</name>
     </fields>
     <fields>
@@ -3047,7 +3091,7 @@
         <name>UsVIN__c</name>
     </fields>
     <fields>
-        <label><!-- UsedWarranty Apply Date --></label>
+        <label>UCP登録／申請日</label>
         <name>UsedWarranty_Apply_Date__c</name>
     </fields>
     <fields>
@@ -3055,19 +3099,19 @@
         <name>UsedWarranty_Apply_NDCode__c</name>
     </fields>
     <fields>
-        <label><!-- Used Warranty Apply Status --></label>
+        <label>UCP登録／申請ステータス</label>
         <name>UsedWarranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送信済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- UsedWarranty Apply User --></label>
+        <label>UCP登録／申請者</label>
         <name>UsedWarranty_Apply_User__c</name>
         <relationshipLabel><!-- Vehicle Relationship (UsedWarranty Apply User) --></relationshipLabel>
     </fields>
@@ -3096,7 +3140,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>宛先コンタクト先住所（TEXT）</label>
+        <label>住所（車両）（TEXT）</label>
         <name>Vehicle_Address_Display__c</name>
     </fields>
     <fields>
@@ -3117,15 +3161,15 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label>モデルレンジ</label>
+        <label>モデル</label>
         <name>Vehicle_Model__c</name>
     </fields>
     <fields>
-        <label>宛先コンタクト先電話番号</label>
+        <label>電話番号（車両）（TEXT）</label>
         <name>Vehicle_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- vehicle tel picklist --></label>
+        <label>電話番号（車両）</label>
         <name>Vehicle_Phone_picklist__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -3133,7 +3177,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Warranty Apply Date --></label>
+        <label><!-- Vehicle Status --></label>
+        <name>Vehicle_Status__c</name>
+    </fields>
+    <fields>
+        <label>SPO登録／申請日</label>
         <name>Warranty_Apply_Date__c</name>
     </fields>
     <fields>
@@ -3141,19 +3189,19 @@
         <name>Warranty_Apply_NDCode__c</name>
     </fields>
     <fields>
-        <label>保証申請フラグ</label>
+        <label>SPO登録／申請ステータス</label>
         <name>Warranty_Apply_Status__c</name>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
-            <translation><!-- Sent --></translation>
+            <translation>送信済み</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>To be Sent</masterLabel>
-            <translation><!-- To be Sent --></translation>
+            <translation>送信待ち</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Warranty Apply User --></label>
+        <label>SPO登録／申請者</label>
         <name>Warranty_Apply_User__c</name>
         <relationshipLabel><!-- Vehicle Relationship (Warranty Apply User) --></relationshipLabel>
     </fields>
@@ -3244,6 +3292,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Year Of Manufacture --></label>
+        <name>Year_Of_Manufacture__c</name>
+    </fields>
+    <fields>
         <label>宛先コンタクト先住所</label>
         <lookupFilter>
             <errorMessage><!-- Please select the proper address linked to the contact. --></errorMessage>
@@ -3252,32 +3304,64 @@
         <relationshipLabel>車両顧客関係</relationshipLabel>
     </fields>
     <fields>
-        <label><!-- vehicle address picklist --></label>
+        <label>住所（車両）</label>
         <name>vehicle_address_picklist__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>Home Address</masterLabel>
+            <translation>自宅</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation>その他1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation>その他2</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation>その他3</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work address</masterLabel>
+            <translation>勤務先</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>宛先コンタクト先FAX</label>
+        <label>FAX（車両）（TEXT）</label>
         <name>vehicle_fax__c</name>
     </fields>
     <fields>
-        <label><!-- vehicle fax picklist --></label>
+        <label>FAX（車両）</label>
         <name>vehicle_fax_picklist__c</name>
         <picklistValues>
-            <masterLabel>None</masterLabel>
-            <translation><!-- None --></translation>
+            <masterLabel>FAX</masterLabel>
+            <translation>FAX</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work FAX</masterLabel>
+            <translation>勤務先 FAX</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label>コンタクト先メール</label>
+        <label>Eメール（車両）（TEXT）</label>
         <name>vehicle_mail__c</name>
     </fields>
     <fields>
-        <label><!-- vehicle mail picklist --></label>
+        <label>Eメール（車両）</label>
         <name>vehicle_mail_picklist__c</name>
+        <picklistValues>
+            <masterLabel>Email Home</masterLabel>
+            <translation>Eメール(自宅）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Work</masterLabel>
+            <translation>Eメール(会社）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyMercedes Email</masterLabel>
+            <translation>MyMercedesメールアドレス</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
@@ -3317,7 +3401,7 @@
     <layouts>
         <layout>Vehicle Relationship Layout-CAC</layout>
         <sections>
-            <label><!-- Basic Information --></label>
+            <label>基本情報</label>
             <section>Basic Information</section>
         </sections>
         <sections>
@@ -3330,18 +3414,49 @@
         </sections>
         <sections>
             <label>手放し設定情報</label>
-            <section>End Setting Information</section>
+            <section>End Information</section>
         </sections>
         <sections>
-            <label>車検情報</label>
+            <label>車検証情報</label>
             <section>MOT Information</section>
         </sections>
         <sections>
-            <label>車両住所情報</label>
-            <section>Vehicle Address Information</section>
+            <label>この車両の連絡先</label>
+            <section>Vehicle Contact Information</section>
         </sections>
         <sections>
             <label>車両情報</label>
+            <section>Vehicle Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Layout-CAC-KR</layout>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- End Setting Information --></label>
+            <section>End Setting Information</section>
+        </sections>
+        <sections>
+            <label><!-- MOT Information --></label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Address Information --></label>
+            <section>Vehicle Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
             <section>Vehicle Information</section>
         </sections>
     </layouts>
@@ -3350,6 +3465,33 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Relationship Retail</layout>
+        <sections>
+            <label>基本情報</label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>日付情報</label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label>車検情報</label>
+            <section>MOT Information</section>
+        </sections>
+        <sections>
+            <label>新しい項目</label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label>車両情報</label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     <layouts>

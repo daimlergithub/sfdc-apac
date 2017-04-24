@@ -1,0 +1,73 @@
+<!--
+Created By          :    Kiran  
+Created Date        :    23.02.2017
+Company             :    NTT Data,Inc.
+Usage               :    This functionaly will check the duplicate account records and disply the matched records
+                        
+                         Business Conditions :
+                          * Need to click on Duplicate check button.
+                   
+JIRA NO             :    SFDCJP-1056,SFDCJP-995                                  
+ 
+MODIFICATION DETAILS:
+ 
+-->
+<apex:page Controller="CheckAccountDuplicateController" action="{!onLineDeduplication}">
+  <apex:pageMessages ></apex:pageMessages>
+  <apex:pageBlock title="{!$Label.Confirmed_Match}"  rendered="{!show}">
+                <apex:PageBlockTable Columns="8" value="{!objAccountDeDup}" var="cr" >
+                    <!--<apex:Column >
+                        <apex:outputLink title="" value="/{!cr.id}/e?retURL={!cr.id}" style="font-weight:bold">Edit</apex:outputLink>&nbsp;|&nbsp;
+                    </apex:Column>-->
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" >  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
+                        <apex:outputField value="{!cr.firstName}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
+                        <apex:outputField value="{!cr.Mobile__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <!--<apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>-->                     
+                </apex:PageBlockTable>               
+            </apex:PageBlock>
+            
+            <!-- Display below page block if record type is Company-->
+            <apex:pageBlock title="{!$Label.Confirmed_Match}"  rendered="{!CompanyAcc}">
+                <apex:PageBlockTable Columns="8" value="{!objAccountDeDup}" var="cr" >
+                    <!--<apex:Column >
+                        <apex:outputLink title="" value="/{!cr.id}/e?retURL={!cr.id}" style="font-weight:bold">Edit</apex:outputLink>&nbsp;|&nbsp;
+                    </apex:Column>-->
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" >  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.Name}</apex:outputLink>    
+                    </apex:Column> 
+                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
+                        <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="Address for Address data">                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>
+                    <!--  <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>-->                     
+                </apex:PageBlockTable>               
+            </apex:PageBlock>
+</apex:page>

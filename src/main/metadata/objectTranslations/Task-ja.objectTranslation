@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
-        <label><!-- CallReference --></label>
-        <name>AES_CNTR__CallReference__c</name>
-    </fields>
-    <fields>
-        <label><!-- Called --></label>
-        <name>AES_CNTR__Called__c</name>
-    </fields>
-    <fields>
-        <label><!-- Caller --></label>
-        <name>AES_CNTR__Caller__c</name>
-    </fields>
-    <fields>
-        <label><!-- Queue --></label>
-        <name>AES_CNTR__Queue__c</name>
-    </fields>
-    <fields>
-        <label><!-- UCID --></label>
-        <name>AES_CNTR__UCID__c</name>
-    </fields>
-    <fields>
-        <label><!-- UUI --></label>
-        <name>AES_CNTR__UUI__c</name>
-    </fields>
-    <fields>
         <label><!-- AgentType --></label>
         <name>AES_SFConnector__AgentType__c</name>
     </fields>
@@ -68,7 +44,7 @@
         <label><!-- Activity Date --></label>
         <name>Activity_Date__c</name>
     </fields>
-    <fields>
+   <fields>
         <help><!-- Activity Purpose --></help>
         <label><!-- Activity Purpose --></label>
         <name>Activity_Purpose__c</name>
@@ -120,10 +96,6 @@
     <fields>
         <label><!-- Communication Type --></label>
         <name>Communication_Type__c</name>
-    </fields>
-    <fields>
-        <label><!-- Comm Date --></label>
-        <name>Communication_date__c</name>
     </fields>
     <fields>
         <label><!-- Created By EP Transaction --></label>
@@ -182,7 +154,7 @@
         <name>IB_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Intention Status --></label>
+        <label>リード活動種別</label>
         <name>Intention_Status__c</name>
     </fields>
     <fields>
@@ -196,10 +168,6 @@
     <fields>
         <label><!-- MD --></label>
         <name>MD__c</name>
-    </fields>
-    <fields>
-        <label><!-- Next Steps --></label>
-        <name>Next_Steps__c</name>
     </fields>
     <fields>
         <label><!-- Notification Email Flag --></label>
@@ -250,6 +218,21 @@
         <name>Phone_number__c</name>
     </fields>
     <fields>
+        <name>Priority</name>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Priority --></label>
         <name>Priority__c</name>
     </fields>
@@ -298,7 +281,7 @@
         <name>SSI_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Last Communication Modified Time --></label>
+        <label>予定日時</label>
         <name>SentTime__c</name>
     </fields>
     <fields>
@@ -312,6 +295,17 @@
     <fields>
         <label><!-- Start Call Time --></label>
         <name>Start_Call_Time__c</name>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Status --></label>
@@ -328,6 +322,21 @@
     <fields>
         <label><!-- Task RecordType Name --></label>
         <name>Task_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>Conference</masterLabel>
+            <translation><!-- Conference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- UCID --></label>
@@ -394,14 +403,14 @@
     <layouts>
         <layout>General Task Layout</layout>
         <sections>
-            <label>通話詳細</label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <layouts>
         <layout>IB Call</layout>
         <sections>
-            <label><!-- Call Detail --></label>
+            <label>通話詳細</label>
             <section>Call Detail</section>
         </sections>
         <sections>
@@ -409,14 +418,14 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label>通話詳細</label>
+            <label><!-- Fields --></label>
             <section>Fields</section>
         </sections>
     </layouts>
     <layouts>
         <layout>OB Call</layout>
         <sections>
-            <label><!-- Call Detail --></label>
+            <label>通話詳細</label>
             <section>Call Detail</section>
         </sections>
         <sections>

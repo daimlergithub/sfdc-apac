@@ -131,55 +131,11 @@
         <label>Touch Point</label>
         <picklist>
             <picklistValues>
-                <fullName>Event</fullName>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>English Customer Desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Owner Hotline</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -187,7 +143,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Maybach call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Owner Hotline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English Customer Desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -199,11 +167,43 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Call Catalogue</fullName>
+                <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>My Mercedes</fullName>
+                <fullName>Dealers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recall desk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -211,7 +211,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>M-Care</fullName>
+                <fullName>My Mercedes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DSC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -224,6 +228,14 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Outbound call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

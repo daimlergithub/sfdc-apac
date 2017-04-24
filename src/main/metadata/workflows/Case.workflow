@@ -235,6 +235,15 @@
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Approval_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval done</literalValue>
+        <name>Approval Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>ChangeStatus</fullName>
         <field>Status</field>
         <literalValue>Waiting for final approval</literalValue>
@@ -616,10 +625,28 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Rejection_Update</fullName>
+        <field>Status</field>
+        <literalValue>Final approval rejected</literalValue>
+        <name>Rejection Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Send_Email_to_Gate_Keeper</fullName>
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>0</literalValue>
         <name>Send Email to Gate Keeper</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status</fullName>
+        <field>Status</field>
+        <literalValue>Waiting for Response approval</literalValue>
+        <name>Status</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -639,6 +666,16 @@
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
         <name>Status Final approval rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Update</fullName>
+        <field>Status</field>
+        <literalValue>Requires Manager Review</literalValue>
+        <name>Status Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1094,7 +1131,7 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification KR</fullName>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
@@ -1649,5 +1686,15 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Case status to %22Waiting for Response approval%22</fullName>
+        <actions>
+            <name>Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

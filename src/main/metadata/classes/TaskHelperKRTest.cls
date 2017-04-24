@@ -4,6 +4,7 @@ public class TaskHelperKRTest {
   public static Contact Contobj;
   public static Lead__c leadobj;
   public static Task taskobj;
+   public static Task taskobj1;
   public static List<Task> tasklist;
   public static Campaign camobj;
   public static DM_Request__c dmr;
@@ -19,11 +20,10 @@ public class TaskHelperKRTest {
   static void createTestData() {
     accobj = new Account();
     accobj.RecordTypeId = DealerRecordTypeId ;
-    accobj.Name = 'testaccount';
-    accobj.Phone = '000-0000-9642';
+    accobj.Name = 'testaccount'; 
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
-    accobj.ZipCode__c= '1002347';
+    accobj.Mobile__c = '00000009642';
+    accobj.ZipCode__c= '1002347';    
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
@@ -61,12 +61,20 @@ public class TaskHelperKRTest {
     system.debug('$$$$$$$$$$$$'+leadobj.id);
     
     taskobj = new Task();
-    taskobj.RecordTypeId = SSITaskRecordTypeId;
+    taskobj.RecordTypeId = OBTaskRecordTypeId ;
     taskobj.Status='open';
     taskobj.Activity_Status__c='Successful';
     taskobj.Generate_QC__c = true;
+    taskobj.whatId = accobj.Id;
+    taskobj1 = new Task();
+    taskobj1.RecordTypeId = eDMTaskRecordTypeId ;
+    taskobj1.Status='open';
+    taskobj1.Activity_Status__c='Successful';
+    taskobj1.Generate_QC__c = true;
+    taskobj1.whatId = leadobj.Id;
     tasklist = new List<Task>();
     tasklist.add(taskobj);
+    tasklist.add(taskobj1);
     insert tasklist;
       
     dmr = new DM_Request__c();
@@ -76,9 +84,9 @@ public class TaskHelperKRTest {
                                          Market__c='JP');
     insert TriggerDMR;
     
-	List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
     insert updatecustomsettings;
-	
+  
     Material = new DM_Material__c();
     Material.Name='testname';
     insert Material;

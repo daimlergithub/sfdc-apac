@@ -44,24 +44,27 @@ public class TriggerRetailCampaignTest {
         test.startTest();
         Retail_Campaign__c cp1 = new Retail_Campaign__c(
         Y_Dealer_Name__c = dealer.id,
+        Campaign_Execution_Channels__c = 'DM',
         //Y_Status__c = 'Confirmed',
         Y_Apply_Deadline__c = system.today(),
                     RecordTypeId = SMYearRecordTypeId);
         insert cp1;                                        
         Retail_Campaign__c cp2 = new Retail_Campaign__c(
         Y_Dealer_Name__c = dealer.id,
+        Campaign_Execution_Channels__c = 'DM',
         Y_Apply_Deadline__c = system.today(),
                     RecordTypeId = ASYearRecordTypeId);
         insert cp2;
         Retail_Campaign__c cp3 = new Retail_Campaign__c(
                     Yearly_TA__c = cp2.id,
                     Dealer_Name__c = dealer.id,
+                    Campaign_Execution_Channels__c = 'DM',
                     RecordTypeId = ASRecordTypeId);
         insert cp3;
         test.stopTest();
          list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
         listRetailCampaign.add(cp3);
-        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Campaign_Execution_Channels__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
         system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp3.Dealer_Name__c);
     }
     @isTest
@@ -84,6 +87,7 @@ public class TriggerRetailCampaignTest {
                     Region_Best_Practice__c = false,
                     Region_Recommendation__c = false,
                     Final_Best_Practice__c = false,
+                    Campaign_Execution_Channels__c = 'DM',
                     RecordTypeId = RMRecordTypeId);
         insert cp4;
         cp4.Region_Best_Practice__c = true;
@@ -96,7 +100,7 @@ public class TriggerRetailCampaignTest {
         test.stopTest();
          list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
         listRetailCampaign.add(cp4);
-        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c,Campaign_Execution_Channels__c from Retail_Campaign__c where id IN: listRetailCampaign];
         system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp4.Dealer_Name__c);
     }
     @isTest
@@ -118,6 +122,7 @@ public class TriggerRetailCampaignTest {
                     Parent_Campaign__c = TestData_MBBestPractice.id,
                     Region_Best_Practice__c = true,
                     Region_Recommendation__c = true,
+                    Campaign_Execution_Channels__c = 'DM',
                     Final_Best_Practice__c = false,
                     Final_Best_Practice_Forsmart__c = true,
                     
@@ -130,9 +135,11 @@ public class TriggerRetailCampaignTest {
         rcmhJP.handleTrigger(false, false, false, false, false);
         rcmhJP.handleIntegrationTrigger(false, false, false, false, false);
         
+
        /* TriggerRetailTaskTriggerHandler rth = new TriggerRetailTaskTriggerHandler();
         rth.handleTrigger(false, false, false, false, false);
         rth.handleIntegrationTrigger(false, false, false, false, false);*/
+
         
         TriggerRetailTaskTriggerHandlerJP rthJP = new TriggerRetailTaskTriggerHandlerJP();
         rthJP.handleTrigger(false, false, false, false, false);

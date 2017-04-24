@@ -12,12 +12,15 @@ private class VehicleSharingTest {
     //create test data
     static {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
+        //insert updatecustomsettings;
+        Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccountLink',Trigger_Name__c = 'TriggerAccountLink',Trigger_Handler__c = 'TriggerAccountLinkTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+        insert newtrg;
         
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
         
-        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme',MBK_Data_Source__c='Email',Mobile__c='000-0000-0000', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
+        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme',MBK_Data_Source__c='Email',Mobile__c='00000000000', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
         insert acc;      
      
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');

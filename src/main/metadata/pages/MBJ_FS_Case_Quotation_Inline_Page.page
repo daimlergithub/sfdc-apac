@@ -1,0 +1,55 @@
+<apex:page standardController="Case" extensions="MBJ_FS_Case_Quotation_InlineController"  showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+        
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'Early Termination',true,false)}"> 
+                    <apex:outputField value="{!Case.Retail_Non_Retail_car__c}"/>
+                    <apex:outputField value="{!Case.ET_Type_for_Close_Mileage__c}"/>
+                    <apex:outputField value="{!Case.Voluntary_insurance_check__c}"/>
+                    <apex:outputField value="{!Case.X3_months_usage__c}"/>
+                    <apex:outputField value="{!Case.Area_manager_approval__c}"/>
+                    <apex:outputField value="{!Case.Govt_Subsidy_reimburse__c}"/>                  
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'Payout',true,false)}"> 
+                    <apex:outputField value="{!Case.Buyer__c}"/>
+                    <apex:outputField value="{!Case.Replacement__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'Re-Lease',true,false)}"> 
+                    <apex:outputField value="{!Case.Mileage__c}"/>
+                    <apex:outputField value="{!Case.Accident_repair_history__c}"/>
+                    <apex:outputField value="{!Case.Re_lease_voluntary_insurance_check__c}"/>
+                    <apex:outputField value="{!Case.Re_lease_term__c}"/>
+                    <apex:outputField value="{!Case.Regarding_Vehicle_transfer_doc__c}"/>                 
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'Re-loan',true,false)}"> 
+                    <apex:outputField value="{!Case.Down_payment__c}"/>
+                    <apex:outputField value="{!Case.Bonus_payment_amount__c}"/>
+                    <apex:outputField value="{!Case.Bonus_payment_month_1_month_2__c}"/>
+                    <apex:outputField value="{!Case.Payment_term__c}"/>
+                    <apex:outputField value="{!Case.First_payment__c}"/>
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:outputPanel >
+                <apex:pageblockSection rendered="{!IF(Case.Case_Type__c == 'Pre-Appraisal (Close End)' || Case.Case_Type__c == 'Pre-Appraisal (SWP)' ,true,false)}"> 
+                    <apex:outputField value="{!Case.Pre_app_Location__c}"/>
+                    <apex:outputField value="{!Case.Pre_app_1st_requested_date__c}"/>
+					<apex:outputField value="{!Case.Pre_app_2nd_requested_date__c}"/>
+                    <apex:outputField value="{!Case.Pre_app_requested_date_to_JAAI__c}"/>
+                    <apex:outputField value="{!Case.Pre_app_result_shared__c}"/>                 
+                </apex:pageblockSection>
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

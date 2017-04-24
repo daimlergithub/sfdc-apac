@@ -103,7 +103,7 @@ public class AddressSearchValidationControllerTest
     static testmethod void AddressSearchValidationControllerTest5()
     {
         createTestData();
-        addressobj.ZipCode__c = '89898';
+        addressobj.ZipCode__c = '8989812';
         update addressobj;
         
         ApexPages.currentPage().getParameters().put('recordType','Company');
@@ -154,8 +154,7 @@ public class AddressSearchValidationControllerTest
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
         objAccount.ZipCode__c = '1004236';
-        objAccount.Email__c='test@mbj.com';
-        objAccount.Mobile__c ='000-000-0000';
+        objAccount.Email__c='test@mbj.com';        
         objAccount.MBK_Data_Source__c ='Email';
         objAccount.Province__c = 'Province1';
         objAccount.Phone = '08022420181';
@@ -178,8 +177,7 @@ public class AddressSearchValidationControllerTest
         personAcc.Province__c='Province1';
         personAcc.City__c='Test';
         personAcc.ZipCode__c = '1004287';
-        personAcc.Email__c='test@mbj.com';
-        personAcc.Mobile__c = '000-000-0000';
+        personAcc.Email__c='test@mbj.com';        
         personAcc.MBK_Data_Source__c ='Email';
         personAcc.Phone = '08022420181';
         personAcc.Province__c = 'Province1';
@@ -270,7 +268,8 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.recordType = '012280000000f0p';
         JPAcccontroller.selectedRecordType = 'Company';
         JPAcccontroller.RecordType = 'Company';
-        test.startTest();        
+        test.startTest();      
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());  
         JPAcccontroller.saveAccount();
         
         JPAcccontroller.selectedRecordType = 'Person Account';
@@ -278,8 +277,8 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objPersonAccount = objAccount;
         JPAcccontroller.saveAccount();
         JPAcccontroller.AddressSearchbyZipCode();
-        //JPAcccontroller.validateAddressByZipCode();
-        //JPAcccontroller.ValidateAddressCode(addressobj);
+        JPAcccontroller.validateAddressByZipCode();
+        JPAcccontroller.ValidateAddressCode(addressobj);
         JPAcccontroller.getAreacodeItems();
         JPAcccontroller.getMobileAreacodeItems();
         JPAcccontroller.onLineDeduplication();

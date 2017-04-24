@@ -173,6 +173,16 @@
             <operation>notEqual</operation>
             <value>Person Account Soft Deleted</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>MB_Customer_Info_Remove__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing2__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>Edit</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>

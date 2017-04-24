@@ -11,6 +11,12 @@
     
     1. Sinow Created on 2013-04-28
     2. 17-July-2013 Sinow Zhang (NTTData) When a task ucid is not null, update interactionIds from Avato. US-CTI-001
+    ---------------------------------------------------------------
+    modified date : 24-feb-2017
+    modified method : UpdateLinkedLeads
+    issue : SFDCJP-1725
+    name : Lokesh m
+    desc : updating Task_Update_Flag__c field in lead__c object related to this task.
 */
 public class TaskHelper {
     // Get Task record type ids
@@ -18,6 +24,8 @@ public class TaskHelper {
     private static String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
     private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+    private static String SalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+    private static String AfterSalesLeadRectypeID= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
     
     // Get QC__c record type ids
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
@@ -30,8 +38,9 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
     private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
-	public static string closedString='closed'; 
-	public static string validString='valid';
+  public static string closedString='closed'; 
+  public static string validString='valid';
+   private static string leadTabId = System.Label.LeadId;
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
   /**
@@ -43,8 +52,8 @@ public class TaskHelper {
   */     
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   	
+     
+     
         set<Id> setTaskIds = new set<Id>();
         for(Task tk : tasks)
         {
@@ -99,9 +108,9 @@ public class TaskHelper {
   */
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   		
-   	
+     
+       
+     
         if(isInsert)
             UtilTask.updateCampaignMemberStatus(tasks);
         if(isUpdate)
@@ -127,8 +136,8 @@ public class TaskHelper {
   */
    public static void recordTypeUpdate_Generaltask(List<Task> tasks)
    {
-   		
-   	
+       
+     
        Set<String> contactIds = new Set<String>();
        Set<String> templateIds = new Set<String>();
        Set<Id> relatedOrderIds = new Set<Id>();
@@ -293,8 +302,8 @@ public class TaskHelper {
   */
    public static void Reply_TD_unsubscribeForeachSMScontent(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	
-   		
+     
+       
         Map<Id, String> userIdNames = new Map<Id, String>();
         Set<Id> taskOwnerIds = new Set<Id>();
         for(Task t : tasks)
@@ -343,8 +352,8 @@ public class TaskHelper {
   */
    public static void FillintheCampaignNameBasedontheRelatedtoObject(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		
-   	
+       
+     
         Set<String> caseIds = new Set<String>();
         Set<String> campaignIds = new Set<String>();
         Set<String> campaignLeadIds = new Set<String>();
@@ -387,9 +396,9 @@ public class TaskHelper {
    
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    
-   	
+     
    {
-   	
+     
        List<Task> taskforGenerateQC = new List<Task>();
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
@@ -432,10 +441,10 @@ public class TaskHelper {
             }
             
             for(Task t : tasks) {
-	            //When QC Quantity is changed, insert IB/OB QC records.
-	            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
-	                taskforGenerateQC.add(t);
-	        }
+              //When QC Quantity is changed, insert IB/OB QC records.
+              if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
+                  taskforGenerateQC.add(t);
+          }
         }
         
         
@@ -883,4 +892,140 @@ public class TaskHelper {
        }
     }
  // By Shuang Li BRD-AS-CAC-007---- end
+    /**
+  *@Description : Update Linked Leads. 
+  *@Date : 11/14/2016
+  *@param: List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+----------------------------------------------------------
+   @issue : SFDCJP-1725
+   @modified date : 24-feb-2017
+   @name : Lokesh m
+   @desc : updating Task_Update_Flag__c field in lead__c object related to this task.
+  */
+    
+    public static void UpdateLinkedLeads(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
+    
+        Set<ID> leadId = new Set<ID>();
+        System.debug('@@@@@@@@@@'+leadId );
+          List<Lead__c> lstLead = new List<Lead__c>();
+         // set<Lead__c> updateLead = new set<Lead__c>();
+          Map<Id,Lead__c> updateLead=new Map<Id,Lead__C>();
+          Map<Id,Lead__c> updlead=new Map<Id,Lead__C>();
+          List<Lead__c> mainlead= new List<Lead__c>();
+         for(Task tsk : tasks){            
+            if(tsk.WhatId != null){
+              
+                      leadId.add(tsk.WhatId);        
+               
+            }   
+        }
+         if(leadId != Null && !leadId.isEmpty()){
+            lstLead = [Select Id,RecordTypeId,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c,Visited_Showroom_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c, 
+            Finance_Proposal_Date__c,Insurance_Proposal_Date__c,ServiceProgram_Proposal_Date__c,
+            Simple_Estimation_Date__c,Test_Drive_Date__c,Trade_in_Date__c from Lead__c where Id =:leadId];
+        }
+        
+        for(Task t : tasks)
+        {
+        if(t.WhatId != null){
+               
+                for(Lead__c le : lstLead)
+                {
+                
+                if((t.Intention_Status__c=='Contact')  && (t.SentTime__c!=null) )
+                {
+                le.Next_Contact_Customer_Date__c=date.valueof(t.SentTime__c);
+                updateLead.put(le.ID,le);
+                updlead.put(le.ID,le);
+                }
+                }
+                }
+        }
+        
+       for(Task t1 : tasks)
+        {
+        for(Lead__c le1 : lstLead)
+            {
+                if(le1.id == t1.whatId)
+                {
+                    if(t1.intention_status__c=='Contact' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Contact_Date__c =t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Visited' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Visited_Showroom_Date__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Needs Check' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Needs_Check_Date__c = t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                    else if(t1.intention_status__c=='Product Proposal' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Product_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Finance Proposal' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Finance_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Insurance Proposal' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.Insurance_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Service Program Proposal' && t1.Activity_Date__c!=NULL)
+                    {
+                        le1.ServiceProgram_Proposal_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Simple Estimation' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Simple_Estimation_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                    else if(t1.intention_status__c=='Test Drive' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Test_Drive_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                    else if(t1.intention_status__c=='Trade-In' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Trade_in_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1); 
+                    }
+                    else if(t1.intention_status__c=='Trade-In' || t1.intention_status__c=='Test Drive' || t1.intention_status__c=='Simple Estimation' || t1.intention_status__c=='Finance Proposal' || t1.intention_status__c=='Product Proposal' && le1.RecordTypeID == AfterSalesLeadRectypeID)
+                    
+                     t1.addError('Please select appropriate activity for the Leads');
+                }
+           }
+        }
+        update mainLead;
+        for(Lead__c led : lstLead){
+            if(led.Task_Update_Flag__c == False){
+                led.Task_Update_Flag__c = True;
+                updateLead.put(led.id,led);
+            }
+            else if(led.Task_Update_Flag__c == True){
+                led.Task_Update_Flag__c = False;
+                updateLead.put(led.id,led);
+            }
+        } 
+        system.debug('#####$$$$$$'+updateLead);
+        if(updateLead != NULL && !updateLead.isEmpty())
+        {
+           // list<lead__c>wupdateLead = new list<lead__c>(updateLead);
+            Update updateLead.Values();
+        }
+            
+        if(updlead.size()>0){ 
+          System.debug('updlead.size()>>>>>>>'+updlead.size());
+            update  updlead.Values();  
+        }          
+    } 
 }

@@ -8,6 +8,14 @@
         <value>Accepted</value>
     </labels>
     <labels>
+        <fullName>Accessory_price_Dealer_Option_price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accessory price +Dealer Option price</shortDescription>
+        <value>Accessory price
++Dealer Option price</value>
+    </labels>
+    <labels>
         <fullName>Account</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -22,11 +30,25 @@
         <value>Account Link</value>
     </labels>
     <labels>
+        <fullName>DealerKoreaLoginURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DealerKoreaLoginURL</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBKorea</value>
+    </labels>	
+	<labels>
         <fullName>AccountMergeFields</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AccountMergeFields</shortDescription>
         <value>AccountMergeFields</value>
+    </labels>
+    <labels>
+        <fullName>AccountRetailCopy</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRetailCopy</shortDescription>
+        <value>Account Retail Copy</value>
     </labels>
     <labels>
         <fullName>Account_Cann_t_be_Customer</fullName>
@@ -50,6 +72,13 @@
         <value>Account Merge</value>
     </labels>
     <labels>
+        <fullName>Account_Retail_Copy_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Retail Copy Filter</shortDescription>
+        <value>Account Retail Copy Filter</value>
+    </labels>
+    <labels>
         <fullName>Account_cannot_have_more_than_5_Address</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -65,11 +94,32 @@
         <value>Accuracy of documentation</value>
     </labels>
     <labels>
+        <fullName>Activity_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Activity History</shortDescription>
+        <value>Activity History</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
         <fullName>Add_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Add Button</shortDescription>
         <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Add_Participating_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Participating Dealer</shortDescription>
+        <value>Add Participating Dealer</value>
     </labels>
     <labels>
         <fullName>Add_to_Campaign</fullName>
@@ -122,12 +172,33 @@
         <value>Address Information</value>
     </labels>
     <labels>
+        <fullName>Address_PrintPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address PrintPDF</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
         <fullName>Address_Search</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Address Search</shortDescription>
         <value>Address Search</value>
+    </labels>
+    <labels>
+        <fullName>Address_Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Select</shortDescription>
+        <value>Address Select</value>
+    </labels>
+    <labels>
+        <fullName>Address_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Type</shortDescription>
+        <value>Address Type</value>
     </labels>
     <labels>
         <fullName>Address_fields_not_null</fullName>
@@ -152,6 +223,34 @@
         <value>Address is not Validated ,Please click on Validate by entering proper Zipcode</value>
     </labels>
     <labels>
+        <fullName>Advisor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Advisor</shortDescription>
+        <value>Advisor</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target</shortDescription>
+        <value>After Sales Contact Target</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Purchaser Relation</shortDescription>
+        <value>After Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>After_Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>After Sales Contact Target Sales Responsible Person</value>
+    </labels>
+    <labels>
         <fullName>Aftersales</fullName>
         <categories>Yearly TA</categories>
         <language>en_US</language>
@@ -174,11 +273,46 @@
         <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
+        <fullName>Age</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Age</shortDescription>
+        <value>Age</value>
+    </labels>
+    <labels>
         <fullName>Alert_Handling_Level</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Alert Handling Level</shortDescription>
         <value>Handling level is not Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Allow_Data_Sharing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow Data Sharing</shortDescription>
+        <value>Allow Data Sharing</value>
+    </labels>
+    <labels>
+        <fullName>Allow_data_sharing2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow data sharing2</shortDescription>
+        <value>Allow Data Sharing</value>
+    </labels>
+    <labels>
+        <fullName>AlreadyProcessed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AlreadyProcessed</shortDescription>
+        <value>This record is already processed or This button works only for Retail Company or Retail Person</value>
+    </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Amount</shortDescription>
+        <value>Amount</value>
     </labels>
     <labels>
         <fullName>And_Criteria</fullName>
@@ -267,11 +401,39 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>Assigned_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assigned Dealer</shortDescription>
+        <value>Assigned Dealer</value>
+    </labels>
+    <labels>
         <fullName>AttachedPdfError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AttachedPdfError</shortDescription>
         <value>There is an error in this attached pdf.</value>
+    </labels>
+    <labels>
+        <fullName>Authorization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorization</shortDescription>
+        <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
+        <fullName>Backslash</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Backslash</shortDescription>
+        <value>\</value>
+    </labels>
+    <labels>
+        <fullName>Birthdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Birthdate</shortDescription>
+        <value>Birthdate</value>
     </labels>
     <labels>
         <fullName>Brand</fullName>
@@ -317,6 +479,13 @@
         <protected>false</protected>
         <shortDescription>Button Search</shortDescription>
         <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>CA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CA</shortDescription>
+        <value>CA</value>
     </labels>
     <labels>
         <fullName>CL_Cancel</fullName>
@@ -790,6 +959,118 @@
         <value>Other</value>
     </labels>
     <labels>
+        <fullName>Campaign_Date_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 1</shortDescription>
+        <value>Start Date cant be Lesser Than Today</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 2</shortDescription>
+        <value>End Date cant be Lesser Than Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 3</shortDescription>
+        <value>Segmentation Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 4</shortDescription>
+        <value>Execution Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 5</shortDescription>
+        <value>Response Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification1</shortDescription>
+        <value>Dear admin, owner,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification10</shortDescription>
+        <value>We expanded the target customer list of the following campaigns.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification11</shortDescription>
+        <value>Please finish the list check by the due date and submit.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification2</shortDescription>
+        <value>The following campaign implementation day came.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification3</shortDescription>
+        <value>XXX (Campaign Name)</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification4</shortDescription>
+        <value>Please contact the customer.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification5</shortDescription>
+        <value>※ To check the list you will need to log in to sales force.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification6</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification7</shortDescription>
+        <value>If you have any questions about sales force operation,</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification8</shortDescription>
+        <value>Please contact Sales Force Support Desk.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Notification9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Notification9</shortDescription>
+        <value>Mercedes · Benz Japan XXX (TBD) Secretariat</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Planning_Page_Cancel_Button</fullName>
         <categories>Campaign</categories>
         <language>en_US</language>
@@ -902,6 +1183,20 @@
         <value>Participating Region/Province/City &amp; Dealer Selection</value>
     </labels>
     <labels>
+        <fullName>Campaign_Segmentation1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation1</shortDescription>
+        <value>I will extract the target customers of the following campaign today.</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Segmentation2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Segmentation2</shortDescription>
+        <value>Please do it according to the campaign schedule after reviewing the list.</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Type</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -926,12 +1221,26 @@
         <value>Media</value>
     </labels>
     <labels>
+        <fullName>Campaigns_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaigns_Filter</shortDescription>
+        <value>Campaigns Filter</value>
+    </labels>
+    <labels>
         <fullName>Campaing_Planning_Page_Title</fullName>
         <categories>Campaign</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Campaing Planning Page Title</shortDescription>
         <value>Campaign</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
     </labels>
     <labels>
         <fullName>Cancel_Button</fullName>
@@ -1040,6 +1349,13 @@
         <value>need to handle.</value>
     </labels>
     <labels>
+        <fullName>Case_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Number</shortDescription>
+        <value>Case Number</value>
+    </labels>
+    <labels>
         <fullName>Case_Record_Type</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1047,11 +1363,26 @@
         <value>Case Type</value>
     </labels>
     <labels>
+        <fullName>Case_received_by_Phone_etc</fullName>
+        <categories>Case</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case received by Phone etc</shortDescription>
+        <value>Case received by Phone etc</value>
+    </labels>
+    <labels>
         <fullName>Child</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Child</shortDescription>
         <value>Child</value>
+    </labels>
+    <labels>
+        <fullName>Choose_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Choose Account</shortDescription>
+        <value>Choose Account</value>
     </labels>
     <labels>
         <fullName>City</fullName>
@@ -1067,6 +1398,13 @@
         <protected>false</protected>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Class</value>
+    </labels>
+    <labels>
+        <fullName>Class_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Class Model</shortDescription>
+        <value>Class Model</value>
     </labels>
     <labels>
         <fullName>Clear_Button</fullName>
@@ -1088,6 +1426,13 @@
         <protected>false</protected>
         <shortDescription>Cluster</shortDescription>
         <value>Cluster</value>
+    </labels>
+    <labels>
+        <fullName>Color</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Color</shortDescription>
+        <value>Color</value>
     </labels>
     <labels>
         <fullName>Colour</fullName>
@@ -1133,11 +1478,39 @@
         <value>Company Account</value>
     </labels>
     <labels>
+        <fullName>Company_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Name</shortDescription>
+        <value>Company Name</value>
+    </labels>
+    <labels>
         <fullName>Company_Name_Department_Title</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Company Name Department Title</value>
+    </labels>
+    <labels>
+        <fullName>Compared_Vehicle_Brand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Compared Vehicle Brand</shortDescription>
+        <value>Compared Vehicle Brand</value>
+    </labels>
+    <labels>
+        <fullName>Compared_Vehicle_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Compared Vehicle Model</shortDescription>
+        <value>Compared Vehicle Model</value>
+    </labels>
+    <labels>
+        <fullName>Comparison_is_being_done_actively</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Comparison is being done actively</shortDescription>
+        <value>Comparison is being done actively?</value>
     </labels>
     <labels>
         <fullName>Completenes</fullName>
@@ -1183,6 +1556,13 @@
         <value>Error, Please contact the admin.</value>
     </labels>
     <labels>
+        <fullName>Contract_related</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract related</shortDescription>
+        <value>Contract related</value>
+    </labels>
+    <labels>
         <fullName>Convert_Lead</fullName>
         <categories>Convert Lead</categories>
         <language>en_US</language>
@@ -1197,6 +1577,13 @@
         <protected>false</protected>
         <shortDescription>Convert To Lead</shortDescription>
         <value>Convert To Lead</value>
+    </labels>
+    <labels>
+        <fullName>Convert_To_Task</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Convert To Task</shortDescription>
+        <value>Convert To Task</value>
     </labels>
     <labels>
         <fullName>Copy</fullName>
@@ -1220,11 +1607,53 @@
         <value>Create Vehicle</value>
     </labels>
     <labels>
+        <fullName>Created_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Created Date</shortDescription>
+        <value>Created Date</value>
+    </labels>
+    <labels>
         <fullName>Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
+    </labels>
+    <labels>
+        <fullName>Current_Vehicle1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Vehicle1</shortDescription>
+        <value>Current Vehicle1</value>
+    </labels>
+    <labels>
+        <fullName>Current_Vehicle2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Vehicle2</shortDescription>
+        <value>Current Vehicle2</value>
+    </labels>
+    <labels>
+        <fullName>Current_Vehicle3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Vehicle3</shortDescription>
+        <value>Current Vehicle3</value>
+    </labels>
+    <labels>
+        <fullName>Current_Vehicle_Brand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Vehicle Brand</shortDescription>
+        <value>Current Vehicle Brand</value>
+    </labels>
+    <labels>
+        <fullName>Current_Vehicle_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Current Vehicle Model</shortDescription>
+        <value>Current Vehicle Model</value>
     </labels>
     <labels>
         <fullName>Custom_Debug_Log_Switch</fullName>
@@ -1238,7 +1667,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer</shortDescription>
-        <value>Customer Name</value>
+        <value>Name</value>
     </labels>
     <labels>
         <fullName>CustomerAssistanceCenter</fullName>
@@ -1269,6 +1698,49 @@
         <value>Customer Filter</value>
     </labels>
     <labels>
+        <fullName>Customer_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Information</shortDescription>
+        <value>Customer Information</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Issue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Issue</shortDescription>
+        <value>Customer&apos;s issue and complaints can be solved with promoted car?</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Name</shortDescription>
+        <value>Customer Name</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Name_Kana</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Name Kana</shortDescription>
+        <value>Customer Name
+       (Kana)</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Profile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Profile</shortDescription>
+        <value>Customer Profile</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Statement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Statement</shortDescription>
+        <value>Customer Statement</value>
+    </labels>
+    <labels>
         <fullName>Customerrelatedinformation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1288,6 +1760,13 @@
         <protected>false</protected>
         <shortDescription>DMRequest validation error</shortDescription>
         <value>Specified address type record could not be found. Please check again</value>
+    </labels>
+    <labels>
+        <fullName>Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date for PrintPDF</shortDescription>
+        <value>Date</value>
     </labels>
     <labels>
         <fullName>DateTime</fullName>
@@ -1325,11 +1804,74 @@
         <value>Dealer Person Name :</value>
     </labels>
     <labels>
+        <fullName>Dealer_Campaign_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Campaign Notification</shortDescription>
+        <value>Dealer Campaign Notification</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Code</shortDescription>
+        <value>Dealer Code</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Company</shortDescription>
+        <value>Dealer Company</value>
+    </labels>
+    <labels>
         <fullName>Dealer_Has_SR_Code_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Internal_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Internal Comment</shortDescription>
+        <value>Dealer Internal Comment</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Memo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Memo</shortDescription>
+        <value>Dealer Memo</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Name</shortDescription>
+        <value>Dealer Name</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Outlet</shortDescription>
+        <value>Dealer Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Type</shortDescription>
+        <value>Dealer Type</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_login_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer login Url</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBJapan</value>
     </labels>
     <labels>
         <fullName>Dedup_callout_failure</fullName>
@@ -1376,11 +1918,39 @@
         <value>Detailed Model Name</value>
     </labels>
     <labels>
+        <fullName>Did_You_Get_Agreement_From_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did You Get Agreement From Customer</shortDescription>
+        <value>Did You Get Agreement From Customer ?</value>
+    </labels>
+    <labels>
+        <fullName>Did_you_visit_home_or_company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did you visit home or company</shortDescription>
+        <value>Did you visit home or company?</value>
+    </labels>
+    <labels>
         <fullName>Discardit</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Discardit</shortDescription>
         <value>Please discard it</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Discount Total</shortDescription>
+        <value>Discount Total</value>
+    </labels>
+    <labels>
+        <fullName>Do_you_know_when_and_where_you_can_meet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Do you know when and where you can meet</shortDescription>
+        <value>Do you know when and where you can meet?</value>
     </labels>
     <labels>
         <fullName>Dono</fullName>
@@ -1402,6 +1972,213 @@
         <protected>false</protected>
         <shortDescription>Edit</shortDescription>
         <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Email_Assignment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Assignment</shortDescription>
+        <value>you are assigned to the Lead in Salesforce thus we notify you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case</shortDescription>
+        <value>Please check　New customer related information distribution notification .</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Record</shortDescription>
+        <value>Case</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Respond</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Respond</shortDescription>
+        <value>Please check and respond as necessary. *Please take caution in handling of the information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_information</shortDescription>
+        <value>customer related information(Call-in conversations, survey result, customer information change, etc.) we&apos;d like to distribute to you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign1</shortDescription>
+        <value>Mercedes Benz</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign10</shortDescription>
+        <value>*You need to log in to Salesforce
+to check the leads information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign11</shortDescription>
+        <value>For representative, please check with your manager
+since we have shared the leads to your outlet.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign12</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign13</shortDescription>
+        <value>If there&apos;s anything uncertain about operating with Salesforce, 
+please contact Salesforce support desk.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign14</shortDescription>
+        <value>Mercedes Benz Japan Salesforce Office</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign15</shortDescription>
+        <value>For operations with Salesforce, system maintenance,
+please contact the number below.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign16</shortDescription>
+        <value>&lt;&gt;Salesforce support desk</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign17</shortDescription>
+        <value>Phone：XXX（Operation hours: everyday 10:00-12:00, 13:00-18:00）</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign18</shortDescription>
+        <value>*Please do not reply directly to this e-mail.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign2</shortDescription>
+        <value>Shop</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssign20</shortDescription>
+        <value>I trust you are well.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email LeadDealerAssign21</shortDescription>
+        <value>We send you this message as we see that the lead is still not assigned to the person from your company yet.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign3</shortDescription>
+        <value>Manager, Representative</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign4</shortDescription>
+        <value>I trust you are well.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign5</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign6</shortDescription>
+        <value>we have shared the lead data in Salesforce, so we send this message to inform you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign7</shortDescription>
+        <value>New leads shared</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign8</shortDescription>
+        <value>leads</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign9</shortDescription>
+        <value>This is a very hot customer information, so for the manager please check the lead from the URL below,assign it to the representative, and follow them as your sales operations.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Manager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Manager</shortDescription>
+        <value>Representative</value>
+    </labels>
+    <labels>
+        <fullName>Email_Thankyou</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Thankyou</shortDescription>
+        <value>Thank you for your support.</value>
+    </labels>
+    <labels>
+        <fullName>Email_salesActivities</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_salesActivities</shortDescription>
+        <value>Please make use of it for your sales activities, as this is a very promising customer information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_salesforcelogin</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_salesforcelogin</shortDescription>
+        <value>*You need to log in to Salesforce to check the Case information.</value>
     </labels>
     <labels>
         <fullName>Employee</fullName>
@@ -1451,6 +2228,20 @@
         <protected>false</protected>
         <shortDescription>Error: This name already exists</shortDescription>
         <value>Error: This name already exists!</value>
+    </labels>
+    <labels>
+        <fullName>Estimate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Estimate</shortDescription>
+        <value>Estimate</value>
+    </labels>
+    <labels>
+        <fullName>Estimate_Number_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Estimate Number History</shortDescription>
+        <value>Estimate Number History</value>
     </labels>
     <labels>
         <fullName>Event_Type</fullName>
@@ -1513,6 +2304,20 @@
         <value>Familiarization workshop for new vehicle owners</value>
     </labels>
     <labels>
+        <fullName>Family_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Family Number</shortDescription>
+        <value>Family Number</value>
+    </labels>
+    <labels>
+        <fullName>Family_company_hobby_have_you_heard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Family, company, hobby have you heard</shortDescription>
+        <value>Family, company, hobby have you heard?</value>
+    </labels>
+    <labels>
         <fullName>Fax</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1527,6 +2332,27 @@
         <value>Field</value>
     </labels>
     <labels>
+        <fullName>Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fields</shortDescription>
+        <value>Fields</value>
+    </labels>
+    <labels>
+        <fullName>Fiinance_Estimate_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fiinance Estimate Number</shortDescription>
+        <value>Fiinance Estimate Number</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
         <fullName>FinanceMethod</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1534,11 +2360,74 @@
         <value>Finance Method</value>
     </labels>
     <labels>
+        <fullName>Finance_Estimate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Finance Estimate</shortDescription>
+        <value>Finance Estimate</value>
+    </labels>
+    <labels>
+        <fullName>Finance_Estimate_Creation_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Finance Estimate Creation Date</shortDescription>
+        <value>Finance Estimate Creation Date</value>
+    </labels>
+    <labels>
+        <fullName>Finance_Estimate_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Finance Estimate History</shortDescription>
+        <value>Finance Estimate History</value>
+    </labels>
+    <labels>
+        <fullName>Finance_Proposal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Finance Proposal</shortDescription>
+        <value>Finance Proposal</value>
+    </labels>
+    <labels>
+        <fullName>First_Estimate_Amount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Estimate Amount</shortDescription>
+        <value>First Estimate Amount</value>
+    </labels>
+    <labels>
+        <fullName>First_Estimate_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Estimate Number</shortDescription>
+        <value>First Estimate Number</value>
+    </labels>
+    <labels>
+        <fullName>First_Estimate_Print</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Estimate Print</shortDescription>
+        <value>First Estimate Print</value>
+    </labels>
+    <labels>
         <fullName>For_Vehicle_Picker</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Interested Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>Garage_information_and_specifications_have_you_heard</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Garage information and specifications have you heard</shortDescription>
+        <value>Garage information and specifications have you heard?</value>
+    </labels>
+    <labels>
+        <fullName>Gender</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Gender</shortDescription>
+        <value>Gender</value>
     </labels>
     <labels>
         <fullName>GenericUploaderErrorMsg</fullName>
@@ -1597,6 +2486,20 @@
         <value>Grand parent</value>
     </labels>
     <labels>
+        <fullName>Grand_Total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Grand Total</shortDescription>
+        <value>Grand Total</value>
+    </labels>
+    <labels>
+        <fullName>Hand_Over</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hand Over</shortDescription>
+        <value>Hand Over</value>
+    </labels>
+    <labels>
         <fullName>Has_Attended_Campaign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1619,6 +2522,20 @@
         <value>Hide Survey Name</value>
     </labels>
     <labels>
+        <fullName>Highly_interesed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Highly interesed</shortDescription>
+        <value>Highly interesed in the estimate?</value>
+    </labels>
+    <labels>
+        <fullName>Hobby</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hobby</shortDescription>
+        <value>Hobby</value>
+    </labels>
+    <labels>
         <fullName>Home_Email</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1631,6 +2548,13 @@
         <protected>false</protected>
         <shortDescription>Home Phone</shortDescription>
         <value>Home Phone</value>
+    </labels>
+    <labels>
+        <fullName>Home_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Type</shortDescription>
+        <value>Home Type</value>
     </labels>
     <labels>
         <fullName>Id</fullName>
@@ -1677,6 +2601,13 @@
         <value>Insurance Promotion</value>
     </labels>
     <labels>
+        <fullName>Insurance_Proposal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insurance Proposal</shortDescription>
+        <value>Insurance Proposal</value>
+    </labels>
+    <labels>
         <fullName>Interest</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1691,6 +2622,20 @@
         <value>Interest Filter</value>
     </labels>
     <labels>
+        <fullName>Interior</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interior</shortDescription>
+        <value>Interior</value>
+    </labels>
+    <labels>
+        <fullName>Invoiced</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invoiced</shortDescription>
+        <value>Invoiced</value>
+    </labels>
+    <labels>
         <fullName>KR</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1702,7 +2647,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Kana :</shortDescription>
-        <value>Kana :</value>
+        <value>Name Kana</value>
     </labels>
     <labels>
         <fullName>Knowledge_Choose_Car_Model</fullName>
@@ -2168,6 +3113,13 @@
         <value>Last Modified Date</value>
     </labels>
     <labels>
+        <fullName>Latest_Phase_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Latest Phase History</shortDescription>
+        <value>Latest Phase History</value>
+    </labels>
+    <labels>
         <fullName>LeadId</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2175,11 +3127,88 @@
         <value>a13</value>
     </labels>
     <labels>
+        <fullName>Lead_Activity_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Activity Type</shortDescription>
+        <value>Lead Activity Type</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Assigned_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Assigned Date</shortDescription>
+        <value>Lead Assigned Date</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Conditions</shortDescription>
+        <value>Lead Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Filter</shortDescription>
+        <value>Lead Filter</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Memo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Memo</shortDescription>
+        <value>Lead Memo</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Process_Sheet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Process Sheet</shortDescription>
+        <value>Lead Process Sheet</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Type</shortDescription>
+        <value>Lead Type</value>
+    </labels>
+    <labels>
+        <fullName>Lead_creation_Assign_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead creation/Assign Date</shortDescription>
+        <value>Lead creation/Assign Date</value>
+    </labels>
+    <labels>
+        <fullName>Lead_to_be_Merged</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead to be Merged</shortDescription>
+        <value>Lead to be Merged</value>
+    </labels>
+    <labels>
+        <fullName>Leagl_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leagl Owner</shortDescription>
+        <value>Leagl Owner</value>
+    </labels>
+    <labels>
         <fullName>LimitQueries</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>LimitQueries</shortDescription>
         <value>too many result, please narrow your search by adding more filters</value>
+    </labels>
+    <labels>
+        <fullName>List_Ready_Maintenance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List Ready Maintenance</shortDescription>
+        <value>List Maintenance Notification</value>
     </labels>
     <labels>
         <fullName>Logic_Error</fullName>
@@ -2194,6 +3223,13 @@
         <protected>false</protected>
         <shortDescription>Lookup Button</shortDescription>
         <value>Lookup</value>
+    </labels>
+    <labels>
+        <fullName>MBJ_support</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBJ support</shortDescription>
+        <value>MBJ support</value>
     </labels>
     <labels>
         <fullName>Maintenance_Promotion</fullName>
@@ -2342,6 +3378,13 @@
         <value>Media Type:</value>
     </labels>
     <labels>
+        <fullName>Memo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Memo</shortDescription>
+        <value>Memo</value>
+    </labels>
+    <labels>
         <fullName>Merge</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2400,7 +3443,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Label for Mobile fields which are referenced in VF pages</shortDescription>
-        <value>Mobile</value>
+        <value>Mobile(Fixed)</value>
     </labels>
     <labels>
         <fullName>Model</fullName>
@@ -2508,6 +3551,21 @@
         <value>Near Dealer Phone3</value>
     </labels>
     <labels>
+        <fullName>Needs_Check</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Needs Check</shortDescription>
+        <value>Needs Check</value>
+    </labels>
+    <labels>
+        <fullName>Needs_Problem_Points</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Needs Problem Points</shortDescription>
+        <value>Needs Problem
+Points:Needs priorities, clarification, background and status suspected -&gt; confirmation</value>
+    </labels>
+    <labels>
         <fullName>NewAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2560,12 +3618,33 @@
         <value>New Customer Acquisition</value>
     </labels>
     <labels>
+        <fullName>New_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Value</shortDescription>
+        <value>New Value</value>
+    </labels>
+    <labels>
+        <fullName>Next_Activity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Activity</shortDescription>
+        <value>Next Activity</value>
+    </labels>
+    <labels>
         <fullName>No</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No</shortDescription>
         <value>No</value>
+    </labels>
+    <labels>
+        <fullName>No_Address_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Address Message</shortDescription>
+        <value>There is no address. Please add address first.</value>
     </labels>
     <labels>
         <fullName>No_Complaint</fullName>
@@ -2625,6 +3704,13 @@
         <value>Occupation</value>
     </labels>
     <labels>
+        <fullName>Old_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Old Value</shortDescription>
+        <value>Old Value</value>
+    </labels>
+    <labels>
         <fullName>OnLine_Deduplication</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2659,6 +3745,13 @@
         <protected>false</protected>
         <shortDescription>OrderNumber</shortDescription>
         <value>Order Number</value>
+    </labels>
+    <labels>
+        <fullName>Ordered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ordered</shortDescription>
+        <value>Ordered</value>
     </labels>
     <labels>
         <fullName>Other_Email</fullName>
@@ -2697,6 +3790,27 @@
         <value>Others</value>
     </labels>
     <labels>
+        <fullName>Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Outlet</shortDescription>
+        <value>Out let</value>
+    </labels>
+    <labels>
+        <fullName>Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>Owner_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner Sales Responsible Person</shortDescription>
+        <value>Owner Sales Responsible Person</value>
+    </labels>
+    <labels>
         <fullName>POM_advertisement</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2733,7 +3847,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Pages</shortDescription>
-        <value>Pages</value>
+        <value># Pages</value>
     </labels>
     <labels>
         <fullName>Parent</fullName>
@@ -2751,11 +3865,32 @@
         <value>Parts Cross Promotion</value>
     </labels>
     <labels>
+        <fullName>Parts_Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Parts Fax</shortDescription>
+        <value>Parts Fax</value>
+    </labels>
+    <labels>
+        <fullName>Payment_Total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Total</shortDescription>
+        <value>Payment Total</value>
+    </labels>
+    <labels>
         <fullName>PersonAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>PersonAccount</shortDescription>
         <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccount_Record_Type_From_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount Record Type From Account</shortDescription>
+        <value>012280000000f14AAA</value>
     </labels>
     <labels>
         <fullName>Person_Account_Information</fullName>
@@ -2773,11 +3908,33 @@
         <value>Person Account</value>
     </labels>
     <labels>
+        <fullName>Person_Met_Contacted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person Met (Contacted)</shortDescription>
+        <value>Person Met(Contacted)</value>
+    </labels>
+    <labels>
+        <fullName>Person_Or_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person Or Company</shortDescription>
+        <value>Person/Company</value>
+    </labels>
+    <labels>
+        <fullName>Person_to_meet_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Person to meet (Contact)</shortDescription>
+        <value>Person to meet
+(Contact)</value>
+    </labels>
+    <labels>
         <fullName>Phone</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Phone</shortDescription>
-        <value>Phone</value>
+        <value>Phone(Fixed)</value>
     </labels>
     <labels>
         <fullName>PhoneSales</fullName>
@@ -2794,11 +3951,32 @@
         <value>Phone (Service)</value>
     </labels>
     <labels>
+        <fullName>Planned_Purchase_Time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Planned Purchase Time</shortDescription>
+        <value>Planned Purchase Time</value>
+    </labels>
+    <labels>
+        <fullName>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select A Dealer To Add As Participating Dealer</shortDescription>
+        <value>Please Select A Dealer To Add As Participating Dealer</value>
+    </labels>
+    <labels>
         <fullName>Please_enter_the_filter_name</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please enter the filter name</shortDescription>
         <value>Please enter the filter name</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Address</shortDescription>
+        <value>Please select Address</value>
     </labels>
     <labels>
         <fullName>Please_select_only_one_Master_Record</fullName>
@@ -2822,6 +4000,13 @@
         <value>*Please take caution in handling the information.</value>
     </labels>
     <labels>
+        <fullName>Possibility</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Possibility :</shortDescription>
+        <value>Possibility :</value>
+    </labels>
+    <labels>
         <fullName>Post</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2836,11 +4021,25 @@
         <value>Previous</value>
     </labels>
     <labels>
+        <fullName>Printed_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Printed Date</shortDescription>
+        <value>Printed Date</value>
+    </labels>
+    <labels>
         <fullName>Priority</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Priority</shortDescription>
         <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Process_Check_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Process Check Items</shortDescription>
+        <value>Process Check Items</value>
     </labels>
     <labels>
         <fullName>Product_ID</fullName>
@@ -2850,12 +4049,82 @@
         <value>Product ID</value>
     </labels>
     <labels>
+        <fullName>Product_Proposal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Proposal</shortDescription>
+        <value>Product Proposal</value>
+    </labels>
+    <labels>
         <fullName>Promotion_on_Technical_accessories_and_collections</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Promotion on Technical accessories and collections</shortDescription>
         <value>Promotion on Technical accessories and collections</value>
+    </labels>
+    <labels>
+        <fullName>Proposed_Date_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposed Date(1):</shortDescription>
+        <value>Proposed Date(1):</value>
+    </labels>
+    <labels>
+        <fullName>Proposed_Date_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposed Date(2):</shortDescription>
+        <value>Proposed Date(2):</value>
+    </labels>
+    <labels>
+        <fullName>Proposed_Date_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposed Date(3):</shortDescription>
+        <value>Proposed Date(3):</value>
+    </labels>
+    <labels>
+        <fullName>Pruchase_Plan_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pruchase Plan Date</shortDescription>
+        <value>Purchase Plan Date</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Plan</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase Plan</shortDescription>
+        <value>Purchase Plan</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Reason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase Reason</shortDescription>
+        <value>Purchase reason (necessity) is clear?</value>
+    </labels>
+    <labels>
+        <fullName>Purchase_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchase Type</shortDescription>
+        <value>Purchase Type</value>
+    </labels>
+    <labels>
+        <fullName>Purchased</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchased</shortDescription>
+        <value>Purchased</value>
+    </labels>
+    <labels>
+        <fullName>Purchased_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchased Date</shortDescription>
+        <value>Purchased Date</value>
     </labels>
     <labels>
         <fullName>Q1_service_quality</fullName>
@@ -2987,6 +4256,27 @@
         <value>Inspection tasks</value>
     </labels>
     <labels>
+        <fullName>RET_02_01_ServiceAmountView</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
+        <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
+        <fullName>Range_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Range Model</shortDescription>
+        <value>Range Model</value>
+    </labels>
+    <labels>
+        <fullName>Received_By</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Received By</shortDescription>
+        <value>Received By</value>
+    </labels>
+    <labels>
         <fullName>Reception</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3001,12 +4291,26 @@
         <value>If you are not the recipient of this FAX</value>
     </labels>
     <labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
         <fullName>RecordTypeId</fullName>
         <categories>Address Search</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>RecordTypeId</shortDescription>
         <value>RecordTypeId</value>
+    </labels>
+    <labels>
+        <fullName>Registered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registered</shortDescription>
+        <value>Registered</value>
     </labels>
     <labels>
         <fullName>Registration</fullName>
@@ -3028,6 +4332,34 @@
         <protected>false</protected>
         <shortDescription>Registration No</shortDescription>
         <value>Registration No</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date</shortDescription>
+        <value>Registration Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Inspection_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Inspection Date</shortDescription>
+        <value>Registration Date / Inspection Date</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Date_Milage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Date / Milage</shortDescription>
+        <value>Registration Date / Milage</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Plan_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Plan Date</shortDescription>
+        <value>Registration Plan Date</value>
     </labels>
     <labels>
         <fullName>Reject</fullName>
@@ -3052,6 +4384,13 @@
         <value>Related Account field is empty</value>
     </labels>
     <labels>
+        <fullName>Related_Dealer_View_for_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Related Dealer View for Contract</shortDescription>
+        <value>Related Dealer View for Contract</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -3066,6 +4405,20 @@
         <protected>false</protected>
         <shortDescription>Report Title2 TA Tracing</shortDescription>
         <value>Yearly Budget,Actual Expense</value>
+    </labels>
+    <labels>
+        <fullName>Representative</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative</shortDescription>
+        <value>Representative</value>
+    </labels>
+    <labels>
+        <fullName>Representative_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Representative Information</shortDescription>
+        <value>Representative Information</value>
     </labels>
     <labels>
         <fullName>Request</fullName>
@@ -3087,6 +4440,34 @@
         <protected>false</protected>
         <shortDescription>RequestPDF</shortDescription>
         <value>Request</value>
+    </labels>
+    <labels>
+        <fullName>Request_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Date</shortDescription>
+        <value>Request Date</value>
+    </labels>
+    <labels>
+        <fullName>Request_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Details</shortDescription>
+        <value>Request Details</value>
+    </labels>
+    <labels>
+        <fullName>Request_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Type</shortDescription>
+        <value>Request Type</value>
+    </labels>
+    <labels>
+        <fullName>Requested_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date</value>
     </labels>
     <labels>
         <fullName>Required_Information</fullName>
@@ -3244,18 +4625,61 @@
         <value>Sales Contact Target</value>
     </labels>
     <labels>
+        <fullName>SalesFax</fullName>
+        <categories>Case</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Fax</shortDescription>
+        <value>Sales Fax</value>
+    </labels>
+    <labels>
         <fullName>SalesMail</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sales Mail</shortDescription>
-        <value>Sales Mail</value>
+        <value>Customer Sales Mail</value>
     </labels>
     <labels>
         <fullName>SalesTEL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Sales TEL</shortDescription>
-        <value>Sales TEL</value>
+        <value>Customer Sales TEL</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target</shortDescription>
+        <value>Sales Contact Target</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target_Purchaser_Relation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Purchaser Relation</shortDescription>
+        <value>Sales Contact Target Purchaser Relation</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Contact_Target_Sales_Responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Contact Target Sales Responsible Person</shortDescription>
+        <value>Sales Contact Target Sales Responsible Person</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Mail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Mail</shortDescription>
+        <value>Sales Mail</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Mail_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Mail Type</shortDescription>
+        <value>Sales Mail Type</value>
     </labels>
     <labels>
         <fullName>Sales_Marketing</fullName>
@@ -3264,6 +4688,28 @@
         <protected>false</protected>
         <shortDescription>Sales &amp; Marketing</shortDescription>
         <value>Sales &amp; Marketing</value>
+    </labels>
+    <labels>
+        <fullName>Sales_Phone</fullName>
+        <categories>Case</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Phone</shortDescription>
+        <value>Sales Phone</value>
+    </labels>
+    <labels>
+        <fullName>Sales_TEL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales TEL</shortDescription>
+        <value>Sales TEL</value>
+    </labels>
+    <labels>
+        <fullName>Sales_TEL_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales TEL Type</shortDescription>
+        <value>Sales TEL Type</value>
     </labels>
     <labels>
         <fullName>Sama</fullName>
@@ -3330,6 +4776,13 @@
         <value>Check Dedup</value>
     </labels>
     <labels>
+        <fullName>Select_Address_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Address Msg</shortDescription>
+        <value>Please select address</value>
+    </labels>
+    <labels>
         <fullName>Select_All</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3359,6 +4812,27 @@
         <value>Selling Dealer</value>
     </labels>
     <labels>
+        <fullName>Selling_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selling Dealer</shortDescription>
+        <value>Selling Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Send_to_spo_translate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send to spo translate</shortDescription>
+        <value>Please set the information in Autoline first</value>
+    </labels>
+    <labels>
+        <fullName>SentToSPO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SentToSPO</shortDescription>
+        <value>Sent to SPO</value>
+    </labels>
+    <labels>
         <fullName>ServiceDealer</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3373,12 +4847,40 @@
         <value>Sales/Service Personnel</value>
     </labels>
     <labels>
+        <fullName>Service_Advisor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Advisor</shortDescription>
+        <value>Service Advisor</value>
+    </labels>
+    <labels>
+        <fullName>Service_Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Fax</shortDescription>
+        <value>Service Fax</value>
+    </labels>
+    <labels>
+        <fullName>Service_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Phone</shortDescription>
+        <value>Service Phone</value>
+    </labels>
+    <labels>
         <fullName>Service_Product_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Service Product Promotion</shortDescription>
         <value>Service Product Promotion</value>
+    </labels>
+    <labels>
+        <fullName>Service_Program_Proposal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Program Proposal</shortDescription>
+        <value>Service Program Proposal</value>
     </labels>
     <labels>
         <fullName>Service_Work</fullName>
@@ -3388,11 +4890,32 @@
         <value>Service Work:</value>
     </labels>
     <labels>
+        <fullName>Service_responsible_Outlet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Outlet</shortDescription>
+        <value>Service responsible Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Service_responsible_Person</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service responsible Person</shortDescription>
+        <value>Service responsible Person</value>
+    </labels>
+    <labels>
         <fullName>Share</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Share</shortDescription>
         <value>Share</value>
+    </labels>
+    <labels>
+        <fullName>Simple_Estimation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Simple Estimation</shortDescription>
+        <value>Simple Estimation</value>
     </labels>
     <labels>
         <fullName>SlashPDF</fullName>
@@ -3438,6 +4961,20 @@
         <protected>false</protected>
         <shortDescription>Status - Confirmed</shortDescription>
         <value>Confirmed</value>
+    </labels>
+    <labels>
+        <fullName>Stocks_for_interested_vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Stocks for interested vehicle</shortDescription>
+        <value>Stocks for intereseted vehicler?</value>
+    </labels>
+    <labels>
+        <fullName>Store</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Store</shortDescription>
+        <value>Store</value>
     </labels>
     <labels>
         <fullName>Subject</fullName>
@@ -3545,6 +5082,13 @@
         <protected>false</protected>
         <shortDescription>Suspected Duplicates</shortDescription>
         <value>Suspected Duplicates</value>
+    </labels>
+    <labels>
+        <fullName>TargetVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Target VIN</shortDescription>
+        <value>Target VIN</value>
     </labels>
     <labels>
         <fullName>TaskTriggerErrorMsg</fullName>
@@ -3769,6 +5313,13 @@
         <value>No Vehicle Relationship found for Termination.</value>
     </labels>
     <labels>
+        <fullName>Test_Drive</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Drive</shortDescription>
+        <value>Test Drive</value>
+    </labels>
+    <labels>
         <fullName>ThankYouLink</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
@@ -3795,7 +5346,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>The filter count is greater than 15</shortDescription>
-        <value>The filter count is greater than 15</value>
+        <value>The filter count is greater than 20</value>
     </labels>
     <labels>
         <fullName>Title_Retail_Campaigns_Mass_Approve</fullName>
@@ -3868,12 +5419,47 @@
         <value>Total Amount Spend On Car Service is Greater Than</value>
     </labels>
     <labels>
+        <fullName>Total_Price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total Price</shortDescription>
+        <value>Total Price</value>
+    </labels>
+    <labels>
+        <fullName>Touch_Point</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Touch Point</shortDescription>
+        <value>Touch Point</value>
+    </labels>
+    <labels>
         <fullName>Trade_In_related_information</fullName>
         <categories>VehiclePicker</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Trade-In related information</shortDescription>
         <value>Please enter trade-in related information as the lead desired service is selected as Trade-In</value>
+    </labels>
+    <labels>
+        <fullName>Trade_in_Price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Trade-in Price</shortDescription>
+        <value>Trade-in Price</value>
+    </labels>
+    <labels>
+        <fullName>Trade_in_Vehicle_Remaining</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Trade-in Vehicle Remaining</shortDescription>
+        <value>Trade-in Vehicle Remaining</value>
+    </labels>
+    <labels>
+        <fullName>Triangle_Image</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Triangle Image</shortDescription>
+        <value>▲</value>
     </labels>
     <labels>
         <fullName>Trim</fullName>
@@ -3902,6 +5488,20 @@
         <protected>false</protected>
         <shortDescription>Unknown</shortDescription>
         <value>Unknown</value>
+    </labels>
+    <labels>
+        <fullName>Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update</shortDescription>
+        <value>Update</value>
+    </labels>
+    <labels>
+        <fullName>Update_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update Address</shortDescription>
+        <value>Update Address</value>
     </labels>
     <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
@@ -4131,6 +5731,21 @@
         <value>Trade-in</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Price_Maker_option_price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Price +Maker option price</shortDescription>
+        <value>Vehicle Price
++Maker option price</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Relation_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle_Relation_Filter</shortDescription>
+        <value>Vehicle Relation Filter</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Relationship_overlap</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4138,11 +5753,25 @@
         <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Retail_copy_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Retail copy Filter</shortDescription>
+        <value>Vehicle Retail copy Filter</value>
+    </labels>
+    <labels>
         <fullName>ViewHierarchy</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ViewHierarchy</shortDescription>
         <value>ViewHierarchy</value>
+    </labels>
+    <labels>
+        <fullName>Visited</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Visited</shortDescription>
+        <value>Visited</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>
@@ -4164,6 +5793,13 @@
         <protected>false</protected>
         <shortDescription>Work Phone</shortDescription>
         <value>Work Phone</value>
+    </labels>
+    <labels>
+        <fullName>Year</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year</shortDescription>
+        <value>Year</value>
     </labels>
     <labels>
         <fullName>Yearly_TA_Apply_deadline</fullName>
@@ -4298,6 +5934,13 @@
         <value>Zipcode :Please enter any  7 digit number</value>
     </labels>
     <labels>
+        <fullName>address_Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Filter</shortDescription>
+        <value>Address Filters</value>
+    </labels>
+    <labels>
         <fullName>apex_AccountMerge_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4325,6 +5968,20 @@
         <protected>false</protected>
         <shortDescription>Need contact Information</shortDescription>
         <value>Please Enter Atleast one contact Information</value>
+    </labels>
+    <labels>
+        <fullName>delete_confirmation_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>delete confirmation message</shortDescription>
+        <value>This will delete the retail copy and the Account will not be viewable anymore, is this ok?</value>
+    </labels>
+    <labels>
+        <fullName>deleting_campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deleting campaign</shortDescription>
+        <value>You Cant Delete  The Campaign</value>
     </labels>
     <labels>
         <fullName>displayOnly</fullName>
@@ -4601,6 +6258,13 @@
         <protected>false</protected>
         <shortDescription>&amp;retURL=/apex/SelectSlaveAccount?Id=</shortDescription>
         <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
+    </labels>
+    <labels>
+        <fullName>send_to_spo_active</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>send to spo active</shortDescription>
+        <value>Send to SPO</value>
     </labels>
     <labels>
         <fullName>servletfile</fullName>

@@ -11,7 +11,7 @@
     23-Sept-2013 Tony Li (Breakingpoint)      Created
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerCampaignTriggerHandler
 */
-trigger TriggerCampaign on Campaign (after insert, after update, before update) 
+trigger TriggerCampaign on Campaign (before insert ,after insert, after update, before update,before delete,after delete) 
 {
     TriggerUtil.handleTrigger('TriggerCampaign');
 }

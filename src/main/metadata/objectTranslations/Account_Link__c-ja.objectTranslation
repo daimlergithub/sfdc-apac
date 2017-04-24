@@ -15,7 +15,7 @@
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Correlation ID --></label>
+        <label>AutolineセッションID</label>
         <name>CorrelationID__c</name>
     </fields>
     <fields>
@@ -32,7 +32,7 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label><!-- CurrentMileage --></label>
+        <label>前回入庫時走行距離</label>
         <name>CurrentMileage__c</name>
     </fields>
     <fields>
@@ -56,7 +56,7 @@
         <name>IsDeleted__c</name>
     </fields>
     <fields>
-        <label><!-- User --></label>
+        <label>最終更新者</label>
         <name>LastModifiedById__c</name>
         <relationshipLabel><!-- Account Link (User) --></relationshipLabel>
     </fields>
@@ -69,11 +69,11 @@
         <name>LastServiceDate__c</name>
     </fields>
     <fields>
-        <label><!-- Last Service Mileage --></label>
+        <label>前回点検時走行距離</label>
         <name>LastServiceMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Last Modified User Type --></label>
+        <label>最終更新者ユーザ種別</label>
         <name>Last_Modified_User_Type__c</name>
     </fields>
     <fields>
@@ -90,7 +90,7 @@
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- Next Inspection Date --></label>
+        <label>次回車検日</label>
         <name>NextInspectionDate__c</name>
     </fields>
     <fields>
@@ -98,7 +98,7 @@
         <name>NextMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Next Service Date --></label>
+        <label>次回点検日</label>
         <name>NextServiceDate__c</name>
     </fields>
     <fields>
@@ -139,7 +139,7 @@
         <name>Portal_Type__c</name>
         <picklistValues>
             <masterLabel>M-Care</masterLabel>
-            <translation>M-Care会員</translation>
+            <translation>Mケア会員</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Normal</masterLabel>
@@ -159,7 +159,7 @@
         <name>Primary__c</name>
     </fields>
     <fields>
-        <label><!-- Responsible Dealer --></label>
+        <label>My Mercedes My Shop</label>
         <name>Responsible_Dealer__c</name>
         <relationshipLabel><!-- Account Link (Responsible Dealer) --></relationshipLabel>
     </fields>
@@ -180,28 +180,28 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Address CreatedDate --></label>
+        <label>住所作成日</label>
         <name>Retail_Address_CreatedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address LastModifiedDate --></label>
+        <label>住所更新日</label>
         <name>Retail_Address_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Line 1 --></label>
+        <label>Autoline用住所 4行目</label>
         <name>Retail_Address_Line_1__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Line 2 --></label>
+        <label>Autoline用住所 5行目</label>
         <name>Retail_Address_Line_2__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Reference --></label>
+        <label>住所</label>
         <name>Retail_Address_Reference__c</name>
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Address Type --></label>
+        <label>住所区分</label>
         <name>Retail_Address_Type__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
@@ -257,7 +257,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Allow Data Sharing --></label>
+        <label>個人情報許諾フラグ</label>
         <name>Retail_Allow_Data_Sharing__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -289,35 +289,35 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail City --></label>
+        <label>Autoline用住所 2行目</label>
         <name>Retail_City__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Comments --></label>
+        <label>販売店コメント</label>
         <name>Retail_Comments__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Commercial Reg No --></label>
+        <label>企業番号</label>
         <name>Retail_Commercial_Reg_No__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Company Name Native --></label>
+        <label>法人名（カナ）</label>
         <name>Retail_Company_Name_Native1__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Company Name --></label>
+        <label>法人名</label>
         <name>Retail_Company_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Company Other Phone --></label>
+        <label>電話番号２</label>
         <name>Retail_Company_Other_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Company Phone --></label>
+        <label>電話番号１</label>
         <name>Retail_Company_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Complaing Amount --></label>
+        <label>苦情件数</label>
         <name>Retail_Complaint_Amount__c</name>
     </fields>
     <fields>
@@ -385,51 +385,51 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail DMS Customer ID --></label>
+        <label>Autoline顧客ID</label>
         <name>Retail_DMS_Customer_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer GC Code --></label>
+        <label>法人コード(GSSN)</label>
         <name>Retail_Dealer_CompanyCode__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Dealer Company --></label>
+        <label>販売店法人名</label>
         <name>Retail_Dealer_Company__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Delete Flag --></label>
+        <label>リテール削除フラグ</label>
         <name>Retail_Delete_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Distinct --></label>
+        <label>Autoline用住所 3行目</label>
         <name>Retail_Distinct__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Duplicate Flag --></label>
+        <label>重複フラグ</label>
         <name>Retail_Duplicate_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Email OptOut --></label>
+        <label>Eメール</label>
         <name>Retail_Email_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Email --></label>
+        <label>Eメール</label>
         <name>Retail_Email__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Fax OptOut --></label>
+        <label>FAX拒否</label>
         <name>Retail_Fax_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Fax --></label>
+        <label>FAX</label>
         <name>Retail_Fax__c</name>
     </fields>
     <fields>
-        <label><!-- Retail FirstName Native --></label>
+        <label>顧客名カナ（名）</label>
         <name>Retail_FirstName_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Retail FirstName --></label>
+        <label>顧客名（名）</label>
         <name>Retail_FirstName__c</name>
     </fields>
     <fields>
@@ -441,11 +441,11 @@
         <name>Retail_First_Consent_User__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Foundation Month --></label>
+        <label>設立年月</label>
         <name>Retail_Foundation_Month__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Full Name Native --></label>
+        <label>顧客名カナ</label>
         <name>Retail_Full_Name_Native__c</name>
     </fields>
     <fields>
@@ -453,11 +453,11 @@
         <name>Retail_Full_Name_Title__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Full Name --></label>
+        <label>顧客名</label>
         <name>Retail_Full_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Gender --></label>
+        <label>性別</label>
         <name>Retail_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -473,11 +473,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Individual Home Phone --></label>
+        <label>自宅電話番号</label>
         <name>Retail_Individual_Home_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Industry --></label>
+        <label>業種</label>
         <name>Retail_Industry__c</name>
         <picklistValues>
             <masterLabel>Advertising / Marketing</masterLabel>
@@ -693,19 +693,19 @@
         <name>Retail_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail LastName Native --></label>
+        <label>顧客名カナ（姓）</label>
         <name>Retail_LastName_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Retail LastName --></label>
+        <label>顧客名（姓）</label>
         <name>Retail_LastName__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Mobile --></label>
+        <label>携帯電話番号</label>
         <name>Retail_Mobile__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Occupation --></label>
+        <label>職業</label>
         <name>Retail_Occupation__c</name>
         <picklistValues>
             <masterLabel>Accounting</masterLabel>
@@ -809,79 +809,79 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Denied Activities --></label>
+        <label>拒否アクティビティ</label>
         <name>Retail_OptOutContact_Reason__c</name>
         <picklistValues>
             <masterLabel>Campaign (Aftersales)</masterLabel>
-            <translation><!-- Campaign (Aftersales) --></translation>
+            <translation>キャンペーン（アフターセールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign (Finance)</masterLabel>
-            <translation><!-- Campaign (Finance) --></translation>
+            <translation>キャンペーン（ファイナンス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Campaign (New Car)</masterLabel>
-            <translation><!-- Campaign (New Car) --></translation>
+            <translation>キャンペーン（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event (Aftersales)</masterLabel>
-            <translation><!-- Event (Aftersales) --></translation>
+            <translation>イベント（アフターセールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Event (New Car)</masterLabel>
-            <translation><!-- Event (New Car) --></translation>
+            <translation>イベント（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Fair</masterLabel>
-            <translation><!-- Fair --></translation>
+            <translation>フェア</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift</masterLabel>
-            <translation><!-- Gift --></translation>
+            <translation>ギフト</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MOT Car inspection</masterLabel>
-            <translation><!-- MOT Car inspection --></translation>
+            <translation>車検</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Magazine</masterLabel>
-            <translation><!-- Magazine --></translation>
+            <translation>マガジン</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Info (Aftersales)</masterLabel>
-            <translation><!-- Product Info (Aftersales) --></translation>
+            <translation>製品情報（アフターセールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Info (Finance)</masterLabel>
-            <translation><!-- Product Info (Finance) --></translation>
+            <translation>製品情報（ファイナンス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Product Info (New Car)</masterLabel>
-            <translation><!-- Product Info (New Car) --></translation>
+            <translation>製品情報（セールス）</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
-            <translation><!-- Survey --></translation>
+            <translation>アンケート</translation>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail PersonBirthdate --></label>
+        <label>誕生日</label>
         <name>Retail_PersonBirthdate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Phone OptOut --></label>
+        <label>TEL拒否</label>
         <name>Retail_Phone_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Position --></label>
+        <label>役職</label>
         <name>Retail_Position__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Postal OptOut --></label>
+        <label>DM拒否</label>
         <name>Retail_Postal_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Preferred Contact Method --></label>
+        <label>希望連絡手段</label>
         <name>Retail_Preferred_Contact_Method__c</name>
         <picklistValues>
             <masterLabel>Direct Mail</masterLabel>
@@ -905,7 +905,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Preferred Language --></label>
+        <label>主要言語</label>
         <name>Retail_Preferred_Language__c</name>
         <picklistValues>
             <masterLabel>Chinese</masterLabel>
@@ -977,7 +977,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Primary Phone --></label>
+        <label>優先連絡先電話番号</label>
         <name>Retail_Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
@@ -1005,199 +1005,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Province --></label>
+        <label>Autoline用住所 1行目</label>
         <name>Retail_Province__c</name>
-        <picklistValues>
-            <masterLabel>Aichi</masterLabel>
-            <translation><!-- Aichi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Akita</masterLabel>
-            <translation><!-- Akita --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Aomori</masterLabel>
-            <translation><!-- Aomori --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Chiba</masterLabel>
-            <translation><!-- Chiba --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ehime</masterLabel>
-            <translation><!-- Ehime --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fukui</masterLabel>
-            <translation><!-- Fukui --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fukuoka</masterLabel>
-            <translation><!-- Fukuoka --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Fukushima</masterLabel>
-            <translation><!-- Fukushima --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gifu</masterLabel>
-            <translation><!-- Gifu --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Gunma</masterLabel>
-            <translation><!-- Gunma --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hiroshima</masterLabel>
-            <translation><!-- Hiroshima --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hokkaido</masterLabel>
-            <translation><!-- Hokkaido --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Hyogo</masterLabel>
-            <translation><!-- Hyogo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ibaraki</masterLabel>
-            <translation><!-- Ibaraki --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ishikawa</masterLabel>
-            <translation><!-- Ishikawa --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Iwate</masterLabel>
-            <translation><!-- Iwate --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kagawa</masterLabel>
-            <translation><!-- Kagawa --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kagoshima</masterLabel>
-            <translation><!-- Kagoshima --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kanagawa</masterLabel>
-            <translation><!-- Kanagawa --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kochi</masterLabel>
-            <translation><!-- Kochi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kumamoto</masterLabel>
-            <translation><!-- Kumamoto --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Kyoto</masterLabel>
-            <translation><!-- Kyoto --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Mie</masterLabel>
-            <translation><!-- Mie --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Miyagi</masterLabel>
-            <translation><!-- Miyagi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Miyazaki</masterLabel>
-            <translation><!-- Miyazaki --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Nagano</masterLabel>
-            <translation><!-- Nagano --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Nagasaki</masterLabel>
-            <translation><!-- Nagasaki --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Nara</masterLabel>
-            <translation><!-- Nara --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Niigata</masterLabel>
-            <translation><!-- Niigata --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Oita</masterLabel>
-            <translation><!-- Oita --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Okayama</masterLabel>
-            <translation><!-- Okayama --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Okinawa</masterLabel>
-            <translation><!-- Okinawa --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Osaka</masterLabel>
-            <translation><!-- Osaka --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Saga</masterLabel>
-            <translation><!-- Saga --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Saitama</masterLabel>
-            <translation><!-- Saitama --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Shiga</masterLabel>
-            <translation><!-- Shiga --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Shimane</masterLabel>
-            <translation><!-- Shimane --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Shizuoka</masterLabel>
-            <translation><!-- Shizuoka --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tochigi</masterLabel>
-            <translation><!-- Tochigi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tokushima</masterLabel>
-            <translation><!-- Tokushima --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tokyo</masterLabel>
-            <translation><!-- Tokyo --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Tottori</masterLabel>
-            <translation><!-- Tottori --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Toyama</masterLabel>
-            <translation><!-- Toyama --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Wakayama</masterLabel>
-            <translation><!-- Wakayama --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yamagata</masterLabel>
-            <translation><!-- Yamagata --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yamaguchi</masterLabel>
-            <translation><!-- Yamaguchi --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yamanashi</masterLabel>
-            <translation><!-- Yamanashi --></translation>
-        </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Related Company --></label>
+        <label>会社（Autoline送信用）</label>
         <name>Retail_Related_Company__c</name>
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
@@ -1206,16 +1018,16 @@
         <name>Retail_Responsible__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Sales Consultant --></label>
+        <label>販売担当者</label>
         <name>Retail_Sales_Consultant__c</name>
         <relationshipLabel><!-- Account Link (Retail Sales Consultant) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Sales Sanction Comments --></label>
+        <label>カスタマーメモ</label>
         <name>Retail_Sales_Sanction_Comment__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Sales Sanction --></label>
+        <label>カスタマーフラグ</label>
         <name>Retail_Sales_Sanction__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -1223,11 +1035,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Special Care --></label>
+        <label>参照番号(福祉車両)</label>
         <name>Retail_Special_Care__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Special Needs Class --></label>
+        <label>代車等級</label>
         <name>Retail_Special_Needs_Class__c</name>
         <picklistValues>
             <masterLabel>A</masterLabel>
@@ -1251,7 +1063,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail UCID --></label>
+        <label>UCID</label>
         <name>Retail_UCID__c</name>
     </fields>
     <fields>
@@ -1263,23 +1075,23 @@
         <name>Retail_Updated_Consent_User__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Vat No --></label>
+        <label>法人税番号</label>
         <name>Retail_Vat_No__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Visit OptOut --></label>
+        <label>訪問拒否</label>
         <name>Retail_Visit_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Web Site --></label>
+        <label>ウェブサイト</label>
         <name>Retail_WebSite__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Work Phone --></label>
+        <label>勤務先電話番号</label>
         <name>Retail_Work_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail ZipCode --></label>
+        <label>郵便番号</label>
         <name>Retail_ZipCode__c</name>
     </fields>
     <fields>
@@ -1423,7 +1235,7 @@
         <name>Sales_Person_Id__c</name>
     </fields>
     <fields>
-        <label><!-- Sales Representative --></label>
+        <label>販売時担当者</label>
         <name>Sales_Representative__c</name>
         <relationshipLabel><!-- Account Link (Sales Representative) --></relationshipLabel>
     </fields>
@@ -1452,17 +1264,17 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Selling Dealer --></label>
+        <label>販売担当拠点</label>
         <name>Selling_Dealer__c</name>
         <relationshipLabel><!-- Account Link (Selling Dealer) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Service Advisor --></label>
+        <label>サービス担当者</label>
         <name>Service_Advisor__c</name>
         <relationshipLabel><!-- Account Link (Service Advisor) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Service Dealer --></label>
+        <label>サービス担当拠点</label>
         <name>Service_Dealer__c</name>
         <relationshipLabel><!-- Account Link (Service Dealer) --></relationshipLabel>
     </fields>
@@ -1495,7 +1307,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>My Shops</masterLabel>
-            <translation>マイショップ(複数)</translation>
+            <translation>マイショップ履歴対象</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Territory Dealer</masterLabel>
@@ -1519,23 +1331,23 @@
         <name>Updated_By_EP_Transactions__c</name>
     </fields>
     <fields>
-        <label><!-- VIN --></label>
+        <label>車台番号</label>
         <name>VIN__c</name>
     </fields>
     <fields>
         <label>車両</label>
         <name>Vehicle__c</name>
-        <relationshipLabel><!-- Account Links --></relationshipLabel>
+        <relationshipLabel>販売店内用車両情報リンク</relationshipLabel>
     </fields>
     <fields>
-        <label>関係者1</label>
+        <label>アカウントリンク1</label>
         <name>fromRole__c</name>
-        <relationshipLabel>関係者1</relationshipLabel>
+        <relationshipLabel>アカウントリンク1</relationshipLabel>
     </fields>
     <fields>
-        <label>関係者2</label>
+        <label>アカウントリンク2</label>
         <name>toRole__c</name>
-        <relationshipLabel>関係者2</relationshipLabel>
+        <relationshipLabel>アカウントリンク2</relationshipLabel>
     </fields>
     <layouts>
         <layout>Account Link Layout</layout>
@@ -1557,6 +1369,25 @@
         <sections>
             <label>システム情報</label>
             <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Company Retail Copy</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
         </sections>
     </layouts>
     <layouts>
@@ -1609,6 +1440,29 @@
         <sections>
             <label><!-- Information --></label>
             <section>Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Person Retail Copy</layout>
+        <sections>
+            <label>連絡先</label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label>連絡方法</label>
+            <section>Contact Method</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>プロフィール情報</label>
+            <section>Profile Information</section>
         </sections>
         <sections>
             <label>システム情報</label>
@@ -1671,4 +1525,28 @@
         <label><!-- External Link Share --></label>
         <name>External_Link_Share</name>
     </sharingReasons>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Retail_Company_Name_Native_Kana</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- IT Should be KANA Characters --></errorMessage>
+        <name>Retail_First_Name_Native_Kana</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Retail_Full_Name_Native_Kana</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It should be &quot;Kana&quot; characters. --></errorMessage>
+        <name>Retail_Last_Name_Native_Kana</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Delete_retail_copy --></label>
+        <name>Delete_retail_copy</name>
+    </webLinks>
+    <webLinks>
+        <label>Autoline送信</label>
+        <name>Send_To_AutoLine</name>
+    </webLinks>
 </CustomObjectTranslation>

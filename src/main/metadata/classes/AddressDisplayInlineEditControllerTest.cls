@@ -67,6 +67,7 @@ public class AddressDisplayInlineEditControllerTest
     {
         init();        
         test.startTest();
+       
         ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
@@ -78,6 +79,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddressDisplayInlineEditController.saveAddress();        
         objAddressDisplayInlineEditController.editaddressId=editadds[0].Id;
         objAddressDisplayInlineEditController.Address_Validated_Flag=true;
+        objAddressDisplayInlineEditController.Validation=true;
         objAddressDisplayInlineEditController.saveAddress();
         objAddressDisplayInlineEditController.ValidateAddressCode(editadds[0]);
         AddressDisplayInlineEditController.addressSelectionWrapper addWrap = new AddressDisplayInlineEditController.addressSelectionWrapper(editadds[0]);
@@ -263,7 +265,8 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
-        objAccount.Mobile__c = '999-999-9999';
+        objAccount.MD__c = 'JP';
+        //objAccount.Mobile__c = '999999999';
         
         
         insert objAccount;
@@ -276,20 +279,22 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.Province__c='ACT'; 
         objAddress.Address_Type__c = 'Home';  
         objAddress.ZipCode__c ='1234567'; 
+        objAddress.MD__c = 'JP';
         objAddress.Address_Line_1__c = 'Banglore';
         objAddress.Address_Line_2__c = 'Test Address 2';
         objAddress.Block__c = 'Test Block';
         objAddress.City__c = 'Test City';
         objAddress.District__c = 'Test District';
         insert objAddress;
+        
         system.debug('objAddress>>>>>'+objAddress.Id);
         
-        editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+       editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
         system.debug('editadds>>>'+editadds);
         editadds[0].Preferred__c=false;
         editadds[0].Province__c='NSW';
-        editadds[0].Address_Type__c ='Company';        
+        //editadds[0].Address_Type__c ='Company';        
         update editadds;
         
         
@@ -374,7 +379,7 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
-        objAccount.Mobile__c = '999-999-9999';
+        //objAccount.Mobile__c = '9999999999';
         insert objAccount;
         
         objAddress= new Address__c();

@@ -34,6 +34,7 @@ Private Static List<Trigger__c> updatecustomsettings=new List<Trigger__c>();
             Location__c = 'test',
             Brand__c = 'MB',
             CBU_PbP__c = 'CBU',
+            Campaign_Execution_Channels__c = 'eEmail',
             Event_Type__c = 'Road Show',
             Plan_Start_Date__c = System.today(),
             Plan_End_Date__c = System.today() + 20,

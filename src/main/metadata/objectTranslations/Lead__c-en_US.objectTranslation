@@ -2040,6 +2040,30 @@
         <relationshipLabel><!-- Leads (Company Account) --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Consultant Assignment Age --></label>
+        <name>Consultant_Assignment_Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Assignment Date --></label>
+        <name>Consultant_Assignment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Due Date --></label>
+        <name>Consultant_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Overdue Flag --></label>
+        <name>Consultant_Overdue_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Override Overdue --></label>
+        <name>Consultant_Override_Overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant Reassignment Date --></label>
+        <name>Consultant_Reassignment_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Contact Date --></label>
         <name>Contact_Date__c</name>
     </fields>
@@ -2085,6 +2109,18 @@
         <name>Correlation_ID__c</name>
     </fields>
     <fields>
+        <label><!-- Courtesy Car Date In --></label>
+        <name>Courtesy_Car_Date_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Courtesy Car Date Return --></label>
+        <name>Courtesy_Car_Date_Return__c</name>
+    </fields>
+    <fields>
+        <label><!-- Courtesy Car Provided by Dealer --></label>
+        <name>Courtesy_Car_Provided_by_Dealer__c</name>
+    </fields>
+    <fields>
         <label><!-- Created By EP Transaction --></label>
         <name>Created_By_EP_Transaction__c</name>
     </fields>
@@ -2127,8 +2163,44 @@
         <label><!-- Customer Intention --></label>
         <name>Customer_Intention__c</name>
         <picklistValues>
+            <masterLabel>Extension Loan</masterLabel>
+            <translation><!-- Extension Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Buyout</masterLabel>
+            <translation><!-- Lease Buyout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Cancel</masterLabel>
+            <translation><!-- Lease Cancel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Close</masterLabel>
+            <translation><!-- Lease Return Close --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Open</masterLabel>
+            <translation><!-- Lease Return Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Early Terminate</masterLabel>
+            <translation><!-- Loan Early Terminate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Return SWP</masterLabel>
+            <translation><!-- Loan Return SWP --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Off Loan</masterLabel>
+            <translation><!-- Pay Off Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation><!-- Re-Lease --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2200,6 +2272,10 @@
         <name>Dealer_Aftersales_Manager_Email__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Assignment Date --></label>
+        <name>Dealer_Assignment_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Dealer Audit Result --></label>
         <name>Dealer_Audit_Result__c</name>
         <picklistValues>
@@ -2220,7 +2296,11 @@
         <name>Dealer_Audit__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Comments --></label>
+        <label><!-- Dealer Comment --></label>
+        <name>Dealer_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Comment --></label>
         <name>Dealer_Comments__c</name>
     </fields>
     <fields>
@@ -2230,6 +2310,10 @@
     <fields>
         <label><!-- Dealer DMS Comments --></label>
         <name>Dealer_DMS_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Due Date --></label>
+        <name>Dealer_Due_Date__c</name>
     </fields>
     <fields>
         <label><!-- Dealer LMS --></label>
@@ -2347,6 +2431,10 @@
             <translation><!-- Invalid customer data --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lead Merge</masterLabel>
+            <translation><!-- Lead Merge --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>No serious interest</masterLabel>
             <translation><!-- No serious interest --></translation>
         </picklistValues>
@@ -2375,6 +2463,10 @@
             <translation><!-- Purchase plan postponed --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Purchased Vehicle</masterLabel>
+            <translation><!-- Purchased Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Quotation request from other dealer</masterLabel>
             <translation><!-- Quotation request from other dealer --></translation>
         </picklistValues>
@@ -2394,6 +2486,10 @@
             <masterLabel>Unsatisfied with service</masterLabel>
             <translation><!-- Unsatisfied with service --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealer Overdue Flag --></label>
+        <name>Dealer_Overdue_Flag__c</name>
     </fields>
     <fields>
         <label><!-- Dealer Owner Email --></label>
@@ -2450,6 +2546,10 @@
     <fields>
         <label><!-- Email --></label>
         <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalation Flag Report --></label>
+        <name>Escalation_Flag_Report__c</name>
     </fields>
     <fields>
         <label><!-- Escalation Flag --></label>
@@ -2524,8 +2624,44 @@
         <label><!-- Finance Closing Option --></label>
         <name>Finance_Closing_Option__c</name>
         <picklistValues>
+            <masterLabel>Extension Loan</masterLabel>
+            <translation><!-- Extension Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Buyout</masterLabel>
+            <translation><!-- Lease Buyout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Cancel</masterLabel>
+            <translation><!-- Lease Cancel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Close</masterLabel>
+            <translation><!-- Lease Return Close --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Return Open</masterLabel>
+            <translation><!-- Lease Return Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Early Terminate</masterLabel>
+            <translation><!-- Loan Early Terminate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Return SWP</masterLabel>
+            <translation><!-- Loan Return SWP --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pay Off Loan</masterLabel>
+            <translation><!-- Pay Off Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-Lease</masterLabel>
+            <translation><!-- Re-Lease --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2703,6 +2839,10 @@
     <fields>
         <label><!-- First Name --></label>
         <name>FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Activity Date --></label>
+        <name>First_Activity_Date__c</name>
     </fields>
     <fields>
         <label><!-- First Contact Customer Date Time --></label>
@@ -5320,7 +5460,7 @@
         <name>Job_Card_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Job Card No --></label>
+        <label><!-- Job Card No. --></label>
         <name>Job_Card_Number__c</name>
     </fields>
     <fields>
@@ -5410,6 +5550,10 @@
     <fields>
         <label><!-- Lead Assignment Notification Done --></label>
         <name>Lead_Assignment_Notification_Done__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Closed Date --></label>
+        <name>Lead_Closed_Date__c</name>
     </fields>
     <fields>
         <label><!-- Lead DataSource --></label>
@@ -5581,6 +5725,14 @@
         <picklistValues>
             <masterLabel>Social media</masterLabel>
             <translation><!-- Social media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease</masterLabel>
+            <translation><!-- Special lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special lease for employees</masterLabel>
+            <translation><!-- Special lease for employees --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Survey</masterLabel>
@@ -6424,6 +6576,10 @@
         <name>Lead_Items__c</name>
     </fields>
     <fields>
+        <label><!-- Lead Last Modified Date --></label>
+        <name>Lead_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
         <label><!-- Lead Latest Phase --></label>
         <name>Lead_Latest_Phase__c</name>
         <picklistValues>
@@ -6441,6 +6597,10 @@
         <picklistValues>
             <masterLabel>Contact</masterLabel>
             <translation><!-- Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estimation</masterLabel>
+            <translation><!-- Estimation --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Finance Proposal</masterLabel>
@@ -6675,8 +6835,20 @@
             <translation><!-- Company Car --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Daimler Employee</masterLabel>
-            <translation><!-- Daimler Employee --></translation>
+            <masterLabel>Daimler Employee Car</masterLabel>
+            <translation><!-- Daimler Employee Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Lease</masterLabel>
+            <translation><!-- Daimler Employee Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daimler Employee Rental Car</masterLabel>
+            <translation><!-- Daimler Employee Rental Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Company Car</masterLabel>
+            <translation><!-- Dealer Company Car --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dealer Employee Car</masterLabel>
@@ -6689,6 +6861,18 @@
         <picklistValues>
             <masterLabel>Demo Car</masterLabel>
             <translation><!-- Demo Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Company Car</masterLabel>
+            <translation><!-- Fuso Company Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Car</masterLabel>
+            <translation><!-- Fuso Employee Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fuso Employee Lease</masterLabel>
+            <translation><!-- Fuso Employee Lease --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Gift Car</masterLabel>
@@ -6836,6 +7020,18 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Loan Car Date In --></label>
+        <name>Loan_Car_Date_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Car Date out --></label>
+        <name>Loan_Car_Date_out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loan Car Provided by Dealer --></label>
+        <name>Loan_Car_Provided_by_Dealer__c</name>
+    </fields>
+    <fields>
         <label><!-- Lodgment Date --></label>
         <name>Lodgment_Date__c</name>
     </fields>
@@ -6887,8 +7083,16 @@
             <translation><!-- Gave up owning a car --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Lead Merge</masterLabel>
+            <translation><!-- Lead Merge --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Change</masterLabel>
+            <translation><!-- Owner Change --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purchased Competitor&apos;s Car</masterLabel>
@@ -6897,6 +7101,10 @@
         <picklistValues>
             <masterLabel>Purchased MB at normal Used Car store</masterLabel>
             <translation><!-- Purchased MB at normal Used Car store --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased Vehicle</masterLabel>
+            <translation><!-- Purchased Vehicle --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Purhcased MB from other importer</masterLabel>
@@ -6909,6 +7117,14 @@
         <picklistValues>
             <masterLabel>Sales not appropriate</masterLabel>
             <translation><!-- Sales not appropriate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service at other shops (other Company)</masterLabel>
+            <translation><!-- Service at other shops (other Company) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service at other shops (within Company)</masterLabel>
+            <translation><!-- Service at other shops (within Company) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Stopped activity</masterLabel>
@@ -6925,6 +7141,10 @@
         <picklistValues>
             <masterLabel>Transferred for house moving</masterLabel>
             <translation><!-- Transferred for house moving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -7896,6 +8116,10 @@
         <name>Orig_Fee__c</name>
     </fields>
     <fields>
+        <label><!-- Dealer Override Overdue --></label>
+        <name>Override_Overdue__c</name>
+    </fields>
+    <fields>
         <label><!-- Parts Required? --></label>
         <name>Parts_Required__c</name>
     </fields>
@@ -8498,7 +8722,7 @@
         <relationshipLabel><!-- Leads (Car Model) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Quotation No Histry --></label>
+        <label><!-- Quotation No History --></label>
         <name>Quotation_Number_History__c</name>
     </fields>
     <fields>
@@ -11596,6 +11820,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Retail update Consultant overdue --></label>
+        <name>Retail_update_Consultant_overdue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail update Dealer overdue --></label>
+        <name>Retail_update_Dealer_overdue__c</name>
+    </fields>
+    <fields>
         <label><!-- Sales Consultant --></label>
         <name>Sales_Consultant__c</name>
         <relationshipLabel><!-- Leads (Sales Consultant) --></relationshipLabel>
@@ -11609,9 +11841,9 @@
         <name>ServiceProgram_Proposal_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Assigned Service Adviser --></label>
+        <label><!-- Assigned Service Advisor --></label>
         <name>Service_Advisor__c</name>
-        <relationshipLabel><!-- Leads (Assigned Service Adviser) --></relationshipLabel>
+        <relationshipLabel><!-- Leads (Assigned Service Advisor) --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Service Date --></label>
@@ -11639,6 +11871,10 @@
         <picklistValues>
             <masterLabel>None</masterLabel>
             <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Touring Support Plus</masterLabel>
@@ -11759,6 +11995,14 @@
         <name>Task_Update_Flag__c</name>
     </fields>
     <fields>
+        <label><!-- Task create Consultant over due date --></label>
+        <name>Task_create_Consultant_over_due_date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task create Dealer over due date --></label>
+        <name>Task_create_dealer_over_due_date__c</name>
+    </fields>
+    <fields>
         <label><!-- Team --></label>
         <name>Team__c</name>
     </fields>
@@ -11809,6 +12053,14 @@
     <fields>
         <label><!-- Threshold Date --></label>
         <name>Threshold_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time since Last Activity --></label>
+        <name>Time_since_Last_Activity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time to First Activity --></label>
+        <name>Time_to_First_Activity__c</name>
     </fields>
     <fields>
         <label><!-- Title --></label>
@@ -15506,7 +15758,7 @@
         <name>WIP_Created_Date__c</name>
     </fields>
     <fields>
-        <label><!-- WIP No --></label>
+        <label><!-- WIP No. --></label>
         <name>WIP_Number__c</name>
     </fields>
     <fields>
@@ -15542,7 +15794,148 @@
         <name>X72H_Untouched__c</name>
     </fields>
     <layouts>
+        <layout>After-Sales Leads Layout for Dealer Users</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost Information --></label>
+            <section>Lost Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>After-Sales Leads Soft Deleted</layout>
+        <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Reference Information --></label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>AfterSales Lead</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Reference Information --></label>
+            <section>Reference Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AfterSales Lead_KR</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -15728,6 +16121,69 @@
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
+            <label><!-- Cross Point Information --></label>
+            <section>Cross Point Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Processing Information --></label>
+            <section>Lead Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Request Information --></label>
+            <section>Lead Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Miscelleneous Section --></label>
+            <section>Miscelleneous Section</section>
+        </sections>
+        <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Referal/Referee Information --></label>
+            <section>Referal/Referee Information</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Select --></label>
+            <section>Vehicle Select</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Leads Layout (CAC)_KR</layout>
+        <sections>
+            <label><!-- Assigned Dealer Reminder --></label>
+            <section>Assigned Dealer Reminder</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
@@ -15795,16 +16251,24 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- DSC Request Information --></label>
-            <section>DSC Request Information</section>
+            <label><!-- Dealer Information --></label>
+            <section>Dealer Information</section>
         </sections>
         <sections>
-            <label><!-- Description Information --></label>
-            <section>Description Information</section>
+            <label><!-- Detail Information --></label>
+            <section>Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Customer Information --></label>
+            <section>Lead Customer Information</section>
         </sections>
         <sections>
             <label><!-- Lead Information --></label>
             <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Process information --></label>
+            <section>Lead Process information</section>
         </sections>
         <sections>
             <label><!-- Lead Request Information --></label>
@@ -15815,31 +16279,39 @@
             <section>Lost Information</section>
         </sections>
         <sections>
-            <label><!-- Order Confirmed Information --></label>
-            <section>Order Confirmed Information</section>
-        </sections>
-        <sections>
             <label><!-- Reference Information --></label>
             <section>Reference Information</section>
         </sections>
         <sections>
-            <label><!-- Vehicle Select --></label>
-            <section>Vehicle Select</section>
+            <label><!-- Registratin Information --></label>
+            <section>Registratin Information</section>
+        </sections>
+        <sections>
+            <label><!-- Used Car Request Information --></label>
+            <section>Used Car Request Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Information --></label>
+            <section>Vehicle Information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>Sales Leads Soft Deleted</layout>
         <sections>
+            <label><!-- Activity Date Information --></label>
+            <section>Activity Date Information</section>
+        </sections>
+        <sections>
             <label><!-- Assigned Dealer Reminder --></label>
             <section>Assigned Dealer Reminder</section>
         </sections>
         <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
+            <label><!-- Cross-point information --></label>
+            <section>Cross-point information</section>
         </sections>
         <sections>
-            <label><!-- Date Information --></label>
-            <section>Date Information</section>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
             <label><!-- Dealer Information --></label>
@@ -15870,6 +16342,10 @@
             <section>Miscelleneous Section</section>
         </sections>
         <sections>
+            <label><!-- New Fields --></label>
+            <section>New Fields</section>
+        </sections>
+        <sections>
             <label><!-- Referal/Referee Information --></label>
             <section>Referal/Referee Information</section>
         </sections>
@@ -15886,6 +16362,10 @@
             <section>Vehicle Select</section>
         </sections>
     </layouts>
+    <recordTypes>
+        <label><!-- After-Sales Leads Soft Deleted --></label>
+        <name>After_Sales_Leads_Soft_Deleted</name>
+    </recordTypes>
     <recordTypes>
         <label><!-- Aftersales Leads --></label>
         <name>Aftersales_Leads</name>
@@ -15928,8 +16408,24 @@
         <name>CAC_Purchase_Check_Sales_Lead</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- You can&apos;t change Invoice Number --></errorMessage>
+        <name>Cannnot_Change_Invoice_Number</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot change the Contact if DMS Sent Flag is selected --></errorMessage>
+        <name>Cannnot_Change_Lead_Contact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change Quotation Amount --></errorMessage>
+        <name>Cannnot_Change_Lead_Quotation_Amount</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- You can&apos;t change lead status to &quot;Approval(waiting)&quot; or &quot;Allocated&quot; --></errorMessage>
         <name>Cannnot_Change_Lead_Status</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the  Quotation No --></errorMessage>
+        <name>Cannnot_Change_Quotation_No</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Company account is required when company type is Company. --></errorMessage>
@@ -15940,12 +16436,28 @@
         <name>Contact_Failed_Required_Check</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- &quot;Dealer Lead Status&quot; can change into &quot;Purchased&quot; only if (&quot;Lead Latest Phase&quot; is &quot;Registration&quot; and Leads record type is &quot;Sales Lead&quot;) or (&quot;Lead Latest Phase&quot; is &quot;Invoiced&quot; and Leads record type if &quot;After-Sales Lead&quot;). --></errorMessage>
+        <name>Dealer_Lead_Status_Manual_Check</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Service Completed, Service Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Aftersales_Lead</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- If Dealer Lead Status is Purchased(Only Non BDC), Purchase Date is required. --></errorMessage>
         <name>Dealer_Purchase_Check_Sales_Lead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lost reasons is mandatory when Dealer  lead status is changed to Lost. --></errorMessage>
+        <name>Dealer_lost_Reason_Manadatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Finance Product name cannot be changed manually --></errorMessage>
+        <name>Finance_Product_Name_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Finance Quotation No cannot be changed manually --></errorMessage>
+        <name>Finance_Quotation_No_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Finance Quotation No History cannot be changed manually --></errorMessage>
@@ -15968,6 +16480,30 @@
         <name>Last_Name_Native_Single</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- &quot;Invoice Amount&quot; cannot be changed manually. --></errorMessage>
+        <name>Lead_Invoice_Amount_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Invoice Amount History&quot; cannot be changed manually. --></errorMessage>
+        <name>Lead_Invoice_Amount_History_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Invoice Number History&quot; cannot be changed manually. --></errorMessage>
+        <name>Lead_Invoice_Number_History_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- It cannot be changed Manually --></errorMessage>
+        <name>Lead_Latest_Phase_Manual_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lead Latest Phase&quot; cannot be changed into “WIP Linkage”, “Job Card Issue”, “Invoiced” --></errorMessage>
+        <name>Lead_Latest_Phase_Manual_Check_AS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Dealer Lead Status&quot; cannot be changed into “Lost --></errorMessage>
+        <name>Lead_Status_Lost_Check</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Lead status should be &quot;Assigned&quot; once dealer is assigned to the Lead --></errorMessage>
         <name>Lead_assignment</name>
     </validationRules>
@@ -15978,6 +16514,10 @@
     <validationRules>
         <errorMessage><!-- Dealer Lost Reason and Lost Situation cannot be Null --></errorMessage>
         <name>Lost_Reason_Mandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Lost Reason and Lost CAC date fields are required when status changed to Lost(CAC) --></errorMessage>
+        <name>Lost_Reason_and_Lost_CACdate_on_Lost_CAC</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- “Lost To” field is mandatory when the lead has been lost --></errorMessage>
@@ -16004,7 +16544,7 @@
         <name>Order_Placed_Required_Check_Dealer</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Dealer Lead Status cannot be changed --></errorMessage>
+        <errorMessage><!-- Dealer Lead Status current value is &quot;Purchased&quot; or &quot;Lost&quot; AND record type is &quot;Sales Leads&quot;, &quot;Dealer Lead Status&quot; cannot be changed. --></errorMessage>
         <name>Purchase_Leads_NoChange_Los</name>
     </validationRules>
     <validationRules>
@@ -16014,6 +16554,10 @@
     <validationRules>
         <errorMessage><!-- Aftersales Vehicle cannot be changed --></errorMessage>
         <name>Purchased_Leads_NoChange_Lost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change  Quotation No History --></errorMessage>
+        <name>Quotation_No_History_Check</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Please fill in the Recommended Dealer. --></errorMessage>
@@ -16040,8 +16584,24 @@
         <name>Visited_Showroom_Required_Check</name>
     </validationRules>
     <webLinks>
+        <label><!-- Assign_to_Leads --></label>
+        <name>Assign_to_Leads</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Convert --></label>
+        <name>Convert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Convert_Lead --></label>
+        <name>Convert_Lead</name>
+    </webLinks>
+    <webLinks>
         <label><!-- Find_Duplicates --></label>
         <name>Find_Duplicates</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Lead_Assignment --></label>
+        <name>Lead_Assignment</name>
     </webLinks>
     <webLinks>
         <label><!-- Merge --></label>
@@ -16056,12 +16616,24 @@
         <name>New_Sales_Lead</name>
     </webLinks>
     <webLinks>
+        <label><!-- New_Task --></label>
+        <name>New_Task</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_PDF --></label>
+        <name>Print_PDF</name>
+    </webLinks>
+    <webLinks>
         <label><!-- SMS --></label>
         <name>SMS</name>
     </webLinks>
     <webLinks>
         <label><!-- Select_Assigned_Dealer --></label>
         <name>Select_Assigned_Dealer</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_Autoline --></label>
+        <name>Send_to_Autoline</name>
     </webLinks>
     <webLinks>
         <label><!-- Submit_Survey --></label>

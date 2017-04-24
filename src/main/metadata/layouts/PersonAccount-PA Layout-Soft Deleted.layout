@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Vehicle</customButtons>
-    <customButtons>New_Leads</customButtons>
-    <customButtons>Mergeexample</customButtons>
-    <customButtons>View_Hierarchy</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -32,15 +28,18 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Amount__c</field>
+                <field>UCID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Data_Source__c</field>
+                <field>Customer_Lifecycle_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Special_Mark_on_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -53,10 +52,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Age__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -74,15 +69,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UCID__c</field>
+                <field>Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Lifecycle_Phase__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Special_Mark_on_Account__c</field>
+                <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -117,6 +112,13 @@
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>200</height>
+                <page>SelectAddress</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
@@ -162,6 +164,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Sales_Address_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Primary_Phone__c</field>
             </layoutItems>
             <layoutItems>
@@ -204,6 +210,9 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Opt_In_Contact_Reason_Details__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -276,10 +285,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Special_Needs_Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Special_Care__c</field>
             </layoutItems>
         </layoutColumns>
@@ -324,10 +329,6 @@
                 <behavior>Readonly</behavior>
                 <field>Interest_Model__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>UpsellOpportunity__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -340,6 +341,33 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_LastUpdatedDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Online_Dedup_Hidden__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Apply_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Apply_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Portal_Apply_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -355,6 +383,24 @@
                 <behavior>Readonly</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Last_Modified_User_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warranty_Apply_User__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -367,6 +413,38 @@
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Retail Copy Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>ServiceRetailTask</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Retail copy only Related List</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>RetailCopyOnlyRelatedList</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
@@ -385,22 +463,29 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>OBJECT_ID</fields>
+        <fields>System__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Role__c</fields>
+        <fields>Role2__c</fields>
+        <fields>Portal_Email__c</fields>
+        <fields>Portal_Mail_Opt_Out__c</fields>
+        <fields>Portal_Message_Opt_Out__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>UsVIN__c</fields>
-        <fields>New_Used__c</fields>
         <fields>Car_Relation__c</fields>
-        <fields>Start_Date__c</fields>
+        <fields>New_Used__c</fields>
+        <fields>Finance_Method__c</fields>
         <fields>End_Date__c</fields>
         <fields>Selling_Dealer__c</fields>
         <fields>Last_Service_Dealer__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-        <sortField>Start_Date__c</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -435,7 +520,7 @@
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.CREATED_DATE</fields>
-        <fields>Case_Category__c</fields>
+        <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>

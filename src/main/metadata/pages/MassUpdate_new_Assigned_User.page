@@ -1,0 +1,106 @@
+<apex:page controller="MassUpdatenewAssignedusercontroller" sidebar="false">
+    <apex:form ><script>
+      function RelodeParent(){
+        //  window.opener.location.href="{!URLFOR($Site.Prefix)}/{!$CurrentPage.parameters.id}";
+          window.top.close();
+  
+       }
+      
+      </script>
+        <apex:pageBlock id="pb" >
+            <apex:pageBlockSection columns="1">
+                <div>
+                    <apex:pageBlock title="Currently Assigned To:" >
+                        <apex:inputField value="{!accUsr.OwnerId}" label="">
+                            <apex:actionSupport event="onchange" action="{!getFields}" reRender="pbled,pbAcc,pbveh,pbcse"/>
+                        </apex:inputField>
+                    </apex:pageBlock>
+                </div>
+                <apex:pageBlock title="Account Records" id="pbAcc">
+                    <apex:pageBlockTable value="{!Accounts}" var="acs">
+                        <apex:column headerValue="selectAll">
+                            <apex:facet name="header">
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!acs.selected}"/>
+                        </apex:column>
+                        <!-- <apex:column headerValue="Select"><apex:inputCheckbox value="{!acs.selected}"/></apex:column>-->
+                        <apex:column value="{!acs.acc.Id}"/>
+                        <apex:column value="{!acs.acc.Name}"/>
+                        <apex:column value="{!acs.acc.ownerId}"/>
+                        <apex:column value="{!acs.acc.toRole__c}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Vehicle Records" id="pbveh">
+                    <apex:pageBlockTable value="{!Vehicles}" var="var">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!var.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!var.selected}"/></apex:column>-->
+                           <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.Id.Label}">                    
+                        <apex:outputField value="{!var.veh.Id}"/>
+                    </apex:Column>
+                           <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!var.veh.VIN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account_Link__c.fields.Service_Advisor__c.Label}">                    
+                        <apex:outputField value="{!var.veh.Service_Advisor__c}"/>
+                    </apex:Column>
+                    
+                       <!-- <apex:column value="{!var.veh.VIN__c}"/>
+                        <apex:column value="{!var.veh.Service_Advisor__c}"/> -->
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Lead Records" id="pbled">
+                    <apex:pageBlockTable value="{!Leads}" var="lds">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!lds.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!lds.selected}"/></apex:column>-->
+                        <apex:column value="{!lds.led.Name}"/>
+                        <apex:column value="{!lds.led.ownerId}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <apex:pageBlock title="Case Records" id="pbcse">
+                    <apex:pageBlockTable value="{!Cases}" var="ces">
+                        <apex:column >
+                            <apex:facet name="header" >
+                                <c:selectAllChkBox />
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!ces.selected}"/>
+                        </apex:column>
+                        <!--<apex:column headerValue="Select"><apex:inputCheckbox value="{!ces.selected}"/></apex:column>-->
+                        <apex:column value="{!ces.cse.CaseNumber}"/>
+                        <apex:column value="{!ces.cse.OwnerID}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <div>
+                    <apex:pageBlock title="Newly Assigned To:" id="usr">
+                        <apex:inputField value="{!NewAsignUsr.Portal_Apply_User__c}" label="">
+                            <apex:actionSupport event="onchange" action="{!disPlayNewAssignUserInfo}" reRender="usrdetail"/>
+                        </apex:inputField>
+                    </apex:pageBlock>
+                </div>
+                <apex:pageBlock title="UserDetails" id="usrdetail" >
+                    <apex:pageBlockSection rendered="{!usr.Firstname!=null}">
+                         <apex:outputField value="{!usr.Firstname}"/>
+                     <apex:outputField value="{!usr.Lastname}"/>
+                      <apex:outputField value="{!usr.Email}"/>
+                      <apex:outputField value="{!usr.userName}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:pageBlockSection>
+            <center>
+                <apex:commandButton value="Update" action="{!massUpdateNewAssign}"  oncomplete="RelodeParent()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" />                     
+                
+            </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

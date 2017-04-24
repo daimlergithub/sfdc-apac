@@ -1,0 +1,254 @@
+<apex:page standardController="Account"   extensions="SendToJPOS" showHeader="false" sidebar="false">
+    <apex:form >
+    <apex:outputpanel id="jspanel">
+     <script >
+function afterSave(){ 
+//var successElement = document.getElementById('ShowHideError');
+//{
+if({!ShowHideError} ==false)
+{
+alert('Sucessfully Sent Information to JPOS');
+window.location.href="{!URLFOR($Site.Prefix)}/{!AccId}";
+ 
+}
+else
+{
+
+}
+//} 
+      
+  
+  }
+</script>
+</apex:outputpanel>
+<style>
+    /* This is for the full screen DIV */
+    .popupBackground {
+        /* Background color */
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+    
+        /* Dimensions */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        position: absolute;
+        
+        /* Mouse */
+        cursor:wait;
+    }
+ 
+    /* This is for the message DIV */
+    .PopupPanel {
+        /* Background color */
+        border: solid 2px blue;
+        background-color: white;
+ 
+        /* Dimensions */
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 50%;
+        height: 50px;
+        margin-top: -25px;
+        z-index: 999;
+        position: fixed;
+        
+        /* Mouse */
+        cursor:pointer;
+    }
+</style>
+<apex:actionStatus id="statusSaveTrip" stopText="" >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="PopupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center"><b>Please Wait</b></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionStatus>
+    <apex:pageMessages id="Errormessage"></apex:pageMessages>
+    <div align="Center">
+                        <apex:outputPanel rendered="{!CurrentUsr.IsPortalEnabled =False}">
+
+            <tb>  <tb>    Dealer Outlet</tb>   </tb> <apex:inputfield value=" {!Account.Main_Dealer__c}">
+                             <apex:actionSupport event="onchange" action="{!getDealer}"   rerender="PbId" >
+                                       <apex:param name="DealerID" value="{!Account.Id}"/>
+                                  </apex:actionSupport>
+                         
+                                    </apex:inputfield>
+                                </apex:outputPanel>
+                                </div>
+    <apex:pageBlock id="PbId" >
+      
+     
+      
+      
+             <apex:pageblockSection title="Account Information" columns="2" >
+           <!--  <apex:outputField value="{!Account.Recordtype.Name}"/>-->
+                          <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.UCID__c.Label}"/>
+                        <apex:outputField value="{!Account.UCID__c}"/>  
+              </apex:pageBlockSectionItem>   
+              <apex:pageBlockSectionItem >              
+                        <apex:outputLabel value="My Mercedes ID"/>
+                        <apex:outputText value="{!MyMercedesID}"></apex:outputText> 
+              </apex:pageBlockSectionItem> 
+               
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$Label.Assigned_Dealer}"/>
+                        <apex:outputField value="{!AssignedDealer.DMS_UserID__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.RecordtypeId.Label}"/>
+                        <apex:outputField value="{!Account.RecordtypeID}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Gender__c.Label}"/>
+                        <apex:outputField value="{!Account.Gender__c}"/>  
+              </apex:pageBlockSectionItem>     
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
+                        <apex:outputField value="{!Account.Name}"/>  
+              </apex:pageBlockSectionItem> 
+             <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>
+                        <apex:outputField value="{!Account.FirstName}"/>  
+              </apex:pageBlockSectionItem>  
+     
+             <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
+                        <apex:outputField value="{!Account.LastName}"/>  
+              </apex:pageBlockSectionItem>  
+     
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName_Native_1__c.Label}"/>
+                        <apex:outputField value="{!Account.FirstName_Native_1__c}"/>  
+              </apex:pageBlockSectionItem>            
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.LastName_Native_1__c.Label}"/>
+                        <apex:outputField value="{!Account.LastName_Native_1__c}"/>  
+              </apex:pageBlockSectionItem> 
+
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Name__c}"/>  
+              </apex:pageBlockSectionItem>                
+             <!-- <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_1__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Name_Native_1__c}"/>  
+              </apex:pageBlockSectionItem> -->
+                              
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Name_Native_2__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Name_Native_2__c}"/>  
+              </apex:pageBlockSectionItem>   
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Legal_Form__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Legal_Form__c}"/>  
+              </apex:pageBlockSectionItem>            
+              <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Company_Legal_Form_text__c.Label}"/>
+                        <apex:outputField value="{!Account.Company_Legal_Form_text__c}"/>  
+              </apex:pageBlockSectionItem>  
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Legal_Form_Position__c.Label}"/>
+                        <apex:outputField value="{!Account.Legal_Form_Position__c}"/>  
+              </apex:pageBlockSectionItem>  
+ 
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Foundation_Date__c.Label}"/>
+                        <apex:outputField value="{!Account.Foundation_Date__c}"/>  
+              </apex:pageBlockSectionItem>  
+ 
+               <apex:pageBlockSectionItem >                 
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.PersonBirthdate.Label}"/>
+                        <apex:outputField value="{!Account.PersonBirthdate}"/>  
+              </apex:pageBlockSectionItem>                
+            
+           </apex:pageblockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Address Details" id="adddetails">
+          <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Send to JPOS" action="{!SendToJPOS}" Onclick="if(!confirm('Are you sure want to send information to JPOS interface?')){return false};" oncomplete="afterSave()"  status="statusSaveTrip" reRender="Errormessage,pbid,jspanel"/>
+        <apex:commandButton value="cancel" action="{!Cancel}"/>
+        </apex:pageBlockButtons>
+       <apex:pageBlockTable value="{!address}" var="a">
+          <!--  <apex:column >
+            <apex:selectRadio />
+        </apex:column>-->
+        
+         <apex:column headerValue="Select">
+                <input type="radio" value="{!a.id}"  id="radio" Name="SelectedCustomer">
+                                  <apex:actionSupport event="onclick" action="{!getSelected}" rerender="Selected_PBS">
+                                       <apex:param name="idselected" value="{!a.id}" assignTo="{!AddrecordId}"/>
+                                  </apex:actionSupport>
+                           </input>
+                          </apex:column>
+            
+             
+            
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Customer__c.Label}">
+            <apex:outputField value="{!a.Customer__c}"/>
+            </apex:column>
+             <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Code__c.Label}">
+            <apex:outputField value="{!a.Address_Code__c}"/>
+            </apex:column>
+             <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
+            <apex:outputField value="{!a.ZipCode__c}"/>
+            </apex:column>
+             <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}">
+            <apex:outputField value="{!a.Province__c}"/>
+            </apex:column>
+             <apex:column headerValue="{!$ObjectType.Address__c.fields.Province_Native__c.Label}">
+            <apex:outputField value="{!a.Province_Native__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
+            <apex:outputField value="{!a.City__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.City_Native__c.Label}">
+            <apex:outputField value="{!a.City_Native__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}">
+            <apex:outputField value="{!a.District__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.District_Native__c.Label}">
+            <apex:outputField value="{!a.District_Native__c}"/>
+            </apex:column>
+            
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}">
+            <apex:outputField value="{!a.Block__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Block_Native__c.Label}">
+            <apex:outputField value="{!a.Block_Native__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}">
+            <apex:outputField value="{!a.Address_Line_1__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1_Native__c.Label}">
+            <apex:outputField value="{!a.Address_Line_1_Native__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}">
+            <apex:outputField value="{!a.Address_Line_2__c}"/>
+            </apex:column>
+            <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2_Native__c.Label}">
+            <apex:outputField value="{!a.Address_Line_2_Native__c}"/>
+            </apex:column>
+          
+             </apex:pageBlockTable>
+             
+       
+   
+        </apex:pageBlock> 
+    </apex:form>
+   </apex:page>

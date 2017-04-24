@@ -22,8 +22,12 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if ((Trigger.isAfter && Trigger.isUpdate)){
             
             AddressHelperJP.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+            AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
         }
-        
+        if ((Trigger.isAfter && Trigger.isDelete)){
+            
+            AddressHelperJP.updateAccountonDeletion(Trigger.Old);
+        }
         
         
         if(isAfter && isInsert)
@@ -32,6 +36,9 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+             AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
+			 //added by lokesh M
+             AddressHelperJP.afterInsetAddressUpdateRetailPerson(trigger.new);
         } 
         if(isAfter && isUpdate)
         {
@@ -43,18 +50,38 @@ public class TriggerAddressTriggerHandlerJP implements TriggerHandlerIf
         if(isAfter && isDelete)
         {
             serializedObject=json.serialize(ListAddOld);
-			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
         }
         
     }
     
-    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+   public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
         
     {
-       // Implementation to addedd as required in market
+        /*
+        if(isAfter && isInsert)
+
+        {
+            serializedObject=json.serialize(ListAddNew);
+            
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+           // AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
+        } 
+        if(isAfter && isUpdate)
+        {
+            serializedObject=json.serialize(ListAddNew);
+            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+           // AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
+        }
+        
+        if(isAfter && isDelete)
+        {
+            serializedObject=json.serialize(ListAddOld);
+			serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
+            AddressHelperJP.entityNotifyUpdate('DELETE',ListAddOld[0].Id,serializedObject);
+        }
+        */
     }
-    
-    
     
 }

@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+	<alerts>
+        <fullName>Execution_Start_Date_Notification_To_Owner</fullName>
+        <description>Execution Start Date Notification To Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Campaign_notification_on_Execution</template>
+    </alerts>
+	<alerts>
+        <fullName>Segmentation_Email_Notifications_For_WS_Users</fullName>
+        <description>Segmentation Email Notifications For WS Users</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Campaign_Notification_on_Segmentation</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
         <field>IsActive</field>
         <literalValue>1</literalValue>
         <name>Activate Campaign</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Active</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Active flag check</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -149,6 +178,15 @@ RecordType.Name,
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>campaign_status_change</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Segmentation</literalValue>
+        <name>campaign status change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>record_Close_Date</fullName>
         <field>Closed_Date__c</field>
         <formula>TODAY()</formula>
@@ -164,6 +202,52 @@ RecordType.Name,
         <name>record Publish Date</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_based_on_execution_date</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Execution</literalValue>
+        <name>status change based on execution date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_completed</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Completed</literalValue>
+        <name>status change to completed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_execution</fullName>
+        <description>campaign status will be changed o execution</description>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Execution</literalValue>
+        <name>status change to execution</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_change_to_planning</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Planning</literalValue>
+        <name>status change to planning</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>status_changed_to_segmentation</fullName>
+        <field>Child_Campaign_Status__c</field>
+        <literalValue>Segmentation</literalValue>
+        <name>status changed to segmentation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <outboundMessages>
@@ -215,6 +299,61 @@ RecordType.Name,
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	<rules>
+        <fullName>Active Flag For Campaign Management</fullName>
+        <actions>
+            <name>Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <description>Automaticall make active field true for Planning &amp; design /Campaign Execution record types of campaign</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Execution start date Notification to WS Users</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Execution_Start_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Execution_Start_Date_Notification_To_Owner</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
     <rules>
         <fullName>Index Calculation</fullName>
         <actions>
@@ -263,7 +402,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
+   <rules>
         <fullName>Record Publish Date</fullName>
         <actions>
             <name>record_Publish_Date</name>
@@ -292,6 +431,35 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>	
+    <rules>
+        <fullName>Segmentation start date Notification to WS Users</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Segmentation_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Segmentation_Email_Notifications_For_WS_Users</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Send Campaign ID to EP</fullName>
@@ -302,6 +470,55 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <active>true</active>
         <formula>AND (  RecordType.DeveloperName='CAC_Campaign', OR( ISCHANGED( IsActive ), ISCHANGED( Repeat_Frequency__c)) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Status Change on New Creation of execution Campaign</fullName>
+        <actions>
+            <name>status_change_to_planning</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <description>campaign status will be changed when we create a new campaign record with record type campaign execution</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Based Workflow on Campaign</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>		        
+        <description>workflow fire based on segmenation date and execution date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>status_changed_to_segmentation</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>status_change_based_on_execution_date</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.Execution_Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>To update Content Preview</fullName>
@@ -365,5 +582,5 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    </rules>	
 </Workflow>

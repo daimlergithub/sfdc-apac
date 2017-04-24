@@ -186,6 +186,10 @@
                 <field>Support_Dealer_1__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Support_Dealer_1__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Feedback_to_CAC_New__c</field>
             </layoutItems>

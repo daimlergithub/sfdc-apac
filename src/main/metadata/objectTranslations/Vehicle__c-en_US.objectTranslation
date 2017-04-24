@@ -4185,12 +4185,54 @@
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Competitor Vehicle Layout-CAC-KR</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
             <label><!-- Vehicle information --></label>
             <section>Vehicle information</section>
         </sections>
     </layouts>
     <layouts>
         <layout>MB Vehicle Layout-CAC</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Detail --></label>
+            <section>Vehicle Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MB Vehicle Layout-CAC-KR</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -4230,9 +4272,20 @@
     <layouts>
         <layout>Self Registered Layout-CAC</layout>
         <sections>
-            <label><!-- Competitor Information --></label>
-            <section>Competitor Information</section>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle information --></label>
+            <section>Vehicle information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vehicle Layout-Soft Deleted</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -4259,7 +4312,7 @@
         </sections>
     </layouts>
     <layouts>
-        <layout>Vehicle Layout-Soft Deleted</layout>
+        <layout>Vehicle Layout-Soft Deleted-KR</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -4342,6 +4395,18 @@
         <errorMessage><!-- It&apos;s not allowed to change UsVIN for a vehicle from interface. --></errorMessage>
         <name>UsVIN_Read_Only</name>
     </validationRules>
+    <webLinks>
+        <label><!-- Change_Contact_Target --></label>
+        <name>Change_Contact_Target</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_MyMercedes --></label>
+        <name>Send_to_MyMercedes</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_to_SPO --></label>
+        <name>Send_to_SPO</name>
+    </webLinks>
     <webLinks>
         <label><!-- TerminateVehicleRelationships --></label>
         <name>TerminateVehicleRelationships</name>

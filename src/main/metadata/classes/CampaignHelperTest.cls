@@ -17,9 +17,62 @@
     public static string OB_Call = 'OB Call';
     public static string Published = 'Published';
     public static Set<String> topCampaignIds;
+    private static List<Campaign> rclist; 
+     private static Map<id,Campaign> CampaignMap1;
+       public static Campaign camobj;
+       public static Campaign camobj1;
+      public static set<Id> campid;
+        // public static id DealRecordtypeid= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+      public static Id camIdExec= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+      public static Id camIdPlan= Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+     
    
     public static List<Campaign> listcampaigns;
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+     static void preparetestdata(){
+     
+     camobj = new Campaign();
+    camobj.RecordTypeId = camIdPlan;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Draft';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today()+30;
+    camobj.Campaign_Executer__c='Retail';
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    camobj.Campaign_Type__c = 'After Sales';
+    insert camobj;
+  
+    rclist=new List<Campaign>();
+   // rclist.add(camobj);
+     system.debug('rclist---'+rclist);
+    
+        camobj1 = new Campaign();
+        camobj1.RecordTypeId = camIdExec;
+        camobj1.ParentId=camobj.id;
+        camobj1.Child_Campaign_Status__c='Execution';
+       // camobj1.Consolidated_List_Completed__c= true;
+        camobj1.MD__c='JP';
+        camobj1.Name = 'camptest1';
+        camobj1.Campaign_Type__c='After Sales';
+        camobj1.Type = 'Other';
+        camobj1.Segmentation_Date__c= System.today()+4;
+        camobj1.Execution_Start_Date__c = System.today()+10;
+        camobj1.Execution_Type__c= 'eMail';
+        camobj1.Description = 'testdescrip';
+    rclist.add(camobj1);
+    
+     insert rclist;
+    system.debug('rclist---'+rclist);
+    CampaignMap1 = new Map<id,Campaign>();
+   
+      
+      CampaignMap1.put(camobj1.id,camobj1);
+      system.debug('CampaignMap1'+CampaignMap1);
+    
+    }
      public static void preparedTestDataCustomsettings()
      {
         Community_License_Switch__c cls=new Community_License_Switch__c();
@@ -44,7 +97,9 @@
             Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            RecordTypeId = topCampRecordTypeId
+            RecordTypeId = topCampRecordTypeId,
+            Child_Campaign_Status__c = 'Execution' ,
+            Set_List_Maintenance_Flag__c = false
         );
         insert top1;
                     
@@ -103,7 +158,7 @@
     Test.StartTest();
    listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-0000-9842');
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
      insert dealer;
         Contact contact = new Contact(
             AccountId = dealer.Id, 
@@ -149,7 +204,7 @@
 
         insert objcampaign;
         listcampaigns.add(objcampaign);
-        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c from Campaign where id IN:listcampaigns ];
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
          list<Campaign> oldList = new  list<Campaign>();
          oldList.add(listCampaign);
         map<id,Campaign> oldMap = new map<id,Campaign>();
@@ -159,16 +214,19 @@
         update objcampaign;
       
        /*Create Participating Dealer*/
-       Participating_Dealer__c pd = new Participating_Dealer__c (
+      /* Participating_Dealer__c pd = new Participating_Dealer__c (
            Dealer__c = dealer.Id,
            Campaign__c = objcampaign.Id
        );
        insert pd;
-      
+      */
 
         CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
         listcampaigns.add(objcampaign);
         CampaignHelper.afterInsertUpdateEvents(listcampaigns,oldMap,true);
+        CampaignHelper.parentCampaignSatus(listcampaigns,oldMap);
+        CampaignHelper.validationParentCampaign(listcampaigns,oldMap,false,true);
+        CampaignHelper.validationChildCampaign(listcampaigns,oldMap,false,true);
         CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
         CampaignHelper.afterInsertEvents(listcampaigns);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
@@ -477,5 +535,860 @@
         CampaignHelper.afterInsertUpdateEvents(campaignList, campaignMap, true);
         
      }
+  
+   static testmethod void MethodTest2()
+   {
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+   
+    camobj = new Campaign();
+    camobj.RecordTypeId = camIdPlan;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Completed';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today()+30;
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    rclist=new List<Campaign>();
+    rclist.add(camobj);
+    
+    
+    camobj1 = new Campaign();
+    camobj1.RecordTypeId = camIdExec;
+    camobj1.ParentId=camobj.id;
+    camobj1.Child_Campaign_Status__c='Execution';
+    camobj1.Name = 'camptest1';
+    camobj1.Type = 'Other';
+    camobj1.Segmentation_Date__c= System.today()+4;
+    camobj1.Execution_Start_Date__c = System.today()+10;
+    camobj1.Execution_Type__c= 'eMail';
+    camobj1.Description = 'testdescrip';
+    rclist.add(camobj1);
+       
+    insert rclist;
+    
+    
+     Test.startTest();
+     CampaignHelper.beforeDeleteEvents(rclist);
+   
+     Test.stopTest();
+    }
+  } 
+  
+   static testmethod void MethodTest3()
+   {
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+    
+    UserRole portalRole = [Select Id From UserRole Where PortalType = 'None' Limit 1];
+            Profile profile1 = [Select Id from Profile where name = 'System Administrator'];
+            User portalAccountOwner1 = new User(
+                UserRoleId = portalRole.Id,
+                ProfileId = profile1.Id,
+                Username = System.now().millisecond() + 'test2345@test.com',
+                Alias = 'batman',
+                Email='sai.waynedsse@wayneenterprises.com',
+                EmailEncodingKey='UTF-8',
+                Firstname='Bruce',
+                Lastname='Wayne',
+                LanguageLocaleKey='en_US',
+                LocaleSidKey='en_US',
+                TimeZoneSidKey='America/Chicago'
+            );
+             Database.insert(portalAccountOwner1);
+    
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+    
+    camobj = new Campaign();
+    camobj.RecordTypeId = camIdPlan;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Draft';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today()+30;
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    rclist=new List<Campaign>();
+    rclist.add(camobj);
+    
+    
+    camobj1 = new Campaign();
+    camobj1.RecordTypeId = camIdExec;
+    camobj1.ParentId=camobj.id;
+    camobj1.Child_Campaign_Status__c='Execution';
+    camobj1.Name = 'camptest1';
+    camobj1.Type = 'Other';
+    camobj1.Segmentation_Date__c= System.today()+4;
+    camobj1.Execution_Start_Date__c = System.today()+10;
+    camobj1.Execution_Type__c= 'eMail';
+    camobj1.Description = 'testdescrip';
+    rclist.add(camobj1);
+       
+    insert rclist;
+    
+    
+     Test.startTest();
+     CampaignHelper.beforeDeleteCampaignStatus(rclist);
+   
+     Test.stopTest();
+    }
+  } 
+  
+ 
+  static testmethod void MethodTest5()
+   {
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+     
+       Profile profile1 = [Select Id from Profile where name = 'System Administrator'];
+            User portalAccountOwner1 = new User(
+                ProfileId = profile1.Id,
+                Username = System.now().millisecond() + 'test2345@test.com',
+                Alias = 'batman',
+                Email='test1@gmail.com',
+                EmailEncodingKey='UTF-8',
+                Firstname='Bruce',
+                Lastname='Wayne',
+                LanguageLocaleKey='en_US',
+                LocaleSidKey='en_US',
+                TimeZoneSidKey='America/Chicago'
+            );
+            insert portalAccountOwner1;
+    
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     insert dealer;
+     
+    camobj = new Campaign();
+    camobj.RecordTypeId = camIdPlan;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Draft';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today()+30;
+    camobj.Campaign_Executer__c='Retail';
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    camobj.Campaign_Type__c = 'After Sales';
+    insert camobj;
+  
+    rclist=new List<Campaign>();
+   // rclist.add(camobj);
+     system.debug('rclist---'+rclist);
+    
+    camobj1 = new Campaign();
+    camobj1.RecordTypeId = camIdExec;
+    camobj1.ParentId=camobj.id;
+    camobj1.Child_Campaign_Status__c='Completed';
+    camobj1.Consolidated_List_Completed__c= true;
+    camobj1.MD__c='AU';
+    camobj1.Name = 'camptest1';
+    camobj1.Campaign_Type__c='After Sales';
+    camobj1.Type = 'Other';
+    camobj1.Segmentation_Date__c= System.today()+4;
+    camobj1.Execution_Start_Date__c = System.today()+10;
+    camobj1.Execution_Type__c= 'eMail';
+    camobj1.Description = 'testdescrip';
+    rclist.add(camobj1);
+    insert rclist;
+    system.debug('rclist---'+rclist);
+   
+    
+     Test.startTest();
+     CampaignHelper.copyCampaignToRetailCampaign(rclist);
+   
+     Test.stopTest();
+    }
+  } 
+  @isTest static void testCopy()
+     {   
+        User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+     
+       Profile profile1 = [Select Id from Profile where name = 'System Administrator'];
+            User portalAccountOwner1 = new User(
+                ProfileId = profile1.Id,
+                Username = System.now().millisecond() + 'test234@test.com',
+                Alias = 'batman',
+                Email='test1@gmail.com',
+                EmailEncodingKey='UTF-8',
+                Firstname='Bruce',
+                Lastname='Wayne',
+                LanguageLocaleKey='en_US',
+                LocaleSidKey='en_US',
+                TimeZoneSidKey='America/Chicago'
+            );
+            insert portalAccountOwner1;
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+        Test.StartTest();
+       listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today()+10,
+            Execution_Type__c =OB_Call,
+            Campaign_Executer__c='Retail',
+            RecordTypeId = camIdPlan,
+            Campaign_Type__c='Sales',
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Execution',
+                Set_List_Maintenance_Flag__c = false,
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+12,
+                Ready_for_List_Maintenance__c=false,
+                Campaign_Type__c='Sales',
+                RecordTypeId = camIdExec
+        );
 
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        
+        Participating_Dealer__c pd=new Participating_Dealer__c();
+        pd.Campaign__c=objcampaign.id;
+        pd.Dealer__c=dealer.id;
+        insert pd;
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c,Ready_for_List_Maintenance__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Ready_for_List_Maintenance__c=true;
+        update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns);
+        
+        top2.Campaign_Type__c='After Sales';
+        update top2;
+        CampaignHelper.copyCampaignToRetailCampaign(listcampaigns);
+        
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+        }
+     }
+     
+     
+   @isTest static void testparent()
+     {
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+    Test.StartTest();
+   listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Completed',
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+10,
+                RecordTypeId = camIdExec
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Child_Campaign_Status__c='Response collection';
+        update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.parentCampaignSatus(listcampaigns,oldMap);
+        
+        //try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+    
+     @isTest static void testchild()
+     {
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+    Test.StartTest();
+   listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Status='Completed';
+        update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.parentCampaignSatus(listcampaigns,oldMap);
+        
+        
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+    
+     @isTest static void testUseseg()
+     {
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+    Test.StartTest();
+   listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Completed',
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                SegWorkingMonth__c = 'Jan',
+                SegWorkingDay__c = '23',
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+10,
+                Use_Segmentation_Criteria__c=true,
+                RecordTypeId = camIdExec
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        //objcampaign.Status='Completed';
+        //update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Feb';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Mar';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Feb';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Apr';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'May';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+         objcampaign.SegWorkingMonth__c  = 'Jun';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+    
+      @isTest static void testUseseg1()
+     {
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+    Test.StartTest();
+   listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Completed',
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                SegWorkingMonth__c = 'Jul',
+                SegWorkingDay__c = '23',
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+10,
+                Use_Segmentation_Criteria__c=true,
+                RecordTypeId = camIdExec
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        //objcampaign.Status='Completed';
+        //update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Aug';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Sep';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Oct';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Nov';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        objcampaign.SegWorkingMonth__c  = 'Dec';
+        update objcampaign;
+        CampaignHelper.useSegmentationCampaign(listcampaigns,oldMap,true,false);
+        
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+   
+   @isTest static void testEmail()
+     {   
+        User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+     
+       Profile profile1 = [Select Id from Profile where name = 'System Administrator'];
+            User portalAccountOwner1 = new User(
+                ProfileId = profile1.Id,
+                Username = System.now().millisecond() + 'test234@test.com',
+                Alias = 'batman',
+                Email='test1@gmail.com',
+                EmailEncodingKey='UTF-8',
+                Firstname='Bruce',
+                Lastname='Wayne',
+                LanguageLocaleKey='en_US',
+                LocaleSidKey='en_US',
+                TimeZoneSidKey='America/Chicago'
+            );
+            insert portalAccountOwner1;
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+        Test.StartTest();
+       listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            Campaign_Executer__c='Retail',
+            RecordTypeId = camIdPlan,
+            Campaign_Type__c='Sales',
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Completed',
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+10,
+                Ready_for_List_Maintenance__c=false,
+                RecordTypeId = camIdExec
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        
+        Participating_Dealer__c pd=new Participating_Dealer__c();
+        pd.Campaign__c=objcampaign.id;
+        pd.Dealer__c=dealer.id;
+        insert pd;
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c,Ready_for_List_Maintenance__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Ready_for_List_Maintenance__c=true;
+        update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.emailNotificationToDealer(listcampaigns,oldMap);
+        
+        top2.Campaign_Type__c='After Sales';
+        update top2;
+        CampaignHelper.emailNotificationToDealer(listcampaigns,oldMap);
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+        }
+     }
+     
+      static testmethod void updateLogicTest()
+   {
+    User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+    System.runAs(thisUser){
+   
+    camobj = new Campaign();
+    camobj.RecordTypeId = camIdPlan;
+    camobj.Name = 'camptest1';
+    camobj.Type = 'Other';
+    camobj.Status = 'Completed';
+    camobj.StartDate = System.today();
+    camobj.EndDate = System.today()+30;
+    camobj.Campaign_Objectives__c = 'camobjectives';
+    camobj.Description = 'testdescrip';
+    camobj.Campaign_Execution_Channels__c='eMail';
+    insert camobj;
+    
+    
+    camobj1 = new Campaign();
+    camobj1.RecordTypeId = camIdExec;
+    camobj1.ParentId=camobj.id;
+    camobj1.Child_Campaign_Status__c='Execution';
+    camobj1.Name = 'camptest1';
+    camobj1.Type = 'Other';
+    camobj1.Segmentation_Date__c= System.today()+4;
+    camobj1.Execution_Start_Date__c = System.today()+10;
+    camobj1.Execution_Type__c= 'eMail';
+    camobj1.Description = 'testdescrip';
+    rclist=new List<Campaign>();
+    rclist.add(camobj1);
+    
+    Campaign camobj2 = new Campaign();
+    camobj2.RecordTypeId = camIdPlan;
+    camobj2.CloneCampaign__c=camobj.id;
+    camobj2.Status = 'Draft';
+    camobj2.Campaign_Execution_Channels__c='eMail';
+    camobj2.Name = 'camptest1';
+    camobj2.Type = 'Other';
+    camobj2.StartDate = System.today();
+    camobj2.EndDate = System.today()+30;
+    camobj2.Execution_Type__c= 'eMail';
+    camobj2.Description = 'testdescrip';
+   
+    rclist.add(camobj2);
+    
+       
+    insert rclist;
+    
+    
+     Test.startTest();
+     CampaignHelper.updateLogic(rclist);
+   
+     Test.stopTest();
+    }
+  } 
+  
+   @isTest static void testValidationChildCampgin()
+     {
+           preparedTestData(); 
+           preparedTestDataCustomsettings();     
+    Test.StartTest();
+   listcampaigns=new List<Campaign>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        List<CampaignMember> Listcampmember= new List<CampaignMember>();
+        Campaign top2 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            Execution_Type__c =OB_Call,
+            RecordTypeId = camIdPlan,
+            IsActive = true
+        );
+        
+        insert top2;
+        
+         CampaignMember topMember = new CampaignMember(
+            CampaignId = top2.Id,
+            ContactId = contact.Id,           
+            Status = 'Send'
+        );
+        Listcampmember.add(topmember);
+        
+        insert Listcampmember;
+        
+      
+        
+        Campaign objcampaign = new Campaign(
+                IsActive = true, 
+                Name = top, 
+                Status = Started, 
+                ParentId=top2.id,
+                Child_Campaign_Status__c='Completed',
+                StartDate = System.today(), 
+                Execution_Type__c =OB_Call,
+                Segmentation_Date__c= System.today()+4,
+                Execution_Start_Date__c = System.today()+10,
+                RecordTypeId = camIdExec
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,ParentId,Create_Task__c,Child_Campaign_Status__c from Campaign where id IN:listcampaigns ];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Child_Campaign_Status__c='Response collection';
+        update objcampaign;
+      
+     
+
+        CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+        listcampaigns.add(objcampaign);
+        
+        CampaignHelper.validationChildCampaign(listcampaigns,oldMap,true,false);
+        
+        //try{CampaignHelper.afterInsertUpdateCampaign(oldMap);}catch(Exception e){}
+        Test.StopTest();
+        system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
 }

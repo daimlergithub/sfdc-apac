@@ -759,15 +759,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Contractor_Company_Esatblished_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Established Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Contractor_Company_Established_Date__c</fullName>
         <externalId>false</externalId>
         <label>Established Date</label>
@@ -2770,9 +2761,9 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>NoClaimBonus__c</fullName>
         <externalId>false</externalId>
         <label>No Claim Bonus</label>
-        <precision>18</precision>
+        <precision>5</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
@@ -3300,7 +3291,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Touring support Plus</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3390,6 +3380,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Retail Tasks (Related Contact 3)</relationshipLabel>
         <relationshipName>Retail_Tasks10</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Contact4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Contact 4</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Retail Tasks (Related Contact 4)</relationshipLabel>
+        <relationshipName>Retail_Tasks7</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3627,63 +3630,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Service Code</label>
         <picklist>
             <picklistValues>
-                <fullName>Service Maintenance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General Repair</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electrical Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Body Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Paint Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wear &amp; Tear Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Predelivery inspection</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Return Jobs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Contract</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warranty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New car/used car sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Free</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3703,7 +3650,19 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Outside Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint Jobs</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3723,11 +3682,55 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>MB 1year inspection</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>First MOT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Body Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wear &amp; Tear Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return Jobs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New car/used car sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3925,7 +3928,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Service_Vehicle_VIN__c</fullName>
         <externalId>false</externalId>
-        <formula>Related_Vehicle__r.UsVIN__c</formula>
+        <formula>Service_Vehicle__r.UsVIN__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Vehicle VIN</label>
         <required>false</required>
@@ -4104,6 +4107,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Forced Termination</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Change of Owner</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4599,6 +4606,46 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <filterScope>Everything</filterScope>
         <label>ALL</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Contract_Administration_CA_Team_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Contract Administration (CA) Team</label>
+        <language>en_US</language>
+        <queue>MBF_Contract_Administration_CA_Team</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Customer_Care_CCC_Team_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Customer Care (CCC) Team</label>
+        <language>en_US</language>
+        <queue>MBF_Customer_Care_CCC_Team</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Inbound_Outbound_Supervisor_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Inbound &amp; Outbound Supervisor</label>
+        <language>en_US</language>
+        <queue>MBF_Inbound_Outbound_Supervisor</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Quotation_Team_Queue_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Quotation Team Queue</label>
+        <language>en_US</language>
+        <queue>MBF_Quotation_Team_Queue</queue>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>RetailActivity</fullName>
@@ -5429,6 +5476,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Plus Light</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyMercedes Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Normal Loan</fullName>
                 <default>false</default>
             </values>
@@ -5473,11 +5532,59 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Touring support Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Plan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Second Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack EV Start Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack Second Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Pack Start Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Maintenance Plus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 2 years Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 3 years Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart touring support 6 years Plan</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5608,6 +5715,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Change of Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Draft</fullName>
                 <default>false</default>
             </values>
@@ -5655,6 +5766,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11083,6 +11198,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <searchResultsAdditionalFields>VIN_Link__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contract_Invalid_Flag__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
@@ -11097,4 +11213,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Service_Share__c</fullName>
         <label>Service Share</label>
     </sharingReasons>
+    <webLinks>
+        <fullName>New_Case</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?retailTaskID={!Retail_Task__c.Id}&amp;retURL=%2F500%2Fo</url>
+    </webLinks>
 </CustomObject>

@@ -1,5 +1,157 @@
 Global class UtilWebservice 
 {
+
+
+
+webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String AccountLinkId)
+    {  
+     Account_link__c  alk=new  Account_Link__c();
+    List<Account_link__c> Updatealk=new List<Account_Link__c>();
+    System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
+    
+    if(AccountLinkId!=null && AccountLinkId!='')
+    {
+    System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
+    alk=[select id,CorrelationID__c from Account_Link__c where id=:AccountLinkId limit 1];
+    }
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    String Usecase; 
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType  request=new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType ();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+      String MarketDiscriminator= Usr.Market__c;          
+      sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,alk.CorrelationID__c);      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId); 
+      System.debug('%^%%^%^%^% response'+response); 
+     if(alk.CorrelationID__c!=null && alk !=null)
+      {
+      alk.CorrelationID__c='';
+      Updatealk.add(alk);
+      }
+      Update  Updatealk;
+       //return response;
+    }
+    
+//(String RTCustomerId,String DealerID,String CorrelationId)
+    webservice static string AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
+    {  
+    System.debug('%^%%^%^%^% RTCustomerId'+RTCustomerId+'DealerID'+DealerID+'CorrelationId'+CorrelationId); 
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        String Usecase; 
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+          String src;
+          try
+          {
+      src=sendport.SARICustomerNotification(OrganizationId ,MarketDiscriminator,Usecase,RTCustomerId,DealerId,CorrelationId);
+      }
+      
+      
+       Catch(Exception e)
+           {
+          
+           String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
+               
+               src=errMessageText;   
+          
+          }
+          
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+src);
+       
+    // crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType
+      System.debug('%^%%^%^%^% response'+response); 
+       return src;
+    }
+   /* Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType fault=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+         System.debug('$%$%$%$%$%$%$%$ TransactionId'+CustomerID+'Address id'+ AddressId+'Dealer ids'+DealerID);
+        
+      sendport.JPOSCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,AddressId,DealerId);
+      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% ErrorCode response'+fault.ErrorCode); 
+      
+       return response;
+    } */
+
+       Public static string AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.JPOSCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType fault=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationFaultType();
+    
+    
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
+            Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
+            response_map_x.put('response_x', response_x);
+            
+            
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+         request.Organization=UserInfo.getOrganizationId();
+          request.MarketDiscriminator=Usr.Market__c;
+           request.CustomerId=CustomerID;
+            request.AddressId=AddressId;
+             request.UserId=DealerId;
+         System.debug('$%$%$%$%$%$%$%$ TransactionId'+CustomerID+'Address id'+ AddressId+'Dealer ids'+DealerID);
+        //response.(String.Valueof(sendport.JPOSCustomerNotification(request.Organization,request.MarketDiscriminator,CustomerID,AddressId,DealerId)));
+  
+  
+   sendport.JPOSCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,AddressId,DealerId);
+  string src;
+  System.debug('$%$%$%$src tra'+src);
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% ErrorCode response'+fault.ErrorCode); 
+      
+           
+      
+       return src;
+    }
+    
+    Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendSPO(String CustomerID,String DealerID)
+    {  
+    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+        
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SPOCustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SPOCustomerNotificationRequestMessageType();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+        
+      sendport.SPOCustomerNotification(OrganizationId ,MarketDiscriminator,CustomerID,DealerId);
+      
+      System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId);
+       
+     
+      System.debug('%^%%^%^%^% response'+response); 
+       return response;
+    }
     public static crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType validateAddressByZipCode(Address__c address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationPort stub = new crmasiaDaimlerApacComValidateaddress.AddressValidationPort();
@@ -228,6 +380,7 @@ Global class UtilWebservice
     
    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
    
+   System.debug('%^%^%^%%^ accountDetails'+accountDetails);
         User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
         System.debug('@@@@@@ ## User'+Usr);
         String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
@@ -238,6 +391,7 @@ Global class UtilWebservice
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
+        sendingCustomerDetails.Name= accountDetails.Name;
         sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
         sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
         sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
@@ -251,8 +405,12 @@ Global class UtilWebservice
         sendingCustomerDetails.Email_xc = accountDetails.Email__c;
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
-        sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
-        
+        sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c;         
+         sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
@@ -266,7 +424,7 @@ Global class UtilWebservice
           request.OrganizationId = UserInfo.getOrganizationId();
           request.MarketDiscriminator= Usr.Market__c;
           
-          
+          System.debug('%^%^%^%%^ sendingCustomerDetails'+sendingCustomerDetails);
 
           System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
           request.Customer = sendingCustomerDetails;
@@ -293,9 +451,9 @@ Global class UtilWebservice
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort stub = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationPort();     
         crmasiaDaimlerApacComCustomeridentif.Customer sendingCustomerDetails = new crmasiaDaimlerApacComCustomeridentif.Customer();
         crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
-		sendingCustomerDetails.Address_xc = new List<crmasiaDaimlerApacComCustomeridentif.Address>();
+        sendingCustomerDetails.Address_xc = new List<crmasiaDaimlerApacComCustomeridentif.Address>();
         crmasiaDaimlerApacComCustomeridentif.Address addrValues = new crmasiaDaimlerApacComCustomeridentif.Address();
-		
+        
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
@@ -313,8 +471,14 @@ Global class UtilWebservice
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
-		
-		addrValues.Address_Code_xc=AddressObj.Address_Code__c;
+        sendingCustomerDetails.Name= accountDetails.Name;
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
+        sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
+        
+        addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;
         addrValues.Address_Line_2_xc=AddressObj.Address_Line_2__c;
         addrValues.Block_xc=AddressObj.Block__c;

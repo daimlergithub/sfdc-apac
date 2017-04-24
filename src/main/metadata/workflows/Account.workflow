@@ -36,6 +36,15 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
+        <fullName>Update_Customer_LastUpdatedDate</fullName>
+        <field>Customer_LastUpdatedDate__c</field>
+        <formula>Now()</formula>
+        <name>Update Customer LastUpdatedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Preferred_Language_Field_JP</fullName>
@@ -67,6 +76,23 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Update Customer LastUpdatedDate when I%2FF fields changed</fullName>
+        <actions>
+            <name>Update_Customer_LastUpdatedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( RecordTypeId) || ISCHANGED(Gender__c) || ISCHANGED( FirstName ) || ISCHANGED( LastName ) || 
+ISCHANGED( FirstName_Native_1__c ) || ISCHANGED( LastName_Native_1__c ) || ISCHANGED( Company_Name__c ) || 
+ISCHANGED( Company_Name_Native_1__c ) || ISCHANGED( Company_Legal_Form__c ) || ISCHANGED( Company_Legal_Form_text__c ) || 
+ISCHANGED( Legal_Form_Position__c ) || ISCHANGED( PersonBirthdate ) || ISCHANGED( Foundation_Date__c ) || 
+ISCHANGED( Mobile__c ) || ISCHANGED( Individual_Home_Phone__c ) || ISCHANGED( Mobile2__c ) ||
+ISCHANGED( Work_Phone__c ) || ISCHANGED( Home_Phone_2__c ) || ISCHANGED( Phone ) ||
+ISCHANGED( Fax ) || ISCHANGED( Fax2__c ) || ISCHANGED( Email3__c ) ||
+ISCHANGED( Primary_Phone__c ) || ISCHANGED( Primary_Fax__c ) ||(ISCHANGED(Primary_Address_Reference__c)) || (ISCHANGED(Main_Dealer__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
         <fullName>Send Assigned Leads to Dealer Everyday</fullName>
         <actions>
             <name>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</name>
@@ -96,10 +122,10 @@ Modify Reason:
             <name>Update_Preferred_Language_Field_JP</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>False</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
         <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Preferred Language and Country KR</fullName>

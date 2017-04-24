@@ -1,0 +1,231 @@
+<!--
+Created by : Lokesh M
+Description: On the Campaign Member related list, export button must be available.When user click on export button in 'Child campaign' or 'retail child campaign', it will export to your system as csv file
+Created Date : 31st Jan,2017
+Lastmodifed  : 4th april,2017
+-->
+
+<apex:page contentType="application/vnd.ms-excel#CampaignMembers.xls" sidebar="false" controller="exportCampaignMembers" action="{!changeStatus}">
+        <table border="1" >
+        <tr>
+            <th>Campaign Member Id</th>
+            <th>Campaign Id</th>
+            <th>Campaign Memeber Name</th>
+            <th>Status</th>
+            <th>Retail Campaign Id</th>
+            <th>Conatact Id</th>
+            <th>List Maitenence Retail CM Flag</th>
+            <th>Campaign Execution Type</th>
+            <th>Participate Date</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Company Name</th>
+            <th>Customer Label Name</th>
+            <th>Contractor Company Name</th>
+            <th>Contractor Individual Name</th>
+            <th>Source of CM Response</th>
+            <th>Address</th>
+            <th>Customer Complete Address</th>
+            <th>Address Flag</th>
+            <th>Finance Address</th>
+            <th>Zip Code</th>
+            <th>Zip Code Finance</th>
+            <th>Contract</th>
+            <th>Contract Number</th>
+            <th>Contract Phone 1</th>
+            <th>Contract Phone 2</th>
+            <th>Contract Status</th>
+            <th>Preferred Dealer</th>
+            <th>DM Template</th>
+            <th>Customer Email</th>
+            <th>Response Email</th>
+            <th>My Mercedes Email</th>
+            <th>My Mercedes ID</th>
+            <th>Sending Date</th>
+            <th>RespondedDate</th>
+            <th>Account information updates</th>
+            <th>Recipient changes</th>
+            <th>Status Change Date</th>
+            <th>Auto-creation of leads</th>
+            <th>Auto-creation of tasks</th>
+            <th>Auto-creation of DM requests</th>
+            <th>Add Sales Staff</th>
+            <th>Add Service Staff</th>
+            <th>Add Campaign Member ID</th>
+            <th>Vehicle</th>
+            <th>VehicleRelationship</th>
+            <th>UsVIN</th>
+            <th>Registration Date</th>
+            <th>Model</th>
+            <th>Registration Number</th>
+            <th>Next Inspection Date</th>
+            <th>Next MOT Date</th>
+            <th>First Registration Date</th>
+            <th>Sales Representative</th>
+            <th>Service Representative</th>
+            <th>Contract Responsible Person</th>
+            <th>Gaurantor 1 Name</th>
+            <th>Gaurantor2 Name</th>
+            <th>Gaurantor3 Name</th>
+            <th>Dealer ND Code</th>
+            <th>Finance Vehicle</th>
+            <th>Finance Product</th>
+            <th>Contract Start date(Lease)</th>
+            <th>Contract End date(Lease)</th>
+            <th>Monthly Payment amount</th>
+            <th>Residual amount(Lease)</th>
+            <th>Deferred Payment(loan)</th>
+            <th>Payment Start Date</th>
+            <th>Payment End Date</th>
+            <th>Bonus Amount1</th>
+            <th>Bonus  Month1</th>
+            <th>Bonus Amount2</th>
+            <th>Bonus  Month2</th>
+            <th>Shinpan</th>
+            <th>No of Payments</th>
+            <th>Delinquency Flag</th>
+            <th>Re-Lease Prohibit Flag</th>
+            <th>Re-Lease Extension Date</th>
+            <th>Lease/Loan Flag</th>
+            <th>Special flag to Exclude</th>
+            <th>MBF Anti Social flag</th>
+            <th>Offer Prohibit Flag</th>
+            <th>Special Flag to Include</th>
+            <th>Payment Suspended Flag</th>
+            <th>Mileage</th>
+            <th>Indemnity Amount</th>
+            <th>Fine Rate</th>
+            <th>Customer Interest Rate</th>
+            <th>Monthly Payment amount with Tax</th>
+            <th>Term</th>
+            <th>Monthly Payment</th>
+            <th>Interest Rate</th>
+            <th>RV/Ballon</th>
+            <th>Cross Point Model</th>
+            <th>Total Vehicle Price without tax</th>
+            <th>Total Vehicle Price with tax</th>
+            <th>Lead Type</th>
+            <th>Lead Sub Type</th>
+            <th>Purchase Timing</th>
+            <th>Lead Desired Service</th>
+            <th>Interested  Model</th>
+        </tr>
+        <apex:repeat value="{!campaignMemberList}" var="item">
+        <tr>
+            <td>{!item.Id}</td>
+            <td>{!item.Campaign_ID__c}</td>
+            <td>{!item.Name}</td>
+            <td>{!item.Status__c}</td>
+            <td>{!item.Retail_Campaign_Id__c}</td>
+            <td>{!item.Contact_Id__c}</td>
+            <td>{!item.List_Maitenence_Retail_CM_Flag__c}</td>
+            <td>{!item.Campaign_Execution_Type__c}</td>
+            <td>{!item.Participate_Date__c}</td>
+            <td>{!item.FirstName__c}</td>
+            <td>{!item.LastName__c}</td>
+            <td>{!item.Company_Name__c}</td>
+            <td>{!item.Customer_Label_Name__c}</td>
+            <td>{!item.Contractor_Company_Name__c}</td>
+            <td>{!item.Contractor_Individual_Name__c}</td>
+            <td>{!item.Source_of_CM_Response__c}</td>
+            <td>{!item.Address__c}</td>
+            <td>{!item.Customer_Complete_Address__c}</td>
+            <td>{!item.Address_Flag__c}</td>
+            <td>{!item.Finance_Address__c}</td>
+            <td>{!item.Zip_Code__c}</td>
+            <td>{!item.Zip_Code_Finance__c}</td>
+            <td>{!item.Contract__c}</td>
+            <td>{!item.Contract_Number__c}</td>
+            <td>{!item.Contract_Phone_1__c}</td>
+            <td>{!item.Contract_Phone_2__c}</td>
+            <td>{!item.Contract_Status__c}</td>
+            <td>{!item.Preferred_Dealer__c}</td>
+            <td>{!item.DM_Template__c}</td>
+            <td>{!item.Customer_Email__c}</td>
+            <td>{!item.Response_Email__c}</td>
+            <td>{!item.My_Mercedes_Email__c}</td>
+            <td>{!item.My_Mercedes_ID__c}</td>
+            <td>{!item.Sending_Date__c}</td>
+            <td>{!item.RespondedDate__c}</td>
+            <td>{!item.Account_information_updates__c}</td>
+            <td>{!item.Recipient_changes__c}</td>
+            <td>{!item.Status_Change_Date__c}</td>
+            <td>{!item.Auto_creation_of_leads__c}</td>
+            <td>{!item.Auto_creation_of_tasks__c}</td>
+            <td>{!item.Auto_creation_of_DM_requests__c}</td>
+            <td>{!item.Add_Sales_Staff__c}</td>
+            <td>{!item.Add_Service_Staff__c}</td>
+            <td>{!item.Add_Campaign_Member_ID__c}</td>
+            <td>{!item.Vehicle__c}</td>
+            <td>{!item.Vehicle_Relationship__c}</td>
+            <td>{!item.UsVIN__c}</td>
+            <td>{!item.First_Registration_Date__c}</td>
+            <td>{!item.Model__c}</td>
+            <td>{!item.Registration_Number__c}</td>
+            <td>{!item.Next_Inspection_Date__c}</td>
+            <td>{!item.Next_MOT_Date__c}</td>
+            <td>{!item.First_Registration_Date__c}</td>
+            <td>{!item.Sales_Representative__c}</td>
+            <td>{!item.Service_Representative__c}</td>
+            <td>{!item.Contract_Responsible_Person__c}</td>
+            <td>{!item.Gaurantor_1_Name__c}</td>
+            <td>{!item.Gaurantor2_Name__c}</td>
+            <td>{!item.Gaurantor3_Name__c}</td>
+            <td>{!item.Dealer_ND_Code__c}</td>
+            <td>{!item.Finance_Vehicle__c}</td>
+            <td>{!item.Finance_Product__c}</td>
+            <td>{!item.Contract_Start_date_Lease__c}</td>
+            <td>{!item.Contract_End_date_Lease__c}</td>
+            <td>{!item.Monthly_Payment_amount__c}</td>
+            <td>{!item.Residual_amount_Lease__c}</td>
+            <td>{!item.Deferred_Payment_loan__c}</td>
+            <td>{!item.Payment_Start_Date__c}</td>
+            <td>{!item.Payment_End_Date__c}</td>
+            <td>{!item.Bonus_Amount1__c}</td>
+            <td>{!item.Bonus_Month1__c}</td>
+            <td>{!item.Bonus_Amount2__c}</td>
+            <td>{!item.Bonus_Month2__c}</td>
+            <td>{!item.Shinpan__c}</td>
+            <td>{!item.No_of_Payments__c}</td>
+            <td>{!item.Delinquency_Flag__c}</td>
+            <td>{!item.Re_Lease_Prohibit_Flag__c}</td>
+            <td>{!item.Re_Lease_Extension_Date__c}</td>
+            <td>{!item.Lease_Loan_Flag__c}</td>
+            <td>{!item.Special_flag_to_Exclude__c}</td>
+            <td>{!item.MBF_Anti_Social_flag__c}</td>
+            <td>{!item.Offer_Prohibit_Flag__c}</td>
+            <td>{!item.Special_Flag_to_Include__c}</td>
+            <td>{!item.Payment_Suspended_Flag__c}</td>
+            <td>{!item.Mileage__c}</td>
+            <td>{!item.Indemnity_Amount__c}</td>
+            <td>{!item.Fine_Rate__c}</td>
+            <td>{!item.Customer_Interest_Rate__c}</td>
+            <td>{!item.Monthly_Payment_amount_with_Tax__c}</td>
+            <td>{!item.Term__c}</td>
+            <td>{!item.Monthly_Payment__c}</td>
+            <td>{!item.Interest_Rate__c}</td>
+            <td>{!item.RV_Ballon__c}</td>
+            <td>{!item.Cross_Point_Model__c}</td>
+            <td>{!item.Total_Vehicle_Price_without_tax__c}</td>
+            <td>{!item.Total_Vehicle_Price_with_tax__c}</td>
+            <td>{!item.Lead_Type__c}</td>
+            <td>{!item.Lead_Sub_Type__c}</td>
+            <td>{!item.Purchase_Timing__c}</td>
+            <td>{!item.Lead_Desired_Service__c}</td>
+            <td>{!item.Interested_Model__c}</td>
+        </tr>
+        </apex:repeat> 
+    </table> 
+    <!--
+    <apex:form id="myForm">
+        <apex:actionFunction name="changeStatus" action="{!changeStatus}" rendered="myForm"/>
+    </apex:form>
+    <script>
+        window.onload(){
+            //changeStatus();
+            alert('ccc');
+            window.close();
+        }
+    </script>
+    -->                        
+</apex:page>

@@ -141,10 +141,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>No Choice Yet</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
             </values>
@@ -665,6 +661,14 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
@@ -682,6 +686,10 @@
             </values>
             <values>
                 <fullName>Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -730,10 +738,6 @@
             </values>
             <values>
                 <fullName>My Mercedes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1614,15 +1618,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1642,11 +1646,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate %28Global Soultions%29</fullName>
+                <fullName>Easy Mate (Global Soultions)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3919,7 +3923,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3927,7 +3931,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3939,7 +3943,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3947,7 +3951,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3975,7 +3979,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3999,7 +4003,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4031,7 +4035,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4051,7 +4055,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4059,15 +4063,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5394,6 +5398,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Western_Star_Offered_Service__c</picklist>
             <values>
                 <fullName>Auto Body Repairer</fullName>
@@ -5571,7 +5586,7 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -6045,7 +6060,7 @@
         <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6053,7 +6068,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cataloue Call</fullName>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6073,19 +6092,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Magazine</fullName>
+                <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB website</fullName>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6093,15 +6112,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Academy</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Company call</fullName>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6109,19 +6132,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6130,10 +6157,6 @@
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Road Assistant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6998,15 +7021,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7026,11 +7049,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate %28Global Soultions%29</fullName>
+                <fullName>Easy Mate (Global Soultions)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8801,7 +8824,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8809,7 +8832,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8821,7 +8844,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8829,7 +8852,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8857,7 +8880,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8881,7 +8904,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8913,7 +8936,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8933,7 +8956,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8941,15 +8964,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11873,15 +11896,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11901,11 +11924,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate %28Global Soultions%29</fullName>
+                <fullName>Easy Mate (Global Soultions)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13640,7 +13663,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13648,7 +13671,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13660,7 +13683,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13668,7 +13691,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13696,7 +13719,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13720,7 +13743,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13752,7 +13775,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13772,7 +13795,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13780,15 +13803,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15338,7 +15361,7 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15812,11 +15835,19 @@
         <picklistValues>
             <picklist>Data_Source__c</picklist>
             <values>
-                <fullName>3rd party data</fullName>
+                <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cataloue Call</fullName>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15836,15 +15867,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Magazine</fullName>
+                <fullName>Letter to Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MCare</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15852,15 +15887,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz</fullName>
+                <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Academy</fullName>
+                <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes-Benz Company call</fullName>
+                <fullName>Mercedes Me Haneda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15868,19 +15907,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz School of Excelence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OB Call</fullName>
+                <fullName>My Mercedes</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partners</fullName>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15889,10 +15932,6 @@
             </values>
             <values>
                 <fullName>Response Sheet</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Road Assistant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16693,15 +16732,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16721,11 +16760,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate %28Global Soultions%29</fullName>
+                <fullName>Easy Mate (Global Soultions)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18476,7 +18515,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18484,7 +18523,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18496,7 +18535,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18504,7 +18543,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18532,7 +18571,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18556,7 +18595,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18588,7 +18627,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18608,7 +18647,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18616,15 +18655,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21589,15 +21628,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Equip%29</fullName>
+                <fullName>Auto IT (Equip)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %28Units%29</fullName>
+                <fullName>Auto IT (Units)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT Â PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21617,11 +21656,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate %28Global Soultions%29</fullName>
+                <fullName>Easy Mate (Global Soultions)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23564,7 +23603,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28롯데%29</fullName>
+                <fullName>Avenue L (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23572,7 +23611,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28대한_국제선%29</fullName>
+                <fullName>Beyond (ëŒ€í•œ_êµ­ì œì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23584,7 +23623,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28홀수%2C시계%29</fullName>
+                <fullName>Chronos (í™€ìˆ˜,ì‹œê³„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23592,7 +23631,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28행가집%29</fullName>
+                <fullName>DesignHouse (í–‰ê°€ì§‘)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23620,7 +23659,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria %28겔러리아%29</fullName>
+                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23644,7 +23683,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine %28하얏트%29</fullName>
+                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23676,7 +23715,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm %28대한_국내외선%29</fullName>
+                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23696,7 +23735,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian %28신라%29</fullName>
+                <fullName>Noblian (ì‹ ë¼)</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23704,15 +23743,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage %28롯데%29</fullName>
+                <fullName>PreVillage (ë¡¯ë°)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H %28현대%29</fullName>
+                <fullName>Style H (í˜„ëŒ€)</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte %28롯데_면세점%29</fullName>
+                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
                 <default>false</default>
             </values>
             <values>

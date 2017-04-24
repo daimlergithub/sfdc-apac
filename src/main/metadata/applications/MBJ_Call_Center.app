@@ -1317,7 +1317,7 @@
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
-    <tab>Claim__c</tab>
+	<tab>Claim__c</tab>
     <tab>Tasks</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
@@ -1335,9 +1335,6 @@
         <mapping>
             <fieldName>fromRole__c</fieldName>
             <tab>Account_Link__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Claim__c</tab>
         </mapping>
         <mapping>
             <fieldName>Customer_Name__c</fieldName>
@@ -1369,6 +1366,9 @@
         </mapping>
         <mapping>
             <tab>Survey__c</tab>
+        </mapping>
+		<mapping>
+            <tab>Claim__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>

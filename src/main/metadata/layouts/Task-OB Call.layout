@@ -128,14 +128,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AES_CNTR__Called__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AES_CNTR__Caller__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CallType</field>
             </layoutItems>
@@ -147,6 +139,14 @@
                 <behavior>Readonly</behavior>
                 <field>CallObject</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>AES_CNTR__Called__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AES_CNTR__Caller__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

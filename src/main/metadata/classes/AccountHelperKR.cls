@@ -17,7 +17,7 @@ public class AccountHelperKR{
     * Update custom last modified date field(s) associated with each contact information field, when any contact information field(s) are updated. 
     */    
     public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
-        AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+        AccountHelperJP.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
     }
     
     /**
