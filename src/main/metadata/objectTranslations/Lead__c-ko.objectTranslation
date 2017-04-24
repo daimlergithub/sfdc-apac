@@ -2216,7 +2216,7 @@
         <name>Dealer_Audit__c</name>
     </fields>
     <fields>
-        <label>비고</label>
+        <label>딜러 코멘트</label>
         <name>Dealer_Comments__c</name>
     </fields>
     <fields>
@@ -6420,7 +6420,7 @@
         <name>Lead_Items__c</name>
     </fields>
     <fields>
-        <label><!-- Lead Latest Phase --></label>
+        <label>DMS 리드 상태</label>
         <name>Lead_Latest_Phase__c</name>
         <picklistValues>
             <masterLabel>CA Submission</masterLabel>
