@@ -91577,10 +91577,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>within 1 week</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Next Inspection Time</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referal_Referee_Type__c</picklist>
