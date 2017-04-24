@@ -4819,7 +4819,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Retail_LastName_Native__c</errorDisplayField>
         <errorMessage>It should be "Kana" characters.</errorMessage>
     </validationRules>
-	<webLinks>
+    <webLinks>
         <fullName>Delete_retail_copy</fullName>
         <availability>online</availability>
         <description>Created for SFDCJP-753</description>
@@ -4828,19 +4828,25 @@ MD__c = 'JP')</errorConditionFormula>
         <masterLabel>Delete retail copy</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var RetailCopyflag = "{!Account_Link__c.Retail_Delete_Flag__c}";
-var RTType = "{!Account_Link__c.RecordTypeId}";
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var RetailCopyflag = "{!Account_Link__c.Retail_Delete_Flag__c}"; 
+var RTType = "{!Account_Link__c.RecordTypeId}"; 
 var RTs = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Company'"); 
 var rt = RTs.getArray("records"); 
 var RTs1 = sforce.connection.query("Select Id, Name from RecordType where sObjectType = 'Account_Link__c' and developerName ='Retail_Person'"); 
-var rt1 = RTs1.getArray("records");
-if(RetailCopyflag != true &amp;&amp; RTType != rt[0].Id &amp;&amp; RTType != rt1[0].Id){
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!Account_Link__c.Id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250");
-}
-else {
-alert("{!$Label.AlreadyProcessed}");
+var rt1 = RTs1.getArray("records"); 
+var market = "{!Account_Link__c.MD__c}"; 
+
+if(market == 'JP'){ 
+if(RetailCopyflag != true &amp;&amp; RTType != rt[0].Id &amp;&amp; RTType != rt1[0].Id){ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ALKDeleteConformationpage?Id={!Account_Link__c.Id}", "_blank","resizable=yes,top=250,left=500,width=400,height=250"); 
+} 
+else { 
+alert("{!$Label.AlreadyProcessed}"); 
+} 
+}else if(market == 'KR'){ 
+alert('This function available only for Japan user'); 
 }</url>
     </webLinks>
 	<webLinks>
