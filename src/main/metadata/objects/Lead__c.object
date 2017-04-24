@@ -36055,65 +36055,20 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CAC_Lead_Status__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
+            <picklist>CAC_Lead_Status__c</picklist><values>
+                <fullName>New</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved %28Waiting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distributed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gave up</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost%28Dealer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Not Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Received</fullName>
+			<values>
+                <fullName>Allocated</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36121,11 +36076,31 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Test Drive</fullName>
+                <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
+                <fullName>Purchased%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved %28Waiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38596,35 +38571,35 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
-                <fullName>1 Year Inspection</fullName>
+                <fullName>Buy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6 month Inspection</fullName>
+                <fullName>Repair</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>General Repair</fullName>
+                <fullName>Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MOT</fullName>
+                <fullName>Participate</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>General Car Care</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Paint</fullName>
+                <fullName>Retrofit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Plus Check</fullName>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Recall</fullName>
+                <fullName>Car Wash</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -91602,6 +91577,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>within 1 week</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Next Inspection Time</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referal_Referee_Type__c</picklist>
@@ -97167,6 +97146,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -33,10 +33,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>VehicleRel_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
@@ -79,6 +75,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VehicleRel_No__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
