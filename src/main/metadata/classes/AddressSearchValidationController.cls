@@ -229,7 +229,7 @@ public class AddressSearchValidationController{
                     
                        if(objAccount.Vat_No__c == null && objAccount.Commercial_Reg_No__c == null)
                         //ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter Business registration number / Vat registration '));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Commercial Registration Number / Vat Registration Number'));
                     }
                     else{
                         refreshPage = true;                      
