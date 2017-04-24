@@ -299,6 +299,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Primary_Address_Display__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
@@ -349,6 +353,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

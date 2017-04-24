@@ -62,13 +62,13 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Call_Center</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Catalogue_Operation</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Data_Management</application>
@@ -83,11 +83,11 @@
     <applicationVisibilities>
         <application>MBK_Master_Data_Management</application>
         <default>false</default>
-        <visible>true</visible>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Reports_and_Dashboards</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -302,20 +302,8 @@
         <apexClass>BatchJobHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<classAccesses>
-        <apexClass>LeadVehiclePickerKRController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	<classAccesses>
-        <apexClass>LeadVehiclePickerKRControllerTests</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	<classAccesses>
-        <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-	<classAccesses>
-        <apexClass>MarketCheckOnVehiclePickerConTest</apexClass>
+    <classAccesses>
+        <apexClass>shareAccountRecord</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -564,6 +552,22 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadConvertingControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>LeadVehiclePickerKRController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>LeadVehiclePickerKRControllerTests</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerCon</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>MarketCheckOnVehiclePickerConTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -879,11 +883,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskMassChangeOwner</apexClass>
+        <apexClass>createRetailCopy</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>shareAccountRecord</apexClass>
+        <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1080,7 +1084,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerLeadTriggerHandlerKR</apexClass>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerRecallTriggerHandler</apexClass>
@@ -3135,9 +3139,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Main_Dealer__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6815,9 +6819,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Class__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6835,9 +6839,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Department__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6885,14 +6889,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_SubType__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Type__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7659,7 +7663,7 @@
         <field>Case.MBAFC_Team__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBK_Case_Class__c</field>
         <readable>true</readable>
@@ -8010,9 +8014,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Progress_Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10984,7 +10988,7 @@
         <field>Lead_Product__c.Subject__c</field>
         <readable>false</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Accepted_Date_Time__c</field>
         <readable>false</readable>
@@ -12294,7 +12298,7 @@
         <field>Lead__c.Purchased_VIN__c</field>
         <readable>false</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Purchased_Vehicle_Text__c</field>
         <readable>false</readable>
@@ -12309,7 +12313,7 @@
         <field>Lead__c.Qualified_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
-      <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Questionnair__c</field>
         <readable>false</readable>
@@ -12834,7 +12838,7 @@
         <field>Lead__c.Trade_In_Vehicle_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
-   <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Trade_In_Vehicle_Text__c</field>
         <readable>false</readable>
@@ -20750,10 +20754,10 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Company Layout_KR</layout>
+        <layout>Account-Company Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout_KR</layout>
+        <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -20959,42 +20963,6 @@
         <recordType>Case.Retail_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.Chrysler_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.MBDA_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.MBDA_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.MBJ_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.MB_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.Object_Connector</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.Retail_Campaign</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.Roadside_Assistance</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-        <recordType>Case.Touring_Support</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -21128,11 +21096,11 @@
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-AfterSales Lead_KR</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
+        <layout>Lead__c-Leads Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29_KR</layout>
@@ -21187,7 +21155,7 @@
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout_KR</layout>
+        <layout>PersonAccount-Person Account Layout</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21326,7 +21294,7 @@
         <layout>SMS_Code__c-SMS Code Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>SMS_Code__c-SMS Code Layout</layout>
+        <layout>SMS_Code__c-SMS Code Layout-Downstream</layout>
         <recordType>SMS_Code__c.GenerateDownstreamSMS</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21407,7 +21375,7 @@
         <recordType>Task.OB_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-SMS</layout>
+        <layout>Task-SMS with History Response</layout>
         <recordType>Task.SMS</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21442,6 +21410,14 @@
         <recordType>Template__c.Callscript</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Template__c-Children MMS Template</layout>
+        <recordType>Template__c.ChildrenMMSTemplate</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template__c-Children SMS Template</layout>
+        <recordType>Template__c.ChildrenSMSTemplate</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Template__c-MMS</layout>
         <recordType>Template__c.MMS</recordType>
     </layoutAssignments>
@@ -21453,20 +21429,8 @@
         <layout>Template__c-Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.ChildrenMMSTemplate</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.ChildrenSMSTemplate</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
         <recordType>Template__c.eDM</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Tool_Kit__c-Event Tool Kit</layout>
-        <recordType>Tool_Kit__c.Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Media Tool Kit</layout>
@@ -21474,6 +21438,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Tool Kit Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Tool_Kit__c-Tool Kit Layout</layout>
+        <recordType>Tool_Kit__c.Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Tool Kit Layout</layout>
@@ -21525,12 +21493,12 @@
         <recordType>Vehicle__c.Vehicle_Product</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Self Registered Layout-CAC</layout>
-        <recordType>Vehicle__c.Self_Registered</recordType>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout-Soft Deleted</layout>
-        <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
+        <layout>Vehicle__c-Self Registered Layout-CAC</layout>
+        <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
@@ -21546,9 +21514,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account_Link__c</object>
@@ -21591,9 +21559,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
@@ -21663,9 +21631,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>SurveyTaker__c</object>
@@ -21717,6 +21685,10 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
+        <apexPage>Retailcopybutton</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -21728,16 +21700,16 @@
         <apexPage>SelectSlaveAccountKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>AccountConsoleRefresh</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
 	<pageAccesses>
         <apexPage>LeadVehiclePickerKR</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
         <apexPage>MarketCheckOnVehiclePicker</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AccountConsoleRefresh</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -22090,7 +22062,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Dealer</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -22444,24 +22416,24 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Retail_Task__c.Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Insurance_Contract</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Lease_Contract</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Retail_Task__c.Loan_Contract</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -22611,7 +22583,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -22631,7 +22603,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle__c.Self_Registered</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -22688,10 +22660,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Template__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Vehicle_Relationship__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -22711,6 +22679,7 @@
         <tab>standard-Case</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
@@ -22746,15 +22715,15 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EditCaseComments</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EditEvent</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>EditTask</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EnableNotifications</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -22767,6 +22736,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageCustomPermissions</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
