@@ -22897,10 +22897,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ModerateChatter</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>PasswordNeverExpires</name>
     </userPermissions>
     <userPermissions>
