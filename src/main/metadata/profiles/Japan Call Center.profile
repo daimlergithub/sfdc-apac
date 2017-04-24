@@ -14448,7 +14448,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Purchase_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
