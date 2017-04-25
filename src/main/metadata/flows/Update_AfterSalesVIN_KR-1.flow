@@ -99,7 +99,7 @@
             <label>Initial Criteria</label>
         </rules>
     </decisions>
-    <description>Created for KR market, SFDCKR-1143</description>
+    <description>This is to update the euro vin on leads when the MB vehicle type is selected</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
@@ -111,7 +111,7 @@
         <dataType>String</dataType>
         <expression>IF({!myVariable_current.AfterSales_Vehicle__c.RecordType.DeveloperName} = &apos;MB&apos;, {!myVariable_current.AfterSales_Vehicle__c.EuroVIN__c}, &apos;&apos;)</expression>
     </formulas>
-    <label>Update AfterSalesVIN</label>
+    <label>Update_AfterSalesVIN_KR</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
