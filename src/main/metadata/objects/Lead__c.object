@@ -109676,7 +109676,7 @@ alert("{!$Label.Authorization}");
         <masterLabel>SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &"/support/console/30.0/integration.js")}  
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript:
@@ -109700,7 +109700,7 @@ window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.I
         <masterLabel>Select Assigned Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &"/support/console/30.0/integration.js")}  
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
@@ -109767,7 +109767,7 @@ alert("Web service callout failed");
         <masterLabel>Submit Survey</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &"/support/console/30.0/integration.js")}   
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}   
 {!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 
