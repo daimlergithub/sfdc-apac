@@ -25475,7 +25475,6 @@
         <tab>Survey_Question__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
 	<tabVisibilities>
         <tab>Report</tab>
         <visibility>DefaultOn</visibility>
