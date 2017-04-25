@@ -48908,7 +48908,8 @@ alert("MB complaint can't be used.Please contact System Administrator");
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}		
 
 if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
@@ -48958,7 +48959,8 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 if('{!User.ContactId}' ==''){ 
 if(sforce.console.isInConsole()) { 
