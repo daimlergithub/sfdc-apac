@@ -157,7 +157,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
+            <translation>동의</translation>
         </picklistValues>
     </fields>
     <fields>
