@@ -25476,7 +25476,7 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-        <tab>Report</tab>
+        <tab>Reports</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
