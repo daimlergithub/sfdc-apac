@@ -42,6 +42,18 @@
                 <behavior>Edit</behavior>
                 <field>Campaign_Member_Sharing_Rule__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Auto_Segmentation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IsAutoSegmentationExecuted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>hasError__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -76,6 +88,10 @@
                 <behavior>Edit</behavior>
                 <field>Add_Campaign_Member_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Segmentation_Criteria__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -92,7 +108,7 @@
     <relatedLists>
         <customButtons>New_Retail_Campaign_Member</customButtons>
         <customButtons>Upload_Retail_Campaign_Member</customButtons>
-		<customButtons>RetailRefresh</customButtons>
+        <customButtons>RetailRefresh</customButtons>
         <customButtons>ExportCampaign</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_to_Lead</customButtons>
@@ -143,7 +159,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hN0000000M2FZ</masterLabel>
+        <masterLabel>00h28000006jLP4</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
