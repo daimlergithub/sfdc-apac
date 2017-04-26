@@ -3104,7 +3104,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
-            <isOptional>false</isOptional>
+            <isOptional>true</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipName>Retail_Campaigns</relationshipName>
