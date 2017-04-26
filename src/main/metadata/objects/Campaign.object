@@ -2034,6 +2034,15 @@
     </fields>
     <fields>
         <fullName>ParentId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Planning_Design_Campaign,CAC_Campaign,Central_Marketing_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
