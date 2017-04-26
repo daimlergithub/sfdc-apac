@@ -6278,6 +6278,14 @@
             <masterLabel>Accepted</masterLabel>
             <translation><!-- Accepted --></translation>
         </picklistValues>
+         <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation>対応中</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Done</masterLabel>
+            <translation>完了</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Assign to dealer</masterLabel>
             <translation><!-- Assign to dealer --></translation>
