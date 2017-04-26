@@ -841,16 +841,7 @@ EP/Tolerant for Validation.
                         AddressObjtemp.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
-                    if(ValidStr.contains('Address_Type__c') && Market == 'JP')
-                    {
-                      AddressObj.Address_Type__c= response.Addresses[i].Address_Type_xc;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Type__c' + AddressObjtemp.Address_Type__c);
-                    }
-                    else if(ValidStr.contains('Address_Type__c') && Market == 'KR')
-                    {
-                        AddressObjtemp.Address_Type__c= response.Addresses[i].Address_Type_xc;
-                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Type__c' + AddressObjtemp.Address_Type__c);
-                    }
+                     
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       AddressObj.Province__c = response.Addresses[i].Province;
