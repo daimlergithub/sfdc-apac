@@ -1,8 +1,11 @@
-<apex:page standardController="Account"  extensions="ServiceRetailTask" showHeader="true" sidebar="true">
+<apex:page standardController="Account"  extensions="ServiceRetailTask" showHeader="true" sidebar="true" readOnly="true" cache="false">
 
     <apex:form >
-        <apex:pageBlock id="ServiceRetailTask" title="List of Service Retail Task Only ">
-           <apex:pageBlockTable id="serv" value="{!retlist}" var="ser">
+        <apex:pageBlock id="ServiceRetailTask" title="List of Service Retail Task Only "> 
+        
+        <apex:outputPanel id="myPanel">
+   <apex:pageMessages id="theMessages" />
+           <apex:pageBlockTable id="serv" value="{!Numbers}" var="ser">
            
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}"> 
                         <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
@@ -85,9 +88,18 @@
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}">
                 
                       <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
-                    </apex:column>
-                        </apex:pageBlockTable>           
+                    </apex:column> 
+                     </apex:pageBlockTable>    
+                         </apex:outputPanel> 
+                        <apex:pageBlockButtons location="top" >
+   <apex:outputPanel id="myButtons">  
+       <!-- <apex:commandButton action="{!Beginning}" title="Beginning" value="<<"  />-->
+        <apex:commandButton action="{!Previous}" title="Previous" value="Previous" />        
+        <apex:commandButton action="{!Next}" title="Next" value="Next"  />
+       <!-- <apex:commandButton action="{!End}" title="End" value=">>" />    -->    
+    
+   </apex:outputPanel>
+   </apex:pageBlockButtons>      
             </apex:pageBlock>
     </apex:form>
 </apex:page>
-
