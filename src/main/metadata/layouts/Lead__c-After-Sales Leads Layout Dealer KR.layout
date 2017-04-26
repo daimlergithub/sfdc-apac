@@ -93,6 +93,10 @@
                 <behavior>Required</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Type__c</field>
