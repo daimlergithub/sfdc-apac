@@ -118,10 +118,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lead_Last_Modified_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Created_By_EP_Transaction__c</field>
             </layoutItems>
             <layoutItems>

@@ -8,9 +8,6 @@
     <customButtons>New_Case</customButtons>
     <customButtons>Create_Retail_Copy_kr</customButtons>
     <customButtons>Create_Vehicle</customButtons>
-    <customButtons>New_After_Sales_Lead_WS</customButtons>
-    <customButtons>New_After_Sales_Leads</customButtons>
-    <customButtons>After_Sales_Leads</customButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
