@@ -14853,11 +14853,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Retail_Task__c</field>
         <readable>true</readable>
@@ -14867,7 +14867,7 @@
         <field>Campaign_Member__c.Campaign_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+   <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Campaign_Member_ID__c</field>
         <readable>true</readable>
