@@ -7368,19 +7368,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</de
         <fullName>Email_Sent_Status__c</fullName>
         <externalId>false</externalId>
         <formula>IF(
-ISPICKVAL(Email_Status__c , &apos;Valid&apos;),
-IMAGE(&quot;/servlet/servlet.FileDownload?file=015O0000001Aeus&quot;,
-&quot;Green&quot;),
+ISPICKVAL(Email_Status__c , &apos;Incomplete&apos;),
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
+&quot;Red&quot;),
 IF(
 ISPICKVAL(Email_Status__c , &apos;Invalid&apos;),
-IMAGE(&quot;/servlet/servlet.FileDownload?file=015O0000001Aeui&quot;,
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
 &quot;Red&quot;),
 IF(
 ISPICKVAL(Email_Status__c , &apos;Bounce-Back&apos;),
-IMAGE(&quot;/servlet/servlet.FileDownload?file=015O0000001Aeui&quot;,
-&quot;Red&quot;),
-IMAGE(&quot;/servlet/servlet.FileDownload?file=015O0000001Aeus&quot;,
-&quot;Green&quot;))))</formula>
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
+&quot;Red&quot;),&quot;&quot;)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Email Sent Status</label>
         <required>false</required>
@@ -10773,7 +10771,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;TH&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
@@ -48268,6 +48266,14 @@ NOT(Dealer_Active__c)
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬â„¢.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Customer_Status_Check_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
+&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
@@ -48437,8 +48443,8 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
 NOT(ISBLANK(Fax)), 
 LEN(Fax) &lt; 11, 
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH')</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>Fax</errorDisplayField>
         <errorMessage>Fax must be digits, and should be minimum 11 digits.</errorMessage>
     </validationRules>
@@ -48467,8 +48473,8 @@ NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
         <active>true</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Fax) ), 
 NOT( ISBLANK(Fax) ) ,
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH'
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;
 )</errorConditionFormula>
         <errorDisplayField>Fax</errorDisplayField>
         <errorMessage>Fax must contain digits only.</errorMessage>
@@ -48609,49 +48615,43 @@ REGEX(Individual_Home_Phone__c, &quot;[0-9]{4}-[0-9]{4}&quot;)
 	<validationRules>
         <fullName>HomePhone_Format_TH</fullName>
         <active>true</active>
-        <description>Thailand landline phone must be in any of the following format :
-			1. 0x-xxx-xxxx
-			2. 0x-xxxx-xxxx
-			2. 0xx-xxx-xxxx
-			3. 0xx-xxxx-xxxx
-			4. blank-xxxx-xxxx</description>
+        <description>Home Phone must be in any of the following formats :		
+		1. 0xx-xxxx-xxxx
+		2. blank-xxxxx-xxxxxx</description>
         <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH',
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
 NOT(ISBLANK(Individual_Home_Phone__c)),
 NOT(
 OR(
-REGEX(Individual_Home_Phone__c, "[036]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[032]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[034]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[035]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[037]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[038]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[039]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[042]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[043]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[044]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[045]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[052]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[053]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[054]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[055]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[056]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[073]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[074]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[075]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[076]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[077]{3}-[0-9]{4}-[0-9]{4}"),
-REGEX(Individual_Home_Phone__c, "[0-9]{5}-[0-9]{6}")
+REGEX(Individual_Home_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Individual_Home_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
 )
 )
 )</errorConditionFormula>
-        <errorMessage>Home Phone must be in any of the following formats :
-		1. 0x-xxx-xxxx
-		2. 0x-xxxx-xxxx
-		2. 0xx-xxx-xxxx
-		3. 0xx-xxxx-xxxx
-		4. blank-xxxx-xxxx</errorMessage>
+        <errorMessage>Home Phone must be in any of the following formats :		
+		1. 0xx-xxxx-xxxx
+		2. blank-xxxxx-xxxxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
@@ -48731,6 +48731,17 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
         <errorMessage>Home Phone should be less than or equal to 11 digits.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+NOT(ISBLANK(Individual_Home_Phone__c)),
+LEN(Individual_Home_Phone__c ) &lt; 13,
+$Profile.Name != &apos;IntegrationAPI&apos;,
+MD__c = &apos;TH&apos;)</errorConditionFormula>
+        <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+        <errorMessage>Home phone number must be digits, and it should be minimum 11 digits.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Individual_Home_Phone_StartsWith0</fullName>
         <active>true</active>
@@ -48780,12 +48791,11 @@ $Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;KR&apos;
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
 AND(
-OR( CONTAINS(Email__c, '?'), CONTAINS(Email__c, '^'), CONTAINS(Email__c, '%'),
-CONTAINS(Email__c, '$'), RIGHT(Email__c, 1)='.', BEGINS(Email__c, '.') , CONTAINS(Email__c, '@.'), CONTAINS(Email__c, '.@'),
-CONTAINS(Email__c, '..'), NOT(CONTAINS(Email__c, '.')), NOT(CONTAINS(Email__c, '@')),
-CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND('@', Email__c)), '@') , LEFT( RIGHT( Email__c, 2), 1)='.',ISBLANK(Email__c)),
-ISBLANK(Email__c),
-$Profile.Name != 'IntegrationAPI',MD__c = 'TH'
+OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
+CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
+CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
+CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 )</errorConditionFormula>
         <errorMessage>Invalid Email Address.</errorMessage>
     </validationRules>
@@ -48812,8 +48822,8 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <fullName>Invalid_ZipCode_TH</fullName>
         <active>true</active>
         <description>Zipcode is not 5 digits long</description>
-        <errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,"[0-9]{5}")), 
-$Profile.Name != 'IntegrationAPI', MD__c = 'TH')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[0-9]{5}&quot;)), 
+$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zipcode is not 5 digits long</errorMessage>
     </validationRules>
@@ -48897,6 +48907,49 @@ REGEX(Mobile__c, &quot;[0-9]{4}-[0-9]{4}&quot;)
         <errorMessage>Mobile must be in any of the following formats : 
 1. xxx-xxx-xxxx 2. xxx-xxxx-xxxx 3. xxxx-xxxx-xxxx 4. xxxx-xxx-xxxx 5. blank-xxxx-xxxx</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Mobile_Format_TH</fullName>
+        <active>true</active>
+        <description>Phone must be in any of the following formats : 
+1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
+NOT(ISBLANK(Mobile__c)),
+NOT(
+OR(
+REGEX(Mobile__c, &quot;[060]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[061]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[062]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[063]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[068]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[080]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[081]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[082]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[083]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[084]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[085]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[086]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[087]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[088]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[089]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[090]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[091]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[092]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[093]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[094]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[095]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[096]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[097]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[098]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[099]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[0-9]{6}-[0-9]{6}&quot;)
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Mobile must be in any of the following formats : 
+1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Mobile_NoChar</fullName>
         <active>true</active>
@@ -48926,8 +48979,8 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
 NOT(ISBLANK(Mobile__c)), 
 LEN(Mobile__c) &lt; 14, 
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH')</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>Mobile__c</errorDisplayField>
         <errorMessage>Mobile phone number must be digits, and should be minimum 12 digits</errorMessage>
     </validationRules>
@@ -49189,6 +49242,48 @@ REGEX(Work_Phone__c, &quot;[0-9]{4}-[0-9]{4}&quot;)
 			3.	0xx-xxxx-xxxx
 			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>WorkPhone_Format_TH</fullName>
+        <active>true</active>
+        <description>Work Phone must be in any of the following formats : 			
+			1.  0xx-xxxx-xxxx
+			2.  blank-xxxxx-xxxxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
+NOT(ISBLANK(Work_Phone__c)),
+NOT(
+OR(
+REGEX(Work_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;), 
+REGEX(Work_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;), 
+REGEX(Work_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
+REGEX(Work_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
+)
+)
+)</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work Phone must be in any of the following formats : 			
+			1.  0xx-xxxx-xxxx
+			2.  blank-xxxxx-xxxxxx</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Work_Phone_2_NoChar</fullName>
         <active>true</active>
@@ -49218,8 +49313,8 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
 NOT(ISBLANK(Individual_Home_Phone__c)), 
 LEN(Individual_Home_Phone__c ) &lt; 13, 
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH')</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>Work_Phone__c</errorDisplayField>
         <errorMessage>Work phone number must be digits, and it must be minimum 11 digits.</errorMessage>
     </validationRules>
@@ -49514,7 +49609,11 @@ if(userMarket[0].Market__c == &apos;JP&apos;){
 window.open(&quot;/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);
 }else if(userMarket[0].Market__c == &apos;KR&apos;){
 window.open(&quot;/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);
-}else{
+}
+else if(userMarket[0].Market__c == &apos;TH&apos;){
+window.open(&quot;/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);
+}
+else{
 alert(&apos;Error: Your Market Is Not defined &apos;);
 }</url>
     </webLinks>

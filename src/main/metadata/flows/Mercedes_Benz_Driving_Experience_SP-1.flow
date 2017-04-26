@@ -466,7 +466,6 @@
         <dataType>String</dataType>
         <expression>{!$User.Id}</expression>
     </formulas>
-    <interviewLabel>Mercedes Benz Driving Experience Sales Process {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Mercedes Benz Driving Experience Sales Process</label>
     <processType>Flow</processType>
     <recordCreates>

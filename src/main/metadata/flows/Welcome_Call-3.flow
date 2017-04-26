@@ -1669,7 +1669,6 @@
         <dataType>String</dataType>
         <expression>{!$Profile.Name}</expression>
     </formulas>
-    <interviewLabel>Welcome Call  {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Welcome Call</label>
     <processType>Flow</processType>
     <recordCreates>

@@ -37,6 +37,33 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_UpdateDataSource</fullName>
+        <field>System_Data_Source__c</field>
+        <formula>&apos;Salesforce&apos;</formula>
+        <name>MBTH_UpdateDataSource</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MBTH_UpdatedConsentUser</fullName>
+        <field>Updated_Consent_User__c</field>
+        <formula>$User.Username</formula>
+        <name>MBTH_UpdatedConsentUser</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MBTH_Updated_Consent_Date</fullName>
+        <field>Updated_Consent_Date__c</field>
+        <formula>today()</formula>
+        <name>MBTH_Updated Consent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>System_Data_Source</fullName>
         <field>System_Data_Source__c</field>
@@ -176,6 +203,34 @@
             <value>TH</value>
         </criteriaItems>
         <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;YES&quot;</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update_consent_Information</fullName>
+        <actions>
+            <name>MBTH_UpdateDataSource</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MBTH_UpdatedConsentUser</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MBTH_Updated_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Personal_Agreement__c</field>
+            <operation>equals</operation>
+            <value>Withdrawn</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

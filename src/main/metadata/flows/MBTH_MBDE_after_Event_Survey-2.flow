@@ -514,6 +514,7 @@
         <locationY>47</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2</targetReference>
         </connector>
@@ -541,6 +542,7 @@
         <locationY>47</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3</targetReference>
         </connector>
@@ -568,6 +570,7 @@
         <locationY>47</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -595,6 +598,7 @@
         <locationY>48</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q5</targetReference>
         </connector>
@@ -622,6 +626,7 @@
         <locationY>46</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q6</targetReference>
         </connector>
@@ -649,6 +654,7 @@
         <locationY>46</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q7</targetReference>
         </connector>
@@ -676,6 +682,7 @@
         <locationY>150</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q8</targetReference>
         </connector>
@@ -703,6 +710,7 @@
         <locationY>150</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q9</targetReference>
         </connector>
@@ -730,6 +738,7 @@
         <locationY>150</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -752,6 +761,7 @@
         <locationY>261</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
         <fields>
             <name>ThankYouNote</name>
             <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#0099FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!surveyCompleted}&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>

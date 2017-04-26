@@ -1,7 +1,14 @@
+<!--/**
+** Utility for Thailand Survey
+** Created By: Versha Agarwal & Mrinalini Chandra
+** Date: 2017-03-07
+** Modified By : Versha Agarwal & Mrinalini Chandra
+** Modified date : 2017-04-26
+**/
+-->
+
+
 <apex:page StandardController="Task">
-    <!--apex:includeScript value="/soap/ajax/26.0/connection.js"/> 
-    <apex:includeScript value="/support/console/26.0/integration.js"/>
-    <apex:includeScript value="/soap/ajax/33.0/apex.js"/-->
     
     
     <script src="/soap/ajax/33.0/connection.js"></script>
@@ -618,15 +625,9 @@
             if(ad6 == null)
                 ad6 = "";                     
             
-            rt=sforce.connection.query("SELECT id from Retail_Task__c where Account__c='"+acc+"'") ;
-            rt=rt.records.Id;
+       
             
-            
-            var x="{!Task.RelatedRetailTask__c}";
-            
-           
-            
-            url += acc+'&LeadID='+ld+'&RetailTaskID='+x+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29+'&Q30_ID='+SQ30+'&Q31_ID='+SQ31
+            url += acc+'&LeadID='+ld+'&CurrentUser={!$User.Id}&SurveyID='+SurveyID+'&Q1_ID='+SQ1+'&Q2_ID='+SQ2+'&Q3_ID='+SQ3+'&Q4_ID='+SQ4+'&Q5_ID='+SQ5+'&Q6_ID='+SQ6+'&Q7_ID='+SQ7+'&Q8_ID='+SQ8+'&Q9_ID='+SQ9+'&Q10_ID='+SQ10+'&Q11_ID='+SQ11+'&Q12_ID='+SQ12+'&Q13_ID='+SQ13+'&Q14_ID='+SQ14+'&Q15_ID='+SQ15+'&Q16_ID='+SQ16+'&Q17_ID='+SQ17+'&Q18_ID='+SQ18+'&Q19_ID='+SQ19+'&Q20_ID='+SQ20+'&Q21_ID='+SQ21+'&Q22_ID='+SQ22+'&Q23_ID='+SQ23+'&Q24_ID='+SQ24+'&Q25_ID='+SQ25+'&Q26_ID='+SQ26+'&Q27_ID='+SQ27+'&Q28_ID='+SQ28+'&Q29_ID='+SQ29+'&Q30_ID='+SQ30+'&Q31_ID='+SQ31
             +'&add1='+ad1+'&add2='+ad2+'&add3='+ad3+'&add4='+ad4+'&add5='+ad5+'&add6='+ad6; 
            
             window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=500,width=400,height=400"); 

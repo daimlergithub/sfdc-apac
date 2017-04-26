@@ -139,7 +139,6 @@
         <dataType>String</dataType>
         <expression>{!$Label.SurveyCompleted}</expression>
     </formulas>
-    <interviewLabel>Survey Star Assist {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Survey Star Assist</label>
     <processType>Flow</processType>
     <recordCreates>

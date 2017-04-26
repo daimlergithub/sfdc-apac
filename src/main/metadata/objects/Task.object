@@ -12679,6 +12679,23 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/MassAssignRecallTasks</url>
     </webLinks>
+	<webLinks>
+        <fullName>MBTH_Survey</fullName>
+        <availability>online</availability>
+        <description>Survey button used to run five flows -
+1. After Event Survey
+2. Mercedes Benz Driving Experience Sales Process
+3. Survey star Assist
+4. CSI Local Survey
+5. Welcome Call Survey</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Survey</masterLabel>
+        <openType>sidebar</openType>
+        <page>SurveyMerge</page>
+        <protected>false</protected>
+    </webLinks>
     <webLinks>
         <fullName>Manual_Assign</fullName>
         <availability>online</availability>

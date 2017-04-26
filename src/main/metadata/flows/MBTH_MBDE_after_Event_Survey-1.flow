@@ -152,7 +152,6 @@
         <dataType>String</dataType>
         <expression>{!$Label.SurveyCompleted}</expression>
     </formulas>
-    <interviewLabel>MBTH After E {!$Flow.CurrentDateTime}</interviewLabel>
     <label>MBTH_MBDE after Event Survey</label>
     <processType>Flow</processType>
     <recordCreates>

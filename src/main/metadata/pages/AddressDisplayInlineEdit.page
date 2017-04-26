@@ -282,8 +282,8 @@
                     
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                    
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>  
-                    <apex:inputField value="{!addressobj.Temp_Address__c}"/>                   
-                    <apex:inputField value="{!addressobj.Temp_ZipCode__c}"/>                    
+                    <apex:inputField value="{!addressobj.Temp_Address__c}" rendered="{!IF(market == 'TH', false, true)}"/>                   
+                    <apex:inputField value="{!addressobj.Temp_ZipCode__c}" rendered="{!IF(market == 'TH', false, true)}"/>                    
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
@@ -383,7 +383,7 @@
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(market!='TH',true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market!='TH',true,false)}"/>
-                    <apex:commandButton value="{!$Label.Save_Button}-TH" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
+                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
                    
                     
                     <apex:outputPanel id="redirectPanel">                   

@@ -278,7 +278,6 @@
         <dataType>String</dataType>
         <expression>{!$Label.NA}</expression>
     </formulas>
-    <interviewLabel>CSI Local Survey After Sales Process {!$Flow.CurrentDateTime}</interviewLabel>
     <label>CSI Local Survey After Sales Process</label>
     <processType>Flow</processType>
     <recordCreates>

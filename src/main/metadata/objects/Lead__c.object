@@ -4166,6 +4166,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>Quotation request from other dealer</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISP to Purchased under Service Contract</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8350,6 +8362,22 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Car Wash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Body &amp; Paint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extended Warranty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Part &amp; Accessories</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance (Accident)</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -109738,20 +109766,20 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <fullName>CAC_Purchase_Check_Aftersales_Lead_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),
-ISPICKVAL(CAC_Lead_Status__c, 'Purchased'), 
-$Profile.Name != 'IntegrationAPI', 
-MD__c='TH')</errorConditionFormula>
+ISNULL(Purchased_CAC_Date__c), OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;),
+ISPICKVAL(CAC_Lead_Status__c, &apos;Purchased&apos;), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c=&apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is Purchased , the â€œPurchase Dateâ€ Field is required.</errorMessage>
+        <errorMessage>If CAC lead status is Purchased, then Purchased CAC Date and Time field is required</errorMessage>
     </validationRules>
 	<validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead_TH</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, "Purchased"),RecordType.Name = 'Sales Leads',OR( 
-ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,''),ISPICKVAL(Bought_Vehicle_Class__c,''),ISPICKVAL(Bought_Vehicle_Model__c,''))&amp;&amp;MD__c='TH')</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL(CAC_Lead_Status__c, &quot;Purchased&quot;),RecordType.Name = &apos;Sales Leads&apos;,OR( 
+ISNULL(Purchased_CAC_Date_Time__c),ISBLANK(Purchased_CAC_Date_Time__c),ISPICKVAL(Bought_Vehicle_Brand__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Class__c,&apos;&apos;),ISPICKVAL(Bought_Vehicle_Model__c,&apos;&apos;))&amp;&amp;MD__c=&apos;TH&apos;)</errorConditionFormula>
         <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
-        <errorMessage>If CAC Lead Status is â€œPurchased â€, Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
+        <errorMessage>IF CAC Lead status is “Purchased”, then Purchase Date ,Purchased time ,Bought vehicle brand ,Bought vehicle class and Bought Vehicle model are  required</errorMessage>
     </validationRules>
 	 <validationRules>
         <fullName>Dealer_Purchase_Check_Aftersales_Lead_TH</fullName>
@@ -109768,15 +109796,15 @@ ISBLANK(Purchased_Date__c))
 	<validationRules>
         <fullName>First_Contact_Customer_Required_Check_TH</fullName>
         <active>true</active>
-        <description>If Dealer Lead Status is "First Contact Customer", and if "First Contact Customer date and timeâ€ is blank then an error message is shown.</description>
-        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'), MD__c = 'TH', 
-ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), 
+        <description>If Dealer Lead Status is &quot;First Contact Customer&quot;, and if &quot;First Contact Customer date and timeâ€ is blank then an error message is shown.</description>
+        <errorConditionFormula>AND ($Profile.Name != &apos;IntegrationAPI&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;), MD__c = &apos;TH&apos;, 
+ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;), 
 OR ( 
 ISNULL(First_Contact_Customer_Date_Time__c), 
 ISBLANK(First_Contact_Customer_Date_Time__c))
 )</errorConditionFormula>
         <errorDisplayField>First_Contact_Customer_Date_Time__c</errorDisplayField>
-        <errorMessage>If Dealer Lead Status is First Contact Customer, First contact customer Date time is requiredÂ </errorMessage>
+        <errorMessage>If Dealer Lead Status is First Contact Customer, First contact customer Date time is requiredÂ</errorMessage>
     </validationRules>
 	<validationRules>
         <fullName>CAC_Purchase_Check_Sales_Lead</fullName>
@@ -110137,6 +110165,16 @@ ISNULL(Order_Placed_Date__c)
         <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Order_Placed_Required_Check_Dealer_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;, OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),MD__c = &apos;TH&apos;, 
+ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;), 
+ISNULL(Order_Placed_Date__c) 
+)</errorConditionFormula>
+        <errorDisplayField>Order_Placed_Date__c</errorDisplayField>
+        <errorMessage>If Dealer Lead Status is Order Placed, Order Placed Date is required.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Purchase_Leads_NoChange_Los</fullName>
         <active>true</active>
@@ -110197,6 +110235,16 @@ ISNULL(Service_Date__c))</errorConditionFormula>
         <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', MD__c = 'KR',
 ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"), 
+ISNULL(Test_Drive_Date__c)
+)</errorConditionFormula>
+        <errorDisplayField>Test_Drive_Date__c</errorDisplayField>
+        <errorMessage>If Dealer Lead Status is Test Drive, Test Drive Date is required.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Test_Drive_Required_Check_TH</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;,OR(RecordType.Name = &apos;Sales Leads&apos;,RecordType.Name = &apos;Aftersales Leads&apos;,RecordType.Name = &apos;Retail Sales Leads&apos;),
+ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;), 
 ISNULL(Test_Drive_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Test_Drive_Date__c</errorDisplayField>

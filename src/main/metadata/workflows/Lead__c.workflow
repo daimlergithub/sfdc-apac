@@ -452,7 +452,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>	
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update_from_Dealer</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -463,10 +463,51 @@
         <protected>false</protected>
     </fieldUpdates>
 	<fieldUpdates>
+        <fullName>MBTH_Update_Lost_CAC_Date_Time</fullName>
+        <field>Lost_CAC_Date_Time__c</field>
+        <formula>IF ( 
+ISBLANK(Lost_CAC_Date_Time__c), 
+NOW(), 
+Lost_CAC_Date_Time__c
+)</formula>
+        <name>MBTH_Update Lost(CAC) Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_Update_Lost_Dealer_Date_Time</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>IF(ISBLANK(Lost_Dealer_Date_Time__c),NOW(),Lost_Dealer_Date_Time__c)</formula>
+        <name>MBTH_Update Lost(Dealer) Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
+        <field>Order_Placed_Date_Time__c</field>
+        <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
+        <name>MBTH_Update Order Placed Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+	<fieldUpdates>
         <fullName>MBTH_Update_owner_Email</fullName>
         <field>MBTH_record_Owner_Manager_Email__c</field>
         <formula>CreatedBy.Manager.Email</formula>
         <name>MBTH_Update owner Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
+        <field>Test_Drive_Date_Time__c</field>
+        <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>
+        <name>MBTH_Update Test Drive Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -1598,6 +1639,109 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>MBTH_Update Lost%28CAC%29 Date Time</fullName>
+        <actions>
+            <name>MBTH_Update_Lost_CAC_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost((CCC)</value>
+        </criteriaItems>
+        <description>When the lead status is set to &quot;Lost(CAC)&quot; then the &quot;Lead Lost (CAC) &quot; date time field need to be updated with current time</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update Lost%28Dealer%29 Date Time</fullName>
+        <actions>
+            <name>MBTH_Update_Lost_Dealer_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost(Dealer)</value>
+        </criteriaItems>
+        <description>When the Dealer lead status is set to &quot;Lost(Dealer)&quot; then the &quot;Dealer lost &quot; date time field</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update Order Placed Date Time</fullName>
+        <actions>
+            <name>MBTH_Update_Order_Placed_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>MBTH_Update Purchased Date Time</fullName>
         <actions>
@@ -1663,6 +1807,41 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>update_dealer_assigned_date_time</name>
             <type>FieldUpdate</type>
         </actions>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update Test Drive Date Time</fullName>
+        <actions>
+            <name>MBTH_Update_Test_Drive_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Test Drive</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>

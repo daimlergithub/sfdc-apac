@@ -20610,6 +20610,28 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
 // ---- END ----</url>
     </webLinks>
+	<webLinks>
+        <fullName>MBTH_Create_Child_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create_Child_Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBTH_Create_Complex_Execution</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Complex Execution</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
     <webLinks>
         <fullName>OPR_Label_Print</fullName>
         <availability>online</availability>
