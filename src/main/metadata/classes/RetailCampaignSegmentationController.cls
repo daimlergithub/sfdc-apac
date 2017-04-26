@@ -62,14 +62,32 @@ public with sharing class RetailCampaignSegmentationController {
     private final integer listLimit;
     private List<Account> tempAccounts;//To Hold the accounts
     private Map<String, Account> accountMap;
+    private Retail_campaign__c curRetCamp = new Retail_campaign__c();//to hold current retail campaign
     
+    //To check the parent retail campaign type and set car relation in vehicleRelSoql 
+    private String parCampType;
+    private String Sales =  'Sales Contact Target';
+    private String AfterSalesOrFinance = 'Aftersales Contact Target 1';
     
+    //To check in vehicleRel soql if the same account is existing for another vehicle
+    List<account> accList;
+    List<account> dupAccounts;
+    Map<Id,Integer> accIdandCountMap;
+    Map<Id,Id> accIdVehIdMap;
         
     public RetailCampaignSegmentationController()
     {
                 size = 1000;
                 thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
                 retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+                curRetCamp = [SELECT Id,Name,Segmentation_Base__c,Parent_Campaign1__r.Campaign_Type__c FROM Retail_campaign__C WHERE ID =: retailCampaignId];
+                if(curRetCamp.Parent_Campaign1__c != NULL){
+                    if(curRetCamp.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
+                        parCampType = Sales;
+                    } else {
+                        parCampType = AfterSalesOrFinance;
+                    }
+                }
                 setFieldType();
     }
     public ApexPages.StandardSetController con {get;set;}
@@ -244,75 +262,82 @@ public with sharing class RetailCampaignSegmentationController {
         }
     }
     
-    public PageReference searchAccount()
-    {
-     
-    System.debug('------------'+selectedValue);
-    system.debug('Entered into Search method');
-        
-           accountIdSet = new Set<Id>();
-           vehicleRelFind = false;
-           vehicleFind = false;
-           VehicleRetailFind = false;
-           accountFilter = false;
-            setSoql();
-            accounts = new List<Account>();
-            accountIds = new Set<String>();
-             
-            
-            try{
-                           
-                  system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
-                 if(vehicleRelSoql.endsWith('AND  ')){
-                     System.debug('Removing end in vehilce soql');
-                     vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');
+    public PageReference searchAccount(){     
+        system.debug('Entered into Search method');
+       
+        accList = new List<account>();
+        dupAccounts =  new List<account>();
+        accIdandCountMap = new Map<Id,Integer>();
+        accIdVehIdMap = new Map<Id,Id>();
+        accountIdSet = new Set<Id>();
+       
+        vehicleRelFind = false;
+        vehicleFind = false;
+        VehicleRetailFind = false;
+        accountFilter = false;
+       
+        setSoql();
+        accounts = new List<Account>();
+        accountIds = new Set<String>();
+        try{
+            system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
+            if(vehicleRelSoql.endsWith('AND  ')){
+                System.debug('Removing end in vehilce soql');
+                vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ');
+            }
+            system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
+            if(!vehicleRelSoql.endsWith('where ')) {            
+                vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
+                system.debug('@@@@@@accountSoql'+accountSoql);
+                if(vehicleRelSoql.length()>vehRelLength){
+                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'ORDER BY Vehicle_Id__c limit 50000');
+                    System.debug('vehRelList '+vehRelList.size());
+                    for(Vehicle_relationship__C vr : vehRelList){
+                        if(!accountIdSet.contains(vr.contact__c)){
+                            accIdandCountMap.put(vr.contact__c,1);//putting the initail value as 1 in map for first time
+                            accIdVehIdMap.put(vr.contact__c,vr.vehicle_Id__c);
+                            accountIdSet.add(vr.Contact__c);
+                        }
+                        else if(vr.vehicle_Id__c != accIdVehIdMap.get(vr.contact__c)){
+                            accIdVehIdMap.put(vr.contact__c,vr.vehicle_Id__c);
+                            Integer i = accIdandCountMap.get(vr.contact__c)+1;//to increase the count of duplicate account found
+                            accIdandCountMap.put(vr.contact__c,i);//overwrite the previous value with increased value  
+                        }
+                    }
+                }
+            }    
+
+            system.debug('@@@@@@leadSoql '+leadSoql);
+            if(!leadSoql.endsWith('where ')){
+                leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
+                System.debug('leadSoql '+leadSoql);
+                if(leadSoql.length()>leadLength){
+                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 50000');
+                     System.debug('leadList '+leadList.size());
+                     for(Lead__C vr : leadList){
+                         accountIdSet.add(vr.Contact__c);
+                     }
                  }
-                 system.debug('@@@@@@vehiclerelSoql '+vehicleRelSoql);
-                if(!vehicleRelSoql.endsWith('where ')) {
-                
-                    vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
-                     system.debug('@@@@@@accountSoql'+accountSoql);
-                     if(vehicleRelSoql.length()>vehRelLength){
-                         List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'limit 10000');
-                         System.debug('vehRelList '+vehRelList.size());
-                         for(Vehicle_relationship__C vr : vehRelList){
-                             accountIdSet.add(vr.Contact__c);
-                         }
+            }
+            
+            system.debug('@@@@@@AccountLinkSoql '+AccountLinkSoql);
+            if(!AccountLinkSoql.endsWith('where ')) {
+               // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
+               AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
+               if(AccountLinkSoql.length()>accLinkLength){
+                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 50000');
+                      System.debug('accLinkList '+accLinkList.size());
+                     for(Account_Link__C vr : accLinkList){
+                         accountIdSet.add(vr.toRole__c);
                      }
-                    
-                   system.debug('@@@@@@accountSoql '+accountSoql); 
-                }
-                 system.debug('@@@@@@leadSoql '+leadSoql);
-                if(!leadSoql.endsWith('where ')) {
-                    leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
-                    System.debug('leadSoql '+leadSoql);
-                    if(leadSoql.length()>leadLength){
-                         List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
-                         System.debug('leadList '+leadList.size());
-                         for(Lead__C vr : leadList){
-                             accountIdSet.add(vr.Contact__c);
-                         }
-                     }
-                }
-                
-                system.debug('@@@@@@AccountLinkSoql '+AccountLinkSoql);
-                if(!AccountLinkSoql.endsWith('where ')) {
-                   // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
-                   AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
-                   if(AccountLinkSoql.length()>accLinkLength){
-                         List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
-                          System.debug('accLinkList '+accLinkList.size());
-                         for(Account_Link__C vr : accLinkList){
-                             accountIdSet.add(vr.toRole__c);
-                         }
-                     }
-                }
+                 }
+            }
                 
                 system.debug('@@@@@@AccountLinkSoql '+RetailTaskSoql);
                 if(!RetailTaskSoql.endsWith('where ')) {
                     //RetailTaskSoql = RetailTaskSoql.replace('Account__c', 'Account__r.Name');
                     if(RetailTaskSoql.length()>retailaskLength){
-                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000');
+                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000');
                          System.debug('retTaskList '+retTaskList.size());
                          for(Retail_Task__c vr : retTaskList ){
                              accountIdSet.add(vr.Account__c);
@@ -324,7 +349,7 @@ public with sharing class RetailCampaignSegmentationController {
                 system.debug('@@@@@@AddressSoql '+AddressSoql);
                 if(!AddressSoql.endsWith('where ')) {
                    if(AddressSoql.length()>addressLength){
-                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
+                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 50000');
                           System.debug('addList '+addList.size());
                          System.debug('addList '+addList);
                          for(Address__c vr : addList ){
@@ -337,7 +362,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(!campaignMemSoql.endsWith('where ')) {
                   
                     if(campaignMemSoql.length()>campLength){
-                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
+                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
                          System.debug('camMemList '+camMemList.size());
                          for(Campaign_Member__c vr : camMemList ){
                              accountIdSet.add(vr.Contact_Id__c);
@@ -367,8 +392,19 @@ public with sharing class RetailCampaignSegmentationController {
                     }
                 }
                 system.debug('----------' + accountSoql);
-                con = new ApexPages.StandardSetController(Database.getQueryLocator(accountSoql+' ORDER BY Createddate DESC LIMIT 10000'));
-                con.setPageSize(1000); 
+                accList = Database.Query(accountSoql+'LIMIT 10000');
+                //con = new ApexPages.StandardSetController(Database.getQueryLocator(accountSoql+'ORDER BY Name ASC'));
+                for(account a : accList){
+                    if(accIdandCountMap.containsKey(a.Id)){
+                        for(integer i=1;i<accIdandCountMap.get(a.Id);i++){
+                            dupAccounts.add(a);
+                        }
+                    }
+                }
+                accList.addAll(dupAccounts);
+                accList.sort();
+                con = new ApexPages.StandardSetController(accList);
+                con.setPageSize(100); 
                 noOfRecords = con.getResultSize();         
                 getloadwrapAccountList();
                 System.debug('Tottalrecords'+totalRecords);
@@ -435,6 +471,7 @@ public with sharing class RetailCampaignSegmentationController {
                 else{
                     wrapAcc.isSelected = false;    // Used as Checkbox in vf page, default is not selected
                 }
+                
                 wrapAccountList.add(wrapAcc);   
             }
             system.debug('Called Wrapper method size---- '+wrapAccountList.size());
@@ -531,8 +568,8 @@ public with sharing class RetailCampaignSegmentationController {
                 + 'RecordTypeId = \'' + thirdParty + '\') and ';
             }
             leadSoql = 'Select Contact__c from Lead__c where ';
-            vehicleSoql = 'Select Contact__c From Vehicle_Relationship__c where ';
-            vehicleRelSoql = 'Select Contact__c From Vehicle_Relationship__c where ';
+            //vehicleSoql = 'Select Contact__c,Vehicle_ID__c From Vehicle_Relationship__c where ';
+            vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c From Vehicle_Relationship__c where Car_Relation__c = \''+parCampType+'\' AND ';
             campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
             AccountLinkSoql = 'Select toRole__c From Account_Link__c where '; 
             RetailTaskSoql = 'Select Account__c From Retail_Task__c where ';
@@ -640,11 +677,7 @@ public with sharing class RetailCampaignSegmentationController {
                     if(field == 'PersonBirthdate' && String.valueOf(filterItemMap.get('criteria')).startswith('3000')) {
                         subSoql += 'CALENDAR_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[1] + ' and DAY_IN_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[2];
                     }
-                    else if(field == 'Primary_Address__c'){
-                        subSoql += 'Primary_Address__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                    }else if(field == 'Registration_City__c'){
-                        subSoql += 'Registration_City__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                    }else if(field == 'ZipCode__c'){
+                    else if(field == 'ZipCode__c'){
                         subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
                     }else{
                         subSoql += field + operation + criteria + ' '; 
