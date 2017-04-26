@@ -824,7 +824,8 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
         string market;
         for(Account_Link__c acc : accLst){
             //if((isInsert || isUpdate) && acc.MD__c == label.MarketJp) //Checking Market for updated account
-            if((isInsert || isUpdate) && (acc.MD__c == label.MarketJp || acc.MD__c == label.MarketKR)){
+            if((isInsert || isUpdate) && acc.MD__c == label.MarketKR)
+            {
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
                 FromAccountIds.add(acc.fromRole__c); 
                 System.debug('AccountID--->'+acc.id); 
@@ -871,7 +872,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Gender__c = accountMap.get(acclnk.toRole__c).Gender__c;
                     acclnk.Retail_PersonBirthdate__c = accountMap.get(acclnk.toRole__c).PersonBirthdate;
                     acclnk.Retail_Occupation__c = accountMap.get(acclnk.toRole__c).MBK_Occupation__c;                
-                    acclnk.Retail_Preferred_Language__c = accountMap.get(acclnk.toRole__c).Preferred_Language__c;
+                    acclnk.Retail_Preferred_Language__c = 'Korean';
                     acclnk.Retail_Industry__c = accountMap.get(acclnk.toRole__c).Industry;                  
                     acclnk.Retail_Special_Care__c = accountMap.get(acclnk.toRole__c).Special_Care__c;
                     acclnk.Retail_Special_Needs_Class__c = accountMap.get(acclnk.toRole__c).Special_Needs_Class__c;

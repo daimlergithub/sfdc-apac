@@ -39,10 +39,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
@@ -235,15 +231,21 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>fromRole__c</fields>
-        <fields>Role__c</fields>
-        <fields>toRole__c</fields>
-        <fields>Role2__c</fields>
-        <fields>Portal_Email__c</fields>
-        <relatedList>Account_Link__c.Vehicle__c</relatedList>
+        <fields>Contact__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Owner_Relation__c</fields>
+        <fields>New_Used__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>Selling_Dealer__c</fields>
+        <fields>Last_Service_Dealer__c</fields>
+        <fields>LAST_UPDATE</fields>
+        <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Inquiry</customButtons>
+        <customButtons>New_MB_Complaint</customButtons>
+        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.RECORDTYPE</fields>
         <fields>ACCOUNT.NAME</fields>

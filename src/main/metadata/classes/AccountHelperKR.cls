@@ -266,6 +266,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             UtilAddressTranslation.gettranslatedvalues('KR');
             for(Account acc : accLst)
             {
+                system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 if(acc.MD__c == 'KR')
                 {
                     accid.add(acc.Id);
@@ -324,10 +325,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_Sales_Sanction__c = retailacc.Sales_Sanction__c;
                         acclnk.Retail_UCID__c = retailacc.UCID__c;
                         acclnk.Retail_Allow_Data_Sharing__c = retailacc.Allow_Data_Sharing__c;
-                        acclnk.Retail_Mobile__c = retailacc.PersonMobilePhone;
+                        acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c;
                         acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c;
-                        acclnk.Retail_Email__c = retailacc.PersonEmail;
+                        acclnk.Retail_Email__c = retailacc.Email__c;
                         acclnk.Retail_Fax__c =retailacc.Fax;
                         acclnk.Retail_Preferred_Contact_Method__c = retailacc.Preferred_Contact_Method__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
@@ -339,10 +340,12 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_PersonBirthdate__c = retailacc.PersonBirthdate;                     
                         acclnk.Retail_Occupation__c = retailacc.MBK_Occupation__c;
                         acclnk.Retail_Position__c = retailacc.Job__c;
-                        acclnk.Retail_Preferred_Language__c = retailacc.Preferred_Language__c;
+                        acclnk.Retail_Preferred_Language__c = 'Korean';
                         acclnk.Retail_Gender__c = retailacc.Gender__c;
                         acclnk.Retail_Industry__c = retailacc.industry;
-                        acclnk.Retail_WebSite__c = retailacc.Website; 
+                        acclnk.Retail_WebSite__c = retailacc.Website;
+                        acclnk.Retail_Special_Care__c = retailacc.Special_Care__c;
+                        acclnk.Retail_Special_Needs_Class__c = retailacc.Special_Needs_Class__c;
                         acclnk.Retail_Company_Name_Native1__c = retailacc.Company_Name_Native_1__c; 
                         acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
                         acclnk.Retail_Company_Phone__c = retailacc.Individual_Home_Phone__c;
@@ -567,7 +570,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
                 acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
                 acclnk.Retail_Occupation__c = acclnk.toRole__r.MBK_Occupation__c;                
-                acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
+                acclnk.Retail_Preferred_Language__c = 'Korean';
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
                 acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
@@ -582,10 +585,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 //}
                 //if(persongroup6 == true){
-                acclnk.Retail_Mobile__c = acclnk.toRole__r.PersonMobilePhone;   
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;   
                 //}   
                 //if(persongroup8 == true){   
-                acclnk.Retail_Email__c = acclnk.toRole__r.PersonEmail;
+                acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 //}
                 //if(persongroup10 == true){  
                 acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone_Display__c;

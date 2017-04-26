@@ -48210,11 +48210,10 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'KR',
-NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula>
-        <errorMessage>Please Enter Numbers in Commercial Register Number / Vat No</errorMessage>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
+ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula>
+        <errorMessage>Please Enter Commercial Register Number / Vat Register Number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompAccountName_NoOfDigits</fullName>
@@ -49376,7 +49375,7 @@ MD__c = &apos;JP&apos;
         <masterLabel>Car Model Comparison</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 {!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
 
 if (sforce.console.isInConsole()) {
@@ -49393,12 +49392,23 @@ else {
         <fullName>Check_Duplicates</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Check Duplicates</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var MD = '{!ISPICKVAL($User.Market__c, 'KR')}';
+
+if(MD)
+{
+alert('This function available only for Japan user');
+
+}
+else
+{
+window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}');
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Confirmed_match</fullName>
@@ -49645,26 +49655,27 @@ alert(&apos;Error: Your Market Is Not defined &apos;);
         <masterLabel>New Case</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
-
-
-var userid = &quot;{!$User.Id}&quot;;
-
-var myCase= sforce.connection.query(&quot;Select Id ,IsPortalEnabled From user where id=&apos;{!Account.OwnerId}&apos;&quot; ); 
-//var recordType1 = recordtypeResult1.getArray(&apos;myCase&apos;); 
-var records = myCase.getArray(&quot;records&quot;);
-
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+var userid = "{!$User.Id}";
+var myCase= sforce.connection.query("Select Id ,IsPortalEnabled From user where id='{!Account.OwnerId}'" ); 
+var records = myCase.getArray("records");
+var market = "{!Account.MD__c}";
+if(market == 'JP'){
 if(records[0].IsPortalEnabled=true) 
 { 
 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;00N2800000A9Cty_lkid={!Account.OwnerId}&amp;00N2800000A9Cty ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};&quot; )
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&amp;00N2800000A9Cty_lkid={!Account.OwnerId}&amp;00N2800000A9Cty ={!Account.OwnerLastName}&amp;cancelURL={!Account.Id};" )
 
 } 
 else 
 { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}&quot; )
+window.open("/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=012280000006I86&amp;amp&amp;retURL={!Account.Id}&amp;00N2800000A9Ctz_lkid={!Account.Id}&amp;00N2800000A9Ctz={!Account.Name}" )
 
+}
+}
+else if(market == 'KR'){
+alert('This function available only for Japan user');
 }</url>
     </webLinks>
     <webLinks>
@@ -49675,30 +49686,26 @@ window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;amp;RecordType=0122800
         <masterLabel>New Inquiry</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-if('{!User.ContactId}' ==null) 
-{ 
-var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ; 
-if (sforce.console.isInConsole()) { 
-var showTabId = function showTabId(result) { 
-var tabid = result.id; 
+if(typeof(srcUp) == 'function') {
 
-sforce.console.openPrimaryTab(tabid,"{!JSENCODE($Site.BaseUrl)}" +'/500/e?def_account_id={!Account.Id}&amp;RecordType='+qr.records.Id+'&amp;retURL={!Account.Id}&amp;accountName={!Account.Name}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
-}; 
-sforce.console.getEnclosingPrimaryTabId(showTabId); 
-} 
-} 
+if (sforce.console.isInConsole()) {
+var showTabId = function showTabId(result) {
+var tabid = result.id;
+sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true);
+};
+sforce.console.getEnclosingPrimaryTabId(showTabId);
+}
+else {
+window.parent.navigateToUrl("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case");
+}
 
-
-else{ 
-if('{!User.ContactId}' !=null) 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;cas4={!Account.Id}&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
-else { 
-window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
-} 
+}
+else {
+window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType=012280000006I86&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case", "", "");
 }</url>
     </webLinks>
     <webLinks>
@@ -49709,31 +49716,36 @@ window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I86AAE&amp;acc
         <masterLabel>New MB Complaint</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-if('{!User.ContactId}' ==null) 
-{ 
-var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
-if (sforce.console.isInConsole()) { 
-var showTabId = function showTabId(result) { 
-var tabid = result.id; 
+if(qr.records != null) {
 
-sforce.console.openPrimaryTab(tabid,"{!JSENCODE($Site.BaseUrl)}" +'/500/e?def_account_id={!Account.Id}&amp;RecordType='+qr.records.Id+'&amp;&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
-}; 
-sforce.console.getEnclosingPrimaryTabId(showTabId); 
-} 
-} 
-else{ 
-if('{!User.ContactId}' !=null) 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;cas4={!Account.Id}&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
-else { 
-window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;accountName={!Account.Name}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id};ent=Case', "", ""); 
-} 
+if(typeof(srcUp) == 'function') {
+
+if (sforce.console.isInConsole()) {
+var showTabId = function showTabId(result) {
+var tabid = result.id;
+sforce.console.openPrimaryTab(tabid, '{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
+};
+sforce.console.getEnclosingPrimaryTabId(showTabId);
+}
+else {
+window.parent.navigateToUrl("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType="+qr.records.Id+"&amp;ent=Case");
+}
+
+}
+else {
+window.open("{!URLFOR($Site.Prefix)}/500/e?def_account_id={!Account.Id}&amp;CF00N2800000A9CyP__lkid={!Vehicle__c.Id}&amp;CF00N2800000A9CyP={!Vehicle__c.Name}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "width = 1000,height = 800");
+}
+
+}
+else{
+alert("MB complaint can't be used.Please contact System Administrator");
 }</url>
-
     </webLinks>
     <webLinks>
         <fullName>New_AfterSales_Leads</fullName>
@@ -49743,9 +49755,10 @@ window.open('/500/e?cas4={!Account.Id}&amp;RecordType=012280000006I8AAAU&amp;acc
         <masterLabel>New AfterSales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}		
 
-if('{!User.ContactId}' ==null) { 
+if('{!User.ContactId}' =='') { 
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -49761,18 +49774,6 @@ sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LE
 } 
 ) 
 } 
-}	
-else { 
-if('{!User.ContactId}' !=null) { 
-if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
-{	
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
-else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
-{ 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
-} 
 else{ 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 {	
@@ -49781,6 +49782,18 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+} 
+}	
+else { 
+if('{!User.ContactId}' !='') { 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
+{	
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;CF00N2800000A9CjO={!Account.Name}&amp;CF00N2800000A9CjO_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+} 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
+{ 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 }</url>
@@ -49793,9 +49806,10 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-if('{!User.ContactId}' ==null){ 
+if('{!User.ContactId}' ==''){ 
 if(sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
@@ -49807,23 +49821,8 @@ else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_I
 { 
 sforce.console.openPrimaryTab(result.id,"{!JSENCODE($Site.BaseUrl)}" +'OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}',true, '{!$Label.NewLead}'); 
 } 
-
 } 
 ) 
-} 
-} 
-
-else { 
-if('{!User.ContactId}' !=null) 
-{ 
-if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
-{ 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
-else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
-{ 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
-} 
 } 
 else{ 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
@@ -49833,6 +49832,20 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
 window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+} 
+} 
+} 
+
+else { 
+if('{!User.ContactId}' !='') 
+{ 
+if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
+{ 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
+} 
+else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
+{ 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 }</url>
