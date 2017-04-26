@@ -761,6 +761,11 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
             <infoMessage>Search and select address of the account.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
