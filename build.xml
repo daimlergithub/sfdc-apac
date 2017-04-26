@@ -222,13 +222,13 @@
 							   <sf:include name="TerminateVehicleRelationshipExtension"/>
 							   <sf:include name="TerminateVehicleRelationshipTest"/>
 							   <sf:include name="ViewHierarchyController"/>
-							   <sf:include name="ViewHierarchyControllerTest"/>
+							   <sf:include name="ViewHierarchyControllerTest"/>							   
+							   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 							   <sf:include name="AddressSearchValidationController"/>
 							   <sf:include name="SendAccountInfoToSPO"/>                                                
 							   <sf:include name="SendAccountInfoToSPOTest"/>
 							   <sf:include name="SendToJPOS"/>                                       
 							   <sf:include name="SendToJPOSTest"/>
-							   <sf:include name="crmasiaDaimlerApacComCustomeridentif"/>
 							   <sf:include name="crmasiaDaimlerApacComSarinotificatio"/>
 							   <sf:include name="crmasiaDaimlerComSarinotificatio_Test"/>
 							   <sf:include name="WebServiceMockImplsar"/>

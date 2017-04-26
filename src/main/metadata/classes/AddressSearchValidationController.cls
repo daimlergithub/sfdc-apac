@@ -841,6 +841,7 @@ EP/Tolerant for Validation.
                         AddressObjtemp.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
+                     
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       AddressObj.Province__c = response.Addresses[i].Province;
@@ -1007,7 +1008,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            return options;
     }
      
-    public void onLineDeduplication(){  
+    public void onLineDeduplication(){   
         objAccountDeDup= new Account();
         List<Account>   lstAcc = New List<Account>();
         System.debug('I am inside onLineDeduplication');  
@@ -1058,13 +1059,16 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }               
             }
             System.debug('@@@@@@@@@@ objPersonAccount'+objPersonAccount);
+            System.debug('@@@@@@@@@@ AddressObj'+AddressObj); 
            Address__c NewAdd=new Address__c();
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
+            AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
             {
+            AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
             if(AddressObj == NewAdd)
