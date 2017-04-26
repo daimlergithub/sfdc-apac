@@ -4821,6 +4821,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>Account_1_Account_2_cannot_be_same</fullName>
+        <active>true</active>
+        <description>Cannot link same accounts</description>
+        <errorConditionFormula>(fromRole__c = toRole__c) &amp;&amp;
+$Profile.Name != 'IntegrationAPI' &amp;&amp;
+RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
+        <errorMessage>Cannot Link to the same person</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Retail_Company_Name_Native_Kana</fullName>
         <active>true</active>
