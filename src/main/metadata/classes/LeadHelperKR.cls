@@ -23,7 +23,7 @@
         {
           if((lead.RecordTypeId ==salesRecordTypeId )||(lead.RecordTypeId ==afterSalesRecordTypeId))
             {
-                if((( Trigger.isinsert  && lead.CAC_Lead_Status__c=='approved') || (Trigger.Isupdate && lead.CAC_Lead_Status__c=='approved'&& lead.CAC_Lead_Status__c!=leadOldMap.get(lead.id).CAC_Lead_Status__c) )&& lead .Assigned_Dealer__c!=null)
+                if(lead.Assigned_Dealer__c!=null && (trigger.isinsert || (trigger.isupdate && lead.OwnerId != leadOldMap.get(lead.Id).OwnerId || lead.Assigned_Dealer__c!=leadOldMap.get(lead.id).Assigned_Dealer__c)))
                 { 
                  leadIds.add(lead.id);         
                 }
