@@ -79,6 +79,10 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
             </layoutItems>
+			            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Lost_Situation__c</field>
