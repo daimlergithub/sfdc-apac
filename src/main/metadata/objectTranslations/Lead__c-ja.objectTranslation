@@ -5723,11 +5723,7 @@
             <translation><!-- Social media --></translation>
         </picklistValues>
         <picklistValues>
-<<<<<<< HEAD
-            <masterLabel>Special lease</masterLabel> 
-=======
             <masterLabel>Special lease</masterLabel>
->>>>>>> asia-prod
             <translation>特別リース</translation>
         </picklistValues>
         <picklistValues>
