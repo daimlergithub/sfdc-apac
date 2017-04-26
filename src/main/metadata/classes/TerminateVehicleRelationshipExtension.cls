@@ -37,9 +37,9 @@ public  class TerminateVehicleRelationshipExtension
         countryOptions.add(new SelectOption('Bought Competitors','Bought Competitors'));
         countryOptions.add(new SelectOption('Sold','Sold'));
         countryOptions.add(new SelectOption('Handover','Handover'));
-        countryOptions.add(new SelectOption('Warranty system','Warranty system'));
-         countryOptions.add(new SelectOption('MB Online','MB Online'));
-          countryOptions.add(new SelectOption('DMS','DMS'));
+    /**    countryOptions.add(new SelectOption('Warranty system','Warranty system'));
+         countryOptions.add(new SelectOption('MB Online','MB Online'));  
+          countryOptions.add(new SelectOption('DMS','DMS'));   **/
           countryOptions.add(new SelectOption('Others','Others'));
  
         return countryOptions;
