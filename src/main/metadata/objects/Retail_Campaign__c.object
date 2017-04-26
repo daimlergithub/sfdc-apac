@@ -2222,11 +2222,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>
+<fields>
         <fullName>Parent_Campaign1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Parent Campaign</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Retail_Campaign__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Planning &amp; Design Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
         <relationshipLabel>Retail Campaigns (Parent Campaign)</relationshipLabel>
         <relationshipName>Retail_Campaigns1</relationshipName>

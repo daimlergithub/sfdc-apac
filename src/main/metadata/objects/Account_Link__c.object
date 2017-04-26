@@ -1207,12 +1207,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Retail_Address_Reference__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Retail Address Reference</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.toRole__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
