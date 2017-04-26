@@ -587,11 +587,11 @@
         <fields>Type__c</fields>
         <fields>Status__c</fields>
         <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN__c</fields>
+        <fields>EndDate__c</fields>  
         <fields>Service_Vehicle_VIN__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
+		 <fields>Related_Dealer__c</fields>
+        <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Competitor_Brand__c</fields>
