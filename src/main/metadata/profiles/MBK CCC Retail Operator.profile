@@ -19029,7 +19029,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Related_Vehicle__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
