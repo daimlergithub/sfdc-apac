@@ -224,44 +224,6 @@ public with sharing class RetailCampaignSegmentationController {
         set;
     }
     
-    /**
-     * Methods -->
-     */
-    @RemoteAction
-    public static void saveFilter(String newfilter){
-        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
-        if(user.ContactId != null){
-            Contact contact = [select SegmentationFilters__c from Contact where Id = :user.ContactId];
-            if(String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
-                contact.SegmentationFilters__c = '[' + newfilter + ']';
-            }
-            else{
-                String originalFilter = contact.SegmentationFilters__c.substring(1, contact.SegmentationFilters__c.length() - 1);
-                contact.SegmentationFilters__c = '[' + originalFilter + ',' + newfilter + ']';
-            }
-            update contact;
-        }
-    }
-    
-    @RemoteAction
-    public static void deleteFilter(String deletefilterName){
-        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
-        if(user.ContactId != null){
-            Contact contact = [select SegmentationFilters__c from Contact where Id = :user.ContactId];
-              
-               List<Object> filterList = (List<Object>)JSON.deserializeUntyped(contact.SegmentationFilters__c);
-                 List<Object> filterListNew = new List<Object>();
-                for(Object item : filterList){
-                    Map<String, Object> filterMap = (Map<String, Object>)item;
-                    if (deletefilterName != (String)filterMap.get('name')){
-                    filterListNew.add(item);
-                    }
-                }
-            contact.SegmentationFilters__c = JSON.serialize(filterListNew);
-            update contact;
-        }
-    }
-    
     public PageReference searchAccount(){     
         system.debug('Entered into Search method');
        
