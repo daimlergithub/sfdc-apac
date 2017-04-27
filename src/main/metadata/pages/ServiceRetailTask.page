@@ -1,74 +1,84 @@
-<apex:page standardController="Account"  extensions="ServiceRetailTask" showHeader="true" sidebar="true" readOnly="true" cache="false">
+<apex:page standardController="Account"  extensions="ServiceRetailTask" showHeader="true" sidebar="true">
 
     <apex:form >
-        <apex:pageBlock id="ServiceRetailTask" title="List of Service Retail Task Only "> 
-        
-        <apex:outputPanel id="myPanel">
+        <apex:pageBlock id="ServiceRetailTask" title="List of Service Retail Task Only " >
+         <apex:outputPanel id="myPanel">       
+          
+                  
    <apex:pageMessages id="theMessages" />
            <apex:pageBlockTable id="serv" value="{!Numbers}" var="ser">
-           
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Name.Label}"> 
                         <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Id}','_blank');">{!ser.Name}</apex:outputlink>                        
                     </apex:column>
-
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}">
-                     <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact__r.id}','_blank');">{!ser.Related_Contact__r.Name}</apex:outputlink>
-                        
+                    
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle_VIN__c.Label}">
+                        <apex:outputText value="{!ser.Service_Vehicle_VIN__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
                     </apex:column>
-                   
+                    
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Number__c.Label}">
                         <apex:outputText value="{!ser.Service_Number__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Code__c.Label}">
-                        
+                    
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Code__c.Label}">                        
                         <apex:outputText value="{!ser.Service_Code__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
+                    
                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle__c.Label}">
                          <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Service_Vehicle__r.id}','_blank');">{!ser.Service_Vehicle__r.Name}</apex:outputlink>
                     </apex:column>
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date__c.Label}">
-                        
+
+                   <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date__c.Label}">                        
                         <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
                         <apex:param value="{!ser.Service_Date__c}"/>
                         </apex:outputText>
                     </apex:column>
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Details__c.Label}">
-                        
-                        <apex:outputText value="{!ser.Service_Details__c}" style="width:9%; white-space:nowrap;">
-                        </apex:outputText>
-                    </apex:column>
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_In__c.Label}">
-                       
+                    
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_In__c.Label}">                       
                         <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
                         <apex:param value="{!ser.Service_Date_In__c}"/>
                         </apex:outputText>
                     </apex:column>
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_Out__c.Label}">
-                 
+                    
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Date_Out__c.Label}">                 
                         <apex:outputText value="{0,date,YYYY/MM/dd}" style="width:9%; white-space:nowrap;">
                         <apex:param value="{!ser.Service_Date_Out__c}"/>
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Mileage__c.Label}">
-                
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Mileage__c.Label}">                
                         <apex:outputText value="{!ser.Service_Mileage__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Invoice_Number__c.Label}">
-                
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Invoice_Number__c.Label}">                
                         <apex:outputText value="{!ser.Service_Invoice_Number__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
                     
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}">                
+                      <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
+                    </apex:column>
+                    
+                    
+                    
+                    <!--
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}">
+                     <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact__r.id}','_blank');">{!ser.Related_Contact__r.Name}</apex:outputlink>
+                     </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Details__c.Label}">                        
+                        <apex:outputText value="{!ser.Service_Details__c}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column> 
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Lead__c.Label}">
                  <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Lead__r.id}','_blank');">{!ser.Related_Lead__r.Name}</apex:outputlink>
-                    
-                         
-                    </apex:column>
+                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact2__c.Label}">
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact2__r.id}','_blank');">{!ser.Related_Contact2__r.Name}</apex:outputlink>
@@ -76,30 +86,27 @@
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact3__c.Label}">
                  <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact3__r.id}','_blank');">{!ser.Related_Contact3__r.Name}</apex:outputlink>
-   
-                    </apex:column>
+              </apex:column>
                     
-                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle_VIN__c.Label}">
-                
+                     <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle_VIN__c.Label}">                
                         <apex:outputText value="{!ser.Service_Vehicle_VIN__c}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
+                       -->
                     
-                    <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}">
-                
-                      <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
-                    </apex:column> 
-                     </apex:pageBlockTable>    
-                         </apex:outputPanel> 
-                        <apex:pageBlockButtons location="top" >
-   <apex:outputPanel id="myButtons">  
-       <!-- <apex:commandButton action="{!Beginning}" title="Beginning" value="<<"  />-->
-        <apex:commandButton action="{!Previous}" title="Previous" value="Previous" />        
-        <apex:commandButton action="{!Next}" title="Next" value="Next"  />
-       <!-- <apex:commandButton action="{!End}" title="End" value=">>" />    -->    
+                      <apex:facet name="footer">Showing Page # {!pageNumber} of {!totalPages}</apex:facet>
+                        </apex:pageBlockTable>   
+                        </apex:outputPanel>  
+                         
+                         <apex:pageBlockButtons location="top" >
+   <apex:outputPanel id="myButtons"> 
+        <apex:commandButton action="{!Beginning}" title="Beginning" value="First" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>
+        <apex:commandButton action="{!Previous}" title="Previous" value="Previous" disabled="{!disablePrevious}" reRender="myPanel,myButtons"/>        
+        <apex:commandButton action="{!Next}" title="Next" value="Next" disabled="{!disableNext}" reRender="myPanel,myButtons"/>
+        <apex:commandButton action="{!End}" title="End" value="Last" disabled="{!disableNext}" reRender="myPanel,myButtons"/>        
     
    </apex:outputPanel>
-   </apex:pageBlockButtons>      
+   </apex:pageBlockButtons>    
             </apex:pageBlock>
     </apex:form>
 </apex:page>
