@@ -1540,4 +1540,60 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
             }
         }       
     }
+	
+	/******************************************
+    createdDate : 27 Apr, 2017
+    createdBy   : Lokesh M
+    JIRA No     : SFDCKR-992
+    Method      : updateRetailPositionfromC2C
+    Event       : Before Update, before insert
+    *******************************************/  
+    public static void updateRetailPositionfromC2C(boolean isUpdate,boolean isAfter , boolean isInsert ,List<Account_Link__c> accLst){
+         system.debug('>>>>>>>>>>>>>>>>>>>'+accLst.size());
+         system.debug('>>>>>>>>>>>>>>>>>>>label.MarketKR'+label.MarketKR);
+         
+        Map<Id,String> accLinkPosMap = new Map<Id,String>();
+        list<account_link__c> updateList = new List<Account_link__c>();
+        if((isInsert || isUpdate) && isAfter ){
+        system.debug('>>>>>>>>>>>>>>>>>>>');
+            for(Account_Link__c accLink : accLst){
+                 system.debug('>>>>>>>>>>>>>>>>accLink.position '+String.isBlank(accLink.Position__c) );
+                 system.debug('>>>>>>>>>>>>>>>>accLink.MD__c '+accLink.MD__c );
+                if(accLink.RecordtypeId == AccountLink_Contact2ContactRecordTypeId && !String.isBlank(accLink.Position__c) && accLink.MD__c == label.MarketKR){
+                    system.debug('acclinkposition'+accLink.toRole__r.name+'  '+accLink.position__c);
+                    system.debug('acclinkposition'+accLink.fromRole__r.name+'  '+accLink.position__c);
+                    accLinkPosMap.put(accLink.toRole__c,accLink.position__c);
+                    accLinkPosMap.put(accLink.fromRole__c,accLink.Position__c);
+                }
+            }
+            if(accLinkPosMap.size()>0){
+                List<Account_Link__c> retailCopyAccLinks = [SELECT Id,Position__C,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c IN: accLinkPosMap.keySet() AND (recordTypeId =: AccountLink_RetailPersonRecordTypeId OR recordTypeId =: AccountLink_RetailCompanyRecordTypeId)];
+                System.debug('retailCopyAccLinks'+retailCopyAccLinks);
+                if(retailCopyAccLinks != NULL && !retailCopyAccLinks.isEmpty()){
+                    for(Account_Link__c eachAccLink : retailCopyAccLinks){
+                    System.debug('>>>>>>>'+eachAccLink.Id);
+                    System.debug('>>>>>>>'+accLinkPosMap.get(eachAccLink.toRole__c));
+                        eachAccLink.Retail_Position__c = accLinkPosMap.get(eachAccLink.toRole__c);
+                        updateList.add(eachAccLink);
+                        System.debug('>>>>>>>'+eachAccLink.Retail_Position__c);
+                    }
+                }
+            }  
+            if(updateList.size()>0){
+                Database.SaveResult[] srList = Database.update(updateList, false);
+                for (Database.SaveResult sr : srList) {
+                    if (sr.isSuccess()) {
+                        System.debug('Successfully inserted account. AccountLink ID: ' + sr.getId());
+                    }
+                    else {
+                        for(Database.Error err : sr.getErrors()) {
+                            System.debug('The following error has occurred.');                    
+                            System.debug(err.getStatusCode() + ': ' + err.getMessage());
+                            System.debug('Account fields that affected this error: ' + err.getFields());
+                        }
+                    }
+                }
+            }              
+        } 
+    }
 }

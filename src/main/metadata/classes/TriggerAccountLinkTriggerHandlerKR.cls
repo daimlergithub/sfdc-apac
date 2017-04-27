@@ -8,12 +8,14 @@ public class TriggerAccountLinkTriggerHandlerKR
             system.debug('Trigger 2 :');
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelperKR.afterInsertEvent(Trigger.new);
+			AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
             system.debug('Trigger 3 :');
         }
         if(Trigger.isAfter && Trigger.isUpdate){
             system.debug('Trigger 4 :');
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
+			AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
             system.debug('Trigger 5 :');
         }     
         if(Trigger.isBefore &&  Trigger.isInsert)
