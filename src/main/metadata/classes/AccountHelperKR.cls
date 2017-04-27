@@ -1075,5 +1075,56 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             }
         }
     } 
-    ********************************/   
+    ********************************/  
+	//SFDCKR-1207
+    public static void shareDealeroutletsWithDealerCompany(List<Account> outletAccounts){
+        List<Id> accountIds = new List<Id>();
+        map<Id, List<Account>> dCompToDoutMap = new map<Id, List<Account>>();
+        map<Id, string> accDealerNdCode = new map<id, string>();
+		List<AccountShare> accShrLst = new List<AccountShare>();
+		map<string, id> grpNameidmap = new map<string, id>();
+        if(outletAccounts.size()>0 && outletAccounts != null){
+                for(Account acc: outletAccounts){
+                    if(acc.Dealer_Type__c == 'Outlet' && acc.MD__c == 'KR'){
+                        accountIds.add(acc.id);
+                    }
+                }
+                List<Account> dealerCompanyAcc = new List<Account>([select id , name, Dealer_Type__c, Dealer_ND_Code__c, ParentId from Account where id in: accountIds]);
+                for(Account acc: dealerCompanyAcc){
+                    if(!dCompToDoutMap.containsKey(acc.ParentId)){
+                        dCompToDoutMap.put(acc.ParentId, New List<Account>());
+                    }
+                        dCompToDoutMap.get(acc.ParentId).add(acc);
+                }
+                
+                List<Account> parentAccLst = new List<Account>([select id, name, Dealer_ND_Code__c from Account where id in:dCompToDoutMap.keySet()]);
+				for(Account acc: parentAccLst){
+					if(acc.Dealer_ND_Code__c != null){
+						accDealerNdCode.put(acc.id, acc.Dealer_ND_Code__c);
+					}
+				}
+				List<Group> grpLst = new List<Group>([select id, name from Group where name in:accDealerNdCode.values()]);
+				for(Group grp: grpLst){
+					grpNameidmap.put(grp.name, grp.id);
+				}
+				for(string id: accDealerNdCode.keySet()){
+					List<Account> accLst = dCompToDoutMap.get(id);
+					if(accLst.size()>0){
+						for(Account acc: accLst){
+							AccountShare ash = new AccountShare();
+							ash.AccountAccessLevel = 'Read';
+							ash.OpportunityAccessLevel = 'Read';
+							ash.CaseAccessLevel = 'Read';
+							ash.AccountId = acc.id;
+							ash.UserOrGroupId = grpNameidmap.get(accDealerNdCode.get(id));
+							accShrLst.add(ash);							
+						}
+					}
+				}
+				
+				if(accShrLst.size()>0){
+					insert accShrLst;
+				}       
+        }       
+    }
 }
