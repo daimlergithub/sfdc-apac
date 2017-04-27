@@ -191,6 +191,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Price_Range__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Payment_Mode__c</field>
             </layoutItems>
             <layoutItems>
