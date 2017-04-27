@@ -224,44 +224,6 @@ public with sharing class RetailCampaignSegmentationController {
         set;
     }
     
-    /**
-     * Methods -->
-     */
-    @RemoteAction
-    public static void saveFilter(String newfilter){
-        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
-        if(user.ContactId != null){
-            Contact contact = [select SegmentationFilters__c from Contact where Id = :user.ContactId];
-            if(String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
-                contact.SegmentationFilters__c = '[' + newfilter + ']';
-            }
-            else{
-                String originalFilter = contact.SegmentationFilters__c.substring(1, contact.SegmentationFilters__c.length() - 1);
-                contact.SegmentationFilters__c = '[' + originalFilter + ',' + newfilter + ']';
-            }
-            update contact;
-        }
-    }
-    
-    @RemoteAction
-    public static void deleteFilter(String deletefilterName){
-        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
-        if(user.ContactId != null){
-            Contact contact = [select SegmentationFilters__c from Contact where Id = :user.ContactId];
-              
-               List<Object> filterList = (List<Object>)JSON.deserializeUntyped(contact.SegmentationFilters__c);
-                 List<Object> filterListNew = new List<Object>();
-                for(Object item : filterList){
-                    Map<String, Object> filterMap = (Map<String, Object>)item;
-                    if (deletefilterName != (String)filterMap.get('name')){
-                    filterListNew.add(item);
-                    }
-                }
-            contact.SegmentationFilters__c = JSON.serialize(filterListNew);
-            update contact;
-        }
-    }
-    
     public PageReference searchAccount(){     
         system.debug('Entered into Search method');
        
@@ -290,7 +252,7 @@ public with sharing class RetailCampaignSegmentationController {
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Service_Advisor__c','Service_Advisor__r.Name');
                 system.debug('@@@@@@accountSoql'+accountSoql);
                 if(vehicleRelSoql.length()>vehRelLength){
-                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'ORDER BY Vehicle_Id__c limit 50000');
+                    List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + 'ORDER BY Vehicle_Id__c limit 10000');
                     System.debug('vehRelList '+vehRelList.size());
                     for(Vehicle_relationship__C vr : vehRelList){
                         if(!accountIdSet.contains(vr.contact__c)){
@@ -312,7 +274,7 @@ public with sharing class RetailCampaignSegmentationController {
                 leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
                 System.debug('leadSoql '+leadSoql);
                 if(leadSoql.length()>leadLength){
-                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 50000');
+                     List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
                      System.debug('leadList '+leadList.size());
                      for(Lead__C vr : leadList){
                          accountIdSet.add(vr.Contact__c);
@@ -325,7 +287,7 @@ public with sharing class RetailCampaignSegmentationController {
                // AccountLinkSoql = AccountLinkSoql.replace('toRole__c', 'toRole__r.Name');
                AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name');
                if(AccountLinkSoql.length()>accLinkLength){
-                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 50000');
+                     List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
                       System.debug('accLinkList '+accLinkList.size());
                      for(Account_Link__C vr : accLinkList){
                          accountIdSet.add(vr.toRole__c);
@@ -337,7 +299,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(!RetailTaskSoql.endsWith('where ')) {
                     //RetailTaskSoql = RetailTaskSoql.replace('Account__c', 'Account__r.Name');
                     if(RetailTaskSoql.length()>retailaskLength){
-                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 50000');
+                         List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000');
                          System.debug('retTaskList '+retTaskList.size());
                          for(Retail_Task__c vr : retTaskList ){
                              accountIdSet.add(vr.Account__c);
@@ -349,7 +311,7 @@ public with sharing class RetailCampaignSegmentationController {
                 system.debug('@@@@@@AddressSoql '+AddressSoql);
                 if(!AddressSoql.endsWith('where ')) {
                    if(AddressSoql.length()>addressLength){
-                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 50000');
+                         List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
                           System.debug('addList '+addList.size());
                          System.debug('addList '+addList);
                          for(Address__c vr : addList ){
@@ -362,7 +324,7 @@ public with sharing class RetailCampaignSegmentationController {
                 if(!campaignMemSoql.endsWith('where ')) {
                   
                     if(campaignMemSoql.length()>campLength){
-                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 50000');
+                         List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                          System.debug('camMemList '+camMemList.size());
                          for(Campaign_Member__c vr : camMemList ){
                              accountIdSet.add(vr.Contact_Id__c);

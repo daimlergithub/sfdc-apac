@@ -78,51 +78,7 @@
             jQueryRow.remove();
         }
 
-        // Saves the filter data to database
-        function saveFilter(filterName){
-            if(!checkFilterName(filterName)) return;
-            var st = filterNames.split(";");
-            if(st.length >= 12) {
-                alert('The filter count can\'t greater than 10');
-                return;
-            }
-            var filter = getJsonFilter(filterName);
-            if(filter == null) return;
-            Visualforce.remoting.Manager.invokeAction(
-                '{!$RemoteAction.RetailCampaignSegmentationController.saveFilter}',
-                filter,
-                function(result, event){
-                    if(event.status) {
-                        alert('{!$Label.Sccussful}!');
-                        filterNames += filterName + ';';
-                        window.location.reload();
-                    }
-                    else{
-                        alert('{!$Label.Contact_Admin}');
-                    }
-                },
-                {escape: true}
-            );
-        }
-        // Delete the filter data to database
-        function deleteFilter(deleteFilterName){
-            if(deleteFilterName == null || deleteFilterName == '') return;
-            Visualforce.remoting.Manager.invokeAction(
-                '{!$RemoteAction.RetailCampaignSegmentationController.deleteFilter}',
-                deleteFilterName,
-                function(result, event){
-                    if(event.status) {
-                        alert('{!$Label.Sccussful}!');
-                        window.location.reload();
-                    }
-                    else{
-                        alert('{!$Label.Contact_Admin}');
-                    }
-                },
-                {escape: true}
-            );
-        }
-
+        
         // Loads a filter from server.
         function loadFilter(filterName){
             emptyFilter();
@@ -945,7 +901,7 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
-					<div>
+                    <div>
                     <table id="VehicleRetailcopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
                                 &nbsp;<th width="10%">Service Dealer</th>
