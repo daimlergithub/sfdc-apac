@@ -68,6 +68,13 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Need_Text__c</field>
             </layoutItems>
+			<layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comment__c</field>
