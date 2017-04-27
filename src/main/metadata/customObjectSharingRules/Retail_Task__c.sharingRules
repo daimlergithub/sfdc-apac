@@ -81,5 +81,18 @@
         <accessLevel>Read</accessLevel>
         <description>ShareRetail Activity,Service  Retail task to CAC</description>
         <name>Share Readonly Retail task to CAC</name>
+    </criteriaBasedRules>	
+    <criteriaBasedRules>
+        <fullName>Retail_Task_Service_Records</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Retail Task Service Records</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

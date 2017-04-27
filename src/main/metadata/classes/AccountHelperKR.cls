@@ -1089,7 +1089,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         accountIds.add(acc.id);
                     }
                 }
-                List<Account> dealerCompanyAcc = new List<Account>([select id , name, Dealer_Type__c, Dealer_ND_Code__c, ParentId from Account where id in: accountIds]);
+                List<Account> dealerCompanyAcc = new List<Account>([select id , name, Dealer_Type__c, Dealer_ND_Code__c, ParentId from Account where id in: accountIds and RecordType.Name = 'Dealer']);
                 for(Account acc: dealerCompanyAcc){
                     if(!dCompToDoutMap.containsKey(acc.ParentId)){
                         dCompToDoutMap.put(acc.ParentId, New List<Account>());
