@@ -68,6 +68,13 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Need_Text__c</field>
             </layoutItems>
+			<layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comment__c</field>
@@ -236,22 +243,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Interested_Competitor_Vehicle_Text__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Vehicle Select</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>200</height>
-                <page>MarketCheckOnVehiclePicker</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>100%</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
