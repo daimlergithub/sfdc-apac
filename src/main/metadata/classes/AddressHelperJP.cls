@@ -5,7 +5,7 @@
     Create By: Sriram kalluri
 */
 public with sharing class AddressHelperJP {
-	static User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+	static User usr = [Select Id,ProfileId,Market__c,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
         
        public static Id personAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
        public static Id comAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
