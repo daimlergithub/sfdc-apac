@@ -209,10 +209,10 @@
                     <apex:pageBlockSectionItem >
                         <!-- <apex:inputField value="{!addressobj.Address_Type__c}"/> -->
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
-                       <!-- <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:43%; white-space:none;">
+                        <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:43%; white-space:none;">
                             <apex:selectOptions value="{!AddressOptions}"/>
-                        </apex:selectList>-->
-                        <apex:inputField value="{!addressobj.Address_Type__c}"/>
+                        </apex:selectList>
+                        <!--<apex:inputField value="{!addressobj.Address_Type__c}"/>-->
                     </apex:pageBlockSectionItem>
                     <apex:inputField value="{!addressobj.ZipCode__c}"/>&nbsp;
                     <apex:pageBlockSectionItem > 
