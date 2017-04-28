@@ -1,0 +1,199 @@
+/***********************************************************************************
+Created By          :    Abhishekh Dasepalle   
+Company             :    NTT Data,Inc.
+Usage               :    The functionality of this Class is to display All Dealers Account Based on Search Criteria 
+                         Business Conditions :
+                          * Search Filter to get All Dealers Account Which Will Be Added As Participating Dealer                      
+JIRA NO             :    SFDCJP-1606                                               
+************************************************************************************/
+Public class AccountTable{
+    public String size { get; set; }
+
+    //This is Our collection of the class/wrapper objects AddingParticipatingDealer 
+    Public List<AddingParticipatingDealer> wrapperlist{get;set;}
+    Public Integer noOfRecords{get; set;}
+
+    // Create a new Map to verify whether the Account is already added in the Map
+    Map <id,Account> SelectedAccountMap = new Map <id,Account>();
+    Set<id> Checkid = New Set<id>();
+    List<Participating_Dealer__c > parDealer = New List<Participating_Dealer__c >();
+
+    public boolean display{get;set;}
+    public list<Account> selectedList {get;set;}
+    public String regionValue {get;set;}    
+    public List<SelectOption> regionOptions {get;set;}
+    public String dealerType {get;set;}
+    public String dealerCode {get;set;} 
+    public String CamId {get;set;}
+    public Boolean panelStopper {get;set;}
+
+    public AccountTable(){ 
+        regionOptions = new List<SelectOption>();
+        regionOptions.add(new SelectOption('aid','All Dealer'));
+        regionOptions.add(new SelectOption('sid','Select A Dealer'));
+        SearchLogic();
+        panelStopper = false;
+        
+        CamId =ApexPages.currentPage().getParameters().get('id');
+    }
+    
+    //Returns a list of wrapper objects for the sObjects in the current page set
+    Public Void dropDown(){
+        if(regionValue == 'sid' ){
+            panelStopper = true;
+        } 
+        else if(regionValue == 'aid' ){
+            panelStopper = false;
+            //SearchLogic();
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer' ])); 
+        setCon.setpagesize(10);
+        }
+    }
+    
+    public ApexPages.StandardSetController setCon {get;set;}
+        
+    Public void SearchLogic(){
+        
+          if(!String.isBlank(dealerType) && !String.isBlank(dealerCode) ) {
+          system.debug('+++++'+'First');
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType AND Dealer_GC_Code__c=:dealerCode AND RecordType.Name = 'Dealer' ]));
+        } else if(!String.isBlank(dealerType) && String.isBlank(dealerCode) ){
+           system.debug('+++++'+'Second');
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_Type__c =: dealerType  AND RecordType.Name = 'Dealer' ]));
+        
+        } else if(String.isBlank(dealerType) && !String.isBlank(dealerCode) ){
+        system.debug('+++++'+'Third');
+        
+       Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account WHERE Dealer_GC_Code__c=:dealerCode  AND RecordType.Name = 'Dealer' ]));
+       
+        }
+        
+        
+        else {
+        Setcon = new ApexPages.StandardSetController(Database.getQueryLocator([SELECT Name,Dealer_Type__c,phone,City__c,Dealer_GC_Code__c FROM Account Where RecordType.Name = 'Dealer'])); 
+        
+        }
+        setCon.setpagesize(10);
+        noOfRecords = setCon.getResultSize();
+        getAccount();
+    }
+    Public List<AddingParticipatingDealer> getAccount(){
+        getSelectedAccount();
+        wrapperlist = new List<AddingParticipatingDealer>();
+        for(Account cc : (List<Account>)Setcon.getRecords()){
+            AddingParticipatingDealer wrapAcc = new AddingParticipatingDealer();
+            wrapAcc.con = cc;               // Holding Account
+            if(SelectedAccountMap.containsKey(cc.Id)){
+                wrapAcc.bool = true;    // check if Checkbox is checked in vf page    
+            }
+            else{
+                wrapAcc.bool = false;    // Used as Checkbox in vf page, default is not selected
+            }
+            wrapperlist.add(wrapAcc);
+        }
+        return wrapperlist;
+    }
+
+    public void getSelectedAccount(){
+        if(wrapperlist!=null){
+            for(AddingParticipatingDealer  wr:wrapperlist){
+                if(wr.bool == true){
+                    SelectedAccountMap.put(wr.con.id,wr.con); // Add the selected Account id in to 
+                    Checkid.add(wr.con.id);
+                }
+                else{
+                    SelectedAccountMap.remove(wr.con.id); // If you uncheck the Account, remove it from the selectedAccountMap
+                    Checkid.remove(wr.con.id);
+                }
+            }
+
+        }
+
+    }
+    
+    public void first(){
+        Setcon.first();
+        system.debug('++++++++++++++First'+Setcon);
+    }
+     
+     // returns the last page of records
+     public void last() {
+         Setcon.last();
+     }
+    
+    // returns the previous page of records
+     public void previous() {
+         Setcon.previous();
+     }
+    
+    //disable first and prev button
+    public Boolean hasPrevious {
+        get {
+            return Setcon.getHasPrevious();
+        }
+        set;
+    }
+    
+    //display the next page of records
+    public void next() {
+        Setcon.next();
+    }
+    
+    //disable the next and last buttons
+    public Boolean hasnext {
+        get {
+            return Setcon.getHasNext();
+        }
+        set;
+    }
+
+    public void  clickMe(){
+        List<Account> acc = New List<Account>();
+        
+        CamId =ApexPages.currentPage().getParameters().get('id');
+        getSelectedAccount();
+        selectedList = SelectedAccountMap.values();
+        
+        
+        List<Participating_Dealer__c> participateDealer = [select id ,Dealer__c ,Campaign__c From Participating_Dealer__c where Campaign__c =:camid AND Dealer__c =: SelectedAccountMap.keySet()  ];
+        
+             for(Participating_Dealer__c newpd : participateDealer ){
+             
+                       
+                       if(SelectedAccountMap.containsKey(newpd.Dealer__c)){
+                          
+                         SelectedAccountMap.remove(newpd.Dealer__c);  // removing Duplicate Ids
+                       
+                       }    
+            }
+        
+        
+        
+        for(Account pdMain : SelectedAccountMap.values()){
+        Participating_Dealer__c pd = New Participating_Dealer__c();
+        pd.Campaign__c = CamId;
+        pd.Dealer__c = pdMain.Id;
+        
+        parDealer.add(pd);
+        }
+        
+        Insert parDealer;
+        
+        //PageReference nextPage = new PageReference('/' +camId );
+       // return nextPage;
+       
+        
+    }
+
+    public integer pageNumber{
+        get{
+            return Setcon.getPageNumber();
+        }
+        set;
+    }
+    
+    Public class AddingParticipatingDealer{
+        Public Account con{get;set;}
+        Public boolean bool{get;set;}
+    }
+}

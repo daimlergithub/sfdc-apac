@@ -52,7 +52,7 @@
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>    
                    </tr>
                
-                 <tr>        
+                 <tr> 
                        <th style="text-align: Right;">                      
                            {!$Label.Work_Mobile}
                       </th>     
@@ -235,7 +235,25 @@
                        <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>           
                        </td>        
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>    
-                   </tr>    
+                   </tr> 
+                   
+                   <!--<tr> 
+                       <th style="text-align: Right;">                      
+                           {!$Label.Work_Mobile}
+                      </th>     
+                       <td><apex:inputField value="{!ParAcc.Mobile2__c}" rendered="{!editMode}"/>
+                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile2__c} </a> </apex:outputPanel> 
+                           
+                       </td>  
+                       <td><apex:inputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!!editMode}"/>
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_By2__c}" />
+                                               
+                       </td>                  
+                       <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date2__c}"/></td>        
+                   </tr>-->
                        
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
@@ -260,6 +278,22 @@
                        
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date__c}"/></td>            
                    </tr> 
+                   <!--<tr>        
+                       <th style="text-align: Right;">{!$Label.Other_Phone_1}</th>        
+                       <td><apex:inputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!editMode}" />
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Home_Phone_2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Home_Phone_2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Home_Phone_2__c} </a> </apex:outputPanel>    
+                           
+                       </td> 
+                       <td><apex:inputField value="{!ParAcc.Home_Phone_Status_2__c}" rendered="{!editMode}" />
+                           <apex:outputField value="{!ParAcc.Home_Phone_Status_2__c}"  rendered="{!!editMode}" />
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By2__c}" />
+                                               
+                       </td>      
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date2__c}"/></td>       
+                   </tr>-->
+
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                        <td>
@@ -283,6 +317,63 @@
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
+                   <!--<tr>        
+                       <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        
+                       <td><apex:inputField value="{!ParAcc.Phone}" rendered="{!editMode}" />
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Phone}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Phone}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Phone} </a> </apex:outputPanel>    
+                       
+                       </td> 
+                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!editMode}" />
+                           <apex:outputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!!editMode}" />
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By2__c}" />
+                                               
+                       </td>         
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date2__c}"/></td>              
+                   </tr> -->
+<!--<tr>        
+                       <th style="text-align: Right;">{!$Label.Home_Email}</th>        
+                       <td><apex:inputField value="{!ParAcc.Email__c}" rendered="{!editMode}" />
+                           <apex:outputField value="{!ParAcc.Email__c}" rendered="{!!editMode}" />
+                       </td>           
+                       <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By__c}" />
+                                               
+                       </td>         
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>  
+                   </tr> 
+                   <tr>        
+                       <th style="text-align: Right;">{!$Label.Business_Email}</th>        
+                       <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
+                       </td>                           
+                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />
+                                               
+                       </td>      
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>        
+                   </tr> 
+                   
+                  <tr>        
+                       <th style="text-align: Right;">{!$Label.Other_Email}</th>        
+                       <td><apex:inputField value="{!ParAcc.Email3__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Email3__c}" rendered="{!!editMode}"/>
+                       </td>                           
+                       <td><apex:inputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Email_Status_3__c}"  rendered="{!!editMode}"/>
+                       </td>   
+                      <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By3__c}" />
+                                               
+                       </td>    
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date3__c}"/></td>        
+                   </tr> -->
+
+
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Business_Email}</th>        
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
@@ -320,6 +411,17 @@
                        <td></td>
                        <td></td>
                    </tr> 
+                   <!--<tr>        
+                       <th style="text-align: Right;">{!$Label.Work_Fax}</th>        
+                       <td><apex:inputField value="{!ParAcc.Fax2__c}" rendered="{!editMode}" />
+                           <apex:outputField value="{!ParAcc.Fax2__c}" rendered="{!!editMode}" />
+                       </td>                           
+                       <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
+                           <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
+                       </td>   
+                       <td></td>
+                       <td></td>
+                   </tr>-->
                </table>    
              </apex:pageBlock> 
                     <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">

@@ -440,6 +440,12 @@ public class AddressDisplayInlineEditController {
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
                     
+					 if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_1_Native__c= response.Addresses[i].Address_Line_1_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObjtemp.Address_Line_1_Native__c);
+                    }
+					
                     if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
@@ -450,6 +456,13 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
+					
+					 if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Address_Line_2_Native__c= response.Addresses[i].Address_Line_2_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObjtemp.Address_Line_2_Native__c);
+                    }
+					
                     if(ValidStr.contains('Block__c') && Market == 'JP')
                     {
                       addressobj.Block__c = response.Addresses[i].Block;
@@ -460,6 +473,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Block__c = response.Addresses[i].Block;
                         system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
                     }
+					
+					if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Block_Native__c= response.Addresses[i].Block_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + addressobj.Block_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('City__c') && Market == 'JP')
                     {
                       addressobj.City__c = response.Addresses[i].City;
@@ -471,6 +492,15 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
+					
+					if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    {
+                      addressobj.City_Native__c= response.Addresses[i].City_Native;
+                        //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + addressobj.City_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('District__c') && Market == 'JP')
                     {
                       addressobj.District__c = response.Addresses[i].District;
@@ -481,6 +511,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
+					
+					   if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    {
+                      addressobj.District_Native__c= response.Addresses[i].District_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + addressobj.District_Native__c);
+                    }
+					
+					
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       addressobj.Province__c = response.Addresses[i].Province;
@@ -491,6 +529,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
+					
+					 if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    {
+                      addressobj.Province_Native__c= response.Addresses[i].Province_Native;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + addressobj.Province_Native__c);
+                    }
+					
+					
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
                 }
                 else if(!response.Addresses[i].Valid){
@@ -540,8 +586,8 @@ public class AddressDisplayInlineEditController {
 If the user is Saving  same address which matches the fields returned by tolerant, update Address with proper Address code returned by Tolerant
 **  Created By: Narasimha  
 **  Date: 2016-2-8
-** Modified By: Rakesh Babu
-** Date 2017-3-30
+** Modified by : Rakesh Babu
+** Date : 2017-3-30
 **/
     public String ValidateAddressCode(Address__c Address)
     {
@@ -562,7 +608,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
             else 
-            {   
+            {	
                 return null;
             }
         }

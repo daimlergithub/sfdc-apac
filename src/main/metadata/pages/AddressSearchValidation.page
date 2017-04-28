@@ -59,7 +59,7 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >        
-                     <apex:outputLabel value="Touch Point" />       
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />       
                   <apex:inputText value="{!TouchPoint}"  />             
                   </apex:pageBlockSectionItem> 
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
@@ -75,7 +75,7 @@
                     <apex:inputField value="{!objAccount.Phone}" />
                     <apex:inputField value="{!objAccount.Email__c}" />
                     <apex:inputField value="{!objAccount.Email2__c}" />
-                    <apex:inputField value="{!objPersonAccount.VIN__c}" />                  
+                    <apex:inputField value="{!objAccount.VIN__c}" />                  
                 </apex:pageBlockSection>
                
                 
@@ -95,7 +95,7 @@
                         
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
-                     <apex:outputLabel value="Touch Point" />
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />
                   <apex:inputText value="{!TouchPoint}"  />        
                   </apex:pageBlockSectionItem> 
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
@@ -112,9 +112,12 @@
                     <apex:inputField value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
-                   
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">
                     
-                </apex:pageBlockSection>
+                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" />
+                
+                   </apex:pageBlockSection>
                 
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR'),true,false)}">
@@ -394,6 +397,28 @@
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
+					</apex:Column>
+                </apex:PageBlockTable> 
+                </apex:PageBlock>                
+                <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
+                     
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">  
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">  
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>    
+                    </apex:Column> 
+                  <!--  <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     -->
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
+                        <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>

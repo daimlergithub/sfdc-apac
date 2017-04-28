@@ -7,7 +7,23 @@ Public class MassUpdatenewAssignedusercontrollerTest{
     accList.add(acc);
     insert accList;
     
-    MassUpdatenewAssignedusercontroller.WrapperMassUpdate wmu= new MassUpdatenewAssignedusercontroller.WrapperMassUpdate(acc);
+     List<sobject> vecleList = new List<sobject>();    
+     Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accList[0].id);
+     vecleList.add(vecle);
+     insert vecle ;
+    
+      Account_Link__c al=new Account_Link__c(Name='new al',
+      toRole__c=accList[0].id,
+      Vehicle__c=vecleList[0].id,
+      Retail_Sales_Consultant__c=accList[0].ownerId,
+      Service_Advisor__c=accList[0].ownerId,
+      
+      RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId()
+      );
+   
+       insert al;
+
+    MassUpdatenewAssignedusercontroller.WrapperMassUpdate wmu= new MassUpdatenewAssignedusercontroller.WrapperMassUpdate(al);
     List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate> wmulst= new List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate>();
     
     List<Account> accListD = new List<Account>();    
@@ -29,12 +45,9 @@ Public class MassUpdatenewAssignedusercontrollerTest{
     List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate> wmulst1= new List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate>();
     
         
-    List<Vehicle__c > vecleList = new List<Vehicle__c >();    
-    Vehicle__c vecle = new Vehicle__c (Brand__c='Mercedes-Benz',Related_contact__c=accList[0].id);
-    vecleList.add(vecle);
-    insert vecleList ;
     
-    MassUpdatenewAssignedusercontroller.WrapperMassUpdate wmu2= new MassUpdatenewAssignedusercontroller.WrapperMassUpdate(vecle);
+    
+    MassUpdatenewAssignedusercontroller.WrapperMassUpdate wmu2= new MassUpdatenewAssignedusercontroller.WrapperMassUpdate(al);
     List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate> wmulst2= new List<MassUpdatenewAssignedusercontroller.WrapperMassUpdate>();
     
     List<Case> caseList = new List<Case>();    

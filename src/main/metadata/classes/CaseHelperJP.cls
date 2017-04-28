@@ -15,7 +15,7 @@ public class CaseHelperJP
         system.debug('Trigger Old Map...' +case_Map);
         Set<Id> accounts = new Set<Id>();
         Map<Id, List<Integer>> acc_Count = new Map<Id, List<Integer>>();
-		List<Id> newAccoutIds = new List<Id>();
+        List<Id> newAccoutIds = new List<Id>();
         for (Case c : cases)
         {
             if (c.MD__c == 'JP' || c.MD__c == 'KR')
@@ -648,6 +648,8 @@ List<Account> accUpdLst = new List<Account>();
     
       public static void countchildcase(List<Case> cases,List<case> oldcases)
       {
+         
+         
           Id caseinquiryrt= Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
           Id dealeracctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
           Id companyacctrt= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
@@ -692,7 +694,7 @@ List<Account> accUpdLst = new List<Account>();
               set<id> caseaccountid=new set<id>(); 
               set<id> casedealeraccid=new set<id>(); 
               // fetch all the case records related to Accounts having same dealer GC code
-              List<case> caselst= [select id,accountId ,Case_Dealer__r.Dealer_GC_Code__c,Case_Dealer__c from case where Case_Dealer__c=:accdealerids AND  RecordTypeId=:caseinquiryrt];
+              List<case> caselst= [select id,accountId ,Case_Dealer__r.Dealer_GC_Code__c,Case_Dealer__c from case where Case_Dealer__c=:accdealerids AND  RecordTypeId=:caseinquiryrt LIMIT 5000];
               
               for(case cs:caselst)
               {
@@ -706,7 +708,7 @@ List<Account> accUpdLst = new List<Account>();
               }   
               
               //fetch all  the account link record which is related with case
-              List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid  ];
+              List<Account_Link__c> relatedacctlnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:casedealeraccid AND toRole__c=:caseaccountid LIMIT 5000 ];
               
               system.debug('relatedacctlnk>>>>>>' + relatedacctlnk);
               // for insert and update trigger 
@@ -723,11 +725,14 @@ List<Account> accUpdLst = new List<Account>();
               update relatedacctlnkList; 
           
           
+          
+          
           // for delete trigger
           List<case> deletedcasedealer=new List<case>();
           Map<Id,Id> MapOfaccountId =new Map<Id,Id>();
           Map<Id,Id> MapOfdealerId=new Map<Id,Id>();
           set<case > oldcaseids=new Set<case >();
+          
           
           if(trigger.isDelete)
           {
@@ -742,9 +747,10 @@ List<Account> accUpdLst = new List<Account>();
               }
               
               //fetch all the account link records whose Account1 and Account2 are related with case record which we are trying to delete
-              
-              List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delcasedealer  AND toRole__c  IN:delaccidcase ];
-              
+              system.debug('+++++++++++++'+delcasedealer );
+              system.debug('+++++++++++++'+delaccidcase );
+              List<Account_Link__c> relatedacclnk=[select id,Retail_Complaint_Amount__c,Last_Service_Dealer__c,fromRole__c,toRole__c from Account_Link__c where fromRole__c IN :delcasedealer  AND toRole__c  IN:delaccidcase LIMIT 5000 ];
+              system.debug('+++++++++++++'+relatedacclnk );
               for(Account_Link__c al :relatedacclnk)
               {  
                   if((MapOfdealerId.get(al.fromRole__c)==al.fromRole__c) && (MapOfaccountId.get(al.toRole__c)==al.toRole__c))
@@ -753,7 +759,8 @@ List<Account> accUpdLst = new List<Account>();
                   } 
               }  
               update relatedacclnk;
-          }     
+          } 
+             
       }
 
 

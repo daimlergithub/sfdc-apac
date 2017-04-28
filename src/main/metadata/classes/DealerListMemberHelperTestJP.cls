@@ -1,5 +1,0 @@
-@istest
-public class DealerListMemberHelperTestJP
-{
-
-}

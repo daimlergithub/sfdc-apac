@@ -422,7 +422,9 @@
           
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {
-              $scope.brands.sort();
+              $scope.brands.sort(function (a, b) {
+                           return a.toLowerCase().localeCompare(b.toLowerCase());
+                                 });
               $scope.relatedClasses.sort();
               $scope.models.sort();
               $scope.vehicleDetail = false;

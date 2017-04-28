@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -113,7 +113,7 @@
     <fields>
         <fullName>Actual_Outstanding_Bal_To_Shinpan_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c, &apos;Subrogation&apos;),Actual_Outstanding_Bal_To_Shinpan__c, null)</formula>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Bal_To_Shinpan__c, null)</formula>
         <label>actual outstanding balance(Dealer)</label>
         <precision>18</precision>
         <required>false</required>
@@ -138,7 +138,7 @@
     <fields>
         <fullName>Actual_Outstanding_Balance_To_Shinpan__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c, &apos;Subrogation&apos;),Actual_Outstanding_Balance__c, null)</formula>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Actual_Outstanding_Balance__c, null)</formula>
         <label>actual outstanding balance(Dealer)</label>
         <precision>18</precision>
         <required>false</required>
@@ -486,7 +486,7 @@
     <fields>
         <fullName>CMS_Contract_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&apos;function&apos;) {srcUp(&apos;/&quot; &amp; Id &amp; &quot;?isdtp=vw&apos;);}&quot;+ &quot; else {window.location.href=&apos;/&quot; &amp; Id &amp; &quot;?isdtp=vw&apos;}&quot;, ContractNumber__c , &quot;_self&quot; )</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
@@ -2482,7 +2482,7 @@
     <fields>
         <fullName>Loan_Remaining_Bal_Baloon_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c, &apos;Subrogation&apos;),Loan_Remaining_Balance_With_Baloon__c , null)</formula>
+        <formula>IF(ISPICKVAL(Status__c, 'Subrogation'),Loan_Remaining_Balance_With_Baloon__c , null)</formula>
         <label>Balance (loan with Ballon)</label>
         <precision>18</precision>
         <required>false</required>
@@ -2536,9 +2536,9 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -2761,9 +2761,9 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <fullName>NoClaimBonus__c</fullName>
         <externalId>false</externalId>
         <label>No Claim Bonus</label>
-        <precision>18</precision>
+        <precision>5</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
@@ -3291,7 +3291,6 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Touring support Plus</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -4110,11 +4109,11 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Forced Termination</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Change of Owner</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Change Owner</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4505,7 +4504,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
     <fields>
         <fullName>Voluntary_Insurance_Premium_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL(Voluntary_Insurance_Type__c, &apos;Yes (DIS)&apos;) , Voluntary_Insurance_Premium__c, null)</formula>
+        <formula>IF( ISPICKVAL(Voluntary_Insurance_Type__c, 'Yes (DIS)') , Voluntary_Insurance_Premium__c, null)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Voluntary Insurance Premium(Dealer)</label>
         <precision>18</precision>
@@ -4612,36 +4611,40 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
         <fullName>MBF_Contract_Administration_CA_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Contract Administration (CA) Team</label>
+        <language>en_US</language>
         <queue>MBF_Contract_Administration_CA_Team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Customer_Care_CCC_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Customer Care (CCC) Team</label>
+        <language>en_US</language>
         <queue>MBF_Customer_Care_CCC_Team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Inbound_Outbound_Supervisor_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Inbound &amp; Outbound Supervisor</label>
+        <language>en_US</language>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBF_Quotation_Team_Queue_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
+        <language>en_US</language>
         <queue>MBF_Quotation_Team_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5711,7 +5714,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Change of Owner</fullName>
                 <default>false</default>
             </values>
@@ -5765,7 +5768,7 @@ IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,&apos;NA&apos;)))<
                 <fullName>Loan</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Service Program</fullName>
                 <default>false</default>
             </values>

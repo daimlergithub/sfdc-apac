@@ -21,10 +21,10 @@ public class AccountMergeControllerKRTest {
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         
-        objMaster= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = true,lastname = 'MasterAcc',Phone = '1234575',DUPNumber__c='110',
-                               Last_Successful_Call_Office_Phone__c = System.today() - 10,MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642',DMS_Address__c = 'dmsaddress1');       
-        objSlave= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = false,lastname = 'SlaveAcc',Phone = '1234572',DUPNumber__c='110',
-                              Last_Successful_Call_Office_Phone__c = System.today(),MBK_Data_Source__c='Email',Mobile__c = '000-0000-9642',DMS_Address__c = 'dmsaddress2');
+        objMaster= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = true,lastname = 'MasterAcc',DUPNumber__c='110',
+                               Last_Successful_Call_Office_Phone__c = System.today() - 10,MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress1');       
+        objSlave= new Account(RecordTypeId=personaccRecordTypeId,Master_Record__c = false,lastname = 'SlaveAcc',DUPNumber__c='110',
+                              Last_Successful_Call_Office_Phone__c = System.today(),MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress2');
         System.runAs(new User(Id = UserInfo.getUserId())){
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
         }                         

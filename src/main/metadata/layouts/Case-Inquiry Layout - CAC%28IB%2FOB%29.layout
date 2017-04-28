@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>New_Lead</customButtons>
-    <customButtons>New_AfterSales_Lead</customButtons>
+    <customButtons>New_Sales_Lead_Wholesale</customButtons>
+    <customButtons>New_AfterSales_Lead_Wholesale</customButtons>
     <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
@@ -363,6 +363,22 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
+        <label>Vehicle Select</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePickerCase</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
         <label>Case Feedback</label>
         <layoutColumns>
             <layoutItems>
@@ -503,22 +519,6 @@
         <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
-    </layoutSections>
-	<layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>New Section</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>200</height>
-                <page>MarketCheckOnVehiclePickerCase</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
     </layoutSections>
     <quickActionList>
         <quickActionListItems>

@@ -13,7 +13,9 @@
         var recordTypeValue = document.getElementById("singleSelect").value;
         if(recordTypeValue == 'MB'){
         var brandVal = document.getElementById("brandItems").value;
+           
         var classVal = document.getElementById("classItems").value;
+        //Var classVal   = document.getElementById("classItems").value;
         var modelVal = document.getElementById("modelItems").value;  
         var rangeVal = document.getElementById("rangeItems").value; 
         var modpackVal = document.getElementById("mpItems").value; 
@@ -213,11 +215,12 @@
                                   <apex:pageBlockSectionItem >
                                      <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
                                     
-                                            <div>
+                                            <div class = "requiredInput"  >
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td>
+                                                    <td class="dataCol requiredInput" >
+                                                    
                                                     <select  id="brandItems" style="width:160px" ng-blur="setSelectedValue(selectedBrand)" ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand for brand in brands track by brand" />
                                                     </td> 
                                                 </tr> 
@@ -238,13 +241,16 @@
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td>
+
+                                                    <td class="dataCol requiredInput">
                                          <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>
-													 </td> 
+
+                                                     </td> 
                                                 </tr> 
                                              </table>
+
                                             </div>
-										
+                                        
                                     </apex:pageBlockSectionItem>
                                   
                                    <apex:pageBlockSectionItem >
@@ -302,6 +308,8 @@
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
+
+
                         
                     </apex:pageBlockSection>
                  </span>
@@ -334,13 +342,17 @@
                             
                          <apex:pageBlockSectionItem > 
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}"/>              
-                                    <div class = "requiredInput">
+                                    <div>
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                      <table>
                                         <tr>
                                             <td class="dataCol requiredInput">            
                                     <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>
-											 </td> 
+
+
+
+
+                                             </td> 
                                                 </tr> 
                                              </table>
                                             </div>
@@ -360,6 +372,9 @@
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.Related_From__c}"/>
                         <apex:inputField value="{!vehicle.Related_To__c}"/> 
+
+
+
                         
                     </apex:pageBlockSection>
                 </span>

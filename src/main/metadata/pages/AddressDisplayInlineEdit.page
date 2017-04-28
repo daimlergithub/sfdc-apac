@@ -228,7 +228,7 @@
                         
                     <apex:inputField value="{!addressobj.Company_Name__c}"/>
 
-                     <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
+                   <!--  <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>-->
 
                      <apex:inputField value="{!addressobj.TitleOfHonor__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      
