@@ -523,6 +523,7 @@
 											<sf:include name="AccountLinkHelperTest"/>
 											<sf:include name="TriggerAccountTriggerHandlerKR"/>
 											<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
+											<sf:include name="TriggerRecursiveCheck"/>
 											<sf:include name="AccountHelperKR"/>
 											<sf:include name="AccountHelperKRTest"/>
 											<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
