@@ -175,6 +175,7 @@
                 <behavior>Required</behavior>
                 <field>Contact__c</field>
             </layoutItems>
+			
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Email__c</field>
