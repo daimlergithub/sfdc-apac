@@ -30,9 +30,9 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
                 <apex:outputField value="{!acclnkdealer.Retail_Comments__c}"/>  
            </apex:pageBlockSectionItem>
               
-           <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">       
-                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}" rendered="{!if(companyRT == false,true,false)}"/>
-                <apex:outputField value="{!acclnkdealer.Retail_OptOutContact_Reason__c}" rendered="{!if(companyRT == false,true,false)}"/>
+           <apex:pageBlockSectionItem rendered="{!if(personaccRT == false,true,false)}">       
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_OptOutContact_Reason__c.Label}" rendered="{!if(personaccRT == false,true,false)}"/>
+                <apex:outputField value="{!acclnkdealer.Retail_OptOutContact_Reason__c}" rendered="{!if(personaccRT == false,true,false)}"/>
            </apex:pageBlockSectionItem>       
            <apex:pageBlockSectionItem rendered="{!if(companyRT == false,true,false)}">      
                 <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Retail_Email_OptOut__c.Label}"/>

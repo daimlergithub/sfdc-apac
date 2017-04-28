@@ -36524,36 +36524,31 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>smart</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues><picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-            <values>
-                <fullName>Allocated</fullName>
-                <default>false</default>
+			<values>
+                <fullName>New</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved %28Waiting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
             <values>
-                <fullName>Distributed</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>true</default>
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
@@ -36564,7 +36559,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Distributed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39043,47 +39042,27 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
-                <fullName>1 Year Inspection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6 month Inspection</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Car Wash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General Car Care</fullName>
+                <fullName>Repair</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>General Repair</fullName>
                 <default>false</default>
-            </values>
+            </values>            
             <values>
+                <fullName>MOT</fullName>
+				<default>false</default>
+            </values>
+			<values>
                 <fullName>Inspection</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MOT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paint</fullName>
+                <fullName>General Car Care</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39092,16 +39071,16 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Plus Check</fullName>
+				<default>false</default>
+            </values>
+			<values>
+                <fullName>Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Recall</fullName>
+                <fullName>Car Wash</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Repair</fullName>
-                <default>false</default>
-            </values>
+            </values>            
             <values>
                 <fullName>Retrofit</fullName>
                 <default>false</default>
@@ -97872,6 +97851,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Replace existing vehicle</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Use__c</picklist>
@@ -110585,7 +110568,7 @@ alert("{!$Label.Authorization}");
         <masterLabel>SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript:
@@ -110609,7 +110592,7 @@ window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.I
         <masterLabel>Select Assigned Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}  
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
@@ -110676,7 +110659,7 @@ alert("Web service callout failed");
         <masterLabel>Submit Survey</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")}   
 {!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 

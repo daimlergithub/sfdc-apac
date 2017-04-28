@@ -79,6 +79,10 @@
                 <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
             </layoutItems>
+			            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBK_Lost_Situation__c</field>
@@ -168,9 +172,10 @@
         <label>Lead Customer Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Contact__c</field>
             </layoutItems>
+			
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Email__c</field>

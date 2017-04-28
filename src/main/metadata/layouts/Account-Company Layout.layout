@@ -410,6 +410,8 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+		<customButtons>New_Sales_Lead</customButtons>		
+		<customButtons>New_AfterSales_Lead</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>

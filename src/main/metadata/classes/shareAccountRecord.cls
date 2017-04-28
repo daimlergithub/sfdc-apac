@@ -11,12 +11,12 @@ public class shareAccountRecord
         List<AccountShare> accShrLst = new List<AccountShare>();
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
         List<case> caseUpdLst = new List<case>();
-        List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId,Ownerid,Case_Dealer__r.Name from case where id in: caseIds]);
+        List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId,Ownerid,Case_Dealer__r.Dealer_ND_Code__c from case where id in: caseIds]);
         for(case cs: lstCase)
         {
             if(string.valueOf(cs.Case_Dealer__c) != '' && string.valueOf(cs.AccountId)!= '')
             {
-                caseDealerAccName.put(cs.id, cs.Case_Dealer__r.Name);
+                caseDealerAccName.put(cs.id, cs.Case_Dealer__r.Dealer_ND_Code__c);
                 caseCustAccId.put(cs.id, cs.AccountId);
                 dealerAccIds.add(cs.Case_Dealer__c);
             }

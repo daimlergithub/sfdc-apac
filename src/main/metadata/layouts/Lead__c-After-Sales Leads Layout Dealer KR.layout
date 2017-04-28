@@ -17,7 +17,7 @@
         <label>Lead Customer Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
@@ -34,10 +34,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>VehicleRel_No__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -72,12 +68,23 @@
                 <field>MBK_Lost_Situation__c</field>
             </layoutItems>
             <layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VehicleRel_No__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -90,8 +97,12 @@
                 <field>CAC_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Dealer_Lead_Status__c</field>
+            </layoutItems>
+			           <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -264,22 +275,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recommended_Dealer__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Vehicle Select</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>200</height>
-                <page>MarketCheckOnVehiclePicker</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>100%</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

@@ -234,7 +234,7 @@ public class AddressSearchValidationController{
                     
                        if(objAccount.Vat_No__c == null && objAccount.Commercial_Reg_No__c == null)
                         //ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter Business registration number / Vat registration '));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Commercial Registration Number / Vat Registration Number'));
                     }
                     else{
                         refreshPage = true;                      
@@ -1173,7 +1173,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
                           UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
-                          PersonBirthdate,MBK_Occupation__c,Job__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                  
                 cResult = lstAcc;  
@@ -1367,7 +1367,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                           Visit_Opt_Out__c,fax,Industry,Commercial_Reg_No__c,Vat_No__c,Website,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
                           Personal_Abroad_Agreement__c,Agreement_to_commit_info_processing__c,Foundation_Date__c,Complaint_Amount__c,
                           UCID__c,Allow_Data_Sharing__c,PersonMobilePhone,Individual_Home_Phone__c,Work_Phone__c,PersonEmail,Preferred_Contact_Method__c,
-                          PersonBirthdate,MBK_Occupation__c,Job__c,Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
+                          PersonBirthdate,MBK_Occupation__c,Job__c,Special_Care__c,Special_Needs_Class__c,Mobile__c,
+                          Preferred_Language__c,Gender__c,Company_Name_Native_1__c,OwnerId
                           From Account where  Id=:objAccountDeDup.Id];// and FirstName =: objPersonAccount.FirstName];
                 cResult = lstAcc;  
                 System.debug('@@@@@@@    lstAcc   lstAcc '+lstAcc );

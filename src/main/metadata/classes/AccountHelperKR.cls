@@ -266,6 +266,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             UtilAddressTranslation.gettranslatedvalues('KR');
             for(Account acc : accLst)
             {
+                system.debug('accountLanguage>>>' + acc.Preferred_Language__c);
                 if(acc.MD__c == 'KR')
                 {
                     accid.add(acc.Id);
@@ -324,10 +325,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_Sales_Sanction__c = retailacc.Sales_Sanction__c;
                         acclnk.Retail_UCID__c = retailacc.UCID__c;
                         acclnk.Retail_Allow_Data_Sharing__c = retailacc.Allow_Data_Sharing__c;
-                        acclnk.Retail_Mobile__c = retailacc.PersonMobilePhone;
+                        acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Individual_Home_Phone__c = retailacc.Individual_Home_Phone__c;
                         acclnk.Retail_Work_Phone__c = retailacc.Work_Phone__c;
-                        acclnk.Retail_Email__c = retailacc.PersonEmail;
+                        acclnk.Retail_Email__c = retailacc.Email__c;
                         acclnk.Retail_Fax__c =retailacc.Fax;
                         acclnk.Retail_Preferred_Contact_Method__c = retailacc.Preferred_Contact_Method__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
@@ -339,10 +340,12 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                         acclnk.Retail_PersonBirthdate__c = retailacc.PersonBirthdate;                     
                         acclnk.Retail_Occupation__c = retailacc.MBK_Occupation__c;
                         acclnk.Retail_Position__c = retailacc.Job__c;
-                        acclnk.Retail_Preferred_Language__c = retailacc.Preferred_Language__c;
+                        acclnk.Retail_Preferred_Language__c = 'Korean';
                         acclnk.Retail_Gender__c = retailacc.Gender__c;
                         acclnk.Retail_Industry__c = retailacc.industry;
-                        acclnk.Retail_WebSite__c = retailacc.Website; 
+                        acclnk.Retail_WebSite__c = retailacc.Website;
+                        acclnk.Retail_Special_Care__c = retailacc.Special_Care__c;
+                        acclnk.Retail_Special_Needs_Class__c = retailacc.Special_Needs_Class__c;
                         acclnk.Retail_Company_Name_Native1__c = retailacc.Company_Name_Native_1__c; 
                         acclnk.Retail_Commercial_Reg_No__c = retailacc.Commercial_Reg_No__c;
                         acclnk.Retail_Company_Phone__c = retailacc.Individual_Home_Phone__c;
@@ -567,7 +570,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
                 acclnk.Retail_PersonBirthdate__c = acclnk.toRole__r.PersonBirthdate;
                 acclnk.Retail_Occupation__c = acclnk.toRole__r.MBK_Occupation__c;                
-                acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
+                acclnk.Retail_Preferred_Language__c = 'Korean';
                 acclnk.Retail_Industry__c = acclnk.toRole__r.Industry;                  
                 acclnk.Retail_Special_Care__c = acclnk.toRole__r.Special_Care__c;
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
@@ -582,10 +585,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 //}
                 //if(persongroup6 == true){
-                acclnk.Retail_Mobile__c = acclnk.toRole__r.PersonMobilePhone;   
+                acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;   
                 //}   
                 //if(persongroup8 == true){   
-                acclnk.Retail_Email__c = acclnk.toRole__r.PersonEmail;
+                acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 //}
                 //if(persongroup10 == true){  
                 acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone_Display__c;
@@ -1072,5 +1075,56 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
             }
         }
     } 
-    ********************************/   
+    ********************************/  
+	//SFDCKR-1207
+    public static void shareDealeroutletsWithDealerCompany(List<Account> outletAccounts){
+        List<Id> accountIds = new List<Id>();
+        map<Id, List<Account>> dCompToDoutMap = new map<Id, List<Account>>();
+        map<Id, string> accDealerNdCode = new map<id, string>();
+		List<AccountShare> accShrLst = new List<AccountShare>();
+		map<string, id> grpNameidmap = new map<string, id>();
+        if(outletAccounts.size()>0 && outletAccounts != null){
+                for(Account acc: outletAccounts){
+                    if(acc.Dealer_Type__c == 'Outlet' && acc.MD__c == 'KR'){
+                        accountIds.add(acc.id);
+                    }
+                }
+                List<Account> dealerCompanyAcc = new List<Account>([select id , name, Dealer_Type__c, Dealer_ND_Code__c, ParentId from Account where id in: accountIds and RecordType.Name = 'Dealer']);
+                for(Account acc: dealerCompanyAcc){
+                    if(!dCompToDoutMap.containsKey(acc.ParentId)){
+                        dCompToDoutMap.put(acc.ParentId, New List<Account>());
+                    }
+                        dCompToDoutMap.get(acc.ParentId).add(acc);
+                }
+                
+                List<Account> parentAccLst = new List<Account>([select id, name, Dealer_ND_Code__c from Account where id in:dCompToDoutMap.keySet()]);
+				for(Account acc: parentAccLst){
+					if(acc.Dealer_ND_Code__c != null){
+						accDealerNdCode.put(acc.id, acc.Dealer_ND_Code__c);
+					}
+				}
+				List<Group> grpLst = new List<Group>([select id, name from Group where name in:accDealerNdCode.values()]);
+				for(Group grp: grpLst){
+					grpNameidmap.put(grp.name, grp.id);
+				}
+				for(string id: accDealerNdCode.keySet()){
+					List<Account> accLst = dCompToDoutMap.get(id);
+					if(accLst.size()>0){
+						for(Account acc: accLst){
+							AccountShare ash = new AccountShare();
+							ash.AccountAccessLevel = 'Read';
+							ash.OpportunityAccessLevel = 'Read';
+							ash.CaseAccessLevel = 'Read';
+							ash.AccountId = acc.id;
+							ash.UserOrGroupId = grpNameidmap.get(accDealerNdCode.get(id));
+							accShrLst.add(ash);							
+						}
+					}
+				}
+				
+				if(accShrLst.size()>0){
+					insert accShrLst;
+				}       
+        }       
+    }
 }
