@@ -6,8 +6,13 @@ public class CaseHelperJP
     public List<Id> tmpCaseIds = new List<Id>();
     public List<Account> updateAccount = new List<Account>();
     public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-   public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-   public List<Account> accUpdLst = new List<Account>();    
+    public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public static Id S24h_Case_RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('S24h - MMC').getRecordTypeId();
+    public List<Account> accUpdLst = new List<Account>();    
+	set<String> gscode= new set<String>();
+    Map<String, id> accUserMap = new Map<String, id>();
+    Map<String,id> accUserMap1 = new Map<String,id>();
+    set<String> newmapid= new set<String>();  
 
         
     public void calculateComplaintAmount(List<Case> cases, Map<Id,SObject> case_Map)
