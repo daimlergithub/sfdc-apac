@@ -32,6 +32,19 @@
         <name>CAC Inquiry share to Hanxue</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Case_Record_Share</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S24h - MMC</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>Case Record Share</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>ComplaintShareCentralOffice</fullName>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
