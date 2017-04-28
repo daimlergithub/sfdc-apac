@@ -25598,10 +25598,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
     <userPermissions>
@@ -25615,9 +25611,5 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ShowCompanyNameAsUserBadge</name>
-    </userPermissions>
-	<userPermissions>
-        <enabled>true</enabled>
-        <name>NewReportBuilder</name>
     </userPermissions> 
 </Profile>
