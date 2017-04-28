@@ -14057,9 +14057,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Price_Range__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25594,10 +25594,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
     <userPermissions>
@@ -25611,5 +25607,5 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ShowCompanyNameAsUserBadge</name>
-    </userPermissions>
+    </userPermissions> 
 </Profile>
