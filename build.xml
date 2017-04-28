@@ -111,7 +111,7 @@
 					<sf:typeset name="callCenters"/>
 				</deploy>
 				</target>
-
+				
 				<target name="deploy05">
 					<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 						<sf:typeset name="objects"/>
@@ -315,6 +315,7 @@
 							<sf:include name="TriggerAccountTriggerHandlerKRTest"/>
 							<sf:include name="AccountHelperKR"/>
 							<sf:include name="AccountHelperKRTest"/>
+							<sf:include name="TriggerRecursiveCheck"/>
 							<sf:include name="VehicleRelationshipHelperKR"/>
 							<sf:include name="TriggerVehicleRelTriggerHandlerKR"/>
 							<sf:include name="TriggerVehicleRelTriggerHandlerKRTest"/>
