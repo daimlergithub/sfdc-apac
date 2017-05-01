@@ -2425,7 +2425,7 @@ Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</descript
     </fields>
     <fields>
         <fullName>Area_Code__c</fullName>
-        <description>Required by business during the workshop, which exists in current avarto system ( åŒºå·).</description>
+        <description>Required by business during the workshop, which exists in current avarto system ( åŒºå&#143;·).</description>
         <externalId>false</externalId>
         <label>Area Code</label>
         <length>10</length>
@@ -10392,7 +10392,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Avenue L (ë¡¯ë°)</fullName>
+                <fullName>Avenue L (ë¡¯ë&#141;°)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10404,19 +10404,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte (ë¡¯ë&#141;°_ë©´ì„¸ì &#144;)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian (ì‹ ë&#157;¼)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine (í•˜ì–&#143;íŠ¸)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage (ë¡¯ë&#141;°)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -12606,7 +12606,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>R_Check_Household_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>If (  Household_Amount__c  &gt; 10  , 'æ˜¯','å¦')</formula>
+        <formula>If (  Household_Amount__c  &gt; 10  , 'æ˜¯','å&#144;¦')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Household Amount</label>
         <required>false</required>
@@ -13269,7 +13269,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>Sales_Address_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "è‡ªå®…", "Business", "å‹¤å‹™å…ˆ","Other Address 1","ãã®ä»–1","Other Address 2","ãã®ä»–2","Other Address 3","ãã®ä»–3","")</formula>
+        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "è‡ªå®…", "Business", "å‹¤å‹™å…ˆ","Other Address 1","ã&#129;&#157;ã&#129;®ä»–1","Other Address 2","ã&#129;&#157;ã&#129;®ä»–2","Other Address 3","ã&#129;&#157;ã&#129;®ä»–3","")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Address Type</label>
         <required>false</required>
@@ -14946,7 +14946,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
             <value>THIS_WEEK</value>
         </filters>
-        <label>ì´ë²ˆ ì£¼ ìƒˆ ê³„ì •</label>
+        <label>ì&#157;´ë²ˆ ì£¼ ìƒˆ ê³„ì •</label>
         <language>ko</language>
     </listViews>
     <listViews>
@@ -16644,11 +16644,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16672,11 +16672,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16724,7 +16724,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18859,7 +18859,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18867,7 +18867,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18879,7 +18879,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18887,7 +18887,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18915,7 +18915,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18939,7 +18939,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18971,7 +18971,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18991,7 +18991,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18999,15 +18999,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22169,11 +22169,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22197,11 +22197,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22249,7 +22249,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24735,7 +24735,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24743,7 +24743,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24755,7 +24755,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24763,7 +24763,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24791,7 +24791,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24815,7 +24815,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24847,7 +24847,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24867,7 +24867,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24875,15 +24875,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28171,11 +28171,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28199,11 +28199,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28251,7 +28251,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30513,7 +30513,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30521,7 +30521,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30533,7 +30533,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30541,7 +30541,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30569,7 +30569,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30593,7 +30593,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30625,7 +30625,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30645,7 +30645,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30653,15 +30653,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -33933,11 +33933,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -33961,11 +33961,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -34013,7 +34013,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36499,7 +36499,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36507,7 +36507,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36519,7 +36519,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36527,7 +36527,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36555,7 +36555,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36579,7 +36579,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36611,7 +36611,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36631,7 +36631,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36639,15 +36639,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39924,11 +39924,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39952,11 +39952,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40004,7 +40004,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42259,7 +42259,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42267,7 +42267,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42279,7 +42279,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42287,7 +42287,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42315,7 +42315,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42339,7 +42339,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42371,7 +42371,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42391,7 +42391,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42399,15 +42399,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45285,11 +45285,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45313,11 +45313,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45365,7 +45365,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47155,7 +47155,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47163,7 +47163,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47175,7 +47175,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47183,7 +47183,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47211,7 +47211,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47235,7 +47235,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47267,7 +47267,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47287,7 +47287,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47295,15 +47295,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50057,11 +50057,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Equip)</fullName>
+                <fullName>Auto IT %28Equip%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT (Units)</fullName>
+                <fullName>Auto IT %28Units%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50085,11 +50085,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Easy Mate (Global Soultions)</fullName>
+                <fullName>Easy Mate %28Global Soultions%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions â€“ Voyager</fullName>
+                <fullName>Gateway Solutions â%E2%82%AC%E2%80%9C Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50137,7 +50137,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reynolds CFS / Dealer Pro</fullName>
+                <fullName>Reynolds CFS %2F Dealer Pro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52107,7 +52107,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Avenue L %28ë¡¯ë°%29</fullName>
+                <fullName>Avenue L %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52115,7 +52115,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beyond %28ëŒ€í•œ_êµ­ì œì„ %29</fullName>
+                <fullName>Beyond %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADì œì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52127,7 +52127,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chronos %28í™€ìˆ˜%2Cì‹œê³„%29</fullName>
+                <fullName>Chronos %28í%E2%84%A2%E2%82%ACìˆ%CB%9C%2Cì%E2%80%B9œê%C2%B3%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52135,7 +52135,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignHouse %28í–‰ê°€ì§‘%29</fullName>
+                <fullName>DesignHouse %28í%E2%80%93%E2%80%B0ê%C2%B0%E2%82%ACì%C2%A7%E2%80%98%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52163,7 +52163,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Galleria (ê²”ëŸ¬ë¦¬ì•„)</fullName>
+                <fullName>Galleria %28ê%C2%B2%E2%80%9DëŸ%C2%ACë%C2%A6%C2%ACì%E2%80%A2%E2%80%9E%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52187,7 +52187,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>JJ Magazine (í•˜ì–íŠ¸)</fullName>
+                <fullName>JJ Magazine %28í%E2%80%A2%CB%9Cì%E2%80%93%C2%8FíŠ%C2%B8%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52219,7 +52219,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Morning Calm (ëŒ€í•œ_êµ­ë‚´ì™¸ì„ )</fullName>
+                <fullName>Morning Calm %28ëŒ%E2%82%ACí%E2%80%A2œ_êµ%C2%ADë%E2%80%9A%C2%B4ì%E2%84%A2%C2%B8ì%E2%80%9E %29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52239,7 +52239,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Noblian (ì‹ ë¼)</fullName>
+                <fullName>Noblian %28ì%E2%80%B9 ë%C2%9D%C2%BC%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52247,15 +52247,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PreVillage (ë¡¯ë°)</fullName>
+                <fullName>PreVillage %28ë%C2%A1%C2%AFë%C2%8D%C2%B0%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Style H (í˜„ëŒ€)</fullName>
+                <fullName>Style H %28í%CB%9C%E2%80%9EëŒ%E2%82%AC%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>The Lotte (ë¡¯ë°_ë©´ì„¸ì )</fullName>
+                <fullName>The Lotte %28ë%C2%A1%C2%AFë%C2%8D%C2%B0_ë%C2%A9%C2%B4ì%E2%80%9E%C2%B8ì %C2%90%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53794,7 +53794,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'KR'))</e
         <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
  OR(LEN(Branch_name_Native__c)=1,
- NOT(REGEX( Branch_name_Native__c, "[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))))</errorConditionFormula>
+ NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
@@ -53905,7 +53905,7 @@ OR(
 RecordType.DeveloperName = 'Company', 
 ISBLANK( Company_Name_Native_1__c ), 
 REGEX(Company_Name_Native_1__c , 
-"[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))), 
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))), 
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
@@ -54156,7 +54156,7 @@ OR(
 RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(FirstName_Native_1__c),
 REGEX(FirstName_Native_1__c, 
-"[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
@@ -54393,7 +54393,7 @@ OR(
 RecordType.DeveloperName = 'Person Account', RecordType.DeveloperName = 'Company',
 ISBLANK(LastName_Native_1__c),
 REGEX(LastName_Native_1__c, 
-"[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*"))),
+"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),
 $Profile.Name != 'IntegrationAPI', 
 MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
@@ -54612,7 +54612,7 @@ OR(Postal_Opt_Out_Reason__c=null,Postal_Opt_Out_Reason__c=""))</errorConditionFo
       ))
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
-        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to â€œPhoneâ€.</errorMessage>
+        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to â€œPhoneâ€&#157;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Sales_Sanction_Comment_required</fullName>
@@ -55205,7 +55205,7 @@ window.open("/a13/e?RecordType=012280000006I7q&amp;ent=Account&amp;00N2800000A9C
         <masterLabel>New Case</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId={!Account.Id}&amp;retURL=%2F500%2Fo</url>
+        <url>/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=/500/o&amp;save_new_url=/500/e?fromAccountId1={!Account.Id}&amp;retURL=%2F500%2Fo</url>
     </webLinks>
     <webLinks>
         <fullName>New_Case_Dealer</fullName>
@@ -55523,6 +55523,174 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didResub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("et4ae5/jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didResub=sforce.apex.execute("jsButtonMethods","performResub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didResub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didResub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didResub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didResub=="success")
+{
+alert("{!Account.Name} was resubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+var pacId, didUnsub;
+try
+{
+pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("et4ae5/jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+catch (e)
+{
+pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"}); 
+didUnsub=sforce.apex.execute("jsButtonMethods","performUnsub", {subscriberKey:pacId,objectType:"contact"});
+}
+if (didUnsub=="connection error")
+{
+alert("The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.");
+}
+else if (didUnsub=="not found")
+{
+alert("This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="other error")
+{
+alert("An unexpected error has been encountered. The Email Opt Out flag will not be updated.");
+}
+else if (didUnsub=="not integrated")
+{
+alert("You must be integrated with ExactTarget to update an ExactTarget subscriber.");
+}
+else if (didUnsub=="success")
+{
+alert("{!Account.Name} was unsubscribed successfully.");
+} 
+var theUrl="/{!Account.Id}";
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/singleSendETEmail?contactId="+pacId;
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+try
+{
+var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
+var pacId=sforce.apex.execute("et4ae5/jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "https://et4ae5."+urlPrefix+"/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute("jsButtonMethods","getPACId", {acctId:"{!CASESAFEID( Account.Id )}"});
+var theUrl = "/apex/SubscriberAnalytics?id="+pacId+"&amp;obj=contact";
+var npaUrl = parent.location.href;
+if(pacId=="error")
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
 }</url>
     </webLinks>
 </CustomObject>

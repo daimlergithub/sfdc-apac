@@ -7,11 +7,14 @@ public class MBJ_FS_Case_Inquiry_Controller{
     Public String accountId;
     Public ID caseID;
     Public ID retailTaskID;
+    Public id accid;
     Public ID caseOwnerID;
       
     public MBJ_FS_Case_Inquiry_Controller(ApexPages.StandardController stdController) {
         this.inquiryCase = (Case)stdController.getrecord();
         caseID = ApexPages.currentPage().getParameters().get('id');
+        
+        
         
         /*
         Field value are set while creating a case record
@@ -23,6 +26,7 @@ public class MBJ_FS_Case_Inquiry_Controller{
             accountId = ApexPages.currentPage().getParameters().get('accountId');
             if(accountId != null)
                 inquiryCase.Case_Complainant__c = accountId;
+                inquiryCase.accountid=accountId;
                 
             caseOwnerID = ApexPages.currentPage().getParameters().get('ownerid');
             inquiryCase.ownerid = caseOwnerID;
