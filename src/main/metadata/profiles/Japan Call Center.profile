@@ -25255,10 +25255,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>Segmentation</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
