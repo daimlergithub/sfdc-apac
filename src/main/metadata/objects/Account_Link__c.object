@@ -2199,8 +2199,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail Sales Sanction</label>
         <picklist>
+             <picklistValues>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3726,6 +3746,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
 		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -4390,6 +4437,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>	
+		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
