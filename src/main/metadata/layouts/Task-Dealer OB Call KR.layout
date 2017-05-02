@@ -132,7 +132,7 @@
                 <field>CallType</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallDurationInSeconds</field>
             </layoutItems>
             <layoutItems>
