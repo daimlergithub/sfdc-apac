@@ -5702,11 +5702,11 @@
         <field>Article__kav.Additional_Content__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Article__kav.Attachment_10__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>false</editable>
         <field>Article__kav.Attachment_1__c</field>
@@ -5732,7 +5732,7 @@
         <field>Article__kav.Attachment_5__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Article__kav.Attachment_6__c</field>
         <readable>false</readable>
@@ -5751,7 +5751,7 @@
         <editable>false</editable>
         <field>Article__kav.Attachment_9__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>false</editable>
         <field>Article__kav.Department__c</field>
@@ -24191,10 +24191,10 @@
         <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>CanUseNewDashboardBuilder</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterEditOwnPost</name>
