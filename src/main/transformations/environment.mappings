@@ -11,7 +11,7 @@ dev_sb_asia_migration=arun.iyer.ntt@mbj.daimler-apac.com.migration
 demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 
 # Asia Test Sandbox
-dev_sb_asia_Test=arun.iyer.ntt@asia.daimler-apac.com.test
+dev_sb_asia_Test=deployment.user.ntt@asia.daimler-apac.com.test
 dev_sb_asia_TestKorea=arun.iyer.ntt@mbj.daimler-apac.com.testkorea
 # Asia Stage Sandbox
 dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
@@ -72,3 +72,8 @@ dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
 
 # Asia MBKphase2 sandbox
 dev_sb_asia_mbkph2sb=psm@nttdata.com.mbkph2sb
+
+# ASIA TH development
+CIThailand=pavankumar_01@infosys.com.cithailand
+dev_sb_asiaDevTh8=pavankumar_d01@infosys.com.asiadevth8
+
