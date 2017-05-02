@@ -24028,6 +24028,11 @@
         <recordType>Case.Roadside_Assistance</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+		<default>false</default>
+		<recordType>Case.S24h_MMC</recordType>
+		<visible>true</visible>
+	</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Touring_Support</recordType>
