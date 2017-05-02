@@ -77,7 +77,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation>철회</translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
@@ -5932,7 +5932,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation>철회</translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
@@ -5948,7 +5948,7 @@ Allows up to 240 characters --></help>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation>철회</translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
@@ -5958,13 +5958,13 @@ Allows up to 240 characters --></help>
     <fields>
         <label>개인 정보 제 3자 제공 동의</label>
         <name>Personal_Information_Third_Party_Release__c</name>
-        <picklistValues>
+       	<picklistValues>
             <masterLabel>No</masterLabel>
             <translation>미동의</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Withdrawn</masterLabel>
-            <translation>철회</translation>
+            <translation>보류</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
