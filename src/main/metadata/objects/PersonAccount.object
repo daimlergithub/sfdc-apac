@@ -22,6 +22,25 @@
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Acquisition_Objective_Method__c</picklist>
+            <values>
+                <fullName>Order Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Active__c</picklist>
@@ -492,6 +511,18 @@
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CA Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
