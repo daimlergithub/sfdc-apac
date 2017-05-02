@@ -23841,7 +23841,7 @@
         <recordType>Task.IB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>TTask-Dealer OB Call KR</layout>
+        <layout>Task-Dealer OB Call KR</layout>
         <recordType>Task.OB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
