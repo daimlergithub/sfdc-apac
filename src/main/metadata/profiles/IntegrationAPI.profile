@@ -1578,6 +1578,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Acquisition_Objective_Method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Acquisition_Record_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Activation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2569,6 +2579,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Details_of_Acquisition__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

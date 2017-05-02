@@ -16421,6 +16421,1256 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>MBTH_Case_Class__c</fullName>
+        <description>Specific Thailand Market</description>
+        <externalId>false</externalId>
+        <label>case Class</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inquiry</fullName>
+                    <default>false</default>
+                    <label>Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Complaint</fullName>
+                    <default>false</default>
+                    <label>Complaint</label>
+                </value>
+                <value>
+                    <fullName>Claim</fullName>
+                    <default>false</default>
+                    <label>Claim</label>
+                </value>
+                <value>
+                    <fullName>Request</fullName>
+                    <default>false</default>
+                    <label>Request</label>
+                </value>
+                <value>
+                    <fullName>Roadside Assistance</fullName>
+                    <default>false</default>
+                    <label>Roadside Assistance</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MBTH_Case_Subtype__c</fullName>
+        <description>Specific to Thailand Market</description>
+        <externalId>false</externalId>
+        <label>Case subtype</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>MBTH_Case_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Vehicle term</fullName>
+                    <default>false</default>
+                    <label>Vehicle term</label>
+                </value>
+                <value>
+                    <fullName>Vehicle year number</fullName>
+                    <default>false</default>
+                    <label>Vehicle year number</label>
+                </value>
+                <value>
+                    <fullName>Vehicle spec</fullName>
+                    <default>false</default>
+                    <label>Vehicle spec</label>
+                </value>
+                <value>
+                    <fullName>Vehicel delivery</fullName>
+                    <default>false</default>
+                    <label>Vehicel delivery</label>
+                </value>
+                <value>
+                    <fullName>Vehicle use</fullName>
+                    <default>false</default>
+                    <label>Vehicle use</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Warranty</fullName>
+                    <default>false</default>
+                    <label>Vehicle Warranty</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Quality</fullName>
+                    <default>false</default>
+                    <label>Vehicle Quality</label>
+                </value>
+                <value>
+                    <fullName>Vehicle recall</fullName>
+                    <default>false</default>
+                    <label>Vehicle recall</label>
+                </value>
+                <value>
+                    <fullName>Vehicle public group</fullName>
+                    <default>false</default>
+                    <label>Vehicle public group</label>
+                </value>
+                <value>
+                    <fullName>Vehicle status change</fullName>
+                    <default>false</default>
+                    <label>Vehicle status change</label>
+                </value>
+                <value>
+                    <fullName>Vehicle foreign eximport</fullName>
+                    <default>false</default>
+                    <label>Vehicle foreign eximport</label>
+                </value>
+                <value>
+                    <fullName>Commercial Vehicle</fullName>
+                    <default>false</default>
+                    <label>Commercial Vehicle</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Price</fullName>
+                    <default>false</default>
+                    <label>Vehicle Price</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Presales</fullName>
+                    <default>false</default>
+                    <label>Vehicle Presales</label>
+                </value>
+                <value>
+                    <fullName>Technical/Parts/Car Maintenance</fullName>
+                    <default>false</default>
+                    <label>Technical/Parts/Car Maintenance</label>
+                </value>
+                <value>
+                    <fullName>Proven Exclusivity</fullName>
+                    <default>false</default>
+                    <label>Proven Exclusivity</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Collection price</fullName>
+                    <default>false</default>
+                    <label>Collection price</label>
+                </value>
+                <value>
+                    <fullName>Collection purchase</fullName>
+                    <default>false</default>
+                    <label>Collection purchase</label>
+                </value>
+                <value>
+                    <fullName>Collection deliver date</fullName>
+                    <default>false</default>
+                    <label>Collection deliver date</label>
+                </value>
+                <value>
+                    <fullName>Collection Warrenty</fullName>
+                    <default>false</default>
+                    <label>Collection Warrenty</label>
+                </value>
+                <value>
+                    <fullName>Collection Quality</fullName>
+                    <default>false</default>
+                    <label>Collection Quality</label>
+                </value>
+                <value>
+                    <fullName>Collection repair</fullName>
+                    <default>false</default>
+                    <label>Collection repair</label>
+                </value>
+                <value>
+                    <fullName>Collection Recall</fullName>
+                    <default>false</default>
+                    <label>Collection Recall</label>
+                </value>
+                <value>
+                    <fullName>Dealer location</fullName>
+                    <default>false</default>
+                    <label>Dealer location</label>
+                </value>
+                <value>
+                    <fullName>Dealer Test drive</fullName>
+                    <default>false</default>
+                    <label>Dealer Test drive</label>
+                </value>
+                <value>
+                    <fullName>Dealer Contact</fullName>
+                    <default>false</default>
+                    <label>Dealer Contact</label>
+                </value>
+                <value>
+                    <fullName>Event Inquiry</fullName>
+                    <default>false</default>
+                    <label>Event Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Sales Campaign</fullName>
+                    <default>false</default>
+                    <label>Sales Campaign</label>
+                </value>
+                <value>
+                    <fullName>After Sales Campaign</fullName>
+                    <default>false</default>
+                    <label>After Sales Campaign</label>
+                </value>
+                <value>
+                    <fullName>Service Booking</fullName>
+                    <default>false</default>
+                    <label>Service Booking</label>
+                </value>
+                <value>
+                    <fullName>Dealer Refund</fullName>
+                    <default>false</default>
+                    <label>Dealer Refund</label>
+                </value>
+                <value>
+                    <fullName>MB Connection</fullName>
+                    <default>false</default>
+                    <label>MB Connection</label>
+                </value>
+                <value>
+                    <fullName>Mercedes me</fullName>
+                    <default>false</default>
+                    <label>Mercedes me</label>
+                </value>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                    <label>Contact</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Card</fullName>
+                    <default>false</default>
+                    <label>Mercedes Card</label>
+                </value>
+                <value>
+                    <fullName>Personal Information</fullName>
+                    <default>false</default>
+                    <label>Personal Information</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Event Enquiries</fullName>
+                    <default>false</default>
+                    <label>Event Enquiries</label>
+                </value>
+                <value>
+                    <fullName>Ad</fullName>
+                    <default>false</default>
+                    <label>Ad</label>
+                </value>
+                <value>
+                    <fullName>Publicity</fullName>
+                    <default>false</default>
+                    <label>Publicity</label>
+                </value>
+                <value>
+                    <fullName>Website</fullName>
+                    <default>false</default>
+                    <label>Website</label>
+                </value>
+                <value>
+                    <fullName>Related Company</fullName>
+                    <default>false</default>
+                    <label>Related Company</label>
+                </value>
+                <value>
+                    <fullName>DAG Factory tour</fullName>
+                    <default>false</default>
+                    <label>DAG Factory tour</label>
+                </value>
+                <value>
+                    <fullName>DAG New energy</fullName>
+                    <default>false</default>
+                    <label>DAG New energy</label>
+                </value>
+                <value>
+                    <fullName>DAG Environment</fullName>
+                    <default>false</default>
+                    <label>DAG Environment</label>
+                </value>
+                <value>
+                    <fullName>DAG General activity</fullName>
+                    <default>false</default>
+                    <label>DAG General activity</label>
+                </value>
+                <value>
+                    <fullName>Charges</fullName>
+                    <default>false</default>
+                    <label>Charges</label>
+                </value>
+                <value>
+                    <fullName>Collection</fullName>
+                    <default>false</default>
+                    <label>Collection</label>
+                </value>
+                <value>
+                    <fullName>Contract Related</fullName>
+                    <default>false</default>
+                    <label>Contract Related</label>
+                </value>
+                <value>
+                    <fullName>COS</fullName>
+                    <default>false</default>
+                    <label>COS</label>
+                </value>
+                <value>
+                    <fullName>COS/myMBFS/website</fullName>
+                    <default>false</default>
+                    <label>COS/myMBFS/website</label>
+                </value>
+                <value>
+                    <fullName>Direct Debit Related</fullName>
+                    <default>false</default>
+                    <label>Direct Debit Related</label>
+                </value>
+                <value>
+                    <fullName>General Service</fullName>
+                    <default>false</default>
+                    <label>General Service</label>
+                </value>
+                <value>
+                    <fullName>Payment Related</fullName>
+                    <default>false</default>
+                    <label>Payment Related</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Quotation/Document /Form</fullName>
+                    <default>false</default>
+                    <label>Quotation/Document /Form</label>
+                </value>
+                <value>
+                    <fullName>Registration Document</fullName>
+                    <default>false</default>
+                    <label>Registration Document</label>
+                </value>
+                <value>
+                    <fullName>Retention</fullName>
+                    <default>false</default>
+                    <label>Retention</label>
+                </value>
+                <value>
+                    <fullName>Transfer ownership</fullName>
+                    <default>false</default>
+                    <label>Transfer ownership</label>
+                </value>
+                <value>
+                    <fullName>Insurance Related</fullName>
+                    <default>false</default>
+                    <label>Insurance Related</label>
+                </value>
+                <value>
+                    <fullName>Dealer-after sales service attitude</fullName>
+                    <default>false</default>
+                    <label>Dealer-after sales service attitude</label>
+                </value>
+                <value>
+                    <fullName>Dealer-maintenance speciality and skills</fullName>
+                    <default>false</default>
+                    <label>Dealer-maintenance speciality and skills</label>
+                </value>
+                <value>
+                    <fullName>Dealer-maintenance latency time</fullName>
+                    <default>false</default>
+                    <label>Dealer-maintenance latency time</label>
+                </value>
+                <value>
+                    <fullName>Dealer - Environment And Facility of Rest Area/Workshop</fullName>
+                    <default>false</default>
+                    <label>Dealer - Environment And Facility of Rest Area/Workshop</label>
+                </value>
+                <value>
+                    <fullName>Dealer-repaire/maintenance/fitting price</fullName>
+                    <default>false</default>
+                    <label>Dealer-repaire/maintenance/fitting price</label>
+                </value>
+                <value>
+                    <fullName>Dealer-change component quality</fullName>
+                    <default>false</default>
+                    <label>Dealer-change component quality</label>
+                </value>
+                <value>
+                    <fullName>Dealer-component delivery data</fullName>
+                    <default>false</default>
+                    <label>Dealer-component delivery data</label>
+                </value>
+                <value>
+                    <fullName>Dealer-problem feedback processing time</fullName>
+                    <default>false</default>
+                    <label>Dealer-problem feedback processing time</label>
+                </value>
+                <value>
+                    <fullName>Product-quality</fullName>
+                    <default>false</default>
+                    <label>Product-quality</label>
+                </value>
+                <value>
+                    <fullName>Product Recall</fullName>
+                    <default>false</default>
+                    <label>Product Recall</label>
+                </value>
+                <value>
+                    <fullName>Product Liability</fullName>
+                    <default>false</default>
+                    <label>Product Liability</label>
+                </value>
+                <value>
+                    <fullName>Product Defect - Technical</fullName>
+                    <default>false</default>
+                    <label>Product Defect - Technical</label>
+                </value>
+                <value>
+                    <fullName>Product Defect – Safety</fullName>
+                    <default>false</default>
+                    <label>Product Defect – Safety</label>
+                </value>
+                <value>
+                    <fullName>Goodwill</fullName>
+                    <default>false</default>
+                    <label>Goodwill</label>
+                </value>
+                <value>
+                    <fullName>Customer Expectation</fullName>
+                    <default>false</default>
+                    <label>Customer Expectation</label>
+                </value>
+                <value>
+                    <fullName>Customer Handling</fullName>
+                    <default>false</default>
+                    <label>Customer Handling</label>
+                </value>
+                <value>
+                    <fullName>Tyre/Rims</fullName>
+                    <default>false</default>
+                    <label>Tyre/Rims</label>
+                </value>
+                <value>
+                    <fullName>Car Problem</fullName>
+                    <default>false</default>
+                    <label>Car Problem</label>
+                </value>
+                <value>
+                    <fullName>Delay in Document Delivery</fullName>
+                    <default>false</default>
+                    <label>Delay in Document Delivery</label>
+                </value>
+                <value>
+                    <fullName>Product & finanace interest rate</fullName>
+                    <default>false</default>
+                    <label>Product & finanace interest rate</label>
+                </value>
+                <value>
+                    <fullName>Service  Problem of FS</fullName>
+                    <default>false</default>
+                    <label>Service  Problem of FS</label>
+                </value>
+                <value>
+                    <fullName>Service Problem of Dealer</fullName>
+                    <default>false</default>
+                    <label>Service Problem of Dealer</label>
+                </value>
+                <value>
+                    <fullName>Credit Approval Turnaround Time</fullName>
+                    <default>false</default>
+                    <label>Credit Approval Turnaround Time</label>
+                </value>
+                <value>
+                    <fullName>Lack of Product Knowledge</fullName>
+                    <default>false</default>
+                    <label>Lack of Product Knowledge</label>
+                </value>
+                <value>
+                    <fullName>Dealer - Professionalism of Sales Consultant</fullName>
+                    <default>false</default>
+                    <label>Dealer - Professionalism of Sales Consultant</label>
+                </value>
+                <value>
+                    <fullName>Dealer-delivered date</fullName>
+                    <default>false</default>
+                    <label>Dealer-delivered date</label>
+                </value>
+                <value>
+                    <fullName>Dealer-sales price</fullName>
+                    <default>false</default>
+                    <label>Dealer-sales price</label>
+                </value>
+                <value>
+                    <fullName>Dealer-integrity</fullName>
+                    <default>false</default>
+                    <label>Dealer-integrity</label>
+                </value>
+                <value>
+                    <fullName>Agent Service</fullName>
+                    <default>false</default>
+                    <label>Agent Service</label>
+                </value>
+                <value>
+                    <fullName>The Call Could Not Be Get Through</fullName>
+                    <default>false</default>
+                    <label>The Call Could Not Be Get Through</label>
+                </value>
+                <value>
+                    <fullName>Professional Level Of Agent</fullName>
+                    <default>false</default>
+                    <label>Professional Level Of Agent</label>
+                </value>
+                <value>
+                    <fullName>Waiting Time of Assistance</fullName>
+                    <default>false</default>
+                    <label>Waiting Time of Assistance</label>
+                </value>
+                <value>
+                    <fullName>Processing Time of Agent</fullName>
+                    <default>false</default>
+                    <label>Processing Time of Agent</label>
+                </value>
+                <value>
+                    <fullName>Operational Working Hours</fullName>
+                    <default>false</default>
+                    <label>Operational Working Hours</label>
+                </value>
+                <value>
+                    <fullName>Sales & Marketing Event</fullName>
+                    <default>false</default>
+                    <label>Sales & Marketing Event</label>
+                </value>
+                <value>
+                    <fullName>Aftersales Event</fullName>
+                    <default>false</default>
+                    <label>Aftersales Event</label>
+                </value>
+                <value>
+                    <fullName>Aftersales Campaign</fullName>
+                    <default>false</default>
+                    <label>Aftersales Campaign</label>
+                </value>
+                <value>
+                    <fullName>Communication</fullName>
+                    <default>false</default>
+                    <label>Communication</label>
+                </value>
+                <value>
+                    <fullName>Fully Settled</fullName>
+                    <default>false</default>
+                    <label>Fully Settled</label>
+                </value>
+                <value>
+                    <fullName>Modification</fullName>
+                    <default>false</default>
+                    <label>Modification</label>
+                </value>
+                <value>
+                    <fullName>Returned Mail</fullName>
+                    <default>false</default>
+                    <label>Returned Mail</label>
+                </value>
+                <value>
+                    <fullName>Tranfer ownership</fullName>
+                    <default>false</default>
+                    <label>Tranfer ownership</label>
+                </value>
+                <value>
+                    <fullName>Vehicle  Related</fullName>
+                    <default>false</default>
+                    <label>Vehicle  Related</label>
+                </value>
+                <value>
+                    <fullName>Waiver</fullName>
+                    <default>false</default>
+                    <label>Waiver</label>
+                </value>
+                <value>
+                    <fullName>Compliment</fullName>
+                    <default>false</default>
+                    <label>Compliment</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <controllingFieldValue>Claim_Finance</controllingFieldValue>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <controllingFieldValue>DAG</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <controllingFieldValue>Insurance</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>Agent Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>The Call Could Not Be Get Through</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>Professional Level Of Agent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>Waiting Time of Assistance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>Processing Time of Agent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Call Centre</controllingFieldValue>
+                <valueName>Operational Working Hours</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Sales Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Mercedes Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <valueName>Sales & Marketing Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <valueName>Aftersales Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <valueName>Aftersales Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Marketing</controllingFieldValue>
+                <valueName>Communication</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <controllingFieldValue>Claim_Finance</controllingFieldValue>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Payment Related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Car Problem</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Delay in Document Delivery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Product & finanace interest rate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Service  Problem of FS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Service Problem of Dealer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint_Finance</controllingFieldValue>
+                <valueName>Credit Approval Turnaround Time</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Charges</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Contract Related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>COS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Direct Debit Related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Quotation/Document /Form</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Registration Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Fully Settled</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Modification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Returned Mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Tranfer ownership</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Vehicle  Related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Request_Finance</controllingFieldValue>
+                <valueName>Waiver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Others_Finance</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>General Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Others_Finance</controllingFieldValue>
+                <valueName>Compliment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle term</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle year number</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle spec</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicel delivery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle use</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle Warranty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle Quality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle recall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle public group</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle status change</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle foreign eximport</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Commercial Vehicle</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle Price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Vehicle Presales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Technical/Parts/Car Maintenance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Vehicle</controllingFieldValue>
+                <valueName>Proven Exclusivity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection purchase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection deliver date</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection Warrenty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection Quality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection repair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Collection</controllingFieldValue>
+                <valueName>Collection Recall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Dealer location</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Dealer Test drive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Dealer Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Event Inquiry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>After Sales Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Service Booking</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer</controllingFieldValue>
+                <valueName>Dealer Refund</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>MB Connection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Mercedes me</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Personal Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Survey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Event Enquiries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Ad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Publicity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MPC</controllingFieldValue>
+                <valueName>Related Company</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DAG</controllingFieldValue>
+                <valueName>DAG Factory tour</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DAG</controllingFieldValue>
+                <valueName>DAG New energy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DAG</controllingFieldValue>
+                <valueName>DAG Environment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>DAG</controllingFieldValue>
+                <valueName>DAG General activity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>COS/myMBFS/website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Product</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Retention</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry_Finance</controllingFieldValue>
+                <valueName>Transfer ownership</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Insurance</controllingFieldValue>
+                <valueName>Insurance Related</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-after sales service attitude</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-maintenance speciality and skills</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-maintenance latency time</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer - Environment And Facility of Rest Area/Workshop</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-repaire/maintenance/fitting price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-change component quality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-component delivery data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Dealer-problem feedback processing time</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Product-quality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Product Recall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Product Liability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Product Defect - Technical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Product Defect – Safety</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Goodwill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Customer Expectation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Customer Handling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Aftersales</controllingFieldValue>
+                <valueName>Tyre/Rims</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Lack of Product Knowledge</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Dealer - Professionalism of Sales Consultant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Dealer-delivered date</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Dealer-sales price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales</controllingFieldValue>
+                <valueName>Dealer-integrity</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MBTH_Case_Type__c</fullName>
+        <description>Specific to Thailand Market</description>
+        <externalId>false</externalId>
+        <label>Case type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>MBTH_Case_Class__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Vehicle</fullName>
+                    <default>false</default>
+                    <label>Vehicle</label>
+                </value>
+                <value>
+                    <fullName>Collection</fullName>
+                    <default>false</default>
+                    <label>Collection</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+                <value>
+                    <fullName>MPC</fullName>
+                    <default>false</default>
+                    <label>MPC</label>
+                </value>
+                <value>
+                    <fullName>DAG</fullName>
+                    <default>false</default>
+                    <label>DAG</label>
+                </value>
+                <value>
+                    <fullName>Inquiry_Finance</fullName>
+                    <default>false</default>
+                    <label>Inquiry_Finance</label>
+                </value>
+                <value>
+                    <fullName>Insurance</fullName>
+                    <default>false</default>
+                    <label>Insurance</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Aftersales</fullName>
+                    <default>false</default>
+                    <label>Aftersales</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Call Centre</fullName>
+                    <default>false</default>
+                    <label>Call Centre</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Breakdown</fullName>
+                    <default>false</default>
+                    <label>Breakdown</label>
+                </value>
+                <value>
+                    <fullName>Accident</fullName>
+                    <default>false</default>
+                    <label>Accident</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Complaint_Finance</fullName>
+                    <default>false</default>
+                    <label>Complaint_Finance</label>
+                </value>
+                <value>
+                    <fullName>Claim_Finance</fullName>
+                    <default>false</default>
+                    <label>Claim_Finance</label>
+                </value>
+                <value>
+                    <fullName>Request_Finance</fullName>
+                    <default>false</default>
+                    <label>Request_Finance</label>
+                </value>
+                <value>
+                    <fullName>Others_Finance</fullName>
+                    <default>false</default>
+                    <label>Others_Finance</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Vehicle</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Dealer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>MPC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>DAG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Inquiry_Finance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inquiry</controllingFieldValue>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <controllingFieldValue>Claim</controllingFieldValue>
+                <controllingFieldValue>Request</controllingFieldValue>
+                <controllingFieldValue>Others</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <valueName>Aftersales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <valueName>Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <valueName>Call Centre</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complaint</controllingFieldValue>
+                <valueName>Marketing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Roadside Assistance</controllingFieldValue>
+                <valueName>Breakdown</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Roadside Assistance</controllingFieldValue>
+                <valueName>Accident</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Roadside Assistance</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>Support_Dealer_1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -19816,7 +21066,802 @@ Modify Reason:
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Case_Owner_manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Owner manager</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>MBTH_Case_Subtype__c</fullName>
+        <description>Specific to Thailand Market</description>
+        <externalId>false</externalId>
+        <label>Case subtype</label>
+        <picklist>
+            <controllingField>MBTH_Case_Type__c</controllingField>
+            <picklistValues>
+                <fullName>Vehicle term</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle year number</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle spec</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicel delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle use</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Warranty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle public group</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle status change</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle foreign eximport</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Presales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical/Parts/Car Maintenance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proven Exclusivity</fullName>
+                <default>false</default>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+                <controllingFieldValues>Claim_Finance</controllingFieldValues>
+                <controllingFieldValues>Collection</controllingFieldValues>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+                <controllingFieldValues>DAG</controllingFieldValues>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Insurance</controllingFieldValues>
+                <controllingFieldValues>MPC</controllingFieldValues>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+                <controllingFieldValues>Sales</controllingFieldValues>
+                <controllingFieldValues>Vehicle</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection purchase</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection deliver date</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Warrenty</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection repair</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection Recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>Collection</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer location</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Test drive</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Contact</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event Inquiry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <controllingFieldValues>MPC</controllingFieldValues>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After Sales Campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Booking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Refund</fullName>
+                <default>false</default>
+                <controllingFieldValues>Dealer</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Connection</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes me</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes Card</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Information</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event Enquiries</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ad</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publicity</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Related Company</fullName>
+                <default>false</default>
+                <controllingFieldValues>MPC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG Factory tour</fullName>
+                <default>false</default>
+                <controllingFieldValues>DAG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG New energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>DAG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG Environment</fullName>
+                <default>false</default>
+                <controllingFieldValues>DAG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG General activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>DAG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Charges</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Related</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COS/myMBFS/website</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Debit Related</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Others_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment Related</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim_Finance</controllingFieldValues>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quotation/Document /Form</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Document</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retention</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transfer ownership</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Related</fullName>
+                <default>false</default>
+                <controllingFieldValues>Insurance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-after sales service attitude</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-maintenance speciality and skills</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-maintenance latency time</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer - Environment And Facility of Rest Area/Workshop</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-repaire/maintenance/fitting price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-change component quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-component delivery data</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-problem feedback processing time</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product-quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Recall</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Liability</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Defect - Technical</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Defect – Safety</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Goodwill</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Expectation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Handling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tyre/Rims</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aftersales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car Problem</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delay in Document Delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product &amp; finanace interest rate</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service  Problem of FS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Problem of Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit Approval Turnaround Time</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Product Knowledge</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer - Professionalism of Sales Consultant</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-delivered date</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-sales price</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer-integrity</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sales</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agent Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The Call Could Not Be Get Through</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional Level Of Agent</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting Time of Assistance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Processing Time of Agent</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operational Working Hours</fullName>
+                <default>false</default>
+                <controllingFieldValues>Call Centre</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales &amp; Marketing Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales Campaign</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communication</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fully Settled</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Modification</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returned Mail</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tranfer ownership</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle  Related</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiver</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request_Finance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compliment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others_Finance</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Case_Type__c</fullName>
+        <description>Specific to Thailand Market</description>
+        <externalId>false</externalId>
+        <label>Case type</label>
+        <picklist>
+            <controllingField>MBTH_Case_Class__c</controllingField>
+            <picklistValues>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MPC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAG</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inquiry_Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+                <controllingFieldValues>Inquiry</controllingFieldValues>
+                <controllingFieldValues>Others</controllingFieldValues>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call Centre</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breakdown</fullName>
+                <default>false</default>
+                <controllingFieldValues>Roadside Assistance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accident</fullName>
+                <default>false</default>
+                <controllingFieldValues>Roadside Assistance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <controllingFieldValues>Roadside Assistance</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint_Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Claim_Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Claim</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request_Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others_Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>Others</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Case_Class__c</fullName>
+        <description>Specific Thailand Market</description>
+        <externalId>false</externalId>
+        <label>case Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Claim</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roadside Assistance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Legal_Involved__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Legal Involved</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Legal letter to MPC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal letter to Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal letter to Both</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tribunal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court Case</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
         <fullName>Voice_Record_Link__c</fullName>
         <externalId>false</externalId>
         <label>Voice Record Link</label>

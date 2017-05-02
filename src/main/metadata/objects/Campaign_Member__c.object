@@ -119,6 +119,41 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+		<fields>
+        <fullName>MBTH_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Be Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atttended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
 	<fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>

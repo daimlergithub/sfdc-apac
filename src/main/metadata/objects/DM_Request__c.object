@@ -152,17 +152,6 @@
         <unique>false</unique>
     </fields>
 	<fields>
-        <fullName>Address_TH__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c != null, Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c+ &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c + &apos;,&apos;, &apos;&apos;) + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c + &apos;,&apos;, &apos;&apos;) + IF(Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) != null, Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) + &apos;,&apos;, &apos;&apos;) + Customer_Name__r.Primary_Address_Reference__r.ZipCode__c</formula>
-        <label>Address</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>First_Name__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, Customer_Name__r.FirstName, &apos;&apos;)</formula>
@@ -184,11 +173,79 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
+        <fullName>MBTH_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Address_TH__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c != null, Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c+ ',', '') + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c + ',', '') + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c + ',', '') + IF(Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) != null, Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) + ',', '') + Customer_Name__r.Primary_Address_Reference__r.ZipCode__c</formula>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Title__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Customer_Name__r.MD__c = &apos;TH&apos;, TEXT(Customer_Name__r.Title__c), &apos;&apos;)</formula>
+        <formula>IF( Customer_Name__r.MD__c = 'TH', TEXT(Customer_Name__r.Title__c), '')</formula>
         <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -577,20 +634,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market Discriminator</label>
-        <length>2</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
 	<fields>
         <fullName>Marketing_Department__c</fullName>
