@@ -7,7 +7,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_Dealer_Portal</application>
-        <default>false</defaultf
+        <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
