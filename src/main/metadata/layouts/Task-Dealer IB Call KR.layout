@@ -43,7 +43,7 @@
                 <field>Generate_QC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>QC_Link__c</field>
             </layoutItems>
             <layoutItems>
