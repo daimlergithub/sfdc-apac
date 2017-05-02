@@ -3848,6 +3848,17 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>Dealer_Assignment_Date__c</fullName>
+        <description>This shoud contain the date when dealer gate keeper is assigned as lead owner(lead is created by dealer)</description>
+        <externalId>false</externalId>
+        <label>Dealer Assignment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Dealer_Audit_Result__c</fullName>
         <externalId>false</externalId>
@@ -36374,8 +36385,8 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
 			<values>
-                <fullName>New</fullName>
-                <default>true</default>
+                <fullName>Accepted</fullName>
+                <default>false</default>
             </values>
 			<values>
                 <fullName>Allocated</fullName>
@@ -36429,8 +36440,24 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rejected</fullName>
+			<values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+			<values>
+                <fullName>Not Allocated</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Order Placed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Plan to Purchase</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Purchased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36442,6 +36469,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
 			<values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
             </values>
@@ -36449,11 +36484,31 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Service Completed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
+                <fullName>Customer can not be reached</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Non-Daimler Purchase</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36581,6 +36636,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Order Placed</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Order Placed%252FService Requested</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Purchased</fullName>
                 <default>false</default>
@@ -36613,6 +36672,10 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lost_Reason__c</picklist>
             <values>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Bought MB elsewhere</fullName>
                 <default>false</default>
             </values>
@@ -36632,8 +36695,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ISP to Purchased under Service Contract</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Lead Merge</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Location is not convenient</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38929,6 +39000,18 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lead_Additional_Service__c</picklist>
             <values>
+                <fullName>1 Year Inspection</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>6 month Inspection</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Body %26 Paint</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Buy</fullName>
                 <default>false</default>
             </values>
