@@ -5809,6 +5809,16 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>OptedOutOfFax_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>OptedOutOfFax Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Primary_Phone_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
         <externalId>false</externalId>
