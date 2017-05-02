@@ -5789,6 +5789,16 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Data_Source_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Data Source Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Fax2_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
         <externalId>false</externalId>
