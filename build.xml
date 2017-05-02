@@ -333,10 +333,10 @@
 							<sf:include name="DeleteRetailCopy"/>
 							<sf:include name="DeleteRetailCopyTest"/>
 							<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
-						<!--	<sf:include name="MBJ_FS_Case_Request_InlineController"/>
-							<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>-->
+						<!--<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+							<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+							<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>-->
 							<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
-						<!--	<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>-->
 							<sf:include name="FS_CaseInlineController"/>
 							<sf:include name="LeadDealerAssignmentProcess"/>
 							<sf:include name="LeadDealerAssignmentProcessTest"/>
