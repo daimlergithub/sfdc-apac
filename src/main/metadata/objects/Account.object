@@ -2817,6 +2817,28 @@ Attribute in Data Dictionary object Contact is &quot;Contact_BuyCycle&quot;</des
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>CAC_PERSON_UID__c</fullName>
+        <externalId>false</externalId>
+        <label>CAC PERSON UID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+       <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDM_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>CDM UCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CMS_Dealer_BPID__c</fullName>
         <externalId>false</externalId>
         <label>CMS Dealer BPID</label>
@@ -3763,6 +3785,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
         <picklist>
 		<picklistValues>
                 <fullName>Dealer Outlet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compass</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10133,6 +10159,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MBC_USERID__c</fullName>
+        <externalId>false</externalId>
+        <label>MBC USERID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MBFS_Activation_Date__c</fullName>
         <externalId>false</externalId>
         <label>MBFS Activation Date</label>
@@ -10295,6 +10332,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <picklist>
             <picklistValues>
                 <fullName>24 hours Touring Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compass</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -48274,6 +48315,13 @@ NOT(Dealer_Active__c)
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Data_Source_Update</fullName>
+        <active>true</active>
+        <description>Once Data Source has been set as Compass, it cannot be changed.</description>
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Data_Source__c),'Compass'),NOT(ISPICKVAL((Data_Source__c),'Compass')) )</errorConditionFormula>
+        <errorMessage>Once Data Source has been set as Compass, it cannot be changed.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
         <description>MBK Data_Source__c is mandatory while creating person account.</description>
@@ -48845,6 +48893,13 @@ REGEX(LastName_Native_1__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£
 MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MBK_Data_Source_Update</fullName>
+        <active>true</active>
+        <description>Once MBK Data Source has been set as Compass, it cannot be changed.</description>
+        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(MBK_Data_Source__c),'Compass'),NOT(ISPICKVAL((MBK_Data_Source__c),'Compass')) )</errorConditionFormula>
+        <errorMessage>Once MBK Data Source has been set as Compass, it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile2_NoChar</fullName>
