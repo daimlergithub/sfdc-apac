@@ -10,6 +10,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new);
             caseHelperJP.updateCaseDealer(Trigger.New);
+			caseHelperJP.updateOwnerAsGateKeeperS24HNew(Trigger.new);
             
         }
         if(trigger.isAfter && trigger.isInsert)
@@ -24,6 +25,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
           
             caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
+			caseHelperJP.updateOwnerAsGateKeeperS24HModify(Trigger.new);
             
         }
         if(trigger.isAfter){
