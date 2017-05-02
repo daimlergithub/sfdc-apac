@@ -333,10 +333,10 @@
 							<sf:include name="DeleteRetailCopy"/>
 							<sf:include name="DeleteRetailCopyTest"/>
 							<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
-						<!--	<sf:include name="MBJ_FS_Case_Request_InlineController"/>
-							<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>-->
+						<!--<sf:include name="MBJ_FS_Case_Request_InlineController"/>
+							<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+							<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>-->
 							<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
-						<!--	<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>-->
 							<sf:include name="FS_CaseInlineController"/>
 							<sf:include name="LeadDealerAssignmentProcess"/>
 							<sf:include name="LeadDealerAssignmentProcessTest"/>
@@ -690,7 +690,7 @@
 							<sf:include name="MBJ_FS_Complaint_Page"/>
 							<sf:include name="LeadDealerAssignmentPage"/>
 							<sf:include name="AnnouncementsPage"/>
-							<!-- Added by Naga Start-->
+							<!-- Added by Naga End-->
 							<sf:include name="VehiclePicker"/>
 							<sf:include name="VehiclePickerForCase"/>                                                      
 							<sf:include name="LeadMerge"/>
@@ -764,7 +764,16 @@
 					<sf:typeset name="groups"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
-					<sf:typeset name="flows"/>
+					<sf:typeset name="flows">
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-2"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-3"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-4"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-5"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-6"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-7"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-8"/>
+					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
 					<sf:typeset name="permissionsets"/>
