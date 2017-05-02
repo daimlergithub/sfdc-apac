@@ -24259,10 +24259,10 @@
         <enabled>true</enabled>
         <name>ManageCustomReportTypes</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>ManageDynamicDashboards</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageKnowledge</name>
