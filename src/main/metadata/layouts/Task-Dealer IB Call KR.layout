@@ -112,7 +112,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallType</field>
             </layoutItems>
             <layoutItems>
