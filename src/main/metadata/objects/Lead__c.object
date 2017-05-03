@@ -9186,6 +9186,17 @@ Modify Reason:
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Lead_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Lead Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Lead_Latest_Phase__c</fullName>
         <externalId>false</externalId>
         <label>Lead Latest Phase</label>
