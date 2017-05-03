@@ -10427,7 +10427,142 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>	
+    </fields>
+	<fields>
+        <fullName>MBTH_Mercede__c</fullName>
+        <description>Only for Thailand</description>
+        <externalId>false</externalId>
+        <label>MBTH Mercedes Events</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lifestyle Event/Workshop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving Event/Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music/Concert</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Movie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Golf (Mercedes Trophy)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Product Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dining/F&amp;B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health/Beauty/Spa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Nationality__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Nationality</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>American</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>British</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>MB_CIR_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
@@ -10830,6 +10965,43 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
+	<fields>
+        <fullName>Monthly_Income__c</fullName>
+        <externalId>false</externalId>
+        <label>Monthly Income</label>
+        <picklist>
+            <picklistValues>
+                <fullName>&lt; 100,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>100,001 - 200,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>200,001 - 300,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>300,001 - 400,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>400,001 - 500,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&gt; 500,000 THB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Most_Recent_Hobby__c</fullName>
         <externalId>false</externalId>
@@ -11222,6 +11394,16 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>HomePhone OptIn</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Opt_In_Mobile__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>New field to be added in Kernel Template</description>
+        <externalId>false</externalId>
+        <label>Opt In Mobile</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -12325,6 +12507,18 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Preferred_Radio_Station__c</fullName>
+        <description>Add Preferred Radio Station text field. Unhide Preferred Newspaper and Industry fields for Thailand market</description>
+        <externalId>false</externalId>
+        <label>Preferred Radio Station</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preferred_Work_Phone_1__c</fullName>
@@ -18960,6 +19154,120 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Mercede__c</picklist>
+            <values>
+                <fullName>Dining%2FF%26B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Driving Event%2FTest Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf %28Mercedes Trophy%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health%2FBeauty%2FSpa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lifestyle Event%2FWorkshop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music%2FConcert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Product Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sport</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Nationality__c</picklist>
+            <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
@@ -19166,6 +19474,33 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Monthly_Income__c</picklist>
+            <values>
+                <fullName>%3C 100%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E 500%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%2C001 - 200%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%2C001 - 300%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>300%2C001 - 400%2C000 THB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>400%2C001 - 500%2C000 THB</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
