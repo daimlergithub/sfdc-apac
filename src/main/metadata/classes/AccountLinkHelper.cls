@@ -9,7 +9,7 @@
 
 public class AccountLinkHelper
 {
-    
+     
     public static Id AccountLink_ContactSectorRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ContactSector').getRecordTypeId();
     public static Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
@@ -27,6 +27,7 @@ public class AccountLinkHelper
 * @return returns crm codes
 * @see   AccountLinkSharingWrapService, UserService, VehicleSharingWrapService
 */   
+    static User Integrationusr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
     public static string nameParsing(string name)
     {
         String crmCode;
@@ -350,24 +351,32 @@ public class AccountLinkHelper
     }
     
     // Get all the Account Link records of "Individual Customer External Link" record Type.
-    private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
+   @TestVisible private static Map<Id, List<Id>> getRelatedIndividualCustomerRecordTypeAccountLink(List<Account_Link__c> list_AccountLink) {
         Map<Id, List<Id>> map_FromAccountToListIndividualAccountLinkId = new Map<Id, List<Id>>();
         Set<Id> accIdSet = new Set<Id>();
         for(Account_Link__c accLinkRec : list_AccountLink) {
             accIdSet.add(accLinkRec.toRole__c);
+            
         }
+        system.debug('++++++++++++++++++'+accIdSet);
         
-        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet];
+        List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet ];
+        
+        if(accIdSet.size() >0 && !accIdSet.isEmpty()){ 
+        //List<Account> accList = [select Id from Account where Id IN: accIdSet  LIMIT 5000];
+        //List<Account_Link__c> accLink = [select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Link__c Where fromRole__c IN: accIdSet   LIMIT 5000];
+        
+        
         for(Account accRec : accList) {
             String dealerAccId;         
-            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r  ) {
                 if(accLinkRec.RecordType.DeveloperName == 'Retail_Person' || accLinkRec.RecordType.DeveloperName == 'Retail_Company' ||
                         accLinkRec.RecordType.DeveloperName == 'Vehicle_External_Link') {
                     dealerAccId = accLinkRec.fromRole__c;
                 } 
             }
             
-            for(Account_Link__c accLinkRec : accRec.Account_Links__r) {
+            for(Account_Link__c accLinkRec : accRec.Account_Links__r  ) {
                 if((accLinkRec.RecordType.DeveloperName == 'IndividualExternalLink' || accLinkRec.RecordType.DeveloperName == 'Contact2Contact' 
                     || accLinkRec.RecordType.DeveloperName == 'CompanyExternalLink') && String.isNotBlank(dealerAccId)) {
                     if(!map_FromAccountToListIndividualAccountLinkId.containsKey(dealerAccId)) {
@@ -376,6 +385,7 @@ public class AccountLinkHelper
                     map_FromAccountToListIndividualAccountLinkId.get(dealerAccId).add(accLinkRec.Id);
                 } 
             }
+        }
         }
         
         return map_FromAccountToListIndividualAccountLinkId;
@@ -450,7 +460,7 @@ public class AccountLinkHelper
             
              // Added for Retail Person - Account Link issue
                if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId) {
-                if(accountLink.fromRole__c !=null && accountLink.toRole__c != null) {
+                if(accountLink.fromRole__c !=null && accountLink.toRole__c != null &&accountLink.fromRole__c != map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c ) {
                     set_accountId.add(map_AccountLinkIdAndRecord.get(accountLink.Id).fromRole__c);
                     list_SharingToDelete.add(accountLink.Id);
                     if(!map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(accountLink.fromRole__c)) {
@@ -608,6 +618,8 @@ public class AccountLinkHelper
     
     private static void createSharingRecord ( Map<Id, List<Id>> map_AccountIdAndListAccountLinkId) {
         
+       if(LeadUtil.createSharingRecord ){ 
+       
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
@@ -633,11 +645,14 @@ public class AccountLinkHelper
         if(list_SharingRecord.size() > 0){
             Database.insert(list_SharingRecord, false);
         }
+        }
+       LeadUtil.createSharingRecord = false; 
     }
     
     
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         // Changing Sharing from User to Public Group
+        if(LeadUtil.createPCSharingRecord){
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
@@ -662,6 +677,8 @@ public class AccountLinkHelper
         if(list_SharingRecord.size() > 0){
             Database.insert(list_SharingRecord, false);
         }
+        }
+        LeadUtil.createPCSharingRecord = false;
     }
     
     
@@ -737,11 +754,13 @@ public class AccountLinkHelper
     }
     
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
-        
+if(LeadUtil.Retailcopy){
         system.debug('------>Method is called');
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+        
         Set<String> FromAccountIds = new set<String>();
+        if(Integrationusr.profile.Name != 'IntegrationAPI'){
         for(Account_Link__c acc : accLst){
             if((isInsert || isUpdate) && acc.MD__c == label.MarketJp){ //Checking Market for updated account
                 AccountIds.add(acc.toRole__c); //Adding accountId's to set
@@ -832,7 +851,10 @@ public class AccountLinkHelper
                          province = addtrmap1.get(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c);
                     } 
                     acclink.Retail_Province__c = province ;  
+                     if(province ==null)
+                    {
                     acclink.Retail_Province__c  =acclink.Retail_Province__c.replaceAll(regexForNullValue,nullValue); 
+                    }
                     //acclink.Retail_Province__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c !=null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Province__c: '' ); 
                     acclink.Retail_City__c = (accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c != null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.City__c:'').left(17);
                     acclink.Retail_Distinct__c = ((accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c!=null ? accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.District__c : '')+(accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c!= null ?accountMap.get(acclink.toRole__c).Primary_Address_Reference__r.Block__c : '')).left(17);
@@ -846,9 +868,12 @@ public class AccountLinkHelper
             }
            //AccountlnkUpdate.add(acclink); //Adding Account link to Lsit  
         }//End of for loop
-        
+        }
        // if(!AccountlnkUpdate.isEmpty())
-         //   update AccountlnkUpdate;
+      
+        //   update AccountlnkUpdate;
+       }
+      LeadUtil.Retailcopy=false;   
     }//End of Method
 //created by:surya varma
 //sfdcjp-578
@@ -866,10 +891,16 @@ public class AccountLinkHelper
       */
  public static void afterInsertDeleteEvent(List<Account_Link__c> aclnklist)
  {
-
+  if(LeadUtil.AccountLinkTrigger){
  
  
-    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist];
+  Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
+    Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
+    Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
+    Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
+    Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
+    
+    list<Account_Link__c>allist=[select id,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:rc or RecordtypeId=:rp)];
     set<id>toroleidlist=new set<id>();
     set<id>fromroleidlist=new set<id>();
     set<String> GCCode = new set<String>();
@@ -912,14 +943,11 @@ public class AccountLinkHelper
     map<string,id> assgroupMap = new map<string,id>();  
     //Map<Id,Account_Link__c>  newAccountMap = new Map<Id,Account_Link__c>([select id,name,recordtypeId,fromRole__c ,toRole__c,fromRole__r.name,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist]);
    // Map<Id,SurveyTaker__c> newSMap = new Map<Id,SurveyTaker__c>([select id,account__c from SurveyTaker__c where  account__r.id IN :toroleidlist ]);
-    Id rc=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
-    Id rp=Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
-    Id rpa=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Person Account').getRecordTypeId();
-    Id rca=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Company').getRecordTypeId(); 
-    Id da=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId(); 
-  
+   
+   
     for(Account_Link__c al:allist)
     {
+    
         if((al.recordtypeId==rc)||(al.recordtypeId==rp))
         {
             
@@ -1027,6 +1055,8 @@ public class AccountLinkHelper
     }
  }
  }
+ }
+ LeadUtil.AccountLinkTrigger = false;
  }
   public static void afterDeleteEvent(List<Account_Link__c>oldlist)
  {
@@ -1268,12 +1298,14 @@ public class AccountLinkHelper
     Event            : Before Update
   */
   public static void updateRetailCopyfromC2C(boolean isUpdate,boolean isBefore , boolean isInsert ,List<Account_Link__c> accLst){
+       
+       if(LeadUtil.updateRetailCopyfromC2C ){ 
         Map<Id,Account_Link__c> updateMap = new Map<Id,Account_Link__C>();
         Set<Id> comId = new Set<Id>();
         Set<Id> perAccIdSet = new Set<Id>();
         Set<Id> comAccIdSet = new Set<Id>();
         Map<Id,Id> retComAccLinkMap = new Map<Id,Id>();
-        if((isInsert || isUpdate) && isBefore){
+        if((isInsert || isUpdate) && isBefore && Integrationusr.Profile.Name != 'IntegrationAPI'){
             for(Account_Link__c accLink : accLst){
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);
@@ -1300,6 +1332,8 @@ public class AccountLinkHelper
                 }    
             }
         }        
+    }
+    LeadUtil.updateRetailCopyfromC2C=false; 
     }
      
     /*
@@ -1386,4 +1420,5 @@ public class AccountLinkHelper
             }
         }
     }
+
 }

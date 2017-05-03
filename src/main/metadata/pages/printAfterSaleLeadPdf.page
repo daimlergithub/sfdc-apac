@@ -32,23 +32,23 @@
         <body style="padding-top:50px;">
             <div class="header" style="padding-top:2px;">
                 <div class="Table">                     
-                    <div style="font-size:25px;text-align: left;">{!$Label.Customer_Name} &nbsp;&nbsp;
+                    <div style="font-size:25px;text-align: left;font-family:Arial Unicode MS">{!$Label.Customer_Name} &nbsp;&nbsp;
                         <apex:outputField value="{!Lead__c.Contact__r.Name}"/></div> 
                 </div>
             </div><br/><br/>
             <b>{!$Label.Service_Advisor}</b>
             <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
                 <tr>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Company}"/>                    
                     </td>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Company_Name__c}"/>
                     </td>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Outlet}"/>
                     </td>
-                    <td width="25%">
+                    <td width="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputField value="{!Lead__c.Assigned_Dealer__r.Name}"/>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
                         <apex:outputLabel value="{!$Label.Advisor}"/>                    
                     </td>
                     <td width="25%">
-                        <apex:outputField value="{!Lead__c.Service_Advisor__c}"/>
+                        <apex:outputText value="{!Lead__c.Service_Advisor__r.Name}"/>
                     </td>
                     <td width="25%">                   
                     </td>
@@ -129,15 +129,15 @@
                     <td width ="25%">
                         <apex:outputLabel value="{!$Label.Customer_Name}"/> 
                     </td>
-                    <td colspan ="6" width ="75%">
+                    <td colspan ="6" width ="75%" style ="font-family:Arial Unicode MS">
                         <apex:outputField value="{!Lead__c.Contact__r.Name}"/>
                     </td>
                 </tr>
                 <tr>
-                    <td width ="25%">
+                    <td width ="25%" style ="font-family:Arial Unicode MS">
                         <apex:outputLabel value="{!$Label.Customer_Name_Kana}"/>    
                     </td>
-                    <td colspan = "6" width ="75%">
+                    <td colspan = "6" width ="75%" style ="font-family:Arial Unicode MS">
                         <apex:outputField value="{!Lead__c.Contact__r.LastName_Native_1__c}"/>&nbsp;
                         <apex:outputField value="{!Lead__c.Contact__r.FirstName_Native_1__c}"/>
                     </td>
@@ -152,7 +152,7 @@
                         <apex:outputText value="{!RIGHT(Lead__c.Contact__r.Primary_Address_Reference__r.ZipCode__c,4)}"></apex:outputText>
                     </td>
                     <tr>
-                        <td colspan = "6" width ="75%">
+                        <td colspan = "6" width ="75%" style ="font-family:Arial Unicode MS">
                             <apex:outputField value="{!Lead__c.Contact__r.Primary_Address_Display__c}"/>
                         </td>
                 </tr>
@@ -221,6 +221,7 @@
             </tr>
         </table>
         <br/>
+        <b>{!$Label.SurveyID}</b>
         <table border="1" width="100%" cellpadding="0" cellspacing = "0" style="border-left-style:hidden;border-top-style:solid;border-right-style:hidden;border-bottom-style:hidden;">
             <tr>
                 <td width="25%">

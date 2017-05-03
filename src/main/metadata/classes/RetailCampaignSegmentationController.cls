@@ -4,11 +4,12 @@
     History:
     
     1. Justin Yu Created on 2014-05-14
-    2. Lokesh M Last modified date : 2017-0Mar-02
-        Desc : retail campign segmentation
-       JIRA - SFDCJP-1023
+    2. Last modified date : 2017-Mar-02
+           modified by : Lokesh M
+       Desc : retail campign segmentation
+       JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
 */
-public without sharing class RetailCampaignSegmentationController {
+public with sharing class RetailCampaignSegmentationController {
     
     private String retailCampaignId;
     private String thirdParty;
@@ -66,14 +67,10 @@ public without sharing class RetailCampaignSegmentationController {
         
     public RetailCampaignSegmentationController()
     {
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
-            size = 1000;
-            thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
-            retailCampaignId = ApexPages.currentPage().getParameters().get('id');
-            setFieldType();
-       }
+                size = 1000;
+                thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
+                retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+                setFieldType();
     }
     public ApexPages.StandardSetController con {get;set;}
     
@@ -96,11 +93,10 @@ public without sharing class RetailCampaignSegmentationController {
     public Address__c  address{ get; set; }
     public campaign_member__C camMem {get; set;}
     
-       
-    String[] Values= new String[]{};//define array string to store value in Sales Dealer field in Vf page under accountlink filter
+    public String selectedValueSales {set;get;}
+    public String selectedValueService {set;get;}
     public String selectedValue {set;get;}// holding the value which they selected either 'company' or 'outlet'
   
-    public String[] countries = new String[]{};
     public List<SelectOption> getItems() {
         List<SelectOption> options = new List<SelectOption>();
         options.add(new SelectOption('None','--None--'));
@@ -109,15 +105,7 @@ public without sharing class RetailCampaignSegmentationController {
         return options;
     }
         
-    public String[] getCountries() {
-        return countries;
-    }
-        
-    public void setCountries(String[] countries) {
-        this.countries = countries;
-    }
-    
-        
+       
     public List<String> filterOptions {
         get{
            if(contact == null || String.isBlank(contact.SegmentationFilters__c) || contact.SegmentationFilters__c == '[]'){
@@ -261,9 +249,7 @@ public without sharing class RetailCampaignSegmentationController {
      
     System.debug('------------'+selectedValue);
     system.debug('Entered into Search method');
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
+        
            accountIdSet = new Set<Id>();
            vehicleRelFind = false;
            vehicleFind = false;
@@ -337,7 +323,6 @@ public without sharing class RetailCampaignSegmentationController {
                 
                 system.debug('@@@@@@AddressSoql '+AddressSoql);
                 if(!AddressSoql.endsWith('where ')) {
-                  //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
                    if(AddressSoql.length()>addressLength){
                          List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
                           System.debug('addList '+addList.size());
@@ -350,7 +335,7 @@ public without sharing class RetailCampaignSegmentationController {
                 
                  system.debug('@@@@@@campaignMemSoql'+campaignMemSoql);
                 if(!campaignMemSoql.endsWith('where ')) {
-                  //  AddressSoql = AddressSoql.replace('Customer__c', 'Customer__r.Name');
+                  
                     if(campaignMemSoql.length()>campLength){
                          List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
                          System.debug('camMemList '+camMemList.size());
@@ -392,7 +377,6 @@ public without sharing class RetailCampaignSegmentationController {
             //'Logic Error!'
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getmessage()));
             }
-       }
         return null;
     }
     
@@ -525,18 +509,20 @@ public without sharing class RetailCampaignSegmentationController {
     
     private void setSoql()
     {
-        
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
        
        system.debug('Entered into inside  setSoql method');
             string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
             string dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-            if(selectedValue == 'Company' || selectedValue == 'Outlet'){
+            if(selectedValueSales == 'Company' || selectedValueService == 'Company'){
+                selectedValue = 'Company';
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' AND ';
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
+            }
+            else if(selectedValueSales == 'Outlet' || selectedValueService == 'Outlet'){
+                selectedValue = 'Outlet';
+                accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
+                + 'where RecordTypeId =\'' + dealerAccntRecTypId + '\' AND Dealer_Type__c = \'' + selectedValue + '\' and ';
             }
             else {
                 accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
@@ -611,14 +597,11 @@ public without sharing class RetailCampaignSegmentationController {
             setSubSoql(AddressFilterItems, 'Address');
             setSubSoql(campaignFilterItems, 'campaign');
             setSubSoql(vehicleretailItems,'VehicleRelation');
-       }
     }
     
     private void setSubSoql(List<Object> filterItems, String cluster)
     {
-        //Added community license switching mechanism
-       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-       {
+       
        system.debug('Entered into filterItems'+filterItems);
        system.debug('Entered into cluster'+cluster);
        
@@ -721,11 +704,10 @@ public without sharing class RetailCampaignSegmentationController {
                     campaignMemSoql+= (bracketCount > 0 ? ') ' : '');
                 }
             }
-       }
     }
     
     private String getOperation(String operation){
-        operation = operation.replace('Not Equals', '!=');
+        operation = operation.replace('Exclude', '!=');
         operation = operation.replace('Equals', '=');
         operation = operation.replace('Greater Than', '>');
         operation = operation.replace('Less Than', '<');
@@ -737,6 +719,10 @@ public without sharing class RetailCampaignSegmentationController {
             return '\'' + criteria + '\'';
         }
         else if(dateFields.contains(field)){
+                if(criteria == 'null'){
+                criteria = null;
+            }
+            else
             criteria = (Date.parse(criteria) + ' ').left(10);
         }
         else if(dateTimeFields.contains(field)){
@@ -763,9 +749,9 @@ public without sharing class RetailCampaignSegmentationController {
             'Retail_Campaign_Name__c',  'Registration_City__c', 'Selling_Dealer__c', 'File_Name__pc','Name','Portal_ID__c','Sales_Representative__c','Last_Service_Dealer__c','Service_Advisor__c'};
         pickListFields = new Set<String>{'Customer_Type__c','Special_Mark_on_Account__c','Customer_Lifecycle_Phase__c','Status__c', 'Province__c', 'Age_Range__c', 'Gender__c', 'Hobby__c', 'ID_Type__c', 'Industry', 'Job__c', 'Marital_Status__c', 'Occupation__c',
                                      'Type', 'Retail_Interested_Vehicle_Brand__c', 'Retail_Interested_Vehicle_Class__c','Lead_Desired_Service__c', 'Lead_Source__c', 'Lead_Type__c', 'Life_Cycle__c','Price_Range__c', 'Retail_Purchase_Time__c', 'Lead_Additional_Service__c', 
-                                     'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c','Trade_In_Vehicle_Class__c', 'Brand__c', 'Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
+                                     'Purchase_Amount__c', 'Trade_In_Vehicle_Brand__c','Trade_In_Vehicle_Class__c', 'Brand__c', 'Range__c', 'Model__c','Car_Relation__c', 'Class__c', 'Info_Source__c', 'CAC_Lead_Status__c','Retail_Sales_Sanction__c','Product_Name__c','Finance_Product_Name__c','New_Used__c'};
         multiplePickListFields = new Set<String>{'Hobby__c', 'Interest_Model__c','Lead_Desired_Service__c', 'Lead_Additional_Service__c','Retail_OptOutContact_Reason__c'};
-        vehicleFields = new Set<String>{'Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
+        vehicleFields = new Set<String>{'Model__c','Range__c','Brand__c','FirstRegistrationDate__c', 'Class__c', 'CurrentMileage__c', 'Info_Source__c', 'LastServiceDate__c',
             'Latest_Contract_Date__c', 'NextMileage__c', 'NextServiceDate__c', 'Warranty_Start_Date__c','Recall__c','NextInspectionDate__c'};
         vehicleRelFields = new Set<String>{'Car_Relation__c', 'Last_Service_Dealer__c', 'Purchase_Date__c',
             'Registration_City__c', 'Registration_Date__c', 'Selling_Dealer__c','Service_Advisor__c','Customer_Type__c','New_Used__c','End_Date__c'};

@@ -154,7 +154,7 @@
         <name>IB_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Intention Status --></label>
+        <label>リード活動種別</label>
         <name>Intention_Status__c</name>
     </fields>
     <fields>
@@ -281,7 +281,7 @@
         <name>SSI_Status__c</name>
     </fields>
     <fields>
-        <label><!-- Last Communication Modified Time --></label>
+        <label>予定日時</label>
         <name>SentTime__c</name>
     </fields>
     <fields>

@@ -5,38 +5,36 @@
    <style type="text/css">
    </style>
    <body>
-    <p>Case:{!relatedTo.CaseNumber}.</p>
+    <p>{!$Label.Email_Case_Record}:{!relatedTo.CaseNumber}.</p>
     
-    <p> Mercedes Benz {!relatedTo.Case_Dealer__r.Name} shop</p>
-    <p>Manager, Representative </p>
+    <p> {!$Label.Email_LeadDealerAssign1} {!relatedTo.Case_Dealer__r.Name} {!$Label.Email_LeadDealerAssign2}</p>
     
-    <p>Please check　New customer related information distribution notification .</p>
+    <p> {!$Label.Email_LeadDealerAssign3}</p>
     
-    <p>I trust you are well.</p>
+    <p>{!$Label.Email_Case}</p>
     
-    <p>Today {!TODAY()} customer related information(Call-in conversations, survey result, customer information change, etc.) we'd like to distribute to you.</p>
+     <p> {!$Label.Email_LeadDealerAssign4}</p>
     
-    <p>Please check and respond as necessary. Please take caution in handling of the information.</p>
+    <p>{!$Label.Email_LeadDealerAssign5} <apex:outputText value="{0, date, MM/dd}"><apex:Param value="{!TODAY()}" /></apex:OutputText> {!$Label.Email_Case_information}</p>
     
-    <apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Case's detail pag</apex:outputLink>
+    <p>{!$Label.Email_Case}</p>
     
-    <p>*You need to log in to Salesforce to check the Case information. </p>
+    <apex:outputLink value="{!$Label.Dealer_login_Url}/{!relatedTo.Id}" id="theLink"> Direct link URL to the Cases detail pag</apex:outputLink>
     
-   <p> Thank you for your support. </p>
+    <p> {!$Label.Email_salesforcelogin}</p>
     
-   <p> If there's anything uncertain about operating with Salesforce,  
-    please contact Salesforce support desk. </p>
+   <p> {!$Label.Email_Thankyou} </p>
     
-    <p>Mercedes Benz Japan Salesforce Office </p>
-    
-   <p> -----------------------------------------------</p>
-    <p>For operations with Salesforce, system maintenance,</p>
-    <p>please contact the number below.  </p>
-
-   <p> Salesforce support desk</p>
-   <p> Phone：XXX（Operation hours: everyday 10:00-12:00, 13:00-18:00）</p>
-   <p> *Please do not reply directly to this e-mail.</p>
-   <p> -----------------------------------------------</p>
+   <p> {!$Label.Email_LeadDealerAssign13} </p>
+     
+     <p> {!$Label.Email_LeadDealerAssign14} </p>
+     
+     ----------------------------------------------
+     <p> {!$Label.Email_LeadDealerAssign15}</p>
+     <p> {!$Label.Email_LeadDealerAssign16}</p>
+     <p> {!$Label.Email_LeadDealerAssign17}</p>
+     <p> {!$Label.Email_LeadDealerAssign18}</p>
+    -----------------------------------------------
 
    </body>
    </html>

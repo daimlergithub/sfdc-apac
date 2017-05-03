@@ -1,4 +1,4 @@
-public class ChangeContactTarget {
+public with Sharing class ChangeContactTarget {
 
 private static final String VehicleExternalLinkRT = Schema.sObjectType.account_link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();
    
@@ -71,7 +71,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
     
     public pagereference updateit()
     {
-		set<String> VRid = new set<String>();
+        set<String> VRid = new set<String>();
        list<vehicle_relationship__c> vrlist= new list<vehicle_relationship__c>();
        list<account_link__c> acclinklist= new list<account_link__c>();
        
@@ -79,7 +79,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             if (vehiclewrpper.purchaservr.id!=null)
             {
                 vrlist.add(vehiclewrpper.purchaservr);
-				VRid.add(vehiclewrpper.purchaservr.id);
+                VRid.add(vehiclewrpper.purchaservr.id);
             }
             
             if (vehiclewrpper.salescontactvr.id!=null)
@@ -87,13 +87,13 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr.contact__c);
              System.debug('Sales Contact VR >>>>>>>>'  + vehiclewrpper.salescontactvr);
                 vrlist.add(vehiclewrpper.salescontactvr);
-				if(VRid.isEmpty()){
+                if(VRid.isEmpty()){
                     VRid.add(vehiclewrpper.salescontactvr.id);  
                 }
             }
             if (vehiclewrpper.aftersalescontactvr.id!=null){
             vrlist.add(vehiclewrpper.aftersalescontactvr);
-			if(VRid.isEmpty()){
+            if(VRid.isEmpty()){
                 VRid.add(vehiclewrpper.aftersalescontactvr.id);    
             }
         
@@ -114,10 +114,10 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
             if(vehiclewrpper.aftersalescontactacclink.id!=null){
             acclinklist.add(vehiclewrpper.aftersalescontactacclink);
             }
-        
+         LeadUtil.isAcctrigger = False;
         update acclinklist;
-		
-		if(!VRid.isEmpty()){
+        
+        if(!VRid.isEmpty()){
             CreateVehicleRecord(VRid);
         }
         String str = ApexPages.currentPage().getParameters().get('id');
@@ -128,14 +128,16 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
 
         return pageref;
     }
-	
-	/*
-		Description : Added new Method to Create new Vehicle Relationship records.
-		Author : Kiran
-		JIRA : SFDCJP-1709
-	*/
+    
+    /*
+        Description : Added new Method to Create new Vehicle Relationship records.
+        Author : Kiran
+        JIRA : SFDCJP-1709
+    */
     public void CreateVehicleRecord(set<String> VehicleRelationID){
+        User usr = [Select id, LanguageLocaleKey,Market__c,ContactId,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
         List<Vehicle_Relationship__c> VRUpdate = new List<Vehicle_Relationship__c>();
+        if(usr.ContactId != null){
         for(Vehicle_Relationship__c VR : [select Id, Name,Vehicle_ID__c,End_Date__c from Vehicle_Relationship__c WHERE Vehicle_ID__c =: apexpages.currentpage().getparameters().get('id') AND End_Date__c = null]){
             VR.End_Date__c = date.today(); 
             VR.End_Reason__c = 'Updated EndDate';
@@ -173,7 +175,7 @@ private static final String VehicleExternalLinkRT = Schema.sObjectType.account_l
         l2.Start_Date__c = Date.today();
         l2.End_Date__c = null;
         insert l2;
-        
+     }   
     }
     
     public class vehicledataWrpper

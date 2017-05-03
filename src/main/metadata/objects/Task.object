@@ -12667,6 +12667,19 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
         <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>After_Sales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>After Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID"); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>
         <availability>online</availability>
@@ -12678,6 +12691,23 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR'))</errorConditionF
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/MassAssignRecallTasks</url>
+    </webLinks>
+	<webLinks>
+        <fullName>MBTH_Survey</fullName>
+        <availability>online</availability>
+        <description>Survey button used to run five flows -
+1. After Event Survey
+2. Mercedes Benz Driving Experience Sales Process
+3. Survey star Assist
+4. CSI Local Survey
+5. Welcome Call Survey</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Survey</masterLabel>
+        <openType>sidebar</openType>
+        <page>SurveyMerge</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Manual_Assign</fullName>
@@ -12862,6 +12892,19 @@ else{
 	url += "Task_RelatedTo={!Task.What}&amp;Task_CustomerId={!Task.Who}&amp;CurrentUser_UserName={!$User.LastName}{!$User.FirstName}&amp;Task_Id={!Task.Id}&amp;Redo=true"; 
 
 	window.open(url, "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Sales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Sales Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID"); 
 }</url>
     </webLinks>
     <webLinks>

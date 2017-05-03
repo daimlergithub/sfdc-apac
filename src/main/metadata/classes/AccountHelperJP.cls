@@ -11,6 +11,7 @@
 **/
 public class AccountHelperJP
 {
+    static User usr = [Select id, LanguageLocaleKey,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
 **  Created By: Sudhir 
 **  Date: 2015-12-22
@@ -159,6 +160,75 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
                 
+                if(Acc.Fax != Null && Acc.Fax != '')
+                {                    
+                    //Acc.Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
+                {                    
+                    Acc.Fax2_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Phone__c != Null && Acc.Primary_Phone__c != '')
+                {                    
+                    Acc.Primary_Phone_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Email__c != Null && Acc.Primary_Email__c != '')
+                {                    
+                    Acc.Primary_Email_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Fax__c != Null && Acc.Primary_Fax__c != '')
+                {                    
+                    Acc.Primary_Fax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Primary_Address__c != Null && Acc.Primary_Address__c != '')
+                {                    
+                    Acc.Primary_Address_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Sales_Sanction__c != Null && Acc.Sales_Sanction__c != '')
+                {                    
+                    Acc.Sales_Sanction_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonDoNotCall != accountOldMap.get(acc.Id).PersonDoNotCall)
+                {                    
+                    Acc.PersonDoNotCall_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Visit_Opt_Out__c != accountOldMap.get(acc.Id).Visit_Opt_Out__c)
+                {                    
+                    Acc.Visit_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.Postal_Opt_Out__c != accountOldMap.get(acc.Id).Postal_Opt_Out__c)
+                {                    
+                    Acc.Postal_Opt_Out_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfEmail != accountOldMap.get(acc.Id).PersonHasOptedOutOfEmail)
+                {                    
+                    Acc.OptedOutOfEmail_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.PersonHasOptedOutOfFax != accountOldMap.get(acc.Id).PersonHasOptedOutOfFax)
+                {                    
+                    Acc.OptedOutOfFax_Last_Modified_Date__c = System.now();
+                }
+                
+                if(Acc.MB_Customer_Info_Remove__c != accountOldMap.get(acc.Id).MB_Customer_Info_Remove__c)
+                {                    
+                    Acc.MB_CIR_Last_Modified_Date__c = System.now();
+                }
+                                
+                if(Acc.Data_Source__c != Null && Acc.Data_Source__c != '')
+                {                    
+                    Acc.Data_Source_Last_Modified_Date__c = System.now();
+                }
             }
             
         }
@@ -178,7 +248,7 @@ public class AccountHelperJP
             set<id> addressid = new set<id>();                  
             String province;
 			String market;
-            User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+            //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
         	market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
 			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
@@ -508,6 +578,7 @@ public class AccountHelperJP
         system.debug('------>Method is called');
 Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
 List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
+if(usr.Profile.Name != 'IntegrationAPI'){
   for(Account acc : accLst){
     if(isUpdate && acc.MD__c == label.MarketJp ){ //Checking Market for updated account
             if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c){
@@ -703,6 +774,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         
         if(!AccountlnkUpdate.isEmpty())
             update AccountlnkUpdate;
+			}
     }//End of Method
     //*created by :Suryavarma
     // sharing account to dealer user
@@ -821,9 +893,10 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
     public static void updateCompanyAccountNameBeforeInsert(list<Account> listAccounts){
         try{
           System.debug('inserting>>>>>>>>>>>>>');
-            user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
+           // user usr = [select id, LanguageLocaleKey from user WHERE ID = : userInfo.getUserId()];
             system.debug('LanguageLocaleKey ---->'+usr.LanguageLocaleKey );
             List<Account> accList = new List<Account>();
+			if(usr.Profile.Name != 'IntegrationAPI'){
            Map<String,String> TranslateMap= UtilAddressTranslation.gettranslatedAccName('JP');
            ID RDType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             for(Account acc : listAccounts){
@@ -859,6 +932,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                 
                 }
             }
+			}
         }
         catch(Exception e){
             System.debug('Error'+e.getMessage());
@@ -873,14 +947,15 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
         list<Account> updateacclist = new list<Account>(); 
         List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
                 
-                
+             if(LeadUtil.Acctrigger )
+            {    
                 for(Account abc: accMainList)
                 
                 {
                      sid.add(abc.Id);   
                 }
                 
-                
+            }    
                 
                 
 
@@ -949,6 +1024,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
        }
        }
      Update Updateli ;
+    LeadUtil.Acctrigger = false; 
 }
 
  public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
@@ -1018,7 +1094,7 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
                                                                         Retail_Full_Name_Native__c = ((led.LastName_Native_1__c != null ? led.LastName_Native_1__c: '') + (led.FirstName_Native_1__c != null ?led.FirstName_Native_1__c :'' )).left(50),
                                                                         
                                                                         Retail_LastName__c = led.LastName, Retail_FirstName__c = led.FirstName, 
-                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '') + '  ' + (led.FirstName!= null ? led.FirstName : '')),
+                                                                        Retail_Full_Name_Title__c = ((led.LastName!=null ? led.LastName : '') + '  ' + (led.FirstName != null ? led.FirstName : '')),//+ '  ' + (led.FirstName!= null ? led.FirstName : '')
                                                                         Retail_LastName_Native__c = led.LastName_Native_1__c, Retail_FirstName_Native__c = led.FirstName_Native_1__c,
                                                                         Retail_UCID__c = led.UCID__c);
                   }else if(led.RecordTypeId == AccountCompanyId){
@@ -1076,3 +1152,4 @@ List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account L
      }   
  }
 }
+

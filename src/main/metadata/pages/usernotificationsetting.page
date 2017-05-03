@@ -20,13 +20,14 @@
           <apex:panelGrid >
          
               <apex:outputPanel >
-                 <b> <apex:outputLabel value="Notification Account Contact Update"/></b>
+                 <b> <apex:outputLabel value="Notification Lead Dealer Assignment"/></b>
+                 
            <apex:selectList value="{!Selected}" multiselect="true" size="4" style="top:10px;position:relative;">
                     <apex:selectOptions value="{!leftacc}" />
                 </apex:selectList>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;  
           <apex:commandButton value="add>" action="{!addit}" style="top:1px;position:relative;"/>
-                   &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;
            <apex:selectList multiselect="true" size="4" style="top:10px;position:relative;">
                <apex:selectOption itemLabel="None" itemValue="none"/>
                     <apex:selectOptions value="{!rightacc}" />
@@ -34,7 +35,8 @@
         </apex:outputPanel>  
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <apex:outputPanel >
-               <b> <apex:outputLabel value="Notification Lead Dealer Assignment"/> </b>
+               <b> <apex:outputLabel value="Notification Lead Not Assigned"/> </b> 
+               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
            <apex:selectList value="{!Selected1}" multiselect="true" size="4" style="top:10px;position:relative;">
                
                     <apex:selectOptions value="{!leftacctwo}" />
@@ -49,7 +51,8 @@
               </apex:outputPanel>  
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <apex:outputPanel >
-              <b>  <apex:outputLabel value="Notification Account Finance Update"/> </b>
+              <b>  <apex:outputLabel value="Notification Lead No Update"/> </b>
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <apex:selectList value="{!Selected2}" multiselect="true" size="4" style="top:10px;position:relative;">
                     <apex:selectOptions value="{!leftaccthree}" />
                 </apex:selectList>
@@ -72,7 +75,7 @@
          <!--- <apex:outputText value="{!Selected}" />
                     <apex:outputText value="{!Selected1}"/>
                     <apex:outputText value="{!Selected2}" />--->
-          <apex:commandbutton value="update" action="{!updateit}"  oncomplete="RelodeParent()" />
+          <apex:commandbutton value="update" action="{!updateit}"  oncomplete="RelodeParent()"/>
          <!-- <apex:commandbutton value="cancel" action="{!cancelit}"/>-->
          <apex:CommandButton value="Cancel" oncomplete="RelodeParent()" /> 
               
@@ -84,3 +87,4 @@
     
     </apex:form>
 </apex:page>
+

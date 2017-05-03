@@ -18,20 +18,20 @@ public class TriggerUtil
     public static Boolean isTriggerEnabled(List<Trigger__c> aTriggerInfoLst) 
     {
         if (!aTriggerInfoLst.isEmpty() && aTriggerInfoLst.size() > 0) 
-		{
-			for (Trigger__c triggerCust : aTriggerInfoLst)
-			{
-				if(triggerCust != null)
-				{
-					return triggerCust.enabled__c;
-				}
-				else 
-				{
-					return false;
-				}
-			} 
+    {
+      for (Trigger__c triggerCust : aTriggerInfoLst)
+      {
+        if(triggerCust != null)
+        {
+          return triggerCust.enabled__c;
         }
-		return false;
+        else 
+        {
+          return false;
+        }
+      } 
+        }
+    return false;
     }
     
     public static void handleTrigger(String aTriggerName)
@@ -45,7 +45,7 @@ public class TriggerUtil
         }
         List<Trigger__c> triggerInfolst = new List<Trigger__c>(getTriggerInfo(aTriggerName,usr));
         system.debug('*$*$*$* List Value after return in Handler Method  ' + triggerInfolst);
-        if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1)
+        if(!triggerInfolst.isEmpty() && triggerInfolst.size() == 1 && usr.profile.Name !='IntegrationAPI' )
         {
             triggerVal = triggerInfolst[0];
             if (isTriggerEnabled(triggerInfolst)) 
@@ -55,7 +55,8 @@ public class TriggerUtil
                 if (triggerHandler != null) 
                 {
                     triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);
-                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete,trigger.isAfter);                    
+                    //triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore,trigger.isdelete,trigger.isAfter);
+					//commented as part of SFDCJP-2176                  
 
                 }
             }

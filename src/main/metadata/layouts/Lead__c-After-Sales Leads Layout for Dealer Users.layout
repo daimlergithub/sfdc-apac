@@ -134,7 +134,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Quotation_Print_Date__c</field>
+                <field>Quotation_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -395,6 +395,15 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	    <relatedLists>
+        <customButtons>New_Campaign_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Campaign__c</fields>
+        <fields>Central_Campaign_Name__c</fields>
+        <fields>Participate__c</fields>
+        <relatedList>Campaign_Lead__c.Lead__c</relatedList>
+    </relatedLists>
     <relatedLists>
 	<excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>

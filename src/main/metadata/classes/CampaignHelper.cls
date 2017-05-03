@@ -333,6 +333,61 @@ Set<id> aid = New Set<id>();
    }
    }
    }
+         /**
+  *@Description : Custom Clone button logic for campaign 
+  *@Date : 30/03/2017
+  *@Author : Dinesh Govindaswamy
+  
+  
+  */
+
+Public static void updateLogic(List<Campaign> campgn){
+Id camIdExec = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id camIdPlan = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+id recId;
+ List<Campaign> camUpdateList = new List<Campaign>();
+
+ set<Id> sid = New Set<Id>();
+           
+                                   
+                                   For(Campaign cam : campgn){
+                                                   
+                                                   
+                                 if( cam.CloneCampaign__c!= null){
+                                   sid.add(cam.CloneCampaign__c);
+                                   system.debug('+++'+cam.CloneCampaign__c);
+                                          
+                                                                   
+                                                   }
+                                   }
+             system.debug('++++++'+sid);
+
+List<Campaign> CamList = [Select Id,Name,ParentId,Segmentation_Date__c,Campaign_Status__c,Execution_Start_Date__c From Campaign Where ParentId =: sid];
+system.debug('++++++'+CamList);
+For(Campaign came : campgn){
+For(Campaign camp : CamList ){
+                
+                
+                Campaign camm = New Campaign();
+                camm.Name = camp.Name;
+                camm.ParentId = came.Id;
+				camm.Segmentation_Date__c = camp.Segmentation_Date__c;
+                camm.Execution_Start_Date__c = camp.Execution_Start_Date__c ;
+                camm.Campaign_Status__c = camp.Campaign_Status__c;
+               
+                camm.RecordTypeId = camIdExec;
+                                                                        
+                camUpdateList.add(camm);
+                
+}
+}
+
+insert camUpdateList;
+
+system.debug('++++++'+camUpdateList);
+
+}
+   
   /**
   *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object. This method auto calculate Segementation date based on Working day and working month
@@ -825,7 +880,7 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c <= ca.StartDate ){
+                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate ){
                      
                          campan.addError('Segmentation Date Error');
                          

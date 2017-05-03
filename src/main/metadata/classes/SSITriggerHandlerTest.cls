@@ -18,9 +18,9 @@ public class SSITriggerHandlerTest {
     accobj = new Account();
     accobj.RecordTypeId = dealerRecordtypeid;
     accobj.Name = 'testaccount';
-    accobj.Phone = '000-0000-9842';
+    accobj.Phone = '00000009842';
     accobj.MBK_Data_Source__c='Email';
-    accobj.Mobile__c = '000-0000-9642';
+    accobj.Mobile__c = '0000009642';
     insert accobj;
     system.debug('$$$$$accobj$$$$$$$'+accobj);
     system.debug('$$$$$accobj.id$$$$$$$'+accobj.id);
@@ -44,19 +44,19 @@ public class SSITriggerHandlerTest {
     ssiold.DealerCheck_Status__c = 'Pending';
     ssiold.CarModelCheck_Status__c = 'Pending';
     ssiold.Need_2nd_Survey__c = false;
-    ssiold.HomeMobilePhone__c = '000-0000-8888';
-    ssiold.OfficePhone__c = '000-0000-9999';
+    ssiold.HomeMobilePhone__c = '00000008888';
+    ssiold.OfficePhone__c = '00000009999';
     ssiold.Mark__c = 'test';
     insert ssiold;
-	 // SSI New Map
+     // SSI New Map
 
     
     ssiold.CustomerName__c = 'testcustomernew'; 
     ssiold.Status__c = 'Matched';
     ssiold.DealerCheck_Status__c = 'valid';
     ssiold.CarModelCheck_Status__c = 'valid';
-    ssiold.HomeMobilePhone__c = '000-0000-9562';
-    ssiold.OfficePhone__c = '000-0000-9842';
+    ssiold.HomeMobilePhone__c = '00000009562';
+    ssiold.OfficePhone__c = '00000009842';
     ssiold.Mark__c = '';
     update ssiold;
     
@@ -67,8 +67,8 @@ public class SSITriggerHandlerTest {
     taskobj.recordtypeid = ssitaskid;
     taskobj.Subject = '2nd Survey Call';
     taskobj.WhatId = ssiold.id;
-    taskobj.HomeMobilePhone__c = '000-0000-9999';
-    taskobj.OfficePhone__c = '000-0000-8888';
+    taskobj.HomeMobilePhone__c = '00000009999';
+    taskobj.OfficePhone__c = '00000008888';
     taskobj.Status = 'Open';
     system.debug('$$$$$$taskobj$$$$$$'+taskobj);
     
@@ -89,8 +89,17 @@ public class SSITriggerHandlerTest {
         
         System.runAs ( ssi_sv ) {
                     
-           
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+           customer = new Account();
+          customer.RecordTypeId = personRecordtypeid;
+          customer.LastName = 'testaccount';
+          customer.Phone = '00000009842';
+          customer.MBK_Data_Source__c='Email';
+          customer.Mobile__c = '0000009642';
+         insert customer;
+            //customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+            
+            
+            
             String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
             
             // create new ssi record

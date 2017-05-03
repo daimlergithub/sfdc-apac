@@ -11,8 +11,8 @@
 ** 4. Gerhard Henning (NTTData)  Moved code to TriggerAccountHandler on 2015-04-21
 ** Created By: CC
 ** Date: 2014-6-15
-   Modified By : 
-   Modified date : 
+   Modified By : Mohammed Touseef AHmed
+   Modified date : 03-12-2016
 **/
 
 trigger TriggerAccount on Account (before insert, before update, after insert, after update) 
