@@ -60,8 +60,8 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
             
         
         if(set_AccountId.size() > 0){
-            List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_AccountId AND IsPortalEnabled = true]);
-           List<Participating_Dealer__Share> list_SharingDele = new List<Participating_Dealer__Share>([SELECT Id FROM Participating_Dealer__Share 
+            List<User> list_User = new List<User>( [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:set_AccountId AND IsPortalEnabled = true]);
+           List<Participating_Dealer__Share> list_SharingDele = new List<Participating_Dealer__Share>([SELECT Id FROM Participating_Dealer__Share
                                                                                             WHERE ParentId IN:list_DmrequestId AND UserOrGroupId IN :list_User]);
             if(list_SharingDele.size() > 0){
                 delete list_SharingDele;
@@ -80,9 +80,9 @@ public static void afterInsertEvent(List<Participating_Dealer__c> newList){
     
     private static List<Participating_Dealer__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDealerpati){
         List<Participating_Dealer__Share> list_SharingRecord = new List<Participating_Dealer__Share>();
-        for(User usr : [SELECT Id, AccountId FROM User WHERE AccountId IN:mapDealerpati.keySet() AND IsPortalEnabled = true AND Account.RecordType.Name = 'Dealer']){
-            if(mapDealerpati.containsKey(usr.AccountId)){
-                for(Id acId : mapDealerpati.get(usr.AccountId)){
+        for(User usr : [SELECT Id, Contact.AccountId FROM User WHERE Contact.AccountId IN:mapDealerpati.keySet() AND IsPortalEnabled = true AND Contact.Account.RecordType.Name='Dealer']){
+            if(mapDealerpati.containsKey(usr.Contact.AccountId)){
+                for(Id acId : mapDealerpati.get(usr.Contact.AccountId)){
                     Participating_Dealer__Share participatingDeaShare = new Participating_Dealer__Share();
                     participatingDeaShare.AccessLevel = 'Edit';
                     participatingDeaShare.UserOrGroupId = usr.Id;

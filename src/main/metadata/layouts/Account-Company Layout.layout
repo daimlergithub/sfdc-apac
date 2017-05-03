@@ -5,7 +5,7 @@
     <customButtons>Send_to_JPOS</customButtons>
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Check_Duplicates</customButtons>
-    <customButtons>New_Case</customButtons>
+    <customButtons>New_Sales_Lead_WS</customButtons>    
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
@@ -292,10 +292,6 @@
                 <behavior>Edit</behavior>
                 <field>Special_Care__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Annual_Income_Range__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -445,6 +441,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>
+        <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>Case_Class__c</fields>
         <fields>Data_Source__c</fields>

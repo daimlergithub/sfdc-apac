@@ -100,6 +100,13 @@
         <value>Account Link</value>
     </labels>
     <labels>
+        <fullName>DealerKoreaLoginURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DealerKoreaLoginURL</shortDescription>
+        <value>https://uat-daimlerasia.cs31.force.com/MBKorea</value>
+    </labels>	
+	<labels>
         <fullName>AccountMergeFields</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -162,6 +169,13 @@
         <protected>false</protected>
         <shortDescription>Activity History</shortDescription>
         <value>Activity History</value>
+    </labels>
+    <labels>
+        <fullName>Add</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
     </labels>
     <labels>
         <fullName>Add_Button</fullName>
@@ -350,6 +364,13 @@
         <value>Allow Data Sharing</value>
     </labels>
     <labels>
+        <fullName>Allow_data_sharing2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow data sharing2</shortDescription>
+        <value>Allow Data Sharing</value>
+    </labels>
+    <labels>
         <fullName>AlreadyProcessed</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -450,6 +471,13 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>Assigned_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assigned Dealer</shortDescription>
+        <value>Assigned Dealer</value>
+    </labels>
+    <labels>
         <fullName>AttachedPdfError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -462,6 +490,13 @@
         <protected>false</protected>
         <shortDescription>Authorization</shortDescription>
         <value>you do not have the proper authorization</value>
+    </labels>
+    <labels>
+        <fullName>Backslash</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Backslash</shortDescription>
+        <value>\</value>
     </labels>
     <labels>
         <fullName>Birthdate</fullName>
@@ -1010,6 +1045,41 @@
         <value>Other</value>
     </labels>
     <labels>
+        <fullName>Campaign_Date_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 1</shortDescription>
+        <value>Start Date cant be Lesser Than Today</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 2</shortDescription>
+        <value>End Date cant be Lesser Than Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 3</shortDescription>
+        <value>Segmentation Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 4</shortDescription>
+        <value>Execution Date Error</value>
+    </labels>
+    <labels>
+        <fullName>Campaign_Date_5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Date 5</shortDescription>
+        <value>Response Date Error</value>
+    </labels>
+    <labels>
         <fullName>Campaign_Notification1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1392,6 +1462,13 @@
         <protected>false</protected>
         <shortDescription>Child</shortDescription>
         <value>Child</value>
+    </labels>
+    <labels>
+        <fullName>Choose_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Choose Account</shortDescription>
+        <value>Choose Account</value>
     </labels>
     <labels>
         <fullName>City</fullName>
@@ -1835,6 +1912,13 @@
         <value>Dealer Campaign Notification</value>
     </labels>
     <labels>
+        <fullName>Dealer_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Code</shortDescription>
+        <value>Dealer Code</value>
+    </labels>
+    <labels>
         <fullName>Dealer_Company</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1875,6 +1959,13 @@
         <protected>false</protected>
         <shortDescription>Dealer Outlet</shortDescription>
         <value>Dealer Outlet</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Type</shortDescription>
+        <value>Dealer Type</value>
     </labels>
     <labels>
         <fullName>Dealer_login_Url</fullName>
@@ -2020,6 +2111,34 @@
         <protected>false</protected>
         <shortDescription>Email_Assignment</shortDescription>
         <value>you are assigned to the Lead in Salesforce thus we notify you.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case</shortDescription>
+        <value>Please check　New customer related information distribution notification .</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Record</shortDescription>
+        <value>Case</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Respond</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Respond</shortDescription>
+        <value>Please check and respond as necessary. *Please take caution in handling of the information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_information</shortDescription>
+        <value>customer related information(Call-in conversations, survey result, customer information change, etc.) we&apos;d like to distribute to you.</value>
     </labels>
     <labels>
         <fullName>Email_LeadDealerAssign1</fullName>
@@ -2373,6 +2492,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Fiinance Estimate Number</shortDescription>
         <value>Fiinance Estimate Number</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
     </labels>
     <labels>
         <fullName>FinanceMethod</fullName>
@@ -3237,6 +3363,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Last Modified Date</shortDescription>
         <value>Last Modified Date</value>
+    </labels>
+    <labels>
+        <fullName>Latest_Phase_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Latest Phase History</shortDescription>
+        <value>Latest Phase History</value>
     </labels>
     <labels>
         <fullName>LeadId</fullName>
@@ -4157,6 +4290,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Planned Purchase Time</value>
     </labels>
     <labels>
+        <fullName>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select A Dealer To Add As Participating Dealer</shortDescription>
+        <value>Please Select A Dealer To Add As Participating Dealer</value>
+    </labels>
+    <labels>
         <fullName>Please_enter_the_filter_name</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4225,6 +4365,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Priority</shortDescription>
         <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Process_Check_Items</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Process Check Items</shortDescription>
+        <value>Process Check Items</value>
     </labels>
     <labels>
         <fullName>Product_ID</fullName>
@@ -5932,6 +6079,13 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <value>Are you interested to apply the card?</value>
     </labels>
     <labels>
+        <fullName>RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
         <fullName>S5_Q4_T_P1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7272,6 +7426,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Trade-in Vehicle Remaining</value>
     </labels>
     <labels>
+        <fullName>Triangle_Image</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Triangle Image</shortDescription>
+        <value>▲</value>
+    </labels>
+    <labels>
         <fullName>Trim</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7905,6 +8066,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>delete confirmation message</shortDescription>
         <value>This will delete the retail copy and the Account will not be viewable anymore, is this ok?</value>
+    </labels>
+    <labels>
+        <fullName>deleting_campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>deleting campaign</shortDescription>
+        <value>You Cant Delete  The Campaign</value>
     </labels>
     <labels>
         <fullName>displayOnly</fullName>

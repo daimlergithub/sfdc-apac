@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Participating Dealer --></value>
+    </caseValues>
+    <fields>
+        <label>リスト承認可否</label>
+        <name>Approve_the_List__c</name>
+    </fields>
+    <fields>
+        <label>ブランド</label>
+        <name>Brand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Description --></label>
+        <name>Campaign_Description__c</name>
+    </fields>
+    <fields>
+        <label>終了日</label>
+        <name>Campaign_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Execution Date --></label>
+        <name>Campaign_Execution_Date__c</name>
+    </fields>
+    <fields>
+        <label>実行タイプ</label>
+        <name>Campaign_Execution_Type__c</name>
+    </fields>
+    <fields>
+        <label>実行者</label>
+        <name>Campaign_Executor__c</name>
+    </fields>
+    <fields>
+        <label>キャンペーン名</label>
+        <name>Campaign_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign Package --></label>
+        <name>Campaign_Package__c</name>
+        <relationshipLabel><!-- Participating Dealers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>開始日</label>
+        <name>Campaign_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>レポート区分</label>
+        <name>Campaign_Sub_Type__c</name>
+    </fields>
+    <fields>
+        <label>キャンペーンタイプ</label>
+        <name>Campaign_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Participating Dealers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>当時クラス＋ボディ</label>
+        <name>Class__c</name>
+    </fields>
+    <fields>
+        <label>リテーラーID</label>
+        <name>DMS_Retailer_ID__c</name>
+    </fields>
+    <fields>
+        <label>ディーラー種別</label>
+        <name>Dealer_Type__c</name>
+    </fields>
+    <fields>
+        <label>販売店名</label>
+        <name>Dealer__c</name>
+        <relationshipLabel><!-- Participating Campaigns --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label>拠点コード(DAW)</label>
+        <name>ND_Code__c</name>
+    </fields>
+    <fields>
+        <label>レンジ</label>
+        <name>Range__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retail Campaign --></label>
+        <name>Retail_Campaign__c</name>
+        <relationshipLabel><!-- Participating Dealers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Session End Date --></label>
+        <name>Session_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Start Date --></label>
+        <name>Session_Start_Date__c</name>
+    </fields>
+    <layouts>
+        <layout>Participating Dealer Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Ref No. --></nameFieldLabel>
+    <recordTypes>
+        <label><!-- Participating Dealer --></label>
+        <name>Participating_Dealer</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Participating Dealer Share --></label>
+        <name>Participating_Dealer_Share</name>
+    </sharingReasons>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t add a Campaign Package without any Package Items. --></errorMessage>
+        <name>Campaign_Package_cannot_be_empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- List Maintenance is Completed,You Cant Edit And Create --></errorMessage>
+        <name>List_Maintenance_lock</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Session Start Date must be less than or equal to Session End Date --></errorMessage>
+        <name>Session_Start_Date_is_less_than_End_Date</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Complete --></label>
+        <name>Complete</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Participating_Dealers --></label>
+        <name>Manage_Participating_Dealers</name>
+    </webLinks>
+</CustomObjectTranslation>

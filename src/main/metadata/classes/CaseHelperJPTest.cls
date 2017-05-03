@@ -5,8 +5,8 @@ public class CaseHelperJPTest{
     public static Account testAccount1;
     public static Account testAccount2;                                                                      
     public static User marketUser;
-    
-    
+    public static List<case> cas;
+    public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     static void createCustomSetting(){
         //Enter the JP Specific settings here.
         system.debug('Create custom setting here...');
@@ -27,10 +27,12 @@ public class CaseHelperJPTest{
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
            testAccount1.MD__c = 'JP';
+           testAccount1.Complaint_Amount__c=100;
            update testAccount1;
            
            testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
            testAccount2.MD__c = 'JP';
+           testAccount2.Complaint_Amount__c=50;
            update testAccount2;
            
            system.debug('Account 1' +testAccount1);
@@ -98,7 +100,9 @@ public class CaseHelperJPTest{
         Account acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account Before Delete :' +acc);
         test.starttest();
+        try{
         delete testCase1;
+        }catch(exception e){}
         test.stoptest();
         acc = [Select Id, Complaint_Amount__c from Account Where Id =: testAccount1.Id];
         system.debug('Account After Delete:' +acc);
@@ -150,7 +154,7 @@ public class CaseHelperJPTest{
             system.assertEquals(c.DeadLine__c, deadLineDate);
         }
     } 
-    public static testMethod void testupdateCase (){{
+  public static testMethod void testupdateCase (){{
 
 Account acc = New Account();
 {
@@ -207,5 +211,128 @@ system.assertEquals('Magazine','Magazine');
 }
 
 }
+      public static testMethod void testComplaintAmountCaseUpdate2(){
+        createCustomSetting();
+        init();
+        
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        cas=new List<Case>();
+        cas.add(testCase1);
+        
+        Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+         cas.add(testCase2);
+        Case testCase3 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, AccountId = testAccount2.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+         cas.add(testCase3);
+        insert cas;
+        
+        
+        
        
+        test.starttest();
+        CaseHelperJP ch=new CaseHelperJP();
+        ch.updateCase(cas);
+        test.stoptest();
+       
+       
+    }  
+    
+    @isTest static void updateGateKeaperforApprovedProcessTest()
+     {
+             
+    Test.StartTest();
+  List<Case> listcampaigns=new List<Case>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        
+        insert testCase1;
+        
+        
+        
+      
+        
+       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+
+
+        insert testCase2;
+        listcampaigns.add(testCase2);
+        Case listCampaign =[select Case_Class__c ,RecordTypeId ,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
+         list<Case> oldList = new  list<Case>();
+         oldList.add(listCampaign);
+        map<id,Case> oldMap = new map<id,Case>();
+         oldMap.put(listCampaign.id, listCampaign);
+         TriggerCaseTriggerHandlerKR.isFutureUpdate =false;
+        testCase2.Status='New';
+        update testCase2;
+        string isInsert;
+     
+
+         CaseHelperJP ch=new CaseHelperJP();    
+         ch.updateGateKeaperforApprovedProcess(listcampaigns,oldMap,isInsert);
+        
+        
+        Test.StopTest();
+        
+     }
+     
+     @isTest static void calculateComplaintAmountTest()
+     {
+             
+    Test.StartTest();
+  List<Case> listcampaigns=new List<Case>();
+     //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer;
+     Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+     insert dealer1;
+     testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+      testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            LastName = 'b', 
+            Phone = '01212313', 
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        
+        insert testCase1;
+        
+        
+        
+      
+        
+       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Accountid= testAccount1.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+
+
+        insert testCase2;
+        listcampaigns.add(testCase2);
+        Case listCampaign =[select Case_Class__c ,RecordTypeId,AccountId,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
+         list<Case> oldList = new  list<Case>();
+         oldList.add(listCampaign);
+        map<id,Case> oldMap = new map<id,Case>();
+         oldMap.put(listCampaign.id, listCampaign);
+         TriggerCaseTriggerHandlerKR.isFutureUpdate =false;
+        testCase2.Accountid=testAccount2.id;
+        update testCase2;
+        
+     
+
+         CaseHelperJP ch=new CaseHelperJP();    
+         ch.calculateComplaintAmount(listcampaigns,oldMap);
+        
+        
+        Test.StopTest();
+        
+     }
 }

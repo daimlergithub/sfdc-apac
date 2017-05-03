@@ -29,9 +29,9 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer Account --></label>
+        <label>対象販売拠点</label>
         <name>Dealer_Account__c</name>
-        <relationshipLabel><!-- Surveys Taken (Dealer Account) --></relationshipLabel>
+        <relationshipLabel>ディーラーアカウント</relationshipLabel>
     </fields>
     <fields>
         <label><!-- Last Answered Question --></label>
@@ -113,4 +113,4 @@
         </sections>
     </layouts>
     <nameFieldLabel><!-- ID --></nameFieldLabel>
-</CustomObjectTranslation>
+    </CustomObjectTranslation>

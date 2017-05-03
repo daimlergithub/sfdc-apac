@@ -2,7 +2,7 @@
 
 <apex:form >
         <apex:pageBlock title="Retail Copy Only Related List">
-    <apex:pageBlockTable value="{!acclnkrellist}" var="row">
+    <apex:pageBlockTable value="{!acclnkrellist}" var="row" >
     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.fromRole__c.Label}">
                       <apex:outputlink value="#" onclick="window.open('/{!acclnkrellist.Id}','_blank');">{!acclnkrellist.fromRole__r.Name}</apex:outputlink>
@@ -37,17 +37,17 @@
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Email_OptOut__c.Label}">
-                        <apex:outputText value="{!row.Retail_Email_OptOut__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{!row.Retail_Email_OptOut__c}" style="width:9%; white-space:nowrap;" rendered="{!IF(row.Retail_Email_OptOut__c== false,false,true)}">
                         </apex:outputText>
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Fax_OptOut__c.Label}">
-                        <apex:outputText value="{!row.Retail_Fax_OptOut__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{!row.Retail_Fax_OptOut__c}" style="width:9%; white-space:nowrap;" rendered="{!IF(row.Retail_Fax_OptOut__c== false,false,true)}">
                         </apex:outputText>
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Phone_OptOut__c.Label}">
-                        <apex:outputText value="{!row.Retail_Phone_OptOut__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{!row.Retail_Phone_OptOut__c}" style="width:9%; white-space:nowrap;" rendered="{!IF(row.Retail_Phone_OptOut__c== false,false,true)}">
                         </apex:outputText>
                     </apex:column>
                     
@@ -57,7 +57,7 @@
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Postal_OptOut__c.Label}">
-                        <apex:outputText value="{!row.Retail_Postal_OptOut__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{!row.Retail_Postal_OptOut__c}" style="width:9%; white-space:nowrap;" rendered="{!IF(row.Retail_Postal_OptOut__c== false,false,true)}">
                         </apex:outputText>
                     </apex:column>
                     
@@ -67,7 +67,7 @@
                     </apex:column>
                     
                     <apex:column headerValue="{!$ObjectType.Account_Link__c.fields.Retail_Visit_OptOut__c.Label}">
-                        <apex:outputText value="{!row.Retail_Visit_OptOut__c}" style="width:9%; white-space:nowrap;">
+                        <apex:outputText value="{!row.Retail_Visit_OptOut__c}" style="width:9%; white-space:nowrap;" rendered="{!IF(row.Retail_Visit_OptOut__c== false,false,true)}">
                         </apex:outputText>
                     </apex:column>
                                   
@@ -75,4 +75,3 @@
         </apex:pageblock>
     </apex:form>
 </apex:page>
-                  

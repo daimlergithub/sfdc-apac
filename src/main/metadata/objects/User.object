@@ -371,7 +371,7 @@
                 <fullName>Not receive</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -453,7 +453,7 @@
                 <fullName>Not receive</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -478,7 +478,7 @@
                 <fullName>Not receive</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -527,7 +527,7 @@
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1176,7 +1176,7 @@
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
     </webLinks>
-   <webLinks>
+    <webLinks>
         <fullName>Mass_Update_Assignment</fullName>
         <availability>online</availability>
         <displayType>link</displayType>

@@ -202,7 +202,7 @@
     <fields>
         <fullName>Campaign_Member_ID__c</fullName>
         <description>Autonumber field for Campaign Member.</description>
-        <displayFormat>CM-{000000}</displayFormat>
+        <displayFormat>CM-{0000000000}</displayFormat>
         <externalId>false</externalId>
         <label>Campaign Member ID</label>
         <trackTrending>false</trackTrending>
@@ -360,6 +360,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cross_Point_Model__c</fullName>
         <externalId>false</externalId>
         <label>Cross Point Model</label>
@@ -407,6 +417,17 @@
         <externalId>false</externalId>
         <label>Customer Label Name</label>
         <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_Id__r.Mobile__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Mobile</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -655,7 +676,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1077,7 +1098,7 @@
                 <fullName>Not Responded</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1109,6 +1130,16 @@
         <externalId>false</externalId>
         <label>Total Vehicle Price without tax</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1220,6 +1251,21 @@ ISPICKVAL( Status__c , "Not Responded")
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Add_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var CampStatus = "{!Account.Id}";
+openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enableScopes=1&amp;addToCampaign=1',670,'1','')</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>

@@ -2,7 +2,9 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
-        <type>Default</type>
+        <content>AddToCampaign</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>AdvancedSetup</actionName>
@@ -533,7 +535,6 @@
                 <fullName>Retail</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -566,7 +567,6 @@
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -632,7 +632,6 @@
                 <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -748,7 +747,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -788,7 +786,6 @@
                 <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1155,7 +1152,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1281,6 +1277,18 @@
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Campaigns (Campaign)</relationshipLabel>
+        <relationshipName>Campaigns1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Closed_Date__c</fullName>
         <description>Date for the campaign close to dealer.</description>
         <externalId>false</externalId>
@@ -1325,7 +1333,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>DM_Comments__c</fullName>
         <externalId>false</externalId>
         <label>DM Comments</label>
@@ -1420,7 +1428,6 @@
                 <fullName>Joint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3123,7 +3130,6 @@
                 <controllingFieldValues>May</controllingFieldValues>
                 <controllingFieldValues>Oct</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3197,7 +3203,6 @@
                 <default>false</default>
                 <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3222,7 +3227,6 @@
                 <fullName>Contract</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3491,8 +3495,7 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
+    </fields><fields>
         <fullName>Total_Budget__c</fullName>
         <description>This field is used to capture the total budget being allocated for the campaign activity</description>
         <externalId>false</externalId>
@@ -3633,6 +3636,10 @@
             <value>1</value>
         </filters>
         <label>All Active CAS Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
@@ -3673,6 +3680,10 @@
             <value>1</value>
         </filters>
         <label>All Active Central Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Active_Campaign_Execution</fullName>
@@ -13786,10 +13797,6 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Started</fullName>
                 <default>false</default>
             </values>
@@ -20309,6 +20316,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Use_Segmentation_Criteria</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
+        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
+        <errorMessage>Segmentation Date is Required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -20319,6 +20333,88 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Add_Participating_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Participating Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Consolidate_List_Maintenance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Consolidate List Maintenance</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')} 
+
+var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c From Participating_Dealer__c WHERE Campaign__c = '{!Campaign.Id}' AND Approve_the_List__c= false "); 
+
+var qrerecords = qre.getArray("records"); 
+
+if(qrerecords.length&gt;0){ 
+
+try{ 
+
+
+jQuery(function() { 
+/*Append the jQuery CSS CDN Link to the Head tag.*/ 
+jQuery('head').append('&lt;link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css" type="text/css" /&gt;'); 
+
+/*Create the HTML(DIV Tag) for the Dialog.*/ 
+var html = 
+'&lt;div id="dialog" title="WARNING"&gt;&lt;p&gt; List Maintenance is not yet completed do u want to proceed &lt;/p&gt;&lt;/div&gt;'; 
+
+/*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/ 
+if(!jQuery('[id=dialog]').size()){ 
+jQuery('body').append(html); 
+} 
+
+/*Open the jQuery Dialog.*/ 
+jQuery( "#dialog" ).dialog({ 
+autoOpen: true, 
+modal: true, 
+show: { 
+effect: "bounce", 
+duration: 1000 
+}, 
+hide: { 
+effect: "bounce", 
+duration: 10 
+}, 
+buttons: { 
+"Proceed": function() { 
+
+ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');	
+
+jQuery( this ).dialog( "close" ); 
+}, 
+Cancel: function() { 
+jQuery( this ).dialog( "close" ); 
+} 
+} 
+}); 
+}); 
+} 
+catch(e){ 
+alert('An Error has Occured. Error: ' + e); 
+} 
+}else if(qrerecords.length== 0) { 
+location.replace('/apex/Consolidation_List?Id={!Campaign.Id}'); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
@@ -20371,7 +20467,7 @@ IsActive = True
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -20401,6 +20497,26 @@ alert('something has gone wrong please contact your Administrator');
         <openType>replace</openType>
         <protected>false</protected>
         <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Custom_Clone</fullName>
+        <availability>online</availability>
+        <description>Custom button “Clone“ will be available on the parent campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Custom Clone</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;00N2800000A9CfQ=&amp;CF00N2800000IkqW9_lkid={!Campaign.Id}&amp;CF00N2800000IkqW9={!Campaign.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>
@@ -20538,6 +20654,156 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
      {
           alert("Already True");
      }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_OPR</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+oprLimitPages:10000,
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").opr();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(PDF)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_Label_Print_PDF</fullName>
@@ -20770,3 +21036,4 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
     </webLinks>
 </CustomObject>
+

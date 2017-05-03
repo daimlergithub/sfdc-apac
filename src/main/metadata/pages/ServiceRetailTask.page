@@ -75,14 +75,11 @@
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact2__c.Label}">
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact2__r.id}','_blank');">{!ser.Related_Contact2__r.Name}</apex:outputlink>
-                
-
                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Related_Contact3__c.Label}">
                  <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Contact3__r.id}','_blank');">{!ser.Related_Contact3__r.Name}</apex:outputlink>
-                
-                       
+   
                     </apex:column>
                     
                      <apex:column headerValue="{!$ObjectType.Retail_Task__c.fields.Service_Vehicle_VIN__c.Label}">
@@ -96,7 +93,7 @@
                       <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!ser.Related_Dealer__r.id}','_blank');">{!ser.Related_Dealer__r.Name} </apex:outputlink>
                     </apex:column>
                         </apex:pageBlockTable>           
-          
             </apex:pageBlock>
     </apex:form>
 </apex:page>
+

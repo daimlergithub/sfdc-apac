@@ -1039,7 +1039,7 @@ public with sharing class UserHelper {
             if (!shares.isEmpty() && shares != null)
             {
                 String JSONStr = JSON.serialize(shares);
-                System.debug('Serialized list of invoices into JSON format: ' + JSONStr);
+               //System.debug('Serialized list of invoices into JSON format: ' + JSONStr);
                 usershare(JSONStr);
             }
         }                   
@@ -1103,8 +1103,8 @@ public with sharing class UserHelper {
         insert usershareList;
     }
 
-	
-	public static void grpCreationandUsergrpAlign(List<User> usrInList){
+    
+    public static void grpCreationandUsergrpAlign(List<User> usrInList){
         List<Id> usrIds = new List<Id>();
         for(user usr: usrInList){
             usrIds.add(usr.id);

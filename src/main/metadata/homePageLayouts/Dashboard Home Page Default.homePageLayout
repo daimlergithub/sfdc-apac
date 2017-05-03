@@ -3,10 +3,7 @@
     <narrowComponents>standard-CreateNew</narrowComponents>
     <narrowComponents>standard-RecentItems</narrowComponents>
     <narrowComponents>standard-MessagesAndAlerts</narrowComponents>
-    <wideComponents>Announcements</wideComponents>
     <wideComponents>standard-Tasks</wideComponents>
     <wideComponents>standard-Calendar</wideComponents>
     <wideComponents>standard-ProcessWorkitems</wideComponents>
 </HomePageLayout>
-
-

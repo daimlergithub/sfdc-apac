@@ -226,7 +226,7 @@ Modify Reason:
         <fullName>Case_Number__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Related Case</label>
+        <label>Case Number</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
@@ -612,7 +612,7 @@ Modify Reason:
         <fullName>Lead__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Related Lead</label>
+        <label>Lead</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
@@ -709,7 +709,7 @@ Modify Reason:
                 <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1133,7 +1133,7 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <label>TitleOfHonor</label>
+        <label>Title</label>
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
@@ -1250,6 +1250,12 @@ Modify Reason:
         </filters>
         <label>All_temp</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
@@ -1277,18 +1283,28 @@ Modify Reason:
         <fullName>MBJ_CRM_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1472,6 +1488,12 @@ Modify Reason:
         </filters>
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -1565,13 +1587,18 @@ Modify Reason:
             <role>Central</role>
         </sharedTo>
     </listViews>
-    <listViews>
+   <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
