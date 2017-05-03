@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>JP_DM_Material_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP MarkeDM Material Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarkeDM_Material_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>

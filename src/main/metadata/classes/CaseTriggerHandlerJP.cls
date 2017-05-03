@@ -27,10 +27,10 @@ public class CaseTriggerHandlerJP
         CaseHelperJP caseHelperJPd = new CaseHelperJP();
         if (trigger.isBefore){  
             if (trigger.isInsert)
-                caseHelperJPd.updateCaseDeadline(trigger.new);
+               // caseHelperJPd.updateCaseDeadline(trigger.new); commented changes related to SFDCJP-2329
             if (trigger.isUpdate){
                 caseHelperJPd.calculateComplaintAmount(trigger.new,trigger.oldMap);
-                caseHelperJPd.updateCaseDeadline(trigger.new,trigger.oldMap); 
+               // caseHelperJPd.updateCaseDeadline(trigger.new,trigger.oldMap); commented changes related to SFDCJP-2329v
                    
                 }      
         }else if (trigger.isAfter){

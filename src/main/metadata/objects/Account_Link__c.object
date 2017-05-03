@@ -1207,12 +1207,21 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Retail_Address_Reference__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Retail Address Reference</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.toRole__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
@@ -2190,8 +2199,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>Retail Sales Sanction</label>
         <picklist>
+             <picklistValues>
+                <fullName>A</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3717,6 +3746,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
 		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
                 <fullName>A</fullName>
@@ -4381,6 +4437,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>	
+		<picklistValues>
+            <picklist>Retail_Sales_Sanction__c</picklist>
+            <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Retail_Special_Needs_Class__c</picklist>
             <values>
@@ -4812,6 +4895,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>External_Link_Share__c</fullName>
         <label>External Link Share</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>Account_1_Account_2_cannot_be_same</fullName>
+        <active>true</active>
+        <description>Cannot link same accounts</description>
+        <errorConditionFormula>(fromRole__c = toRole__c) &amp;&amp;
+$Profile.Name != 'IntegrationAPI' &amp;&amp;
+RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
+        <errorMessage>Cannot Link to the same person</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Retail_Company_Name_Native_Kana</fullName>
         <active>true</active>

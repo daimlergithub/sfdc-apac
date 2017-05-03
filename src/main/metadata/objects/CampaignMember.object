@@ -760,15 +760,7 @@
             <picklistValues>
                 <fullName>Unsuccessful communication</fullName>
                 <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>レスポンスあり</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>送信</fullName>
-                <default>false</default>
-            </picklistValues>
+            </picklistValues> 
             <sorted>true</sorted>
         </picklist>
         <type>Picklist</type>

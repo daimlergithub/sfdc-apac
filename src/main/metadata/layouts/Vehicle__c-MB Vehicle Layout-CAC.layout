@@ -314,13 +314,16 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Type__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>Status__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
+		<fields>Related_Contact__c</fields>
+        <fields>Related_Contact2__c</fields>
+        <fields>Related_Contact3__c</fields>
+        <fields>Service_Date_In__c</fields>
+        <fields>Service_Date_Out__c</fields>
+        <fields>Service_Date__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Mileage__c</fields>
+        <fields>Related_Lead__c</fields>
+        <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
