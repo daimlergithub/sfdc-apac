@@ -10,7 +10,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new);
             caseHelperJP.updateCaseDealer(Trigger.New);
-			caseHelperJP.updateOwnerAsGateKeeperS24HNew(Trigger.new);
+			//caseHelperJP.updateOwnerAsGateKeeperS24HNew(Trigger.new);
             
         }
         if(trigger.isAfter && trigger.isInsert)
@@ -25,13 +25,13 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
           
             caseHelperJP.calculateComplaintAmount(trigger.new,trigger.oldMap);
             caseHelperJP.updateCaseDeadline(trigger.new,trigger.oldMap);
-			caseHelperJP.updateOwnerAsGateKeeperS24HModify(Trigger.new);
+			//caseHelperJP.updateOwnerAsGateKeeperS24HModify(Trigger.new);
             
         }
         if(trigger.isAfter){
              if (trigger.isDelete){               
                caseHelperJP.calculateComplaintAmount(trigger.old);
-               CaseHelperKR.CaseHelperKR(trigger.new);
+               CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
             } 
             if (trigger.isInsert){
                 caseHelperJP.calculateComplaintAmount(trigger.new);
@@ -41,7 +41,7 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
             if (trigger.isUpdate){
                caseHelperJP.calculateComplaintAmount(trigger.new);
                caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isUpdate');
-                CaseHelperKR.CaseHelperKR(trigger.new);
+                CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
                
             }
         }

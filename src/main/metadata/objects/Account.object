@@ -2073,6 +2073,44 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>	
+    <fields>
+        <fullName>Acquisition_Objective_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquisition Objective &amp; Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>	
+    <fields>
+        <fullName>Acquisition_Record_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquisition Record Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Activation_Date__c</fullName>
@@ -3896,6 +3934,18 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
             </picklistValues>
 			<picklistValues>
                 <fullName>Special lease for employees</fullName>
+                <default>false</default>
+            </picklistValues>			
+			<picklistValues>
+                <fullName>CA Status</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -6944,6 +6994,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Deceased&quot;</des
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>	
+    <fields>
+        <fullName>Details_of_Acquisition__c</fullName>
+        <externalId>false</externalId>
+        <label>Details of The Acquisition</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Display_Name__c</fullName>
@@ -15324,6 +15385,25 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>				
+        <picklistValues>
+            <picklist>Acquisition_Objective_Method__c</picklist>
+            <values>
+                <fullName>Order Confirmation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Active__c</picklist>
@@ -16074,6 +16154,18 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CA Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
