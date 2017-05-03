@@ -167,7 +167,9 @@
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reports"/>
 					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="datacategorygroups"/>
+					<sf:typeset name="datacategorygroups">
+						<sf:exclude name="Topic"/>
+					</sf:typeset>
 					<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
