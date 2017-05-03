@@ -2365,16 +2365,6 @@ Modify Reason:
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
-        <actions>
-            <name>Update_Purchased_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Service Completed Date</fullName>
         <actions>
             <name>Update_Service_Completed_Date_To_Today</name>
