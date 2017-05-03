@@ -4419,8 +4419,12 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
     <fields>
         <fullName>Vehicle_Phone_picklist__c</fullName>
         <externalId>false</externalId>
-        <label>vehicle tel picklist</label>
+        <label>vehicle tel picklist</label>		
         <picklist>
+			<picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Home Phone</fullName>
                 <default>false</default>

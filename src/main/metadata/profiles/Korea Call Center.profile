@@ -3073,11 +3073,7 @@
         <field>Account.Loyalty_Card_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.MBC_USERID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CDM_UCID__c</field>

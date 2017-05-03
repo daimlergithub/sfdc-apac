@@ -1160,7 +1160,166 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Urban public transport sector</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
+            <picklistValues>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Securities Industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertising / Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mass and religious organizations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petroleum processing industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical materials manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical equipment manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ship building</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity production and supply</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2009,6 +2168,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Company</fullName>
                 <default>false</default>
             </picklistValues>
+			 <picklistValues>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -2460,11 +2627,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
+            <picklist>Role2__c</picklist>            
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -2698,10 +2861,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
@@ -2902,10 +3061,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
@@ -3101,10 +3256,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
         <picklistValues>
             <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -3369,10 +3520,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
 		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
-            <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Agriculture</fullName>
                 <default>false</default>
@@ -3929,10 +4076,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
 		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
-            <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Agriculture</fullName>
                 <default>false</default>
@@ -4629,11 +4772,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
+            <picklist>Role2__c</picklist>           
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>

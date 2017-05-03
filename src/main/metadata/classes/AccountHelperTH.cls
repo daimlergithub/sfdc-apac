@@ -543,7 +543,7 @@ public class AccountHelperTH{
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
                                                 toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Mercede__c,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,
+                                                toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,//toRole__r.MBTH_Mercede__c
                                                 toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
 
@@ -569,7 +569,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 //acclnk.Position__c= acclnk.toRole__r.Position__c;
-                acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
+                //acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;

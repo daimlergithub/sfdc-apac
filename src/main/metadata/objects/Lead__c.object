@@ -3981,17 +3981,6 @@ Consultant_Override_Overdue__c != true), IMAGE('/img/samples/flag_red.gif','Cons
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
-	<fields>
-        <fullName>Dealer_Assignment_Date__c</fullName>
-        <description>This shoud contain the date when dealer gate keeper is assigned as lead owner(lead is created by dealer)</description>
-        <externalId>false</externalId>
-        <label>Dealer Assignment Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
     <fields>
         <fullName>Dealer_Assignment_Date__c</fullName>
         <description>This shoud contain the date when dealer gate keeper is assigned as lead owner(lead is created by dealer)</description>
@@ -40195,10 +40184,6 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Service Booking</fullName>
                 <default>false</default>
@@ -40209,14 +40194,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Trade-In</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -91483,10 +91460,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Lead_Desired_Service__c</picklist>
-            <values>
-                <fullName>Buy</fullName>
-				<default>false</default>
-            </values>
 			<values>
                 <fullName>Broucher</fullName>
                 <default>false</default>
@@ -91513,31 +91486,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Others</fullName>
->>>>>>> 58b760c164d0981985215b65f2ca93669f4e17e4
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catalogue</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

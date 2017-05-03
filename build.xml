@@ -122,13 +122,12 @@
 							<sf:include name="Retail_Campaigns"/>
 						</sf:typeset>
 						<sf:typeset name="pages">							   
-							</sf:typeset>
-							<sf:typeset name="classes">							   
-							</sf:typeset>
-							<sf:typeset name="triggers">								
-							</sf:typeset>
-							<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						</sf:typeset>
+						<sf:typeset name="classes">							   
+						</sf:typeset>
+						<sf:typeset name="triggers">								
+						</sf:typeset>
+						<sf:typeset name="profiles" suppressChecksumUpdate="true"/>						
 					</deploy>
 				</target>
 				<target name="deploy07">
