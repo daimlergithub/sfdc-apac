@@ -11,6 +11,28 @@
         cb.checked = true;
         callControllerMethod();
     } 
+    
+    function loadProvince(lang)
+    {       
+        LoadProvince(lang);
+    }
+    function loadDistrict(province)
+    {
+        LoadDistrict(province);
+    }
+    function loadSubDistrict(district)
+    {   
+        LoadSubDistrict(district);
+    }
+    
+    function loadZip(subdistrict)
+    {
+        LoadZip(subdistrict);
+    }
+    function ForeignNationalFields(checked)
+    {
+        ShowHideFields(checked);
+    }
     </script >
     <!--form starts here-->
     <apex:form id="addfrm" >
@@ -180,7 +202,7 @@
             </apex:pageBlock>
             <apex:pageBlock id="hiddenBlock" rendered="false"></apex:pageBlock>
             <apex:pageBlock rendered="{!ShowpageBlockFlag}">                 
-                <apex:pageBlockSection title="Address Information" columns="3">
+                <apex:pageBlockSection title="Address Information" columns="3" id="pbsjpkr" rendered="{!IF(market!='TH',true,false)}">
                     <!--input fields for new address 
                     <apex:inputField value="{!addressobj.Address_Type__c}"/>-->
                       
@@ -247,11 +269,121 @@
                      <apex:inputField value="{!addressobj.Address_Line_2_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/> 
                      <apex:inputField value="{!addressobj.Company_Name_Native__c}" rendered="{!IF(market == 'JP', true, false)}"/>
                 </apex:pageBlockSection>
+                
+                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsTH" rendered="{!IF(market=='TH',true,false)}">
+                                        
+                    <apex:pageBlockSectionItem >
+                        <!-- <apex:inputField value="{!addressobj.Address_Type__c}"/> -->
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
+                        <apex:selectList value="{!addresspicklist}" multiselect="false" size="1" style="width:43%; white-space:none;">
+                            <apex:selectOptions value="{!AddressOptions}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                    
+                    <apex:inputField value="{!addressobj.Address_Line_2__c}"/>  
+                    <apex:inputField value="{!addressobj.Temp_Address__c}" rendered="{!IF(market == 'TH', false, true)}"/>                   
+                    <apex:inputField value="{!addressobj.Temp_ZipCode__c}" rendered="{!IF(market == 'TH', false, true)}"/>                    
+                   
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"
+                            onclick="ForeignNationalFields(this.value)"/>  
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,false,true)}">
+                     <apex:outputLabel value="Language"/>
+                    <apex:selectRadio value="{!LanguageSelected}" id="idLanguage" onclick="loadProvince(this.value)" >
+                        <apex:selectOption itemValue="English" itemlabel="English"/>
+                        <apex:selectOption itemValue="Thai" itemlabel="Thai"/>                  
+                    </apex:selectRadio>                 
+                   </apex:pageBlockSectionItem>            
+                  
+                    
+                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                        <apex:outputLabel value="State/Province"/>
+                         <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">
+                            <apex:selectOptions value="{!lstProvince}"/>                        
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="State/Province"/>
+                         <apex:inputText id="slDistrict" value="{!province}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                 <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                 
+                 <apex:outputLabel value="District"/>
+                  <apex:selectList size="1" value="{!district}" id="slprovince" onchange="loadSubDistrict(this.value)">
+                       <apex:selectOptions value="{!lstDistrict}"/>                     
+                  </apex:selectList>  
+                </apex:pageblockSectionItem> 
+                     
+                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="District"/>
+                         <apex:inputText id="inpDistrict" value="{!district}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                    <apex:outputLabel value="Sub District"/>
+                    <apex:selectList size="1" value="{!subdistrict}" id="subdistrict" onchange="loadZip(this.value)">
+                        <apex:selectOptions value="{!lstSubDistrict}"/>
+                    </apex:selectList>
+                </apex:pageblockSectionItem> 
+                
+                <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="Sub District"/>
+                         <apex:inputText id="inpSubDistrict" value="{!subdistrict}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
+                    <apex:outputLabel value="ZIP"/>
+                    <apex:selectList size="1" value="{!zip}" id="zip">
+                        <apex:selectOptions value="{!lstZip}"/>
+                    </apex:selectList>
+                </apex:pageblockSectionItem> 
+                
+                <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
+                        <apex:outputLabel value="ZIP"/>
+                         <apex:inputText id="inpZip" value="{!zip}"/>
+                </apex:pageBlockSectionItem>
+                
+                 <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Status"/>
+                    <apex:inputField value="{!addressobj.Status__c}"/>
+                 </apex:pageblockSectionItem> 
+                 <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Preferred"/>
+                    <apex:inputField value="{!addressobj.Preferred__c}"/>
+                 </apex:pageblockSectionItem>  
+                 
+                     
+                </apex:pageBlockSection>
+                 <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="pbsTH">  
+                      <apex:param name="provinceSelected" value="" /> 
+                 </apex:actionFunction>
+                 
+                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="pbsTH">  
+                      <apex:param name="districtselected" value="" /> 
+                 </apex:actionFunction> 
+                 
+                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="pbsTH">  
+                      <apex:param name="subdistrictselected" value="" /> 
+                </apex:actionFunction>
+                
+                <apex:actionFunction name="LoadZip" action="{!LoadZip}" reRender="pbsTH">  
+                      <apex:param name="zipselected" value="" /> 
+                 </apex:actionFunction>
+                  <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="pbsTH">  
+                      <apex:param name="showhideflds" value="" /> 
+                 </apex:actionFunction> 
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm"/>
-                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   />
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(market!='TH',true,false)}"/>
+                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market!='TH',true,false)}"/>
+                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
                    
                     
                     <apex:outputPanel id="redirectPanel">                   

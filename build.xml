@@ -111,7 +111,6 @@
 					<sf:typeset name="callCenters"/>
 				</deploy>
 				</target>
-
 				<target name="deploy05">
 					<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 						<sf:typeset name="objects"/>
@@ -129,14 +128,16 @@
 							<sf:typeset name="triggers">								
 							</sf:typeset>
 							<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
+						</sf:typeset>
 					</deploy>
 				</target>
 				<target name="deploy07">
 					<deploy runAllTests="${sfdc.runAllTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
-							<sf:exclude name="selectAllChkBox"/>
-							<sf:exclude name="Retail_Campaigns"/>                                                 
+					<sf:exclude name="selectAllChkBox"/>
+					<sf:exclude name="selectAllChkBox"/>
+					<sf:exclude name="Retail_Campaigns"/>                                                 
 					</sf:typeset>                   
 					<sf:typeset name="layouts"/>
 					<sf:typeset name="groups"/>
@@ -158,6 +159,7 @@
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reports"/>
 					<sf:typeset name="reportTypes"/>
+					<sf:typeset name="datacategorygroups"/>
 					<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
