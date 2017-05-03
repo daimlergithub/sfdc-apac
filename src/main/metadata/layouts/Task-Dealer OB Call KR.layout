@@ -51,11 +51,11 @@
                 <field>Generate_QC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>QC_Link__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Survey_Result_Link__c</field>
             </layoutItems>
             <layoutItems>
@@ -128,15 +128,15 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallType</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallDurationInSeconds</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallObject</field>
             </layoutItems>
         </layoutColumns>
@@ -184,13 +184,13 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>WhoId</field>
             </layoutItem>
         </relatedContentItems>
         <relatedContentItems>
             <layoutItem>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>WhatId</field>
             </layoutItem>
         </relatedContentItems>

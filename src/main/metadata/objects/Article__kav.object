@@ -31,13 +31,13 @@
         <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>Attachment_10__c</fullName>
         <externalId>false</externalId>
         <label>Attachment 10</label>
         <required>false</required>
         <type>File</type>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Attachment_1__c</fullName>
         <externalId>false</externalId>
@@ -73,7 +73,7 @@
         <required>false</required>
         <type>File</type>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>Attachment_6__c</fullName>
         <externalId>false</externalId>
         <label>Attachment 6</label>
@@ -100,7 +100,7 @@
         <label>Attachment 9</label>
         <required>false</required>
         <type>File</type>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Department__c</fullName>
         <externalId>false</externalId>

@@ -5406,11 +5406,11 @@
         <field>Article__kav.Additional_Content__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>true</editable>
         <field>Article__kav.Attachment_10__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Article__kav.Attachment_1__c</field>
@@ -5436,7 +5436,7 @@
         <field>Article__kav.Attachment_5__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>true</editable>
         <field>Article__kav.Attachment_6__c</field>
         <readable>true</readable>
@@ -5455,7 +5455,7 @@
         <editable>true</editable>
         <field>Article__kav.Attachment_9__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Article__kav.Department__c</field>
@@ -8029,11 +8029,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBDA_feedback__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.MBTH_Case_Department_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

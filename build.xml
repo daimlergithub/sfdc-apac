@@ -142,7 +142,16 @@
 					<sf:typeset name="groups"/>
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
-					<sf:typeset name="flows"/>
+					<sf:typeset name="flows">
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-2"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-3"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-4"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-5"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-6"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-7"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-8"/>
+					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
 					<sf:typeset name="permissionsets"/>

@@ -3075,16 +3075,6 @@
     </fieldPermissions>
     
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.CDM_UCID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.CAC_PERSON_UID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.MBFS_Activation_Date__c</field>
         <readable>false</readable>
