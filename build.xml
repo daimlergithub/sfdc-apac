@@ -121,9 +121,15 @@
 							<sf:include name="selectAllChkBox"/>
 							<sf:include name="Retail_Campaigns"/>
 						</sf:typeset>
-						<sf:typeset name="pages">							   
+						<sf:typeset name="pages">
+							<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
+							<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
+							<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
 						</sf:typeset>
-						<sf:typeset name="classes">							   
+						<sf:typeset name="classes">
+							<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
+							<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
+							<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 						</sf:typeset>
 						<sf:typeset name="triggers">								
 						</sf:typeset>
