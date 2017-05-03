@@ -23752,10 +23752,6 @@
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBF Complaint Management Case Operator</layout>
-        <recordType>Case.MBF_Complaint</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Case-MBF Contract Closing Cases</layout>
         <recordType>Case.MBF_Contract_Closing_Case</recordType>
     </layoutAssignments>
