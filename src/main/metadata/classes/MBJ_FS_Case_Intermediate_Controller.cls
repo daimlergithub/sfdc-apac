@@ -25,7 +25,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
         if(retailTaskID != null){
             Retail_Task__c rtlTask = [Select id,Account__r.id from Retail_Task__c where id=:retailTaskID limit 1];
             accountId = rtlTask.Account__r.id;
-        }
+       }
         
         userid = Userinfo.getUserId();
         redirectCase.Retail_Task__c = retailTaskID ;
@@ -125,7 +125,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
             
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Complaint Management Case'){
                 if (Site.getPathPrefix() != Null){
-                    returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/apex/MBJ_FS_Complaint_Page');
+                   returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+Site.getPathPrefix()+'/apex/MBJ_FS_Complaint_Page');
                     }
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Complaint_Page');
@@ -320,7 +320,7 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new PageReference(System.URL.getSalesforceBaseURL().toExternalForm()+'/apex/MBJ_FS_Case_ContractClosing_Page');
                     }
-                returnURL.getParameters().put('retURL',retURL);
+               returnURL.getParameters().put('retURL',retURL);
                 returnURL.getParameters().put('RecordType',rt.id);
                 returnURL.getParameters().put('ownerid', userid);
                 returnURl.getParameters().put('AccountID',accid);
@@ -334,10 +334,17 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     else {
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
-                    Account acc=[Select Name from Account where id=:accid limit 1];
+                    List<Account> acc=[Select Name from Account where id=:accid ];
                     system.debug('the account id is'+fromAccountId);
-                    pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    if(acc.size()>0){
+                    pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
                     return p;
+                    }
+                    else{
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
+                    return p;
+                    
+                    }
                     
             }
             else if( rt!=Null && rt.Name != Null && rt.Name == 'Inquiry'){
@@ -348,11 +355,17 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e');
                     }
                     system.debug('the account id is'+accid);
-                    Account acc=[Select Name from Account where id=:accid limit 1];
+                    List<Account> acc=[Select Name from Account where id=:accid ];
                     system.debug('the account id is'+fromAccountId);
-                    pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    if(acc.size()>0){
+                    pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+fromAccountId);
+                    return p;
+                    }
+                    else{
+                    pageReference p= new PageReference('/500/e?nooverride=0&ownerid='+userid+'retURL=/500/o');
                     return p;
                     
+                    }
             }
                 
             else if( rt!=Null && rt.Name != Null && rt.Name == 'MBF Finance Quotation Case'){
@@ -434,15 +447,6 @@ public class MBJ_FS_Case_Intermediate_Controller{
            
             else
             {  
-                /*if(net.size()>0 &&net[0].UrlPathPrefix!=null){
-                    returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-               
-                }
-                else{
-                returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?RecordType='+RecordTypeid+'&nooverride=1');
-                }
-                 returnURL.setredirect(false);
-                return returnURL;*/
                 Account acc=[Select Name from Account where id=:accid limit 1];
                 system.debug('else part'+acc.name);
                  returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+''+'cas4='+acc+'+&nooverride=0');
@@ -455,15 +459,18 @@ public class MBJ_FS_Case_Intermediate_Controller{
             {
             returnURL = new pagereference('/'+net[0].UrlPathPrefix+'/500/e?retURL=%2F500%2Fo&nooverride=0');
             }
-            else{
-           // returnURL = new pagereference(System.URL.getSalesforceBaseURL().toExternalForm()+'/500/e?retURL=%2F500%2Fo&nooverride=0');
-            Account acc=[Select Name from Account where id=:accid limit 1];
-                system.debug('else part'+acc.name);
-                
-                 pageReference p= new PageReference('/500/e?cas4='+acc.name+'+&nooverride=0');
+            else{  
+                List<Account> acc=[Select Name from Account where id=:accid ];
+                   
+                    if(acc.size()>0){
+                     pageReference p= new PageReference('/500/e?cas4='+acc[0].name+'+&nooverride=0&retURL=/500/o');
                     return p;
-                 
-                
+                    }
+                    else{
+                    pageReference p= new PageReference('/500/e?nooverride=0&retURL=/500/o');
+                    return p;
+                    
+                    }
             
             }
             returnURL.setredirect(false);
