@@ -25330,11 +25330,11 @@
     <!--<pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>-->
+    </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses>-->
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
         <enabled>true</enabled>
