@@ -1,12 +1,5 @@
-/*
-    Type:       test class
-    Purpose:    RetailCampaignSegmentationController test class
-    User Story: Release 1.2 Retail Campaign
-    Used By:    RetailCampaignSegmentationController
-    7-Jul-2014 Sinow    Created
-*/
 @isTest 
-public Without Sharing class RetailCampaignSegmentationControllerTest 
+public Without Sharing class SegmentationCriteriaControllerTest 
 {
 Private Static List<String> filterOptions ;
  Private Static List<SelectOption> hobbyOptions ;
@@ -56,10 +49,10 @@ Private Static  List<SelectOption> getItems;
                 
                 String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"Filter Three", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Age_Range__c","operation":"Equals","criteria":"11","logic":"","bracket":false}]}}]';
                 
-                PageReference retailCampaignSegmentation = Page.RetailCampaignSegmentation;
+                PageReference retailCampaignSegmentation = Page.SegmentationCriteria;
                 retailCampaignSegmentation.getParameters().put('id',rc.id);
                 Test.setCurrentPage(retailCampaignSegmentation);
-                RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
+                SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
                 
                  filterOptions = extension.filterOptions;
                 // hobbyOptions = extension.hobbyOptions;
@@ -73,27 +66,27 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
-                //RetailCampaignSegmentationController.saveFilter(filterString);
+                SegmentationCriteriaController.saveFilter(filterString);
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
                // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
-                extension.addToCampaign();
+                //extension.addToCampaign();
                 //extension.getCountries();
-                extension.first();
-                 extension.last();
-                 extension.previous();
-                 extension.next();
-                 extension.hasnext = True;
-                 extension.hasPrevious= True;                
+                //extension.first();
+                // extension.last();
+                // extension.previous();
+                // extension.next();
+                 //extension.hasnext = True;
+                 //extension.hasPrevious= True;                
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
             try{
-               // RetailCampaignSegmentationController.deleteFilter(filtername);
+                SegmentationCriteriaController.deleteFilter(filtername);
                 }catch(Exception e){}
                // extension.getlimitAccounts();
         
             }
             
-            RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
+            SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
              filterOptions = extension.filterOptions;
             extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
             extension.searchAccount();
@@ -101,12 +94,12 @@ Private Static  List<SelectOption> getItems;
        else
        {
             Test.starttest();
-            PageReference retailCampaignSegmentation = Page.RetailCampaignSegmentation;
+            PageReference retailCampaignSegmentation = Page.SegmentationCriteria;
             retailCampaignSegmentation.getParameters().put('id',rc.id);
                 Test.setCurrentPage(retailCampaignSegmentation);
-            RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
+            SegmentationCriteriaController  extension = new SegmentationCriteriaController ();
             extension.searchAccount();
-            extension.addToCampaign();
+            //extension.addToCampaign();
            // extension.getlimitAccounts();
             Test.stoptest();
            

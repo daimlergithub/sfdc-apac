@@ -45,7 +45,9 @@ public class ConvertToTaskControllerTest
             
              Campaign ChildCamp=new Campaign(
              Name='Sam',
-             EndDate=System.Today(),
+             EndDate=System.Today()+10,
+             Segmentation_Date__c= Date.Today(),
+             Execution_Start_Date__c = Date.Today()+4,
              StartDate=System.Today(),
              RecordtypeID=childCampaign_RecordTypeID,
              Child_Campaign_Status__c='Execution',
