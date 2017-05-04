@@ -48,14 +48,14 @@ public class CaseTriggerHandlerJP
         }
         
         if (trigger.isAfter){
-            if (trigger.isInsert||trigger.isUpdate){
-               caseHelperJP.countchildcase(trigger.new,trigger.old); 
+            if (trigger.isInsert||trigger.isUpdate){ 
+              // caseHelperJP.countchildcase(trigger.new,trigger.old);  commented changes related to SFDCJP-2329
             }
         }
         if(trigger.isBefore){
             if(trigger.isDelete){
                 
-              caseHelperJP.countchildcase(trigger.new,trigger.old);    
+            //  caseHelperJP.countchildcase(trigger.new,trigger.old);     commented changes related to SFDCJP-2329
                 
             }
         }    
