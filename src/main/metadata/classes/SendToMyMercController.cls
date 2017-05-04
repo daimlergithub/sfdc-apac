@@ -135,7 +135,7 @@ public with sharing class SendToMyMercController {
                 if(obj.isSelect == false && String.isBlank(obj.OptOutReason) && String.isBlank(obj.vehicleRelationship)){
                     reason = true;
                 }
-                else if(Obj.isSelect == false && !String.isBlank(obj.OptOutReason)){
+                else if(Obj.isSelect == false && !String.isBlank(obj.OptOutReason) && String.isBlank(obj.vehicleRelationship)){
                     System.debug('nonselectaccountreason'+obj.accountid+'reason'+obj.optoutreason);
                     accIdReasonMap.put(obj.AccountId,obj.OptOutReason);     
                 }
@@ -157,11 +157,20 @@ public with sharing class SendToMyMercController {
         if(Reason == false && emptyMail == false){
             System.debug('accIdReasonMap'+accIdReasonMap);
             if(accIdReasonMap != NULL && !accIdReasonMap.isEmpty()){
-                for(Account eachAccount : [SELECT Id,Opt_Out_Portal_Reason__c from Account where ID IN: accIdReasonMap.keySet()] ){
+                for(Account eachAccount : [SELECT Id,Portal_Apply_Status__c,Portal_Apply_Date__c ,Portal_Apply_User__c ,Opt_Out_Portal_Reason__c from Account where ID IN: accIdReasonMap.keySet()] ){
                     System.debug('========'+ accIdReasonMap.get(eachAccount.Id));
                     system.Debug('=='+eachAccount.Id);
                     eachAccount.Opt_Out_Portal_Reason__c = accIdReasonMap.get(eachAccount.Id);
+                    eachAccount.Portal_Apply_Status__c= 'Reject';
+                    eachAccount.Portal_Apply_Date__c = System.today();
+                    eachAccount.Portal_Apply_User__c = userinfo.getUserId();
                     accFinal.put(eachAccount.Id,eachAccount);      
+                }
+                for(Vehicle_RelationShip__c eachVr : [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accIdReasonMap.keySet() AND Vehicle_Id__c =:vehpageid AND RecordtypeId =: vehRelType]){
+                    eachVr.Portal_Apply_Date__c = system.Today();
+                    eachVr.Portal_Apply_Status__c = 'Reject';
+                    eachVr.Portal_Apply_User__c = userinfo.getUserid();
+                    AccVehfinal.add(eachVr);    
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
