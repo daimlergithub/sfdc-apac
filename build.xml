@@ -83,9 +83,9 @@
 </target>
 
 
-				<target name="deploy01">
+			<target name="deploy01">
 				<deploy runAllTests="${sfdc.runAllTests}">
-				<sf:typeset name="labels"/>
+					<sf:typeset name="labels"/>
 					<sf:typeset name="staticresources">
 					<!-- the Checksums resource is handled by separate tasks -->
 						<sf:exclude name="Checksums"/>
@@ -110,34 +110,34 @@
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
 				</deploy>
-				</target>
-				<target name="deploy05">
-					<deploy transformations="transformations.xml" runAllTests="${sfdc.runAllTests}">
-						<sf:typeset name="objects"/>
-						<sf:typeset name="queues"/>
-						<sf:typeset name="email"/>
-						<sf:typeset name="components"/>
-						<sf:typeset name="tabs">
-							<sf:include name="selectAllChkBox"/>
-							<sf:include name="Retail_Campaigns"/>
-						</sf:typeset>
-						<sf:typeset name="pages">
-							<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
-							<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
-							<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
-						</sf:typeset>
-						<sf:typeset name="classes">
-							<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
-							<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
-							<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
-						</sf:typeset>
-						<sf:typeset name="triggers">								
-						</sf:typeset>
-						<sf:typeset name="profiles" suppressChecksumUpdate="true"/>						
-					</deploy>
-				</target>
-				<target name="deploy07">
-					<deploy runAllTests="${sfdc.runAllTests}">
+			</target>
+			<target name="deploy05">
+				<deploy transformations="transformations.xml" runAllTests="${sfdc.runAllTests}">
+					<sf:typeset name="objects"/>
+					<sf:typeset name="queues"/>
+					<sf:typeset name="email"/>
+					<sf:typeset name="components"/>
+					<sf:typeset name="tabs">
+						<sf:include name="selectAllChkBox"/>
+						<sf:include name="Retail_Campaigns"/>
+					</sf:typeset>
+					<sf:typeset name="pages">
+						<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
+						<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
+					</sf:typeset>
+					<sf:typeset name="classes">
+						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
+						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+					</sf:typeset>
+					<sf:typeset name="triggers">								
+					</sf:typeset>
+					<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->				
+				</deploy>
+			</target>
+			<target name="deploy07">
+				<deploy runAllTests="${sfdc.runAllTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 					<sf:exclude name="selectAllChkBox"/>
@@ -181,13 +181,13 @@
 						<sf:exclude name="Account-ko"/>
 					</sf:typeset>
 					<sf:typeset name="translations"/>
-					</deploy>
-				</target>
-				<target name="deploy09">
-					<deploy>                            
-						<sf:typeset name="profiles" force="true"/>
-					</deploy>
-				</target>           
+				</deploy>
+			</target>
+			<target name="deploy09">
+				<deploy>                            
+					<sf:typeset name="profiles" force="true"/>
+				</deploy>
+			</target>           
 
 
 <target name="loaddata-oliver">
