@@ -314,12 +314,20 @@
         <apexClass>AvatoHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-		    <classAccesses>
+    <classAccesses>
         <apexClass>Batch_BounceStatus</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BatchAssignTasks</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>Batch_AutoSegmentation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Batch_AutoSegmentationTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -376,6 +384,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMembersCustomHelperJPTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>CampaignMemberDisribution</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -940,6 +952,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SelectAddressControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>SegmentationCriteriaController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>segmentationredirect</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -14883,7 +14903,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23963,6 +23983,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Segmentation</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>SegmentationCriteria</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
