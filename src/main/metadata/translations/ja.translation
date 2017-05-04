@@ -2113,10 +2113,6 @@
         <name>Not_found_QC</name>
     </customLabels>
     <customLabels>
-        <label>販売店を設定してください。</label>
-        <name>Notify_To_Dealer1</name>
-    </customLabels>
-    <customLabels>
         <label>この内容で販売店に通知していいですか。
 修正する場合は、キャンセルを押してください。</label>
         <name>Notify_To_Dealer2</name>
