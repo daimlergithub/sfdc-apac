@@ -912,6 +912,10 @@
         <label><!-- Convert To Task --></label>
         <name>Convert_To_Task</name>
     </customLabels>
+	<customLabels>
+        <label>リードタイプ変更</label>
+        <name>Converted_to_After_Sales_Leads</name>
+    </customLabels>
     <customLabels>
         <label>写し</label>
         <name>Copy</name>
