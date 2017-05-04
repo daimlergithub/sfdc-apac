@@ -335,7 +335,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>	
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>CAC_Lead_Status_to_Approved</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -353,7 +353,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>	
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>CAC_Status_Update_from_Dealer</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -781,6 +781,16 @@ Purchased_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Last_Modified_fields_on_Lead</fullName>
+        <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
+        <field>Lead_Last_Modified_Date__c</field>
+        <formula>Now()</formula>
+        <name>Update Last Modified fields on Lead</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Lead_Accepted_Date_Time_to_Now</fullName>
         <field>Accepted_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -834,7 +844,7 @@ Purchased_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+	<fieldUpdates>
         <fullName>Update_MBTH_dealer_name</fullName>
         <field>MBTH_Assigned_Dealer_Name__c</field>
         <formula>Assigned_Dealer__r.Name</formula>
@@ -1893,25 +1903,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         </workflowTimeTriggers>
     </rules> -->
 	<rules>
-        <fullName>Lead_Lost_DateTime New</fullName>
-        <actions>
-            <name>Update_Lost_DateTime_field</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Lost</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>MBTH_Update first contact customer datetime</fullName>
         <actions>
             <name>Update_first_customercontacted_date_time</name>
@@ -1955,6 +1946,25 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <active>true</active>
         <formula>AND(MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead_Lost_DateTime New</fullName>
+        <actions>
+            <name>Update_Lost_DateTime_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Populate Assigned Date Time Dealer</fullName>
@@ -2178,8 +2188,19 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR')</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Last Modified fields on Lead</fullName>
+        <actions>
+            <name>Update_Last_Modified_fields_on_Lead</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If the Lead record is updated and the profile is NOT  "Integration API" , then update the field[Lead Last Modified Date].</description>
+        <formula>IF(MD__c == 'JP' &amp;&amp; $Profile.Name != 'IntegrationAPI',true,false)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Lead Lost Date Time</fullName>
@@ -2230,6 +2251,24 @@ Modify Reason:
         <active>true</active>
         <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),  RecordType.Name = 'Sales Leads')</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Leads Dealer Status for dealer create</fullName>
+        <actions>
+            <name>CAC_Status_Update_from_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Dealer_Lead_Status_update_from_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Dealer_Set_Assigned_Date_Time_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Contains($Profile.Name, 'Japan Dealer' ), MD__c = 'JP')</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Lost%28CAC%29 Date Time</fullName>
@@ -2315,7 +2354,6 @@ Modify Reason:
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    
     <rules>
         <fullName>Update Purchased%28Only Non BDC%29 Date Time</fullName>
         <actions>
@@ -2344,24 +2382,6 @@ Modify Reason:
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Leads Dealer Status for dealer create</fullName>
-        <actions>
-            <name>CAC_Status_Update_from_Dealer</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Dealer_Lead_Status_update_from_Dealer</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Dealer_Set_Assigned_Date_Time_Dealer</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>Contains( $Profile.Name, 'Japan Dealer' )</formula>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Update Status and Date time of BDC Dealer</fullName>

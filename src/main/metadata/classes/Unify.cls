@@ -5,5 +5,6 @@ global class Unify{
         result = [select Extension from User where id = :UserInfo.getUserId()].Extension;
         String JSONString = JSON.serialize(result);
         return JSONString;
+		
     }
 }

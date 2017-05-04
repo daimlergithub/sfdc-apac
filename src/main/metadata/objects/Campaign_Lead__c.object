@@ -1553,6 +1553,6 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/a0r/e?00NN0000001NLAS={!Lead__c.Name}&amp;00NN0000001NLAS_lkid={!Lead__c.Id}&amp;retURL=%2F{!Lead__c.Id}&amp;00NN0000001NLAn={!Lead__c.Lead_Source__c}&amp;00NN0000001NLAm={!Lead__c.Lead_InfoSource__c}&amp;00NN0000001NLAl={!Lead__c.Lead_InfoSourceSub__c}&amp;00NN0000001NLAj={!Lead__c.Lead_DataSource__c}&amp;00NN0000001NLAl={!Lead__c.Lead_DataSubSource__c}&amp;saveURL=%2F{!Lead__c.Id}</url>
+        <url>OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign</url>
     </webLinks>
 </CustomObject>

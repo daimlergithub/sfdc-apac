@@ -30,11 +30,11 @@ public class CampaignHelper {
 
    if(cam.RecordTypeId == camIdExec && cam.Child_Campaign_Status__c != 'planning'){
           system.debug('+++++++++'+'checking');
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
     
     }else if(cam.RecordTypeId == camIdPlan && cam.Status != 'Draft'){
    
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
             system.debug('+++++++++'+'checking');
     
     }
@@ -333,6 +333,61 @@ Set<id> aid = New Set<id>();
    }
    }
    }
+         /**
+  *@Description : Custom Clone button logic for campaign 
+  *@Date : 30/03/2017
+  *@Author : Dinesh Govindaswamy
+  
+  
+  */
+
+Public static void updateLogic(List<Campaign> campgn){
+Id camIdExec = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id camIdPlan = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+id recId;
+ List<Campaign> camUpdateList = new List<Campaign>();
+
+ set<Id> sid = New Set<Id>();
+           
+                                   
+                                   For(Campaign cam : campgn){
+                                                   
+                                                   
+                                 if( cam.CloneCampaign__c!= null){
+                                   sid.add(cam.CloneCampaign__c);
+                                   system.debug('+++'+cam.CloneCampaign__c);
+                                          
+                                                                   
+                                                   }
+                                   }
+             system.debug('++++++'+sid);
+
+List<Campaign> CamList = [Select Id,Name,ParentId,Segmentation_Date__c,Campaign_Status__c,Execution_Start_Date__c From Campaign Where ParentId =: sid];
+system.debug('++++++'+CamList);
+For(Campaign came : campgn){
+For(Campaign camp : CamList ){
+                
+                
+                Campaign camm = New Campaign();
+                camm.Name = camp.Name;
+                camm.ParentId = came.Id;
+                camm.Segmentation_Date__c = camp.Segmentation_Date__c;
+                camm.Execution_Start_Date__c = camp.Execution_Start_Date__c ;
+                camm.Campaign_Status__c = camp.Campaign_Status__c;
+               
+                camm.RecordTypeId = camIdExec;
+                                                                        
+                camUpdateList.add(camm);
+                
+}
+}
+
+insert camUpdateList;
+
+system.debug('++++++'+camUpdateList);
+
+}
+   
   /**
   *@Description : Actions which are performed as a part of before Insert/Update. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object. This method auto calculate Segementation date based on Working day and working month
@@ -344,15 +399,18 @@ Set<id> aid = New Set<id>();
    
  public static void useSegmentationCampaign(List<Campaign> campaignIdsBefore,map<id,Campaign> camOldMap,boolean isInsert,boolean isUpdate){      
         
-   String rect ;        
-   String mont;     
+   String rect ; 
+   Integer Day;       
+   String mont; 
+      
    Id executionRecordId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();       
         
    For(Campaign camp : campaignIdsBefore ){     
         
         
    if(isInsert && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true || (isUpdate && camp.RecordTypeId == executionRecordId   && camp.Use_Segmentation_Criteria__c == true && (camp.SegWorkingDay__c != camOldMap.get(camp.id).SegWorkingDay__c || camp.SegWorkingMonth__c != camOldMap.get(camp.id).SegWorkingMonth__c ))){           
-             rect = camp.SegWorkingDay__c ;         
+             rect = camp.SegWorkingDay__c ;  
+             day =  Integer.valueOf(camp.SegWorkingDay__c);      
                     
              if(camp.SegWorkingMonth__c == 'Jan'){      
                         
@@ -393,18 +451,112 @@ Set<id> aid = New Set<id>();
               }     
              String SampDate = String.ValueOf(datetime.now().year());       
              //String year = '2017';        
-             String year = SampDate ;       
+             String year = SampDate ; 
+             Integer yearint = Integer.valueOf(SampDate);      
+              Integer month = Integer.valueOf(mont);      
                     
-                    
-            string stringDate = year + '-' + mont + '-' + rect;     
-                    
-           Camp.Segmentation_Date__c = Date.valueOf(stringDate );       
-                    
+            string stringDate = year + '-' + mont + '-' + rect; 
+            
+            
+            // DateTime mainDate = Date.valueOf(stringDate ); 
+             // Date dte = date.newInstance(2016,9,7 );
+             Date dte = date.newInstance(yearint,month ,day  );
+             
+             Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
+
+             String dayOfWeek=dt.format('EEEE');
+             System.debug('+++++++++++++++++++++++++++' + dayOfWeek);  
+             
+             if(dayOfWeek == 'Saturday'){
+             
+                  dte = dte+2;
+             }else if(dayOfWeek == 'Sunday'){
+             
+                  dte = dte+1;
+             
+             }else {
+                 dte = dte;
+             
+             }
+             
+             system.debug('++++++++++++++'+dte );
+             
+             //List<Holiday> hol = [Select id,Name,ActivityDate From Holiday ];   
+             
+            // Map<Date,List<Holiday>> holidayCheck = new Map<Date,List<Holiday>>([Select id,Name,ActivityDate From Holiday]);
+             
+             //holidayCheck.get(dte);
+             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
+             
+             
+             if(holidayCheck.size()>0){
+             
+               dte = dte+1;
+              system.debug('++++++++++++++'+dte );
+               Holidaychecker(dte);
+               system.debug('++++++++++++++'+dte );
+               dte=Holidaychecker(dte);
+               system.debug('++++++++++++++'+dte );
+              Camp.Segmentation_Date__c = dte ; 
+              }else{
+             
+             
+             
+                
+          //Camp.Segmentation_Date__c = Date.valueOf(stringDate );       
+             Camp.Segmentation_Date__c = dte ;
+             }
+             
+             Camp.Segmentation_Date__c = dte ;
              }      
                 
 }       
         
 } 
+
+Private static Date Holidaychecker( Date dte){
+
+Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
+
+             String dayOfWeek=dt.format('EEEE');
+             System.debug('+++++++++++++++++++++++++++' + dayOfWeek);  
+             
+             if(dayOfWeek == 'Saturday'){
+             
+                  dte = dte+2;
+             }else if(dayOfWeek == 'Sunday'){
+             
+                  dte = dte+1;
+             
+             }else {
+                 dte = dte;
+             
+             }
+             
+             system.debug('++++++++++++++'+dte );
+             
+             
+             List<Holiday> holidayCheck  = [Select id,Name,ActivityDate From Holiday Where ActivityDate =: dte ]; 
+
+           if(holidayCheck.size()>0){
+           
+           dte = dte+1;
+           system.debug('++++++++++++++'+dte ); 
+           Holidaychecker(dte);
+           dte = Holidaychecker(dte);
+           system.debug('++++++++++++++'+dte );  
+           } else {
+           
+              dte = dte;
+           
+           }
+           system.debug('++++++++++++++'+dte ); 
+           
+           return dte;
+          
+           
+}
+
 /**
   *@Description : Actions which are performed as a part of before Delete. This gets called from Campaign TriggerHandler
   which gets invoked by Trigger on Campaign Object. This method updates the status of parent based on child campaign
@@ -772,13 +924,13 @@ Set<id> aid = New Set<id>();
                
                  If(Camp.StartDate < System.Today()){
                  
-                   Camp.addError('Start Date cant be Lesser Than Today');   
+                   Camp.addError(system.Label.Campaign_Date_1);   
                  
                  }
                  
                  If(Camp.EndDate < Camp.StartDate){
                  
-                       Camp.addError('End Date cant be Lesser Than Start Date');
+                       Camp.addError(system.Label.Campaign_Date_2);
                  }
                   
            
@@ -825,9 +977,9 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      For(Campaign campan : campListMain ){
                      
                      system.debug('+++++++++++++++'+ca.StartDate );
-                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c <= ca.StartDate ){
+                     if(campan.Segmentation_Date__c < System.Today() ||campan.Segmentation_Date__c > ca.EndDate || campan.Segmentation_Date__c < ca.StartDate ){
                      
-                         campan.addError('Segmentation Date Error');
+                         campan.addError(System.Label.Campaign_Date_3);
                          
                      
                      }
@@ -835,12 +987,12 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
                      if(campan.Execution_Start_Date__c < System.Today() || campan.Execution_Start_Date__c > ca.EndDate || campan.Execution_Start_Date__c <= campan.Segmentation_Date__c  ){
                      
                      
-                            campan.addError('Execution Date Error ');
+                            campan.addError(System.Label.Campaign_Date_4);
                      }
                   if(campan.Response_Date__c < System.Today() || campan.Response_Date__c  > ca.EndDate || campan.Response_Date__c <= campan.Execution_Start_Date__c  ){
                      
                      
-                            campan.addError('Response Date Error');
+                            campan.addError(System.Label.Campaign_Date_5);
                      }
                   }
                }

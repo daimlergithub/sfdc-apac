@@ -14,6 +14,8 @@ public class TriggerCampaignMembersCustomHandlerJP
     {
        if(isAfter && isInsert){
            CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection(Trigger.new);
+		              CampaignMembersCustomHelperJP.batchbounce(trigger.new);
+
         }
        if(Trigger.isAfter && Trigger.isUpdate) {
             CampaignMembersCustomHelperJP.afterUpdateOperation((Map<Id, Campaign_Member__c>)trigger.oldMap, (Map<Id, Campaign_Member__c>)trigger.newMap, (List<Campaign_Member__c>)trigger.new);

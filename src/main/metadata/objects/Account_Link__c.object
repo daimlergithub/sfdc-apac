@@ -317,27 +317,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Portal_Email__c</fullName>
-        <externalId>false</externalId>
-        <label>Portal Mail Address</label>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Portal_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>My Mercedes Id</label>
-        <length>64</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -354,6 +333,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <unique>false</unique>
     </fields>
 	<fields>
+        <fullName>Personal_Abroad_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Abroad Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Personal_Agreement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>Retail_Email_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -361,6 +358,36 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Personal_Information_Third_Party_Release__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Personal Information Third Party Release</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal E-Mail</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Portal_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>My Mercedes Id</label>
+        <length>64</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Portal_Mail_Opt_Out__c</fullName>
@@ -536,6 +563,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Retail Address Reference</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.toRole__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
@@ -594,7 +630,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1900,6 +1936,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
         <label>Retail Related Company</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account_Link__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Retail Company</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account_Link__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
@@ -1907,8 +1952,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
+    </fields> 
+ <fields>
         <fullName>Retail_Responsible__c</fullName>
         <externalId>false</externalId>
         <label>Retail Responsible</label>
@@ -2091,8 +2136,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
+    </fields><fields>
         <fullName>Role2__c</fullName>
         <externalId>false</externalId>
         <label>Role2</label>
@@ -2161,29 +2205,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
                 <fullName>Husband's Wife</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Spouse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Son</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daughter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Boyfriend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Girlfriend</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2630,11 +2653,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
+            <picklist>Role2__c</picklist>            
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -2868,10 +2887,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
@@ -3072,10 +3087,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
@@ -3271,10 +3282,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
         <picklistValues>
             <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>
@@ -3539,10 +3546,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
 		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
-            <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Agriculture</fullName>
                 <default>false</default>
@@ -4099,10 +4102,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         </picklistValues>
 		<picklistValues>
             <picklist>Retail_Industry__c</picklist>
-            <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Agriculture</fullName>
                 <default>false</default>
@@ -4799,11 +4798,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
+            <picklist>Role2__c</picklist>           
             <values>
                 <fullName>Child</fullName>
                 <default>false</default>

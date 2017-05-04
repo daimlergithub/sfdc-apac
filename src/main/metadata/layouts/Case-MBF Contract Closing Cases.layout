@@ -46,7 +46,7 @@
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
-        <label>New section</label>
+        <label>New Section</label>
         <layoutColumns>
             <layoutItems>
                 <height>780</height>

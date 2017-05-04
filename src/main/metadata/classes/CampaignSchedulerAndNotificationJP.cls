@@ -44,7 +44,9 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         List<Campaign_Lead__c> cLeadLst = new List<Campaign_Lead__c>();
         List<Campaign >campLst = new List<Campaign>();
         List<Campaign_Member__c> campMemberLst = new List<Campaign_Member__c>();
+        List<DM_Request__c> dmRequestList = New List<DM_Request__c>(); 
         notificationWrapperList = new List<NotificationWrapper>();
+        List<Campaign_Member__c> autoCreateLeadCheckedCampaignMemberRecList = new List<Campaign_Member__c>();
          
         // Create Tempate Map to avoid SOQL Limits
         templateNameToTemplateIdMap = new Map<String, Id>();
@@ -143,6 +145,89 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                     campLst.add(camp);
                 }
             }
+            
+            for(Campaign_Member__c campaignMemberRec : camp.Campaign_Members1__r) {
+                if(campaignMemberRec.Auto_creation_of_tasks__c) {
+                    Task task = new Task();
+                    task.WhatID = camp.Id;
+                    task.Status = 'Open';
+                    task.Type = 'Campaign';
+                    task.subject = 'Campaign Auto Creation';
+                    task.ownerId = camp.Campaign_CCC_Manager__c;
+                    task.priority = 'Normal';
+                    task.RecordTypeId = taskRecTypeId;
+                    task.ActivityDate = camp.Execution_Start_Date__c;
+                    task.Campaign_Name__c = camp.Campaign_Code__c;
+                    tskLst.add(task);
+                }
+                
+                if(campaignMemberRec.Auto_creation_of_DM_requests__c) {
+                    DM_Request__c dmRequestRec = New DM_Request__c ();
+                    dmRequestRec.Customer_Name__c = campaignMemberRec.Contact_Id__c;
+                    if(campaignMemberRec.Address__r != null) {
+                        dmRequestRec.Sending_Address__c = campaignMemberRec.Address__r.Address_Type__c;
+                    }
+                    dmRequestRec.TitleOfHonor__c = 'To person';
+                    dmRequestRec.Channel__c = 'Campaign';
+                    dmRequestRec.Campaign__c = camp.Id;
+                    dmRequestList.add(dmRequestRec);
+                }
+                
+                if(campaignMemberRec.Auto_creation_of_leads__c) {
+                    autoCreateLeadCheckedCampaignMemberRecList.add(campaignMemberRec);
+                }
+            }
+        }
+        
+        // Create Auto Lead related Queries
+        Set<Id> personAccIdSet = new Set<Id>();
+        Set<String> zipCodeSet = new Set<String>();
+        Map<Id, Id> personAccIdToDealerAccIdMap = new Map<Id, Id>();
+        Map<String, Id> zipCodeToDealerAccIdMap = new Map<String, Id>();
+        
+        for(Campaign_Member__c campMemberRec : autoCreateLeadCheckedCampaignMemberRecList) {
+            if(campMemberRec.Preferred_Dealer__c == null && campMemberRec.Contact_Id__c != null) {
+                personAccIdSet.add(campMemberRec.Contact_Id__c);
+            }
+            if(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c == 'Finance') {
+                zipCodeSet.add(campMemberRec.Zip_Code_Finance__c);
+            } else {
+                zipCodeSet.add(campMemberRec.Zip_Code__c);
+            }
+        }
+        personAccIdSet.remove(null);
+        zipCodeSet.remove(null);
+        
+        
+        if(personAccIdSet.size() > 0) {
+            List<Account_Link__c> accountLinkList = [select fromRole__c, toRole__c from Account_Link__c where RecordType.DeveloperName = 'ContactSector' 
+                                                        AND toRole__c IN: personAccIdSet AND Status__c = 'My Shop'];
+            for(Account_Link__c accLinkRec : accountLinkList) {
+                personAccIdToDealerAccIdMap.put(accLinkRec.toRole__c, accLinkRec.fromRole__c);
+            }                                           
+        }
+        
+        if(zipCodeSet.size() > 0) {
+            List<Dealer_Locator__c> dealerLocatorList = [select Post_Code__c, Dealer_Name__c from Dealer_Locator__c where Post_Code__c IN: zipCodeSet];
+            for(Dealer_Locator__c dealerLocatorRec : dealerLocatorList) {
+                zipCodeToDealerAccIdMap.put(dealerLocatorRec.Post_Code__c, dealerLocatorRec.Dealer_Name__c);
+            }
+        }
+        
+        
+        for(Campaign_Member__c campMemberRec : autoCreateLeadCheckedCampaignMemberRecList) {
+            Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c) ? 
+                                    leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(campMemberRec.Campaign_ID__r.Parent.Campaign_Type__c)) : null);
+            Lead__c lead = new Lead__c();
+            lead.CAC_Lead_Status__c = 'New'; 
+            lead.Source_Campaign__c = campMemberRec.Campaign_ID__c;
+            lead.Contact__c = campMemberRec.Contact_Id__c;
+            lead.Assigned_Dealer__c = getDealerIdForDealerAssignment(campMemberRec, personAccIdToDealerAccIdMap, zipCodeToDealerAccIdMap);
+            lead.OwnerId = campMemberRec.Campaign_ID__r.OwnerId;
+            if(recTypeId != null) {
+                lead.RecordTypeId = recTypeId;
+            }
+            leadLst.add(lead);
         }
         
              
@@ -162,6 +247,10 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             update campMemberLst;
         }
         
+        if(dmRequestList.size() > 0) {
+            insert dmRequestList;
+        }
+          
         if(leadLst.size() >0){
             for(Lead__c lead : leadLst){
                 Campaign_Lead__c cLead = new Campaign_Lead__c(); 
@@ -172,6 +261,30 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             }
             insert cLeadLst;  
         }
+    }
+    
+    private String getDealerIdForDealerAssignment(Campaign_Member__c campaignMemberRec, Map<Id, Id> personAccIdToDealerAccIdMap, Map<String, Id> zipCodeToDealerAccIdMap) {
+        String dealerId;
+        if(campaignMemberRec.Preferred_Dealer__c != null) {
+            dealerId = campaignMemberRec.Preferred_Dealer__c;
+        } else if(campaignMemberRec.Contact_Id__c != null) {
+            if(personAccIdToDealerAccIdMap.containsKey(campaignMemberRec.Contact_Id__c)) {
+                dealerId = personAccIdToDealerAccIdMap.get(campaignMemberRec.Contact_Id__c);
+            }
+        } 
+        
+        if(String.isBlank(dealerId)) {
+            String zipCode;
+            if(campaignMemberRec.Campaign_ID__r.Parent.Campaign_Type__c == 'Finance') {
+                zipCode = campaignMemberRec.Zip_Code_Finance__c;
+            } else {
+                zipCode = campaignMemberRec.Zip_Code__c;
+            }
+            if(zipCode != null && zipCodeToDealerAccIdMap.containsKey(zipCode)) {
+                dealerId = zipCodeToDealerAccIdMap.get(zipCode);
+            }
+        }
+        return dealerId;
     }
     
     public class NotificationWrapper {

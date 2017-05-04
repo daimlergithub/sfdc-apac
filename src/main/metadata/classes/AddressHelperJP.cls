@@ -5,6 +5,14 @@
     Create By: Sriram kalluri
 */
 public with sharing class AddressHelperJP {
+	static User usr = [Select Id,ProfileId,Market__c, Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+        
+       public static Id personAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+       public static Id comAccRecordTypeId= Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+       public static Id retPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();     
+       public static Id retCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();     
+       public static Id individualAddRecordTypeId = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();     
+    
        
             
        /**             
@@ -76,7 +84,7 @@ public with sharing class AddressHelperJP {
         string nullValue ='';
         String province;         
         String market;
-        User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+        //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
     	market = usr.Market__c;
         Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
 		if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')
@@ -149,6 +157,7 @@ public with sharing class AddressHelperJP {
         set<id> accountId = new set<id>();  
         list<Account_Link__c> accountList = new list<Account_Link__c>();
         list<Account_Link__c> accountList1 = new list<Account_Link__c>();
+		if(usr.Profile.Name != 'IntegrationAPI'){
         for(Address__c add:newMap.values()){
            accountId.add(add.id);
         } 
@@ -190,5 +199,106 @@ public with sharing class AddressHelperJP {
             {
                 update accountList1; 
             }
+		}
     }
+	
+	 /*
+	 This method will only work for dealer user's 
+    @Description : 1.If person account is creating as Dealer profile, retail preson accountlink will created automatically.
+                   2.If you enter address fileds in the person account at the time of creating then it will create address record
+                   3.If address is created, then that addresss needs to populate in the retail person accountlink record which is created in step1
+                   This method will update the accountlink - retail person (field - retail_address_reference__c) records when it's created based on step 1
+    @Event       : After Insert
+    @Jira        : SFDCJP-2057
+    @created by  : Lokesh M
+    @created date: Mar 31st, 2017
+    */
+    public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList){
+        //Checking the user profile is dealer 
+        if(userinfo.getUserType()=='PowerPartner'){
+            System.debug('AddressHelerpJp.afterInsetAddressUpdateRetailPerson method fired');
+            
+            Map<Id,Address__c> accIdAddIdMap = new Map<Id,Address__c>();
+            List<Account> accList = new List<Account>();
+            List<Account> accCompanyList = new List<Account>();
+            List<Account_Link__c> updateList = new List<Account_Link__c>();
+            
+            for(Address__c curAdd : addList){
+                //Checking Market Discriminator as JP
+                if(curAdd.MD__c == Label.MarketJP){
+                    if(curAdd.RecordTypeId == individualAddRecordTypeId && curAdd.customer__c != NULL){
+                        accIdAddIdMap.put(curAdd.Customer__c,curAdd);
+                    }
+                }
+            }
+            System.debug('AccIdAddIdMap.key'+accIdAddIdMap.keySet());
+            System.debug('AccIdAddIdMap.size'+accIdAddIdMap.size());
+            if(accIdAddIdMap.size()>0){
+                //Query address related accounts with 'retail person' account link record type
+                accList = [SELECT Id,(SELECT Id,Retail_Address_Reference__c,Retail_Address_Type__c,Retail_ZipCode__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c  FROM Account_Links__r WHERE RecordTypeId =: retPersonRecordTypeId) FROM Account WHERE ID IN: accIdAddIdMap.keySet() AND RecordTypeId =: personAccRecordTypeId];
+                accCompanyList = [SELECT Id,(SELECT Id,Retail_Address_Reference__c,Retail_Address_Type__c,Retail_ZipCode__c,Retail_Province__c,Retail_City__c,Retail_Distinct__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c  FROM Account_Links__r WHERE RecordTypeId =: retCompanyRecordTypeId) FROM Account WHERE ID IN: accIdAddIdMap.keySet() AND RecordTypeId =: comAccRecordTypeId];
+                
+                //Iterating accounts to check that account have only one 'retail person' account link record
+                for(Account curAcc : accList){
+                    System.debug('account_Link__r.size '+curAcc.Account_Links__r.size());
+                    if(curAcc.Account_Links__r.size()==1){
+                        for(Account_Link__c accLink : curAcc.Account_Links__r ){
+                            //Checking the account retail address reference field is null to confirm this is the first time adding address
+                            If(accLink.Retail_Address_Reference__c == NUll)
+                            accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
+                            accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
+                            accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
+                            accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
+                            accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
+                            accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
+                            accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
+                            accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
+                            updateList.add(accLink);
+                        }
+                    }
+                }
+                
+                //Iterating accounts to check that account have only one 'retail company' account link record
+                for(Account curAcc : accCompanyList){
+                    System.debug('account_Link__r.size '+curAcc.Account_Links__r.size());
+                    if(curAcc.Account_Links__r.size()==1){
+                        for(Account_Link__c accLink : curAcc.Account_Links__r ){
+                            //Checking the account retail address reference field is null to confirm this is the first time adding address
+                            If(accLink.Retail_Address_Reference__c == NUll)
+                            accLink.Retail_Address_Reference__c = accIdAddIdMap.get(curAcc.Id).Id;
+                            accLink.Retail_Address_Type__c = accIdAddIdMap.get(curAcc.Id).Address_Type__c;
+                            accLink.Retail_ZipCode__c = accIdAddIdMap.get(curAcc.Id).ZipCode__c;
+                            accLink.Retail_Province__c = accIdAddIdMap.get(curAcc.Id).Province__c;
+                            accLink.Retail_City__c = accIdAddIdMap.get(curAcc.Id).City__c;
+                            accLink.Retail_Distinct__c = accIdAddIdMap.get(curAcc.Id).District__c;
+                            accLink.Retail_Address_Line_1__c = accIdAddIdMap.get(curAcc.Id).Address_Line_1__c;
+                            accLink.Retail_Address_Line_2__c = accIdAddIdMap.get(curAcc.Id).Address_Line_2__c;
+                            updateList.add(accLink);
+                        }
+                    }
+                }
+            }
+            if(updateList.size()>0){
+                // DML statement
+                Database.SaveResult[] srList = Database.update(updateList, false);
+                
+                // Iterate through each returned result
+                for (Database.SaveResult sr : srList) {
+                    if (sr.isSuccess()) {
+                        // Operation was successful, so get the ID of the record that was processed
+                        System.debug('Successfully inserted account. AccountLink ID: ' + sr.getId());
+                    }
+                    else {
+                        // Operation failed, so get all errors                
+                        for(Database.Error err : sr.getErrors()) {
+                            System.debug('The following error has occurred.');                    
+                            System.debug(err.getStatusCode() + ': ' + err.getMessage());
+                            System.debug('Account fields that affected this error: ' + err.getFields());
+                        }
+                    }
+                }
+            }
+        }
+    }
+	
 }

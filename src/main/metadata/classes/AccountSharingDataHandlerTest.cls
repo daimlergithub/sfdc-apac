@@ -133,8 +133,6 @@ public with sharing class AccountSharingDataHandlerTest
        }               
      public static void createTestData()
      {
-         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;
       List<Account> accList=new List<Account>();
       List<Lead__c> leadList=new List<Lead__c>();
       Dealer = new Account(Dealer_Default_Flag__c=true,

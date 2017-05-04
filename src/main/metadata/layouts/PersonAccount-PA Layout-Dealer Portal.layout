@@ -9,7 +9,7 @@
     <customButtons>Send_to_MyMercedes</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>Check_Duplicates</customButtons>
-    <customButtons>New_Case</customButtons>
+    <customButtons>New_Case_Dealer</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>DataDotComAccountInsights</excludeButtons>
@@ -544,6 +544,17 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>UsVIN__c</fields>
@@ -665,18 +676,6 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>Customer_Type__c</fields>
         <relatedList>RelatedCaseList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>NewProposeMeeting</excludeButtons>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MailMerge</excludeButtons>

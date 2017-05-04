@@ -188,11 +188,11 @@ delete Parentcamp;
 
    if(cam.RecordTypeId == camIdExec && cam.Child_Campaign_Status__c != 'planning'){
           
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
     
     }else if(cam.RecordTypeId == camIdPlan && cam.Status__c != 'Draft'){
    
-            cam.addError('You Cant Delete  The Campaign');
+            cam.addError(System.Label.deleting_campaign);
             
     
     }
@@ -236,7 +236,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
      List<Retail_Campaign__c> retList =[Select id,owner.id From Retail_Campaign__c Where Id =: retId];
   
   For(Retail_Campaign__c reCampaign : retList ){
-  
+         if(!Test.isRunningTest()){
           
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
@@ -253,6 +253,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
             mails.add(mail);   
 
+            }
             }
   Messaging.sendEmail(mails);
   
@@ -354,13 +355,13 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
                
                  If(rect.Start_Date__c < System.Today()){
                  
-                   rect.addError('Start Date cant be Lesser Than Today');   
+                   rect.addError(system.Label.Campaign_Date_1 );   
                  
                  }
                  
                  If(rect.Close_Date__c < rect.Start_Date__c){
                  
-                       rect.addError('End Date cant be Lesser Than Start Date');
+                       rect.addError(system.Label.Campaign_Date_2);
                  }
                   
            
@@ -404,9 +405,9 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                      For(Retail_Campaign__c recta : retListMain ){
                      
                      system.debug('+++++++++++++++'+rec.Start_Date__c );
-                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c <= rec.Start_Date__c  ){
+                     if(recta.Segmentation_Date__c < System.Today() ||recta.Segmentation_Date__c > rec.Close_Date__c ||recta.Segmentation_Date__c < rec.Start_Date__c  ){
                      
-                         recta.addError('Segmentation Date Error');
+                         recta.addError(System.Label.Campaign_Date_3);
                          
                      
                      }
@@ -414,12 +415,12 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
                      if(recta.Execution_Start_Date__c < System.Today()  || recta.Execution_Start_Date__c > rec.Close_Date__c || recta.Execution_Start_Date__c <= recta.Segmentation_Date__c ){
                      
                      
-                            recta.addError('Execution Date Error');
+                            recta.addError(System.Label.Campaign_Date_4);
                      }
                   if(recta.Response_Date__c < System.Today()  || recta.Response_Date__c  > rec.Close_Date__c ||recta.Response_Date__c < recta.Execution_Start_Date__c   ){
                      
                      
-                            recta.addError('Response Date Error');
+                            recta.addError(System.Label.Campaign_Date_5);
                      }
                   }
                }
@@ -897,6 +898,59 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
             }
         }
     }
+      /**
+  *@Description :custom clone in campaign
+  
+  *@Author : Dinesh
+  
+  
+  */
+    
+    Public static void updateLogic(List<Retail_Campaign__c> campgn){
+Id camIdExec = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
+    Id camIdPlan = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+id recId;
+ List<Retail_Campaign__c> camUpdateList = new List<Retail_Campaign__c>();
+
+ set<Id> sid = New Set<Id>();
+           
+                                   
+                                   For(Retail_Campaign__c cam :  campgn){
+                                                   
+                                                   
+                                 if( cam.CloneCampaign__c!= null){
+                                   sid.add(cam.CloneCampaign__c);
+                                   system.debug('+++'+cam.CloneCampaign__c);
+                                          
+                                                                   
+                                                   }
+                                   }
+             system.debug('++++++'+sid);
+
+List<Retail_Campaign__c> CamList = [Select Id,Name,Parent_Campaign1__c,Segmentation_Date__c,Child_Campaign_Status__c ,Execution_Start_Date__c From Retail_Campaign__c Where Parent_Campaign1__c=: sid];
+system.debug('++++++'+CamList);
+For(Retail_Campaign__c came : campgn){
+For(Retail_Campaign__c camp : CamList ){
+                
+                
+                Retail_Campaign__c camm = New Retail_Campaign__c();
+                camm.Name = camp.Name;
+                camm.Parent_Campaign1__c= came.Id;
+                camm.Segmentation_Date__c = camp.Segmentation_Date__c ;
+                camm.Execution_Start_Date__c  = camp.Execution_Start_Date__c ;
+                camm.Child_Campaign_Status__c   = camp.Child_Campaign_Status__c;
+                camm.RecordTypeId = camIdExec;
+                                                                        
+       camUpdateList.add(camm);
+                
+}
+}
+
+insert camUpdateList;
+
+system.debug('++++++'+camUpdateList);
+
+}
     
     public static void beforeInsertUpdateEvents(list<Retail_Campaign__c> retailCampainsNew,map<id,Retail_Campaign__c> retailCampainsOldMap, boolean isInsert,boolean isUpdate)
     {

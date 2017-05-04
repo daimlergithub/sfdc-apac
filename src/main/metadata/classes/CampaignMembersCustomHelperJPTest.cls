@@ -41,7 +41,7 @@ public class CampaignMembersCustomHelperJPTest
     insert campobj;
     cm=new Campaign_Member__c();
     cm.Retail_Campaign_Id__c=campobj.id;
-    cm.Status__c = 'Executed';
+    cm.Status__c = 'Ready';
     //cm.contact_Id__c = accobj.Id;   
     insert cm;    
   }

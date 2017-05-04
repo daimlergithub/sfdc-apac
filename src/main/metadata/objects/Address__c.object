@@ -108,6 +108,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Address Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Address_Line_1_Native__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1 Native</label>
@@ -150,6 +160,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Type_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Address Type Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Address_Type__c</fullName>
@@ -1692,7 +1712,7 @@
     </validationRules>
     <validationRules>
         <fullName>Address_Line_1_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Address_Line_1_Native__c),
@@ -1714,7 +1734,7 @@ is Mandatory while creating new Address</description>
     </validationRules>
     <validationRules>
         <fullName>Address_Line_2_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Address_Line_2_Native__c),
@@ -1732,7 +1752,7 @@ MD__c = 'JP')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Block_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Block_Native__c),
@@ -1760,7 +1780,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>City_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(City_Native__c),
@@ -1862,7 +1882,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{5}"))
     </validationRules>
     <validationRules>
         <fullName>Prefecture_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Province_Native__c),
@@ -1892,7 +1912,7 @@ MD__c = 'JP',
     </validationRules>
     <validationRules>
         <fullName>Town_Native_Kana</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(District_Native__c),
