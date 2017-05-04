@@ -7731,6 +7731,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</de
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
+	    <fields>
+        <fullName>Fax_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax Last Modified By</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Fax_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
@@ -14939,6 +14950,17 @@ Invisible on UI.&quot;</description>
         <externalId>false</externalId>
         <label>Winbeat SAP No</label>
         <length>16</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Work_Fax_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Fax Last Modified By</label>
+        <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
