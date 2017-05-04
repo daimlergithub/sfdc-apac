@@ -3,7 +3,6 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>For Japan MBF users</description>
     <label>MBF Call Center</label>
-	<!---test-->
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
