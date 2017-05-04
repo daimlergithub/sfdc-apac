@@ -10866,7 +10866,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -55630,13 +55630,13 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_Email_Address_TH</fullName>
 		<active>true</active>
 		<description>Email Validation on customer record .</description>
-		<errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
-		AND(
-		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
-		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
-		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
-		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
+		<errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) && !ISNEW() &&
+					AND(
+					OR( CONTAINS(Email__c, '?'), CONTAINS(Email__c, '^'), CONTAINS(Email__c, '%'),
+					CONTAINS(Email__c, '$'), RIGHT(Email__c, 1)='.', BEGINS(Email__c, '.') , CONTAINS(Email__c, '@.'), CONTAINS(Email__c, '.@'),
+					CONTAINS(Email__c, '..'), NOT(CONTAINS(Email__c, '.')), NOT(CONTAINS(Email__c, '@')),
+					CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND('@', Email__c)), '@') , LEFT( RIGHT( Email__c, 2), 1)='.'),
+					$Profile.Name != 'IntegrationAPI',MD__c = 'TH'
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>
 	</validationRules>
