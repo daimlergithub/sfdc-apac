@@ -62,13 +62,13 @@ String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByNa
          apexpages.currentPage().getparameters().put('id', u.id);
 ApexPages.StandardController std = new ApexPages.StandardController(a2);
 usernotificationsetting usernoti=new usernotificationsetting(std);
-List<SelectOption> selectopt=usernoti.rightacc;
+//List<SelectOption> selectopt=usernoti.rightacc;
 usernoti.addit();
 usernoti.addit1();
 usernoti.addit2();
 usernoti.updateit();
 //usernoti.cancelit();
-system.assertEquals(0,selectopt.size());
+//system.assertEquals(0,selectopt.size());
 }
 
 
