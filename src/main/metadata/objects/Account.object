@@ -55635,7 +55635,7 @@ MD__c = &apos;JP&apos;
 		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
 		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
 		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
 		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>
