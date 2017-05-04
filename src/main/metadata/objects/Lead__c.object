@@ -29895,10 +29895,6 @@ Company_Account__r.Work_Phone__c  ,
 				<default>false</default>
             </values>
             <values>
-                <fullName>CLA 250 AMG</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CLA 260 4MATIC</fullName>
                 <default>false</default>
             </values>
@@ -76863,10 +76859,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-				<fullName>CLA 250 AMG</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CLA 260 4MATIC</fullName>
                 <default>false</default>
             </values>
@@ -89824,10 +89816,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>CLA 220 4MATIC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-				<fullName>CLA 250 AMG</fullName>
                 <default>false</default>
             </values>
             <values>
