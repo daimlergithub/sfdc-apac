@@ -5974,6 +5974,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Email_Notification_to_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Campaign.Add_Sales_Staff__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6057,6 +6062,11 @@
         <field>Campaign.Closed_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Consolidated_List_Completed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Content_Preview__c</field>
@@ -6085,6 +6095,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Distribution_is_completed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
