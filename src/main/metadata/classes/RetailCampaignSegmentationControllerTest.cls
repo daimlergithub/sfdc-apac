@@ -73,7 +73,7 @@ Private Static  List<SelectOption> getItems;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
-                RetailCampaignSegmentationController.saveFilter(filterString);
+                //RetailCampaignSegmentationController.saveFilter(filterString);
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
                // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
@@ -87,7 +87,7 @@ Private Static  List<SelectOption> getItems;
                  extension.hasPrevious= True;                
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
             try{
-                RetailCampaignSegmentationController.deleteFilter(filtername);
+               // RetailCampaignSegmentationController.deleteFilter(filtername);
                 }catch(Exception e){}
                // extension.getlimitAccounts();
         
