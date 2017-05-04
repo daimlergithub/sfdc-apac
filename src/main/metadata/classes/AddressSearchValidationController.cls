@@ -1288,10 +1288,12 @@ If the user is Saving  same address which matches the fields returned by toleran
            Address__c NewAdd=new Address__c();
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
+			  AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
             {
+			  AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
             if(AddressObj == NewAdd)

@@ -27909,10 +27909,10 @@
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
     </userPermissions>
-	<!--<userPermissions>
+	<userPermissions>
         <enabled>true</enabled>		        
         <name>ManageCustomReportTypes</name>
-    </userPermissions>-->
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewSetup</name>

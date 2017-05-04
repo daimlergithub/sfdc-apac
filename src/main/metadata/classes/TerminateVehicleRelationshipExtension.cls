@@ -33,14 +33,15 @@ public  class TerminateVehicleRelationshipExtension
     public List<SelectOption> getEndReason() {
         List<SelectOption> countryOptions = new List<SelectOption>();
         countryOptions.add(new SelectOption('','-None-'));
-        countryOptions.add(new SelectOption('Replacement','Replacement'));
-        countryOptions.add(new SelectOption('Bought Competitors','Bought Competitors'));
-        countryOptions.add(new SelectOption('Sold','Sold'));
-        countryOptions.add(new SelectOption('Handover','Handover'));
-        countryOptions.add(new SelectOption('Warranty system','Warranty system'));
-         countryOptions.add(new SelectOption('MB Online','MB Online'));
-          countryOptions.add(new SelectOption('DMS','DMS'));
-          countryOptions.add(new SelectOption('Others','Others'));
+        countryOptions.add(new SelectOption('Replacement','MBへの乗換'));
+        countryOptions.add(new SelectOption('Bought Competitors','競合車への乗換'));
+        countryOptions.add(new SelectOption('Sold','車の保有を止めた(売却)'));
+        countryOptions.add(new SelectOption('Handover','車の保有を止めた(譲渡)'));
+    /** countryOptions.add(new SelectOption('Warranty system','Warranty system'));
+        countryOptions.add(new SelectOption('MB Online','MB Online'));  
+        countryOptions.add(new SelectOption('DMS','DMS'));   **/
+
+        countryOptions.add(new SelectOption('Others','その他'));
  
         return countryOptions;
     }
