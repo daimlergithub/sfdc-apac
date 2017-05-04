@@ -27031,10 +27031,10 @@
         <enabled>true</enabled>
         <name>AssignTopics</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>CanUseNewDashboardBuilder</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterEditOwnPost</name>
