@@ -6872,9 +6872,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.Consolidated_List_Completed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6921,6 +6921,11 @@
         <field>Campaign.Description</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Distribution_is_completed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Driven_Type__c</field>
@@ -6929,6 +6934,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Driven__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Email_Notification_to_Owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
