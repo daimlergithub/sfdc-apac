@@ -63,10 +63,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -149,6 +145,10 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Preferred_drop_by__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_record_Owner_Manager_Email__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -166,6 +166,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_DataSubSource__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -193,11 +197,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead_Last_Modified_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Interested_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Current_Vehicle_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -270,6 +282,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Qualified_Date_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Comment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Competitor_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Additional_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Assigned_Dealer_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
