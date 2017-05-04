@@ -10850,8 +10850,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-	<fields>	
+    </fields>	
     <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
