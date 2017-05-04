@@ -1,6 +1,6 @@
 @isTest
 public class testusernotification{
-
+/*
 public static testmethod void init(){
 
 Profile p = [select id from profile where name='Standard User'];
@@ -63,7 +63,7 @@ String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByNa
 ApexPages.StandardController std = new ApexPages.StandardController(a2);
 usernotificationsetting usernoti=new usernotificationsetting(std);
 //List<SelectOption> selectopt=usernoti.rightacc;
-usernoti.addit();
+//usernoti.addit();
 usernoti.addit1();
 usernoti.addit2();
 usernoti.updateit();
@@ -72,5 +72,5 @@ usernoti.updateit();
 }
 
 
-
+*/
 }
