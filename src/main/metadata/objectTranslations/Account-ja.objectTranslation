@@ -5528,7 +5528,7 @@ Allows up to 240 characters --></help>
         <name>MB_CIR_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>MBJ顧客情報削除</label>
+        <label>MBJ照会不可フラグ</label>
         <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
