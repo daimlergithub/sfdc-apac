@@ -146,6 +146,7 @@
             </processMetadataValues>
             <field>Primary_Address_Reference__c</field>
             <value>
+			
                 <elementReference>myVariable_current.Id</elementReference>
             </value>
         </inputAssignments>
