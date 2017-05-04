@@ -5,6 +5,7 @@
     <customButtons>OPRO_Label_Print_PDF</customButtons>
     <customButtons>Consolidate_List_Maintenance</customButtons>
     <customButtons>Add_Participating_Dealer</customButtons>
+	<customButtons>Distribution_to_Dealer</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -67,6 +68,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Consolidated_List_Completed__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Distribution_is_completed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_Notification_to_Owner__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

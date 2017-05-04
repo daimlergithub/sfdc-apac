@@ -5528,7 +5528,7 @@ Allows up to 240 characters --></help>
         <name>MB_CIR_Last_Modified_Date__c</name>
     </fields>
     <fields>
-        <label>MBJ顧客情報削除</label>
+        <label>MBJ照会不可フラグ</label>
         <name>MB_Customer_Info_Remove__c</name>
     </fields>
     <fields>
@@ -8346,7 +8346,7 @@ Allows up to 240 characters --></help>
         <name>CompanyNameAccount_NoOfDigits</name>
     </validationRules>
     <validationRules>
-        <errorMessage>法人名（カナ）は必ず全角で入力して下さい。</errorMessage>
+        <errorMessage>カタカナを入力してください。</errorMessage>
         <name>Company_Name_Native_1_Fullchar</name>
     </validationRules>
     <validationRules>

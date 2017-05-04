@@ -192,6 +192,15 @@
         <description>This field is used to refer the related campaign execution record</description>
         <externalId>false</externalId>
         <label>Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Campaign_Executiono</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members1</relationshipName>
@@ -968,6 +977,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Retail Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Retail_Campaign__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Retail_Execution_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members</relationshipName>
@@ -1396,7 +1414,7 @@ location.reload();</url>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1413,7 +1431,7 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
@@ -1428,7 +1446,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/MBJapan/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');

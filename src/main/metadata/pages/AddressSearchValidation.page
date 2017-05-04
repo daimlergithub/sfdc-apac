@@ -83,11 +83,21 @@
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >        
+                    </apex:pageBlockSectionItem> 
+                     
+                      <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
+                     <apex:outputPanel styleClass="requiredInput" layout="block">
+                       <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
+                  <apex:inputfield value="{!objAccount.Data_Source__c}"  id="mId" required="true"/>   
+                  </apex:outputPanel>
+                  </apex:pageBlockSectionItem>
+                   
+                   <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
                      <apex:outputLabel value="{!$Label.Touch_Point}" />       
-                  <apex:inputText value="{!TouchPoint}"  />             
-                  </apex:pageBlockSectionItem> 
+                  <apex:outputText value="{!TouchPoint}"/>         
+                  </apex:pageBlockSectionItem>
+					
                     <!-- <apex:inputField value="{!objAccount.Name}" /> -->
                     <apex:inputField value="{!objAccount.Company_Name__c}" />
                     <apex:inputField value="{!objAccount.Company_Name_Native_1__c}" />               
@@ -121,10 +131,19 @@
                         <apex:inputText value="{!objPersonAccount.FirstName}" />
                         
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
-                     <apex:outputLabel value="{!$Label.Touch_Point}" />
-                  <apex:inputText value="{!TouchPoint}"  />        
+					
+					<apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
+                     <apex:outputPanel styleClass="requiredInput" layout="block">
+                       <apex:outputPanel styleClass="requiredBlock" layout="block"/> 
+                  <apex:inputfield value="{!objPersonAccount.Data_Source__c}"  id="mId" required="true"/>   
+                  </apex:outputPanel>
                   </apex:pageBlockSectionItem> 
+                   <apex:pageBlockSectionItem rendered="{!u.ContactId !=null}">        
+                     <apex:outputLabel value="{!$Label.Touch_Point}" />       
+                  <apex:outputText value="{!TouchPoint}"/>         
+                  </apex:pageBlockSectionItem> 
+				  
                     <!--  <apex:inputField value="{!objPersonAccount.LastName}" />
                 <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
@@ -142,6 +161,9 @@
                     </apex:pageBlockSection>
                     <apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'JP')) ,true,false)}">
                     <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" /> 
+					<br>  </br>
+                    <apex:inputField value="{!objPersonAccount.Acquisition_Objective_Method__c}" />
+                    <apex:inputField value="{!objPersonAccount.Details_of_Acquisition__c}" />
                 </apex:pageBlockSection>
        <!--  KOREA MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockKR" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',market=='KR'),true,false)}">
