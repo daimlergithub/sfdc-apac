@@ -647,6 +647,10 @@
                 <behavior>Edit</behavior>
                 <field>Buy_Cycle__c</field>
             </layoutItems>
+			            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Special_Needs_Class__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
