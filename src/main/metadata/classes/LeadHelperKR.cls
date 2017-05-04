@@ -20,6 +20,7 @@ public class LeadHelperKR
         set<String> GCCode = new set<String>();
         Set<String> DealerGScode = new Set<String>();
         set<id> leadIds = new set<id>();
+        set<id> parentIds = new set<id>();
         Set<String> DealerNDCode= new Set<String>();
         list<Lead__share>  leadshare=new list<lead__share>();       
         map<string,id> assgroupMap = new map<string,id>();
@@ -37,9 +38,23 @@ public class LeadHelperKR
         }
         if(!leadIds.isEmpty() && leadIds != null)
         {
-            leadlist = [Select id,recordtypeId,Assigned_Dealer__r.Parent.Dealer_ND_Code__c,CAC_Lead_Status__c,Assigned_Dealer__r.Parent.Dealer_Type__c,
+            leadlist = [Select id,recordtypeId,Assigned_Dealer__r.ParentId,CAC_Lead_Status__c,
                         Assigned_Dealer__r.Dealer_ND_Code__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__r.Dealer_Type__c,
                         Assigned_Dealer__r.Dealer_GS_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
+        }
+        if(!leadlist.isEmpty() && leadlist != null)
+        {
+        	for(Lead__c leds : leadlist)
+            {
+                if(leds.Assigned_Dealer__r.ParentId != null && leds.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
+                {
+                    parentIds.add(leds.Assigned_Dealer__r.ParentId);
+                }
+            }
+        }
+        if(!parentIds.isEmpty() && parentIds != null)
+        {
+            dealerAccountList = [select id,Dealer_ND_Code__c from Account where id =:parentIds];
         }
         
         for(lead__c le:leadlist)
@@ -72,18 +87,24 @@ public class LeadHelperKR
                     
                 }
             }*/
-            if(le.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
-            {
-                if(le.Assigned_Dealer__r.Parent.Dealer_ND_Code__c != null && le.Assigned_Dealer__r.Parent.Dealer_ND_Code__c != '')
-                {
-                    DealerNDCode.add(le.Assigned_Dealer__r.Parent.Dealer_ND_Code__c);
-                }
-            }
-            else if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company')
+            if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company')
             {
                 if(le.Assigned_Dealer__r.Dealer_ND_Code__c != null && le.Assigned_Dealer__r.Dealer_ND_Code__c != '')
                 {
                     DealerNDCode.add(le.Assigned_Dealer__r.Dealer_ND_Code__c);
+                }
+            }
+            if(!dealerAccountList.isEmpty() && dealerAccountList != null)
+            {
+                for(Account parntacc: dealerAccountList)
+                {
+                    if(le.Assigned_Dealer__r.ParentId == parntacc.id && le.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
+                    {
+                        if(parntacc.Dealer_ND_Code__c != null && parntacc.Dealer_ND_Code__c != '')
+                        {
+                            DealerNDCode.add(parntacc.Dealer_ND_Code__c);
+                        }
+                    }
                 }
             }
         }
