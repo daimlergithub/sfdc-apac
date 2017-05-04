@@ -54622,10 +54622,6 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
         <active>true</active> 
-        <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'KR',$RecordType.Name=&quot;Company&quot;,
-NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula> 
         <errorConditionFormula>AND( 
 			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
 			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
@@ -54640,12 +54636,12 @@ NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFor
     </validationRules>
 	<validationRules>
 	<fullName>Customer_Status_Check_TH</fullName>
-	<active>true</active>
-	<errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
-	&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
-	<errorDisplayField>Status__c</errorDisplayField>
-	<errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
-</validationRules>
+		<active>true</active>
+		<errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
+		&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Status__c</errorDisplayField>
+		<errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
+	</validationRules>
 	<validationRules>
 	<fullName>Fax_NoOfDigits_TH</fullName>
 	<active>true</active>
