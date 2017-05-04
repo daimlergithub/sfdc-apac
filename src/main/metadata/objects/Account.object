@@ -3827,6 +3827,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
+				<fullName>Compass</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10828,141 +10832,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>MBTH_Mercede__c</fullName>
-        <description>Only for Thailand</description>
-        <externalId>false</externalId>
-        <label>MBTH Mercedes Events</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Domestic Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lifestyle Event/Workshop</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Driving Event/Test Drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music/Concert</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Movie</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf (Mercedes Trophy)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Product Launch</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dining/F&amp;B</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Health/Beauty/Spa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MBTH_Nationality__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH Nationality</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>American</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>British</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>French</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>German</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Indian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>South Korean</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Laotian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Malaysian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Singaporean</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taiwanese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>MB_CIR_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
@@ -10981,44 +10850,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-	<fields>
-	<fullName>Monthly_Income__c</fullName>
-	<externalId>false</externalId>
-	<label>Monthly Income</label>
-	<picklist>
-			<picklistValues>
-				<fullName>&lt; 100,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<picklistValues>
-				<fullName>100,001 - 200,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<picklistValues>
-				<fullName>200,001 - 300,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<picklistValues>
-				<fullName>300,001 - 400,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<picklistValues>
-				<fullName>400,001 - 500,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<picklistValues>
-				<fullName>&gt; 500,000 THB</fullName>
-				<default>false</default>
-			</picklistValues>
-			<restrictedPicklist>true</restrictedPicklist>
-			<sorted>false</sorted>
-		</picklist>
-		<required>false</required>
-		<trackFeedHistory>false</trackFeedHistory>
-		<trackHistory>false</trackHistory>
-		<type>Picklist</type>
-	</fields>
+    </fields>	
     <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
@@ -11034,7 +10866,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -11886,16 +11718,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>HomePhone OptIn</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Opt_In_Mobile__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>New field to be added in Kernel Template</description>
-        <externalId>false</externalId>
-        <label>Opt In Mobile</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -13023,18 +12845,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Preferred_Radio_Station__c</fullName>
-        <description>Add Preferred Radio Station text field. Unhide Preferred Newspaper and Industry fields for Thailand market</description>
-        <externalId>false</externalId>
-        <label>Preferred Radio Station</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preferred_Work_Phone_1__c</fullName>
@@ -54811,11 +54621,7 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     </validationRules>
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
-        <active>true</active> 
-        <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'KR',$RecordType.Name=&quot;Company&quot;,
-NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula> 
+        <active>true</active>
         <errorConditionFormula>AND( 
 			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
 			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
@@ -54830,12 +54636,12 @@ NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFor
     </validationRules>
 	<validationRules>
 	<fullName>Customer_Status_Check_TH</fullName>
-	<active>true</active>
-	<errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
-	&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
-	<errorDisplayField>Status__c</errorDisplayField>
-	<errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
-</validationRules>
+		<active>true</active>
+		<errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
+		&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Status__c</errorDisplayField>
+		<errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
+	</validationRules>
 	<validationRules>
 	<fullName>Fax_NoOfDigits_TH</fullName>
 	<active>true</active>
@@ -55829,7 +55635,7 @@ MD__c = &apos;JP&apos;
 		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
 		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
 		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
 		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>
