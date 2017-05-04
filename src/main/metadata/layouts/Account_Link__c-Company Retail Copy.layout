@@ -77,8 +77,9 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Consultant__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
+             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Selling_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
