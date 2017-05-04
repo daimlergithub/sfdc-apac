@@ -5139,6 +5139,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Retail Campaign Canlender Page SM Media</shortDescription>
         <value>S&amp;M Media Retail Campaign</value>
     </labels>
+	<labels>
+        <fullName>Retail_copy_is_already_present</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail copy is already present</shortDescription>
+        <value>Retail copy is already present</value>
+    </labels>
     <labels>
         <fullName>S5</fullName>
         <language>en_US</language>
