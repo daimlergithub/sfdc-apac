@@ -173,9 +173,9 @@
 							   <sf:include name="MBJ_FS_Case_Intermediate_Page"/>
 							   <sf:include name="FS_CaseInlinePage"/>
 							   <sf:include name="MBJ_FS_Case_Quotation_Page"/>
-							   <sf:include name="MBJ_FS_Case_Request_Inline_Page"/>
-							   <sf:include name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
-							   <sf:include name="MBJ_FS_Case_Quotation_Inline_Page"/>
+							   <sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
+							   <sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
+							   <sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Page"/>
 							   <sf:include name="MBJ_FS_Case_ContractClosing_Detail_Page"/>
 							   <sf:include name="MBJ_FS_Case_Inquiry_Detail_Page"/>
@@ -421,10 +421,12 @@
 								<sf:include name="DeleteRetailCopy"/>
 								<sf:include name="DeleteRetailCopyTest"/>
 								<sf:include name="MBJ_FS_Case_Inquiry_Controller"/>
-								<sf:include name="MBJ_FS_Case_Request_InlineController"/>
-								<sf:include name="MBJ_FS_Case_Quotation_InlineController"/>
+								<sf:include name="MBJ_FS_Case_Inquiry_ControllerTest"/>
+								<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
+								<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 								<sf:include name="MBJ_FS_Case_Intermediate_Controller"/>
-								<sf:include name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
+								<sf:include name="MBJ_FS_Case_Intermediate_ControllerTest"/>
+								<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 								<sf:include name="FS_CaseInlineController"/>
 								<sf:include name="LeadDealerAssignmentProcess"/>
 								<sf:include name="LeadDealerAssignmentProcessTest"/>
@@ -471,7 +473,8 @@
 								<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
 								<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
 								<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
-								<sf:include name="CampaignHelper"/>                                                     <sf:include name="CampaignHelperTest"/>
+								<sf:include name="CampaignHelper"/>                                                     
+								<sf:include name="CampaignHelperTest"/>
 								<sf:include name="TriggerCampaignTriggerHandlerJP"/>
 								<sf:include name="TriggerCampaignTriggerHandlerKR"/>
 								<sf:include name="ConsolidationContorller"/>
@@ -611,7 +614,8 @@
 								<sf:include name="BatchAssignTasks"/>
 								<sf:include name="BatchAssignTasksTest"/>
 								<sf:include name="Batch_CreateCampaignTask"/>
-	                            <sf:include name="Batch_CreateCampaignTaskTest"/>											<sf:include name="Batch_CreateCampaignNotification"/>
+	                            <sf:include name="Batch_CreateCampaignTaskTest"/>
+								<sf:include name="Batch_CreateCampaignNotification"/>
 	                            <sf:include name="Batch_CreateCampaignNotificationTest"/>										
 								<sf:include name="CampaignPackageHelper"/>
 								<sf:include name="CampaignPackageHelperTest"/>
@@ -703,7 +707,7 @@
 								<sf:include name="TriggerParticipatingDealer"/>
 								<sf:include name="UserTrigger"/>
 							</sf:typeset>
-							<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
+							<sf:typeset name="profiles" suppressChecksumUpdate="true"/>
 					</deploy>
 				</target>
 				<target name="deploy07">
