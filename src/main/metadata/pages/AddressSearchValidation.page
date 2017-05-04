@@ -83,8 +83,7 @@
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
                             <apex:inputText value="{!objAccount.Name}" />
                         </apex:outputPanel>
-                    </apex:pageBlockSectionItem>
-					 </apex:pageBlockSectionItem>
+                    </apex:pageBlockSectionItem> 
                      
                       <apex:pageBlockSectionItem rendered="{!u.ContactId ==null}">        
                      <apex:outputLabel value="{!$Label.Touch_Point}"  for="mId"  /> 
