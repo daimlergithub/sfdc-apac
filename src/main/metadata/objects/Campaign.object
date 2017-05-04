@@ -1414,6 +1414,14 @@
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
+	<fields>
+        <fullName>Distribution_is_completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Distribution is completed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Driven_Type__c</fullName>
         <description>This field can be used to set to determine who will drive the campaign</description>
@@ -1463,6 +1471,14 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Email_Notification_to_Owner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Email Notification to Owner</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>EndDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -2024,6 +2040,50 @@
             </picklistValues>
             <picklistValues>
                 <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Media_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -3495,7 +3555,19 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
-    </fields><fields>
+    </fields>
+	<fields>
+        <fullName>Total_Budget_old__c</fullName>
+        <externalId>false</externalId>
+        <formula>Region_Budget__c +  Dealer_Budget__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total_Budget_old</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+	<fields>
         <fullName>Total_Budget__c</fullName>
         <description>This field is used to capture the total budget being allocated for the campaign activity</description>
         <externalId>false</externalId>
@@ -4683,6 +4755,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -5858,6 +5965,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -7005,6 +7147,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -8001,6 +8178,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9004,6 +9216,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10014,6 +10261,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -11021,6 +11303,41 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12374,6 +12691,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -13441,6 +13793,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14624,6 +15011,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15945,6 +16367,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -17195,6 +17652,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -18390,6 +18882,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -19564,6 +20091,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -19994,6 +20556,7 @@
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
+		<customTabListAdditionalFields>Child_Campaign_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.END_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</customTabListAdditionalFields>
@@ -20566,6 +21129,20 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
     alert("{!$Label.Delete_Campaign_Failed}" + "\n" + result[0].errors.message);
   }
 }</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Distribution_to_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Distribution to Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var campaignID = "{!Campaign.Id}"; 
+var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Retail_BP</fullName>
