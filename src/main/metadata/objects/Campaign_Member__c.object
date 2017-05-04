@@ -1414,7 +1414,7 @@ location.reload();</url>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1431,7 +1431,7 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
@@ -1446,7 +1446,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/MBJapan/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
