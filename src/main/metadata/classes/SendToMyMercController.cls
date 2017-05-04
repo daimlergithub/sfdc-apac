@@ -1,8 +1,8 @@
-/*
-    JIRA NO: SFDC-1416
+/**********************************************************************************
+    JIRA NO: SFDC-1416, SFDCJP-2101
     Last Modified By : Lokesh M
-    Last modified date : 24-Feb-2017
-*/
+    Last modified date : 13-Apr-2017
+**********************************************************************************/
 
 public with sharing class SendToMyMercController {
     
@@ -25,6 +25,7 @@ public with sharing class SendToMyMercController {
     public ID VIDs;
     public Vehicle_Relationship__c lstVinfo{get;set;}
     public boolean displayPopup {get; set;} 
+    public static User usr = new user();
     
     public SendToMyMercController(ApexPages.StandardController controller) {
         vehpageid = ApexPages.currentPage().getParameters().get('id');
@@ -127,6 +128,8 @@ public with sharing class SendToMyMercController {
         Boolean reasonNonMerc = false;
         Boolean emptyMail = false;
         Boolean personBirthDate = false;
+        Set<Id> accountMainDealer = new Set<Id>();//To update the Main_dealer__C on account if my merc id is blank for Dealers
+        
         if(lstAccountWrapper != null && !lstAccountWrapper.isEmpty()){
             for(AccountWrapper obj: lstAccountWrapper){
                 if(obj.isSelect == false && String.isBlank(obj.OptOutReason) && String.isBlank(obj.vehicleRelationship)){
@@ -140,6 +143,10 @@ public with sharing class SendToMyMercController {
                     emptyMail = true;
                 }
                 else if(obj.isSelect == true && !String.isBlank(Obj.PortalEmail)){
+                   if(String.isBlank(obj.vehicleRelationship) && userinfo.getUserType()=='PowerPartner'){
+                       accountMainDealer.add(obj.AccountId);
+                       system.debug('acctmaindealer'+accountmaindealer);
+                   }
                     Vehset.add(obj.VehRelId);
                     visiblemap.put(obj.AccountId,obj.isVisible);
                     accset.add(obj.AccountId);                       
@@ -158,7 +165,7 @@ public with sharing class SendToMyMercController {
                 }   
             }
             if(accset !=null && !accset.isEmpty() ){
-                for(Account eachAcc : [select id,Portal_Apply_Status__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
+                for(Account eachAcc : [select id,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,PersonBirthdate,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
                         if(accLink.RecordTypeId == IndividualCustomerExternaLink && accLink.System__c == 'My Mercedes' && accLink.toRole__c == eachAcc.Id && accLink.Primary__c == True){
                             myMercAcc.put(eachAcc.Id,eachAcc);
@@ -178,13 +185,21 @@ public with sharing class SendToMyMercController {
                 }
                 
                 if(personBirthdate == false){
+                    usr = [Select Id,name,contact.AccountId from User WHERE ID = :UserInfo.getUserId() ];
                     for(Account acc : myMercAcc.values()){
                         acc.Email3__c = email3update.get(acc.Id);
                         idAccLinkMap.get(acc.Id).Portal_Email__C = email3update.get(acc.Id);
                         accfinal.put(acc.Id, acc);
                         accLinkFinal.add(idAccLinkMap.get(acc.Id));
                     }
+                    System.debug('nonMyMercAcc'+nonMyMercacc.size());
                     for(Account acct : nonMyMercAcc.values()){ 
+                        System.debug('accountMainDealer.contains'+accountMainDealer.contains(acct.Id));
+                        if(accountMainDealer.contains(acct.Id)){
+                            System.debug('usr.contact.AccountId'+usr.contact.AccountId);
+                            if(acct.Main_Dealer__c == NULL || acct.Main_Dealer__c ==  '')
+                            acct.Main_Dealer__c = usr.contact.AccountId;
+                        }
                         acct.Portal_Apply_Status__c = 'To be Sent';
                         acct.Portal_Apply_Date__c = System.today();
                         acct.Portal_Apply_User__c = userinfo.getUserId();

@@ -1220,12 +1220,12 @@
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
         <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
-        <errorConditionFormula>AND(
-    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
-    OR(  
-      ISPICKVAL( Status__c , "Removed") ,
-      ISPICKVAL( Status__c , "Ready"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI' 
-    ) 
+        <errorConditionFormula>AND( 
+ISPICKVAL(PRIORVALUE(Status__c) , "Executed"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI', 
+OR( 
+ISPICKVAL( Status__c , "Removed"), 
+ISPICKVAL( Status__c , "Ready") 
+) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
