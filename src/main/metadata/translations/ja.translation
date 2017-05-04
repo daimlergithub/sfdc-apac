@@ -41,6 +41,26 @@
         <name>MBJ_Reports_and_Dashboards</name>
     </customApplications>
     <customApplications>
+        <label><!-- MBK Catalogue Operation --></label>
+        <name>MBK_Catalogue_Operation</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Data Management --></label>
+        <name>MBK_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK File Management --></label>
+        <name>MBK_File_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Master Data Management --></label>
+        <name>MBK_Master_Data_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- MBK Reports and Dashboards --></label>
+        <name>MBK_Reports_and_Dashboards</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Private APP Exchange --></label>
         <name>Private_APP_Exchange</name>
     </customApplications>
@@ -51,6 +71,10 @@
     <customLabels>
         <label>了承済み</label>
         <name>Accepted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Accessory price +Dealer Option price --></label>
+        <name>Accessory_price_Dealer_Option_price</name>
     </customLabels>
     <customLabels>
         <label>アカウント</label>
@@ -65,6 +89,10 @@
         <name>AccountMergeFields</name>
     </customLabels>
     <customLabels>
+        <label><!-- AccountRetailCopy --></label>
+        <name>AccountRetailCopy</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Account Cann&apos;t be Customer --></label>
         <name>Account_Cann_t_be_Customer</name>
     </customLabels>
@@ -77,6 +105,10 @@
         <name>Account_Merge</name>
     </customLabels>
     <customLabels>
+        <label><!-- Account Retail Copy Filter --></label>
+        <name>Account_Retail_Copy_Filter</name>
+    </customLabels>
+    <customLabels>
         <label>既に該当アカウントに住所が5つ存在します。</label>
         <name>Account_cannot_have_more_than_5_Address</name>
     </customLabels>
@@ -85,8 +117,20 @@
         <name>Accuracy</name>
     </customLabels>
     <customLabels>
+        <label><!-- Activity History --></label>
+        <name>Activity_History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add --></label>
+        <name>Add</name>
+    </customLabels>
+    <customLabels>
         <label>追加</label>
         <name>Add_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Participating Dealer --></label>
+        <name>Add_Participating_Dealer</name>
     </customLabels>
     <customLabels>
         <label><!-- Add to Campaign --></label>
@@ -117,12 +161,20 @@
         <name>Address_Information</name>
     </customLabels>
     <customLabels>
+        <label><!-- Address PrintPDF --></label>
+        <name>Address_PrintPDF</name>
+    </customLabels>
+    <customLabels>
         <label>郵便番号検索</label>
         <name>Address_Search</name>
     </customLabels>
     <customLabels>
         <label>アドレス選択</label>
         <name>Address_Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address Type --></label>
+        <name>Address_Type</name>
     </customLabels>
     <customLabels>
         <label>郵便番号検索時は、郵便番号以外の住所項目は入力しないでください。</label>
@@ -137,6 +189,22 @@
         <name>Address_validation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Advisor --></label>
+        <name>Advisor</name>
+    </customLabels>
+    <customLabels>
+        <label>連絡先アフターセールス関連</label>
+        <name>After_Sales_Contact_Target</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者との関係</label>
+        <name>After_Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>After_Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Aftersales --></label>
         <name>Aftersales</name>
     </customLabels>
@@ -147,6 +215,30 @@
     <customLabels>
         <label><!-- AftersalesContactTarget2 --></label>
         <name>AftersalesContactTarget2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Age --></label>
+        <name>Age</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Alert Handling Level --></label>
+        <name>Alert_Handling_Level</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Allow Data Sharing --></label>
+        <name>Allow_Data_Sharing</name>
+    </customLabels>
+    <customLabels>
+        <label>個人情報第三者提供の許諾</label>
+        <name>Allow_data_sharing2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AlreadyProcessed --></label>
+        <name>AlreadyProcessed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Amount --></label>
+        <name>Amount</name>
     </customLabels>
     <customLabels>
         <label><!-- And Criteria --></label>
@@ -193,8 +285,24 @@
         <name>Assign_QC</name>
     </customLabels>
     <customLabels>
+        <label>販売店担当者</label>
+        <name>Assigned_Dealer</name>
+    </customLabels>
+    <customLabels>
         <label>添付PDFにエラーがあります。</label>
         <name>AttachedPdfError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Authorization --></label>
+        <name>Authorization</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Backslash --></label>
+        <name>Backslash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Birthdate --></label>
+        <name>Birthdate</name>
     </customLabels>
     <customLabels>
         <label>メーカー</label>
@@ -205,8 +313,12 @@
         <name>Btn_Preview_No_Questions</name>
     </customLabels>
     <customLabels>
-        <label>勤務先Email</label>
+        <label>Eメール(会社）</label>
         <name>Business_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Business Email2 --></label>
+        <name>Business_Email2</name>
     </customLabels>
     <customLabels>
         <label><!-- Button Approve --></label>
@@ -215,6 +327,10 @@
     <customLabels>
         <label><!-- Button Search --></label>
         <name>Button_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CA --></label>
+        <name>CA</name>
     </customLabels>
     <customLabels>
         <label><!-- CL Cancel --></label>
@@ -453,6 +569,70 @@
         <name>Campaign_Calendar_Page_Type_Other</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaign Date 1 --></label>
+        <name>Campaign_Date_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 2 --></label>
+        <name>Campaign_Date_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 3 --></label>
+        <name>Campaign_Date_3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 4 --></label>
+        <name>Campaign_Date_4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Date 5 --></label>
+        <name>Campaign_Date_5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification1 --></label>
+        <name>Campaign_Notification1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification10 --></label>
+        <name>Campaign_Notification10</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification11 --></label>
+        <name>Campaign_Notification11</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification2 --></label>
+        <name>Campaign_Notification2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification3 --></label>
+        <name>Campaign_Notification3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification4 --></label>
+        <name>Campaign_Notification4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification5 --></label>
+        <name>Campaign_Notification5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification6 --></label>
+        <name>Campaign_Notification6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification7 --></label>
+        <name>Campaign_Notification7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification8 --></label>
+        <name>Campaign_Notification8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Notification9 --></label>
+        <name>Campaign_Notification9</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Campaign Planning Page Cancel Button --></label>
         <name>Campaign_Planning_Page_Cancel_Button</name>
     </customLabels>
@@ -509,6 +689,14 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaign Segmentation1 --></label>
+        <name>Campaign_Segmentation1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Campaign Segmentation2 --></label>
+        <name>Campaign_Segmentation2</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Retail Campaign Type --></label>
         <name>Campaign_Type</name>
     </customLabels>
@@ -521,8 +709,16 @@
         <name>Campaign_Type_Media</name>
     </customLabels>
     <customLabels>
+        <label><!-- Campaigns_Filter --></label>
+        <name>Campaigns_Filter</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Campaing Planning Page Title --></label>
         <name>Campaing_Planning_Page_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>キャンセル</label>
+        <name>Cancel</name>
     </customLabels>
     <customLabels>
         <label>キャンセル</label>
@@ -585,12 +781,24 @@
         <name>Case_Deadline_Notification_Text5</name>
     </customLabels>
     <customLabels>
+        <label><!-- Case Number --></label>
+        <name>Case_Number</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Case Record Type --></label>
         <name>Case_Record_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Case received by Phone etc --></label>
+        <name>Case_received_by_Phone_etc</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Child --></label>
         <name>Child</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Choose Account --></label>
+        <name>Choose_Account</name>
     </customLabels>
     <customLabels>
         <label><!-- City --></label>
@@ -599,6 +807,10 @@
     <customLabels>
         <label>クラス</label>
         <name>Class</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Class Model --></label>
+        <name>Class_Model</name>
     </customLabels>
     <customLabels>
         <label>クリア</label>
@@ -613,6 +825,10 @@
         <name>Cluster</name>
     </customLabels>
     <customLabels>
+        <label><!-- Color --></label>
+        <name>Color</name>
+    </customLabels>
+    <customLabels>
         <label>外装色</label>
         <name>Colour</name>
     </customLabels>
@@ -625,6 +841,10 @@
         <name>Common_Filter_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- Company --></label>
+        <name>Company</name>
+    </customLabels>
+    <customLabels>
         <label>法人アカウント情報</label>
         <name>Company_Account_Information</name>
     </customLabels>
@@ -633,8 +853,24 @@
         <name>Company_Account_Record_Type</name>
     </customLabels>
     <customLabels>
+        <label><!-- Company Name --></label>
+        <name>Company_Name</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Company_Name_Department_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Compared Vehicle Brand --></label>
+        <name>Compared_Vehicle_Brand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Compared Vehicle Model --></label>
+        <name>Compared_Vehicle_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comparison is being done actively --></label>
+        <name>Comparison_is_being_done_actively</name>
     </customLabels>
     <customLabels>
         <label><!-- Completenes --></label>
@@ -653,8 +889,16 @@
         <name>Confirmed</name>
     </customLabels>
     <customLabels>
+        <label><!-- Confirmed Match --></label>
+        <name>Confirmed_Match</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Error! Please contact the admin --></label>
         <name>Contact_Admin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract related --></label>
+        <name>Contract_related</name>
     </customLabels>
     <customLabels>
         <label><!-- Convert Lead --></label>
@@ -663,6 +907,14 @@
     <customLabels>
         <label><!-- Convert To Lead --></label>
         <name>Convert_To_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Convert To Task --></label>
+        <name>Convert_To_Task</name>
+    </customLabels>
+	<customLabels>
+        <label>リードタイプ変更</label>
+        <name>Converted_to_After_Sales_Leads</name>
     </customLabels>
     <customLabels>
         <label>写し</label>
@@ -677,8 +929,32 @@
         <name>Create_Vehicle</name>
     </customLabels>
     <customLabels>
+        <label><!-- Created Date --></label>
+        <name>Created_Date</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Criteria --></label>
         <name>Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle1 --></label>
+        <name>Current_Vehicle1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle2 --></label>
+        <name>Current_Vehicle2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle3 --></label>
+        <name>Current_Vehicle3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle Brand --></label>
+        <name>Current_Vehicle_Brand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Vehicle Model --></label>
+        <name>Current_Vehicle_Model</name>
     </customLabels>
     <customLabels>
         <label><!-- Custom Debug Log Switch --></label>
@@ -705,12 +981,44 @@
         <name>Customer_Filter</name>
     </customLabels>
     <customLabels>
+        <label><!-- Customer Information --></label>
+        <name>Customer_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Issue --></label>
+        <name>Customer_Issue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Name --></label>
+        <name>Customer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Name Kana --></label>
+        <name>Customer_Name_Kana</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Profile --></label>
+        <name>Customer_Profile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Customer Statement --></label>
+        <name>Customer_Statement</name>
+    </customLabels>
+    <customLabels>
         <label>以下の通り、お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
         <name>Customerrelatedinformation</name>
     </customLabels>
     <customLabels>
+        <label><!-- DMRequestTabId --></label>
+        <name>DMRequestTabId</name>
+    </customLabels>
+    <customLabels>
         <label>ご指定の住所区分に該当する住所が登録されておりません。</label>
         <name>DMRequest_validation_error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date for PrintPDF --></label>
+        <name>Date</name>
     </customLabels>
     <customLabels>
         <label>受付日</label>
@@ -725,6 +1033,10 @@
         <name>Dealer</name>
     </customLabels>
     <customLabels>
+        <label><!-- DealerKoreaLoginURL --></label>
+        <name>DealerKoreaLoginURL</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Dealer Name : --></label>
         <name>DealerName</name>
     </customLabels>
@@ -733,8 +1045,48 @@
         <name>DealerPersonName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Dealer Campaign Notification --></label>
+        <name>Dealer_Campaign_Notification</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Code --></label>
+        <name>Dealer_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Company --></label>
+        <name>Dealer_Company</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Dealer Has SR Code 1 --></label>
         <name>Dealer_Has_SR_Code_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Internal Comment --></label>
+        <name>Dealer_Internal_Comment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Memo --></label>
+        <name>Dealer_Memo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Name --></label>
+        <name>Dealer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Outlet --></label>
+        <name>Dealer_Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer Type --></label>
+        <name>Dealer_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dealer login Url --></label>
+        <name>Dealer_login_Url</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dedup callout failure --></label>
+        <name>Dedup_callout_failure</name>
     </customLabels>
     <customLabels>
         <label>削除</label>
@@ -757,8 +1109,24 @@
         <name>DetailedModelName</name>
     </customLabels>
     <customLabels>
+        <label><!-- Did You Get Agreement From Customer --></label>
+        <name>Did_You_Get_Agreement_From_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Did you visit home or company --></label>
+        <name>Did_you_visit_home_or_company</name>
+    </customLabels>
+    <customLabels>
         <label>本紙を破棄していただけますようお願い申し上げます。</label>
         <name>Discardit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Discount Total --></label>
+        <name>Discount_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Do you know when and where you can meet --></label>
+        <name>Do_you_know_when_and_where_you_can_meet</name>
     </customLabels>
     <customLabels>
         <label>殿</label>
@@ -771,6 +1139,127 @@
     <customLabels>
         <label>編集</label>
         <name>Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Salesforceのリードに割り当てられているので、お客様に通知します。</label>
+        <name>Email_Assignment</name>
+    </customLabels>
+    <customLabels>
+        <label>【ご確認ください】　新規お客様関連情報展開のお知らせ</label>
+        <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label>■ケース</label>
+        <name>Email_Case_Record</name>
+    </customLabels>
+    <customLabels>
+        <label>ご対応をお願いいたします。 ※情報の取り扱いにご注意下さい。</label>
+        <name>Email_Case_Respond</name>
+    </customLabels>
+    <customLabels>
+        <label>お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
+        <name>Email_Case_information</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ</label>
+        <name>Email_LeadDealerAssign1</name>
+    </customLabels>
+    <customLabels>
+        <label>※リードの確認にはセールスフォースへの
+ログインが必要となります。</label>
+        <name>Email_LeadDealerAssign10</name>
+    </customLabels>
+    <customLabels>
+        <label>ご担当者様は、貴店にリードを展開いたしましたので、
+管理者様にご確認ください。</label>
+        <name>Email_LeadDealerAssign11</name>
+    </customLabels>
+    <customLabels>
+        <label>よろしくお願いいたします。</label>
+        <name>Email_LeadDealerAssign12</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースの操作について、ご不明な点がございましたら、
+セールスフォース　サポートデスクまでお問い合わせください。</label>
+        <name>Email_LeadDealerAssign13</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ日本ＸＸＸ（TBD）事務局</label>
+        <name>Email_LeadDealerAssign14</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースの操作、システムメンテナンスに関しての
+お問い合わせは下記の電話番号までお願いいたします。</label>
+        <name>Email_LeadDealerAssign15</name>
+    </customLabels>
+    <customLabels>
+        <label>◆セールスフォースサポートデスク</label>
+        <name>Email_LeadDealerAssign16</name>
+    </customLabels>
+    <customLabels>
+        <label>TEL：ＸＸＸ（TBD）（受付時間：毎日10:00～12:00、13:00～18:00）</label>
+        <name>Email_LeadDealerAssign17</name>
+    </customLabels>
+    <customLabels>
+        <label>※本メールへは返信しないようにお願いいたします。</label>
+        <name>Email_LeadDealerAssign18</name>
+    </customLabels>
+    <customLabels>
+        <label>店</label>
+        <name>Email_LeadDealerAssign2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email LeadDealerAssign20 --></label>
+        <name>Email_LeadDealerAssign20</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email LeadDealerAssign21 --></label>
+        <name>Email_LeadDealerAssign21</name>
+    </customLabels>
+    <customLabels>
+        <label>管理者様、ご担当者様</label>
+        <name>Email_LeadDealerAssign3</name>
+    </customLabels>
+    <customLabels>
+        <label>いつもお世話になっております。</label>
+        <name>Email_LeadDealerAssign4</name>
+    </customLabels>
+    <customLabels>
+        <label>本日</label>
+        <name>Email_LeadDealerAssign5</name>
+    </customLabels>
+    <customLabels>
+        <label>セールスフォースにリードデータを展開しましたのでお知らせいたします。</label>
+        <name>Email_LeadDealerAssign6</name>
+    </customLabels>
+    <customLabels>
+        <label>新規リード展開</label>
+        <name>Email_LeadDealerAssign7</name>
+    </customLabels>
+    <customLabels>
+        <label>件</label>
+        <name>Email_LeadDealerAssign8</name>
+    </customLabels>
+    <customLabels>
+        <label>ホットなお客様情報ですので、管理者様は下記URLからリードをご確認いただき
+担当者割り当ての上、営業活動にご活用ください。</label>
+        <name>Email_LeadDealerAssign9</name>
+    </customLabels>
+    <customLabels>
+        <label>代表</label>
+        <name>Email_Manager</name>
+    </customLabels>
+    <customLabels>
+        <label>ご協力ありがとうございます。</label>
+        <name>Email_Thankyou</name>
+    </customLabels>
+    <customLabels>
+        <label>これは非常に有望な顧客情報であるため、販売活動に活用してください。</label>
+        <name>Email_salesActivities</name>
+    </customLabels>
+    <customLabels>
+        <label>*ケース情報を確認するには、Salesforceにログインする必要があります。</label>
+        <name>Email_salesforcelogin</name>
     </customLabels>
     <customLabels>
         <label><!-- Employee --></label>
@@ -799,6 +1288,14 @@
     <customLabels>
         <label><!-- Error: This name already exists --></label>
         <name>Error_This_name_already_exists</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Estimate --></label>
+        <name>Estimate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Estimate Number History --></label>
+        <name>Estimate_Number_History</name>
     </customLabels>
     <customLabels>
         <label><!-- Event Type --></label>
@@ -836,20 +1333,76 @@
         <name>Familiarization_workshop_for_new_vehicle_owners</name>
     </customLabels>
     <customLabels>
+        <label><!-- Family Number --></label>
+        <name>Family_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Family, company, hobby have you heard --></label>
+        <name>Family_company_hobby_have_you_heard</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Fax --></label>
         <name>Fax</name>
     </customLabels>
     <customLabels>
-        <label><!-- Field --></label>
+        <label>項目</label>
         <name>Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fields --></label>
+        <name>Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fiinance Estimate Number --></label>
+        <name>Fiinance_Estimate_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Filter --></label>
+        <name>Filter</name>
     </customLabels>
     <customLabels>
         <label>購入形態</label>
         <name>FinanceMethod</name>
     </customLabels>
     <customLabels>
+        <label><!-- Finance Estimate --></label>
+        <name>Finance_Estimate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Estimate Creation Date --></label>
+        <name>Finance_Estimate_Creation_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Estimate History --></label>
+        <name>Finance_Estimate_History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Finance Proposal --></label>
+        <name>Finance_Proposal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Amount --></label>
+        <name>First_Estimate_Amount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Number --></label>
+        <name>First_Estimate_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- First Estimate Print --></label>
+        <name>First_Estimate_Print</name>
+    </customLabels>
+    <customLabels>
         <label><!-- For Vehicle Picker --></label>
         <name>For_Vehicle_Picker</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Garage information and specifications have you heard --></label>
+        <name>Garage_information_and_specifications_have_you_heard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Gender --></label>
+        <name>Gender</name>
     </customLabels>
     <customLabels>
         <label><!-- GenericUploaderErrorMsg --></label>
@@ -884,6 +1437,14 @@
         <name>GrandParent</name>
     </customLabels>
     <customLabels>
+        <label><!-- Grand Total --></label>
+        <name>Grand_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hand Over --></label>
+        <name>Hand_Over</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Has Attended Campaign --></label>
         <name>Has_Attended_Campaign</name>
     </customLabels>
@@ -892,12 +1453,28 @@
         <name>Has_Referral_Record</name>
     </customLabels>
     <customLabels>
-        <label>自宅Email</label>
+        <label><!-- HideSurveyName --></label>
+        <name>HideSurveyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Highly interesed --></label>
+        <name>Highly_interesed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hobby --></label>
+        <name>Hobby</name>
+    </customLabels>
+    <customLabels>
+        <label>Eメール(自宅）</label>
         <name>Home_Email</name>
     </customLabels>
     <customLabels>
         <label>自宅電話番号</label>
         <name>Home_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Home Type --></label>
+        <name>Home_Type</name>
     </customLabels>
     <customLabels>
         <label><!-- Id --></label>
@@ -916,8 +1493,16 @@
         <name>InsufficientAccessToCreate</name>
     </customLabels>
     <customLabels>
+        <label><!-- Insufficient privilege --></label>
+        <name>Insufficient_privilege</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Insurance Promotion --></label>
         <name>Insurance_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Insurance Proposal --></label>
+        <name>Insurance_Proposal</name>
     </customLabels>
     <customLabels>
         <label><!-- Interest --></label>
@@ -926,6 +1511,18 @@
     <customLabels>
         <label><!-- Interest Filter --></label>
         <name>Interest_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Interior --></label>
+        <name>Interior</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invoiced --></label>
+        <name>Invoiced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KR --></label>
+        <name>KR</name>
     </customLabels>
     <customLabels>
         <label>フリガナ</label>
@@ -1196,8 +1793,60 @@
         <name>Last_Modified_Date</name>
     </customLabels>
     <customLabels>
+        <label><!-- Latest Phase History --></label>
+        <name>Latest_Phase_History</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LeadTabId --></label>
+        <name>LeadId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Activity Type --></label>
+        <name>Lead_Activity_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Assigned Date --></label>
+        <name>Lead_Assigned_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Conditions --></label>
+        <name>Lead_Conditions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead_Filter --></label>
+        <name>Lead_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Memo --></label>
+        <name>Lead_Memo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Process Sheet --></label>
+        <name>Lead_Process_Sheet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead Type --></label>
+        <name>Lead_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead creation/Assign Date --></label>
+        <name>Lead_creation_Assign_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead to be Merged --></label>
+        <name>Lead_to_be_Merged</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Leagl Owner --></label>
+        <name>Leagl_Owner</name>
+    </customLabels>
+    <customLabels>
         <label><!-- LimitQueries --></label>
         <name>LimitQueries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List Ready Maintenance --></label>
+        <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>
         <label><!-- Logic Error --></label>
@@ -1208,12 +1857,24 @@
         <name>Lookup_Button</name>
     </customLabels>
     <customLabels>
+        <label><!-- MBJ support --></label>
+        <name>MBJ_support</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Maintenance Promotion --></label>
         <name>Maintenance_Promotion</name>
     </customLabels>
     <customLabels>
         <label><!-- Manager --></label>
         <name>Manager</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketJP --></label>
+        <name>MarketJP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MarketKR --></label>
+        <name>MarketKR</name>
     </customLabels>
     <customLabels>
         <label><!-- Marketing survey --></label>
@@ -1274,6 +1935,10 @@
     <customLabels>
         <label><!-- Media Type --></label>
         <name>Media_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Memo --></label>
+        <name>Memo</name>
     </customLabels>
     <customLabels>
         <label>マージ</label>
@@ -1368,12 +2033,24 @@
         <name>Near_Dealer_Phone3</name>
     </customLabels>
     <customLabels>
+        <label><!-- Needs Check --></label>
+        <name>Needs_Check</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Needs Problem Points --></label>
+        <name>Needs_Problem_Points</name>
+    </customLabels>
+    <customLabels>
         <label><!-- New Account --></label>
         <name>NewAccount</name>
     </customLabels>
     <customLabels>
         <label><!-- New Lead --></label>
         <name>NewLead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NewSurveyMoreQuestions --></label>
+        <name>NewSurveyMoreQuestions</name>
     </customLabels>
     <customLabels>
         <label>新規アカウント情報</label>
@@ -1392,6 +2069,18 @@
         <name>New_Customer_Acquisition</name>
     </customLabels>
     <customLabels>
+        <label>新しい値</label>
+        <name>New_Value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next Activity --></label>
+        <name>Next_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>No</name>
+    </customLabels>
+    <customLabels>
         <label>住所はありません。 まずアドレスを追加してください。</label>
         <name>No_Address_Message</name>
     </customLabels>
@@ -1400,8 +2089,20 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
+        <label>入力した条件では該当顧客は見つかりませんでした。条件を増やして再検索するか、このまま新規登録してください。</label>
+        <name>No_Match_Found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Result Found --></label>
+        <name>No_Result_Found</name>
+    </customLabels>
+    <customLabels>
         <label><!-- No target Records --></label>
         <name>No_Target_records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- None --></label>
+        <name>None</name>
     </customLabels>
     <customLabels>
         <label>承認拒否</label>
@@ -1416,15 +2117,35 @@
         <name>Occupation</name>
     </customLabels>
     <customLabels>
+        <label>現在の値</label>
+        <name>Old_Value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OnLine Deduplication --></label>
+        <name>OnLine_Deduplication</name>
+    </customLabels>
+    <customLabels>
         <label>御中</label>
         <name>Onchu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Online Dedup callout failure --></label>
+        <name>Online_Dedup_callout_failure</name>
     </customLabels>
     <customLabels>
         <label><!-- Operation --></label>
         <name>Operation</name>
     </customLabels>
     <customLabels>
-        <label>その他Email</label>
+        <label><!-- OrderNumber --></label>
+        <name>OrderNumber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Ordered --></label>
+        <name>Ordered</name>
+    </customLabels>
+    <customLabels>
+        <label>MyMercedesメールアドレス</label>
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
@@ -1442,6 +2163,18 @@
     <customLabels>
         <label><!-- Others --></label>
         <name>Others</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Outlet --></label>
+        <name>Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者</label>
+        <name>Owner</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>Owner_Sales_Responsible_Person</name>
     </customLabels>
     <customLabels>
         <label><!-- POM/advertisement --></label>
@@ -1472,12 +2205,40 @@
         <name>Parts_Cross_Promotion</name>
     </customLabels>
     <customLabels>
+        <label><!-- Parts Fax --></label>
+        <name>Parts_Fax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Payment Total --></label>
+        <name>Payment_Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PersonAccount --></label>
+        <name>PersonAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PersonAccount Record Type From Account --></label>
+        <name>PersonAccount_Record_Type_From_Account</name>
+    </customLabels>
+    <customLabels>
         <label>個人顧客情報</label>
         <name>Person_Account_Information</name>
     </customLabels>
     <customLabels>
         <label><!-- Person Account Record Type --></label>
         <name>Person_Account_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Met (Contacted) --></label>
+        <name>Person_Met_Contacted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Or Company --></label>
+        <name>Person_Or_Company</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person to meet (Contact) --></label>
+        <name>Person_to_meet_Contact</name>
     </customLabels>
     <customLabels>
         <label>固定電話</label>
@@ -1492,6 +2253,14 @@
         <label>電話番号
 (サービス）</label>
         <name>PhoneService</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Planned Purchase Time --></label>
+        <name>Planned_Purchase_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>
+        <name>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</name>
     </customLabels>
     <customLabels>
         <label><!-- Please enter the filter name --></label>
@@ -1514,6 +2283,10 @@
         <name>Pleasetakecautiontheinformation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Possibility : --></label>
+        <name>Possibility</name>
+    </customLabels>
+    <customLabels>
         <label>〒</label>
         <name>Post</name>
     </customLabels>
@@ -1522,16 +2295,84 @@
         <name>Previous</name>
     </customLabels>
     <customLabels>
+        <label><!-- Printed Date --></label>
+        <name>Printed_Date</name>
+    </customLabels>
+    <customLabels>
         <label>品質重要度</label>
         <name>Priority</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Process Check Items --></label>
+        <name>Process_Check_Items</name>
     </customLabels>
     <customLabels>
         <label>車台番号</label>
         <name>Product_ID</name>
     </customLabels>
     <customLabels>
+        <label><!-- Product Proposal --></label>
+        <name>Product_Proposal</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Promotion on Technical accessories and collections --></label>
         <name>Promotion_on_Technical_accessories_and_collections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(1): --></label>
+        <name>Proposed_Date_1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(2): --></label>
+        <name>Proposed_Date_2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Proposed Date(3): --></label>
+        <name>Proposed_Date_3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pruchase Plan Date --></label>
+        <name>Pruchase_Plan_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Plan --></label>
+        <name>Purchase_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Reason --></label>
+        <name>Purchase_Reason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchase Type --></label>
+        <name>Purchase_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchased --></label>
+        <name>Purchased</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Purchased Date --></label>
+        <name>Purchased_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q1_ service quality --></label>
+        <name>Q1_service_quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q2_Service_center_employee --></label>
+        <name>Q2_Service_center_employee</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q3_Delivery_Service --></label>
+        <name>Q3_Delivery_Service</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q4_Service Center Information --></label>
+        <name>Q4_Service_Center_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Q5_Service_Center --></label>
+        <name>Q5_Service_Center</name>
     </customLabels>
     <customLabels>
         <label><!-- QCMassCalibrationNotice --></label>
@@ -1577,9 +2418,17 @@
         <label><!-- QC Mass Calibration Title --></label>
         <name>QC_Mass_Calibration_Title</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>詳細は別設計書を参照シート</label>
         <name>RET_02_01_ServiceAmountView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Range Model --></label>
+        <name>Range_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Received By --></label>
+        <name>Received_By</name>
     </customLabels>
     <customLabels>
         <label>受付</label>
@@ -1588,6 +2437,18 @@
     <customLabels>
         <label>このファックスの受領にお心当たりの無い方は、大変お手数ですが、上記記載の送信者までご連絡いただくと共に、</label>
         <name>RecipientofthisFAX</name>
+    </customLabels>
+    <customLabels>
+        <label>レコードタイプ</label>
+        <name>RecordType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecordTypeId --></label>
+        <name>RecordTypeId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registered --></label>
+        <name>Registered</name>
     </customLabels>
     <customLabels>
         <label>登録日</label>
@@ -1602,6 +2463,22 @@
         <name>RegistrationNo</name>
     </customLabels>
     <customLabels>
+        <label><!-- Registration Date --></label>
+        <name>Registration_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Date / Inspection Date --></label>
+        <name>Registration_Date_Inspection_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Date / Milage --></label>
+        <name>Registration_Date_Milage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Registration Plan Date --></label>
+        <name>Registration_Plan_Date</name>
+    </customLabels>
+    <customLabels>
         <label>マージ候補から外す</label>
         <name>Reject</name>
     </customLabels>
@@ -1613,7 +2490,7 @@
         <label><!-- Label used in Task View Acc button --></label>
         <name>Related_Acc_not_present</name>
     </customLabels>
-	<customLabels>
+    <customLabels>
         <label>契約詳細情報</label>
         <name>Related_Dealer_View_for_Contract</name>
     </customLabels>
@@ -1626,6 +2503,14 @@
         <name>Report_Title2_TA_Tracing</name>
     </customLabels>
     <customLabels>
+        <label><!-- Representative --></label>
+        <name>Representative</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Representative Information --></label>
+        <name>Representative_Information</name>
+    </customLabels>
+    <customLabels>
         <label>受付</label>
         <name>Request</name>
     </customLabels>
@@ -1636,6 +2521,22 @@
     <customLabels>
         <label>B:要求</label>
         <name>RequestPDF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Date --></label>
+        <name>Request_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Details --></label>
+        <name>Request_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Type --></label>
+        <name>Request_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Requested Date --></label>
+        <name>Requested_Date</name>
     </customLabels>
     <customLabels>
         <label>必須項目を入力してください。</label>
@@ -1668,6 +2569,10 @@
     <customLabels>
         <label><!-- Retail Campaign Canlender Page SM Media --></label>
         <name>Retail_Campaign_Canlender_Page_SM_Media</name>
+    </customLabels>
+	<customLabels>
+        <label>該当顧客は既に自法人情報内に存在します。画面上部のグローバル検索ボックスにて再度検索してください。</label>
+        <name>Retail_copy_is_already_present</name>
     </customLabels>
     <customLabels>
         <label><!-- SMS Reply History Respond Content --></label>
@@ -1718,8 +2623,12 @@
         <name>SSI_Vin_Match_Page_Section_Title</name>
     </customLabels>
     <customLabels>
-        <label><!-- SalesContactTarget --></label>
+        <label>連絡先セールス関連</label>
         <name>SalesContactTarget</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Fax --></label>
+        <name>SalesFax</name>
     </customLabels>
     <customLabels>
         <label>セールスメール</label>
@@ -1730,8 +2639,40 @@
         <name>SalesTEL</name>
     </customLabels>
     <customLabels>
+        <label><!-- Sales Contact Target --></label>
+        <name>Sales_Contact_Target</name>
+    </customLabels>
+    <customLabels>
+        <label>購入者との関係</label>
+        <name>Sales_Contact_Target_Purchaser_Relation</name>
+    </customLabels>
+    <customLabels>
+        <label>販売店担当者</label>
+        <name>Sales_Contact_Target_Sales_Responsible_Person</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Mail --></label>
+        <name>Sales_Mail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Mail Type --></label>
+        <name>Sales_Mail_Type</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Sales &amp; Marketing --></label>
         <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales Phone --></label>
+        <name>Sales_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL --></label>
+        <name>Sales_TEL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sales TEL Type --></label>
+        <name>Sales_TEL_Type</name>
     </customLabels>
     <customLabels>
         <label>様</label>
@@ -1766,6 +2707,10 @@
         <name>Search_Customer</name>
     </customLabels>
     <customLabels>
+        <label><!-- Search Duplicates --></label>
+        <name>Search_Duplicates</name>
+    </customLabels>
+    <customLabels>
         <label>アドレスを選択してください</label>
         <name>Select_Address_Msg</name>
     </customLabels>
@@ -1784,10 +2729,18 @@
     <customLabels>
         <label>販売拠点</label>
         <name>SellingDealer</name>
-    </customLabels>	
+    </customLabels>
+    <customLabels>
+        <label><!-- Selling Dealer --></label>
+        <name>Selling_Dealer</name>
+    </customLabels>
     <customLabels>
         <label>まずAutolineの情報を設定してください</label>
         <name>Send_to_spo_translate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SentToSPO --></label>
+        <name>SentToSPO</name>
     </customLabels>
     <customLabels>
         <label>サービス拠点</label>
@@ -1798,16 +2751,44 @@
         <name>ServicePersonnel</name>
     </customLabels>
     <customLabels>
+        <label><!-- Service Advisor --></label>
+        <name>Service_Advisor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Fax --></label>
+        <name>Service_Fax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Phone --></label>
+        <name>Service_Phone</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Service Product Promotion --></label>
         <name>Service_Product_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Program Proposal --></label>
+        <name>Service_Program_Proposal</name>
     </customLabels>
     <customLabels>
         <label>サービス工場</label>
         <name>Service_Work</name>
     </customLabels>
     <customLabels>
+        <label>サービス拠点</label>
+        <name>Service_responsible_Outlet</name>
+    </customLabels>
+    <customLabels>
+        <label>サービス担当者</label>
+        <name>Service_responsible_Person</name>
+    </customLabels>
+    <customLabels>
         <label>許諾</label>
         <name>Share</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Simple Estimation --></label>
+        <name>Simple_Estimation</name>
     </customLabels>
     <customLabels>
         <label>／</label>
@@ -1834,6 +2815,14 @@
         <name>Status_Confirmed</name>
     </customLabels>
     <customLabels>
+        <label><!-- Stocks for interested vehicle --></label>
+        <name>Stocks_for_interested_vehicle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store --></label>
+        <name>Store</name>
+    </customLabels>
+    <customLabels>
         <label>件名</label>
         <name>Subject</name>
     </customLabels>
@@ -1842,8 +2831,64 @@
         <name>Success_message</name>
     </customLabels>
     <customLabels>
+        <label><!-- SurveyCompleted --></label>
+        <name>SurveyCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyID --></label>
+        <name>SurveyID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuesResponse --></label>
+        <name>SurveyQuesResponse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuesTimeQuestion --></label>
+        <name>SurveyQuesTimeQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionChoices --></label>
+        <name>SurveyQuestionChoices</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionName --></label>
+        <name>SurveyQuestionName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionRequired --></label>
+        <name>SurveyQuestionRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestionType --></label>
+        <name>SurveyQuestionType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyQuestions --></label>
+        <name>SurveyQuestions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Response --></label>
+        <name>SurveyResponse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Name --></label>
+        <name>Survey_Name</name>
+    </customLabels>
+    <customLabels>
         <label>重複の可能性があるアカウント</label>
         <name>Suspected_Duplicates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Target VIN --></label>
+        <name>TargetVIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TaskTriggerErrorMsg --></label>
+        <name>TaskTriggerErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task Assigned User --></label>
+        <name>Task_Assigned_User</name>
     </customLabels>
     <customLabels>
         <label><!-- Task Phone --></label>
@@ -1954,6 +2999,18 @@
         <name>Terminate_Vehicle_Relationship</name>
     </customLabels>
     <customLabels>
+        <label><!-- Test Drive --></label>
+        <name>Test_Drive</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ThankYouLink --></label>
+        <name>ThankYouLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ThankYouText --></label>
+        <name>ThankYouText</name>
+    </customLabels>
+    <customLabels>
         <label>平素よりお世話になっております。</label>
         <name>Thankyouforyourbusiness</name>
     </customLabels>
@@ -1998,6 +3055,30 @@
         <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
     </customLabels>
     <customLabels>
+        <label><!-- Total Price --></label>
+        <name>Total_Price</name>
+    </customLabels>
+    <customLabels>
+        <label>タッチポイント</label>
+        <name>Touch_Point</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trade-In related information --></label>
+        <name>Trade_In_related_information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trade-in Price --></label>
+        <name>Trade_in_Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trade-in Vehicle Remaining --></label>
+        <name>Trade_in_Vehicle_Remaining</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Triangle Image --></label>
+        <name>Triangle_Image</name>
+    </customLabels>
+    <customLabels>
         <label>内装色</label>
         <name>Trim</name>
     </customLabels>
@@ -2006,8 +3087,20 @@
         <name>UCID</name>
     </customLabels>
     <customLabels>
+        <label><!-- URL --></label>
+        <name>URL</name>
+    </customLabels>
+    <customLabels>
         <label><!-- Unknown --></label>
         <name>Unknown</name>
+    </customLabels>
+    <customLabels>
+        <label>更新</label>
+        <name>Update</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Update Address --></label>
+        <name>Update_Address</name>
     </customLabels>
     <customLabels>
         <label><!-- Used-car buy-back/Trade-in --></label>
@@ -2122,16 +3215,36 @@
         <name>Vehicle_Picker_Purchased</name>
     </customLabels>
     <customLabels>
+        <label><!-- Vehicle Picker Serviced --></label>
+        <name>Vehicle_Picker_Service</name>
+    </customLabels>
+    <customLabels>
         <label>入庫車両</label>
         <name>Vehicle_Picker_TradeIn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle Price +Maker option price --></label>
+        <name>Vehicle_Price_Maker_option_price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Vehicle_Relation_Filter --></label>
+        <name>Vehicle_Relation_Filter</name>
     </customLabels>
     <customLabels>
         <label>有効期間が重複した車両顧客関係が既に存在します。</label>
         <name>Vehicle_Relationship_overlap</name>
     </customLabels>
     <customLabels>
+        <label><!-- Vehicle Retail copy Filter --></label>
+        <name>Vehicle_Retail_copy_Filter</name>
+    </customLabels>
+    <customLabels>
         <label><!-- ViewHierarchy --></label>
         <name>ViewHierarchy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Visited --></label>
+        <name>Visited</name>
     </customLabels>
     <customLabels>
         <label>勤務先Fax</label>
@@ -2144,6 +3257,10 @@
     <customLabels>
         <label>勤務先電話</label>
         <name>Work_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Year --></label>
+        <name>Year</name>
     </customLabels>
     <customLabels>
         <label><!-- Yearly TA Apply deadline --></label>
@@ -2214,6 +3331,10 @@
         <name>Zipcode_validation</name>
     </customLabels>
     <customLabels>
+        <label><!-- Address Filter --></label>
+        <name>address_Filter</name>
+    </customLabels>
+    <customLabels>
         <label><!-- /apex/AccountMerge?Id= --></label>
         <name>apex_AccountMerge_Id</name>
     </customLabels>
@@ -2228,6 +3349,14 @@
     <customLabels>
         <label>最低でも一つのコンタクト情報を入力してください。</label>
         <name>contact_information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delete confirmation message --></label>
+        <name>delete_confirmation_message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- deleting campaign --></label>
+        <name>deleting_campaign</name>
     </customLabels>
     <customLabels>
         <label><!-- displayOnly --></label>
@@ -2288,6 +3417,10 @@
     <customLabels>
         <label><!-- master --></label>
         <name>master</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- purchased vehicle related information --></label>
+        <name>purchased_vehicle_related_information</name>
     </customLabels>
     <customLabels>
         <label><!-- Auto Show --></label>
@@ -2354,66 +3487,6 @@
         <name>rcc_TV</name>
     </customLabels>
     <customLabels>
-        <label>項目</label>
-        <name>Field</name>
-    </customLabels>
-    <customLabels>
-        <label>現在の値</label>
-        <name>Old_Value</name>
-    </customLabels>
-    <customLabels>
-        <label>新しい値</label>
-        <name>New_Value</name>
-    </customLabels>
-    <customLabels>
-        <label>購入者</label>
-        <name>Owner</name>
-    </customLabels>
-    <customLabels>
-        <label>販売店担当者</label>
-        <name>Owner_Sales_Responsible_Person</name>
-    </customLabels>
-    <customLabels>
-        <label>連絡先セールス関連</label>
-        <name>SalesContactTarget</name>
-    </customLabels>
-    <customLabels>
-        <label>購入者との関係</label>
-        <name>Sales_Contact_Target_Purchaser_Relation</name>
-    </customLabels>
-    <customLabels>
-        <label>販売店担当者</label>
-        <name>Sales_Contact_Target_Sales_Responsible_Person</name>
-    </customLabels>
-    <customLabels>
-        <label>連絡先アフターセールス関連</label>
-        <name>After_Sales_Contact_Target</name>
-    </customLabels>
-    <customLabels>
-        <label>購入者との関係</label>
-        <name>After_Sales_Contact_Target_Purchaser_Relation</name>
-    </customLabels>
-    <customLabels>
-        <label>販売店担当者</label>
-        <name>After_Sales_Contact_Target_Sales_Responsible_Person</name>
-    </customLabels> 
-    <customLabels>
-        <label>サービス拠点</label>
-        <name>Service_responsible_Outlet</name>
-    </customLabels>
-    <customLabels>
-        <label>サービス担当者</label>
-        <name>Service_responsible_Person</name>
-    </customLabels>
-    <customLabels>
-        <label>更新</label>
-        <name>Update</name>
-    </customLabels>
-    <customLabels>
-        <label>キャンセル</label>
-        <name>Cancel</name>
-    </customLabels>
-    <customLabels>
         <label><!-- Test Drive --></label>
         <name>rcc_Test_Drive</name>
     </customLabels>
@@ -2424,7 +3497,7 @@
     <customLabels>
         <label><!-- &amp;retURL=/apex/SelectSlaveAccount?Id= --></label>
         <name>retURL_apex_SelectSlaveAccount_Id</name>
-    </customLabels>	
+    </customLabels>
     <customLabels>
         <label>SPOに送信</label>
         <name>send_to_spo_active</name>
@@ -2441,6 +3514,14 @@
         <label><!-- &amp;slaveId= --></label>
         <name>slaveId</name>
     </customLabels>
+    <customPageWebLinks>
+        <label><!-- Custom Link Notification --></label>
+        <name>Custom_Link_Notification</name>
+    </customPageWebLinks>
+    <customPageWebLinks>
+        <label><!-- Mass Update Assignment --></label>
+        <name>Mass_Update_Assignment</name>
+    </customPageWebLinks>
     <customPageWebLinks>
         <label><!-- Retail Campaign --></label>
         <name>Retail_Campaign</name>
@@ -2462,17 +3543,112 @@
         <name>Retail_Campaign_Calender</name>
     </customTabs>
     <customTabs>
-        <label><!-- Retail Campaigns --></label>
+        <label>販売店キャンペーン</label>
         <name>Retail_Campaigns</name>
     </customTabs>
     <customTabs>
-        <label><!-- Tasks --></label>
+        <label>ToDo</label>
         <name>Tasks</name>
     </customTabs>
     <customTabs>
         <label><!-- Yearly Target --></label>
         <name>Yearly_Target</name>
     </customTabs>
+    <reportTypes>
+        <description><!-- Account with AccountLink --></description>
+        <label><!-- Account with AccountLink --></label>
+        <name>Account_with_AccountLink</name>
+        <sections>
+            <label><!-- Account Links(External Link) --></label>
+            <name>Account Links(External Link)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Account Link and Retail Task --></description>
+        <label><!-- Account with Account Link and Retail Task --></label>
+        <name>Account_with_Account_Link_and_Retail_Task</name>
+        <sections>
+            <label><!-- Account Link --></label>
+            <name>Account Link</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Accountlink1 --></description>
+        <label><!-- Account with Accountlink1 --></label>
+        <name>Account_with_Accountlink2</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 関係者1 --></label>
+            <name>関係者1</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Acitvities --></description>
+        <label><!-- Account with Acitvities --></label>
+        <name>Account_with_Acitvities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Address --></description>
+        <label><!-- Account with Address --></label>
+        <name>Account_with_Address</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Retail Task --></description>
+        <label><!-- Account with Retail Task --></label>
+        <name>Account_with_Retail_Task</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks (Signer) --></label>
+            <name>Retail Tasks (Signer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MKT - Account with Vehicle Relationships --></description>
+        <label><!-- MKT - Account with Vehicle Relationships --></label>
+        <name>Account_with_Vehicle_Relationships</name>
+        <sections>
+            <label><!-- MKT - Vehicle Class Model --></label>
+            <name>MKT - Vehicle Class Model</name>
+        </sections>
+    </reportTypes>
     <reportTypes>
         <description><!-- Accounts with DM requests --></description>
         <label><!-- Accounts with DM requests --></label>
@@ -2514,6 +3690,19 @@
         <sections>
             <label><!-- Leads (Contact) --></label>
             <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Member --></description>
+        <label><!-- Campaign Member --></label>
+        <name>Campaign_Member</name>
+        <sections>
+            <label><!-- Campaign Members --></label>
+            <name>Campaign Members</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -2585,12 +3774,661 @@
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- Customer Information Reports --></description>
+        <label><!-- Customer Information Reports --></label>
+        <name>Customer_Information_Reports</name>
+        <sections>
+            <label><!-- Customer Information Reports --></label>
+            <name>Customer Information Reports</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Customer Satisfaction Index --></description>
+        <label><!-- Customer Satisfaction Index --></label>
+        <name>Customer_Satisfaction_Index</name>
+        <sections>
+            <columns>
+                <label><!-- Account Name --></label>
+                <name>Account Name</name>
+            </columns>
+            <columns>
+                <label><!-- Agreement to commit info processing --></label>
+                <name>Agreement to commit info processing</name>
+            </columns>
+            <columns>
+                <label><!-- All channel opt-out --></label>
+                <name>All channel opt-out</name>
+            </columns>
+            <columns>
+                <label><!-- Home Phone --></label>
+                <name>Home Phone</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Invoice Date --></label>
+                <name>Latest Invoice Date</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Sales Dealer --></label>
+                <name>Latest Sales Dealer</name>
+            </columns>
+            <columns>
+                <label><!-- Latest Service Dealer --></label>
+                <name>Latest Service Dealer</name>
+            </columns>
+            <columns>
+                <label><!-- Mobile --></label>
+                <name>Mobile</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Personal Agreement --></label>
+                <name>Personal Agreement</name>
+            </columns>
+            <columns>
+                <label><!-- Personal Information Third Party Release --></label>
+                <name>Personal Information Third Party Release</name>
+            </columns>
+            <columns>
+                <label><!-- UsVIN --></label>
+                <name>UsVIN</name>
+            </columns>
+            <columns>
+                <label><!-- Vehicle ID --></label>
+                <name>Vehicle ID</name>
+            </columns>
+            <columns>
+                <label><!-- Work Phone --></label>
+                <name>Work Phone</name>
+            </columns>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Happy Calls Report for aftersales Lead --></description>
+        <label><!-- Happy Calls Report for aftersales Lead --></label>
+        <name>Happy_Calls_Report_for_aftersales_Lead</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Other_Vehicles --></label>
+            <name>Other_Vehicles</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Happy Calls Report --></description>
+        <label><!-- Happy Calls Report --></label>
+        <name>Happy_Calls_Reports</name>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Lead_Check --></description>
+        <label><!-- Lead_Check --></label>
+        <name>Lead_Check</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads with  VR --></description>
+        <label><!-- Leads with  VR --></label>
+        <name>Leads_with_VR</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account Link --></description>
+        <label><!-- MBJ Account Link --></label>
+        <name>MBJ_Account_Link</name>
+        <sections>
+            <label><!-- Account Link --></label>
+            <name>Account Link</name>
+        </sections>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+        <sections>
+            <label><!-- Dealer --></label>
+            <name>Dealer</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Account Link --></description>
+        <label><!-- MBJ Account with Account Link --></label>
+        <name>MBJ_Account_with_Account_Link</name>
+        <sections>
+            <label><!-- Account Links(External Link) --></label>
+            <name>Account Links(External Link)</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Main Dealer --></label>
+            <name>Main Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Personal --></label>
+            <name>Personal</name>
+        </sections>
+        <sections>
+            <label><!-- Primary Address --></label>
+            <name>Primary Address</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Address --></description>
+        <label><!-- MBJ Account with Address --></label>
+        <name>MBJ_Account_with_Address</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Account with Survey --></description>
+        <label><!-- MBJ Account with Survey --></label>
+        <name>MBJ_Account_with_Survey</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Address --></description>
+        <label><!-- MBJ Address --></label>
+        <name>MBJ_Address</name>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Address with Account --></description>
+        <label><!-- MBJ Address with Account --></label>
+        <name>MBJ_Address_with_Account</name>
+        <sections>
+            <label><!-- Account --></label>
+            <name>Account</name>
+        </sections>
+        <sections>
+            <label><!-- Addresses --></label>
+            <name>Addresses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Car Model --></description>
+        <label><!-- MBJ Car Model --></label>
+        <name>MBJ_Car_Model</name>
+        <sections>
+            <label><!-- Car Model --></label>
+            <name>Car Model</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ DM Request --></description>
+        <label><!-- MBJ DM Request --></label>
+        <name>MBJ_DM_Request</name>
+        <sections>
+            <label><!-- Customer --></label>
+            <name>Customer</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Dealer Locator --></description>
+        <label><!-- MBJ Dealer Locator --></label>
+        <name>MBJ_Dealer_Locator</name>
+        <sections>
+            <label><!-- Dealer --></label>
+            <name>Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Dealer Locators --></label>
+            <name>Dealer Locators</name>
+        </sections>
+        <sections>
+            <label><!-- last modified --></label>
+            <name>last modified</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Lead, Survey Taken and Survey Response --></description>
+        <label><!-- MBJ Lead, Survey Taken and Survey Response --></label>
+        <name>MBJ_Lead_and_Survey</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Leads, DM Req, DM Material, Vehicle, Car Model --></description>
+        <label><!-- MBJ Leads, DM Req, DM Material, Vehicle, Car Model --></label>
+        <name>MBJ_Leads_and_DM_Request</name>
+        <sections>
+            <label><!-- Assigned Dealer --></label>
+            <name>Assigned Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle --></label>
+            <name>Compared Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle Car Model --></label>
+            <name>Compared Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 1 --></label>
+            <name>Expected DM Material 1</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 2 --></label>
+            <name>Expected DM Material 2</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 3 --></label>
+            <name>Expected DM Material 3</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle --></label>
+            <name>Interested Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Car Model --></label>
+            <name>Interested Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Personal Account --></label>
+            <name>Personal Account</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ REPORTS FOR DEALERS --></description>
+        <label><!-- MBJ REPORTS FOR DEALERS --></label>
+        <name>MBJ_REPORTS_FOR_DEALERS</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Recall --></description>
+        <label><!-- MBJ Recall --></label>
+        <name>MBJ_Recall</name>
+        <sections>
+            <label><!-- Recalls --></label>
+            <name>Recalls</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <name>Vehicle</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Retail Task --></description>
+        <label><!-- MBJ Retail Task --></label>
+        <name>MBJ_Retail_Task</name>
+        <sections>
+            <label><!-- Contractor --></label>
+            <name>Contractor</name>
+        </sections>
+        <sections>
+            <label><!-- Related Dealer --></label>
+            <name>Related Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Related Vehicle --></label>
+            <name>Related Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Retail Tasks --></label>
+            <name>Retail Tasks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Question --></description>
+        <label><!-- MBJ Survey Question --></label>
+        <name>MBJ_Survey_Question</name>
+        <sections>
+            <label><!-- Survey Questions --></label>
+            <name>Survey Questions</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Question Response --></description>
+        <label><!-- MBJ Survey Question Response --></label>
+        <name>MBJ_Survey_Question_Response</name>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Survey Taken and related info --></description>
+        <label><!-- MBJ Survey Taken and related info --></label>
+        <name>MBJ_Survey_Taken_and_related_info</name>
+        <sections>
+            <label><!-- Campaign --></label>
+            <name>Campaign</name>
+        </sections>
+        <sections>
+            <label><!-- Survey --></label>
+            <name>Survey</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question --></label>
+            <name>Survey Question</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Taken By Account --></label>
+            <name>Survey Taken By Account</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Taken By Leads --></label>
+            <name>Survey Taken By Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys Taken --></label>
+            <name>Surveys Taken</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Vehicle Relationship with Others --></description>
+        <label><!-- MBJ Vehicle Relationship with Others --></label>
+        <name>MBJ_Vehicle_Relationship_with_Others</name>
+        <sections>
+            <label><!-- Address --></label>
+            <name>Address</name>
+        </sections>
+        <sections>
+            <label><!-- Car Model --></label>
+            <name>Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Contact (Personal Account) --></label>
+            <name>Contact (Personal Account)</name>
+        </sections>
+        <sections>
+            <label><!-- Last Service Dealer --></label>
+            <name>Last Service Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Selling Dealer --></label>
+            <name>Selling Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <name>Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBJ Vehicle and Vehicle Relationship --></description>
+        <label><!-- MBJ Vehicle and Vehicle Relationship --></label>
+        <name>MBJ_Vehicle_and_Vehicle_Relationship</name>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Account with Address and Contacts --></description>
+        <label><!-- MBK Account with Address and Contacts --></label>
+        <name>MBK_Account_with_Address_and_Contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Case with task --></description>
+        <label><!-- MBK Case with task --></label>
+        <name>MBK_Case_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></description>
+        <label><!-- MBK Leads, DM Req, DM Material, Vehicle, Car Model --></label>
+        <name>MBK_Lead_vehicle</name>
+        <sections>
+            <label><!-- Assigned Dealer --></label>
+            <name>Assigned Dealer</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle --></label>
+            <name>Compared Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Compared Vehicle Car Model --></label>
+            <name>Compared Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 1 --></label>
+            <name>Expected DM Material 1</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 2 --></label>
+            <name>Expected DM Material 2</name>
+        </sections>
+        <sections>
+            <label><!-- Expected DM Material 3 --></label>
+            <name>Expected DM Material 3</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle --></label>
+            <name>Interested Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Interested Vehicle Car Model --></label>
+            <name>Interested Vehicle Car Model</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Personal Account --></label>
+            <name>Personal Account</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBK Lead with task --></description>
+        <label><!-- MBK Lead with task --></label>
+        <name>MBK_Lead_with_task</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MKT Raw Data Report --></description>
+        <label><!-- MKT Raw Data Report --></label>
+        <name>MKT_Raw_Data_Report</name>
+        <sections>
+            <label><!-- Raw Data Report --></label>
+            <name>Raw Data Report</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- NCBS (PPS) Report --></description>
+        <label><!-- NCBS (PPS) Report --></label>
+        <name>NCBS_PPS_Report</name>
+        <sections>
+            <columns>
+                <label><!-- Car Model: Model Hierarchy Description --></label>
+                <name>Car Model: Model Hierarchy Description</name>
+            </columns>
+            <columns>
+                <label><!-- Contact: Mobile --></label>
+                <name>Contact: Mobile</name>
+            </columns>
+            <columns>
+                <label><!-- Engine No --></label>
+                <name>Engine No</name>
+            </columns>
+            <columns>
+                <label><!-- Home Phone --></label>
+                <name>Home Phone</name>
+            </columns>
+            <columns>
+                <label><!-- Model --></label>
+                <name>Model</name>
+            </columns>
+            <columns>
+                <label><!-- Sales Address Display --></label>
+                <name>Sales Address Display</name>
+            </columns>
+            <label><!-- NCBS Report --></label>
+            <name>NCBS Report</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Process Instance --></description>
         <label><!-- Process Instance --></label>
         <name>Process_Instance</name>
         <sections>
             <label><!-- Process Instance --></label>
             <name>Process Instance</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales Funnel Report --></description>
+        <label><!-- Sales Funnel Report --></label>
+        <name>Sales_Funnel_Report</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales Funnel Report Type --></description>
+        <label><!-- Sales Funnel Report Type --></label>
+        <name>Sales_Funnel_Report_Type</name>
+        <sections>
+            <columns>
+                <label><!-- Account Name --></label>
+                <name>Account Name</name>
+            </columns>
+            <columns>
+                <label><!-- Branch Name Native --></label>
+                <name>Branch Name Native</name>
+            </columns>
+            <columns>
+                <label><!-- Contracted/Purchased Vehicle --></label>
+                <name>Contracted/Purchased Vehicle</name>
+            </columns>
+            <columns>
+                <label><!-- Model of Interest --></label>
+                <name>Model of Interest</name>
+            </columns>
+            <columns>
+                <label><!-- Sales Address Display --></label>
+                <name>Sales Address Display</name>
+            </columns>
+            <label><!-- Sales Funnel Report --></label>
+            <name>Sales Funnel Report</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -2617,6 +4455,28 @@
         <sections>
             <label><!-- Service Contracts --></label>
             <name>Service Contracts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 車両顧客関係 --></description>
+        <label><!-- 車両顧客関係 --></label>
+        <name>VechRelationShip</name>
+        <sections>
+            <label><!-- 車両 --></label>
+            <name>車両</name>
+        </sections>
+        <sections>
+            <label><!-- 車両顧客関係 --></label>
+            <name>車両顧客関係</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle_VehicleRel --></description>
+        <label><!-- Vehicle_VehicleRel --></label>
+        <name>Vehicle_VehicleRel</name>
+        <sections>
+            <label><!-- 車両顧客関係 --></label>
+            <name>車両顧客関係</name>
         </sections>
     </reportTypes>
 </Translations>

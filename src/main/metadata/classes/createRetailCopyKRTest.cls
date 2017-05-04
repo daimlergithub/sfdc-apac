@@ -3,12 +3,12 @@ public class createRetailCopyKRTest {
   public static Account accobj;
   public static Account accountobj;
   public static Account_Link__c acclinkobj;
-  public static Address__c addressobj1;
   public static Address__c addressobj;
+  public static Address__c addressobj1;
   public static List<Address__c> addresslist;
-   public static Account dealer;
+     public static Account dealer;
   public static Id retailcompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-
+  
   static void createTestData() {
   dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
     accobj = new Account (Name = 'Sreeni');
@@ -37,7 +37,6 @@ public class createRetailCopyKRTest {
     
     addresslist = new List<Address__c>();
     addresslist.add(addressobj);
-
     
     addressobj1 = new Address__c();
     addressobj1.Customer__c = dealer.id;
@@ -50,37 +49,42 @@ public class createRetailCopyKRTest {
     //Addresslist insert
     
     addresslist.add(addressobj1);
-
     insert addresslist;
   }
   
   Public static testmethod void createRetailCopyKRTest1() {
     createTestData();
     ApexPages.currentPage().getParameters().put('Id',accountobj.Id);
-
      ApexPages.currentPage().getParameters().put('idselected',addressobj1.Id);
       ApexPages.currentPage().getParameters().put('Status',addressobj1.Id);
-
     ApexPages.StandardController objSc = new ApexPages.StandardController(accountobj);
     createRetailCopyKR crkr = New createRetailCopyKR(objSc );
-    test.startTest();
+    test.startTest();     
       crkr.abc = accobj;
       crkr.getSelected ();
       crkr.getAccount();
+       try{
       crkr.Save();
-      crkr.Cancel();
+       }catch(exception e){}
+      crkr.Cancel();     
     test.stopTest();
   }
-  /*Public static testmethod void createRetailCopyKRTest2() {
+  Public static testmethod void createRetailCopyKRTest2() {
+  ID RDType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); 
     createTestData();
     ApexPages.currentPage().getParameters().put('Id',accountobj.Id);
     ApexPages.StandardController objSc = new ApexPages.StandardController(accountobj);
     createRetailCopyKR crkr = New createRetailCopyKR(objSc );
     test.startTest();
+      Account_Link__c contact2Contact = new Account_Link__c(Status__c = 'My Shops',RecordTypeId = RDType , MD__c = 'JP',Name = 'contact2Contact', toRole__c=accountobj.id );
+
       crkr.abc = accobj;
-      addressobj.Address_Type__c = 'Other Address 3';
-      update addressobj;
+      crkr.getSelected ();
+      crkr.getAccount();
+       try{
       crkr.Save();
+       }catch(exception e){}
+      crkr.Cancel();     
     test.stopTest();
-  }*/
+  }
 }

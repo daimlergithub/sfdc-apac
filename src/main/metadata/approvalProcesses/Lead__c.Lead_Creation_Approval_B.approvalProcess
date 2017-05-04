@@ -26,11 +26,11 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>MBJ_Supervisor</name>
+                <name>Supervisor_Team_B</name>
                 <type>queue</type>
             </approver>
             <approver>
-                <name>Supervisor_Team_B</name>
+                <name>MBJ_Supervisor</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -51,8 +51,8 @@
         ISPICKVAL( CAC_Lead_Status__c,&apos;Qualified&apos;), 
         ISPICKVAL( CAC_Lead_Status__c,&apos;Not Allocated&apos;)), 
         R_IsAssigned__c = 1,  
-        OR(($RecordType.DeveloperName = 'Aftersales_Leads'),($RecordType.DeveloperName = 'Sales_Leads')), 
-              NOT(CONTAINS( $Profile.Name,'Japan Dealer')),MD__c = 'JP', NOT( Contact__c == Null))</formula>
+        OR(($RecordType.DeveloperName = &apos;Aftersales_Leads&apos;),($RecordType.DeveloperName = &apos;Sales_Leads&apos;)), 
+              NOT(CONTAINS( $Profile.Name,&apos;Japan Dealer&apos;)),NOT(CONTAINS( $Profile.Name,&apos;MBF&apos;)),MD__c = &apos;JP&apos;, NOT( Contact__c == Null))</formula>
     </entryCriteria>
     <finalApprovalActions>
         <action>

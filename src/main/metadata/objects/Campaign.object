@@ -2,7 +2,9 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
-        <type>Default</type>
+        <content>AddToCampaign</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>AdvancedSetup</actionName>
@@ -497,6 +499,10 @@
                 <fullName>Social Media</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -529,7 +535,6 @@
                 <fullName>Retail</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -562,7 +567,6 @@
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -628,7 +632,6 @@
                 <fullName>One Account Multiple Dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -744,7 +747,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -784,7 +786,6 @@
                 <fullName>Sales -&gt; Crosspoint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1151,7 +1152,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1277,6 +1277,18 @@
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
+        <fullName>CloneCampaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CloneCampaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Campaigns (Campaign)</relationshipLabel>
+        <relationshipName>Campaigns1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Closed_Date__c</fullName>
         <description>Date for the campaign close to dealer.</description>
         <externalId>false</externalId>
@@ -1321,7 +1333,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>DM_Comments__c</fullName>
         <externalId>false</externalId>
         <label>DM Comments</label>
@@ -1367,8 +1379,48 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales &amp; Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aftersales,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Network Development</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+	<fields>
+        <fullName>Distribution_is_completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Distribution is completed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Driven_Type__c</fullName>
@@ -1384,7 +1436,6 @@
                 <fullName>Joint</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1420,6 +1471,14 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Email_Notification_to_Owner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Email Notification to Owner</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>EndDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -1737,6 +1796,16 @@
         <label>Final List Approved</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+	</fields>
+    <fields>
+        <fullName>FS_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>FS Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Flow_URL__c</fullName>
@@ -1857,10 +1926,178 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>MBTH_CAC_Campaign_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH CAC Campaign Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitions and Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interview, Recall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ad-hoc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ongoing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Campaign_Channels__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Campaign Channels</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Showroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBTH_Execution_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Execution Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eDM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>MBTH_Media_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -1869,6 +2106,16 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MPC_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>MPC Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
@@ -2027,6 +2274,15 @@
     </fields>
     <fields>
         <fullName>ParentId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Planning_Design_Campaign,CAC_Campaign,Central_Marketing_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
@@ -2943,7 +3199,6 @@
                 <controllingFieldValues>May</controllingFieldValues>
                 <controllingFieldValues>Oct</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3017,7 +3272,6 @@
                 <default>false</default>
                 <controllingFieldValues>checked</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3042,7 +3296,6 @@
                 <fullName>Contract</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3312,7 +3565,18 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
-    <fields>
+	<fields>
+        <fullName>Total_Budget_old__c</fullName>
+        <externalId>false</externalId>
+        <formula>Region_Budget__c +  Dealer_Budget__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total_Budget_old</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+	<fields>
         <fullName>Total_Budget__c</fullName>
         <description>This field is used to capture the total budget being allocated for the campaign activity</description>
         <externalId>false</externalId>
@@ -3453,6 +3717,10 @@
             <value>1</value>
         </filters>
         <label>All Active CAS Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
@@ -3493,6 +3761,10 @@
             <value>1</value>
         </filters>
         <label>All Active Central Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Active_Campaign_Execution</fullName>
@@ -4489,6 +4761,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5667,6 +5974,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -6814,6 +7156,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -7810,6 +8187,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8813,6 +9225,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9820,6 +10267,41 @@
             </values>
             <values>
                 <fullName>Segmentation Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10833,12 +11315,8 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Media_Type__c</picklist>
-            <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
@@ -10856,11 +11334,50 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12183,6 +12700,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -13253,6 +13805,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -13604,10 +14191,6 @@
             <values>
                 <fullName>Planned</fullName>
                 <default>true</default>
-            </values>
-            <values>
-                <fullName>Published</fullName>
-                <default>false</default>
             </values>
             <values>
                 <fullName>Started</fullName>
@@ -14440,12 +15023,8 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Media_Type__c</picklist>
-            <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
@@ -14463,11 +15042,50 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15170,7 +15788,7 @@
             </values>
             <values>
                 <fullName>Incentive</fullName>
-                <default>false</default>
+				<default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
@@ -15755,6 +16373,41 @@
             </values>
             <values>
                 <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17008,12 +17661,8 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Media_Type__c</picklist>
-            <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
@@ -17031,11 +17680,50 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18203,12 +18891,8 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Media_Type__c</picklist>
-            <values>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </values>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
             <values>
                 <fullName>Digital</fullName>
                 <default>false</default>
@@ -18226,11 +18910,50 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>OOH</fullName>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broadcast</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19377,6 +20100,41 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
@@ -19807,6 +20565,7 @@
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
+		<customTabListAdditionalFields>Child_Campaign_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.END_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</customTabListAdditionalFields>
@@ -19830,7 +20589,7 @@
     <validationRules>
         <fullName>CAC_Marketing_Active</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,UPPER(MD__c) = 'KR',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'CAC_Campaign',ISNEW(),IsActive = True,(UPPER(MD__c) = 'KR' || UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>CAC Campaign can't be active when it is being created.</errorMessage>
     </validationRules>
@@ -19899,7 +20658,17 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
         <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
- OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Campaign_Not_Yet_Started_Active_TH</fullName>
+        <active>true</active>
+        <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
+Record Type =  CAS/Central Marketing campaign</description>
+        <errorConditionFormula>(ISPICKVAL( Status , 'Planned')) &amp;&amp; IsActive &amp;&amp; (RecordType.DeveloperName = "Central_Marketing_Campaign" || RecordType.DeveloperName = "CAS_Marketing_Campaign")&amp;&amp;
+OR(UPPER(MD__c) = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
@@ -19926,7 +20695,7 @@ Record Type =  CAS/Central Marketing campaign</description>
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -19952,19 +20721,19 @@ Record Type =  CAS/Central Marketing campaign</description>
       ISCHANGED( Region__c ), 
       ISCHANGED( Actual_Region_Expense__c ), 
       ISCHANGED( Region_Budget__c ), 
-	  ISCHANGED( Media_Type__c ), 
-	  ISCHANGED( Event_Type__c ), 
-	  ISCHANGED( CBU_PbP__c ), 
-	  ISCHANGED( Other_Media_Type__c ), 
-	  ISCHANGED( Other_Event_Type__c ), 
-	  ISCHANGED( Car_Model__c ), 
-	  ISCHANGED( Campaign_Type__c ), 
-	  ISCHANGED( Driven__c ), 
-	  ISCHANGED( Min_Car_Age__c ), 
-	  ISCHANGED( Max_Car_Age__c ),
-	  ISCHANGED( Purpose__c )
+    ISCHANGED( Media_Type__c ), 
+    ISCHANGED( Event_Type__c ), 
+    ISCHANGED( CBU_PbP__c ), 
+    ISCHANGED( Other_Media_Type__c ), 
+    ISCHANGED( Other_Event_Type__c ), 
+    ISCHANGED( Car_Model__c ), 
+    ISCHANGED( Campaign_Type__c ), 
+    ISCHANGED( Driven__c ), 
+    ISCHANGED( Min_Car_Age__c ), 
+    ISCHANGED( Max_Car_Age__c ),
+    ISCHANGED( Purpose__c )
  ),
- $Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'KR'
+ $Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'KR' , UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
@@ -20056,7 +20825,7 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
     </validationRules>
@@ -20099,7 +20868,7 @@ NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
         <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
 ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
-),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR' )
+),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
@@ -20119,6 +20888,13 @@ ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICK
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Use_Segmentation_Criteria</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
+        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
+        <errorMessage>Segmentation Date is Required</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -20129,6 +20905,88 @@ IsActive = True
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Add_Participating_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Participating Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Consolidate_List_Maintenance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Consolidate List Maintenance</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')} 
+{!REQUIRESCRIPT('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')} 
+
+var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c From Participating_Dealer__c WHERE Campaign__c = '{!Campaign.Id}' AND Approve_the_List__c= false "); 
+
+var qrerecords = qre.getArray("records"); 
+
+if(qrerecords.length&gt;0){ 
+
+try{ 
+
+
+jQuery(function() { 
+/*Append the jQuery CSS CDN Link to the Head tag.*/ 
+jQuery('head').append('&lt;link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css" type="text/css" /&gt;'); 
+
+/*Create the HTML(DIV Tag) for the Dialog.*/ 
+var html = 
+'&lt;div id="dialog" title="WARNING"&gt;&lt;p&gt; List Maintenance is not yet completed do u want to proceed &lt;/p&gt;&lt;/div&gt;'; 
+
+/*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/ 
+if(!jQuery('[id=dialog]').size()){ 
+jQuery('body').append(html); 
+} 
+
+/*Open the jQuery Dialog.*/ 
+jQuery( "#dialog" ).dialog({ 
+autoOpen: true, 
+modal: true, 
+show: { 
+effect: "bounce", 
+duration: 1000 
+}, 
+hide: { 
+effect: "bounce", 
+duration: 10 
+}, 
+buttons: { 
+"Proceed": function() { 
+
+ location.replace('/apex/Consolidation_List?Id={!Campaign.Id}');	
+
+jQuery( this ).dialog( "close" ); 
+}, 
+Cancel: function() { 
+jQuery( this ).dialog( "close" ); 
+} 
+} 
+}); 
+}); 
+} 
+catch(e){ 
+alert('An Error has Occured. Error: ' + e); 
+} 
+}else if(qrerecords.length== 0) { 
+location.replace('/apex/Consolidation_List?Id={!Campaign.Id}'); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
         <availability>online</availability>
@@ -20161,7 +21019,7 @@ IsActive = True
         <masterLabel>Create Child Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?RecordType=012280000006I7dAAE&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Child_Campaign_For_Execution</fullName>
@@ -20181,7 +21039,7 @@ IsActive = True
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <url>/701/e?RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -20211,6 +21069,26 @@ alert('something has gone wrong please contact your Administrator');
         <openType>replace</openType>
         <protected>false</protected>
         <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Custom_Clone</fullName>
+        <availability>online</availability>
+        <description>Custom button “Clone“ will be available on the parent campaign</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Custom Clone</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!Campaign.Id}/e?clone=1&amp;retURL=%2F{!Campaign.Id}&amp;cpn5=&amp;cpn6=&amp;00N2800000A9CfQ=&amp;CF00N2800000IkqW9_lkid={!Campaign.Id}&amp;CF00N2800000IkqW9={!Campaign.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>
@@ -20260,6 +21138,20 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
     alert("{!$Label.Delete_Campaign_Failed}" + "\n" + result[0].errors.message);
   }
 }</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Distribution_to_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Distribution to Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var campaignID = "{!Campaign.Id}"; 
+var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
+location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Retail_BP</fullName>
@@ -20350,6 +21242,156 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
      }</url>
     </webLinks>
     <webLinks>
+        <fullName>OPRO_DM_Print_OPR</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+oprLimitPages:10000,
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").opr();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OPRO_DM_Print_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPRO]DM Print(PDF)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
+//
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+
+
+// ---- BEGIN ----
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+
+var tpArray = (function () {
+var dmmaterial_type = '{!Campaign.DM_Material__c}';
+switch(dmmaterial_type){
+case 'MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
+case '1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
+case '1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
+case '汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
+case 'Company Account': return 'p04_CompanyAccount';brak;
+case 'smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
+case '新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
+case '汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
+case 'Customer Address Only Printing.xls': return 'p07_CustomerAddressOnlyPrinting';brak;
+default:return 'p07_CustomerAddressOnlyPrinting';brak;
+}
+}());
+
+OPROARTS.Live.fF.action({
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
+// このパラメータを省略することはできません。
+tp:tpArray,
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
+fe:false,
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
+createsAttach:false,
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
+// - taskSubject: 活動履歴の件名
+// - taskComment: 活動履歴のコメント
+// 無指定の場合は、システムの初期値が適用されます。
+createsTask:false,
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。
+title:'',
+
+// objectId: 帳票オブジェクトのIDを指定します。
+objectId:'{!JSENCODE(Campaign.Id)}',
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。
+// このパラメータを編集しないでください。
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
+}).url("https://benz.pd.oproarts.com/liveffbb/action").pdf();
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
         <fullName>OPRO_Label_Print_PDF</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -20419,6 +21461,28 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
 // ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
 // ---- END ----</url>
+    </webLinks>
+	<webLinks>
+        <fullName>MBTH_Create_Child_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create_Child_Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?RecordType=012280000006I7d&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MBTH_Create_Complex_Execution</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Complex Execution</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>OPR_Label_Print</fullName>
@@ -20558,3 +21622,4 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
     </webLinks>
 </CustomObject>
+

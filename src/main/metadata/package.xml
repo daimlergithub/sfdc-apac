@@ -35,7 +35,10 @@
         <members>AccountHelperJPTest</members>
         <members>AccountHelperKR</members>
         <members>AccountHelperKRTest</members>
+        <members>AccountHelperTH</members>
         <members>AccountHelperTest</members>
+        <members>AccountLinkController</members>
+        <members>AccountLinkControllerTest</members>
         <members>AccountLinkHelper</members>
         <members>AccountLinkHelperTest</members>
         <members>AccountLinkSharingTest</members>
@@ -52,6 +55,8 @@
         <members>AddressDisplayInlineEditControllerTest</members>
         <members>AddressHelperJP</members>
         <members>AddressHelperJPTest</members>
+        <members>AddressHelperTH</members>
+        <members>AddressHelperTHTest</members>
         <members>AddressSearchValidationController</members>
         <members>AddressSearchValidationControllerTest</members>
         <members>AssignCaseToDealerController</members>
@@ -72,6 +77,8 @@
         <members>CSRLookupController</members>
         <members>CSRLookupControllerTest</members>
         <members>CampaignHelper</members>
+        <members>CampaignHelperTH</members>
+        <members>CampaignHelperTHTest</members>
         <members>CampaignHelperTest</members>
         <members>CampaignMemberAfterTriggerHandler</members>
         <members>CampaignMemberAfterTriggerHandlerTest</members>
@@ -87,6 +94,8 @@
         <members>CaseHelperTest</members>
         <members>CaseTriggerHandler</members>
         <members>CaseTriggerHandlerJP</members>
+        <members>ChangeContactTarget</members>
+        <members>ChangeContactTargetTest</members>
         <members>ChangePasswordController</members>
         <members>ChangePasswordControllerTest</members>
         <members>ChatterAnswers</members>
@@ -107,15 +116,23 @@
         <members>ContactTriggerHandlerJP</members>
         <members>CustomLogUtil</members>
         <members>CustomLogUtilTest</members>
+        <members>CustomerMymercInterfaceController</members>
+        <members>CustomerMymercInterfaceControllerTest</members>
         <members>DMControllerExtension</members>
         <members>DMControllerExtensionTest</members>
         <members>DMRequestHelperJP</members>
         <members>DMRequestHelperJPTest</members>
+        <members>DMRequestHelperTH</members>
+        <members>DMRequestHelperTHTest</members>
         <members>DMRequestTriggerHandler</members>
         <members>DMRequestTriggerHandlerTest</members>
         <members>DealerLocatorHttpResponseGenerator</members>
         <members>DealerSearchController</members>
         <members>DealerSearchControllerTest</members>
+        <members>DeleteRetailCopy</members>
+        <members>DeleteRetailCopyTest</members>
+        <members>EmailNotificationAfter24Hours</members>
+        <members>EmailNotificationAfter24HoursTest</members>
         <members>ForgotPasswordController</members>
         <members>ForgotPasswordControllerTest</members>
         <members>GenerateAndAttachPDF</members>
@@ -127,12 +144,18 @@
         <members>IllegalArgumentException</members>
         <members>LeadConvertingController</members>
         <members>LeadConvertingControllerTest</members>
+        <members>LeadDealerAssignmentProcess</members>
+        <members>LeadDealerAssignmentProcessTest</members>
         <members>LeadHelper</members>
         <members>LeadHelperAccountLinkCreateJP</members>
         <members>LeadHelperAccountLinkCreateJPTest</members>
         <members>LeadHelperJP</members>
         <members>LeadHelperJPTest</members>
         <members>LeadHelperTest</members>
+        <members>LeadLatestPhaseUpdateJP</members>
+        <members>LeadMergeController</members>
+        <members>LeadReassign</members>
+        <members>LeadReassignTest</members>
         <members>LeadSharingTest</members>
         <members>LeadSharingWrapService</members>
         <members>LeadSharingforDealerJP</members>
@@ -140,6 +163,13 @@
         <members>LeadUtil</members>
         <members>LeadVehiclePickerKRController</members>
         <members>LeadVehiclePickerKRControllerTests</members>
+        <members>LeadVehiclePickerTHController</members>
+        <members>LeadcustomClone</members>
+        <members>MBJ_FS_Case_ContractClosing_InlineCntl</members>
+        <members>MBJ_FS_Case_Inquiry_Controller</members>
+        <members>MBJ_FS_Case_Intermediate_Controller</members>
+        <members>MBJ_FS_Case_Quotation_InlineController</members>
+        <members>MBJ_FS_Case_Request_InlineController</members>
         <members>MarketCheckOnVehiclePickerCon</members>
         <members>MarketCheckOnVehiclePickerConTest</members>
         <members>MassApproveRetailCampaignController</members>
@@ -148,6 +178,8 @@
         <members>MassApproveToolKitControllerTest</members>
         <members>MassAssignRecallTasksControllerExtension</members>
         <members>MassAssignRecallTasksTest</members>
+        <members>MassUpdatenewAssignedusercontroller</members>
+        <members>MassUpdatenewAssignedusercontrollerTest</members>
         <members>MisunderstoodTaskGeneration</members>
         <members>MisunderstoodTaskGenerationTest</members>
         <members>MyProcess</members>
@@ -161,6 +193,11 @@
         <members>Paginator</members>
         <members>RecallHelper</members>
         <members>RecallHelperTest</members>
+        <members>RelatedDealerLease</members>
+        <members>RelatedDealerViewForInsurance</members>
+        <members>RelatedDealerViewForInsuranceTest</members>
+        <members>RelatedDealerViewForLoan</members>
+        <members>RelatedDealerViewForLoanTest</members>
         <members>ReservationMessageTemplate</members>
         <members>ReservationMessageTemplateTest</members>
         <members>RetailCampaignCalendarController</members>
@@ -180,6 +217,8 @@
         <members>RetailTaskSharingWrapService</members>
         <members>RetailTaskTriggerHandlerJP</members>
         <members>RetailTaskTriggerHandlerKR</members>
+        <members>RetailtaskInlineEditController</members>
+        <members>RetailtaskInlineEditController_Test</members>
         <members>RuishiWebService</members>
         <members>RuishiWebServiceTest</members>
         <members>SMSControllerExtension</members>
@@ -188,6 +227,14 @@
         <members>SSITriggerHandlerTest</members>
         <members>SelectAssignedDealerController</members>
         <members>SelectAssignedDealerControllerTest</members>
+        <members>SendAccountInfoToSPO</members>
+        <members>SendAccountInfoToSPOTest</members>
+        <members>SendToJPOS</members>
+        <members>SendToJPOSTest</members>
+        <members>SendToMyMercController</members>
+        <members>SendToMyMercControllerTest</members>
+        <members>ServiceRetailTask</members>
+        <members>ServiceRetailTaskTest</members>
         <members>ShareAccountLinksToDealerTest</members>
         <members>ShareAccountLinksToDealerTriggerHandler</members>
         <members>ShareCampaignByCollabTriggerHandler</members>
@@ -210,6 +257,7 @@
         <members>TaskHelper</members>
         <members>TaskHelperKR</members>
         <members>TaskHelperKRTest</members>
+        <members>TaskHelperTH</members>
         <members>TaskHelperTest</members>
         <members>TaskMassChangeOwner</members>
         <members>TaskMassChangeOwnerTest</members>
@@ -217,9 +265,11 @@
         <members>TaskTriggerHandlerJP</members>
         <members>TaskTriggerHandlerKR</members>
         <members>TaskTriggerHandlerKRTest</members>
+        <members>TaskTriggerHandlerTH</members>
         <members>TaskTriggerHandlerTest</members>
         <members>TerminateVehicleRelationshipExtension</members>
         <members>TerminateVehicleRelationshipTest</members>
+        <members>TestRelatedDealerLease</members>
         <members>TestTriggerHandler</members>
         <members>TestUserCreate</members>
         <members>TestUserTriggerCalloutRequestMock</members>
@@ -238,6 +288,10 @@
         <members>TriggerAccountTriggerHandlerKR</members>
         <members>TriggerAccountTriggerHandlerKRTest</members>
         <members>TriggerAddressTriggerHandlerJP</members>
+        <members>TriggerAccountTriggerHandlerTH</members>
+        <members>TriggerAccountTriggerHandlerTHTest</members>
+        <members>TriggerAddressTriggerHandlerTH</members>
+        <members>TriggerAddressTriggerHandlerTHTest</members>
         <members>TriggerBatchJobTriggerHandler</members>
         <members>TriggerCampaignCityTest</members>
         <members>TriggerCampaignCityTriggerHandler</members>
@@ -254,10 +308,12 @@
         <members>TriggerCampaignTriggerHandler</members>
         <members>TriggerCampaignTriggerHandlerJP</members>
         <members>TriggerCampaignTriggerHandlerKR</members>
+        <members>TriggerCampaignTriggerHandlerTH</members>
         <members>TriggerCaseTriggerHandlerJP</members>
         <members>TriggerCaseTriggerHandlerKR</members>
         <members>TriggerDMRequestTriggerHandler</members>
         <members>TriggerDMRequestTriggerHandlerJP</members>
+        <members>TriggerDMRequestTriggerHandlerTH</members>
         <members>TriggerHandlerIf</members>
         <members>TriggerLeadTest</members>
         <members>TriggerLeadTriggerHandler</members>
@@ -276,6 +332,8 @@
         <members>TriggerVehicleRelTriggerHandlerJP</members>
         <members>TriggerVehicleRelTriggerHandlerKR</members>
         <members>TriggerVehicleRelTriggerHandlerKRTest</members>
+        <members>TriggerVehicleRelTriggerHandlerTH</members>
+        <members>TriggerVehicleRelTriggerHandlerTHTest</members>
         <members>TriggerVehicleRelationshipTest</members>
         <members>TriggerVehicleRelationshipTriggerHandler</members>
         <members>UserHelper</members>
@@ -340,6 +398,7 @@
         <members>VehicleRelationshipHelper</members>
         <members>VehicleRelationshipHelperJP</members>
         <members>VehicleRelationshipHelperJPTest</members>
+        <members>VehicleRelationshipHelperTH</members>
         <members>VehicleRelationshipHelperTest</members>
         <members>VehicleRelationshipSharingTest</members>
         <members>VehicleRelationshipSharingWrapService</members>
@@ -359,6 +418,9 @@
         <members>YearlyTAReportControllerTest</members>
         <members>YearlyTargetController</members>
         <members>YearlyTargetControllerTest</members>
+        <members>cSendVehicleInformationtoSPOJP</members>
+        <members>cSendVehicleInformationtoSPOJPTest</members>
+        <members>cSendVehicletoSPOConfirmationJP</members>
         <members>campaignHistoryLogGeneration</members>
         <members>campaignHistoryLogGenerationTest</members>
         <members>contactTableControllerTest</members>
@@ -367,9 +429,16 @@
         <members>crmasiaDaimlerApacComCustomeridentif</members>
         <members>crmasiaDaimlerApacComSarinotificatio</members>
         <members>crmasiaDaimlerApacComValidateaddress</members>
+        <members>createRetailCopy</members>
+        <members>createRetailCopyJPTEST</members>
+        <members>crmasiaDaimlerApacComSfdcnotificatio</members>
+        <members>dealerViewForContract</members>
+        <members>dealerViewForContractTest</members>
         <members>shareAccountRecord</members>
         <members>superSort</members>
         <members>superSortTest</members>
+        <members>testusernotification</members>
+        <members>usernotificationsetting</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -378,9 +447,11 @@
         <members>SiteHeader</members>
         <members>SiteLogin</members>
         <members>SitePoweredBy</members>
+        <members>selectAllChkBox</members>
         <name>ApexComponent</name>
     </types>
     <types>
+        <members>ALKDeleteConformationpage</members>
         <members>AccountButtonContainer</members>
         <members>AccountConsoleRefresh</members>
         <members>AccountMerge</members>
@@ -395,6 +466,7 @@
         <members>CaseConsoleRefresh</members>
         <members>CaseEscalation</members>
         <members>Central_Campaigns</members>
+        <members>ChangeContactTarget</members>
         <members>ChangePassword</members>
         <members>ChatterAnswersAgentView</members>
         <members>ChatterAnswersChangePassword</members>
@@ -410,6 +482,7 @@
         <members>CommunitiesTemplate</members>
         <members>ContactTable</members>
         <members>Create_Vehicle</members>
+        <members>CustomerMymercInterface</members>
         <members>DMSendResult</members>
         <members>DealerSearch</members>
         <members>Exception</members>
@@ -424,28 +497,62 @@
         <members>LeadButtonContainerASLeads</members>
         <members>LeadButtonContainerSalesLeads</members>
         <members>LeadConverting</members>
+        <members>LeadDealerAssignmentPage</members>
+        <members>LeadMerge</members>
         <members>LeadVehiclePickerKR</members>
+        <members>LeadVehiclePickerTH</members>
         <members>LeadsConsoleRefresh</members>
+        <members>MBJ_FS_Case_ContractClosing_Detail_Page</members>
+        <members>MBJ_FS_Case_ContractClosing_Inline_Page</members>
+        <members>MBJ_FS_Case_ContractClosing_Page</members>
+        <members>MBJ_FS_Case_Inquiry_Detail_Page</members>
+        <members>MBJ_FS_Case_Inquiry_Page</members>
+        <members>MBJ_FS_Case_Intermediate_Page</members>
+        <members>MBJ_FS_Case_Quotation_Detail_Page</members>
+        <members>MBJ_FS_Case_Quotation_Inline_Page</members>
+        <members>MBJ_FS_Case_Quotation_Page</members>
+        <members>MBJ_FS_Case_Request_Detail_Page</members>
+        <members>MBJ_FS_Case_Request_Inline_Page</members>
+        <members>MBJ_FS_Case_Request_Page</members>
+        <members>MBJ_FS_Complaint_Detail_Page</members>
+        <members>MBJ_FS_Complaint_Page</members>
         <members>MarketCheckOnVehiclePicker</members>
         <members>MarketingCloudSettings</members>
         <members>MassApproveRetailCampaign</members>
         <members>MassApproveToolKit</members>
         <members>MassAssignRecallTasks</members>
+        <members>MassUpdate_new_Assigned_User</members>
         <members>MyProfilePage</members>
         <members>NewVehicleRelationship</members>
+        <members>Print_Dealer_PDF</members>
+        <members>RelatedDealerViewForLease</members>
         <members>RetailCampaignSegmentation</members>
         <members>RetailCampaign_Timeline</members>
+        <members>RetailCopyOnlyRelatedList</members>
+        <members>RetailCopyViewAreaForDealerUser</members>
+        <members>RetailTaskInsurance</members>
+        <members>RetailTaskLoan</members>
+        <members>RetailTask_inline_service_amount</members>
+        <members>RetailTaskdealerviewForContract</members>
         <members>Retail_Campaigns</members>
+        <members>Retailcopybutton</members>
         <members>SMSSendResult</members>
         <members>SelectAssignedDealer</members>
         <members>SelectSlaveAccount</members>
-        <members>SelectSlaveAccountKR</members>
+        <members>SelectSlaveLead</members>
+        <members>SendAccountInfoToSPO</members>
+        <members>SendToJPOS</members>
+        <members>SendVehicleInfoMyMercedes</members>
+        <members>SendVehicleInformationtoSPOJP</members>
+        <members>SendVehicletoSPOConfirmationJP</members>
+        <members>ServiceRetailTask</members>
         <members>SiteLogin</members>
         <members>SiteRegister</members>
         <members>SiteRegisterConfirm</members>
         <members>SiteTemplate</members>
         <members>StdExceptionTemplate</members>
         <members>SubmitSurvey</members>
+        <members>SurveyMerge</members>
         <members>TaskDeleting</members>
         <members>TaskLink</members>
         <members>TaskMassChangeOwner</members>
@@ -469,6 +576,7 @@
         <members>labs_survey_css</members>
         <members>scc_tour_main</members>
         <members>scc_tour_style</members>
+        <members>usernotificationsetting</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -511,6 +619,7 @@
         <members>Case.Case_TouringSupport_Approval</members>
         <members>Case.Case_closure_by_CCC</members>
         <members>Case.Case_closure_by_MBK</members>
+        <members>Case.MBF_Complaint_Approval</members>
         <members>Case.MBK_Case_Closed_by_Dealer</members>
         <members>Case.MBK_Case_Closure_by_CCC_Dealer_Level</members>
         <members>Case.MBK_Case_Closure_by_CCC_MBK_Level</members>
@@ -627,6 +736,12 @@
         <members>MBK_File_Management</members>
         <members>MBK_Master_Data_Management</members>
         <members>MBK_Reports_and_Dashboards</members>
+        <members>MBTH_Call_Center</members>
+        <members>MBTH_Catalogue_Operation</members>
+        <members>MBTH_Data_Management</members>
+        <members>MBTH_File_Management</members>
+        <members>MBTH_Master_Data_Management</members>
+        <members>MBTH_Reports_and_Dashboards</members>
         <members>Private_APP_Exchange</members>
         <members>Retail_CRM</members>
         <members>Service_Cloud_Console</members>
@@ -649,6 +764,16 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>A6_Contact_as_part_of_visiting_a_car_dealership</members>
+        <members>A6_Email</members>
+        <members>A6_Invitation_to_an_event_event_at_the_car_dealership</members>
+        <members>A6_Other_contact_channels</members>
+        <members>A6_Personal_email</members>
+        <members>A6_Promotional_emails</members>
+        <members>A6_Query_via_website</members>
+        <members>A6_Request_for_a_test_drive_via_website</members>
+        <members>A6_Telephone_call</members>
+        <members>A6_Visit_to_a_car_dealership</members>
         <members>Accepted</members>
         <members>Account</members>
         <members>AccountLink</members>
@@ -674,6 +799,7 @@
         <members>AftersalesContacTarget1</members>
         <members>AftersalesContactTarget2</members>
         <members>Alert_Handling_Level</members>
+        <members>AlreadyProcessed</members>
         <members>And_Criteria</members>
         <members>Assign_Case_To_Dealer_Branch_Name</members>
         <members>Assign_Case_To_Dealer_Button_Go</members>
@@ -686,6 +812,9 @@
         <members>Assign_Case_To_Dealer_User_Name</members>
         <members>Assign_QC</members>
         <members>AttachedPdfError</members>
+        <members>Authorization</members>
+        <members>Average</members>
+        <members>Beyond_expectation</members>
         <members>Brand</members>
         <members>Btn_Preview_No_Questions</members>
         <members>Business_Email</members>
@@ -784,10 +913,13 @@
         <members>Case_Deadline_Notification_Text3</members>
         <members>Case_Deadline_Notification_Text4</members>
         <members>Case_Deadline_Notification_Text5</members>
+        <members>Case_Number</members>
         <members>Case_Record_Type</members>
+        <members>Case_received_by_Phone_etc</members>
         <members>Child</members>
         <members>City</members>
         <members>Class</members>
+        <members>Class_Model</members>
         <members>Clear_Button</members>
         <members>Close</members>
         <members>Cluster</members>
@@ -808,14 +940,18 @@
         <members>Convert_To_Lead</members>
         <members>Copy</members>
         <members>Couldnotexplain</members>
+        <members>CountryTH</members>
         <members>Create_Vehicle</members>
-        <members>Criteria</members>
+        <members>Created_Date</members>
+        <members>Credible</members>
+		<members>Criteria</members>
         <members>Custom_Debug_Log_Switch</members>
         <members>Customer</members>
         <members>CustomerAssistanceCenter</members>
         <members>CustomerAssistanceCenter2</members>
         <members>CustomerType</members>
         <members>Customer_Filter</members>
+        <members>Customer_Statement</members>
         <members>Customerrelatedinformation</members>
         <members>DMRequestTabId</members>
         <members>DMRequest_validation_error</members>
@@ -825,16 +961,24 @@
         <members>DealerName</members>
         <members>DealerPersonName</members>
         <members>Dealer_Has_SR_Code_1</members>
+        <members>Dealer_Internal_Comment</members>
+        <members>Dealer_Name</members>
         <members>Dedup_callout_failure</members>
         <members>Delete</members>
         <members>Delete_Campaign_Failed</members>
         <members>Delete_Campaign_Success</members>
         <members>Delete_Filter</members>
         <members>DetailedModelName</members>
+        <members>Did_You_Get_Agreement_From_Customer</members>
         <members>Discardit</members>
         <members>Dono</members>
         <members>Downloadedfile</members>
+        <members>Driving_experience</members>
+        <members>Dynamic</members>
         <members>Edit</members>
+        <members>Eight</members>
+        <members>Elegance</members>
+
         <members>Employee</members>
         <members>End_Time_Greater_Start_Time</members>
         <members>Enter_VIN_number</members>
@@ -843,6 +987,7 @@
         <members>Error_Please_enter_your_criteria</members>
         <members>Error_This_name_already_exists</members>
         <members>Event_Type</members>
+        <members>Event_venue</members>
         <members>Exception_message</members>
         <members>FAXCover</members>
         <members>FAXParts</members>
@@ -850,16 +995,22 @@
         <members>FAXService</members>
         <members>Familiarization_workshop_for_dormant_customers</members>
         <members>Familiarization_workshop_for_new_vehicle_owners</members>
+        <members>Favorite_Model</members>
         <members>Fax</members>
         <members>Field</members>
         <members>FinanceMethod</members>
+        <members>Five</members>
+        <members>Food_beverage</members>
         <members>For_Vehicle_Picker</members>
+        <members>Four</members>
+        <members>From_the_experience_with_Mercedes_Benz_during_this_event_which_word_would_best</members>
         <members>GenericUploaderErrorMsg</members>
         <members>GenericUploaderForAccount</members>
         <members>GenericUploaderForAccountConfirm</members>
         <members>GenericUploaderForAccountPreview</members>
         <members>GenericUploaderForAccountUploadResults</members>
         <members>GenericUploaderLengthErrorMsg</members>
+        <members>Good</members>
         <members>GrandChild</members>
         <members>GrandParent</members>
         <members>Has_Attended_Campaign</members>
@@ -867,14 +1018,23 @@
         <members>HideSurveyName</members>
         <members>Home_Email</members>
         <members>Home_Phone</members>
+        <members>Home_Phone_2</members>
+        <members>I_don_t_know_no_statement</members>
+        <members>I_don_t_remember_no_statement</members>
         <members>Id</members>
         <members>Idle_Hour_Promotion</members>
+        <members>If_No_specify_Why</members>
+        <members>If_Yes_specify_favorite_model</members>
+        <members>If_yes_within_which_period_do_you_plan_to_purchase</members>
         <members>Informationsharing</members>
+        <members>Instructor_team</members>
         <members>InsufficientAccessToCreate</members>
         <members>Insufficient_privilege</members>
         <members>Insurance_Promotion</members>
         <members>Interest</members>
         <members>Interest_Filter</members>
+        <members>Interesting_Event</members>
+        <members>JP</members>
         <members>KR</members>
         <members>Kana</members>
         <members>Knowledge_Choose_Car_Model</members>
@@ -951,6 +1111,7 @@
         <members>Manager</members>
         <members>MarketJP</members>
         <members>MarketKR</members>
+        <members>MarketTH</members>
         <members>Marketing_survey</members>
         <members>Mass_Assign_Recall_Tasks_Apply_Filters</members>
         <members>Mass_Assign_Recall_Tasks_Assign_Rules</members>
@@ -980,6 +1141,7 @@
         <members>My_Mercedes_ID</members>
         <members>My_Shop_Address</members>
         <members>My_shop_Name</members>
+        <members>NA</members>
         <members>Near_Dealer_1</members>
         <members>Near_Dealer_2</members>
         <members>Near_Dealer_3</members>
@@ -996,17 +1158,24 @@
         <members>New_Button</members>
         <members>New_Case</members>
         <members>New_Customer_Acquisition</members>
+        <members>Nine</members>
         <members>No</members>
         <members>No_Complaint</members>
         <members>No_Match_Found</members>
         <members>No_Result_Found</members>
         <members>No_Target_records</members>
+        <members>No_Thai</members>
+        <members>No_busy_right_now</members>
+        <members>No_don_t_want_to_talk</members>
         <members>None</members>
         <members>NotAccepted</members>
+        <members>Not_easy_to_talk_thai</members>
         <members>Not_found_QC</members>
         <members>Occupation</members>
         <members>OnLine_Deduplication</members>
         <members>Onchu</members>
+        <members>Not_yet_decided</members>
+        <members>One</members>
         <members>Online_Dedup_callout_failure</members>
         <members>Operation</members>
         <members>OrderNumber</members>
@@ -1015,7 +1184,9 @@
         <members>Other_Phone_1</members>
         <members>Other_Phone_2</members>
         <members>Others</members>
+        <members>Overall_impression</members>
         <members>POM_advertisement</members>
+        <members>PR_to_promote_this_event</members>
         <members>Page_Element_Next</members>
         <members>Page_Element_Of</members>
         <members>Page_Element_Previous</members>
@@ -1023,6 +1194,8 @@
         <members>Parent</members>
         <members>Parts_Cross_Promotion</members>
         <members>PersonAccount</members>
+		<members>Parts_Fax</members>
+        <members>PersonAccount_Record_Type_From_Account</members>
         <members>Person_Account_Information</members>
         <members>Person_Account_Record_Type</members>
         <members>Phone</members>
@@ -1037,11 +1210,61 @@
         <members>Priority</members>
         <members>Product_ID</members>
         <members>Promotion_on_Technical_accessories_and_collections</members>
+        <members>Q10_Describe_MB</members>
+        <members>Q10_Were_you_contacted_by_your_Mercedes_Benz_service</members>
+        <members>Q11_recommendation</members>
+        <members>Q12_Test_drive</members>
+        <members>Q13_Period</members>
+        <members>Q14_Activity</members>
+        <members>Q1_Overall_impression</members>
+        <members>Q1_Overall_satisfaction</members>
+        <members>Q1_Please_rate_your_satisfaction_toward_call_agent</members>
+        <members>Q1_Satisfied_with_initiating_the_service_visit</members>
+        <members>Q1_Your_Current_Cars</members>
         <members>Q1_service_quality</members>
+        <members>Q2_Driving_experience</members>
+        <members>Q2_Event_venue</members>
+        <members>Q2_Other_Cars_in_House</members>
+        <members>Q2_Politeness_of_staff_Receiving</members>
+        <members>Q2_Satisfied_with_Service_advisor_Dealer_staffs</members>
         <members>Q2_Service_center_employee</members>
+        <members>Q2_Will_you_recommend_improvement_area_for_Star_Assist_service</members>
+        <members>Q2_Will_you_recommend_product_and_service_of_Mercedes_Benz_Thailand</members>
         <members>Q3_Delivery_Service</members>
+        <members>Q3_Instructor_Team</members>
+        <members>Q3_Interesting_event</members>
+        <members>Q3_Satisfied_with_aftersales_facility</members>
+        <members>Q3_Towing_staff_uniform_appearance</members>
+        <members>Q4_Appropriated_tool_Towed_truck</members>
+        <members>Q4_Contemporary</members>
+        <members>Q4_Credible</members>
+        <members>Q4_Dynamic</members>
+        <members>Q4_Elegance</members>
+        <members>Q4_If_others_please_specify</members>
+        <members>Q4_Luxury</members>
+        <members>Q4_Modern</members>
+        <members>Q4_Others</members>
+        <members>Q4_Quality</members>
+        <members>Q4_Safety</members>
+        <members>Q4_Satisfied_with_vehicle_pickup_process</members>
         <members>Q4_Service_Center_Information</members>
+        <members>Q4_Staff_hospitality</members>
+        <members>Q4_Valuable_alternative</members>
+        <members>Q5_Food_beverage</members>
+        <members>Q5_Proactive_Offering</members>
+        <members>Q5_Satisfied_with_service_quality</members>
         <members>Q5_Service_Center</members>
+        <members>Q6_Coordination</members>
+        <members>Q6_PR_to_promote_this_event</members>
+        <members>Q6_Satisfied_with_building_up_relationship_to_customer</members>
+        <members>Q7_Coordination_during_the_event</members>
+        <members>Q7_Satisfied_with_Overall_service_experience</members>
+        <members>Q7_Waiting_time</members>
+        <members>Q8_Interesting_Event</members>
+        <members>Q8_Would_you_go_back_to_the_service_center</members>
+        <members>Q9_Would_you_recommend_this_service_center</members>
+        <members>Q9_Your_suggestion_Open_ended_question</members>
+>>>>>>> asia-th
         <members>QCMassCalibrationNotice</members>
         <members>QC_Assigned_Successfully</members>
         <members>QC_Completeness_Criteria</members>
@@ -1053,6 +1276,11 @@
         <members>QC_Mass_Calibration_Page_Button</members>
         <members>QC_Mass_Calibration_Please_Wait</members>
         <members>QC_Mass_Calibration_Title</members>
+        <members>Quality</members>
+        <members>Rating</members>
+        <members>Rating1</members>
+        <members>Rating_reason</members>
+        <members>Received_By</members>
         <members>Reception</members>
         <members>RecipientofthisFAX</members>
         <members>RecordTypeId</members>
@@ -1075,6 +1303,168 @@
         <members>Retail_Campaign_Canlender_Page_AS_Campaign</members>
         <members>Retail_Campaign_Canlender_Page_SM_Event</members>
         <members>Retail_Campaign_Canlender_Page_SM_Media</members>
+        <members>S5</members>
+        <members>S5_A1_TE</members>
+        <members>S5_A3_4_I_don_t_know_yet</members>
+        <members>S5_A3_4_I_will_primarily_use_the_car_for_business</members>
+        <members>S5_A3_4_I_will_primarily_use_the_car_privately</members>
+        <members>S5_A3_4_I_will_use_the_car_privately_and_for_business_in_roughly_equal_parts</members>
+        <members>S5_A4_1_1_Online_Survey</members>
+        <members>S5_A4_1_2_Telephone_Survey</members>
+        <members>S5_A6_1_I_contacted_my_dealer</members>
+        <members>S5_A6_1_My_dealer_contacted_me</members>
+        <members>S5_Address_Line_1</members>
+        <members>S5_Address_Line_2</members>
+        <members>S5_Block</members>
+        <members>S5_City</members>
+        <members>S5_Company_Name</members>
+        <members>S5_Date_of_Birth</members>
+        <members>S5_First_name</members>
+        <members>S5_Home_Phone</members>
+        <members>S5_Home_Phone_2</members>
+        <members>S5_L_Contract_Type</members>
+        <members>S5_L_Date_of_Payment</members>
+        <members>S5_L_Installment_amount_month</members>
+        <members>S5_L_No_of_months_of_contract_term</members>
+        <members>S5_L_Please_enter_the_information_to_be_updated</members>
+        <members>S5_L_Preferred_payment_channel</members>
+        <members>S5_L_Vehicle_Model</members>
+        <members>S5_Last_name</members>
+        <members>S5_Mobile</members>
+        <members>S5_Mobile_2</members>
+        <members>S5_Name</members>
+        <members>S5_Phone</members>
+        <members>S5_Post_Code</members>
+        <members>S5_Q1_1_E_LT_P1</members>
+        <members>S5_Q1_1_E_LT_P2</members>
+        <members>S5_Q1_1_E_LT_P3</members>
+        <members>S5_Q1_1_T_LT_P1</members>
+        <members>S5_Q1_1_T_LT_P2</members>
+        <members>S5_Q1_E_LT_P1</members>
+        <members>S5_Q1_E_LT_P2</members>
+        <members>S5_Q1_E_LT_P3</members>
+        <members>S5_Q1_E_LT_P4</members>
+        <members>S5_Q1_E_MBLT_P1</members>
+        <members>S5_Q1_E_MBLT_P10</members>
+        <members>S5_Q1_E_MBLT_P2</members>
+        <members>S5_Q1_E_MBLT_P3</members>
+        <members>S5_Q1_E_MBLT_P4</members>
+        <members>S5_Q1_E_MBLT_P5</members>
+        <members>S5_Q1_E_MBLT_P6</members>
+        <members>S5_Q1_E_MBLT_P7</members>
+        <members>S5_Q1_E_MBLT_P8</members>
+        <members>S5_Q1_E_MBLT_P9</members>
+        <members>S5_Q1_E_MBTH_P1</members>
+        <members>S5_Q1_E_MBTH_P2</members>
+        <members>S5_Q1_E_MBTH_P3</members>
+        <members>S5_Q1_E_TH_P1</members>
+        <members>S5_Q1_E_TH_P2</members>
+        <members>S5_Q1_T_LT_P1</members>
+        <members>S5_Q1_T_LT_P2</members>
+        <members>S5_Q1_T_LT_P3</members>
+        <members>S5_Q1_T_LT_P4</members>
+        <members>S5_Q1_T_TH_P1</members>
+        <members>S5_Q1_T_TH_P2</members>
+        <members>S5_Q1_T_TH_P3</members>
+        <members>S5_Q2</members>
+        <members>S5_Q2_1_E_P1</members>
+        <members>S5_Q2_1_E_P2</members>
+        <members>S5_Q2_1_E_P3</members>
+        <members>S5_Q2_1_E_P4</members>
+        <members>S5_Q2_1_E_P5</members>
+        <members>S5_Q2_1_T_Is_that_correct</members>
+        <members>S5_Q2_1_T_P1</members>
+        <members>S5_Q2_1_T_P2</members>
+        <members>S5_Q2_1_T_P3</members>
+        <members>S5_Q2_1_T_P4</members>
+        <members>S5_Q2_1_T_P5</members>
+        <members>S5_Q2_2_E_P1</members>
+        <members>S5_Q2_2_T_P1</members>
+        <members>S5_Q2_3_E_P1</members>
+        <members>S5_Q2_4_E_P1</members>
+        <members>S5_Q2_5_E_P1</members>
+        <members>S5_Q2_5_T_P1_your_address_is</members>
+        <members>S5_Q2_6_E_LT_P1</members>
+        <members>S5_Q2_6_E_TH_P1</members>
+        <members>S5_Q2_6_T_LT_P1</members>
+        <members>S5_Q2_6_T_LT_P2</members>
+        <members>S5_Q2_6_T_TH_P1</members>
+        <members>S5_Q2_7_E_LT</members>
+        <members>S5_Q2_7_E_LT_P1</members>
+        <members>S5_Q2_7_E_LT_P2</members>
+        <members>S5_Q2_7_E_LT_P3</members>
+        <members>S5_Q2_7_E_LT_P4</members>
+        <members>S5_Q2_7_E_LT_P5</members>
+        <members>S5_Q2_7_E_LT_P6</members>
+        <members>S5_Q2_7_T_LT</members>
+        <members>S5_Q2_7_T_LT_P1</members>
+        <members>S5_Q2_7_T_LT_P2</members>
+        <members>S5_Q2_7_T_LT_P3</members>
+        <members>S5_Q2_7_T_LT_P4</members>
+        <members>S5_Q2_7_T_LT_P5</members>
+        <members>S5_Q2_7_T_LT_P6</members>
+        <members>S5_Q2_7_T_LT_P7</members>
+        <members>S5_Q2_7_T_LT_P8</members>
+        <members>S5_Q2_7_T_LT_P9</members>
+        <members>S5_Q2_8_E_LT</members>
+        <members>S5_Q2_8_E_LT_P1</members>
+        <members>S5_Q2_8_T_LT</members>
+        <members>S5_Q2_E</members>
+        <members>S5_Q2_T</members>
+        <members>S5_Q3_1_1_What_is_the_relationship_of_the_car_owner</members>
+        <members>S5_Q3_1_2_Check_contact_person</members>
+        <members>S5_Q3_1_2_Who_is_After_sales_contact</members>
+        <members>S5_Q3_1_2_Who_is_Owner_of_the_car</members>
+        <members>S5_Q3_1_2_Who_is_sales_contact</members>
+        <members>S5_Q3_1_2_Who_is_the_driver_if_any</members>
+        <members>S5_Q3_1_Are_you_the_main_user_of_the_car</members>
+        <members>S5_Q3_2_Age_of_car_user</members>
+        <members>S5_Q3_4_How_do_you_primarily_use_your_new_car</members>
+        <members>S5_Q3_7_Did_you_buy_a_MB_at_the_dealership</members>
+        <members>S5_Q3_E</members>
+        <members>S5_Q3_E_P1</members>
+        <members>S5_Q3_E_P2</members>
+        <members>S5_Q3_T_TH_P1</members>
+        <members>S5_Q3_T_TH_P2</members>
+        <members>S5_Q4_1_Which_channel_do_you_prefer_to_do_the_CSI_survey</members>
+        <members>S5_Q4_2_When_will_your_prefer_to_do_the_telephone_survey</members>
+        <members>S5_Q4_E</members>
+        <members>S5_Q4_E_P1</members>
+        <members>S5_Q4_E_P1A</members>
+        <members>S5_Q4_E_P2</members>
+        <members>S5_Q4_T_P1</members>
+        <members>S5_Q4_T_P2</members>
+        <members>S5_Q4_T_P3</members>
+        <members>S5_Q4_T_P4</members>
+        <members>S5_Q4_T_P5</members>
+        <members>S5_Q5_1_Did_sales_representative_inform_you_about_benefit_of_MercedesCard</members>
+        <members>S5_Q5_2_Will_you_apply_for_the_MercedesCard_membership</members>
+        <members>S5_Q5_E</members>
+        <members>S5_Q5_T_LT_P1</members>
+        <members>S5_Q5_T_LT_P2</members>
+        <members>S5_Q5_T_LT_P3</members>
+        <members>S5_Q5_T_LT_P3_A</members>
+        <members>S5_Q5_T_LT_P4</members>
+        <members>S5_Q5_T_TH_P1</members>
+        <members>S5_Q5_T_TH_P2</members>
+        <members>S5_Q5_T_TH_P3</members>
+        <members>S5_Q5_T_TH_P4</members>
+        <members>S5_Q6_1_How_was_the_first_contact_made</members>
+        <members>S5_Q6_2_What_were_the_contact_channels</members>
+        <members>S5_Q7_1_Processing_speed_how_quick_entire_process_was</members>
+        <members>S5_Q7_2_Thoroughness_of_processing</members>
+        <members>S5_Q7_3_Completeness_of_processing</members>
+        <members>S5_Q7_4_Selected_contact_channel_for_the_processing_convenience</members>
+        <members>S5_Q7_5_Content_format_of_the_processing_convenience</members>
+        <members>S5_Q7_Rotation_of_items_1_5</members>
+        <members>S5_Q9_1_Please_give_a_satisfaction_score_for_service_of_Call_agent</members>
+        <members>S5_Q9_Call_Center_Evaluation_NPS_via_IVR</members>
+        <members>S5_Q_9_2_Would_you_recommend_product_and_service_of_Mercedes_Benz</members>
+        <members>S5_Town</members>
+        <members>S5_Work_Phone</members>
+        <members>S5_Your_Nationaliy_is</members>
+        <members>S5_company_s_registration_type</members>
+        <members>S5_title</members>
         <members>SMS_Reply_History_Respond_Content</members>
         <members>SSI_Dealer_Cleans</members>
         <members>SSI_Dealer_Cleans_Error</members>
@@ -1088,11 +1478,14 @@
         <members>SSI_Vin_Match_InvoiceDate_From</members>
         <members>SSI_Vin_Match_Page_Section_Title</members>
         <members>SalesContactTarget</members>
+        <members>SalesFax</members>
         <members>SalesMail</members>
         <members>SalesTEL</members>
         <members>Sales_Marketing</members>
+        <members>Sales_Phone</members>
         <members>Sama</members>
         <members>Same</members>
+        <members>Satisfaction_towards_this_event</members>
         <members>Save_Button</members>
         <members>Save_Filter</members>
         <members>Save_New_Button</members>
@@ -1103,13 +1496,21 @@
         <members>Select_All</members>
         <members>Select_Option_None</members>
         <members>Select_User</members>
+        <members>Select_dropdown</members>
         <members>SellingDealer</members>
+        <members>Send_to_spo_translate</members>
+        <members>SentToSPO</members>
         <members>ServiceDealer</members>
         <members>ServicePersonnel</members>
+        <members>Service_Fax</members>
+        <members>Service_Phone</members>
         <members>Service_Product_Promotion</members>
         <members>Service_Work</members>
+        <members>Seven</members>
         <members>Share</members>
+        <members>Six</members>
         <members>SlashPDF</members>
+        <members>Somewhat_disappointed</members>
         <members>Special_Filters</members>
         <members>Status</members>
         <members>Status_Approved</members>
@@ -1128,7 +1529,11 @@
         <members>SurveyQuestions</members>
         <members>SurveyResponse</members>
         <members>Survey_Name</members>
+        <members>Survey_Response</members>
         <members>Suspected_Duplicates</members>
+        <members>TH</members>
+        <members>TH_Not_authorized_to_create_MB_Vehicle_record</members>
+        <members>TargetVIN</members>
         <members>TaskTriggerErrorMsg</members>
         <members>Task_Assigned_User</members>
         <members>Task_Phone</members>
@@ -1156,12 +1561,14 @@
         <members>Task_Start_Call_Time</members>
         <members>Task_Subject</members>
         <members>TelFax</members>
+        <members>Ten</members>
         <members>TerminateVehicleRelationship</members>
         <members>Terminate_Vehicle_Relationship</members>
         <members>ThankYouLink</members>
         <members>ThankYouText</members>
         <members>Thankyouforyourbusiness</members>
         <members>The_filter_count_is_greater_than_15</members>
+        <members>Three</members>
         <members>Title_Retail_Campaigns_Mass_Approve</members>
         <members>Title_Search_Filters</members>
         <members>Title_Search_Results</members>
@@ -1173,6 +1580,7 @@
         <members>Total_Amount_Spend_On_Car_Service_is_Greater_Than</members>
         <members>Trade_In_related_information</members>
         <members>Trim</members>
+        <members>Two</members>
         <members>UCID</members>
         <members>URL</members>
         <members>Unknown</members>
@@ -1207,10 +1615,22 @@
         <members>Vehicle_Picker_Service</members>
         <members>Vehicle_Picker_TradeIn</members>
         <members>Vehicle_Relationship_overlap</members>
+        <members>Very_disappointed</members>
         <members>ViewHierarchy</members>
+        <members>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</members>
+        <members>Why</members>
         <members>Work_Fax</members>
         <members>Work_Mobile</members>
         <members>Work_Phone</members>
+        <members>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</members>
+        <members>X10_to_less_than_20_years</members>
+        <members>X1_year</members>
+        <members>X20_years_and_more</members>
+        <members>X2_year</members>
+        <members>X3_years</members>
+        <members>X4_years</members>
+        <members>X5_to_less_than_10_years</members>
+        <members>Year_of_Purchase</members>
         <members>Yearly_TA_Apply_deadline</members>
         <members>Yearly_TA_City</members>
         <members>Yearly_TA_Dealer_Name</members>
@@ -1225,13 +1645,17 @@
         <members>Yearly_TA_Year</members>
         <members>Yearly_TAs</members>
         <members>Yes</members>
+        <members>Yes_Thai</members>
+        <members>Your_Current_car_s</members>
         <members>Zipcode</members>
         <members>Zipcode_not_found</members>
         <members>Zipcode_validation</members>
         <members>apex_AccountMerge_Id</members>
         <members>apex_SelectSlaveAccount</members>
         <members>applicationpdf</members>
+        <members>checkSum</members>
         <members>contact_information</members>
+        <members>delete_confirmation_message</members>
         <members>displayOnly</members>
         <members>l_AtmospherePerceptionandLighting</members>
         <members>l_BasicParameter</members>
@@ -1247,6 +1671,7 @@
         <members>l_ShowMore</members>
         <members>l_Sparetire</members>
         <members>master</members>
+        <members>months</members>
         <members>purchased_vehicle_related_information</members>
         <members>rcc_Auto_Show</members>
         <members>rcc_Broadcast</members>
@@ -1267,6 +1692,7 @@
         <members>rcc_Test_Drive</members>
         <members>retURL</members>
         <members>retURL_apex_SelectSlaveAccount_Id</members>
+        <members>send_to_spo_active</members>
         <members>servletfile</members>
         <members>slave</members>
         <members>slaveId</members>
@@ -1276,10 +1702,12 @@
         <members>Account</members>
         <members>AccountContactRole</members>
         <members>Account_Link__c</members>
+        <members>Account_Object__mdt</members>
         <members>Activity</members>
         <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>AreaCodeTranslation__mdt</members>
+        <members>Article__kav</members>
         <members>Asset</members>
         <members>AssistantProgress</members>
         <members>Attribute__c</members>
@@ -1364,6 +1792,7 @@
         <members>QC__c</members>
         <members>Question</members>
         <members>Recall__c</members>
+        <members>RegionMasterInfo__c</members>
         <members>Rejected_Duplicate_Log__c</members>
         <members>Reply</members>
         <members>Retail_Campaign_Member__c</members>
@@ -1415,6 +1844,7 @@
         <members>DM_Request__c.MBK_DM_Request_Sharing_Rule</members>
         <members>Dealer_Locator__c.JP_MarketDealer_Locator_Readable_to_MBJ_IT_Dept</members>
         <members>Lead__c.JP_MarketLeads_Readable_to_MBJ_IT_Dept</members>
+        <members>Lead__c.Lead_Sharing_to_Wholesale_Users</members>
         <members>Lead__c.MBK_Leads_Sharing_Rule</members>
         <members>Lead__c.SoftDelete_Leads_Only_for_IT</members>
         <members>Lead__c.Soft_Deleted_Cannot_View_By_CAC</members>
@@ -1502,17 +1932,16 @@
     </types>
     <types>
         <members>Account-ja</members>
-        <members>Account-ko</members>
         <members>Account_Link__c-en_US</members>
         <members>Account_Link__c-ja</members>
         <members>Account_Link__c-ko</members>
+        <members>Account_Object__mdt-en_US</members>
         <members>Activity-ja</members>
-        <members>Activity-ko</members>
         <members>Address__c-en_US</members>
         <members>Address__c-ja</members>
-        <members>Address__c-ko</members>
         <members>App_Setting__c-en_US</members>
         <members>AreaCodeTranslation__mdt-en_US</members>
+        <members>Article__kav-en_US</members>
         <members>Attribute__c-en_US</members>
         <members>Audit_Trail__c-en_US</members>
         <members>Batch_Job__c-en_US</members>
@@ -1567,6 +1996,7 @@
         <members>EP_Integration_URLS__c-en_US</members>
         <members>EP_Log_Interface__c-en_US</members>
         <members>Environment_Specific_Values__c-en_US</members>
+        <members>Event-ja</members>
         <members>FAQ__kav-en_US</members>
         <members>Feeback_Day_Setting__c-en_US</members>
         <members>Field_Trip__Field_Analysis__c-en_US</members>
@@ -1670,12 +2100,14 @@
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
         <members>Dealer_Locator__c</members>
+        <members>EP_Export_Notification__c</members>
         <members>EP_Log_Interface__c</members>
         <members>Getting_Started</members>
         <members>Lead__c</members>
         <members>Participating_Dealer__c</members>
         <members>QC__c</members>
         <members>Recall__c</members>
+        <members>RegionMasterInfo__c</members>
         <members>Rejected_Duplicate_Log__c</members>
         <members>Retail_Campaign_Calender</members>
         <members>Retail_Campaign__c</members>
@@ -1702,14 +2134,19 @@
     </types>
     <types>
         <members>EPA</members>
+        <members>Email_Status_Images</members>
+        <members>Email_Status_Images/Green_Signal.png</members>
+        <members>Email_Status_Images/Red_Signal.png</members>
         <members>Logo</members>
         <members>Logo/Central_LOGO.png</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
         <members>Logo/MB.jpg</members>
         <members>Logo/MB_LOGO.png</members>
+        <members>Logo/MBTH_LOGO_FV2.png</members>
         <members>SalesTools</members>
         <members>SalesTools/Documentation_for_Salesforce_com_Sample_Dashboards.pdf</members>
         <members>SharedDocuments</members>
+        <members>Shared_folder_for_Dealer_User</members>
         <members>Trial_Documents</members>
         <members>Trial_Documents/Trial_Customer_Portal_Footer_HTML.html</members>
         <members>Trial_Documents/Trial_Customer_Portal_Header_HTML.html</members>
@@ -1757,8 +2194,12 @@
         <members>unfiled$public/CustomerPortalChangePwdEmail</members>
         <members>unfiled$public/CustomerPortalNewUserEmail</members>
         <members>unfiled$public/CustomerPortalSelfRegUserEmail</members>
+        <members>unfiled$public/Email_Notification_to_CCC_Manager_if_lead_untouched_1_hours</members>
+        <members>unfiled$public/Email_Notification_to_wholesale</members>
+        <members>unfiled$public/Email_to_sales_and_Service_manager_after_24_hours</members>
         <members>unfiled$public/LeadsNewassignmentnotificationSAMPLE</members>
         <members>unfiled$public/LeadsWebtoLeademailresponseSAMPLE</members>
+        <members>unfiled$public/MBF_Complaint_Approval_template</members>
         <members>unfiled$public/MarketingProductInquiryResponse</members>
         <members>unfiled$public/PartnerChangePwdEmail</members>
         <members>unfiled$public/PartnerNewUserEmail</members>
@@ -1778,6 +2219,7 @@
         <members>unfiled$public/SupportEscalatedCaseReassignment</members>
         <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
         <members>unfiled$public/SupportSelfServiceResetPassword</members>
+        <members>unfiled$public/TH_Case_Escalation_Email</members>
         <members>unfiled$public/Template_Approval</members>
         <name>EmailTemplate</name>
     </types>
@@ -1786,6 +2228,19 @@
         <members>Update_Age_Range_of_Account</members>
         <members>Update_Task_Based_on_Account-1</members>
         <members>Update_child_Records_when_Account_Updated-2</members>
+       <members>CSI_Local_Survey_After_Sales_Process-1</members>
+        <members>Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours</members>
+        <members>Happy_Call_Survey-5</members>
+        <members>MBTH_MBDE_after_Event_Survey-2</members>
+        <members>Mercedes_Benz_Driving_Experience-1</members>
+        <members>Mercedes_Benz_Driving_Experience_SP-1</members>
+        <members>New_Survey-2</members>
+        <members>Survey_Star_Assist-1</members>
+        <members>Survey_after_Customer_receive_Star_Assist_Service-1</members>
+        <members>Survey_after_welcome_call-1</members>
+        <members>Update_AfterSalesVIN-2</members>
+        <members>Update_Lead_Owner-1</members>
+        <members>Welcome_Call-1</members>
         <name>Flow</name>
     </types>
     <types>
@@ -1794,6 +2249,7 @@
         <members>Central_AS_Content_Group</members>
         <members>Central_S_M_Content_Group</members>
         <members>East_Region_Group</members>
+        <members>MBF_Customer_Care_CCC_Team</members>
         <members>North_Region_Group</members>
         <members>Regional_CRM_Manager</members>
         <members>Sourth_Region_Group</members>
@@ -1824,20 +2280,30 @@
         <members>Account-Account Layout</members>
         <members>Account-Account Master Layout</members>
         <members>Account-Company Layout</members>
+        <members>Account-Company Layout TH</members>
         <members>Account-Company Read Only Layout</members>
         <members>Account-CompanySoftDeleted</members>
         <members>Account-Dealer Layout-Admin</members>
         <members>Account-Dealer Layout-CAC</members>
         <members>Account-Dealer Layout-Portal</members>
+        <members>Account-Dealer Layout-TH</members>
         <members>Account_Link__c-Account Link Layout</members>
         <members>Account_Link__c-Company Customer External Link</members>
+        <members>Account_Link__c-Company Retail Copy</members>
+        <members>Account_Link__c-Company Retail Copy TH</members>
         <members>Account_Link__c-Contact Sector</members>
+        <members>Account_Link__c-Contact Sector TH</members>
         <members>Account_Link__c-Contact to Dealer</members>
         <members>Account_Link__c-Contact2Contact</members>
+        <members>Account_Link__c-Contact2Contact TH</members>
         <members>Account_Link__c-Individual Customer External Link</members>
+        <members>Account_Link__c-Person Retail Copy</members>
+        <members>Account_Link__c-Person Retail Copy TH</members>
         <members>Account_Link__c-Vehicle External Link</members>
+        <members>Account_Object__mdt-company legal form Layout</members>
         <members>Address__c-Address Layout</members>
         <members>AreaCodeTranslation__mdt-AreaCodeTranslation Layout</members>
+        <members>Article__kav-Article Layout</members>
         <members>Asset-Asset Layout</members>
         <members>Attribute__c-Car Attribute Layout</members>
         <members>Audit_Trail__c-Audit Trail Layout</members>
@@ -1878,6 +2344,7 @@
         <members>Case-Dealer Inquiry Read Only Layout</members>
         <members>Case-Inquiry Layout - CAC%28IB%2FOB%29</members>
         <members>Case-JP Inquiry Layout - CAC%28IB%2FOB%29</members>
+        <members>Case-Inquiry Layout - Dealer User</members>
         <members>Case-MB Complaint Layout - CAC</members>
         <members>Case-MB Complaint Layout - CAC - KR</members>
         <members>Case-MB Complaint Layout - Customer Care Team</members>
@@ -1885,13 +2352,17 @@
         <members>Case-MB Complaint Layout - Dealer Portal User</members>
         <members>Case-MB Complaint Layout - RO%2FCO</members>
         <members>Case-MB Complaint Layout - System Admin</members>
+        <members>Case-MBF Complaint Management Case</members>
         <members>Case-MBF Contract Closing Cases</members>
+        <members>Case-MBF Customer Information Change Request</members>
+        <members>Case-MBF Finance Inquiry Case</members>
         <members>Case-MBF Quotation Cases Layout</members>
         <members>Case-Portal Case Layout</members>
         <members>Case-Retail Campaign Layout</members>
         <members>CaseClose-Case Close Master Layout</members>
         <members>CaseClose-Close Case Layout</members>
         <members>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</members>
+        <members>CaseClose-MBF Case Close Layout</members>
         <members>CaseDeadelineCalc__mdt-CaseDeadelineCalc Layout</members>
         <members>CaseDeadelineCalc__mdt-CaseDeadelineCalc1 Layout</members>
         <members>CaseInteraction-Case Feed Layout</members>
@@ -1933,6 +2404,7 @@
         <members>Entitlement-Entitlement Layout</members>
         <members>Event-Event Layout</members>
         <members>Event-Event Master Layout</members>
+        <members>Event-General Event Layout</members>
         <members>Event-Reservation Layout</members>
         <members>FAQ__kav-How To Layout</members>
         <members>FeedItem-Feed Item Layout</members>
@@ -1944,11 +2416,21 @@
         <members>Lead-Lead %28Support%29 Layout</members>
         <members>Lead-Lead Layout</members>
         <members>Lead_Product__c-Lead Product Layout</members>
+        <members>Lead__c-After-Sales Leads Layout for Dealer Users</members>
+        <members>Lead__c-After-Sales Leads Soft Deleted</members>
         <members>Lead__c-AfterSales Lead</members>
         <members>Lead__c-Dealer AfterSales Lead ReadOnly</members>
         <members>Lead__c-Dealer Sales Leads Layout %28CAC%29 ReadOnly</members>
         <members>Lead__c-Lead Layout</members>
         <members>Lead__c-Leads Layout</members>
+        <members>Lead__c-MBTH_AfterSales_Lead_Layout%28COC%2FInternal User%29</members>
+        <members>Lead__c-MBTH_Aftersales Lead_Layout%28CAC%29</members>
+        <members>Lead__c-MBTH_Aftersales Lead_Layout%28Dealer%29%29</members>
+        <members>Lead__c-MBTH_Retail sales Lead_Layout%28CAC%29</members>
+        <members>Lead__c-MBTH_Retail sales Lead_Layout%28Dealer%29</members>
+        <members>Lead__c-MBTH_Sales Leads Layout %28CAC%29</members>
+        <members>Lead__c-MBTH_Sales Leads Layout %28Dealer%29</members>
+        <members>Lead__c-MBTH_sales Leads_Layout%28COC%2FInternal User%29</members>
         <members>Lead__c-Sales Leads Admin</members>
         <members>Lead__c-Sales Leads Layout %28CAC%29</members>
         <members>Lead__c-Sales Leads Layout %28Dealer%29</members>
@@ -1968,9 +2450,11 @@
         <members>PersonAccount-3rd Pary Layout</members>
         <members>PersonAccount-PA Layout-CAC IB%2FOB %28CSR%2FTL%2FOM%29</members>
         <members>PersonAccount-PA Layout-Dealer Portal</members>
+        <members>PersonAccount-PA Layout-Dealer Portal - TH</members>
         <members>PersonAccount-PA Layout-Other User</members>
         <members>PersonAccount-PA Layout-Soft Deleted</members>
         <members>PersonAccount-Person Account Layout</members>
+        <members>PersonAccount-Person Account Layout TH</members>
         <members>PersonAccount-Person Account Read Only Layout</members>
         <members>PreOrder__c-Pre Order Layout</members>
         <members>Pricebook2-Price Book Layout</members>
@@ -1986,6 +2470,7 @@
         <members>Question-Question Layout</members>
         <members>Recall__c-Recall Layout</members>
         <members>Recall__c-Revised Recall Layout</members>
+        <members>RegionMasterInfo__c-RegionMasterInfo Layout</members>
         <members>Rejected_Duplicate_Log__c-Rejected Duplicate Log Layout</members>
         <members>Reply-Reply Layout</members>
         <members>Retail_Campaign_Member__c-Retail Campaign Member Layout</members>
@@ -2023,6 +2508,7 @@
         <members>SSI__c-SSI Record IT Layout</members>
         <members>SSI__c-SSI Record Layout</members>
         <members>Script__kav-Script Layout</members>
+        <members>SearchPromotionRule-Promoted Search Term Layout</members>
         <members>ServiceContract-Service Contract Layout</members>
         <members>Settlement_Management__c-Settlement Management Layout</members>
         <members>SocialPersona-Social Persona Layout</members>
@@ -2062,8 +2548,11 @@
         <members>Tool_Kit__c-Media Tool Kit</members>
         <members>Tool_Kit__c-Tool Kit Layout</members>
         <members>Translation_Dictionary__c-Translation Dictionary Layout</members>
+        <members>User-Dealer Management Layout</members>
+        <members>User-Dealer Non-management Layout</members>
         <members>User-User Layout</members>
         <members>User-User Layout Sysad</members>
+        <members>User-User Layout for MBJ%2FMBF</members>
         <members>User-User Master Layout</members>
         <members>UserAlt-User Profile Layout</members>
         <members>VIN_Mapping__c-VIN Mapping Layout</members>
@@ -2072,6 +2561,7 @@
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-Dealer Portal</members>
+        <members>Vehicle_Relationship__c-Vehicle Relationship Retail</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Soft Deleted</members>
         <members>Vehicle__c-Competitor Vehicle Layout-CAC</members>
         <members>Vehicle__c-MB Vehicle Layout-CAC</members>
@@ -2104,6 +2594,8 @@
         <members>Share_Case_to_YangBin</members>
         <members>Smart_Operation_Team_user</members>
         <members>Star_Elite_Used_Car_Operation</members>
+        <members>Thailand_Article_Editor</members>
+        <members>Thailand_Article_Reader</members>
         <members>Tool_Kit</members>
         <members>Wave_Analytics</members>
         <name>PermissionSet</name>
@@ -2138,6 +2630,7 @@
         <members>Cross Org Data Proxy User</members>
         <members>Daimler Community Profile</members>
         <members>Daimler Dealer Community MB Korea Profile</members>
+        <members>Daimler Community Thailand Profile</members>
         <members>Daimler Dealer Community Profile</members>
         <members>Daimler MBJ Portal Profile</members>
         <members>DaimlerAsia Profile</members>
@@ -2161,6 +2654,11 @@
         <members>Japan Catalogue Sending Vendor</members>
         <members>Japan Data Management</members>
         <members>Japan Data Manager</members>
+        <members>Japan Dealer Company Manager</members>
+        <members>Japan Dealer Sales Manager</members>
+        <members>Japan Dealer Sales Representative</members>
+        <members>Japan Dealer Service Advisor</members>
+        <members>Japan Dealer Service Manager</members>
         <members>Japan Finance</members>
         <members>Japan IT Department</members>
         <members>Japan Marketing</members>
@@ -2173,6 +2671,8 @@
         <members>Korea IT Department</members>
         <members>Korea Marketing</members>
         <members>Korea Sales%2FAfter-Sales</members>
+        <members>MBF-Japan Manager %2F Supervisor</members>
+        <members>MBF-Japan Operator</members>
         <members>MBJ CAC Data Manager</members>
         <members>MarketingProfile</members>
         <members>Partner Community User</members>
@@ -2183,6 +2683,14 @@
         <members>Regional S%26M Manager</members>
         <members>SolutionManager</members>
         <members>Standard</members>
+        <members>Thailand After-Sales Engineer</members>
+        <members>Thailand CRM</members>
+        <members>Thailand Call Center</members>
+        <members>Thailand Catalogue Sending Vendor</members>
+        <members>Thailand Data Management</members>
+        <members>Thailand IT Department</members>
+        <members>Thailand Marketing</members>
+        <members>Thailand Sales%2FAfter-Sales</members>
         <members>Trial Customer Portal User</members>
         <name>Profile</name>
     </types>
@@ -2195,6 +2703,10 @@
         <members>Central_Office_Queue</members>
         <members>Central_Office_SR_team</members>
         <members>Central_Office_WR_team</members>
+        <members>MBF_Contract_Administration_CA_Team</members>
+        <members>MBF_Customer_Care_CCC_Team</members>
+        <members>MBF_Inbound_Outbound_Supervisor</members>
+        <members>MBF_Quotation_Team_Queue</members>
         <members>MBJ_Supervisor</members>
         <members>MBK_Call_Center_Managers</members>
         <members>MBK_Managers_KR</members>
@@ -2577,6 +3089,19 @@
         <members>MBK_Marketing_Reports/MBK_Reports_Vehicle_Class_and_Models</members>
         <members>MBK_Marketing_Reports/MBK_Top5_Jobs_Class_Model_Code_Report</members>
         <members>MBK_Marketing_Reports/MBk_Reports_Age_Group_Campaign_Codes</members>
+        <members>MBTH_CRM_Reports</members>
+        <members>MBTH_CRM_Reports/MBTH_DM_Tasks_Company</members>
+        <members>MBTH_CRM_Reports/MBTH_DM_Tasks_Person</members>
+        <members>Reports_for_Dealers</members>
+        <members>Reports_for_Dealers/AFTER_SALES_LEAD_FOR_DEALER_OUTLET</members>
+        <members>Reports_for_Dealers/Close</members>
+        <members>Reports_for_Dealers/HOT1</members>
+        <members>Reports_for_Dealers/HOT2</members>
+        <members>Reports_for_Dealers/HOT_3</members>
+        <members>Reports_for_Dealers/SALES_LEAD_REPORT_FOR_DEALER_OUTLET</members>
+        <members>Reports_for_Dealers/T1</members>
+        <members>Reports_for_Dealers/T2</members>
+        <members>Reports_for_Dealers/Uncalculated</members>
         <members>Sales_Marketing_Dashboard_Reports</members>
         <members>Sales_Marketing_Dashboard_Reports/Activities_by_Salesperson</members>
         <members>Sales_Marketing_Dashboard_Reports/CampaignROIbyCampaignType</members>
@@ -2621,6 +3146,7 @@
         <members>unfiled$public/CurrentSFDC_ExportCheck</members>
         <members>unfiled$public/DenialActivityReport</members>
         <members>unfiled$public/Lead_Check</members>
+        <members>unfiled$public/Created_lead_number_by_customer_status</members>
         <members>unfiled$public/Lead_status_check</members>
         <members>unfiled$public/M_careInportCheckList2</members>
         <members>unfiled$public/MailMagazin_New</members>
@@ -2719,6 +3245,7 @@
         <members>NCBS_PPS_Report</members>
         <members>Process_Instance</members>
         <members>Sales_Funnel_Report</members>
+        <members>MBTH_DM_Request_and_Associated_tasks</members>
         <members>Sales_Funnel_Report_Type</members>
         <members>Service_Contracts_with_Contract_Line_Items</members>
         <members>Service_Contracts_with_Entitlements</members>
@@ -2728,9 +3255,16 @@
     </types>
     <types>
         <members>AS_Service_Technical_Director</members>
+        <members>After_Sales</members>
+        <members>After_Sales_Manager</members>
+        <members>After_Sales_Supervisor</members>
+        <members>After_Sales_Team_Member</members>
         <members>CAC_QC_SV_TM</members>
         <members>CRM_Manager_Retail_Marketing</members>
         <members>CRM_Manager_Wholesale_Marketing</members>
+        <members>CallCenter_Manager</members>
+        <members>CallCenter_Supervisor</members>
+        <members>CallCenter_Team_Member</members>
         <members>Call_Center</members>
         <members>Call_Center_Operator</members>
         <members>Call_Center_Supervisor</members>
@@ -2740,11 +3274,21 @@
         <members>CommunityAccountPartnerExecutive</members>
         <members>CommunityAccountPartnerManager</members>
         <members>CommunityAccountPartnerUser</members>
+        <members>Contract_Administration_CA_Manager</members>
+        <members>Contract_Administration_CA_Operator</members>
+        <members>Contract_Administration_CA_Supervisor</members>
+        <members>Customer_Care_CCC_Manager</members>
         <members>DM_AS_E</members>
         <members>DM_AS_N</members>
         <members>DM_AS_S</members>
         <members>DM_AS_W</members>
+        <members>Daimler_Insurance_DIS_Manager</members>
+        <members>Daimler_Insurance_DIS_Operator</members>
+        <members>Daimler_Insurance_DIS_Supervisor</members>
         <members>Data_Service_Specialist</members>
+        <members>DealerPartnerExecutive</members>
+        <members>DealerPartnerManager</members>
+        <members>DealerPartnerUser</members>
         <members>Dealer_Executive</members>
         <members>Dealer_User</members>
         <members>Director</members>
@@ -2759,11 +3303,24 @@
         <members>KCCPartnerExecutive</members>
         <members>KCCPartnerManager</members>
         <members>KCCPartnerUser</members>
+        <members>Inbound_Operator</members>
+        <members>Inbound_Supervisor</members>
+        <members>MBF_CRM_Depeartment</members>
         <members>MBJ_CRM_Department_Approver</members>
         <members>MBJ_CRM_Department_non_Approver</members>
         <members>MBJ_IT_Department</members>
         <members>MBK_Management</members>
         <members>MBK_Retail</members>
+        <members>MBLT</members>
+        <members>MBLT_Manager</members>
+        <members>MBLT_Supervisor</members>
+        <members>MBLT_Team_Member</members>
+        <members>MBTH</members>
+        <members>MBTH_Call_Center</members>
+        <members>MBTH_Retails_Dealers</members>
+        <members>MBTH_Whole_Sale_MBLT_Call_Center</members>
+        <members>MB_TH_IT</members>
+        <members>MPC</members>
         <members>Manager</members>
         <members>OB_CSR</members>
         <members>OB_QC</members>
@@ -3075,6 +3632,10 @@
         <members>PartnerUser97</members>
         <members>PartnerUser98</members>
         <members>PartnerUser99</members>
+        <members>Outbound_Operator</members>
+        <members>Outbound_Supervisor</members>
+        <members>Quotation_Team_Operator</members>
+        <members>Quotation_Team_Supervisor</members>
         <members>RM_AS_E</members>
         <members>RM_AS_N</members>
         <members>RM_AS_S</members>
@@ -3083,6 +3644,9 @@
         <members>RM_SM_N</members>
         <members>RM_SM_S</members>
         <members>RM_SM_W</members>
+        <members>Re_Marketing_Manager</members>
+        <members>Re_Marketing_Operator</members>
+        <members>Re_Marketing_Supervisor</members>
         <members>Regional</members>
         <members>Regional_AS_Retail_Marketing</members>
         <members>Regional_CRM_Manager</members>
@@ -3090,7 +3654,10 @@
         <members>Regional_CRM_Mgr_N</members>
         <members>Regional_CRM_Mgr_S</members>
         <members>Regional_CRM_Mgr_W</members>
+        <members>Regional_Manager</members>
+        <members>Regional_Operator</members>
         <members>Regional_S_M_Marketing</members>
+        <members>Regional_Supervisor</members>
         <members>Retail</members>
         <members>Retail_AS_Marketing_Assistant_Manager</members>
         <members>SSI_CSR</members>
@@ -3117,6 +3684,17 @@
         <members>StarClassPartnerUser5</members>
         <members>Supervisor_Team_A</members>
         <members>Supervisor_Team_B</members>
+        <members>Sales_Marketing</members>
+        <members>Sales_Marketing_Manager</members>
+        <members>Sales_Marketing_Supervisor</members>
+        <members>Sales_Marketing_Team_Member</members>
+        <members>Sales_Promotion_Manager</members>
+        <members>Sales_Promotion_Operator</members>
+        <members>Sales_Promotion_Supervisor</members>
+        <members>TH_External_Marketing_Agency</members>
+        <members>Value_Promotion_Manager</members>
+        <members>Value_Promotion_Operator</members>
+        <members>Value_Promotion_Supervisor</members>
         <members>Vice_President</members>
         <members>WholeSale_CallCenter</members>
         <members>Wholesale</members>
@@ -3146,14 +3724,17 @@
         <members>en_US</members>
         <members>ja</members>
         <members>ko</members>
+        <members>tr</members>
         <name>Translations</name>
     </types>
     <types>
         <members>Account</members>
         <members>Account_Link__c</members>
+        <members>Account_Object__mdt</members>
         <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>AreaCodeTranslation__mdt</members>
+        <members>Article__kav</members>
         <members>Asset</members>
         <members>AssistantProgress</members>
         <members>Attribute__c</members>
@@ -3228,6 +3809,7 @@
         <members>QC__c</members>
         <members>Question</members>
         <members>Recall__c</members>
+        <members>RegionMasterInfo__c</members>
         <members>Rejected_Duplicate_Log__c</members>
         <members>Reply</members>
         <members>Retail_Campaign_Member__c</members>

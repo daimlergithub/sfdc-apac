@@ -39,7 +39,12 @@
     <actionOverrides>
         <actionName>NewSfdcEvent</actionName>
         <type>Default</type>
-    </actionOverrides> 
+    </actionOverrides>
+    <!--commented pavan-->
+	<!--<actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>-->
     <actionOverrides>
         <actionName>Today</actionName>
         <type>Default</type>

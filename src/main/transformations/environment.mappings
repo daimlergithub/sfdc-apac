@@ -11,7 +11,7 @@ dev_sb_asia_migration=arun.iyer.ntt@mbj.daimler-apac.com.migration
 demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 
 # Asia Test Sandbox
-dev_sb_asia_Test=arun.iyer.ntt@asia.daimler-apac.com.test
+dev_sb_asia_Test=deployment.user.ntt@asia.daimler-apac.com.test
 dev_sb_asia_TestKorea=arun.iyer.ntt@mbj.daimler-apac.com.testkorea
 # Asia Stage Sandbox
 dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
@@ -19,7 +19,7 @@ dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage
 #dev_sb_asia_stage=arun.iyer.ntt@mbj.daimler-apac.com.stage2
 
 # Asia Prod Sandbox
-dev_sb_asia_prod=arun.iyer.ntt@mbj.daimler-apac.com
+dev_sb_asia_prod=deployment.user@mbj.daimler-apac.com
 
 # Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
@@ -55,13 +55,15 @@ dev_sb_asia_dev18=neeraj.sathyanarayana@asia.daimler-apac.com.asiadev18
 dev_sb_asia_dev21=dinesh.govindaswamy@asia.daimler-apac.com.asiadev21
 dev_sb_asia_dev10=sergio.kobayashi@nttdata.com.asiadev10
 dev_sb_asia_dev12=kiran.pedinenikalva@asia.daimler-apac.com.asiadev12
+dev_sb_asia_dev20=sivaramakrishna.aduri@asia.daimler-apac.com.asiadev20
 dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga@daimler.com.daimler-apac.asiadev15
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
 dev_sb_asia_mrdev=
 dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
 dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
-dev_sb_asia_dev16=avishek.roy@@asia.daimler-apac.com.asiadev16
+dev_sb_asia_dev16=avishek.roy.ntt@mbj.daimler-apac.com.asiadev16
 dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
+dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
 dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
 dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
@@ -70,5 +72,21 @@ dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
 dev_sb_asia_dev11=
 dev_sb_asia_MBKKMgmt=shirish.kulkarni@mbj.daimler-apac.com.mbkmgmt
 
+
 # Asia MBKphase2 sandbox
 dev_sb_asia_mbkph2sb=psm@nttdata.com.mbkph2sb
+
+# Traning Sandbox
+dev_sb_TRN=deployment.user@mbj.daimler-apac.com.training
+
+# InitLoad Sandbox
+dev_sb_Init_Load=deployment.user@mbj.daimler-apac.com.initload
+
+#Stage Org K7.0
+dev_sb_asia_Stage7=deployment.user@mbj.daimler-apac.com.staging
+
+
+# ASIA TH development
+CIThailand=pavankumar_01@infosys.com.cithailand
+dev_sb_asiaDevTh8=pavankumar_d01@infosys.com.asiadevth8
+

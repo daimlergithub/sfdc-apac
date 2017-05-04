@@ -192,6 +192,15 @@
         <description>This field is used to refer the related campaign execution record</description>
         <externalId>false</externalId>
         <label>Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Campaign_Executiono</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members1</relationshipName>
@@ -202,7 +211,7 @@
     <fields>
         <fullName>Campaign_Member_ID__c</fullName>
         <description>Autonumber field for Campaign Member.</description>
-        <displayFormat>CM-{000000}</displayFormat>
+        <displayFormat>CM-{0000000000}</displayFormat>
         <externalId>false</externalId>
         <label>Campaign Member ID</label>
         <trackTrending>false</trackTrending>
@@ -360,6 +369,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cross_Point_Model__c</fullName>
         <externalId>false</externalId>
         <label>Cross Point Model</label>
@@ -407,6 +426,17 @@
         <externalId>false</externalId>
         <label>Customer Label Name</label>
         <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact_Id__r.Mobile__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Mobile</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -655,7 +685,7 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -947,6 +977,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Retail Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Retail_Campaign__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Retail_Execution_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members</relationshipName>
@@ -1077,7 +1116,7 @@
                 <fullName>Not Responded</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1109,6 +1148,16 @@
         <externalId>false</externalId>
         <label>Total Vehicle Price without tax</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1189,12 +1238,12 @@
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
         <description>Camapaign Member Status can be only updated from Executed to Responded, Bounced or No Response</description>
-        <errorConditionFormula>AND(
-    ISPICKVAL( PRIORVALUE( Status__c ) , "Executed"),  
-    OR(  
-      ISPICKVAL( Status__c , "Removed") ,
-      ISPICKVAL( Status__c , "Ready"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI' 
-    ) 
+        <errorConditionFormula>AND( 
+ISPICKVAL(PRIORVALUE(Status__c) , "Executed"),MD__c = 'JP', $Profile.Name != 'IntegrationAPI', 
+OR( 
+ISPICKVAL( Status__c , "Removed"), 
+ISPICKVAL( Status__c , "Ready") 
+) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
@@ -1220,6 +1269,21 @@ ISPICKVAL( Status__c , "Not Responded")
         <errorConditionFormula>AND(Retail_Campaign_Id__r.Execution_Start_Date__c &gt; TODAY())</errorConditionFormula>
         <errorMessage>Retail Campaign is locked</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Add_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var CampStatus = "{!Account.Id}";
+openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enableScopes=1&amp;addToCampaign=1',670,'1','')</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_To_DM_Request</fullName>
         <availability>online</availability>
@@ -1350,7 +1414,7 @@ location.reload();</url>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1367,7 +1431,7 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true")</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Retail_Campaign_Member</fullName>
@@ -1382,7 +1446,7 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-var myWindow = window.open("/MBJapan/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.app?objectSelection=Campaign_Member__c&amp;isFromCampaignPage=true");
 }else
 {
 alert('You cannot create campaign members for this campaign status');

@@ -34,120 +34,6 @@
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>AES_CNTR__CallReference__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>CallReference</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>AES_CNTR__Called__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Called</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>AES_CNTR__Caller__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Caller</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>AES_CNTR__Queue__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Queue</label>
-        <length>96</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AES_CNTR__UCID__c</fullName>
-        <deprecated>false</deprecated>
-        <description>Universal Call ID for the Avaya telephone system.</description>
-        <externalId>false</externalId>
-        <label>UCID</label>
-        <length>20</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AES_CNTR__UUI__c</fullName>
-        <deprecated>false</deprecated>
-        <description>User-to-User Information as provided by the CTI link</description>
-        <externalId>false</externalId>
-        <label>UUI</label>
-        <length>96</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__AgentType__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>AgentType</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__CallReference__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>CallReference</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__Called__c</fullName>
-        <deprecated>false</deprecated>
-        <description>The number that was called by the originator. (DNIS)</description>
-        <externalId>false</externalId>
-        <label>Called</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__Caller__c</fullName>
-        <deprecated>false</deprecated>
-        <description>The number that was dialed by the originator of the call. (ANI)</description>
-        <externalId>false</externalId>
-        <label>Caller</label>
-        <required>false</required>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__UCID__c</fullName>
-        <deprecated>false</deprecated>
-        <description>Universal Call ID for the Avaya telephone system.</description>
-        <externalId>false</externalId>
-        <label>UCID</label>
-        <length>20</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AES_SFConnector__UUI__c</fullName>
-        <deprecated>false</deprecated>
-        <description>User-to-User Information as provided by the CTI link</description>
-        <externalId>false</externalId>
-        <label>UUI</label>
-        <length>96</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
         <label>Account Name</label>
@@ -1125,7 +1011,7 @@
     <fields>
         <fullName>Communication_date__c</fullName>
         <externalId>false</externalId>
-        <label>Comm Date</label>
+        <label>Communication_date</label>
         <required>false</required>
         <type>Date</type>
     </fields>
@@ -1262,7 +1148,7 @@
         <required>false</required>
         <type>Picklist</type>
     </fields>
-   <fields>
+    <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
@@ -1323,7 +1209,7 @@
                 <fullName>Quoted</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Trade-in</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1347,18 +1233,45 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>MBTH_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Result</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Solved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Un-Resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
+    </fields>
     <fields>
         <fullName>MTH_Penetration__c</fullName>
         <externalId>false</externalId>
@@ -1652,6 +1565,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         </picklist>
         <required>false</required>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RelatedRetailTask__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Retail Task</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Related_Task_Id__c</fullName>
@@ -2063,8 +1987,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
-	
+    </fields>
     <fields>
         <fullName>eDM_Type__c</fullName>
         <description>eDM Type with 3 types of values: Brochure, Price List	, Brochure+Price List. Auto from trigger. Used by eDM Template ID field.</description>

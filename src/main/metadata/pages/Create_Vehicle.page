@@ -13,7 +13,9 @@
         var recordTypeValue = document.getElementById("singleSelect").value;
         if(recordTypeValue == 'MB'){
         var brandVal = document.getElementById("brandItems").value;
+           
         var classVal = document.getElementById("classItems").value;
+        //Var classVal   = document.getElementById("classItems").value;
         var modelVal = document.getElementById("modelItems").value;  
         var rangeVal = document.getElementById("rangeItems").value; 
         var modpackVal = document.getElementById("mpItems").value; 
@@ -204,20 +206,22 @@
                 </apex:pageBlockSection>
                 
              <div ng-switch="selectedRecordType">
-             <span ng-switch-when="MB">
-               
-                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}"> 
+                 
+             <span ng-switch-when="MB">                    
+                    <apex:outputLabel value="{!$Label.TH_Not_authorized_to_create_MB_Vehicle_record}" rendered="{!Not(nonThaiUserLoggedIn)}" style="font-weight: bold; color: red; font-size: 14px"/>
+                    <apex:pageBlockSection title="{!$Label.Vehicle_Information}" rendered="{!nonThaiUserLoggedIn}"> 
                              
                                 
                                     <!--Custom brand picklist to get the values from carmodal object-->
                                   <apex:pageBlockSectionItem >
                                      <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
                                     
-                                            <div>
+                                            <div class = "requiredInput"  >
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td>
+                                                    <td class="dataCol requiredInput" >
+                                                    
                                                     <select  id="brandItems" style="width:160px" ng-blur="setSelectedValue(selectedBrand)" ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand for brand in brands track by brand" />
                                                     </td> 
                                                 </tr> 
@@ -238,13 +242,16 @@
                                             <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                              <table>
                                                 <tr>
-                                                    <td>
+
+                                                    <td class="dataCol requiredInput">
                                          <select id="modelItems" style="width:174px" ng-blur="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-change="setSelectedModel(selectedBrand+selectedClasses+selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/>
-													 </td> 
+
+                                                     </td> 
                                                 </tr> 
                                              </table>
+
                                             </div>
-										
+                                        
                                     </apex:pageBlockSectionItem>
                                   
                                    <apex:pageBlockSectionItem >
@@ -276,7 +283,7 @@
                 </span>
                  
                 <span ng-switch-when="MB">
-                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}"> 
+                   <apex:pageBlockSection title="{!$Label.Vehicle_Detail}" rendered="{!nonThaiUserLoggedIn}"> 
                         <apex:inputField value="{!vehicle.OptionCode__c}"/> 
                         <apex:inputField value="{!vehicle.Colour__c}"/>
                         <apex:inputField value="{!vehicle.EngineNumber__c}"/>
@@ -297,17 +304,19 @@
                  </span>
                
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Date_Information}">
-                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                    <apex:pageBlockSection title="{!$Label.Date_Information}" rendered="{!nonThaiUserLoggedIn}">
+                        <apex:inputField value="{!vehicle.FirstRegistrationDate__c}" required="true"/>
                         <apex:inputField value="{!vehicle.ProductionDate__c}"/>
                         <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
                         <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
+
+
                         
                     </apex:pageBlockSection>
                  </span>
                 
                  <span ng-switch-when="MB">
-                    <apex:pageBlockSection title="{!$Label.Other_Information}">
+                    <apex:pageBlockSection title="{!$Label.Other_Information}" rendered="{!nonThaiUserLoggedIn}">
                         <apex:inputField value="{!vehicle.Transmission__c}"/>
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                         <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
@@ -334,13 +343,17 @@
                             
                          <apex:pageBlockSectionItem > 
                                     <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Competitor_Model__c.Label}"/>              
-                                    <div class = "requiredInput">
+                                    <div>
                                     <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
                                      <table>
                                         <tr>
                                             <td class="dataCol requiredInput">            
                                     <select id="compMdelItems" style="width:174px" ng-model="selectedCompModel" ng-change="setCompModelValue(selectedCompModel)" ng-options="compModel for compModel in compModels track by compModel"/>
-											 </td> 
+
+
+
+
+                                             </td> 
                                                 </tr> 
                                              </table>
                                             </div>
@@ -360,6 +373,9 @@
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
                         <apex:inputField value="{!vehicle.Related_From__c}"/>
                         <apex:inputField value="{!vehicle.Related_To__c}"/> 
+
+
+
                         
                     </apex:pageBlockSection>
                 </span>
@@ -369,13 +385,13 @@
                          <apex:inputField value="{!vehicle.Portal_Vehicle_ID__c}"/>
                     </apex:pageBlockSection>
                 </span>
-                     
-                <apex:pageBlockButtons >
-                        <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
-                        <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;" />
-                        <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
-                </apex:pageBlockButtons>
-                                         
+                 
+                 <apex:pageBlockButtons >
+                     <apex:commandButton value="{!$Label.Save_Button}" onclick="saveDetail();return false;"/>
+                     <apex:commandButton value="{!$Label.Save_New_Button}"  onclick="saveAndNewDetail();return false;"/>
+                     <apex:commandButton action="{!Cancel}" value="{!$Label.Cancel_Button}"/>                    
+                 </apex:pageBlockButtons>
+                
               </div>
                 
             </apex:pageBlock>

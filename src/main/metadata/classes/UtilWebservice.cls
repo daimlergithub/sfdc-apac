@@ -380,6 +380,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
    public static crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse validateCustomerDetails(Account accountDetails){
    
+   System.debug('%^%^%^%%^ accountDetails'+accountDetails);
         User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()];        
         System.debug('@@@@@@ ## User'+Usr);
         String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
@@ -390,6 +391,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Id  = accountDetails.Id;
         sendingCustomerDetails.FirstName = accountDetails.FirstName; 
         sendingCustomerDetails.LastName = accountDetails.LastName;
+        sendingCustomerDetails.Name= accountDetails.Name;
         sendingCustomerDetails.LastName_Native_1_xc = accountDetails.LastName_Native_1__c;
         sendingCustomerDetails.FirstName_Native_1_xc = accountDetails.FirstName_Native_1__c;
         sendingCustomerDetails.PersonBirthdate    = string.valueOf(accountDetails.PersonBirthdate);
@@ -404,7 +406,11 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ;         
-		sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c;         
+         sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)
         {
@@ -418,7 +424,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
           request.OrganizationId = UserInfo.getOrganizationId();
           request.MarketDiscriminator= Usr.Market__c;
           
-          
+          System.debug('%^%^%^%%^ sendingCustomerDetails'+sendingCustomerDetails);
 
           System.debug('@@@@@@ request.MarketDiscriminator'+request.MarketDiscriminator);
           request.Customer = sendingCustomerDetails;
@@ -465,6 +471,12 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         sendingCustomerDetails.Email2_xc = accountDetails.Email2__c;
         sendingCustomerDetails.Email3_xc =  accountDetails.Email3__c ;
         sendingCustomerDetails.Salutation = accountDetails.Salutation ; 
+        sendingCustomerDetails.Name= accountDetails.Name;
+        sendingCustomerDetails.Vin = accountDetails.VIN__c; 
+        sendingCustomerDetails.Company_Name_xc= accountDetails.Company_Name__c; 
+        sendingCustomerDetails.Company_Name_Native_1_xc = accountDetails.Company_Name_Native_1__c; 
+        sendingCustomerDetails.Foundation_date_xc=  string.valueOf(accountDetails.Foundation_date__c);
+        sendingCustomerDetails.Commercial_reg_no_xc= accountDetails.Commercial_reg_no__c; 
         
         addrValues.Address_Code_xc=AddressObj.Address_Code__c;
         addrValues.Address_Line_1_xc=AddressObj.Address_Line_1__c;
@@ -482,6 +494,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         addrValues.Temp_Address_xc=AddressObj.Temp_Address__c;
         addrValues.Temp_ZipCode_xc=AddressObj.Temp_ZipCode__c;
         addrValues.TitleOfHonor_xc=AddressObj.TitleOfHonor__c;
+    addrValues.Address_Type_xc=AddressObj.Address_Type__c;
         sendingCustomerDetails.Address_xc.add(addrValues);
         
         if(accountDetails.RecordTypeId == PersonAccountRecordTypeID)

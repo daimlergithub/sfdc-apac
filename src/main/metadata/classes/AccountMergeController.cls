@@ -3,11 +3,12 @@
     Purpose:    Merget the Master Account Record and Suspect Duplicate Account
     User Story: US-DD-002
     Used By:    SelectSlaveAccount.page and AccountMerge Page
-    Modified By: Sneha
+    Modified By: Mohammed Touseef Ahmed
     ---------------------------------------------------------------
     History:    
     1. Mouse Created on 2013-3-05
     2. Modified on 1-dec-2015    
+    3. Modified on 15th March 2017
 */
 
 public with sharing class AccountMergeController{
@@ -58,8 +59,7 @@ public with sharing class AccountMergeController{
             }
             if(AccountwrapperList.size()!=2){
                 hasSuspectAccounts=true;
-               }
-            system.debug('AccountwrapperList>>>>>>>'+AccountwrapperList);
+               }          
             SoqlFieldset = new set<string>();
             SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsCompany'));
             SoqlFieldset.addAll(this.getFieldsListByFieldSet('AccountMergeFieldsPerson'));
@@ -73,8 +73,7 @@ public with sharing class AccountMergeController{
          }
         Catch(Exception e){
          //hasMessage=true;
-          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master record found for duplicate merge'));
-          system.debug(e.getmessage() + '******');
+          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO,'No master record found for duplicate merge'));         
         }  
                        
         wraps = new List<Accountwrapper>();
@@ -197,15 +196,17 @@ public with sharing class AccountMergeController{
           }
          
         // Update Slave RecordTypeId and Owner
-          if(slave.RecordType.developerName == 'PersonAccount' && master.RecordType.developerName == 'PersonAccount')
-           {
+          if
+          (slave.RecordType.developerName == 'PersonAccount' && master.RecordType.developerName == 'PersonAccount')
+          {
             slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account',UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
             slave.OwnerId = usr.Id;       
             slave.Master_Account_Id__c = master.Id;
             master.DUPNumber__c='';
             master.Master_Record__c=false;
           }
-            else if(slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')
+            else if
+            (slave.RecordType.developerName == 'Company' && master.RecordType.developerName == 'Company')                       
             {
              slave.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Account','Company_Soft_Deleted'); 
              slave.OwnerId = usr.Id;       
@@ -286,9 +287,7 @@ public with sharing class AccountMergeController{
             wrap.isMasterChecked = (slaveFieldValue == null && 
                 masterFieldValue != null);                
                         
-            wraps.add(wrap);     
-            system.debug('<<?<?<'+wraps);    
-            system.debug('<<?<?<'+wraps.size());       
+            wraps.add(wrap);           
         }        
     } 
       /** 
@@ -302,8 +301,6 @@ public with sharing class AccountMergeController{
             
             String soql = 'SELECT ' + getSOQLFieldList(SoqlFieldset) /*+ 
                this.getSOQLFieldList(FieldMappingConstant.PHONE_DMS_FIELDS_MAPPING.values())*/;
-            
-            system.debug('soql-------->'+soql);
             
             // Prevent duplicate Master_Record__c and DUPNumber__c in SOQL Field List,
             if (!soql.contains('Master_Record__c')) {

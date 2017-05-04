@@ -104,6 +104,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lost_CAC_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>WIP_Number__c</field>
             </layoutItems>
             <layoutItems>
@@ -339,7 +343,7 @@
                 <field>Received_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Accepted_Date_Time__c</field>
             </layoutItems>
         </layoutColumns>
@@ -556,6 +560,15 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	    <relatedLists>
+        <customButtons>New_Campaign_Lead</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Campaign__c</fields>
+        <fields>Central_Campaign_Name__c</fields>
+        <fields>Participate__c</fields>
+        <relatedList>Campaign_Lead__c.Lead__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

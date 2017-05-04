@@ -1,7 +1,16 @@
+<!--
+Created by : Lokesh M
+Description: On the Campaign Member related list, export button must be available.When user click on export button in 'Child campaign' or 'retail child campaign', it will export to your system as csv file
+Created Date : 31st Jan,2017
+Lastmodifed  : 4th april,2017
+-->
+
 <apex:page contentType="application/vnd.ms-excel#CampaignMembers.xls" sidebar="false" controller="exportCampaignMembers" action="{!changeStatus}">
+     <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    </head>
         <table border="1" >
         <tr>
-            <th>Campaign Member Id(Auto Number)</th>
             <th>Campaign Member Id</th>
             <th>Campaign Id</th>
             <th>Campaign Memeber Name</th>
@@ -106,7 +115,6 @@
         </tr>
         <apex:repeat value="{!campaignMemberList}" var="item">
         <tr>
-            <td>{!item.Campaign_Member_ID__c}</td>
             <td>{!item.Id}</td>
             <td>{!item.Campaign_ID__c}</td>
             <td>{!item.Name}</td>

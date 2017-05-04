@@ -6,11 +6,10 @@
     <customButtons>TerminateVehicleRelationships</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Clone</excludeButtons> 
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
-	<excludeButtons>Delete</excludeButtons>
-    <excludeButtons>Edit</excludeButtons>	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -259,6 +258,8 @@
     <miniLayout>
         <fields>Brand__c</fields>
         <fields>Class__c</fields>
+        <fields>Range__c</fields>
+        <fields>Model_Description__c</fields>
         <fields>UsVIN__c</fields>
     </miniLayout>
     <relatedLists>

@@ -15,11 +15,13 @@ public static Account Dealer;
     public static void createTestData()
     { 
      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;
+            //insert updatecustomsettings;
         
      Trigger__c TriggerShareAccountLinksToDealer=new Trigger__c(Name='ShareAccountLinksToDealer',Trigger_Name__c='ShareAccountLinksToDealer',Trigger_Handler__c='ShareAccountLinksToDealerTriggerHandler',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='NA');
      insert TriggerShareAccountLinksToDealer;  
-        
+         Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccount',Trigger_Name__c = 'TriggerAccount',Trigger_Handler__c = 'TriggerAccountTriggerHandlerJP',Market__c ='JP',
+                               enabled__c = False,after__c= False,before__c= False,delete__c= False,update__c= False,insert__c= False);
+            insert newtrg;
       List<Account> accList=new List<Account>();
       List<Lead__c> leadList=new List<Lead__c>();
       Dealer = new Account(Dealer_Default_Flag__c=true,

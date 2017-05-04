@@ -107,6 +107,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Address_TH__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c != null, Customer_Name__r.Primary_Address_Reference__r.HouseNumber__c+ ',', '') + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_1__c + ',', '') + IF(Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c != null, Customer_Name__r.Primary_Address_Reference__r.Address_Line_2__c + ',', '') + IF(Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) != null, Text(Customer_Name__r.Primary_Address_Reference__r.Province__c) + ',', '') + Customer_Name__r.Primary_Address_Reference__r.ZipCode__c</formula>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address__c</fullName>
         <externalId>false</externalId>
         <label>Address</label>
@@ -215,7 +226,7 @@ Modify Reason:
         <fullName>Case_Number__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Related Case</label>
+        <label>Case Number</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Case that is linked to the same account as this DM Request.</errorMessage>
@@ -553,6 +564,17 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = 'TH', Customer_Name__r.FirstName, '')</formula>
+        <label>First Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Gender__c</fullName>
         <description>This field is used for display account gender field in DM request.</description>
         <externalId>false</externalId>
@@ -576,10 +598,21 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c  = 'TH', Customer_Name__r.LastName, '')</formula>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Related Lead</label>
+        <label>Lead</label>
         <lookupFilter>
             <active>true</active>
             <errorMessage>Please select Leads that is linked to the same account as this DM Request.</errorMessage>
@@ -676,7 +709,7 @@ Modify Reason:
                 <fullName>Mercedes Me</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -686,11 +719,53 @@ Modify Reason:
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>MBTH_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>MBTH Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -1058,7 +1133,7 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <label>TitleOfHonor</label>
+        <label>Title</label>
         <picklist>
             <picklistValues>
                 <fullName>To Person</fullName>
@@ -1074,6 +1149,17 @@ Modify Reason:
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Customer_Name__r.MD__c = 'TH', TEXT(Customer_Name__r.Title__c), '')</formula>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>To_Be_Deleted__c</fullName>
@@ -1164,6 +1250,12 @@ Modify Reason:
         </filters>
         <label>All_temp</label>
         <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Failed_DM_Requests</fullName>
@@ -1191,18 +1283,28 @@ Modify Reason:
         <fullName>MBJ_CRM_Department_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>MBJ_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>MBJ Supervisor</label>
+        <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1386,6 +1488,12 @@ Modify Reason:
         </filters>
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -1479,13 +1587,18 @@ Modify Reason:
             <role>Central</role>
         </sharedTo>
     </listViews>
-    <listViews>
+   <listViews>
         <fullName>Supervisor_DM_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Supervisor Team A</label>
+        <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
             <allInternalUsers/>
+            <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+            <roleAndSubordinates>Other_MBJ</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1618,7 +1731,7 @@ Modify Reason:
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
 $Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH'))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -1645,7 +1758,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1654,7 +1767,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1663,7 +1776,7 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1672,7 +1785,7 @@ OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is nul
         <active>true</active>
         <description>US-DM-003:
 7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; MD__c = 'KR' &amp;&amp; 
+        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH') &amp;&amp; 
 ( 
 Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
 || 
@@ -1737,7 +1850,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; MD__c = 'KR'</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH')</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
