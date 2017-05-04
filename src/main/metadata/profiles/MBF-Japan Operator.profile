@@ -25318,10 +25318,10 @@
         <apexPage>SMSSendResult</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+    <!--<pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses>-->
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
