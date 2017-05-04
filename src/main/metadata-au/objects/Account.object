@@ -414,6 +414,15 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Acquisition_Record_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquisition Record Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Activation_Date__c</fullName>
         <externalId>false</externalId>
