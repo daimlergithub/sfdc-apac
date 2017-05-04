@@ -26933,10 +26933,10 @@
         <enabled>true</enabled>
         <name>ManageDataCategories</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>ManageDynamicDashboards</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageInternalUsers</name>
