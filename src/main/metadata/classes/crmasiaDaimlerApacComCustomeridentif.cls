@@ -35,6 +35,7 @@ public class crmasiaDaimlerApacComCustomeridentif {
         public String Temp_Address_xc;
         public String Temp_ZipCode_xc;
         public String TitleOfHonor_xc;
+        public String Address_Type_xc;
         private String[] Id_type_info = new String[]{'Id','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_Code_xc_type_info = new String[]{'Address_Code__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_Line_1_xc_type_info = new String[]{'Address_Line_1__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
@@ -52,8 +53,9 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] Temp_Address_xc_type_info = new String[]{'Temp_Address__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Temp_ZipCode_xc_type_info = new String[]{'Temp_ZipCode__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] TitleOfHonor_xc_type_info = new String[]{'TitleOfHonor__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] Address_Type_xc_type_info = new String[]{'Address_Type__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Id','Address_Code_xc','Address_Line_1_xc','Address_Line_2_xc','Block_xc','City_xc','District_xc','Province_xc','ZipCode_xc','Country_xc','Company_Name_xc','Company_Name_Native_xc','Delivery_Point_ID_xc','HouseNumber_xc','Temp_Address_xc','Temp_ZipCode_xc','TitleOfHonor_xc'};
+        private String[] field_order_type_info = new String[]{'Id','Address_Code_xc','Address_Line_1_xc','Address_Line_2_xc','Block_xc','City_xc','District_xc','Province_xc','ZipCode_xc','Country_xc','Company_Name_xc','Company_Name_Native_xc','Delivery_Point_ID_xc','HouseNumber_xc','Temp_Address_xc','Temp_ZipCode_xc','TitleOfHonor_xc','Address_Type_xc'};
     }
     public class IdentifyCustomerResponse {
         public crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse CustomerIdentificationResponse;
