@@ -5,6 +5,7 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
      Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
      ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();    //VehicleRelationship
      ID AccountLinkRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId();    //Account_Link__c
+       Id dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
          ID C2CRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();    //Account_Link__c
                                             
      
@@ -28,7 +29,8 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
                                     Name = 'Test',                                  
                                     RecordTypeId=accPerson_RecordTypeId);
     
-  
+     Account  dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
+        insert dealer;
    
    
     // CR-000119
@@ -43,16 +45,16 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
                                                 
                                                 insert vehicles;
                                                 
-    Account_Link__c accln = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =AccountLinkRecordTypeId);
+    Account_Link__c accln = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =AccountLinkRecordTypeId,fromRole__c =dealer.id);
     insert accln;
          
-         Account_Link__c accln1 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId);
+         Account_Link__c accln1 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId,fromRole__c =dealer.id);
     insert accln1;
          
-         Account_Link__c accln2 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId);
+         Account_Link__c accln2 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId,toRole__c=account2.id,fromRole__c =dealer.id);
     insert accln2;
          
-         Account_Link__c accln3 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId,fromRole__c = account2.id);
+         Account_Link__c accln3 = new Account_Link__c(Name='Test',Vehicle__c=vehicles.id,RecordTypeId =C2CRecordTypeId,fromRole__c = account2.id,toRole__c=dealer.id);
     insert accln3;
                                                 
    Vehicle_Relationship__c VR = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'Purchaser',
@@ -90,5 +92,6 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
     //pageReference pager = page.ChangeContactTarget;
     //    Test.setCurrentPage(pager);
     
-    }                                           
+    } 
+                                         
 }

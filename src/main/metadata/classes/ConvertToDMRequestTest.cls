@@ -1,7 +1,7 @@
 @isTest
  public class ConvertToDMRequestTest
  {
-   public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
+   public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
    public static testMethod void CampaignTest()
     {
        Test.startTest();
@@ -10,6 +10,7 @@
              Name='test par',
             EndDate=Date.Today().adddays(+10),
             StartDate=Date.Today(),
+            Segmentation_Date__c=system.today(),
             RecordtypeID=parentCampaign_RecordTypeID,
             Status='Responded');
             insert parentCamp;       
