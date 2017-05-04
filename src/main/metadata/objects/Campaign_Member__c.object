@@ -192,6 +192,15 @@
         <description>This field is used to refer the related campaign execution record</description>
         <externalId>false</externalId>
         <label>Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Campaign_Executiono</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members1</relationshipName>
@@ -968,6 +977,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Retail Campaign ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Retail_Campaign__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Retail_Execution_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
         <relationshipLabel>Campaign Members</relationshipLabel>
         <relationshipName>Campaign_Members</relationshipName>
