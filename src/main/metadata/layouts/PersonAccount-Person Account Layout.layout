@@ -217,7 +217,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing__c</field>
+                <field>MB_Customer_Info_Remove__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
