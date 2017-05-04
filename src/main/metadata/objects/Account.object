@@ -12633,6 +12633,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
                 <operation>equals</operation>
                 <valueField>$Source.Id</valueField>
             </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>notEqual</operation>
+                <value>IntegrationAPI</value>
+            </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Address__c</referenceTo>
@@ -54173,10 +54178,18 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <errorMessage>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬â„¢.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Acquisition_Objective_Method_mandatory</fullName>
+        <active>true</active>
+        <description>When "Allow data sharing2" is set to "Yes" in either ACC-01-05 Person Account Layout for Dealer or ACC-06-01 Account Creation,  "Acquisition Objective &amp; Method" should be mandatory</description>
+        <errorConditionFormula>AND( ISPICKVAL( Allow_Data_Sharing2__c , "Yes"), ISPICKVAL( Acquisition_Objective_Method__c , ''), MD__c ='JP', $Profile.Name !="IntegrationAPI"  )</errorConditionFormula>
+        <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
+        <errorMessage>Please select Acquisition Objective &amp; Method</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT(ISPICKVAL( $User.User_Type__c , 'MBJ' ))
-	, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
+, MD__c ='JP', $Profile.Name != 'IntegrationAPI',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing2__c), 'Yes'), ISPICKVAL(Allow_Data_Sharing2__c, 'No')
 )</errorConditionFormula>
         <errorMessage>Only MBJ/MBF user can update Allow Data Sharing2 from true to false.</errorMessage>
     </validationRules>
@@ -54397,6 +54410,14 @@ NOT(Dealer_Active__c)
 AND(RecordType.DeveloperName = &apos;Dealer&apos;, ISCHANGED(Name), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>It&apos;s not allowed to change dealer name.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Details_of_The_Acquisition_mandatory</fullName>
+        <active>true</active>
+        <description>"Details of The Acquisition" need to be mandatory only if "Acquisition Objective &amp; Method" is "Others"</description>
+        <errorConditionFormula>AND(ISPICKVAL( Acquisition_Objective_Method__c , 'Others'), ISBLANK( Details_of_Acquisition__c ) , MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorDisplayField>Details_of_Acquisition__c</errorDisplayField>
+        <errorMessage>Enter  Value for Details of The Acquisition</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_For_Extension_Number</fullName>
