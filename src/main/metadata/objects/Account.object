@@ -54622,6 +54622,10 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
         <active>true</active> 
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',$RecordType.Name=&quot;Company&quot;,
+NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula> 
         <errorConditionFormula>AND( 
 			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
 			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
@@ -55630,13 +55634,13 @@ MD__c = &apos;JP&apos;
 		<fullName>Invalid_Email_Address_TH</fullName>
 		<active>true</active>
 		<description>Email Validation on customer record .</description>
-		<errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) && !ISNEW() &&
-					AND(
-					OR( CONTAINS(Email__c, '?'), CONTAINS(Email__c, '^'), CONTAINS(Email__c, '%'),
-					CONTAINS(Email__c, '$'), RIGHT(Email__c, 1)='.', BEGINS(Email__c, '.') , CONTAINS(Email__c, '@.'), CONTAINS(Email__c, '.@'),
-					CONTAINS(Email__c, '..'), NOT(CONTAINS(Email__c, '.')), NOT(CONTAINS(Email__c, '@')),
-					CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND('@', Email__c)), '@') , LEFT( RIGHT( Email__c, 2), 1)='.'),
-					$Profile.Name != 'IntegrationAPI',MD__c = 'TH'
+		<errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
+		AND(
+		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
+		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
+		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>
 	</validationRules>
