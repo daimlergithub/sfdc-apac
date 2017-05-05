@@ -2112,7 +2112,7 @@
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
     </customLabels>
-    <customLabels>
+        <customLabels>
         <label>販売店を設定してください。</label>
         <name>Notify_To_Dealer1</name>
     </customLabels>
