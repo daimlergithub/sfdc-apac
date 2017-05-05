@@ -48,7 +48,7 @@ public class TriggerVehicleRelTriggerHandlerJP
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           
@@ -62,7 +62,7 @@ public class TriggerVehicleRelTriggerHandlerJP
           
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
@@ -93,7 +93,7 @@ public class TriggerVehicleRelTriggerHandlerJP
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
           
         }
         if(trigger.isAfter && Trigger.isUpdate) {
@@ -104,7 +104,7 @@ public class TriggerVehicleRelTriggerHandlerJP
           }
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
