@@ -213,7 +213,8 @@ public with sharing class AddressHelperJP {
     @created by  : Lokesh M
     @created date: Mar 31st, 2017
     */
-    public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList){
+    public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList)
+	{
         //Checking the user profile is dealer 
         if(userinfo.getUserType()=='PowerPartner'){
             System.debug('AddressHelerpJp.afterInsetAddressUpdateRetailPerson method fired');
@@ -223,10 +224,20 @@ public with sharing class AddressHelperJP {
             List<Account> accCompanyList = new List<Account>();
             List<Account_Link__c> updateList = new List<Account_Link__c>();
             
-            for(Address__c curAdd : addList){
+            for(Address__c curAdd : addList)
+            {
                 //Checking Market Discriminator as JP
-                if(curAdd.MD__c == Label.MarketJP){
-                    if(curAdd.RecordTypeId == individualAddRecordTypeId && curAdd.customer__c != NULL){
+                if(curAdd.MD__c == Label.MarketJP)
+                {
+                    if(curAdd.RecordTypeId == individualAddRecordTypeId && curAdd.customer__c != NULL)
+                    {
+                        accIdAddIdMap.put(curAdd.Customer__c,curAdd);
+                    }
+                }
+                if(curAdd.MD__c == Label.MarketKR)
+                {
+                    if(curAdd.Customer__c != null)
+                    {
                         accIdAddIdMap.put(curAdd.Customer__c,curAdd);
                     }
                 }

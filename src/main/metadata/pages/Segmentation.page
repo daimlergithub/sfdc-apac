@@ -1,0 +1,6 @@
+<apex:page standardController="Segmentation_Criteria__c" extensions="segmentationredirect" action="{!openPage}">
+
+    <!-- <apex:include PageName="SegmentationCriteria" /> -->
+
+  
+</apex:page>

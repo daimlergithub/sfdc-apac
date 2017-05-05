@@ -4419,9 +4419,9 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
     <fields>
         <fullName>Vehicle_Phone_picklist__c</fullName>
         <externalId>false</externalId>
-        <label>vehicle tel picklist</label>		
+        <label>vehicle tel picklist</label>
         <picklist>
-			<picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4465,7 +4465,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
+    </fields> 
     <fields>
         <fullName>Warranty_Apply_NDCode__c</fullName>
         <externalId>false</externalId>
@@ -4659,6 +4659,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <field>$Source.Contact__c</field>
                 <operation>equals</operation>
                 <valueField>Address__c.Customer__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>notEqual</operation>
+                <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

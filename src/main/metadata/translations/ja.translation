@@ -912,6 +912,10 @@
         <label><!-- Convert To Task --></label>
         <name>Convert_To_Task</name>
     </customLabels>
+	<customLabels>
+        <label>リードタイプ変更</label>
+        <name>Converted_to_After_Sales_Leads</name>
+    </customLabels>
     <customLabels>
         <label>写し</label>
         <name>Copy</name>
@@ -2085,7 +2089,7 @@
         <name>No_Complaint</name>
     </customLabels>
     <customLabels>
-        <label><!-- No Match Found --></label>
+        <label>入力した条件では該当顧客は見つかりませんでした。条件を増やして再検索するか、このまま新規登録してください。</label>
         <name>No_Match_Found</name>
     </customLabels>
     <customLabels>
@@ -2107,6 +2111,15 @@
     <customLabels>
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
+    </customLabels>
+        <customLabels>
+        <label>販売店を設定してください。</label>
+        <name>Notify_To_Dealer1</name>
+    </customLabels>
+    <customLabels>
+        <label>この内容で販売店に通知していいですか。
+修正する場合は、キャンセルを押してください。</label>
+        <name>Notify_To_Dealer2</name>
     </customLabels>
     <customLabels>
         <label>職業</label>
@@ -2565,6 +2578,10 @@
     <customLabels>
         <label><!-- Retail Campaign Canlender Page SM Media --></label>
         <name>Retail_Campaign_Canlender_Page_SM_Media</name>
+    </customLabels>
+	<customLabels>
+        <label>該当顧客は既に自法人情報内に存在します。画面上部のグローバル検索ボックスにて再度検索してください。</label>
+        <name>Retail_copy_is_already_present</name>
     </customLabels>
     <customLabels>
         <label><!-- SMS Reply History Respond Content --></label>
@@ -3682,19 +3699,6 @@
         <sections>
             <label><!-- Leads (Contact) --></label>
             <name>Leads (Contact)</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
-        <description><!-- Campaign Member --></description>
-        <label><!-- Campaign Member --></label>
-        <name>Campaign_Member</name>
-        <sections>
-            <label><!-- Campaign Members --></label>
-            <name>Campaign Members</name>
-        </sections>
-        <sections>
-            <label><!-- Campaigns --></label>
-            <name>Campaigns</name>
         </sections>
     </reportTypes>
     <reportTypes>

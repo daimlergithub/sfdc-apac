@@ -217,7 +217,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Allow_Data_Sharing__c</field>
+                <field>MB_Customer_Info_Remove__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -306,6 +306,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SMS_Last_Modified_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loyalty_Card_No__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -642,6 +646,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Buy_Cycle__c</field>
+            </layoutItems>
+			            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Special_Needs_Class__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

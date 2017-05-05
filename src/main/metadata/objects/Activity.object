@@ -1233,33 +1233,6 @@
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>MBTH_Result__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH Result</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Solved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unsolved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Resolved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Un-Resolved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -1565,17 +1538,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), '
         </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>RelatedRetailTask__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Related Retail Task</label>
-        <referenceTo>Retail_Task__c</referenceTo>
-        <relationshipLabel>Activities</relationshipLabel>
-        <relationshipName>Activities</relationshipName>
-        <required>false</required>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Related_Task_Id__c</fullName>

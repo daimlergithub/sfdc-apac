@@ -64,6 +64,8 @@ public class AddressSearchValidationController
     public String province {get;set;}
     public boolean IsForeignNational{get; set;}
     
+    Public User u{get;set;}
+    
     // COnstructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
@@ -79,7 +81,7 @@ public class AddressSearchValidationController
         IsForeignNational=false;
         
         // refreshPage = false;        
-        User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
+        u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
         market = u.Market__c;
         objPersonAccount.Allow_Data_Sharing2__c = 'No';
         if(market == Label.KR){
@@ -87,6 +89,11 @@ public class AddressSearchValidationController
             datasource = false;
         }
         if(market != Label.KR){
+        if(u.ContactId !=null)
+        {
+        TouchPoint='Dealers';
+       // objPersonAccount.Data_Source__c='Dealers';
+        }
             mbkdatasource = false;
             datasource = true;
         }
@@ -240,6 +247,11 @@ public class AddressSearchValidationController
                     else
                     {   system.debug('JP Company loop 1 :');
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objAccount.Data_Source__c=TouchPoint;
+                        }
+                        
                         insert objAccount ;
                         PageReference pageRef = new PageReference('/'+objAccount.Id);
                         return PageRef;
@@ -259,6 +271,14 @@ public class AddressSearchValidationController
                     else
                     {   system.debug('JP Company loop 2 :');
                         refreshPage = true;
+                        if(TouchPoint !=null)
+                        {
+                        objPersonAccount.Data_Source__c=TouchPoint;
+                        } 
+                        if(objPersonAccount.Acquisition_Objective_Method__c !=null && objPersonAccount.Allow_Data_Sharing2__c =='Yes')
+                        {
+                        objPersonAccount.Acquisition_Record_Date__c=System.today();
+                        }
                         insert objPersonAccount ;
                         PageReference pageRef = new PageReference('/'+objPersonAccount.Id);
                         return PageRef;
@@ -1288,10 +1308,12 @@ If the user is Saving  same address which matches the fields returned by toleran
            Address__c NewAdd=new Address__c();
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
             {
+              AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
             if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
             {
+              AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
             if(AddressObj == NewAdd)
