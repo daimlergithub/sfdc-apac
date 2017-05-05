@@ -43,9 +43,10 @@ public class EmailNotificationAfter24Hours{
         //Toadd.add('dhanamjaya44@gmail.com');
              
              if(leadOwnerIDs!=null){
-                    User managersEmail=[select name,manager.email from user where id=:leadOwnerIDs limit 1];
+                    User managersEmail=[select name,email,manager.email from user where id=:leadOwnerIDs limit 1];
+                    ToAdd.add(managersEmail.email);
                     if(managersEmail.manager.email!=null){
-                    system.debug('hi dhanamjaya');
+                    //system.debug('hi dhanamjaya');
                         cCAdd.add(managersEmail.manager.email);
                     }
                 }
@@ -81,7 +82,8 @@ public class EmailNotificationAfter24Hours{
                  if(flag){
              
                     if(leadOwnerIDs!=null){
-                        User managersEmail=[select name,manager.email from user where id=:leadOwnerIDs limit 1];
+                        User managersEmail=[select name,email,manager.email from user where id=:leadOwnerIDs limit 1];
+                        ToAdd.add(managersEmail.email);
                             if(managersEmail.manager.email!=null){
                                 cCAdd.add(managersEmail.manager.email);
                             }

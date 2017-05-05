@@ -35,10 +35,6 @@
                 <field>Purchased_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CAC_Lead_Status__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
@@ -49,6 +45,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Successful_Call_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -102,6 +102,22 @@
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Competitor_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Additional_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_record_Owner_Manager_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Assigned_Dealer_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -150,6 +166,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Lead_DataSubSource__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Trade_In_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
@@ -163,6 +183,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Dealer_Untouched_In_72H__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Last_Modified_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

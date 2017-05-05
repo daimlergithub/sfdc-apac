@@ -10866,7 +10866,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -54621,7 +54621,7 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     </validationRules>
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
-        <active>true</active> 
+        <active>true</active>
         <errorConditionFormula>AND( 
 			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
 			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
@@ -55635,7 +55635,7 @@ MD__c = &apos;JP&apos;
 		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
 		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
 		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
 		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>
