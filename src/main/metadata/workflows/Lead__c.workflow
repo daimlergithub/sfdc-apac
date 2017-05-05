@@ -1171,8 +1171,8 @@ Purchased_Date_Time__c
             <name>Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c),  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),  Dealer_LMS__c = 'Salesforce', MD__c = 'KR' )</formula>
+        <active>false</active>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', MD__c = 'KR' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -1631,7 +1631,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>TH_Update_ContactFailed_Date_Time_to_now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1758,7 +1758,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_Purchased_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1783,7 +1783,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_CAC_purchased_date_time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
@@ -2150,7 +2150,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR')</formula>
+		<formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2188,7 +2188,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR')</formula>
+		<formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2361,7 +2361,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Purchased"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
