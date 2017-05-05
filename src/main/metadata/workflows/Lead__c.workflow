@@ -1631,7 +1631,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>TH_Update_ContactFailed_Date_Time_to_now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1758,7 +1758,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_Purchased_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1783,7 +1783,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_CAC_purchased_date_time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
