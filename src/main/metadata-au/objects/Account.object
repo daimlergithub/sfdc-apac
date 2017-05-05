@@ -8992,6 +8992,16 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Primary_Address_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Primary Address Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Partner_Title__c</fullName>
         <description>Partner Title - Should be the same values as used for the customer title</description>

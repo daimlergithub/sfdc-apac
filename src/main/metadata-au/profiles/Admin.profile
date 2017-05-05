@@ -1704,6 +1704,11 @@
         <field>Account.Acquisition_Record_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Address_Last_Modified_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Activation_Date__c</field>
