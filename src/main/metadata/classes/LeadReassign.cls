@@ -51,7 +51,7 @@ public without sharing class  LeadReassign{
             if(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c!=null){
             newmapid.add(((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c);
             l.Received_Date_Time__c=null;
-            l.Assigned_Date_Time__c=null;
+            //l.Assigned_Date_Time__c=null;
             l.Accepted_Date_Time__c=null;
             l.dealer_lead_status__c='';
             }
@@ -74,7 +74,7 @@ public without sharing class  LeadReassign{
                     
                     }
                else{
-                    if(l.assigned_dealer__c!=null && l.Received_Date_Time__c!=null&&l.Assigned_Date_Time__c!=null&&l.Accepted_Date_Time__c!=null){
+                    if(l.assigned_dealer__c!=null && l.Received_Date_Time__c!=null/*&&l.Assigned_Date_Time__c!=null*/&&l.Accepted_Date_Time__c!=null){
                         if(l.dealer_lead_status__c!='Accepted'){
                                
                                l.ownerID=l.createdbyId;
