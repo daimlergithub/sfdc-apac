@@ -616,6 +616,61 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONES_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CUSTOM_CLONE_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX</token>
+	</changetext>
+		<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Custom_Clone']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CLONE_CAMPAIGN_FIELD_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_USERNAME_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Case']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CASE_PRIMARYCASEDEALER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID</token>
 	</changetext>
