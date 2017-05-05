@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+R<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -20848,7 +20848,7 @@
         <layout>Account-Company Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Company Layout</layout>
+        <layout>Account-Company Layout_KR</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -21250,7 +21250,7 @@
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout</layout>
+        <layout>PersonAccount-Person Account Layout_KR</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
