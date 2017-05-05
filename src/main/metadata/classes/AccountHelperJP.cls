@@ -523,7 +523,10 @@ public class AccountHelperJP
                         
                     }
                     update acclist;
+                    
+                    
                     map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
+                    system.debug('accountmap>>>>>' + accountmap);
                     for(Account acc : accountlist)
                     {
                         Account account = accountmap.get(acc.Id);
@@ -538,6 +541,14 @@ public class AccountHelperJP
                         
                     }
                     insert acclinklist;
+                    system.debug('MArket>>>>' + usr.Market__c);
+                    system.debug('UserType>>>>' + Userinfo.getUserType());
+                    if(usr.Market__c == 'KR' && Userinfo.getUserType() == 'PowerPartner')
+                    {
+                        system.debug('Insert>>>>Entered');
+                        AccountHelperKR.CreateRetailCopy(accountlist, true, true);
+                    }
+                    
                 }
             }
         }
@@ -1155,4 +1166,3 @@ if(usr.Profile.Name != 'IntegrationAPI'){
      }   
  }
 }
-
