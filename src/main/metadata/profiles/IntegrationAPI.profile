@@ -3692,7 +3692,11 @@
         <field>Account.Loyalty_Card_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    
+    <fieldPermissions>
+		<editable>true</editable>
+		<field>Account.MBC_USERID__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.MBFS_Activation_Date__c</field>
