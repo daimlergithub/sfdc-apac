@@ -107,7 +107,7 @@
                 <field>Retail_Fax__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Address_Reference__c</field>
             </layoutItems>
             <layoutItems>
