@@ -23,6 +23,7 @@ private with sharing class SelectAssignedDealerControllerTest
     private static string pageRef = '/apex/SelectAssignedDealer?Id=';
     private static string provinceValue = 'Anhui';
     
+    public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Planning & Design Campaign').getRecordTypeId();
     public static Id personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id DealercRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static Id centralRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
@@ -178,9 +179,13 @@ Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccountLink',Trigger_Name__c = 
    lead.RecordTypeId=salesleadRecordTypeId;
    insert lead;
         
-   centralMKTCampaign = new Campaign(RecordTypeId=centralRecordTypeId,Name='Testnamecampaign');
+   centralMKTCampaign = new Campaign(RecordTypeId=parentCampaign_RecordTypeID ,Name='Testnamecampaign',EndDate=System.Today()+10,StartDate=System.Today());
    insert centralMKTCampaign;
-    
+   
+   Campaign cacCampaign1 = new Campaign(Name = 'TYest Rec',RecordTypeId=centralRecordTypeId,ParentId = centralMKTCampaign.Id,Segmentation_Date__c=System.Today()+4,Event_Type__c='Test Drive',Execution_Start_Date__c=System.Today()+6);
+   insert cacCampaign1;
+   
+   
    camPackage = new Campaign_Package__c(Campaign__c = centralMKTCampaign.Id);
    insert camPackage;
         
@@ -190,13 +195,13 @@ Trigger__c newtrg = new Trigger__c(Name= 'TriggerAccountLink',Trigger_Name__c = 
    packageItem= new Package_Item__c(Offering__c = offering.Id,Package_Name__c = camPackage.Id);
    insert packageItem;
     
-   partDealer = new Participating_Dealer__c(Campaign__c = centralMKTCampaign.Id,Dealer__c = dealer.Id,Campaign_Package__c = camPackage.Id);
+   partDealer = new Participating_Dealer__c(Campaign__c = cacCampaign1.Id,Dealer__c = dealer.Id,Campaign_Package__c = camPackage.Id);
    insert partDealer;
         
-   cacCampaign = new Campaign(Name = 'TYest Rec',RecordTypeId=centralRecordTypeId,ParentId = centralMKTCampaign.Id);
+   cacCampaign = new Campaign(Name = 'TYest Rec',RecordTypeId=centralRecordTypeId,ParentId = centralMKTCampaign.Id,Segmentation_Date__c=System.Today()+4,Event_Type__c='Test Drive',Execution_Start_Date__c=System.Today()+6);
    insert cacCampaign;
         
-   campaignExecution = new Campaign(Name = 'TYest Rec1',RecordTypeId=camexecuRecordTypeId,ParentId = cacCampaign.Id);
+   campaignExecution = new Campaign(Name = 'TYest Rec1',RecordTypeId=centralRecordTypeId,ParentId = centralMKTCampaign.Id,Segmentation_Date__c=System.Today()+4,Event_Type__c='Test Drive',Execution_Start_Date__c=System.Today()+6);
    insert campaignExecution;
         
    camLead = new Campaign_Lead__c(Lead__c = lead.Id,Campaign__c = campaignExecution.Id);

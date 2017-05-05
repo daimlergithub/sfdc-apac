@@ -57,7 +57,7 @@ global class LeadcustomClone
                acc.Dealer_Lead_Status__c = 'Lost';
                acc.Dealer_Lost_Reason__c = 'Other reasons';
                acc.Lost_Situation__c = 'Others';
-               acc.Lost_Comment__c = 'Converted to After-Sales Leads';
+               acc.Lost_Comment__c = System.Label.Converted_to_After_Sales_Leads;
                update acc; 
                return accCopy.id;         
     }

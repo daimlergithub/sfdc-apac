@@ -92,8 +92,8 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
         <!--<apex:commandlink action="{!ab}" target="_blank">
             <apex:commandButton value="Edit"/>
         </apex:commandLink>-->
-        <apex:commandButton value="Edit" onclick="edit();"/>
-        <apex:commandButton value="Delete" onclick="test();"/>
+        <apex:commandButton value="{!$Label.Edit}" onclick="edit();"/>
+        <apex:commandButton value="{!$Label.Delete}" onclick="test();"/>
     </apex:pageblockButtons>
     </apex:pageBlock>
             

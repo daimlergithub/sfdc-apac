@@ -2141,6 +2141,40 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+      <fullName>Active_Contracts__c</fullName>
+         <externalId>false</externalId>
+		<label>Active Contracts</label>
+		<precision>18</precision>
+		<required>false</required>
+		<scale>0</scale>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Number</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>CAC_PERSON_UID__c</fullName>
+		<externalId>false</externalId>
+		<label>CAC PERSON UID</label>
+		<length>100</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>CDM_UCID__c</fullName>
+		<externalId>false</externalId>
+		<label>CDM UCID</label>
+		<length>40</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
     <fields>
         <fullName>Add_Date__c</fullName>
         <externalId>false</externalId>
@@ -3481,6 +3515,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_BackgroundInfo&quot
                 <fullName>South Africa</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+			<fullName>Thailand</fullName>
+				<default>false</default>
+			</picklistValues>
             <picklistValues>
                 <fullName>Turkey</fullName>
                 <default>false</default>
@@ -3788,6 +3826,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</d
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+				<fullName>Compass</fullName>
+				<default>false</default>
+			</picklistValues>
 			<picklistValues>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
@@ -6139,6 +6181,114 @@ Feb-18-2012: Added by Rob and Falk</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+		<fullName>Dealer_Field_Force_Manager_Email__c</fullName>
+		<description>"GAP-Add Dealer Fieldforce Manager (TextArea) field and Dealer Fieldforce Manager Email to be added for Sales, Aftersales and FS</description>
+		<externalId>false</externalId>
+		<label>Dealer Field Force Manager Email</label>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Email</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Field_Force_Manager__c</fullName>
+		<description>"GAP-Add Dealer Fieldforce Manager (TextArea) field and Dealer Fieldforce Manager Email to be added for Sales, Aftersales and FS</description>
+		<externalId>false</externalId>
+		<label>Dealer Field Force Manager</label>
+		<length>255</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_AS__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager AS</label>
+		<length>255</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_EmailFS__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager EmailFS</label>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Email</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_EmailSales__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager EmailSales</label>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Email</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_Email_AS__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager Email AS</label>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Email</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_FS__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager FS</label>
+		<length>255</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Dealer_Fieldforce_Manager_Sales__c</fullName>
+		<externalId>false</externalId>
+		<label>Dealer Fieldforce Manager Sales</label>
+		<length>255</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
+	<fields>
+		<fullName>Email_Sent_Status__c</fullName>
+		<externalId>false</externalId>
+		<formula>IF(
+		ISPICKVAL(Email_Status__c , &apos;Incomplete&apos;),
+		IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
+		&quot;Red&quot;),
+		IF(
+		ISPICKVAL(Email_Status__c , &apos;Invalid&apos;),
+		IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
+		&quot;Red&quot;),
+		IF(
+		ISPICKVAL(Email_Status__c , &apos;BounceBack&apos;),
+		IMAGE(&quot;/servlet/servlet.FileDownload?file=0150k0000000ZK6&quot;,
+		&quot;Red&quot;),&quot;&quot;)))</formula>
+		<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+		<label>Email Sent Status</label>
+		<required>false</required>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
     <fields>
         <fullName>Dealer_Operating_System__c</fullName>
         <externalId>false</externalId>
@@ -7731,6 +7881,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</de
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
+	    <fields>
+        <fullName>Fax_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax Last Modified By</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Fax_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
@@ -8706,6 +8867,34 @@ Attribute in Data Dictinary &quot;Pref_Details&quot; of object &quot;Preference&
                 <fullName>Childcare</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+				<fullName>Art &amp; Theatre</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Dining</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Internet Surfing</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Movies</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Home &amp; Gardening</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Arts &amp; Crafts</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Beauty &amp; Fashion</fullName>
+				<default>false</default>
+		</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8891,6 +9080,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_IDType&quot;</descr
                 <fullName>Passport</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+				<fullName>National ID</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Other</fullName>
+				<default>false</default>
+			</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -10008,6 +10205,17 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>MBC_USERID__c</fullName>
+        <externalId>false</externalId>
+        <label>MBC USERID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>MBFS_Activation_Date__c</fullName>
         <externalId>false</externalId>
@@ -10153,6 +10361,141 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
+	<fields>
+	<fullName>MBTH_Mercede__c</fullName>
+	<description>Only for Thailand</description>
+	<externalId>false</externalId>
+	<label>MBTH Mercedes Events</label>
+	<picklist>
+		<picklistValues>
+			<fullName>Domestic Trip</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>International Trip</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Lifestyle Event/Workshop</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Driving Event/Test Drive</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Music/Concert</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Movie</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Golf (Mercedes Trophy)</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>New Product Launch</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Dining/F&amp;B</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Health/Beauty/Spa</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Sport</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Others</fullName>
+			<default>false</default>
+		</picklistValues>
+		<restrictedPicklist>true</restrictedPicklist>
+		<sorted>false</sorted>
+	</picklist>
+<required>false</required>
+<trackFeedHistory>false</trackFeedHistory>
+<trackHistory>false</trackHistory>
+<type>Picklist</type>
+</fields>
+<fields>
+<fullName>MBTH_Nationality__c</fullName>
+<externalId>false</externalId>
+<label>MBTH Nationality</label>
+<picklist>
+    <picklistValues>
+        <fullName>Thai</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>American</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>British</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Chinese</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>French</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>German</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Indian</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Japanese</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>South Korean</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Laotian</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Malaysian</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Singaporean</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Taiwanese</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Vietnamese</fullName>
+        <default>false</default>
+    </picklistValues>
+    <picklistValues>
+        <fullName>Others</fullName>
+        <default>false</default>
+    </picklistValues>
+    <restrictedPicklist>true</restrictedPicklist>
+    <sorted>false</sorted>
+	</picklist>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Picklist</type>
+	</fields>
     <fields>
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
@@ -10489,141 +10832,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
-        <fullName>MBTH_Mercede__c</fullName>
-        <description>Only for Thailand</description>
-        <externalId>false</externalId>
-        <label>MBTH Mercedes Events</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Domestic Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lifestyle Event/Workshop</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Driving Event/Test Drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music/Concert</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Movie</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf (Mercedes Trophy)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Product Launch</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dining/F&amp;B</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Health/Beauty/Spa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MBTH_Nationality__c</fullName>
-        <externalId>false</externalId>
-        <label>MBTH Nationality</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>American</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>British</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>French</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>German</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Indian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>South Korean</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Laotian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Malaysian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Singaporean</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taiwanese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>MB_CIR_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
@@ -10642,7 +10850,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
+    </fields>	
     <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
@@ -10656,8 +10864,9 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -11322,12 +11531,56 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+			<picklistValues>
+		<fullName>Employee</fullName>
+		<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Architect</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Artist/Entertainer/Celebrity</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Building Contractor</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Doctor/Pharmacist/Nurse</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Engineer/Technician</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Legal Expert</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Politician</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>State Enterprise Employee</fullName>
+			<default>false</default>
+		</picklistValues>
+			<picklistValues>
+			<fullName>Royalty</fullName>
+		<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Insurance Agent/Property Agent/Direct Sales</fullName>
+			<default>false</default>
+		</picklistValues>
+		<sorted>false</sorted>
+	</picklist>
+	<required>false</required>
+	<trackFeedHistory>false</trackFeedHistory>
+	<trackHistory>false</trackHistory>
+	<type>Picklist</type>
     </fields>
     <fields>
         <fullName>Online_Dedup_Hidden__c</fullName>
@@ -11338,6 +11591,16 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+		<fullName>Opt_In_Mobile__c</fullName>
+		<defaultValue>false</defaultValue>
+		<description>New field to be added in Kernel Template</description>
+		<externalId>false</externalId>
+		<label>Opt In Mobile</label>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Checkbox</type>
+	</fields>
     <fields>
         <fullName>Opt_In_Contact_Reason_Details__c</fullName>
         <externalId>false</externalId>
@@ -11455,16 +11718,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>HomePhone OptIn</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Opt_In_Mobile__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>New field to be added in Kernel Template</description>
-        <externalId>false</externalId>
-        <label>Opt In Mobile</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -12494,6 +12747,18 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+				<fullName>Bahasa</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Malaysia</fullName>
+				<default>false</default>
+			</picklistValues>
+			<picklistValues>
+				<fullName>Tamil</fullName>
+				<default>false</default>
+			</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12512,6 +12777,18 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+		<fullName>Preferred_Radio_Station__c</fullName>
+		<description>Add Preferred Radio Station text field. Unhide Preferred Newspaper and Industry fields for Thailand market</description>
+		<externalId>false</externalId>
+		<label>Preferred Radio Station</label>
+		<length>255</length>
+		<required>false</required>
+		<trackFeedHistory>false</trackFeedHistory>
+		<trackHistory>false</trackHistory>
+		<type>Text</type>
+		<unique>false</unique>
+	</fields>
     <fields>
         <fullName>Preferred_Mobile_1__c</fullName>
         <defaultValue>false</defaultValue>
@@ -12568,18 +12845,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Preferred_Radio_Station__c</fullName>
-        <description>Add Preferred Radio Station text field. Unhide Preferred Newspaper and Industry fields for Thailand market</description>
-        <externalId>false</externalId>
-        <label>Preferred Radio Station</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preferred_Work_Phone_1__c</fullName>
@@ -13960,6 +14225,30 @@ Attribute in Data Dictionary object Contact is &quot;Contact_SpecialCare&quot;</
                 <fullName>Army</fullName>
                 <default>false</default>
             </picklistValues>
+		<picklistValues>
+			<fullName>Royal Family</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Hotel</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>Rental Company</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>National Framework (NFA)</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>International Framework (IFA)</fullName>
+			<default>false</default>
+		</picklistValues>
+		<picklistValues>
+			<fullName>MPC</fullName>
+			<default>false</default>
+		</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14939,6 +15228,17 @@ Invisible on UI.&quot;</description>
         <externalId>false</externalId>
         <label>Winbeat SAP No</label>
         <length>16</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Work_Fax_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Fax Last Modified By</label>
+        <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -16056,7 +16356,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
-            </values>
+            </values>				
+            <values>
+				<fullName>Compass</fullName>
+               <default>false</default>
+			</values>   
             <values>
                 <fullName>DSC</fullName>
                 <default>false</default>
@@ -54318,10 +54622,9 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'KR',
-NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFormula>
+        <errorConditionFormula>AND( 
+			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
+			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
         <errorMessage>Please Enter Numbers in Commercial Register Number / Vat No</errorMessage>
     </validationRules>
     <validationRules>
@@ -54331,6 +54634,32 @@ NOT(ISNUMBER(Commercial_Reg_No__c)),NOT(ISNUMBER(Vat_No__c)))</errorConditionFor
         <errorDisplayField>Assigned_Lead_Amount_of_Everyday__c</errorDisplayField>
         <errorMessage>Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
+	<validationRules>
+	<fullName>Customer_Status_Check_TH</fullName>
+		<active>true</active>
+		<errorConditionFormula>OR(Vehicle_Amount__c == 0, ISBLANK(Vehicle_Amount__c), ISNULL(Vehicle_Amount__c)) 
+		&amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp; ISPICKVAL( Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Status__c</errorDisplayField>
+		<errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
+	</validationRules>
+	<validationRules>
+	<fullName>Fax_NoOfDigits_TH</fullName>
+	<active>true</active>
+	<errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
+	NOT(ISBLANK(Fax)), 
+	LEN(Fax) &lt; 11, 
+	$Profile.Name != &apos;IntegrationAPI&apos;, 
+	MD__c = &apos;TH&apos;)</errorConditionFormula>
+	<errorDisplayField>Fax</errorDisplayField>
+	<errorMessage>Fax must be digits, and should be minimum 11 digits.</errorMessage>
+	</validationRules>
+<validationRules>
+	<fullName>Data_Source_Update</fullName>
+	<active>true</active>
+	<description>Once Data Source has been set as Compass, it cannot be changed.</description>
+	<errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Data_Source__c),'Compass'),NOT(ISPICKVAL((Data_Source__c),'Compass')) )</errorConditionFormula>
+	<errorMessage>Once Data Source has been set as Compass, it cannot be changed.</errorMessage>
+</validationRules>
     <validationRules>
         <fullName>CompanyNameAccount_NoOfDigits</fullName>
         <active>true</active>
@@ -54545,6 +54874,17 @@ MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>Fax</errorDisplayField>
         <errorMessage>Fax should be less than or equal to 11 digits.</errorMessage>
     </validationRules>
+	<validationRules>
+		<fullName>Fax_Validation_TH</fullName>
+		<active>true</active>
+		<errorConditionFormula>AND(NOT( ISNUMBER(Fax) ), 
+		NOT( ISBLANK(Fax) ) ,
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c = &apos;TH&apos;
+		)</errorConditionFormula>
+		<errorDisplayField>Fax</errorDisplayField>
+		<errorMessage>Fax must contain digits only.</errorMessage>
+	</validationRules>
     <validationRules>
         <fullName>Fax_StartsWith0</fullName>
         <active>true</active>
@@ -54615,6 +54955,47 @@ OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
+	<validationRules>
+		<fullName>HomePhone_Format_TH</fullName>
+		<active>true</active>
+		<description>Home Phone must be in any of the following formats :		
+		1. 0xx-xxxx-xxxx
+		2. blank-xxxxx-xxxxxx</description>
+		<errorConditionFormula>AND(
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c = &apos;TH&apos;,
+		NOT(ISBLANK(Individual_Home_Phone__c)),
+		NOT(
+		OR(
+		REGEX(Individual_Home_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
+		REGEX(Individual_Home_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
+		)
+		)
+		)</errorConditionFormula>
+		<errorMessage>Home Phone must be in any of the following formats :		
+		1. 0xx-xxxx-xxxx
+		2. blank-xxxxx-xxxxxx</errorMessage>
+   </validationRules>
     <validationRules>
         <fullName>HomePhone2_Format_KR</fullName>
         <active>true</active>
@@ -55214,6 +55595,174 @@ MD__c = &apos;JP&apos;
         <errorDisplayField>Work_Phone__c</errorDisplayField>
         <errorMessage>Work Phone should start with &quot;0&quot;.</errorMessage>
     </validationRules>
+		<validationRules>
+		<fullName>ID_Type</fullName>
+		<active>true</active>
+		<description>&quot;ID Type to be created as Picklist with values as National ID, Other. If National ID is selected from the Picklist, system should do character length check. For Thailand it should be 13 characters</description>
+		<errorConditionFormula>IF( ISPICKVAL( ID_Type__c, &apos;National ID&apos;), 
+		AND 
+		( 
+		OR 
+		( 
+		ISNULL(ID_Number__c), 
+		NOT(LEN(ID_Number__c) = 13), 
+		NOT(REGEX( ID_Number__c, &quot;^[AZaz09]+$&quot;)) 
+		), 
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c==&apos;TH&apos; 
+		) 
+		,false)</errorConditionFormula>
+		<errorDisplayField>ID_Number__c</errorDisplayField>
+		<errorMessage>If ID Type is â€˜National IDâ€™, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
+	</validationRules>
+	<validationRules>
+		<fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
+		<active>true</active>
+		<errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+		NOT(ISBLANK(Individual_Home_Phone__c)),
+		LEN(Individual_Home_Phone__c ) &lt; 13,
+		$Profile.Name != &apos;IntegrationAPI&apos;,
+		MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+		<errorMessage>Home phone number must be digits, and it should be minimum 11 digits.</errorMessage>
+	</validationRules>
+	<validationRules>
+		<fullName>Invalid_Email_Address_TH</fullName>
+		<active>true</active>
+		<description>Email Validation on customer record .</description>
+		<errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; !ISNEW() &amp;&amp;
+		AND(
+		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
+		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
+		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
+		)</errorConditionFormula>
+		<errorMessage>Invalid Email Address.</errorMessage>
+	</validationRules>
+	<validationRules>
+		<fullName>Invalid_ZipCode_TH</fullName>
+		<active>true</active>
+		<description>Zipcode is not 5 digits long</description>
+		<errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c ) ), NOT(REGEX( ZipCode__c ,&quot;[09]{5}&quot;)), 
+		$Profile.Name != &apos;IntegrationAPI&apos;, MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>ZipCode__c</errorDisplayField>
+		<errorMessage>Zipcode is not 5 digits long</errorMessage>
+	</validationRules>
+	<validationRules>
+		<fullName>MBK_Data_Source_Update</fullName>
+		<active>true</active>
+		<description>Once MBK Data Source has been set as Compass, it cannot be changed.</description>
+		<errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(MBK_Data_Source__c),'Compass'),NOT(ISPICKVAL((MBK_Data_Source__c),'Compass')) )</errorConditionFormula>
+		<errorMessage>Once MBK Data Source has been set as Compass, it cannot be changed.</errorMessage>
+	</validationRules>
+	<validationRules>
+<fullName>Mobile_Format_TH</fullName>
+<active>true</active>
+<description>Phone must be in any of the following formats : 
+1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</description>
+<errorConditionFormula>AND(
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+MD__c = &apos;TH&apos;,
+NOT(ISBLANK(Mobile__c)),
+NOT(
+OR(
+REGEX(Mobile__c, &quot;[060]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[061]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[062]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[063]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[068]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[080]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[081]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[082]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[083]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[084]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[085]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[086]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[087]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[088]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[089]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[090]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[091]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[092]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[093]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[094]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[095]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[096]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[097]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[098]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[099]{3}-[0-9]{4}-[0-9]{5}&quot;),
+REGEX(Mobile__c, &quot;[0-9]{6}-[0-9]{6}&quot;)
+)
+)
+)</errorConditionFormula>
+<errorMessage>Mobile must be in any of the following formats : 
+1. xxx-xxx-xxxxx 2. blank-xxxxxx-xxxxxx</errorMessage>
+    </validationRules>
+	<validationRules>
+		<fullName>Mobile_NoOfDigits_TH</fullName>
+		<active>true</active>
+		<errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
+		NOT(ISBLANK(Mobile__c)), 
+		LEN(Mobile__c) &lt; 14, 
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Mobile__c</errorDisplayField>
+		<errorMessage>Mobile phone number must be digits, and should be minimum 12 digits</errorMessage>
+	</validationRules>
+	<validationRules>
+	<fullName>WorkPhone_Format_TH</fullName>
+	<active>true</active>
+	<description>Work Phone must be in any of the following formats : 			
+	1.  0xx-xxxx-xxxx
+	2.  blank-xxxxx-xxxxxx</description>
+	<errorConditionFormula>AND(
+	$Profile.Name != &apos;IntegrationAPI&apos;, 
+	MD__c = &apos;TH&apos;,
+	NOT(ISBLANK(Work_Phone__c)),
+	NOT(
+	OR(
+	REGEX(Work_Phone__c, &quot;[036]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[052]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[039]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[053]{3}-[0-9]{4}-[0-9]{4}&quot;), 
+	REGEX(Work_Phone__c, &quot;[054]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[043]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[032]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[045]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[075]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[037]{3}-[0-9]{4}-[0-9]{4}&quot;), 
+	REGEX(Work_Phone__c, &quot;[044]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[038]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[056]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[073]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[035]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[042]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[034]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[074]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[076]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[077]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[055]{3}-[0-9]{4}-[0-9]{4}&quot;),
+	REGEX(Work_Phone__c, &quot;[0-9]{5}-[0-9]{6}&quot;)
+	)
+	)
+	)</errorConditionFormula>
+	<errorDisplayField>Work_Phone__c</errorDisplayField>
+	<errorMessage>Work Phone must be in any of the following formats : 			
+	1.  0xx-xxxx-xxxx
+	2.  blank-xxxxx-xxxxxx</errorMessage>
+	</validationRules>
+	<validationRules>
+		<fullName>Work_Phone_2_NoOfDigits_TH</fullName>
+		<active>true</active>
+		<errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+		NOT(ISBLANK(Individual_Home_Phone__c)), 
+		LEN(Individual_Home_Phone__c ) &lt; 13, 
+		$Profile.Name != &apos;IntegrationAPI&apos;, 
+		MD__c = &apos;TH&apos;)</errorConditionFormula>
+		<errorDisplayField>Work_Phone__c</errorDisplayField>
+		<errorMessage>Work phone number must be digits, and it must be minimum 11 digits.</errorMessage>
+	</validationRules>
 	<webLinks>
         <fullName>After_Sales_Leads</fullName>
         <availability>online</availability>
@@ -55778,11 +56327,11 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_
 else{ 
 if('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_COMPANY_RECORTYPE_ID') 
 { 
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID={!Account.Name}&amp;OBJECT_LEAD_COMPANY_ACCOUNT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self');
 } 
 else if ('{!Account.RecordTypeId}' == 'OBJECT_ACCOUNT_PERSON_ACCOUNT_RECORTYPE_ID') 
 { 
-window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_SALES_RECORD_TYPE_ID&amp;ent=Account&amp;OBJECT_LEAD_FIRSTNAME_ID={!Account.FirstName}&amp;OBJECT_LEAD_LASTNAME_ID={!Account.LastName}&amp;OBJECT_LEAD_NATIVE_FIRSTNAME_ID={!Account.FirstName_Native_1__c}&amp;OBJECT_LEAD_NATIVE_LASTNAME_ID={!Account.LastName_Native_1__c}&amp;OBJECT_LEAD_ADDRESS_ID={!Account.Primary_Address_Display__c}&amp;OBJECT_LEAD_PHONE_ID={!Account.Primary_Phone_Display__c}&amp;OBJECT_LEAD_FAX_ID={!Account.Primary_Fax_Display__c}&amp;OBJECT_LEAD_CONTACT_ID={!Account.Name}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Account.Id}&amp;saveURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Account.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Account.Id}",'_self'); 
 } 
 } 
 }</url>

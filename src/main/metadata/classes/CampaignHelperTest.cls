@@ -53,7 +53,7 @@
         camobj1.RecordTypeId = camIdExec;
         camobj1.ParentId=camobj.id;
         camobj1.Child_Campaign_Status__c='Execution';
-       // camobj1.Consolidated_List_Completed__c= true;
+       //camobj1.Consolidated_List_Completed__c= true;
         camobj1.MD__c='JP';
         camobj1.Name = 'camptest1';
         camobj1.Campaign_Type__c='After Sales';
@@ -1276,10 +1276,24 @@
     camobj.Campaign_Execution_Channels__c='eMail';
     insert camobj;
     
+     Campaign top8 = new Campaign(
+           
+            Name = top, 
+            Status = 'Draft', 
+            StartDate = System.today(), 
+            EndDate = System.today()+10,
+            Execution_Type__c =OB_Call,
+            Campaign_Executer__c='Retail',
+            RecordTypeId = camIdPlan,
+            Campaign_Type__c='Sales',
+            IsActive = true
+        );
+        
+        insert top8;
     
     camobj1 = new Campaign();
     camobj1.RecordTypeId = camIdExec;
-    camobj1.ParentId=camobj.id;
+    camobj1.ParentId=top8.id;
     camobj1.Child_Campaign_Status__c='Execution';
     camobj1.Name = 'camptest1';
     camobj1.Type = 'Other';

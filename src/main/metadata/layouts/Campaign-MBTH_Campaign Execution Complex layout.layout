@@ -74,10 +74,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Content_Preview__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Publish_Date__c</field>
             </layoutItems>
             <layoutItems>
