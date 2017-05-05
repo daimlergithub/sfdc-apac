@@ -4013,6 +4013,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Not yet decided</value>
     </labels>
     <labels>
+        <fullName>Notify_To_Dealer1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify To Dealer1</shortDescription>
+        <value>Please fill out Primary Case Dealer</value>
+    </labels>
+    <labels>
+        <fullName>Notify_To_Dealer2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notify To Dealer2</shortDescription>
+        <value>Have you checked with supervisor to notify the dealer?</value>
+    </labels>
+    <labels>
         <fullName>Occupation</fullName>
         <language>en_US</language>
         <protected>false</protected>
