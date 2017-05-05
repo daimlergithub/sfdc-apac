@@ -23,13 +23,14 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
             query += fieldName + ', ';
         }
         // Child Query 
-        query += '( SELECT ';
+        /*query += '( SELECT ';
         for(String fieldName : getCampaignMemberFields()) {
             query += fieldName + ', ';
         }
         query = query.substring(0, query.length() - 2);
-        query += ' FROM Campaign_Members1__r) ';
+        query += ' FROM Campaign_Members1__r) ';*/
         
+        query = query.substring(0, query.length() - 2);
         query += ' FROM Campaign WHERE RecordType.DeveloperName = \'Campaign_Executiono\'';
         
         //String query = 'Select Id, OwnerId, Owner.Name, Execution_Type__c, Child_Campaign_Status__c, Campaign_CCC_Manager__c, Execution_Start_Date__c, ParentId, Parent.Campaign_Type__c, ';
@@ -66,6 +67,27 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         parentCapmaignToLeadRecTypeMap.put('Finance', 'Sales Leads');
         String taskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
         
+        
+        // Create map to store Child Campign Members - To Avoid Invalid Query Locator 
+        Set<Id> campaignIdSet = new Set<Id>();
+        Map<Id, List<Campaign_Member__c>> campaignIdToCampaignMemberListMap =  new Map<Id, List<Campaign_Member__c>>();
+        for(Campaign camp : scope) {
+            campaignIdSet.add(camp.Id);
+        }
+        String query = 'SELECT ';
+        for(String fieldName : getCampaignMemberFields()) {
+            query += fieldName + ', ';
+        }
+        query = query.substring(0, query.length() - 2);
+        query += ' FROM Campaign_Member__c WHERE Campaign_ID__c IN : campaignIdSet LIMIT 3000';
+        List<Campaign_Member__c> campaignMemberList = Database.Query(query);
+        for(Campaign_Member__c campMemberRec : campaignMemberList) {
+            if(!campaignIdToCampaignMemberListMap.containsKey(campMemberRec.Campaign_ID__c)) {
+                campaignIdToCampaignMemberListMap.put(campMemberRec.Campaign_ID__c, new List<Campaign_Member__c>());
+            }
+            campaignIdToCampaignMemberListMap.get(campMemberRec.Campaign_ID__c).add(campMemberRec);
+        }
+        
         for(Campaign camp : scope) {
             if(camp.Execution_Start_Date__c == Date.Today()) {
                 if((camp.Execution_Type__c == 'eMail' || camp.Execution_Type__c == 'DM') && camp.Child_Campaign_Status__c == 'Segmentation') {
@@ -90,33 +112,35 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                      
                     Id recTypeId = (parentCapmaignToLeadRecTypeMap.containsKey(camp.Parent.Campaign_Type__c) ? 
                                                 leadRecTypeNameToRecTypeIdMap.get(parentCapmaignToLeadRecTypeMap.get(camp.Parent.Campaign_Type__c)) : null);
-                    for(Campaign_Member__c campaignMemberRec : camp.Campaign_Members1__r) {
-                        Lead__c lead = new Lead__c();
-                        lead.CAC_Lead_Status__c = 'New'; 
-                        lead.Source_Campaign__c = camp.id;
-                        lead.Contact__c = campaignMemberRec.Contact_Id__c;
-                        
-                        if(campaignMemberRec.Special_Flag_to_Include__c == 'true') {
-                            lead.OwnerId = camp.OwnerId;//campaignMemberRec.Contact_Id__c;
+                    if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
+                        for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
+                            Lead__c lead = new Lead__c();
+                            lead.CAC_Lead_Status__c = 'New'; 
+                            lead.Source_Campaign__c = camp.id;
+                            lead.Contact__c = campaignMemberRec.Contact_Id__c;
                             
-                        } else if(camp.Parent.Campaign_Type__c == 'Finance' && (campaignMemberRec.Delinquency_Flag__c == 'true' || campaignMemberRec.Special_flag_to_Exclude__c == 'true' ||
-                                campaignMemberRec.MBF_Anti_Social_flag__c == 'true' || campaignMemberRec.Offer_Prohibit_Flag__c == 'true' || campaignMemberRec.Payment_Suspended_Flag__c == 'true')) {
-                            lead.OwnerId = camp.Campaign_CCC_Manager__c;
+                            if(campaignMemberRec.Special_Flag_to_Include__c == 'true') {
+                                lead.OwnerId = camp.OwnerId;//campaignMemberRec.Contact_Id__c;
+                                
+                            } else if(camp.Parent.Campaign_Type__c == 'Finance' && (campaignMemberRec.Delinquency_Flag__c == 'true' || campaignMemberRec.Special_flag_to_Exclude__c == 'true' ||
+                                    campaignMemberRec.MBF_Anti_Social_flag__c == 'true' || campaignMemberRec.Offer_Prohibit_Flag__c == 'true' || campaignMemberRec.Payment_Suspended_Flag__c == 'true')) {
+                                lead.OwnerId = camp.Campaign_CCC_Manager__c;
+                                
+                            } else {
+                                lead.OwnerId = camp.OwnerId;//campaignMemberRec.Contact_Id__c;
+                            }
                             
-                        } else {
-                            lead.OwnerId = camp.OwnerId;//campaignMemberRec.Contact_Id__c;
+                            if(recTypeId != null) {
+                                lead.RecordTypeId = recTypeId;
+                            }
+                            leadLst.add(lead);
+                            
+                            campaignMemberRec.Status__c = 'Executed';
+                            campMemberLst.add(campaignMemberRec);
                         }
-                        
-                        if(recTypeId != null) {
-                            lead.RecordTypeId = recTypeId;
-                        }
-                        leadLst.add(lead);
-                        
-                        campaignMemberRec.Status__c = 'Executed';
-                        campMemberLst.add(campaignMemberRec);
+                        camp.Child_Campaign_Status__c = 'Execution';
+                        campLst.add(camp);
                     }
-                    camp.Child_Campaign_Status__c = 'Execution';
-                    campLst.add(camp);
                 }
                  
                 else if(camp.Execution_Type__c == 'OB Call' && camp.Child_Campaign_Status__c == 'Segmentation'){
@@ -124,57 +148,60 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                     if(camp.Campaign_CCC_Manager__c != null){
                         setNotificationTemplate(camp.Campaign_CCC_Manager__c , templateNameToTemplateIdMap.get('Task Notification'), camp.Id);
                     }
-                     
-                    for(Campaign_Member__c campaignMemberRec : camp.Campaign_Members1__r) {
+                    
+                    if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) { 
+                        for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
+                            Task task = new Task();
+                            task.WhatID = camp.Id;
+                            task.Status = 'Open';
+                            task.Type = 'Campaign';
+                            task.subject = 'Campaign Executed';
+                            task.ownerId = camp.Campaign_CCC_Manager__c;
+                            task.priority = 'Normal';
+                            task.RecordTypeId = taskRecTypeId;
+                            task.ActivityDate = camp.Execution_Start_Date__c;
+                            tskLst.add(task);
+                            
+                            campaignMemberRec.Status__c = 'Executed';
+                            campMemberLst.add(campaignMemberRec);
+                        }
+                        camp.Child_Campaign_Status__c = 'Execution';
+                        campLst.add(camp);
+                    }
+                }
+            }
+            
+            if(campaignIdToCampaignMemberListMap.containsKey(camp.Id)) {
+                for(Campaign_Member__c campaignMemberRec : campaignIdToCampaignMemberListMap.get(camp.Id)) {
+                    if(campaignMemberRec.Auto_creation_of_tasks__c) {
                         Task task = new Task();
                         task.WhatID = camp.Id;
                         task.Status = 'Open';
                         task.Type = 'Campaign';
-                        task.subject = 'Campaign Executed';
-                      //  task.ownerId = camp.Campaign_CCC_Manager__c;
+                        task.subject = 'Campaign Auto Creation';
+                        task.ownerId = camp.Campaign_CCC_Manager__c;
                         task.priority = 'Normal';
                         task.RecordTypeId = taskRecTypeId;
                         task.ActivityDate = camp.Execution_Start_Date__c;
+                        task.Campaign_Name__c = camp.Campaign_Code__c;
                         tskLst.add(task);
-                        
-                        campaignMemberRec.Status__c = 'Executed';
-                        campMemberLst.add(campaignMemberRec);
                     }
-                     
-                    camp.Child_Campaign_Status__c = 'Execution';
-                    campLst.add(camp);
-                }
-            }
-            
-            for(Campaign_Member__c campaignMemberRec : camp.Campaign_Members1__r) {
-                if(campaignMemberRec.Auto_creation_of_tasks__c) {
-                    Task task = new Task();
-                    task.WhatID = camp.Id;
-                    task.Status = 'Open';
-                    task.Type = 'Campaign';
-                    task.subject = 'Campaign Auto Creation';
-                    task.ownerId = camp.Campaign_CCC_Manager__c;
-                    task.priority = 'Normal';
-                    task.RecordTypeId = taskRecTypeId;
-                    task.ActivityDate = camp.Execution_Start_Date__c;
-                    task.Campaign_Name__c = camp.Campaign_Code__c;
-                    tskLst.add(task);
-                }
-                
-                if(campaignMemberRec.Auto_creation_of_DM_requests__c) {
-                    DM_Request__c dmRequestRec = New DM_Request__c ();
-                    dmRequestRec.Customer_Name__c = campaignMemberRec.Contact_Id__c;
-                    if(campaignMemberRec.Address__r != null) {
-                        dmRequestRec.Sending_Address__c = campaignMemberRec.Address__r.Address_Type__c;
+                    
+                    if(campaignMemberRec.Auto_creation_of_DM_requests__c) {
+                        DM_Request__c dmRequestRec = New DM_Request__c ();
+                        dmRequestRec.Customer_Name__c = campaignMemberRec.Contact_Id__c;
+                        if(campaignMemberRec.Address__r != null) {
+                            dmRequestRec.Sending_Address__c = campaignMemberRec.Address__r.Address_Type__c;
+                        }
+                        dmRequestRec.TitleOfHonor__c = 'To person';
+                        dmRequestRec.Channel__c = 'Campaign';
+                        dmRequestRec.Campaign__c = camp.Id;
+                        dmRequestList.add(dmRequestRec);
                     }
-                    dmRequestRec.TitleOfHonor__c = 'To person';
-                    dmRequestRec.Channel__c = 'Campaign';
-                    dmRequestRec.Campaign__c = camp.Id;
-                    dmRequestList.add(dmRequestRec);
-                }
-                
-                if(campaignMemberRec.Auto_creation_of_leads__c) {
-                    autoCreateLeadCheckedCampaignMemberRecList.add(campaignMemberRec);
+                    
+                    if(campaignMemberRec.Auto_creation_of_leads__c) {
+                        autoCreateLeadCheckedCampaignMemberRecList.add(campaignMemberRec);
+                    }
                 }
             }
         }
@@ -242,8 +269,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
         if(campLst.size() >0){
             update campLst;
         }
-          
-        if(campMemberLst.size() >0){
+        if(campMemberLst.size() > 0) {
             update campMemberLst;
         }
         
@@ -377,6 +403,6 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
     }
     
     global void execute(SchedulableContext ctx) {
-        Database.executeBatch(new CampaignSchedulerAndNotificationJP());
+        Database.executeBatch(new CampaignSchedulerAndNotificationJP(), 1);
     }
 }

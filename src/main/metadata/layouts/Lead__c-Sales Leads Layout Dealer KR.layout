@@ -101,10 +101,6 @@
                 <behavior>Required</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
-			            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead_Latest_Phase__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Next_Contact_Customer_Date__c</field>
@@ -162,6 +158,30 @@
                 <behavior>Edit</behavior>
                 <field>Handover_Date__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Latest_Phase__c</field>
+			</layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Quotation_Number__c</field>
+			</layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Quotation_Print_Date__c</field>
+			</layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Quotation_Amount__c</field>
+			</layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Order_No__c</field>
+			</layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Order_Confirmation_Date__c</field>
+			</layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -175,6 +195,42 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Test_Drive_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Registration_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Network_Registration_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Invoice_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Invoice_Amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>WIP_Created_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job_Card_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Job_Card_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Check_In_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Check_Out_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
