@@ -23,7 +23,7 @@ System.runas(u){
          
          Account a1=new Account();       
         a1.RecordtypeId=DealerAccRecordTypeId;
-        a1.Name='Test Person 1st';
+        a1.Name='Test Person 1st'; 
         a1.Type='Personal';
         a1.Dealer_ND_Code__c='123';
         a1.Dealer_Email__c='test123@noemail.com';
@@ -34,9 +34,6 @@ System.runas(u){
        
  ApexPages.StandardController stdDS = new ApexPages.StandardController(u);
  usernotificationsetting uns=new usernotificationsetting(stdDS);
-List<SelectOption> selOpts=uns.leftacc ;
-
-system.assertEquals(1,selOpts.size());
 
 
 }
@@ -62,13 +59,10 @@ String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByNa
          apexpages.currentPage().getparameters().put('id', u.id);
 ApexPages.StandardController std = new ApexPages.StandardController(a2);
 usernotificationsetting usernoti=new usernotificationsetting(std);
-List<SelectOption> selectopt=usernoti.rightacc;
-usernoti.addit();
-usernoti.addit1();
-usernoti.addit2();
+
 usernoti.updateit();
 //usernoti.cancelit();
-system.assertEquals(0,selectopt.size());
+
 }
 
 
