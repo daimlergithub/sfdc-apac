@@ -190,7 +190,7 @@ private class RetailCampaignSharingTest {
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
-            EndDate = System.today(),
+            EndDate = System.today(),Segmentation_Date__c= System.today()+4,
             RecordTypeId = topCampRecordTypeId,
             Child_Campaign_Status__c = 'Execution' ,
             Set_List_Maintenance_Flag__c = false
@@ -353,6 +353,7 @@ insert updatecustomsettings;
     camobj.Name = 'camptest1';
     camobj.Type = 'Other';
     camobj.Status = 'Planned';
+    camobj.Segmentation_Date__c= System.today()+4;
     camobj.StartDate = System.today();
     camobj.EndDate = System.today();
     camobj.Campaign_Objectives__c = 'camobjectives';
@@ -405,6 +406,7 @@ insert updatecustomsettings;
     camobj.Name = 'camptest1';
     camobj.Type = 'Other';
     camobj.Status = 'Planned';
+    camobj.Segmentation_Date__c= System.today()+4;
     camobj.StartDate = System.today();
     camobj.EndDate = System.today();
     camobj.Campaign_Objectives__c = 'camobjectives';
@@ -453,6 +455,7 @@ insert updatecustomsettings;
     camobj.Name = 'camptest1';
     camobj.Type = 'Other';
     camobj.Status = 'Planned';
+    camobj.Segmentation_Date__c= System.today()+4;
     camobj.StartDate = System.today();
     camobj.EndDate = System.today();
     camobj.Campaign_Objectives__c = 'camobjectives';
@@ -500,6 +503,7 @@ insert updatecustomsettings;
     camobj.Name = 'camptest1';
     camobj.Type = 'Other';
     camobj.Status = 'Planned';
+    camobj.Segmentation_Date__c= System.today()+4;
     camobj.StartDate = System.today();
     camobj.EndDate = System.today();
     camobj.Campaign_Objectives__c = 'camobjectives';

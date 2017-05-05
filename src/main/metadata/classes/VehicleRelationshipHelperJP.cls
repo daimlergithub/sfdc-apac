@@ -347,8 +347,8 @@ public with sharing class VehicleRelationshipHelperJP
             system.debug('Error'+e.getLineNumber());             
         }
     }
-	  public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList,Map<id,Vehicle_Relationship__c> vRoldmap)
-	{
+    public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList,Map<id,Vehicle_Relationship__c> vRoldmap,boolean isInsert,boolean isUpdate)
+  {
         string regexForNullValue ='null';
         string nullValue ='';
         set<id> sid = new set<id>();
@@ -357,88 +357,88 @@ public with sharing class VehicleRelationshipHelperJP
         List<Vehicle_Relationship__c> Updatelist = new List<Vehicle_Relationship__c> ();
         List<Vehicle_Relationship__c> vrList = new List<Vehicle_Relationship__c> ();
         
-			if(LeadUtil.verTrigger)
-			{ 
-				for (Vehicle_Relationship__c Ve : veReList ) 
-				{
-					system.debug('+++++++++++++++++++'+veReList );
-
-					if(ve.contact__c != null && (trigger.isInsert ||(trigger.isUpdate && ve.Contact__c != vRoldmap.get(ve.Id).Contact__c)))
-					{
-						sid.add(Ve.Contact__c);
-					}	
-				}
-				
-			}
-			if(!sid.isempty() && sid != null)
-			{
-				vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
-				contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
-				contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
-			}
-			for(Vehicle_Relationship__c vRs : vrList)
-			{
-				if(vRs.contact__r.Primary_Address_Display__c != null)
-				{
-					addressids.add(vRs.contact__r.Primary_Address_Display__c);
-				}
-			}
-					LeadUtil.verTrigger = false;
+      if(LeadUtil.verTrigger)
+      { 
+        for (Vehicle_Relationship__c ve : veReList ) 
+        {
+          system.debug('+++++++++++++++++++'+veReList );
+                    system.debug('+++++++++++++++++++'+ve.contact__c );
+          if(ve.contact__c != null && ((isInsert && ve.contact__c!=null) || (isUpdate && ve.contact__c != vRoldmap.get(ve.Id).contact__c))) //&& ve.contact__c != vRoldmap.get(ve.Id).contact__c
+          {
+            sid.add(ve.Contact__c);
+          }  
+        }
+        
+      }
+      if(!sid.isempty() && sid != null)
+      {
+        vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
+        contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
+        contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
+      }
+      for(Vehicle_Relationship__c vRs : vrList)
+      {
+        if(vRs.contact__r.Primary_Address_Display__c != null)
+        {
+          addressids.add(vRs.contact__r.Primary_Address_Display__c);
+        }
+      }
+          LeadUtil.verTrigger = false;
                 system.debug('++++++++++++++++++++'+sid);
             if(addressids != Null && !addressids.isempty())
-			{
-				addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,					City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,					Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where Id =: addressids];
-			}
-			
-			system.debug('++++++++++++++++++'+addresslist);
-			for(Vehicle_Relationship__c Vels  : vrList)
-			{
-				if (vels.Vehicle_Phone_picklist__c == Null)
-				{
-					Vels.Vehicle_Phone__c = Vels.Contact__r.Primary_Phone_Display__c;
-				}
-				if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
-				{
-					vels.Vehicle_Phone__c = Vels.Contact__r.Individual_Home_Phone__c;
-				} 
-				else if (Vels.Vehicle_Phone_picklist__c == 'work phone')
-				{
-					vels.Vehicle_Phone__c = Vels.Contact__r.Work_Phone__c;
-				}
-				else if (vels.Vehicle_Phone_picklist__c ==  'Home Phone 2')
-				{
-						vels.Vehicle_Phone__c = Vels.Contact__r.Home_Phone_2__c;
-				}
-				 
-				if (vels.vehicle_fax_picklist__c == Null)
-				 {
-					Vels.vehicle_fax__c = Vels.Contact__r.Primary_Fax_Display__c;
-				}  
+      {
+        addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,          City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,          Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where Id =: addressids];
+      }
+      
+      system.debug('++++++++++++++++++'+addresslist);
+      for(Vehicle_Relationship__c Vels  : vrList)
+      {
+        if (vels.Vehicle_Phone_picklist__c == Null)
+        {
+          Vels.Vehicle_Phone__c = Vels.Contact__r.Primary_Phone_Display__c;
+        }
+        if (Vels.Vehicle_Phone_picklist__c == 'Home phone')
+        {
+          vels.Vehicle_Phone__c = Vels.Contact__r.Individual_Home_Phone__c;
+        } 
+        else if (Vels.Vehicle_Phone_picklist__c == 'work phone')
+        {
+          vels.Vehicle_Phone__c = Vels.Contact__r.Work_Phone__c;
+        }
+        else if (vels.Vehicle_Phone_picklist__c ==  'Home Phone 2')
+        {
+            vels.Vehicle_Phone__c = Vels.Contact__r.Home_Phone_2__c;
+        }
+         
+        if (vels.vehicle_fax_picklist__c == Null)
+         {
+          Vels.vehicle_fax__c = Vels.Contact__r.Primary_Fax_Display__c;
+        }  
 
-				if (vels.vehicle_fax_picklist__c == 'FAX')
-				{
-					vels.vehicle_fax__c = Vels.Contact__r.Fax;
-				}
-				else if (vels.vehicle_fax_picklist__c == 'Work FAX')
-				{
-					vels.vehicle_fax__c = Vels.Contact__r.Fax2__c;
-				}
-				if (vels.vehicle_mail_picklist__c == Null)
-				{
-					vels.vehicle_mail__c = Vels.Contact__r.Primary_Email_Display__c;
-				}
-				if (vels.vehicle_mail_picklist__c == 'Email Home')
-				{
-					vels.vehicle_mail__c =  Vels.Contact__r.Email__c;
-				}
-				else if (vels.vehicle_mail_picklist__c == 'Email Work')
-				{
-					vels.vehicle_mail__c = Vels.Contact__r.Email2__c;
-				}
-				else if (vels.vehicle_mail_picklist__c == 'MyMercedes Email')
-				{
-					vels.vehicle_mail__c = Vels.Contact__r.Email3__c;
-				}
+        if (vels.vehicle_fax_picklist__c == 'FAX')
+        {
+          vels.vehicle_fax__c = Vels.Contact__r.Fax;
+        }
+        else if (vels.vehicle_fax_picklist__c == 'Work FAX')
+        {
+          vels.vehicle_fax__c = Vels.Contact__r.Fax2__c;
+        }
+        if (vels.vehicle_mail_picklist__c == Null)
+        {
+          vels.vehicle_mail__c = Vels.Contact__r.Primary_Email_Display__c;
+        }
+        if (vels.vehicle_mail_picklist__c == 'Email Home')
+        {
+          vels.vehicle_mail__c =  Vels.Contact__r.Email__c;
+        }
+        else if (vels.vehicle_mail_picklist__c == 'Email Work')
+        {
+          vels.vehicle_mail__c = Vels.Contact__r.Email2__c;
+        }
+        else if (vels.vehicle_mail_picklist__c == 'MyMercedes Email')
+        {
+          vels.vehicle_mail__c = Vels.Contact__r.Email3__c;
+        }
                 if(!addresslist.isEmpty() && addresslist != null)
                 {
                     for( Address__c add : addresslist)
