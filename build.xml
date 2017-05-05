@@ -737,11 +737,11 @@
 					<sf:typeset name="customObjectSharingRules"/>
 					<sf:typeset name="reports"/>
 					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="objectTranslations">
+				<!--	<sf:typeset name="objectTranslations">
 						<sf:exclude name="Account-ja"/>
 						<sf:exclude name="Account-ko"/>
-					</sf:typeset>
-					<sf:typeset name="translations"/>
+					</sf:typeset> -->
+					<!--<sf:typeset name="translations"/>-->
 					</deploy>
 				</target>
 				<target name="deploy09">
