@@ -1687,6 +1687,7 @@
         <dataType>String</dataType>
         <expression>{!$Profile.Name}</expression>
     </formulas>
+    <interviewLabel>Welcome Call {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Welcome Call</label>
     <processType>Flow</processType>
     <recordCreates>
@@ -2688,6 +2689,12 @@
             <field>Account__c</field>
             <value>
                 <elementReference>AccountID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Campaign__c</field>
+            <value>
+                <elementReference>CampaignID</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
