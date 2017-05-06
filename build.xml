@@ -157,6 +157,12 @@
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-6"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-7"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-8"/>
+						<sf:exclude name="CSI_Local_Survey_After_Sales_Process-2"/>
+						<sf:exclude name="Welcome_Call-5"/>
+						<sf:exclude name="Survey_Star_Assist-1"/>
+						<sf:exclude name="Welcome_Call-4"/>
+						<sf:exclude name="MBTH_MBDE_after_Event_Survey-2"/>
+						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>
 					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
