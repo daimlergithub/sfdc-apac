@@ -54712,6 +54712,21 @@ NOT(Dealer_Active__c)
         <errorMessage>Please enter Data Source.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Data_Source_other_than_Dealer</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <errorMessage>You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out.</errorMessage>
+    </validationRules>	
+    <validationRules>
+        <fullName>Data_source</fullName>
+        <active>true</active>
+        <description>If data source field is changes throw error message</description>
+        <errorConditionFormula>AND( ISCHANGED(Data_Source__c), MD__c ='JP', $Profile.Name !="IntegrationAPI" )</errorConditionFormula>
+        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <errorMessage>You can't Change data source value</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>DealerAccountName_NoOfDigits</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.Name=&quot;Dealer&quot;,LEN(Name) &gt; 100, MD__c=&apos;JP&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
