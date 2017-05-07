@@ -1,6 +1,7 @@
+
 /**
 ** Utility for Lead trigger for Japan 
-** Updation of “Customer_Lifecycle_Phase__c” on Account related to lead based on CAC Lead Status
+** Updation of â€œCustomer_Lifecycle_Phase__câ€ on Account related to lead based on CAC Lead Status
 ** Initialise Customer_Lifecycle_Phase__c on Account based on CAC Lead Status of all the leads associated with Account based on CAC Lead Status.
 ** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
 ** Created By: Narasimha 
@@ -12,7 +13,7 @@
 public class LeadHelperJP 
 {
     
-/**  Updation of “Customer_Lifecycle_Phase__c” on Account related to lead based on CAC Lead Status
+/**  Updation of â€œCustomer_Lifecycle_Phase__câ€ on Account related to lead based on CAC Lead Status
 **  Created By: Narasimha  
 **  Date: 2016-1-19
 **/
@@ -67,6 +68,8 @@ public class LeadHelperJP
                 }
             }
         }
+        if(contactIdsUpd !=null)
+        {
         
         AccountListUpd = [select id,Customer_Lifecycle_Phase__c from Account where id in :contactIdsUpd];        
         
@@ -84,7 +87,10 @@ public class LeadHelperJP
             
             update AccountListUpd;
         }
+        }
         
+        if( contactIdsIns!=null)
+        {
         AccountListIns = [select id,Customer_Lifecycle_Phase__c from Account where id in : contactIdsIns];
         
         Leads = [select id,contact__c,CAC_Lead_Status__c from Lead__c where contact__c in : contactIdsIns];
@@ -105,6 +111,7 @@ public class LeadHelperJP
             }
         }
         
+        }
         if(!AccountListIns.isEmpty())
         {
             for(Account Acc : AccountListIns)
@@ -163,6 +170,8 @@ public class LeadHelperJP
     
     public static void createContactToContactAccounlink(list<Lead__C> leadList){
     LeadUtil.iscreated = false;
+    if(LeadUtil.createContactToContactAccounlink )
+   {
         Id aclConttoContId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
         List<Account_Link__c> accountLinkInsert = new List<Account_Link__C>();
         for(Lead__C curLead : leadList){
@@ -174,11 +183,14 @@ public class LeadHelperJP
         try{
             if(accountLinkInsert != NULL && !accountLinkInsert.isEmpty()){
                 insert accountLinkInsert;
+                System.debug('^&^&^&^&^&^&^&&^accountLinkInsert'+accountLinkInsert);
             }
         }
         catch(exception e){
             System.debug('Role is Same');
         }
+       }
+       LeadUtil.createContactToContactAccounlink =false;
     }
     
   /** Create AccountLink with combination of From role and to role with contact and Assigned Dealer for newly inserted leads based on CAC Lead Status.
@@ -267,7 +279,9 @@ public class LeadHelperJP
             }
         }
      list<Lead__share>  leadshare=new list<lead__share>();
-     list<Lead__c> leads=new list<lead__c>();
+    // list<Lead__c> leads=new list<lead__c>();
+    Map<id,Lead__c>  leads=new Map<id,Lead__c>();
+     list<Lead__c> leadslist=new list<lead__c>();
       list<group>assgroupList=new list<group>();
      map<string,id> assgroupMap = new map<string,id>();
       Map<String,id>agroupmap=new Map<String,id>();
@@ -326,7 +340,8 @@ public class LeadHelperJP
                         ld.Id = lead.id;
                         ld.CAC_Lead_Status__c='Allocated';
                         ld.Assigned_Date_Time__c=System.now();
-                        leads.add(ld);
+                       // leadslist.add(ld);
+                        leads.put(ld.id,ld);
                      
                      }
                      }
@@ -347,7 +362,8 @@ public class LeadHelperJP
                     ld.Id = lead.id;
                     ld.CAC_Lead_Status__c='Allocated';
                     ld.Assigned_Date_Time__c=System.now();
-                    leads.add(ld);
+                      
+                        leads.put(ld.id,ld);
                      }
                    }
                  } 
@@ -358,7 +374,7 @@ public class LeadHelperJP
         insert leadshare;
         if(leads.size()>0)
         {
-          update leads;
+          update leads.values();
         }
         }
         LeadUtil.handleAfterInsert=false;
@@ -541,8 +557,9 @@ public class LeadHelperJP
                         system.debug('UFR Mail Sending Invalid------>'+emailexe.getMessage());
                     } 
                 } */
-        }  
-	public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
+        }   
+		
+		 public static void updateAssignedDealer(List<Lead__c> dealerLeadList)
     {
         List<User> userList = new List<User>();
         set<id> userid = new set<id>();
@@ -561,6 +578,8 @@ public class LeadHelperJP
                 }
             }
         }
-    }		
+    }    
         
    }
+   
+   
