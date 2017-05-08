@@ -35,11 +35,11 @@
             <field>Lead__c.Existing_Contract__c.Service_Code__c</field>
             <table>SurveyTaker__c</table>
         </columns>
-        <columns>
+		<!--<columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Lead__c.Contact__c.Customer_Consent_Happy_Calls__c</field>
             <table>SurveyTaker__c</table>
-        </columns>
+        </columns>-->
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Survey__c</field>

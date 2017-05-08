@@ -349,6 +349,8 @@ public with sharing class VehicleRelationshipHelperJP
     }
     public static void updateOnVehicleRelation(List<Vehicle_RelationShip__C> veReList,Map<id,Vehicle_Relationship__c> vRoldmap,boolean isInsert,boolean isUpdate)
   {
+      system.debug('@#@##@##veReList'+veReList);
+      system.debug('&*&*&*&vRoldmap'+vRoldmap); 
         string regexForNullValue ='null';
         string nullValue ='';
         set<id> sid = new set<id>();
@@ -363,19 +365,21 @@ public with sharing class VehicleRelationshipHelperJP
         {
           system.debug('+++++++++++++++++++'+veReList );
                     system.debug('+++++++++++++++++++'+ve.contact__c );
-          if(ve.contact__c != null && ((isInsert && ve.contact__c!=null) || (isUpdate && ve.contact__c != vRoldmap.get(ve.Id).contact__c))) //&& ve.contact__c != vRoldmap.get(ve.Id).contact__c
+          if(ve.contact__c != null  && (!setIgnoredAccounts.contains(ve.Contact__c)) && (isInsert || (isUpdate && ve.contact__c != vRoldmap.get(ve.Id).contact__c))) //&& ve.contact__c != vRoldmap.get(ve.Id).contact__c
           {
             sid.add(ve.Contact__c);
           }  
         }
         
       }
-      if(!sid.isempty() && sid != null)
+      system.debug('@@#@##@#@#@ SId'+sid);
+      if(!sid.isempty() && sid != null )
       {
         vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Reference__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
         contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
         contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
       }
+      system.debug('@@#@##@#@#@ vrList'+vrList);
       for(Vehicle_Relationship__c vRs : vrList)
       {
         if(vRs.contact__r.Primary_Address_Reference__c != null)
