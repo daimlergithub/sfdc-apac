@@ -162,11 +162,13 @@ public class AccountHelperJP
                 
                 if(Acc.Fax != Null && Acc.Fax != '')
                 {                    
-                    //Acc.Fax_Last_Modified_Date__c = System.now();
+					Acc.Fax_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Fax_Last_Modified_Date__c = System.now();
                 }
                 
                 if(Acc.Fax2__c != Null && Acc.Fax2__c != '')
-                {                    
+                {     
+					Acc.Work_Fax_Last_Modified_By__c = UserInfo.getName();				
                     Acc.Fax2_Last_Modified_Date__c = System.now();
                 }
                 
@@ -1152,4 +1154,3 @@ if(usr.Profile.Name != 'IntegrationAPI'){
      }   
  }
 }
-
