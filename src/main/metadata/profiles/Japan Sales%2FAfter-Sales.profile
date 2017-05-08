@@ -7220,11 +7220,11 @@
         <field>CampaignMember.Vehicle_Case_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.et4ae5__Activity__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.formula_num__c</field>
@@ -11175,7 +11175,7 @@
         <field>Contact.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Contact.et4ae5__HasOptedOutOfMobile__c</field>
         <readable>false</readable>
@@ -11184,7 +11184,7 @@
         <editable>false</editable>
         <field>Contact.et4ae5__Mobile_Country_Code__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>ContentVersion.Ad_Num__c</field>
@@ -13075,7 +13075,7 @@
         <field>Lead.Website</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Lead.et4ae5__HasOptedOutOfMobile__c</field>
         <readable>false</readable>
@@ -13084,7 +13084,7 @@
         <editable>false</editable>
         <field>Lead.et4ae5__Mobile_Country_Code__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead_Product__c.Account__c</field>
@@ -22350,7 +22350,7 @@
         <field>User.allowance__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>User.et4ae5__Default_ET_Page__c</field>
         <readable>false</readable>
@@ -22389,7 +22389,7 @@
         <editable>false</editable>
         <field>User.et4ae5__ValidExactTargetUser__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>VIN_Mapping__c.BodyType__c</field>
