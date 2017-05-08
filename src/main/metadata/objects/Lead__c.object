@@ -22914,7 +22914,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Inbound &amp; Outbound Supervisor</label>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
