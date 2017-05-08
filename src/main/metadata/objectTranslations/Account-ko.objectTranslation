@@ -8362,6 +8362,14 @@ Allows up to 240 characters --></help>
         <name>New_Case_Dealer</name>
     </webLinks>
     <webLinks>
+        <label>신규 문의</label>
+        <name>New_Inquiry</name>
+    </webLinks>
+    <webLinks>
+        <label>신규 고객불만</label>
+        <name>New_MB_Complaint</name>
+    </webLinks>
+    <webLinks>
         <label>세일즈 리드 생성</label>
         <name>New_Leads</name>
     </webLinks>
