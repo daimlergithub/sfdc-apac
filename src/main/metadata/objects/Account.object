@@ -19212,10 +19212,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Upper Management</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Middle Management</fullName>
                 <default>false</default>
@@ -47656,10 +47652,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
 			<values>
                 <fullName>Upper Management</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>

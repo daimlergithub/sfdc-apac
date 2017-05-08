@@ -3641,10 +3641,6 @@
                 <fullName>Upper Management</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Middle Management</fullName>
                 <default>false</default>

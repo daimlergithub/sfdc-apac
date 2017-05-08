@@ -36863,11 +36863,11 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Lost(CAC)</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
 			<values>
                 <fullName>Lost(Dealer)</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>New</fullName>
@@ -36895,7 +36895,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Qualified</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
 			<values>
                 <fullName>Received</fullName>
@@ -88370,11 +88370,11 @@ Company_Account__r.Work_Phone__c  ,
             </values>
 			<values>
                 <fullName>Lost(CAC)</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
 			<values>
                 <fullName>Lost(Dealer)</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>New</fullName>
