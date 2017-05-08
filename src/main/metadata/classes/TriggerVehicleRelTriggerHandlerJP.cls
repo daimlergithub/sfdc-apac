@@ -43,14 +43,15 @@ public class TriggerVehicleRelTriggerHandlerJP
         * Desc: trigger hanler code for sharing record creation for after insert and after update event
         * Updated: Dec 12, 2016
         */
+        Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
        if(trigger.isAfter && (trigger.isInsert))
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
         }
         if(trigger.isAfter && Trigger.isUpdate) {
-          Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+          
           
           if(LeadUtil.vrTrigger ){
           LeadUtil.accountTrigger = false;
@@ -61,7 +62,7 @@ public class TriggerVehicleRelTriggerHandlerJP
           
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelship,true,false);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
@@ -92,25 +93,18 @@ public class TriggerVehicleRelTriggerHandlerJP
         {
           VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
           VehicleRelationshipHelperJP.afterInsertEvent(Trigger.new);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new);
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
           
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
           if(LeadUtil.vrTrigger ){
-          LeadUtil.accountTrigger = false;
-
-          
+          LeadUtil.accountTrigger = false;          
           VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
-
           }
           
           VehicleRelationshipHelperJP.afterUpdateEvent(Trigger.new, oldmapVehicleRelship);
-          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new);
-
-          
-
-
+          VehicleRelationshipHelperJP.updateOnVehicleRelation(Trigger.new,oldmapVehicleRelation,true,false);
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperJP.OnAfterDelete(Trigger.old);
