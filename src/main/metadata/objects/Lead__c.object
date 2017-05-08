@@ -23053,6 +23053,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
         <language>ja</language>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Lead</fullName>
