@@ -184,8 +184,8 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
                        </td>   
-                       <td></td>
-                       <td></td>
+                       <td><apex:outputField value="{!ParAcc.Fax_Last_Modified_By__c}" /></td>
+                       <td><apex:outputField value="{!ParAcc.Fax_Last_Modified_Date__c}" /></td>
                        
                        
                        
@@ -199,8 +199,8 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
                        </td>   
-                       <td></td>
-                       <td></td>
+                       <td><apex:outputField value="{!ParAcc.Work_Fax_Last_Modified_By__c}" /></td>
+                       <td><apex:outputField value="{!ParAcc.Fax2_Last_Modified_Date__c}" /></td>
                    </tr> 
                </table>    
             </apex:pageBlock> 

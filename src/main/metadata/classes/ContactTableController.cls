@@ -44,7 +44,7 @@ public class ContactTableController
         editMode1 = false;
         AccId = stdController.getId();
         if(!test.isRunningTest()){  
-        stdController.addFields(new List<String> {'Id','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
+        stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
             'Email_Status_3__c','Work_Phone_Status__c','Work_Phone_Status_2__c','Individual_Home_Phone_Status__c', 'Home_Phone_Status_2__c' ,'Mobile_Status__c','SMS_MMS_IM_Status_2__c','Email_Last_Modified_By__c','Email_Last_Modified_By2__c','Email_Last_Modified_By3__c','Email_Last_Modified_Date__c','Email_Last_Modified_Date2__c',
            'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c'});
              
@@ -332,7 +332,7 @@ public class ContactTableController
 
         try
         {
-            if(ParAcc != null && ParAcc.Md__c =='KR')
+            if(ParAcc != null)
             {
                 refreshPage = true;
                 update ParAcc;         
