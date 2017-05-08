@@ -13269,7 +13269,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     <fields>
         <fullName>Sales_Address_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "è‡ªå®…", "Business", "å‹¤å‹™å…ˆ","Other Address 1","ã&#129;&#157;ã&#129;®ä»–1","Other Address 2","ã&#129;&#157;ã&#129;®ä»–2","Other Address 3","ã&#129;&#157;ã&#129;®ä»–3","")</formula>
+        <formula>CASE(TEXT(Primary_Address_Reference__r.Address_Type__c), "Home", "自宅", "Business", "勤務先","Other Address 1","その他1","Other Address 2","その他2","Other Address 3","その他3","")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Address Type</label>
         <required>false</required>
