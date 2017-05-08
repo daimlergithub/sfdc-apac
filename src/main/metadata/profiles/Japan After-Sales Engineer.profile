@@ -2046,10 +2046,10 @@
         <apexClass>exportCampaignMembersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>segmentationredirect</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>false</enabled>
@@ -6125,7 +6125,7 @@
         <field>Asset.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Asset.AssetLevel</field>
         <readable>false</readable>
@@ -6139,7 +6139,7 @@
         <editable>false</editable>
         <field>Asset.AssetServicedById</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.ContactId</field>
@@ -6160,11 +6160,11 @@
         <field>Asset.IsCompetitorProduct</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Asset.IsInternal</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
@@ -6215,11 +6215,11 @@
         <field>Asset.UsageEndDate</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>AssetRelationship.RelationshipType</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Attribute__c.Attribute_Category__c</field>
@@ -25353,14 +25353,14 @@
         <apexPage>SMSSendResult</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+    <!--<pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses>-->
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
         <enabled>true</enabled>

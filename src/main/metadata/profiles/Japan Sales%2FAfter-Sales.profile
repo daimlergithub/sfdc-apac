@@ -2046,10 +2046,10 @@
         <apexClass>exportCampaignMembersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>segmentationredirect</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>false</enabled>
@@ -25354,14 +25354,14 @@
         <apexPage>SMSSendResult</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+    <!--<pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses>-->
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
         <enabled>true</enabled>

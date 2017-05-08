@@ -2046,10 +2046,10 @@
         <apexClass>exportCampaignMembersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>segmentationredirect</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>false</enabled>
@@ -6125,7 +6125,7 @@
         <field>Asset.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Asset.AssetLevel</field>
         <readable>false</readable>
@@ -6139,7 +6139,7 @@
         <editable>false</editable>
         <field>Asset.AssetServicedById</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.ContactId</field>
@@ -6160,11 +6160,11 @@
         <field>Asset.IsCompetitorProduct</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>Asset.IsInternal</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
@@ -6215,11 +6215,11 @@
         <field>Asset.UsageEndDate</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>false</editable>
         <field>AssetRelationship.RelationshipType</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Attribute__c.Attribute_Category__c</field>
@@ -8271,7 +8271,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Aftersales_Manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8381,12 +8381,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.CMS_Contract_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.CRM_Manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12385,7 +12385,7 @@
         <field>Entitlement.Type</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>true</editable>
         <field>Event.AES_CNTR__CallReference__c</field>
         <readable>true</readable>
@@ -12444,7 +12444,7 @@
         <editable>true</editable>
         <field>Event.AES_SFConnector__UUI__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Account_Name__c</field>
@@ -21350,7 +21350,7 @@
         <field>TSP_Subscription__c.Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>true</editable>
         <field>Task.AES_CNTR__CallReference__c</field>
         <readable>true</readable>
@@ -21409,7 +21409,7 @@
         <editable>true</editable>
         <field>Task.AES_SFConnector__UUI__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Account_Name__c</field>
@@ -21440,11 +21440,11 @@
         <field>Task.Activity_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!--<fieldPermissions>
         <editable>true</editable>
         <field>Task.Activity_Purpose__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Activity_Resolution__c</field>
@@ -23962,10 +23962,10 @@
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.MBJ_Inquiry</recordType>
     </layoutAssignments>
-    <layoutAssignments>
+    <!--<layoutAssignments>
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.Touring_Support</recordType>
-    </layoutAssignments>
+    </layoutAssignments>-->
     <layoutAssignments>
         <layout>Case-MB Complaint Layout - CAC</layout>
         <recordType>Case.MB_Complaint</recordType>
@@ -24022,14 +24022,14 @@
         <layout>CaseClose-Case Close Master Layout</layout>
         <recordType>Case.Retail_Campaign</recordType>
     </layoutAssignments>
-    <layoutAssignments>
+    <!--<layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
         <recordType>Case.Roadside_Assistance</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
         <recordType>Case.Touring_Support</recordType>
-    </layoutAssignments>
+    </layoutAssignments>-->
     <layoutAssignments>
         <layout>CaseClose-Close Inquiry Layout-CAC%28IB%2FOB%29</layout>
     </layoutAssignments>
@@ -25849,14 +25849,14 @@
         <apexPage>SMSSendResult</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+    <!--<pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SegmentationCriteria</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>
+    </pageAccesses>-->
     <pageAccesses>
         <apexPage>SelectAddress</apexPage>
         <enabled>true</enabled>
@@ -27086,10 +27086,10 @@
         <enabled>true</enabled>
         <name>ImportLeads</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>LightningConsoleAllowedForUser</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
@@ -27106,10 +27106,10 @@
         <enabled>true</enabled>
         <name>ManageCategories</name>
     </userPermissions>
-    <userPermissions>
+    <!--<userPermissions>
         <enabled>true</enabled>
         <name>ManageCertificates</name>
-    </userPermissions>
+    </userPermissions>-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageContentPermissions</name>
