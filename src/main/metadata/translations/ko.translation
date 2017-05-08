@@ -74,6 +74,10 @@
     </customLabels>
     <customLabels>
         <label>일본 사용 기능</label>
+        <name>SendToMyMercedesErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
         <name>SendToSPOErrorMSG</name>
     </customLabels>
     <customLabels>
@@ -622,6 +626,10 @@
     <customLabels>
         <label>케이스 유형</label>
         <name>Case_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>Check_DuplicatesErrorMsg</name>
     </customLabels>
     <customLabels>
         <label>자녀</label>
@@ -1443,6 +1451,10 @@
     <customLabels>
         <label>신규 계정</label>
         <name>NewAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>일본 사용 기능</label>
+        <name>NewCaseErrorMsg</name>
     </customLabels>
     <customLabels>
         <label>신규 리드</label>
