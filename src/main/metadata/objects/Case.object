@@ -1116,6 +1116,30 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+	<fullName>Address_Line_1__c</fullName>
+         <externalId>false</externalId>
+         <label>Address Line 1</label>
+         <length>200</length>
+         <required>false</required>
+         <trackFeedHistory>false</trackFeedHistory>
+         <trackHistory>false</trackHistory>
+         <trackTrending>false</trackTrending>
+         <type>Text</type>
+         <unique>false</unique>
+     </fields>
+     <fields>
+         <fullName>Address_Line_2__c</fullName>
+         <externalId>false</externalId>
+         <label>Address Line 2</label>
+         <length>200</length>
+         <required>false</required>
+         <trackFeedHistory>false</trackFeedHistory>
+         <trackHistory>false</trackHistory>
+         <trackTrending>false</trackTrending>
+         <type>Text</type>
+         <unique>false</unique>
+     </fields>
+     <fields>
         <fullName>Address__c</fullName>
         <externalId>false</externalId>
         <label>Address</label>
@@ -1352,6 +1376,30 @@ Modify Reason:
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDM_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>CDM UCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+     <fields>
+        <fullName>CPD_CUSTOMER_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>CPD Customer ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -9392,6 +9440,19 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Case_Topic_Details__c</fullName>
+        <description></description>
+        <externalId>false</externalId>
+        <label>Case Topic Details</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Case_Type__c</fullName>
         <externalId>false</externalId>
         <label>Case Type</label>
@@ -9678,6 +9739,18 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Close_Relevant_Repeat_Complaint__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -9687,6 +9760,55 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Compass_Case_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Compass Case Number</label>
+        <length>64</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Compass_Customer_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Compass Customer ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Compass_Dealer_GS_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Compass Dealer GS Code</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Compass_Owner__c</fullName>
+        <externalId>false</externalId>
+        <label>Compass Owner</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ClosedDate</fullName>
@@ -13181,6 +13303,63 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>MBK_Data_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Data Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Compass</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MBK_Case_Class__c</fullName>
+        <externalId>false</externalId>
+        <label>MBK Case Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breakdown(S24h)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Appointment Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintenance Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+         <required>false</required>
+         <trackFeedHistory>false</trackFeedHistory>
+         <trackHistory>false</trackHistory>
+         <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>MB_Settlement_Amount__c</fullName>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
@@ -14014,6 +14193,18 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Preferred_Language__c</fullName>	
+        <externalId>false</externalId>	
+        <label>Preferred Language</label>	
+        <length>15</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Text</type>	
+        <unique>false</unique>	
+    </fields>	
     <fields>
         <fullName>Pre_app_Requested_Date__c</fullName>
         <externalId>false</externalId>
@@ -15924,6 +16115,18 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Salutation__c</fullName>
+        <externalId>false</externalId>
+        <label>Salutation</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sales_Manager__c</fullName>
         <externalId>false</externalId>
         <formula>( Case_Dealer__r.Dealer_Sales_Manager_Email__c )</formula>
@@ -16133,6 +16336,36 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>	
+        <fullName>Service_Type__c</fullName>	
+        <externalId>false</externalId>	
+        <label>Service Type</label>	
+        <picklist>	
+             <picklistValues>	
+                <fullName>S24h</fullName>	
+                 <default>false</default>	
+             </picklistValues>	
+             <picklistValues>	
+                <fullName>MMC</fullName>	
+                 <default>false</default>	
+             </picklistValues>	
+             <picklistValues>	
+                <fullName>CS</fullName>	
+                 <default>false</default>	
+             </picklistValues>	
+             <picklistValues>	
+                <fullName>TS</fullName>	
+                 <default>false</default>	
+             </picklistValues>	
+            <restrictedPicklist>true</restrictedPicklist>	
+            <sorted>false</sorted>	
+        </picklist>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Picklist</type>	
+    </fields>	
     <fields>
         <fullName>Settlement_Changed__c</fullName>
         <defaultValue>false</defaultValue>
@@ -17984,6 +18217,18 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Towing_Provider_ID__c</fullName>
+        <externalId>false</externalId>	
+        <label>Towing Provider ID</label>	
+        <length>50</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Text</type>	
+        <unique>false</unique>	
+    </fields>	
+    <fields>	
         <fullName>Trade_In_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -18032,6 +18277,18 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>UCID__c</fullName>
+        <externalId>false</externalId>	
+        <label>UCID</label>	
+        <length>20</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Text</type>	
+        <unique>false</unique>	
+    </fields>	
+    <fields>	
         <fullName>US_VIN__c</fullName>
         <externalId>false</externalId>
         <label>US VIN</label>
@@ -18044,6 +18301,16 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>RSA_Provider_ID__c</fullName>	
+        <externalId>false</externalId>	
+        <label>RSA Provider ID</label>	
+        <length>50</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <unique>false</unique>	
+	</fields>	
+    <fields>	
         <fullName>Updated_by_EP_Transactions__c</fullName>
         <externalId>false</externalId>
         <label>Updated by EP Transactions</label>
@@ -21958,6 +22225,18 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>	
+        <fullName>Workshop_Provider_ID__c</fullName>	
+        <externalId>false</externalId>	
+        <label>Workshop Provider ID</label>	
+        <length>50</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Text</type>	
+        <unique>false</unique>	
+    </fields>	
     <fields>
         <fullName>X15_Minutes_Before_Deadline__c</fullName>
         <externalId>false</externalId>
@@ -22010,6 +22289,18 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>	
+    <fields>
+        <fullName>ZipCode__c</fullName>	
+        <externalId>false</externalId>	
+        <label>ZipCode</label>	
+        <length>30</length>	
+        <required>false</required>	
+        <trackFeedHistory>false</trackFeedHistory>	
+        <trackHistory>false</trackHistory>	
+        <trackTrending>false</trackTrending>	
+        <type>Text</type>	
+        <unique>false</unique>	
     </fields>	
     <fields>
         <fullName>customercare_cn__c</fullName>

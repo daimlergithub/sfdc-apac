@@ -1003,6 +1003,28 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>	
+        <fullName>CAC_PERSON_UID__c</fullName>
+        <externalId>false</externalId>
+        <label>CAC PERSON UID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+       <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDM_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>CDM UCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>CMS_Dealer_BPID__c</fullName>
         <externalId>false</externalId>
@@ -8245,6 +8267,17 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <externalId>false</externalId>
         <label>Loyalty Card No</label>
         <length>16</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MBC_USERID__c</fullName>
+        <externalId>false</externalId>
+        <label>MBC USERID</label>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
