@@ -219,7 +219,9 @@ public with sharing class VehicleExtension {
         if(returnId!=null){
           nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
         }else{
-            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/a04/o');
+            string pre=Vehicle__c.getSObjectType().getDescribe().getKeyprefix();
+            System.debug('Pre'+pre);
+            nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+pre+'/o');
         }
           nextPage.setRedirect(true);
           return nextPage;
