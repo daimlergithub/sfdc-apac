@@ -54672,8 +54672,8 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Company_Name_Native_1__c),
-REGEX(Company_Name_Native_1__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£Ã£â€šÂ¤Ã£â€šÂ¥Ã£â€šÂ¦Ã£â€šÂ§Ã£â€šÂ¨Ã£â€šÂ©Ã£â€šÂªÃ£â€šÂ«Ã£â€šÂ¬Ã£â€šÂ­Ã£â€šÂ®Ã£â€šÂ¯Ã£â€šÂ°Ã£â€šÂ±Ã£â€šÂ²Ã£â€šÂ³Ã£â€šÂ´Ã£â€šÂµÃ£â€šÂ¶Ã£â€šÂ·Ã£â€šÂ¸Ã£â€šÂ¹Ã£â€šÂºÃ£â€šÂ»Ã£â€šÂ¼Ã£â€šÂ½Ã£â€šÂ¾Ã£â€šÂ¿Ã£Æ’â‚¬Ã£Æ’ÂÃ£Æ’â€šÃ£Æ’Æ’Ã£Æ’â€žÃ£Æ’â€¦Ã£Æ’â€ Ã£Æ’â€¡Ã£Æ’Ë†Ã£Æ’â€°Ã£Æ’Å Ã£Æ’â€¹Ã£Æ’Å’Ã£Æ’ÂÃ£Æ’Å½Ã£Æ’ÂÃ£Æ’ÂÃ£Æ’â€˜Ã£Æ’â€™Ã£Æ’â€œÃ£Æ’â€Ã£Æ’â€¢Ã£Æ’â€“Ã£Æ’â€”Ã£Æ’ËœÃ£Æ’â„¢Ã£Æ’Å¡Ã£Æ’â€ºÃ£Æ’Å“Ã£Æ’ÂÃ£Æ’Å¾Ã£Æ’Å¸Ã£Æ’ Ã£Æ’Â¡Ã£Æ’Â¢Ã£Æ’Â£Ã£Æ’Â¤Ã£Æ’Â¥Ã£Æ’Â¦Ã£Æ’Â§Ã£Æ’Â¨Ã£Æ’Â©Ã£Æ’ÂªÃ£Æ’Â«Ã£Æ’Â¬Ã£Æ’Â­Ã£Æ’Â®Ã£Æ’Â¯Ã£Æ’Â°Ã£Æ’Â±Ã£Æ’Â²Ã£Æ’Â³Ã£Æ’Â´Ã£Æ’ÂµÃ£Æ’Â¶Ã¯Â¼ÂÃ£Æ’Â¼]*&quot;))),$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c = &apos;JP&apos;)</errorConditionFormula>
+REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
     </validationRules>
