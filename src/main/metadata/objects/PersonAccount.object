@@ -906,6 +906,10 @@
                 <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -2735,6 +2739,34 @@
                 <fullName>Yogi</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Art &amp; Theatre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Surfing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home &amp; Gardening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arts &amp; Crafts</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Beauty &amp; Fashion</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Home_Phone_Status_2__c</picklist>
@@ -3603,6 +3635,38 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Upper Management</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Middle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retiree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homemaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

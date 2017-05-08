@@ -8898,7 +8898,7 @@ Attribute in Data Dictinary &quot;Pref_Details&quot; of object &quot;Preference&
 			<picklistValues>
 				<fullName>Beauty &amp; Fashion</fullName>
 				<default>false</default>
-		</picklistValues>
+			</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16509,6 +16509,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Service Program</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -18477,6 +18481,34 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Yoga</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Art &amp; Theatre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Surfing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home &amp; Gardening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arts &amp; Crafts</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Beauty &amp; Fashion</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Home_Phone_Status_2__c</picklist>
@@ -19177,7 +19209,35 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Upper Management</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Middle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retiree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homemaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45388,6 +45448,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -47039,6 +47103,34 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Yoga</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Art &amp; Theatre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Surfing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home &amp; Gardening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arts &amp; Crafts</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Beauty &amp; Fashion</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Home_Phone_Status_2__c</picklist>
@@ -47560,6 +47652,38 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Upper Management</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Middle Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Executive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retiree</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homemaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
