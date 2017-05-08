@@ -1130,14 +1130,14 @@
         <apexClass>ScheduleRetailCampCompletionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>SegmentationCriteriaController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>SegmentationCriteriaControllerTest</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>SelectAddressController</apexClass>
         <enabled>true</enabled>
