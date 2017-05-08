@@ -13285,12 +13285,7 @@
         <editable>true</editable>
         <field>Event.Reason__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-		<editable>false</editable>
-        <field>Event.RelatedRetailTask__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Related_Task_Id__c</field>
