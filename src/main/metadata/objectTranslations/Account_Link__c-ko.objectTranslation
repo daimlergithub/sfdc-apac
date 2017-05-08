@@ -73,7 +73,7 @@
         <name>LastServiceMileage__c</name>
     </fields>
     <fields>
-        <label><!-- Last Modified User Type --></label>
+        <label>최종 수정자 유형</label>
         <name>Last_Modified_User_Type__c</name>
     </fields>
     <fields>
@@ -180,28 +180,28 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Address CreatedDate --></label>
+        <label>주소 생성 날짜</label>
         <name>Retail_Address_CreatedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address LastModifiedDate --></label>
+        <label>마지막으로 주소 수정된 날짜</label>
         <name>Retail_Address_LastModifiedDate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Line 1 --></label>
+        <label>도로명</label>
         <name>Retail_Address_Line_1__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Line 2 --></label>
+        <label>상세주소</label>
         <name>Retail_Address_Line_2__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Address Reference --></label>
+        <label>대표 주소 아이디</label>
         <name>Retail_Address_Reference__c</name>
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Address Type --></label>
+        <label>주소 유형</label>
         <name>Retail_Address_Type__c</name>
         <picklistValues>
             <masterLabel>Business</masterLabel>
@@ -225,7 +225,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label>개인 정보 취급 위탁 동의</label>
+        <label>개인정보 취급 위탁 동의</label>
         <name>Retail_Agreement_Info_Processing__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -257,7 +257,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Allow Data Sharing --></label>
+        <label>데이터 공유 허용</label>
         <name>Retail_Allow_Data_Sharing__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -289,15 +289,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail City --></label>
+        <label>구/군/시</label>
         <name>Retail_City__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Comments --></label>
+        <label>리테일 코멘츠</label>
         <name>Retail_Comments__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Commercial Reg No --></label>
+        <label>사업자등록번호</label>
         <name>Retail_Commercial_Reg_No__c</name>
     </fields>
     <fields>
@@ -305,7 +305,7 @@
         <name>Retail_Company_Name_Native1__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Company Name --></label>
+        <label>회사 이름</label>
         <name>Retail_Company_Name__c</name>
     </fields>
     <fields>
@@ -317,7 +317,7 @@
         <name>Retail_Company_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Complaing Amount --></label>
+        <label>불만제기</label>
         <name>Retail_Complaint_Amount__c</name>
     </fields>
     <fields>
@@ -385,15 +385,15 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail DMS Customer ID --></label>
+        <label>DMS 고객 ID</label>
         <name>Retail_DMS_Customer_ID__c</name>
     </fields>
     <fields>
-        <label><!-- Dealer GC Code --></label>
+        <label>딜러 GC 코드</label>
         <name>Retail_Dealer_CompanyCode__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Dealer Company --></label>
+        <label>딜러사</label>
         <name>Retail_Dealer_Company__c</name>
     </fields>
     <fields>
@@ -401,27 +401,27 @@
         <name>Retail_Delete_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Distinct --></label>
+        <label>동/읍/면</label>
         <name>Retail_Distinct__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Duplicate Flag --></label>
+        <label>중복 플래그</label>
         <name>Retail_Duplicate_Flag__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Email OptOut --></label>
+        <label>이메일 수신 거부</label>
         <name>Retail_Email_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Email --></label>
+        <label>이메일</label>
         <name>Retail_Email__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Fax OptOut --></label>
+        <label>팩스 수신 거부</label>
         <name>Retail_Fax_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Fax --></label>
+        <label>팩스</label>
         <name>Retail_Fax__c</name>
     </fields>
     <fields>
@@ -429,7 +429,7 @@
         <name>Retail_FirstName_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Retail FirstName --></label>
+        <label>이름(영문)</label>
         <name>Retail_FirstName__c</name>
     </fields>
     <fields>
@@ -441,7 +441,7 @@
         <name>Retail_First_Consent_User__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Foundation Month --></label>
+        <label>설립 월</label>
         <name>Retail_Foundation_Month__c</name>
     </fields>
     <fields>
@@ -453,11 +453,11 @@
         <name>Retail_Full_Name_Title__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Full Name --></label>
+        <label>계정이름</label>
         <name>Retail_Full_Name__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Gender --></label>
+        <label>성별</label>
         <name>Retail_Gender__c</name>
         <picklistValues>
             <masterLabel>Female</masterLabel>
@@ -473,11 +473,11 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Individual Home Phone --></label>
+        <label>집 전화</label>
         <name>Retail_Individual_Home_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Industry --></label>
+        <label>업종</label>
         <name>Retail_Industry__c</name>
         <picklistValues>
             <masterLabel>Advertising / Marketing</masterLabel>
@@ -697,15 +697,15 @@
         <name>Retail_LastName_Native__c</name>
     </fields>
     <fields>
-        <label><!-- Retail LastName --></label>
+        <label>이름(한글)</label>
         <name>Retail_LastName__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Mobile --></label>
+        <label>휴대전화</label>
         <name>Retail_Mobile__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Occupation --></label>
+        <label>직업</label>
         <name>Retail_Occupation__c</name>
         <picklistValues>
             <masterLabel>Accounting</masterLabel>
@@ -865,23 +865,23 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail PersonBirthdate --></label>
+        <label>생년월일</label>
         <name>Retail_PersonBirthdate__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Phone OptOut --></label>
+        <label>전화 수신 거부</label>
         <name>Retail_Phone_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Position --></label>
+        <label>직급</label>
         <name>Retail_Position__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Postal OptOut --></label>
+        <label>우편 수신 거부</label>
         <name>Retail_Postal_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Preferred Contact Method --></label>
+        <label>선호 연락 방법</label>
         <name>Retail_Preferred_Contact_Method__c</name>
         <picklistValues>
             <masterLabel>Direct Mail</masterLabel>
@@ -905,7 +905,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Preferred Language --></label>
+        <label>선호 언어</label>
         <name>Retail_Preferred_Language__c</name>
         <picklistValues>
             <masterLabel>Chinese</masterLabel>
@@ -977,7 +977,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Primary Phone --></label>
+        <label>대표전화</label>
         <name>Retail_Primary_Phone__c</name>
         <picklistValues>
             <masterLabel>Home Phone</masterLabel>
@@ -1005,12 +1005,12 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail Province --></label>
+        <label>시/도</label>
         <name>Retail_Province__c</name>
         
     </fields>
     <fields>
-        <label><!-- Retail Related Company --></label>
+        <label>관련 회사</label>
         <name>Retail_Related_Company__c</name>
         <relationshipLabel><!-- Account Link --></relationshipLabel>
     </fields>
@@ -1019,16 +1019,16 @@
         <name>Retail_Responsible__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Sales Consultant --></label>
+        <label>영업사원</label>
         <name>Retail_Sales_Consultant__c</name>
         <relationshipLabel><!-- Account Link (Retail Sales Consultant) --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Retail Sales Sanction Comments --></label>
+        <label>판매 거절 사유</label>
         <name>Retail_Sales_Sanction_Comment__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Sales Sanction --></label>
+        <label>판매 거절</label>
         <name>Retail_Sales_Sanction__c</name>
         <picklistValues>
             <masterLabel>None</masterLabel>
@@ -1064,7 +1064,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Retail UCID --></label>
+        <label>UCID</label>
         <name>Retail_UCID__c</name>
     </fields>
     <fields>
@@ -1076,23 +1076,23 @@
         <name>Retail_Updated_Consent_User__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Vat No --></label>
+        <label>법인 등록 번호</label>
         <name>Retail_Vat_No__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Visit OptOut --></label>
+        <label>방문 거부</label>
         <name>Retail_Visit_OptOut__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Web Site --></label>
+        <label>웹 사이트</label>
         <name>Retail_WebSite__c</name>
     </fields>
     <fields>
-        <label><!-- Retail Work Phone --></label>
+        <label>직장 전화</label>
         <name>Retail_Work_Phone__c</name>
     </fields>
     <fields>
-        <label><!-- Retail ZipCode --></label>
+        <label>우편번호</label>
         <name>Retail_ZipCode__c</name>
     </fields>
     <fields>
@@ -1265,7 +1265,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Selling Dealer --></label>
+        <label>판매 딜러</label>
         <name>Selling_Dealer__c</name>
         <relationshipLabel><!-- Account Link (Selling Dealer) --></relationshipLabel>
     </fields>
@@ -1341,12 +1341,12 @@
         <relationshipLabel>계정 링크</relationshipLabel>
     </fields>
     <fields>
-        <label>계정 1</label>
+        <label>계정1</label>
         <name>fromRole__c</name>
         <relationshipLabel>계정 링크(연락처 간)</relationshipLabel>
     </fields>
     <fields>
-        <label>계정 2</label>
+        <label>계정2</label>
         <name>toRole__c</name>
         <relationshipLabel>계정 링크(외부 링크)</relationshipLabel>
     </fields>
