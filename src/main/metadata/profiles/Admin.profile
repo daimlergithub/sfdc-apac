@@ -2356,6 +2356,16 @@
         <field>Account.Buy_Cycle__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CDM_UCID__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CAC_PERSON_UID__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CMS_Dealer_BPID__c</field>
@@ -3841,6 +3851,11 @@
         <field>Account.Loyalty_Card_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.MBC_USERID__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.MBFS_Activation_Date__c</field>

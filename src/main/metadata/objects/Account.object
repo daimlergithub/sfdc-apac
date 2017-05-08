@@ -10866,7 +10866,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
 IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;NA&apos;)))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -54621,7 +54621,7 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     </validationRules>
     <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
-        <active>true</active> 
+        <active>true</active>
         <errorConditionFormula>AND( 
 			$Profile.Name != 'IntegrationAPI', MD__c = 'KR', RecordType.DeveloperName = 'Company', 
 			ISBLANK(Commercial_Reg_No__c),ISBLANK(Vat_No__c))</errorConditionFormula> 
@@ -54710,6 +54710,21 @@ NOT(Dealer_Active__c)
         <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,&apos;&apos;),!ISNEW()),MD__c=&apos;KR&apos;,RecordType.DeveloperName = &apos;PersonAccount&apos; ,$Profile.Name != &apos;IntegrationAPI&apos;, ISPICKVAL(MBK_Data_Source__c, &quot;&quot;))</errorConditionFormula>
         <errorDisplayField>MBK_Data_Source__c</errorDisplayField>
         <errorMessage>Please enter Data Source.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Data_Source_other_than_Dealer</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( NOT(ISPICKVAL( Data_Source__c , "Dealer Outlet")), NOT( ISPICKVAL( Acquisition_Objective_Method__c , "") ), MD__c ='JP', $Profile.Name !="IntegrationAPI")</errorConditionFormula>
+        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <errorMessage>You cant select value for Acquisition Objective &amp; Method if date source is not Dealer Out.</errorMessage>
+    </validationRules>	
+    <validationRules>
+        <fullName>Data_source</fullName>
+        <active>true</active>
+        <description>If data source field is changes throw error message</description>
+        <errorConditionFormula>AND( ISCHANGED(Data_Source__c), MD__c ='JP', $Profile.Name !="IntegrationAPI" )</errorConditionFormula>
+        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <errorMessage>You can't Change data source value</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>DealerAccountName_NoOfDigits</fullName>
@@ -55635,7 +55650,7 @@ MD__c = &apos;JP&apos;
 		OR( CONTAINS(Email__c, &apos;?&apos;), CONTAINS(Email__c, &apos;^&apos;), CONTAINS(Email__c, &apos;%&apos;),
 		CONTAINS(Email__c, &apos;$&apos;), RIGHT(Email__c, 1)=&apos;.&apos;, BEGINS(Email__c, &apos;.&apos;) , CONTAINS(Email__c, &apos;@.&apos;), CONTAINS(Email__c, &apos;.@&apos;),
 		CONTAINS(Email__c, &apos;..&apos;), NOT(CONTAINS(Email__c, &apos;.&apos;)), NOT(CONTAINS(Email__c, &apos;@&apos;)),
-		CONTAINS( RIGHT( Email__c, LEN(Email__c)  FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
+		CONTAINS( RIGHT( Email__c, LEN(Email__c) - FIND(&apos;@&apos;, Email__c)), &apos;@&apos;) , LEFT( RIGHT( Email__c, 2), 1)=&apos;.&apos;),
 		$Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;TH&apos;
 		)</errorConditionFormula>
 		<errorMessage>Invalid Email Address.</errorMessage>

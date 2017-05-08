@@ -10433,11 +10433,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>EP_Export_Notification__c.Usecase__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10860,12 +10855,7 @@
         <editable>false</editable>
         <field>Event.Location</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.MBTH_Result__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.MD__c</field>
@@ -20214,11 +20204,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Warranty_Apply_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle_Relationship__c.Warranty_Apply_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

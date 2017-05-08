@@ -958,6 +958,14 @@
         <apexClass>SelectAssignedDealerControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>SegmentationCriteriaController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>segmentationredirect</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>SendAccountInfoToSPO</apexClass>
         <enabled>true</enabled>
@@ -24049,6 +24057,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SendAccountInfoToSPO</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>Segmentation</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>SegmentationCriteria</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

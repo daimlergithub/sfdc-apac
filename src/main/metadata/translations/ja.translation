@@ -912,6 +912,10 @@
         <label><!-- Convert To Task --></label>
         <name>Convert_To_Task</name>
     </customLabels>
+	<customLabels>
+        <label>リードタイプ変更</label>
+        <name>Converted_to_After_Sales_Leads</name>
+    </customLabels>
     <customLabels>
         <label>写し</label>
         <name>Copy</name>
@@ -2108,7 +2112,7 @@
         <label><!-- Not found QC --></label>
         <name>Not_found_QC</name>
     </customLabels>
-    <customLabels>
+        <customLabels>
         <label>販売店を設定してください。</label>
         <name>Notify_To_Dealer1</name>
     </customLabels>
@@ -3695,19 +3699,6 @@
         <sections>
             <label><!-- Leads (Contact) --></label>
             <name>Leads (Contact)</name>
-        </sections>
-    </reportTypes>
-    <reportTypes>
-        <description><!-- Campaign Member --></description>
-        <label><!-- Campaign Member --></label>
-        <name>Campaign_Member</name>
-        <sections>
-            <label><!-- Campaign Members --></label>
-            <name>Campaign Members</name>
-        </sections>
-        <sections>
-            <label><!-- Campaigns --></label>
-            <name>Campaigns</name>
         </sections>
     </reportTypes>
     <reportTypes>
