@@ -92,10 +92,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
             <layoutItems>
@@ -222,7 +218,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Brand__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>WIP_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -239,6 +247,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Interested_Vehicle_Interior_Color__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Assignment_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
