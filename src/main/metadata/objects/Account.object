@@ -54485,7 +54485,7 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <fullName>Acquisition_Objective_Method_mandatory</fullName>
         <active>true</active>
         <description>When "Allow data sharing2" is set to "Yes" in either ACC-01-05 Person Account Layout for Dealer or ACC-06-01 Account Creation,  "Acquisition Objective &amp; Method" should be mandatory</description>
-        <errorConditionFormula>AND( ISPICKVAL( Allow_Data_Sharing2__c , "Yes"), ISPICKVAL( Acquisition_Objective_Method__c , ''), MD__c ='JP', $Profile.Name !="IntegrationAPI"  )</errorConditionFormula>
+        <errorConditionFormula>AND( ISPICKVAL( Allow_Data_Sharing2__c , "Yes"), ISPICKVAL( Acquisition_Objective_Method__c , ''), MD__c ='JP', $Profile.Name !="IntegrationAPI", RecordType.Name ='PersonAccount'  )</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>Please select Acquisition Objective &amp; Method</errorMessage>
     </validationRules>
@@ -54672,8 +54672,8 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(Company_Name_Native_1__c),
-REGEX(Company_Name_Native_1__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£Ã£â€šÂ¤Ã£â€šÂ¥Ã£â€šÂ¦Ã£â€šÂ§Ã£â€šÂ¨Ã£â€šÂ©Ã£â€šÂªÃ£â€šÂ«Ã£â€šÂ¬Ã£â€šÂ­Ã£â€šÂ®Ã£â€šÂ¯Ã£â€šÂ°Ã£â€šÂ±Ã£â€šÂ²Ã£â€šÂ³Ã£â€šÂ´Ã£â€šÂµÃ£â€šÂ¶Ã£â€šÂ·Ã£â€šÂ¸Ã£â€šÂ¹Ã£â€šÂºÃ£â€šÂ»Ã£â€šÂ¼Ã£â€šÂ½Ã£â€šÂ¾Ã£â€šÂ¿Ã£Æ’â‚¬Ã£Æ’ÂÃ£Æ’â€šÃ£Æ’Æ’Ã£Æ’â€žÃ£Æ’â€¦Ã£Æ’â€ Ã£Æ’â€¡Ã£Æ’Ë†Ã£Æ’â€°Ã£Æ’Å Ã£Æ’â€¹Ã£Æ’Å’Ã£Æ’ÂÃ£Æ’Å½Ã£Æ’ÂÃ£Æ’ÂÃ£Æ’â€˜Ã£Æ’â€™Ã£Æ’â€œÃ£Æ’â€Ã£Æ’â€¢Ã£Æ’â€“Ã£Æ’â€”Ã£Æ’ËœÃ£Æ’â„¢Ã£Æ’Å¡Ã£Æ’â€ºÃ£Æ’Å“Ã£Æ’ÂÃ£Æ’Å¾Ã£Æ’Å¸Ã£Æ’ Ã£Æ’Â¡Ã£Æ’Â¢Ã£Æ’Â£Ã£Æ’Â¤Ã£Æ’Â¥Ã£Æ’Â¦Ã£Æ’Â§Ã£Æ’Â¨Ã£Æ’Â©Ã£Æ’ÂªÃ£Æ’Â«Ã£Æ’Â¬Ã£Æ’Â­Ã£Æ’Â®Ã£Æ’Â¯Ã£Æ’Â°Ã£Æ’Â±Ã£Æ’Â²Ã£Æ’Â³Ã£Æ’Â´Ã£Æ’ÂµÃ£Æ’Â¶Ã¯Â¼ÂÃ£Æ’Â¼]*&quot;))),$Profile.Name != &apos;IntegrationAPI&apos;, 
-MD__c = &apos;JP&apos;)</errorConditionFormula>
+REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
     </validationRules>
@@ -54722,7 +54722,7 @@ NOT(Dealer_Active__c)
         <fullName>Data_source</fullName>
         <active>true</active>
         <description>If data source field is changes throw error message</description>
-        <errorConditionFormula>AND( ISCHANGED(Data_Source__c), MD__c ='JP', $Profile.Name !="IntegrationAPI" )</errorConditionFormula>
+        <errorConditionFormula>AND( ISCHANGED(Data_Source__c), MD__c ='JP', $Profile.Name !="IntegrationAPI",RecordType.Name ='PersonAccount')</errorConditionFormula>
         <errorDisplayField>Data_Source__c</errorDisplayField>
         <errorMessage>You can't Change data source value</errorMessage>
     </validationRules>
