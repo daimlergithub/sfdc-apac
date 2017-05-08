@@ -332,7 +332,7 @@ public class ContactTableController
 
         try
         {
-            if(ParAcc != null && ParAcc.Md__c =='KR')
+            if(ParAcc != null)
             {
                 refreshPage = true;
                 update ParAcc;         
