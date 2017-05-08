@@ -372,22 +372,25 @@ public with sharing class VehicleRelationshipHelperJP
       }
       if(!sid.isempty() && sid != null)
       {
-        vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
+        vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Reference__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
         contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
         contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
       }
       for(Vehicle_Relationship__c vRs : vrList)
       {
-        if(vRs.contact__r.Primary_Address_Display__c != null)
+        if(vRs.contact__r.Primary_Address_Reference__c != null)
         {
-          addressids.add(vRs.contact__r.Primary_Address_Display__c);
+          addressids.add(vRs.contact__r.Primary_Address_Reference__c);
         }
       }
           LeadUtil.verTrigger = false;
                 system.debug('++++++++++++++++++++'+sid);
             if(addressids != Null && !addressids.isempty())
       {
-        addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,Province_Native__c,City__c,          City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,Address_Line_1__c,Address_Line_1_Native__c,          Address_Line_2__c,Address_Line_2_Native__c,Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where Id =: addressids];
+        addresslist = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,
+                       Province_Native__c,City__c,City_Native__c,District__c,District_Native__c,Block__c,Block_Native__c,
+                       Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,
+                       Company_Name__c,Status__c,Temp_ZipCode__c,Temp_Address__c from Address__c where Id =: addressids];
       }
       
       system.debug('++++++++++++++++++'+addresslist);
