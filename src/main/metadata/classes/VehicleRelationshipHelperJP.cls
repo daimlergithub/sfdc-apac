@@ -372,7 +372,7 @@ public with sharing class VehicleRelationshipHelperJP
       }
       if(!sid.isempty() && sid != null)
       {
-        vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Reference__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
+        vrList = [select id,contact__r.Sales_Address_Type__c,contact__r.Primary_Address_Reference__c,contact__r.Primary_Address_Display__c,contact__r.Primary_Email_Display__c,contact__r.Primary_Fax_Display__c,contact__r.Primary_Phone_Display__c,
         contact__r.Individual_Home_Phone__c,contact__r.Work_Phone__c,contact__r.Home_Phone_2__c,contact__r.FAX,contact__r.Fax2__c,contact__r.Email__c,
         contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c from Vehicle_Relationship__c where Contact__c =:sid];
       }
