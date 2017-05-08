@@ -21,9 +21,9 @@
     <columns>
         <field>SurveyTaker__c$Lead__c.Existing_Contract__c.Service_Code__c</field>
     </columns>
-    <columns>
+    <!--<columns>
         <field>SurveyTaker__c$Lead__c.Contact__c.Customer_Consent_Happy_Calls__c</field>
-    </columns>
+    </columns>-->
     <description>Happy Calls Survey Report schedule at Morning.</description>
     <filter>
         <criteriaItems>
