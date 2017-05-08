@@ -285,10 +285,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_Comment__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Interested_Competitor_Vehicle__c</field>
             </layoutItems>
             <layoutItems>

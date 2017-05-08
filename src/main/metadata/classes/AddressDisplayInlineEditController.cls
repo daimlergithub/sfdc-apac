@@ -21,7 +21,7 @@ public class AddressDisplayInlineEditController {
     Public Boolean Validation;
     Public Boolean profilename{get;set;}
     public Boolean Communityuser{get;set;}
-	public List<SelectOption> lstDistrict{get; set;}
+    public List<SelectOption> lstDistrict{get; set;}
     public List<SelectOption> lstSubDistrict{get; set;}
     public List<SelectOption> lstZip{get; set;}
     public List<SelectOption> lstProvince{get; set;}
@@ -31,12 +31,12 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
-	
+    
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
         this.stdController = stdController;     
         aid = ApexPages.currentPage().getParameters().get('id');
         Address_Validated_Flag = false;
-		IsForeignNational=false;
+        IsForeignNational=false;
         system.debug('######'+ aid); 
         if(ApexPages.currentPage().getParameters().get('id')!=Null){            
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
@@ -62,13 +62,13 @@ public class AddressDisplayInlineEditController {
             Communityuser = true;
         }
     } 
-	
-	public void LoadProvince()
+    
+    public void LoadProvince()
       {          
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
         lstProvince.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected])
+        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
             {
@@ -86,7 +86,7 @@ public class AddressDisplayInlineEditController {
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
         lstDistrict.add(new SelectOption('--Select--','--Select--'));        
-        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province])
+        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province order by District__c asc])
         {
             if(!setDistricts.contains(lsttempDistrict.District__c))
             {
@@ -103,7 +103,7 @@ public class AddressDisplayInlineEditController {
         lstSubDistrict=new List<SelectOption>();
         Set<string> setSubDistricts = new set<string>();
         lstSubDistrict.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempSubDistrict : [select id,Sub_DIstrict__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district])
+        for(RegionMasterInfo__c lsttempSubDistrict : [select id,Sub_DIstrict__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district order by Sub_DIstrict__c asc])
         {
             if(!setSubDistricts.contains(lsttempSubDistrict.Sub_DIstrict__c))
             {
@@ -119,7 +119,7 @@ public class AddressDisplayInlineEditController {
         lstZip=new List<SelectOption>();
         Set<string> setZip = new set<string>();
         lstZip.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempSubDistrict : [select id,ZipCode__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district and Sub_DIstrict__c=:subdistrict])
+        for(RegionMasterInfo__c lsttempSubDistrict : [select id,ZipCode__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province and District__c=:district and Sub_DIstrict__c=:subdistrict order by ZipCode__c asc])
         {
             if(!setZip.contains(lsttempSubDistrict.ZipCode__c))
             {
@@ -137,8 +137,8 @@ public class AddressDisplayInlineEditController {
             IsForeignNational=false;
       }
       
-	
-	
+    
+    
     public List<SelectOption> getAddressOptions() {
         List<SelectOption> AddressOptions = new List<SelectOption>();
         if(market=='KR'){           
@@ -245,6 +245,7 @@ public class AddressDisplayInlineEditController {
         If(editadds!=null)
         {                     
             addressobj.Address_Type__c = editadds.Address_Type__c;
+            addresspicklist=editadds.Address_Type__c;
             addressobj.ZipCode__c = editadds.ZipCode__c;
             addressobj.Province__c = editadds.Province__c;
             addressobj.City__c = editadds.City__c;
@@ -265,8 +266,8 @@ public class AddressDisplayInlineEditController {
             addressobj.District_Native__c = editadds.District_Native__c;        
             addressobj.Address_Line_1_Native__c = editadds.Address_Line_1_Native__c;        
             addressobj.Address_Line_2_Native__c = editadds.Address_Line_2_Native__c;
-			
-			addressobj.Foreign_Nationals__c=editadds.Foreign_Nationals__c;
+            
+            addressobj.Foreign_Nationals__c=editadds.Foreign_Nationals__c;
             zip=editadds.ZipCode__c;
             province=editadds.Province__c;
             district=editadds.District__c;
@@ -291,15 +292,15 @@ public class AddressDisplayInlineEditController {
         if(addressobj != null ){
             Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];            
             //AddressObj.Address_Type__c = addresspicklist;
-			if(addresspicklist!=null)
-				AddressObj.Address_Type__c = addresspicklist;
-			if(provincepicklist!=null)
-				AddressObj.Province__c = provincepicklist;
-		   if(editaddressId ==null){
+            if(addresspicklist!=null)
+                AddressObj.Address_Type__c = addresspicklist;
+            if(provincepicklist!=null)
+                AddressObj.Province__c = provincepicklist;
+           if(editaddressId ==null){
                 addressobj.Customer__c = acc.id;            
                 try{  
                     if(Address_Validated_Flag == false)
-					{
+                    {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
                         Validation = true;
                     }
@@ -321,7 +322,7 @@ public class AddressDisplayInlineEditController {
           {
             refreshPage= true;
             addressObj.Id = null;
-			//Thailand market not to have address valdation button
+            //Thailand market not to have address valdation button
             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
             insert addressobj;
           }
@@ -356,7 +357,7 @@ public class AddressDisplayInlineEditController {
                     else 
                     {   if(Validation == False){
                             refreshPage= true;
-							
+                            
                             addressObj.Address_Code__c = ValidateAddressCode(addressObj);
                             update addressobj;
                         }
@@ -372,8 +373,8 @@ public class AddressDisplayInlineEditController {
         }  
     }
     
-	
-	/**    
+    
+    /**    
         * @Description : creates and validate new address record  
         * @author      : Mohammed Touseef Ahmed
         * @Date        : 02/8/2017    
@@ -446,8 +447,8 @@ public class AddressDisplayInlineEditController {
                 }
             }
             if(Validation == False){        
-				refreshPage = true; 
-				Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                refreshPage = true; 
+                Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
                 if (editaddressId ==null)
                 {           
                     
@@ -458,7 +459,7 @@ public class AddressDisplayInlineEditController {
                 else
                 {
                     addressobj.id = editaddressId;
-					addressobj.Customer__c = acc.id;
+                    addressobj.Customer__c = acc.id;
                     addressobj.Language__c =LanguageSelected;
                     update addressobj;
                 }
@@ -471,8 +472,8 @@ public class AddressDisplayInlineEditController {
             system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
         }
     }
-	
-	
+    
+    
     /**  Address Search based on Zip code.
         Sends zip code to EP/Tolerant and fetches the matched address details and populates on Screen. 
         **  Created By: Sudhir  
@@ -648,12 +649,12 @@ public class AddressDisplayInlineEditController {
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtemp.Address_Line_1__c);
                     }
                     
-					 if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
+                     if(ValidStr.contains('Address_Line_1_Native__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_1_Native__c= response.Addresses[i].Address_Line_1_Native;
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1_Native__c' + AddressObjtemp.Address_Line_1_Native__c);
                     }
-					
+                    
                     if(ValidStr.contains('Address_Line_2__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2__c = response.Addresses[i].Address_Line_2;
@@ -664,13 +665,13 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Address_Line_2__c = response.Addresses[i].Address_Line_2;
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtemp.Address_Line_2__c);
                     }
-					
-					 if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
+                    
+                     if(ValidStr.contains('Address_Line_2_Native__c') && Market == 'JP')
                     {
                       addressobj.Address_Line_2_Native__c= response.Addresses[i].Address_Line_2_Native;
                         system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObjtemp.Address_Line_2_Native__c);
                     }
-					
+                    
                     if(ValidStr.contains('Block__c') && Market == 'JP')
                     {
                       addressobj.Block__c = response.Addresses[i].Block;
@@ -681,14 +682,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Block__c = response.Addresses[i].Block;
                         system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtemp.Block__c);
                     }
-					
-					if(ValidStr.contains('Block_Native__c') && Market == 'JP')
+                    
+                    if(ValidStr.contains('Block_Native__c') && Market == 'JP')
                     {
                       addressobj.Block_Native__c= response.Addresses[i].Block_Native;
                         system.debug(' *$*$*$* Res AddressObjtemp.Block_Native__c' + addressobj.Block_Native__c);
                     }
-					
-					
+                    
+                    
                     if(ValidStr.contains('City__c') && Market == 'JP')
                     {
                       addressobj.City__c = response.Addresses[i].City;
@@ -700,15 +701,15 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtemp.City__c);
                     }
-					
-					if(ValidStr.contains('City_Native__c') && Market == 'JP')
+                    
+                    if(ValidStr.contains('City_Native__c') && Market == 'JP')
                     {
                       addressobj.City_Native__c= response.Addresses[i].City_Native;
                         //AddressObjtemp.City__c = response.Addresses[i].City;
                         system.debug(' *$*$*$* Res AddressObjtemp.City_Native__c' + addressobj.City_Native__c);
                     }
-					
-					
+                    
+                    
                     if(ValidStr.contains('District__c') && Market == 'JP')
                     {
                       addressobj.District__c = response.Addresses[i].District;
@@ -719,14 +720,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.District__c = response.Addresses[i].District;
                         system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtemp.District__c);
                     }
-					
-					   if(ValidStr.contains('District_Native__c') && Market == 'JP')
+                    
+                       if(ValidStr.contains('District_Native__c') && Market == 'JP')
                     {
                       addressobj.District_Native__c= response.Addresses[i].District_Native;
                         system.debug(' *$*$*$* Res AddressObjtemp.District_Native__c' + addressobj.District_Native__c);
                     }
-					
-					
+                    
+                    
                     if(ValidStr.contains('Province__c') && Market == 'JP')
                     {
                       addressobj.Province__c = response.Addresses[i].Province;
@@ -737,14 +738,14 @@ public class AddressDisplayInlineEditController {
                         AddressObjtemp.Province__c = response.Addresses[i].Province;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtemp.Province__c);
                     }
-					
-					 if(ValidStr.contains('Province_Native__c') && Market == 'JP')
+                    
+                     if(ValidStr.contains('Province_Native__c') && Market == 'JP')
                     {
                       addressobj.Province_Native__c= response.Addresses[i].Province_Native;
                         system.debug(' *$*$*$* Res AddressObjtemp.Province_Native__c' + addressobj.Province_Native__c);
                     }
-					
-					
+                    
+                    
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
                 }
                 else if(!response.Addresses[i].Valid){
@@ -816,7 +817,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
             else 
-            {	
+            {   
                 return null;
             }
         }
