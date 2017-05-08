@@ -105,7 +105,7 @@
                 <field>Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Supporting_Dealer__c</field>
             </layoutItems>
             <layoutItems>
