@@ -1457,6 +1457,13 @@
         <value>Case received by Phone etc</value>
     </labels>
     <labels>
+        <fullName>Check_DuplicatesErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Check DuplicatesErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
         <fullName>Child</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3845,6 +3852,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>New Account</shortDescription>
         <value>New Account</value>
+    </labels>
+    <labels>
+        <fullName>NewCaseErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewCaseErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
     </labels>
     <labels>
         <fullName>NewLead</fullName>
@@ -6750,6 +6764,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>SendToJPOSErrorMsg</shortDescription>
+        <value>This function available only for Japan user</value>
+    </labels>
+    <labels>
+        <fullName>SendToMyMercedesErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendToMyMercedesErrorMsg</shortDescription>
         <value>This function available only for Japan user</value>
     </labels>
     <labels>

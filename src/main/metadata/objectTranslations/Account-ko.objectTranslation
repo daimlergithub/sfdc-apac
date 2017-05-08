@@ -8286,7 +8286,7 @@ Allows up to 240 characters --></help>
         <name>Car_Model_Comparison</name>
     </webLinks>
     <webLinks>
-        <label><!-- Check_Duplicates --></label>
+        <label>MBJ 사용 기능</label>
         <name>Check_Duplicates</name>
     </webLinks>
     <webLinks>
@@ -8354,7 +8354,7 @@ Allows up to 240 characters --></help>
         <name>New_After_Sales_Leads</name>
     </webLinks>
     <webLinks>
-        <label><!-- New_Case --></label>
+        <label>MBJ 사용 기능</label>
         <name>New_Case</name>
     </webLinks>
     <webLinks>
@@ -8390,15 +8390,15 @@ Allows up to 240 characters --></help>
         <name>Search_Dealers</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_JPOS --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_JPOS</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_MyMercedes --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_MyMercedes</name>
     </webLinks>
     <webLinks>
-        <label><!-- Send_to_SPO --></label>
+        <label>MBJ 사용 기능</label>
         <name>Send_to_SPO</name>
     </webLinks>
     <webLinks>
