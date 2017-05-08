@@ -2927,7 +2927,7 @@
         </outputAssignments>
         <outputAssignments>
             <assignToReference>Monthly_Repayment</assignToReference>
-            <field>Monthly_Repayment__c</field>
+            <field>Monthly_Repayment_Tax__c</field>
         </outputAssignments>
         <outputAssignments>
             <assignToReference>Payment_Start_Date</assignToReference>

@@ -174,17 +174,7 @@
         <application>standard__DataAssessment</application>
         <default>false</default>
         <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
+    </applicationVisibilities>  
     <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
@@ -13188,11 +13178,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.MBTH_Result__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -13289,11 +13274,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event.Reason__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.RelatedRetailTask__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22218,11 +22198,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.MBTH_Result__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Task.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22319,11 +22294,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Reason__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.RelatedRetailTask__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

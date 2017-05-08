@@ -121,19 +121,19 @@
 						<sf:include name="selectAllChkBox"/>
 						<sf:include name="Retail_Campaigns"/>
 					</sf:typeset>
-					<sf:typeset name="pages">
-						<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
-						<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
-						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
-					</sf:typeset>
 					<sf:typeset name="classes">
 						<sf:exclude name="MBJ_FS_Case_Request_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_Quotation_InlineController"/>
 						<sf:exclude name="MBJ_FS_Case_ContractClosing_InlineCntl"/>
 					</sf:typeset>
+					<sf:typeset name="pages">
+						<sf:exclude name="MBJ_FS_Case_Request_Inline_Page"/>
+						<sf:exclude name="MBJ_FS_Case_ContractClosing_Inline_Page"/>
+						<sf:exclude name="MBJ_FS_Case_Quotation_Inline_Page"/>
+					</sf:typeset>
 					<sf:typeset name="triggers">								
 					</sf:typeset>
-					<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->				
+					<!--<sf:typeset name="profiles" suppressChecksumUpdate="true"/>-->		
 				</deploy>
 			</target>
 			<target name="deploy07">
@@ -157,6 +157,12 @@
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-6"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-7"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-8"/>
+						<sf:exclude name="CSI_Local_Survey_After_Sales_Process-2"/>
+						<sf:exclude name="Welcome_Call-5"/>
+						<sf:exclude name="Survey_Star_Assist-1"/>
+						<sf:exclude name="Welcome_Call-4"/>
+						<sf:exclude name="MBTH_MBDE_after_Event_Survey-2"/>
+						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>
 					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
