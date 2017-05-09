@@ -15,7 +15,7 @@ public without sharing class LeadMergeControllerTest1{
         obj.mergeDup();
         obj.MergeLead();
         obj.previous();
-        //obj.cancel();
+        obj.cancel();
         obj.selectAll();
         obj.selectAllParam = 'Slave';
         obj.selectAll();

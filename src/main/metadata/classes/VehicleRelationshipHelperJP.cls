@@ -774,7 +774,7 @@ public with sharing class VehicleRelationshipHelperJP
                     list_SharingRecord.add(vehicleRelationShare);
                 }
             }
-        } 
+        }  
         return list_SharingRecord;
     }
     
