@@ -12936,7 +12936,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
             </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
-                <operation>notEqual</operation>
+                <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
