@@ -19,9 +19,6 @@
                 <field>Information_Updated_Flag__c</field>
             </layoutItems>
             <layoutItems>
-                <field>PiC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <field>Additional_Content__c</field>
             </layoutItems>
         </layoutColumns>
