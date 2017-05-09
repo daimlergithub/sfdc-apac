@@ -11778,7 +11778,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.View_By_All__c</field>
         <readable>true</readable>
     </fieldPermissions>
