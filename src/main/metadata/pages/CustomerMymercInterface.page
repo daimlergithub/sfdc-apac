@@ -1,14 +1,8 @@
-<!--
-	lastModifiedBy : Lokesh 
-	modifiedDate   : 23rd Mar, 2017
-	JIRA           : SFDCJP-2000
-	Description    :  "Did you get the agreement from customer?" to become pop-up message with "Yes" and 
-	                 "Cancel" button, instead of the fixed message inside the screen.[Screen]ACC-12-01, Confirm
-					 Information to send MyMercedes (VF page)
-					[Button]My Mercedes New Registration
-					[Button]My Mercedes Email ID Edit
-					[Button]Create Contact Sector
--->
+<!-----------------------------------------------
+    lastModifiedBy : Lokesh 
+    modifiedDate   : 23rd Mar, 2017
+    JIRA           : SFDCJP-2000,SFDCJP-2100
+------------------------------------------------>
 
 <apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
     <apex:form >
