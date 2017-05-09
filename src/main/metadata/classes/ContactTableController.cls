@@ -16,6 +16,19 @@ public class ContactTableController
     public string AccId {get; set;}
     public Account ParAcc {get; set;}
     public boolean refreshPage {get; set;}
+	public String mbCountryCode{get;set;}
+    public String mbAreaCode{get;set;}
+    public String mbMobilepart1{get;set;}
+    public String mbMobilepart2{get;set;}
+    public String hmCountryCode{get;set;}
+    public String hmAreaCode{get;set;}
+    public String hmPhonepart1{get;set;}
+    public String hmPhonepart2{get;set;}
+    public String wkCountryCode{get;set;}
+    public String wkAreaCode{get;set;}
+    public String wkPhonepart1{get;set;}
+    public String wkPhonepart2{get;set;}
+	
     public String homePhoneAreaCodePart1{get;set;}
     public String homePhoneAreaCodePart2{get;set;}
     public String homePhoneAreaCodePart3{get;set;}
@@ -143,41 +156,96 @@ public class ContactTableController
             }
         } 
     }
+	
+	/**
+    *@Description : This method makes editMode true which allows the user to input values to the phone numbers  and email fields for Thailand market only.
+    *@Date : 05/04/2017
+    *@param: None
+    *@return:This mehtod does not return any value.
+
+    */ 
+    public void PhoneNumberFormatTH()
+    {      
+        if(!(String.isBlank(ParAcc.Individual_Home_Phone__c)))
+        {         
+              String[] resultshomePhoneAreaCode= ParAcc.Individual_Home_Phone__c.split('-');
+              if(resultshomePhoneAreaCode.size()>1)
+              {
+                hmCountryCode=resultshomePhoneAreaCode[0];              
+                hmAreaCode=resultshomePhoneAreaCode[1];
+                hmPhonepart1=resultshomePhoneAreaCode[2];
+                hmPhonepart2=resultshomePhoneAreaCode[3]; 
+              }         
+        }
+         else
+                hmCountryCode='+66';
+
+        if(!(String.isBlank(ParAcc.Work_Phone__c)))
+        { 
+            
+                String[] resultsworkPhoneAreaCode= ParAcc.Work_Phone__c.split('-'); 
+                 if(resultsworkPhoneAreaCode.size()>1)
+              { 
+                    wkCountryCode=resultsworkPhoneAreaCode[0];              
+                    wkAreaCode=resultsworkPhoneAreaCode[1];
+                    wkPhonepart1=resultsworkPhoneAreaCode[2];
+                    wkPhonepart2=resultsworkPhoneAreaCode[3]; 
+              }
+                             
+            
+        } 
+        else
+                wkCountryCode='+66'; 
+                
+        if(!(String.isBlank(ParAcc.Mobile__c)))
+        {            
+                String[] resultsMobilePhoneAreaCode= ParAcc.Mobile__c.split('-');  
+                 if(resultsMobilePhoneAreaCode.size()>1)
+                {   
+                    mbCountryCode=resultsMobilePhoneAreaCode[0];
+                    mbAreaCode=resultsMobilePhoneAreaCode[1];                                        
+                    mbMobilepart1=resultsMobilePhoneAreaCode[2];
+                    mbMobilepart2=resultsMobilePhoneAreaCode[3];                
+                }               
+        }
+        else
+            mbCountryCode='+66';
+         
+    }
+	
     public void EditAccount()    
     {
         editMode = true; 
         editMode1 = true;
-        if(ParAcc.MD__c == 'KR' || ParAcc.MD__c==Label.TH){
+        if(ParAcc.MD__c == 'KR'){
             PhoneNumberFormat();
+        }
+        else if (ParAcc.MD__c==Label.TH)
+        {
+            PhoneNumberFormatTH();
         }
     }
     
-     
-     public void UpdateAccountTH()  
+    public void UpdateAccountTH()  
     {
-        system.debug('***'+homePhoneAreaCodePart1);
-        system.debug('***'+homePhoneAreaCodePart2);
-        system.debug('***'+homePhoneAreaCodePart3);
+       
        if
        (
-       (String.isBlank(homePhoneAreaCodePart1)) && 
-       (String.isBlank(homePhoneAreaCodePart2)) &&
-       (String.isBlank(homePhoneAreaCodePart3))
+       (String.isBlank(hmAreaCode)) && 
+       (String.isBlank(hmCountryCode)) &&
+       (String.isBlank(hmPhonepart1)) &&
+       (String.isBlank(hmPhonepart2))
        )
        {
         system.debug('***');
            ParAcc.Individual_Home_Phone__c='';
        } 
-        else if((homePhoneAreaCodePart1.length()>1) && (homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
-       {
-        system.debug('***');
-           ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-       }
-        else if((homePhoneAreaCodePart2 == '' || homePhoneAreaCodePart2 != '') && (homePhoneAreaCodePart3 == '' || homePhoneAreaCodePart3 != ''))
-       {
-       system.debug('***');
-           ParAcc.Individual_Home_Phone__c= homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
-       }
+        else if(hmAreaCode!='' && hmCountryCode!='' && hmPhonepart1!='' &&  hmPhonepart2!='')
+      {     
+        if(hmAreaCode.startsWith('0'))
+            hmAreaCode=hmAreaCode.removeStart('0');
+               ParAcc.Individual_Home_Phone__c=hmCountryCode+'-'+hmAreaCode+'-'+hmPhonepart1+'-'+hmPhonepart2;             
+      }      
        else
        {
        system.debug('***');
@@ -186,51 +254,53 @@ public class ContactTableController
        
       if
       (
-      (String.isBlank(workPhoneAreaCodePart1)) &&
-      (String.isBlank(workPhoneAreaCodePart2)) && 
-      (String.isBlank(workPhoneAreaCodePart3))
+      (String.isBlank(wkAreaCode)) &&
+      (String.isBlank(wkCountryCode)) && 
+      (String.isBlank(wkPhonepart1)) && 
+      (String.isBlank(wkPhonepart2))
       )
       {
                ParAcc.Work_Phone__c='';
       }
-       else if((workPhoneAreaCodePart1.length()>1) && (workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 !='' || workPhoneAreaCodePart3 == ''))
-
-      {
-               ParAcc.Work_Phone__c= workPhoneAreaCodePart1+'-'+workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-      }
-      else if((workPhoneAreaCodePart2 != '' || workPhoneAreaCodePart2 == '') && (workPhoneAreaCodePart3 !='' || workPhoneAreaCodePart3 == ''))
-
-      {
-               ParAcc.Work_Phone__c= workPhoneAreaCodePart2+'-'+workPhoneAreaCodePart3;
-      }
+       else if(wkAreaCode!='' && wkCountryCode!='' && wkPhonepart1!='' &&  wkPhonepart2!='')
+      {     
+        if(wkAreaCode.startsWith('0'))
+            wkAreaCode=wkAreaCode.removeStart('0');
+               ParAcc.Work_Phone__c=wkCountryCode+'-'+wkAreaCode+'-'+wkPhonepart1+'-'+wkPhonepart2;            
+      }      
       else
       { 
              ParAcc.Work_Phone__c='';
       }
+       
       if
       (
-      (String.isBlank(mobilePhoneAreaCodePart1)) &&
-      (String.isBlank(mobilePhoneAreaCodePart2)) && 
-      (String.isBlank(mobilePhoneAreaCodePart3))
+      (String.isBlank(mbAreaCode)) &&
+      (String.isBlank(mbCountryCode)) && 
+      (String.isBlank(mbMobilepart1)) &&
+      (String.isBlank(mbMobilepart2))
       )
-      {
+      
+      {              
                ParAcc.Mobile__c='';
       }
-      else if((mobilePhoneAreaCodePart1.length()>1) && (mobilePhoneAreaCodePart2 != '' || mobilePhoneAreaCodePart2 == '') && (mobilePhoneAreaCodePart3 !='' || mobilePhoneAreaCodePart3 == ''))
-      {
-               ParAcc.Mobile__c=mobilePhoneAreaCodePart1+'-'+mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
-      }
-       else if ((mobilePhoneAreaCodePart2 != '' || mobilePhoneAreaCodePart2 == '') && (mobilePhoneAreaCodePart3 !='' || mobilePhoneAreaCodePart3 == ''))
-      {
-               ParAcc.Mobile__c=mobilePhoneAreaCodePart2+'-'+mobilePhoneAreaCodePart3;
-      }
+      else if(mbAreaCode!='' && mbCountryCode!='' && mbMobilepart1!='' &&  mbMobilepart2!='')
+      {     
+        if(mbAreaCode.startsWith('0'))
+            mbAreaCode=mbAreaCode.removeStart('0');
+               ParAcc.Mobile__c=mbCountryCode+'-'+mbAreaCode+'-'+mbMobilepart1+'-'+mbMobilepart2;              
+      }        
       else
-      { 
+      {             
              ParAcc.Mobile__c='';
       }
       
         try
         {
+             system.debug('***'+ParAcc.Individual_Home_Phone__c);
+        system.debug('***'+ParAcc.Mobile__c);
+        system.debug('***'+ParAcc.Work_Phone__c);
+         system.debug('***'+ParAcc.Email__c);
             if
             (
             ParAcc.Individual_Home_Phone__c == '' && 
@@ -259,8 +329,6 @@ public class ContactTableController
             
         }
     }
-     
-     
     
     /**
     *@Description : This method updates the Account with the values entered by user to phone number and email fields.

@@ -39,7 +39,7 @@ public class AddressDisplayInlineEditController {
         IsForeignNational=false;
         system.debug('######'+ aid); 
         if(ApexPages.currentPage().getParameters().get('id')!=Null){            
-            adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+            adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,Country__c,Sub_District__c,Language__c,Foreign_Nationals__c,
                     Address_Line_2__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,        
                     Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: aid ];        
             system.debug('@Account Information :' +adds);
@@ -217,7 +217,7 @@ public class AddressDisplayInlineEditController {
     
     public void addEditOptions(){    
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
+        adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,Sub_District__c,
                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c=:acc.id];
         if(adds.size()>=5){
             ShowpageBlockFlag=false;
@@ -395,7 +395,17 @@ public class AddressDisplayInlineEditController {
                 addressobj.ZipCode__c=zip;
             if(addresspicklist!=null)
                 addressobj.Address_Type__c = addresspicklist;   
-            
+            string accountid=ApexPages.currentPage().getParameters().get('id');
+            List<address__c> objAddresses=[select id,preferred__c from address__c where Customer__c=:accountid and preferred__c=true];
+             
+            for(address__c add:objAddresses)
+            {               
+				if(add.id!=addressobj.id && addressobj.preferred__c==true) 
+				{                
+					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.')); 
+					Validation = true;  
+				}               
+            }
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
