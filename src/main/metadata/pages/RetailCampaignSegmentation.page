@@ -13,7 +13,7 @@
         var filterNames = '';
         var oldFieldValue = '';
         var dateInputClass = 'PersonBirthdate; Last_Campaign_Date__c; Last_Successful_Call__c; LastServiceDate__c; Latest_Contract_Date__c; '
-            + 'NextServiceDate__c; Purchase_Date__c; Registration_Date__c; Warranty_Start_Date__c;Expected_Registration_Date__c;Expected_Close_Date__c;FirstRegistrationDate__c;End_Date__c;MOT_Expired_Date__c;NextInspectionDate__c;';
+            + 'NextServiceDate__c; Purchase_Date__c; Registration_Date__c; Warranty_Start_Date__c;Expected_Registration_Date__c;Expected_Close_Date__c;FirstRegistrationDate__c;End_Date__c;NextServiceDate__c;NextInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -78,53 +78,9 @@
             jQueryRow.remove();
         }
 
-        // Saves the filter data to database
-        function saveFilter(filterName){
-            if(!checkFilterName(filterName)) return;
-            var st = filterNames.split(";");
-            if(st.length >= 12) {
-                alert('The filter count can\'t greater than 10');
-                return;
-            }
-            var filter = getJsonFilter(filterName);
-            if(filter == null) return;
-            Visualforce.remoting.Manager.invokeAction(
-                '{!$RemoteAction.RetailCampaignSegmentationController.saveFilter}',
-                filter,
-                function(result, event){
-                    if(event.status) {
-                        alert('{!$Label.Sccussful}!');
-                        filterNames += filterName + ';';
-                        window.location.reload();
-                    }
-                    else{
-                        alert('{!$Label.Contact_Admin}');
-                    }
-                },
-                {escape: true}
-            );
-        }
-        // Delete the filter data to database
-        function deleteFilter(deleteFilterName){
-            if(deleteFilterName == null || deleteFilterName == '') return;
-            Visualforce.remoting.Manager.invokeAction(
-                '{!$RemoteAction.RetailCampaignSegmentationController.deleteFilter}',
-                deleteFilterName,
-                function(result, event){
-                    if(event.status) {
-                        alert('{!$Label.Sccussful}!');
-                        window.location.reload();
-                    }
-                    else{
-                        alert('{!$Label.Contact_Admin}');
-                    }
-                },
-                {escape: true}
-            );
-        }
-
+        
         // Loads a filter from server.
-        function loadFilter(filterName){
+        /*function loadFilter(filterName){
             emptyFilter();
             var allFilters = '{!contact.SegmentationFilters__c}';
             if(!allFilters || $.trim(allFilters).length == 0){
@@ -205,7 +161,7 @@
                 }
             });
         }
-
+*/
         // Sends the json filter to server.
         function sendFilterToServer(){
             var filter = getJsonFilter('filterName');
@@ -218,7 +174,6 @@
         function showCriteria(fieldSelect){
             var newFieldValue = $(fieldSelect).val();
             var jQueryFieldRow = $(fieldSelect).parent().parent();
-
             // Hide the criteria element
             jQueryFieldRow.find('.criteria').children().each(function(){
                 if(this.style.display == 'block'){
@@ -229,7 +184,6 @@
         
             // Show the criteria element
             var criteriaElement = jQueryFieldRow.find('.' + newFieldValue);
-
             if(dateInputClass.indexOf(newFieldValue + ';') != -1){
                 criteriaElement = jQueryFieldRow.find('.dateInput');
             }
@@ -251,10 +205,10 @@
                || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Occupation__c' || newFieldValue == 'Special_Mark_on_Account__c' || newFieldValue == 'Interest_Model__c' || newFieldValue == 'Customer_Type__c' 
                || newFieldValue == 'Sales_Representative__c' || newFieldValue == 'Retail_Visit_OptOut__c' || newFieldValue == 'Retail_Sales_Sanction__c' || newFieldValue == 'Retail_Postal_OptOut__c' || newFieldValue == 'Retail_Phone_OptOut__c'
                || newFieldValue == 'Retail_Fax_OptOut__c' || newFieldValue == 'Retail_Email_OptOut__c' || newFieldValue == 'Retail_OptOutContact_Reason__c' || newFieldValue == 'Portal_ID__c'
-               || newFieldValue == 'CAC_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
-               || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'MOT_Expired_Date__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
-               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Re_lease_Prohibit_flag__c' || newFieldValue == 'Duration__c'
-               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name' || newFieldValue == 'Model__c' || newFieldValue == 'Range__c') {
+               || newFieldValue == 'Dealer_Lead_Status__c' || newFieldValue == 'Class__c' || newFieldValue == 'FirstRegistrationDate__c' || newFieldValue == 'Service_Advisor__c' 
+               || newFieldValue == 'Service_Advisor__c'  || newFieldValue == 'Last_Service_Dealer__c' || newFieldValue == 'NextServiceDate__c' || newFieldValue == 'NextInspectionDate__c' || newFieldValue == 'CurrentMileage__c' 
+               || newFieldValue == 'CurrentMileage__c' || newFieldValue == 'Product_Name__c' || newFieldValue == 'Finance_Product_Name__c' || newFieldValue == 'Type__c' || newFieldValue == 'Duration__c'
+               || newFieldValue == 'Status__c' || newFieldValue == 'ZipCode__c' || newFieldValue == 'Province__c' || newFieldValue == 'Customer_Lifecycle_Phase__c' || newFieldValue == 'Name' || newFieldValue == 'Model_Description__c' || newFieldValue == 'Range__c') {
                 jQueryFieldRow.find('.aaa').children().each(function(){
                     this.style.display = 'block';
                 });
@@ -263,7 +217,7 @@
 
         /**
          * The second level functions, serves for the first level functions -->
-         */ 
+          
         function emptyFilter(){
             
              var resultCustomer = $('#firstCustomerRow')
@@ -327,7 +281,7 @@
                     }
                     });
         }
-
+*/
         function addFilter(tableId, filterItem){
             var addedFilter = getFilterItem(tableId, filterItem);
             var newRow = $(addedFilter).appendTo('#' + tableId);
@@ -765,8 +719,8 @@
                         <tr id="firstInterestRow">
                             <td>{!$Label.Interest}</td>
                             <td> <select onchange="showCriteria(this);">
-                                    <option value="CAC_Lead_Status__c">
-                                        {!$ObjectType.Lead__c.Fields.CAC_Lead_Status__c.Label}
+                                    <option value="Dealer_Lead_Status__c">
+                                        {!$ObjectType.Lead__c.Fields.Dealer_Lead_Status__c.Label}
                                     </option>
                                     <option value="Expected_Registration_Date__c">
                                         {!$ObjectType.Lead__c.Fields.Expected_Registration_Date__c.Label}
@@ -786,7 +740,7 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
-                                <apex:inputField value="{!lead.CAC_Lead_Status__c}" styleClass="CAC_Lead_Status__c" style="display:block;"/>
+                                <apex:inputField value="{!lead.Dealer_Lead_Status__c}" styleClass="Dealer_Lead_Status__c" style="display:block;"/>
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
@@ -818,9 +772,11 @@
                                 <select onchange="showCriteria(this);"> 
                                    <option value="Class__c">{!$ObjectType.Vehicle__c.Fields.Class__c.Label}</option>                                                                     
                                    <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
-                                   <option value="Model__c">{!$ObjectType.Vehicle__c.Fields.Model__c.Label}</option>                                                                     
-                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
-                                    <option value="Recall__c">{!$ObjectType.Vehicle__c.Fields.Recall__c.Label}</option> 
+                                   <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>                                                                     
+                                   <option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>
+                                   <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
+                                   <option value="Recall_No__c">{!$ObjectType.Recall__c.Fields.Recall_No__c.Label}</option> 
+                                   <option value="Status__c">Recall Status</option> 
                                 </select>
                             </td>
                             <td>
@@ -833,7 +789,7 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text" style="display:block;"/>
-                                                             
+                                <apex:inputField value="{!recall.Status__c}" styleClass="Status__c"/>                             
                                  <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                 
@@ -914,7 +870,7 @@
                                                                                                         
                                     <option value="Service_Advisor__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Service_Advisor__c.Label}</option>
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->                                  
-                                     <option value="MOT_Expired_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.MOT_Expired_Date__c.Label}</option>
+                                     <option value="NextServiceDate__c">{!$ObjectType.Vehicle__c.Fields.NextServiceDate__c.Label}</option>
                                      <option value="NextInspectionDate__c">{!$ObjectType.Vehicle__c.Fields.NextInspectionDate__c.Label}</option>
                                       <option value="CurrentMileage__c">{!$ObjectType.Vehicle__c.Fields.CurrentMileage__c.Label}</option> 
                                   
@@ -945,7 +901,7 @@
                         <a class="linkItem" href="javascript:void(0)" onclick="addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false);">{!$Label.And_Criteria}</a>
                         
                     </div>
-					<div>
+                    <div>
                     <table id="VehicleRetailcopyTable" class="" border="0" cellspacing="0" cellpadding="2">
                             <tr class="tableHeader">
                                 &nbsp;<th width="10%">Service Dealer</th>
@@ -992,7 +948,7 @@
                                 </select>
                             </td>
                             <td class="criteria">
-                                <input class="inputText" type="text" style="display:block;" />
+                                <input class="inputText" type="text"  style="display:block;"/>
                                 <apex:inputField value="{!camMem.Status__c}" styleClass="Status__c"/>
                                 
                             </td>
@@ -1025,7 +981,7 @@
                                 <select onchange="showCriteria(this);"> 
                                    <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>                                                                     
                                     <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
-                                     <option value="Re_lease_Prohibit_flag__c">{!$ObjectType.Retail_Task__c.Fields.Re_lease_Prohibit_flag__c.Label}</option>
+                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
                                   
@@ -1042,12 +998,10 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                 <apex:inputField value="{!RatilTask.Product_Name__c}" styleClass="Product_Name__c" style="display:block;"/> 
-                                  <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> 
-                                 
-                                   <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
-                                    <apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
-                                  
-                                 
+                                <apex:inputField value="{!RatilTask.Finance_Product_Name__c}" styleClass="Finance_Product_Name__c"/> 
+                                <apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>
+                                <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
+                                <Apex:inputField value="{!RatilTask.Status__c}" styleClass="Status__c"/> 
                             </td>
                             <td class="logic"></td>
                             <td></td>
@@ -1114,9 +1068,9 @@
             <hr/>
             
             <apex:outputPanel layout="block" id="searchingResult">
-                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches" status="loadingStatus"
+                <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
-                <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;"/>
+                <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapAccountList.size = 0 || wrapAccountList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
                     <apex:facet name="start">
                         <img src="/img/loading24.gif" style="vertical-align:middle;"/>

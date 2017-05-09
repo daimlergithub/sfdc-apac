@@ -1160,7 +1160,7 @@ public static testmethod void testbatch2()
         insert contact;
         
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser1235684@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',

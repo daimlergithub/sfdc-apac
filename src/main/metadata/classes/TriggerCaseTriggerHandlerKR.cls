@@ -31,11 +31,11 @@ public class TriggerCaseTriggerHandlerKR implements TriggerHandlerIf
         if(trigger.isAfter){
              if (trigger.isDelete){               
                caseHelperJP.calculateComplaintAmount(trigger.old);
-               CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
             } 
             if (trigger.isInsert){
                 caseHelperJP.calculateComplaintAmount(trigger.new);
                 caseHelperJP.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
+               CaseHelperKR.shareCasewithDealerCompany(trigger.new,(Map<Id,Case>)trigger.oldMap);
                 
             }
             if (trigger.isUpdate){

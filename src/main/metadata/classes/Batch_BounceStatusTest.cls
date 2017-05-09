@@ -46,13 +46,13 @@ public class Batch_BounceStatusTest   {
         insert camobj1;
    
     Campaign_Member__c camMem = New Campaign_Member__c();
-     camMem.Campaign_ID__c = camobj.id;
+     camMem.Campaign_ID__c = camobj1.id;
      camMem.Status__c = 'Ready';
 
       insert camMem;
       
      Campaign_Member__c camMem1 = New Campaign_Member__c();
-     camMem1.Campaign_ID__c = camobj.id;
+     camMem1.Campaign_ID__c = camobj1.id;
      camMem1.Status__c = 'Ready';
 
       insert camMem1;

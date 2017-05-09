@@ -194,6 +194,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Dealer_Assignment_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>MBTH_Interested_Insurance__c</field>
             </layoutItems>
             <layoutItems>
@@ -285,10 +289,6 @@
         <editHeading>true</editHeading>
         <label>Dealer Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Comment__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>

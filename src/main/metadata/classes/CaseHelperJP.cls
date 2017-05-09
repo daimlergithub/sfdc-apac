@@ -767,29 +767,38 @@ List<Account> accUpdLst = new List<Account>();
           } 
              
       }
-
-
-    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action){
-       List<Id> caseIds = new List<Id>();
-         if(action == 'isUpdate'){
-           for(case cs: LstnewCase){
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c ){
-                   caseIds.add(cs.id);                
+    
+    
+    public void updateGateKeaperforApprovedProcess(List<Case> LstnewCase, Map<Id,Case> oldValcase, string action)
+    {
+        List<Id> caseIds = new List<Id>();
+        if(action == 'isUpdate')
+        {
+            for(case cs: LstnewCase)
+            {
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null && cs.Case_Dealer__c != oldValcase.get(cs.id).Case_Dealer__c 
+                  && cs.OwnerId != oldValcase.get(cs.Id).ownerId)
+                {
+                    caseIds.add(cs.id);                
                 }
-           }        
-       }
-        if(action == 'isInsert'){
-           for(case cs: LstnewCase){
-               if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null){
-                   caseIds.add(cs.id);                
+            }        
+        }
+        if(action == 'isInsert')
+        {
+            for(case cs: LstnewCase)
+            {
+                if(TriggerCaseTriggerHandlerKR.isFutureUpdate != true && cs.Case_Dealer__c != null)
+                {
+                    caseIds.add(cs.id);                
                 }
-           }        
-       }       
-       
-       if(caseIds.size()>0){
-           
-           shareAccountRecord.shareAccountRecordNow(caseIds);
-       }
+            }        
+        }       
+        
+        if(caseIds.size()>0)
+        {
+            
+            shareAccountRecord.shareAccountRecordNow(caseIds);
+        }
     }
 	
     public void updateCaseDealer(List<case> dealerCaseList)
