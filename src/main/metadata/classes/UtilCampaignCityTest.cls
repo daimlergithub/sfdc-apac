@@ -28,6 +28,7 @@ public class UtilCampaignCityTest {
     camobj.Type = 'Other';
     camobj.Status = 'Planned';
     camobj.StartDate = System.today();
+    camobj.Segmentation_Date__c= System.today()+4;
     camobj.EndDate = System.today();
     camobj.Campaign_Objectives__c = 'camobjectives';
     camobj.Description = 'testdescrip';
