@@ -12458,6 +12458,10 @@ Modify Reason:
                 <fullName>none</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12932,7 +12936,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
             </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
-                <operation>notEqual</operation>
+                <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
@@ -54627,7 +54631,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPICKVAL(  Status__c , &apos;Customer&apos;) &amp;&amp;(MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
-        <errorMessage>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬â„¢.</errorMessage>
+       <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Acquisition_Objective_Method_mandatory</fullName>
@@ -54648,11 +54652,11 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
     <validationRules>
         <fullName>Allow_Data_Sharing_Comments</fullName>
         <active>true</active>
-        <description>When the value of Allow data sharing is Ã¢â‚¬Å“NoÃ¢â‚¬Å“ .</description>
+        <description>When the value of Allow data sharing is “No“ .</description>
         <errorConditionFormula>AND(MD__c =&apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;,   ISPICKVAL(Allow_Data_Sharing__c, &quot;No&quot;),
 OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c=&quot;&quot;) )</errorConditionFormula>
         <errorDisplayField>Allow_Data_Sharing_Comment__c</errorDisplayField>
-        <errorMessage>Please enter Ã¢â‚¬Å“Allow Data CommentsÃ¢â‚¬Å“</errorMessage>
+        <errorMessage>Please enter “Allow Data Comments“</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
@@ -54676,8 +54680,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;) &amp;&amp; (OR(MD__c = &apos;JP&apo
         <fullName>Brahcn_name_Native</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,MD__c = &apos;JP&apos;,RecordType.Name = &apos;Dealer&apos;,
- OR(LEN(Branch_name_Native__c)=1,
- NOT(REGEX( Branch_name_Native__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£Ã£â€šÂ¤Ã£â€šÂ¥Ã£â€šÂ¦Ã£â€šÂ§Ã£â€šÂ¨Ã£â€šÂ©Ã£â€šÂªÃ£â€šÂ«Ã£â€šÂ¬Ã£â€šÂ­Ã£â€šÂ®Ã£â€šÂ¯Ã£â€šÂ°Ã£â€šÂ±Ã£â€šÂ²Ã£â€šÂ³Ã£â€šÂ´Ã£â€šÂµÃ£â€šÂ¶Ã£â€šÂ·Ã£â€šÂ¸Ã£â€šÂ¹Ã£â€šÂºÃ£â€šÂ»Ã£â€šÂ¼Ã£â€šÂ½Ã£â€šÂ¾Ã£â€šÂ¿Ã£Æ’â‚¬Ã£Æ’ÂÃ£Æ’â€šÃ£Æ’Æ’Ã£Æ’â€žÃ£Æ’â€¦Ã£Æ’â€ Ã£Æ’â€¡Ã£Æ’Ë†Ã£Æ’â€°Ã£Æ’Å Ã£Æ’â€¹Ã£Æ’Å’Ã£Æ’ÂÃ£Æ’Å½Ã£Æ’ÂÃ£Æ’ÂÃ£Æ’â€˜Ã£Æ’â€™Ã£Æ’â€œÃ£Æ’â€Ã£Æ’â€¢Ã£Æ’â€“Ã£Æ’â€”Ã£Æ’ËœÃ£Æ’â„¢Ã£Æ’Å¡Ã£Æ’â€ºÃ£Æ’Å“Ã£Æ’ÂÃ£Æ’Å¾Ã£Æ’Å¸Ã£Æ’ Ã£Æ’Â¡Ã£Æ’Â¢Ã£Æ’Â£Ã£Æ’Â¤Ã£Æ’Â¥Ã£Æ’Â¦Ã£Æ’Â§Ã£Æ’Â¨Ã£Æ’Â©Ã£Æ’ÂªÃ£Æ’Â«Ã£Æ’Â¬Ã£Æ’Â­Ã£Æ’Â®Ã£Æ’Â¯Ã£Æ’Â°Ã£Æ’Â±Ã£Æ’Â²Ã£Æ’Â³Ã£Æ’Â´Ã£Æ’ÂµÃ£Æ’Â¶Ã¯Â¼ÂÃ£Æ’Â¼]*&quot;))))</errorConditionFormula>
+ OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be &quot;&quot;Kana&quot;&quot; characters.</errorMessage>
     </validationRules>
@@ -55102,7 +55105,7 @@ FirstName  value &gt; 20 letters.</description>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(FirstName_Native_1__c),
-REGEX(FirstName_Native_1__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£Ã£â€šÂ¤Ã£â€šÂ¥Ã£â€šÂ¦Ã£â€šÂ§Ã£â€šÂ¨Ã£â€šÂ©Ã£â€šÂªÃ£â€šÂ«Ã£â€šÂ¬Ã£â€šÂ­Ã£â€šÂ®Ã£â€šÂ¯Ã£â€šÂ°Ã£â€šÂ±Ã£â€šÂ²Ã£â€šÂ³Ã£â€šÂ´Ã£â€šÂµÃ£â€šÂ¶Ã£â€šÂ·Ã£â€šÂ¸Ã£â€šÂ¹Ã£â€šÂºÃ£â€šÂ»Ã£â€šÂ¼Ã£â€šÂ½Ã£â€šÂ¾Ã£â€šÂ¿Ã£Æ’â‚¬Ã£Æ’ÂÃ£Æ’â€šÃ£Æ’Æ’Ã£Æ’â€žÃ£Æ’â€¦Ã£Æ’â€ Ã£Æ’â€¡Ã£Æ’Ë†Ã£Æ’â€°Ã£Æ’Å Ã£Æ’â€¹Ã£Æ’Å’Ã£Æ’ÂÃ£Æ’Å½Ã£Æ’ÂÃ£Æ’ÂÃ£Æ’â€˜Ã£Æ’â€™Ã£Æ’â€œÃ£Æ’â€Ã£Æ’â€¢Ã£Æ’â€“Ã£Æ’â€”Ã£Æ’ËœÃ£Æ’â„¢Ã£Æ’Å¡Ã£Æ’â€ºÃ£Æ’Å“Ã£Æ’ÂÃ£Æ’Å¾Ã£Æ’Å¸Ã£Æ’ Ã£Æ’Â¡Ã£Æ’Â¢Ã£Æ’Â£Ã£Æ’Â¤Ã£Æ’Â¥Ã£Æ’Â¦Ã£Æ’Â§Ã£Æ’Â¨Ã£Æ’Â©Ã£Æ’ÂªÃ£Æ’Â«Ã£Æ’Â¬Ã£Æ’Â­Ã£Æ’Â®Ã£Æ’Â¯Ã£Æ’Â°Ã£Æ’Â±Ã£Æ’Â²Ã£Æ’Â³Ã£Æ’Â´Ã£Æ’ÂµÃ£Æ’Â¶Ã¯Â¼ÂÃ£Æ’Â¼]*&quot;))),$Profile.Name != &apos;IntegrationAPI&apos;, 
+REGEX(FirstName_Native_1__c,"[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != &apos;IntegrationAPI&apos;, 
 MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
         <errorMessage>First Name Native should be KANA Chaarcters</errorMessage>
@@ -55377,7 +55380,7 @@ LastName  value &gt; 40 letters.</description>
         <errorConditionFormula>AND(NOT(
 OR(
 ISBLANK(LastName_Native_1__c),
-REGEX(LastName_Native_1__c, &quot;[Ã£â€šÂ¡Ã£â€šÂ¢Ã£â€šÂ£Ã£â€šÂ¤Ã£â€šÂ¥Ã£â€šÂ¦Ã£â€šÂ§Ã£â€šÂ¨Ã£â€šÂ©Ã£â€šÂªÃ£â€šÂ«Ã£â€šÂ¬Ã£â€šÂ­Ã£â€šÂ®Ã£â€šÂ¯Ã£â€šÂ°Ã£â€šÂ±Ã£â€šÂ²Ã£â€šÂ³Ã£â€šÂ´Ã£â€šÂµÃ£â€šÂ¶Ã£â€šÂ·Ã£â€šÂ¸Ã£â€šÂ¹Ã£â€šÂºÃ£â€šÂ»Ã£â€šÂ¼Ã£â€šÂ½Ã£â€šÂ¾Ã£â€šÂ¿Ã£Æ’â‚¬Ã£Æ’ÂÃ£Æ’â€šÃ£Æ’Æ’Ã£Æ’â€žÃ£Æ’â€¦Ã£Æ’â€ Ã£Æ’â€¡Ã£Æ’Ë†Ã£Æ’â€°Ã£Æ’Å Ã£Æ’â€¹Ã£Æ’Å’Ã£Æ’ÂÃ£Æ’Å½Ã£Æ’ÂÃ£Æ’ÂÃ£Æ’â€˜Ã£Æ’â€™Ã£Æ’â€œÃ£Æ’â€Ã£Æ’â€¢Ã£Æ’â€“Ã£Æ’â€”Ã£Æ’ËœÃ£Æ’â„¢Ã£Æ’Å¡Ã£Æ’â€ºÃ£Æ’Å“Ã£Æ’ÂÃ£Æ’Å¾Ã£Æ’Å¸Ã£Æ’ Ã£Æ’Â¡Ã£Æ’Â¢Ã£Æ’Â£Ã£Æ’Â¤Ã£Æ’Â¥Ã£Æ’Â¦Ã£Æ’Â§Ã£Æ’Â¨Ã£Æ’Â©Ã£Æ’ÂªÃ£Æ’Â«Ã£Æ’Â¬Ã£Æ’Â­Ã£Æ’Â®Ã£Æ’Â¯Ã£Æ’Â°Ã£Æ’Â±Ã£Æ’Â²Ã£Æ’Â³Ã£Æ’Â´Ã£Æ’ÂµÃ£Æ’Â¶Ã¯Â¼ÂÃ£Æ’Â¼]*&quot;))),$Profile.Name != &apos;IntegrationAPI&apos;, 
+REGEX(LastName_Native_1__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))),$Profile.Name != &apos;IntegrationAPI&apos;, 
 MD__c = &apos;JP&apos;)</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>
@@ -55595,7 +55598,7 @@ OR(Postal_Opt_Out_Reason__c=null,Postal_Opt_Out_Reason__c=&quot;&quot;))</errorC
       ))
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
-        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to Ã¢â‚¬Å“PhoneÃ¢â‚¬Â.</errorMessage>
+        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to “Phone”.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Sales_Sanction_Comment_required</fullName>
@@ -55622,12 +55625,12 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
     <validationRules>
         <fullName>Social_ID</fullName>
         <active>false</active>
-        <description>If ID Type is Ã¢â‚¬ËœID card/Driving CardÃ¢â‚¬â„¢, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
+        <description>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 IF( ISPICKVAL( ID_Type__c, &apos;ID card/Driving Card&apos;), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, &quot;^[A-Za-z0-9]+$&quot;))), FALSE), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is Ã¢â‚¬ËœID card/Driving CardÃ¢â‚¬â„¢, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
+        <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>URL_format_validation</fullName>
@@ -55776,7 +55779,7 @@ MD__c = &apos;JP&apos;
 		) 
 		,false)</errorConditionFormula>
 		<errorDisplayField>ID_Number__c</errorDisplayField>
-		<errorMessage>If ID Type is â€˜National IDâ€™, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
+		<errorMessage>If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number or alphabet.</errorMessage>
 	</validationRules>
 	<validationRules>
 		<fullName>Individual_Home_Phone_NoOfDigits_TH</fullName>
