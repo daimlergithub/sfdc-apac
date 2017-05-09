@@ -2037,7 +2037,7 @@
     <classAccesses>
         <apexClass>exportCampaignMembersTest</apexClass>
         <enabled>false</enabled>
-    </classAccesses> <field>Asset.IsInternal</field>
+    </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
         <enabled>false</enabled>
