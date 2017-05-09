@@ -29,6 +29,19 @@
         <name>JP_MarketRetail Task_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>JP_Retail_Task_Readable_to_MBJ_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>JP Retail Task Readable to MBJ Dealers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>

@@ -166,21 +166,21 @@ public with sharing class VehicleRelationshipHelperJPTest{
            update vehicleRelationshipObj1;
            Test.startTest();
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                vehicleRelationshipObj1.vehicle_mail_picklist__c='Email Home';
                vehicleRelationshipObj1.vehicle_fax_picklist__c='FAX';
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='Home phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                vehicleRelationshipObj1.vehicle_mail_picklist__c='MyMercedes Email';
                vehicleRelationshipObj1.vehicle_fax_picklist__c='Work FAX';
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            Test.stopTest();
        }
@@ -244,7 +244,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
           
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -253,7 +253,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -307,7 +307,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -316,7 +316,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -376,7 +376,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterInsertEvent(listcampaigns);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
               
                VehicleRelationshipHelperJP.OnAfterInsert(listcampaigns);
                
@@ -385,7 +385,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
               
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
           
        }
@@ -448,7 +448,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterInsertEvent(listcampaigns);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
               
                 system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
           
@@ -532,7 +532,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -541,7 +541,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -635,7 +635,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
            vehicleRelationshipObj2.Owner_Relation__c='Grand Parent';
@@ -668,7 +668,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        } 
@@ -751,9 +751,9 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -835,9 +835,9 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -920,9 +920,9 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -998,9 +998,9 @@ public with sharing class VehicleRelationshipHelperJPTest{
                VehicleRelationshipHelperJP.afterUpdateEvent(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -1152,7 +1152,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
           
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -1161,7 +1161,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -1224,7 +1224,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
           
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -1233,7 +1233,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }
@@ -1296,7 +1296,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
           
                VehicleRelationshipHelperJP.beforeupdateEventAddress(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
                
                
@@ -1305,7 +1305,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vehicleRelationshipObj1.Vehicle_Phone_picklist__c='work phone';
                update vehicleRelationshipObj1;
                
-               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns);
+               VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
            
        }

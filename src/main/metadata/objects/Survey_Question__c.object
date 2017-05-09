@@ -237,7 +237,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <label>All</label>
         <language>ja</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>

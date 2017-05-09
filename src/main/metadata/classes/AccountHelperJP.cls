@@ -248,7 +248,9 @@ public class AccountHelperJP
             set<id> addressid = new set<id>();                  
             String province;
 			String market;
+
             //User usr = [SELECT Id,Market__c, Profile.Name FROM User WHERE Id=:UserInfo.getUserId()] ;
+
         	market = usr.Market__c;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
 			if(!test.isrunningtest() && usr.Profile.Name != 'IntegrationAPI')

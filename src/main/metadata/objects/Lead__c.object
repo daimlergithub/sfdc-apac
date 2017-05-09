@@ -761,6 +761,11 @@ If Current_Vehicle_1__r.RecordType = Self registered, Current_Vehicle_1__r.EuroV
                 <operation>equals</operation>
                 <value>Dealer</value>
             </filterItems>
+            <filterItems>
+                <field>Account.Dealer_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
             <infoMessage>Search and select address of the account.</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -8758,7 +8763,7 @@ Modify Reason:
                 <fullName>MB website</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			 <picklistValues>
                 <fullName>CCC</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12462,6 +12467,7 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -12594,6 +12600,7 @@ Modify Reason:
                 <fullName>6:00 pm</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -21934,6 +21941,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Personal</fullName>
                 <default>false</default>
             </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22111,6 +22119,32 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>2020</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Waived_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Waived Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitive Reasons</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -22375,31 +22409,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Waived_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Waived Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Existing Relationship</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Loyalty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Competitive Reasons</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Wholesale_Comment__c</fullName>
         <externalId>false</externalId>
         <label>Wholesale Comment</label>
@@ -22467,6 +22476,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>AMGセントラルDM2016</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AMG_DM2016_GTR</fullName>
@@ -22493,6 +22505,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>AMGセントラルDM2016_GTR</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Lead</fullName>
@@ -22637,7 +22652,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All aftermarket sales leads</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_presales_leads</fullName>
@@ -22655,7 +22672,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>All pre sales cue</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_smart_Lead</fullName>
@@ -22683,8 +22702,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>All smart Lead</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
-            <role>Central_Sales_Marketing</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -22730,9 +22748,9 @@ Company_Account__r.Work_Phone__c  ,
         <filters>
             <field>Source_Campaign__c</field>
             <operation>equals</operation>
-            <value>自動車誕生130周年記念キャンペーン2016</value>
+            <value>SクラスセントラルDM2016</value>
         </filters>
-        <label>自動車誕生130周年記念キャンペーン2016</label>
+        <label>DM_SクラスセントラルDM 2016</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -22896,7 +22914,7 @@ Company_Account__r.Work_Phone__c  ,
         <label>MBF Inbound &amp; Outbound Supervisor</label>
         <queue>MBF_Inbound_Outbound_Supervisor</queue>
         <sharedTo>
-            <allInternalUsers/>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -23035,6 +23053,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>新型Sクラス カブリオレ／新型SL／新型SLC Tポイントカード保有者向けセント</label>
         <language>ja</language>
+		<sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Supervisor_Lead</fullName>
@@ -23064,7 +23085,7 @@ Company_Account__r.Work_Phone__c  ,
         <queue>Supervisor_Team_B</queue>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
-        </sharedTo>
+		 </sharedTo>
     </listViews>
     <listViews>
         <fullName>View</fullName>
@@ -23148,6 +23169,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>カレコ</label>
         <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>X001</fullName>
@@ -23239,7 +23263,9 @@ Company_Account__r.Work_Phone__c  ,
         </filters>
         <label>iShowroom Leads</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>L-{0000000000}</displayFormat>
@@ -47247,10 +47273,6 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
             <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>1981</fullName>
                 <default>false</default>
             </values>
@@ -60054,10 +60076,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
@@ -72866,10 +72884,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
@@ -85978,10 +85992,6 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Year_Current__c</picklist>
-            <values>
-                <fullName>%3C1980</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>1981</fullName>
                 <default>false</default>
@@ -101630,8 +101640,7 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Retrofit</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues><picklistValues>
             <picklist>Lead_DataSource__c</picklist>
             <values>
                 <fullName>24 hours Touring Support</fullName>
@@ -101739,7 +101748,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Special lease</fullName>
-                <default>false</default>
+                <default>false</default> 
             </values>
             <values>
                 <fullName>Special lease for employees</fullName>
@@ -101747,7 +101756,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
+                <default>false</default> 
             </values>
         </picklistValues>
         <picklistValues>

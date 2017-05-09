@@ -2034,6 +2034,15 @@
     </fields>
     <fields>
         <fullName>ParentId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Campaign.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Planning_Design_Campaign,CAC_Campaign,Central_Marketing_Campaign</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
@@ -3554,7 +3563,7 @@
         <label>After sale Joint Market activities</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3579,7 +3588,7 @@
         <label>Central AS Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3604,7 +3613,7 @@
         <label>Central SM Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3629,7 +3638,7 @@
         <label>Central SM Campaign Records</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3651,7 +3660,7 @@
         <label>MB Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3673,7 +3682,7 @@
         <label>MB Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3705,7 +3714,7 @@
         <label>smart Best Activities</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3727,7 +3736,7 @@
         <label>smart Best Practices</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
@@ -20816,47 +20825,5 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <openType>replace</openType>
         <protected>false</protected>
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send Marketing Cloud Email</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
-try
-{
-var urlPrefix = sforce.apex.execute("et4ae5/jsButtonMethods","namespace", {});
-var theUrl = "https://"+urlPrefix+"/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
-parent.location.href = theUrl;
-}
-catch (e)
-{
-var theUrl = "/apex/singleSendETEmail?campaignId={!CASESAFEID( Campaign.Id )}";
-parent.location.href = theUrl;
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>et4ae5__ViewCampaignInfluenceReport</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>500</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>View Campaign Influence Report</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign.Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
-        <width>500</width>
     </webLinks>
 </CustomObject>

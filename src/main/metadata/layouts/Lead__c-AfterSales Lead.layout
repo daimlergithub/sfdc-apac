@@ -5,7 +5,6 @@
     <customButtons>New_Task</customButtons>
     <customButtons>Print_PDF</customButtons>
     <customButtons>Merge</customButtons>
-    <excludeButtons>Share</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

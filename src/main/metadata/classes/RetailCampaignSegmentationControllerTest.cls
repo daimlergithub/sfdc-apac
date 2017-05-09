@@ -8,7 +8,7 @@
 @isTest 
 public Without Sharing class RetailCampaignSegmentationControllerTest 
 {
-Private Static List<String> filterOptions ;
+//Private Static List<String> filterOptions ;
  Private Static List<SelectOption> hobbyOptions ;
  Private Static List<SelectOption> leadDesiredServiceOptions ;
  Private Static  List<SelectOption> leadAdditionalServiceOptions ;
@@ -61,19 +61,19 @@ Private Static  List<SelectOption> getItems;
                 Test.setCurrentPage(retailCampaignSegmentation);
                 RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
                 
-                 filterOptions = extension.filterOptions;
+                 //filterOptions = extension.filterOptions;
                 // hobbyOptions = extension.hobbyOptions;
                 // leadDesiredServiceOptions = extension.leadDesiredServiceOptions;
                // leadAdditionalServiceOptions = extension.leadAdditionalServiceOptions;                
                 //leadClassOptions=extension.leadClassOptions;
                 RetailSalesSanction =extension.RetailSalesSanction;
                 getItems =extension.getItems();
-                VehicleClassOptions=extension.VehicleClassOptions;
+                //VehicleClassOptions=extension.VehicleClassOptions;
                 SpecialMarkonAccount = extension.SpecialMarkonAccount;
                 Customerphase = extension.Customerphase;
                 RetailOptOutContactReason = extension.RetailOptOutContactReason;
                 status = extension.status;
-                RetailCampaignSegmentationController.saveFilter(filterString);
+                //RetailCampaignSegmentationController.saveFilter(filterString);
                 extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
                // extension.attendedCampaign = 'testCampaign';
                 extension.searchAccount();
@@ -87,14 +87,14 @@ Private Static  List<SelectOption> getItems;
                  extension.hasPrevious= True;                
                 //extension.leadSoql ='Select id,Retail_Campaign_Name__c from Lead__C ';
             try{
-                RetailCampaignSegmentationController.deleteFilter(filtername);
+               // RetailCampaignSegmentationController.deleteFilter(filtername);
                 }catch(Exception e){}
                // extension.getlimitAccounts();
         
             }
             
             RetailCampaignSegmentationController extension = new RetailCampaignSegmentationController();
-             filterOptions = extension.filterOptions;
+             //filterOptions = extension.filterOptions;
             extension.jsonFilter = '{"name":"filterName", "content":{"Customer":[{"field":"Age_Range__c","operation":"Equals","criteria":"26-35","logic":"","bracket":false}]}}';
             extension.searchAccount();
        }

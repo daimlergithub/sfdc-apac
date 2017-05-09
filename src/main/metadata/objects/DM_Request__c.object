@@ -1144,7 +1144,7 @@ Modify Reason:
         <label>All</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1165,6 +1165,7 @@ Modify Reason:
         <label>All_temp</label>
         <language>en_US</language>
         <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
@@ -1190,7 +1191,7 @@ Modify Reason:
         <label>Failed direct-mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1200,6 +1201,7 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
             <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
@@ -1214,6 +1216,7 @@ Modify Reason:
         <language>en_US</language>
         <queue>MBJ_Supervisor</queue>
         <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
             <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
@@ -1403,6 +1406,7 @@ Modify Reason:
         <label>My Mercedesからのリクエスト</label>
         <language>ja</language>
         <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
@@ -1430,7 +1434,7 @@ Modify Reason:
         <label>Open mail requests</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1454,7 +1458,7 @@ Modify Reason:
         <label>Rejected requests for direct mail</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -1498,7 +1502,7 @@ Modify Reason:
         <label>Direct request has been sent</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Central</role>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
    <listViews>
@@ -1508,6 +1512,7 @@ Modify Reason:
         <language>en_US</language>
         <queue>Supervisor_Team_A</queue>
         <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
             <allInternalUsers/>
             <roleAndSubordinates>MBJ_CRM_Department_Approver</roleAndSubordinates>
             <roleAndSubordinates>MBJ_CRM_Department_non_Approver</roleAndSubordinates>

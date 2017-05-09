@@ -314,10 +314,10 @@
                 <behavior>Readonly</behavior>
                 <field>Personal_Information_Third_Party_Release__c</field>
             </layoutItems>
-            <layoutItems>
+            <!--<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Consent__c</field>
-            </layoutItems>
+            </layoutItems>-->
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>

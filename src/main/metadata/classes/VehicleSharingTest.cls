@@ -59,8 +59,10 @@ private class VehicleSharingTest {
     @isTest
     static void testVehicleTrigger() {
         //create test data
+        
+        
          Vehicle_Relationship__c retailVehicleRelationship = new Vehicle_Relationship__c(Contact__c=acc.id,RecordTypeId = retailType, Owner_Dealer__c = dealer.Id, Vehicle_ID__c = vehicle.Id);
-         Account_Link__c accountLink = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
+         Account_Link__c accountLink = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id,toRole__c=acc.id,fromRole__c =dealer.id);
          //start test
         Test.startTest();
          insert retailVehicleRelationship;
