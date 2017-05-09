@@ -4654,7 +4654,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>Vehicle Address</label>
         <lookupFilter>
             <active>true</active>
-            <errorMessage>Please select the proper address linked to the contact.</errorMessage>
+            <booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
                 <field>$Source.Contact__c</field>
                 <operation>equals</operation>
@@ -4662,7 +4662,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
-                <operation>notEqual</operation>
+                <operation>equals</operation>
                 <value>IntegrationAPI</value>
             </filterItems>
             <isOptional>false</isOptional>
