@@ -293,7 +293,7 @@
         <name>AttachedPdfError</name>
     </customLabels>
     <customLabels>
-        <label><!-- Authorization --></label>
+        <label>権限がありません。</label>
         <name>Authorization</name>
     </customLabels>
     <customLabels>
@@ -935,6 +935,10 @@
     <customLabels>
         <label><!-- Criteria --></label>
         <name>Criteria</name>
+    </customLabels>
+	<customLabels>
+        <label>現在のリード</label>
+        <name>Current_Lead</name>
     </customLabels>
     <customLabels>
         <label><!-- Current Vehicle1 --></label>
@@ -1833,7 +1837,7 @@
         <name>Lead_creation_Assign_Date</name>
     </customLabels>
     <customLabels>
-        <label><!-- Lead to be Merged --></label>
+        <label>上記のリードと統合するリードを選択してください</label>
         <name>Lead_to_be_Merged</name>
     </customLabels>
     <customLabels>
@@ -1941,7 +1945,7 @@
         <name>Memo</name>
     </customLabels>
     <customLabels>
-        <label>マージ</label>
+        <label>リード統合</label>
         <name>Merge</name>
     </customLabels>
     <customLabels>
@@ -2803,6 +2807,10 @@
         <label>／</label>
         <name>SlashPDF</name>
     </customLabels>
+	<customLabels>
+        <label>リード一覧</label>
+        <name>Slave_Record</name>
+    </customLabels>
     <customLabels>
         <label><!-- Special Filters --></label>
         <name>Special_Filters</name>
@@ -3098,6 +3106,10 @@
     <customLabels>
         <label><!-- URL --></label>
         <name>URL</name>
+    </customLabels>
+	<customLabels>
+        <label>成約予定日と登録予定日を入力してください</label>
+        <name>Uncalculated</name>
     </customLabels>
     <customLabels>
         <label><!-- Unknown --></label>
