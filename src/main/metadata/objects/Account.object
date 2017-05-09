@@ -12928,8 +12928,8 @@ Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &
         <label>Sales Address</label>
         <lookupFilter>
             <active>true</active>
-            <errorMessage>Please select the proper address.</errorMessage>
-            <filterItems>
+           <booleanFilter>1 OR 2</booleanFilter>
+             <filterItems>
                 <field>Address__c.Customer__c</field>
                 <operation>equals</operation>
                 <valueField>$Source.Id</valueField>
