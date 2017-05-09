@@ -6390,6 +6390,10 @@ Allows up to 240 characters --></help>
     <fields>
         <label>My Mercedes申請ステータス</label>
         <name>Portal_Apply_Status__c</name>
+		<picklistValues>
+            <masterLabel>Reject</masterLabel>
+            <translation>登録拒否</translation>
+        </picklistValues>
         <picklistValues>
             <masterLabel>Sent</masterLabel>
             <translation>送付済</translation>
