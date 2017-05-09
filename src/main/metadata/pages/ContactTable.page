@@ -184,8 +184,8 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
                        </td>   
-                       <td></td>
-                       <td></td>
+                       <td><apex:outputField value="{!ParAcc.Fax_Last_Modified_By__c}" /></td>
+                       <td><apex:outputField value="{!ParAcc.Fax_Last_Modified_Date__c}" /></td>
                        
                        
                        
@@ -199,8 +199,8 @@
                        <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
                            <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
                        </td>   
-                       <td></td>
-                       <td></td>
+                       <td><apex:outputField value="{!ParAcc.Work_Fax_Last_Modified_By__c}" /></td>
+                       <td><apex:outputField value="{!ParAcc.Fax2_Last_Modified_Date__c}" /></td>
                    </tr> 
                </table>    
             </apex:pageBlock> 
@@ -437,11 +437,10 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
                        <td>
-                         <apex:selectList value="{!mobilePhoneAreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
-                                <apex:selectOptions value="{!MobileAreacodeItems}"/>
-                         </apex:selectList>    
-                         <apex:inputText value="{!mobilePhoneAreaCodePart2}" id="mobilePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
-                         <apex:inputText value="{!mobilePhoneAreaCodePart3}" id="mobilePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                         <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!mbAreaCode}" id="mbAreaCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!mbMobilepart1}" id="mbMobilepart1" rendered="{!editMode}" style="width:40px"/>
+                         <apex:inputText value="{!mbMobilepart2}" id="mbMobilepart2" rendered="{!editMode}" style="width:50px"/>
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                              javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Mobile__c} </a> 
                        </apex:outputPanel>    
@@ -457,11 +456,10 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
                        <td>
-                           <apex:selectList value="{!homePhoneAreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                            </apex:selectList>    
-                          <apex:inputText value="{!homePhoneAreaCodePart2}" id="homePhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
-                          <apex:inputText value="{!homePhoneAreaCodePart3}" id="homePhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" rendered="{!editMode}" style="width:30px"/>  
+                         <apex:inputText value="{!hmPhonepart1}" id="hmPhonepart1" rendered="{!editMode}" style="width:40px"/>
+                         <apex:inputText value="{!hmPhonepart2}" id="hmPhonepart2" rendered="{!editMode}" style="width:50px"/>
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c}</a>
                    </apex:outputPanel>    
@@ -478,11 +476,10 @@
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                        <td>
-                          <apex:selectList value="{!workPhoneAreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
-                                <apex:selectOptions value="{!areacodeItems}"/>
-                            </apex:selectList>  
-                          <apex:inputText value="{!workPhoneAreaCodePart2}" id="workPhoneAreaCodePart2" rendered="{!editMode}" style="width:60px"/>
-                          <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                          <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>
+                         <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" rendered="{!editMode}" style="width:30px"/>  
+                          <apex:inputText value="{!wkPhonepart1}" id="wkPhonepart1" rendered="{!editMode}" style="width:40px"/>
+                          <apex:inputText value="{!wkPhonepart2}" id="wkPhonepart2" rendered="{!editMode}" style="width:50px"/>
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
                        javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> 
                        </apex:outputPanel>     

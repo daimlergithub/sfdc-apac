@@ -7725,6 +7725,11 @@ Collectioner_Name__r.HomePhone
                 <default>false</default>
                 <controllingFieldValues>G-Class</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>CLA 250 AMG</fullName>
+                <default>false</default>
+                <controllingFieldValues>CLA-Class</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -8856,197 +8861,12 @@ Modify Reason:
                 <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Jingdong mall</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taobao station</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cooperation media</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C Coupe web special</fullName>
+                <fullName>APP</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>China telecom / 189 mailbox</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dunhill</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>D&amp;G</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eMB</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HUGO BOSS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank of communications</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TNT</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Axciom</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G2</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weibo</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WeChat</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bitauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pcauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Baidu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interaction through</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SoHu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SNS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz website _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Xcar</fullName>
+                <fullName>Au</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
@@ -9056,24 +8876,14 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>QQ</fullName>
+                <fullName>Auto Show</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>NetEase</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site information</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
+                <controllingFieldValues>Event</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto show information</fullName>
@@ -9081,141 +8891,22 @@ Modify Reason:
                 <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Energy source</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voice mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>OB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Road rescue switching</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Financial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers nomination</fullName>
-                <default>false</default>
-                <controllingFieldValues>Dealers</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine Response Card</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB Magazine</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSI</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DMS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle administration office</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Short message</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VVIP</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-newsletter</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>APP</fullName>
+                <fullName>A web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E Cabriolet web special</fullName>
+                <fullName>Axciom</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E Coupe web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS Shooting Break web special</fullName>
+                <fullName>Baidu</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
@@ -9225,24 +8916,53 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>S web special-Mobile</fullName>
+                <fullName>Bank of communications</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bitauto</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>S Web special</fullName>
+                <fullName>Blue Focus</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Inmobi</fullName>
+                <fullName>Bookshelf</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>E web special-Mobile</fullName>
+                <fullName>B web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C 63 AMG web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car reviews</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C coupe webspecial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C Coupe web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-GE web special</fullName>
@@ -9250,27 +8970,47 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Avant capital group</fullName>
+                <fullName>China News</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Internet Info Agency</fullName>
+                <fullName>China telecom / 189 mailbox</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>China Unicom</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Youku</fullName>
+                <fullName>CLS Shooting Break web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Ifeng</fullName>
+                <fullName>CLS web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>MBDE</fullName>
+                <fullName>COACH</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cooperation media</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
@@ -9285,89 +9025,14 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Au</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car reviews</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hexun</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C 63 AMG web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Online event registration</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eDM-PC</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eDM-Mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loan data</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz financial</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDA</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz driving Academy</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COACH</fullName>
+                <fullName>D&amp;G</fullName>
                 <default>false</default>
                 <controllingFieldValues>Partners</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>mymb</fullName>
+                <fullName>Dealers nomination</fullName>
                 <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Owners Club</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>edm_PotentialCustome</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show2012</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
+                <controllingFieldValues>Dealers</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Direct mail</fullName>
@@ -9375,73 +9040,14 @@ Modify Reason:
                 <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Wifi</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Arena</fullName>
+                <fullName>DMS</fullName>
                 <default>false</default>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes-Benz Web site _ after sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Netcom</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PowerScreen</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wedo</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>iQiyi</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Google</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C coupe webspecial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China Unicom</fullName>
+                <fullName>Dunhill</fullName>
                 <default>false</default>
                 <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>iDaily</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bookshelf</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FT</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Eastmoney</fullName>
@@ -9449,61 +9055,62 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Mobile-MEC</fullName>
+                <fullName>E Cabriolet web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>China News</fullName>
+                <fullName>E Coupe web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Sina-MEC</fullName>
+                <fullName>edm_PotentialCustome</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eDM-Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eDM-PC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eMB</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>People</fullName>
+                <fullName>Energy source</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E web special</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>XCP</fullName>
+                <fullName>E web special-Mobile</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Sina-EMC</fullName>
+                <fullName>Fax</fullName>
                 <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile-EMC</fullName>
-                <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Feichangzhun</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Skynod</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jinritoutiao</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blue Focus</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tmall Sina Alipay</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
@@ -9513,9 +9120,192 @@ Modify Reason:
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>FT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G2</fullName>
+                <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLK web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hexun</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HUGO BOSS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IB Call</fullName>
+                <default>false</default>
+                <controllingFieldValues>IB Call</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iDaily</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ifeng</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inmobi</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interaction through</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internet Info Agency</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iQiyi</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jingdong mall</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jinritoutiao</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Letv</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan data</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz financial</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine Response Card</fullName>
+                <default>false</default>
+                <controllingFieldValues>MB Magazine</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Arena</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDA</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz driving Academy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDE</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz E-brochure and price list</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz E-newsletter</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Financial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz interactive community</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes - Benz website _ pre-sale</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ML web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile-EMC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile-MEC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>mymb</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Netcom</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NetEase</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+                <controllingFieldValues>OB Call</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ogilvy</fullName>
@@ -9529,11 +9319,226 @@ Modify Reason:
                 <controllingFieldValues>Social media</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Online event registration</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <controllingFieldValues>E-mail</controllingFieldValues>
+                <controllingFieldValues>Other</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>Event</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Owners Club</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pcauto</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>People</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
                 <fullName>PM2.5</fullName>
                 <default>false</default>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
+            <picklistValues>
+                <fullName>PowerScreen</fullName>
+                <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QQ</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Road rescue switching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Short message</fullName>
+                <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sina</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sina Blog</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sina-EMC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sina-MEC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site information</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Skynod</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart_ contact us _ pre-sale</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart_ contact us _ product manual and price list</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart_ contact us _ test drive</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart interactive community</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart official website</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SNS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SoHu</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SSI</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S Web special</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S web special-Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taobao station</fullName>
+                <default>false</default>
+                <controllingFieldValues>Partners</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tmall Sina Alipay</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TNT</fullName>
+                <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used car</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle administration office</fullName>
+                <default>false</default>
+                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voice mail</fullName>
+                <default>false</default>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VVIP</fullName>
+                <default>false</default>
+                <controllingFieldValues>Other</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WeChat</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wedo</fullName>
+                <default>false</default>
+                <controllingFieldValues>3rd party data</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weibo</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wifi</fullName>
+                <default>false</default>
+                <controllingFieldValues>Event</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Xcar</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>XCP</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Youku</fullName>
+                <default>false</default>
+                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10087,7 +10092,7 @@ IF(
 || 
 (ISBLANK(Expected_Registration_Date__c ) &amp;&amp; 
 NOT(ISBLANK(Order_Confirmation_Date__c)) ) 
-), 'Uncalculated',' ' 
+), $Label.Uncalculated,' ' 
 ) 
 ) 
 ) 
@@ -24652,7 +24657,7 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-            <values>
+           <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
@@ -24660,44 +24665,16 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Approving</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
             <values>
-                <fullName>Contact Failed For 3 Days</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>First Contact Customer</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Lost%28Dealer%29</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Not Allocated</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Purchased</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Lost%28%28CCC%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36842,22 +36819,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>		
-        <picklistValues>
+            <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-			<values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
+           <values>
                 <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved %28Waiting%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36865,95 +36830,18 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Contact Failed For 3 Days</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distributed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>First Contact Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gave up</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Lost%28CAC%29</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Lost%28%28CCC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost%28Dealer%29</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>New</fullName>
                 <default>true</default>
             </values>
-			<values>
+            <values>
                 <fullName>Not Allocated</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Purchased</fullName>
-                <default>false</default>
-            </values>
             <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Qualified</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Received</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Service Booking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Completed</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues><picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
                 <fullName>Customer can not be reached</fullName>
@@ -75463,6 +75351,10 @@ Company_Account__r.Work_Phone__c  ,
 				<fullName>Approved</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Approving</fullName>
                 <default>false</default>
@@ -75499,6 +75391,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>New</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Not Allocated</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Order Placed</fullName>
                 <default>false</default>
@@ -75517,6 +75413,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88345,62 +88245,14 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Allocated</fullName>
-                <default>false</default>
-            </values>
-            <values>
+           <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
-				<fullName>Approved %28Waiting%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Approving</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Contact Failed For 3 Days</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-				<fullName>Distributed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>First Contact Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gave up</fullName>
-                <default>false</default>
-            </values>
-            <values>
-				<fullName>Lost%28%28CCC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost%28CAC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost%28Dealer%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -88412,43 +88264,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plan to Purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
-				<fullName>Purchased</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Qualified</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Received</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visited Showroom%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
+        </picklistValues>   <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
 				<fullName>Customer can not be reached</fullName>
