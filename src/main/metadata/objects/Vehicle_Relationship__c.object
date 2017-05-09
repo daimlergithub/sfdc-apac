@@ -2618,6 +2618,10 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
                 <fullName>Sent</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -5175,6 +5179,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         </picklistValues>
         <picklistValues>
             <picklist>Portal_Apply_Status__c</picklist>
+			<values>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Sent</fullName>
                 <default>false</default>
