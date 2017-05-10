@@ -56019,18 +56019,16 @@ else {
         <masterLabel>Check Duplicates</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var MD = '{!ISPICKVAL($User.Market__c, 'KR')}';
-
-if(MD)
-{
-alert('This function available only for Japan user');
-
-}
-else
-{
-window.open('/apex/CheckAccountDuplicatePage?id={!Account.Id}');
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+window.open('{!URLFOR($Site.Prefix)}/apex/CheckAccountDuplicatePage?id={!Account.Id}'); 
+} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -56438,17 +56436,26 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         window.open("/objLead.Id");
     }</url>
     </webLinks>
-    <webLinks>
+	<webLinks>
         <fullName>New_Case_Dealer</fullName>
         <availability>online</availability>
-        <description>New Case button for Dealer User</description>
+        <description>New Case button for Dealer User and MBJ users.</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>New Case</masterLabel>
-        <openType>replace</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/MBJapan/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=%2FMBJapan%2F500%2Fo&amp;save_new_url=%2FMBJapan%2F500%2Fe%3FretURL%3D%252FMBJapan%252F500%252Fo</url>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+window.open('/MBJapan/setup/ui/recordtypeselect.jsp?ent=Case&amp;retURL=%2FMBJapan%2F500%2Fo&amp;save_new_url=%2FMBJapan%2F500%2Fe%3FretURL%3D%252FMBJapan%252F500%252Fo'); 
+} 
+else 
+{ 
+alert("{!$Label.NewCaseErrorMsg}"); 
+}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Leads</fullName>
@@ -56458,8 +56465,7 @@ window.open("OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp
         <masterLabel>New Sales Leads</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
 if('{!User.ContactId}' ==null){ 
 if(sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
@@ -56647,18 +56653,16 @@ else {
         <masterLabel>SendtoJPOS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
-
-if(MD)
-{
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+window.open('{!URLFOR($Site.Prefix)}/apex/SendToJPOS?id={!Account.Id}'); 
+} 
+else 
+{ 
 alert("{!$Label.SendToJPOSErrorMsg}"); 
-
-}
-else
-{
-   window.open('/apex/SendToJPOS?id={!Account.Id}');
 }</url>
     </webLinks>
     <webLinks>
@@ -56669,18 +56673,16 @@ else
         <masterLabel>Send to MyMercedes</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
-
-if(MD)
-{
-alert("This function available only for Japan user");
-
-}
-else
-{
-   window.open('/apex/CustomerMymercInterface?id={!Account.Id}');
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+window.open('{!URLFOR($Site.Prefix)}/apex/CustomerMymercInterface?id={!Account.Id}'); 
+} 
+else 
+{ 
+alert("{!$Label.SendToMyMercedesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -56691,18 +56693,16 @@ else
         <masterLabel>Send to SPO</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-var MD = '{!ISPICKVAL($User.Market__c, 'KR')}'; 
-
-if(MD)
-{
-alert("{!$Label.SendToSPOErrorMSG}");
-
-}
-else
-{
-   window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}');
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = "{!Account.MD__c}"; 
+if(market == 'JP') 
+{ 
+window.open('{!URLFOR($Site.Prefix)}/apex/SendAccountInfoToSPO?id={!Account.Id}'); 
+} 
+else 
+{ 
+alert("{!$Label.SendToSPOErrorMSG}"); 
 }</url>
     </webLinks>
     <webLinks>
