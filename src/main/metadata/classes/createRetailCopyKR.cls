@@ -7,8 +7,9 @@ public class createRetailCopyKR {
     public List<Address__c> sample1{set;get;}
     public List<Account> accc {set;get;}
 	public User  CurrentUsr{set;get;}
-	CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id = :UserInfo.getUserId() and Market__c = 'KR'];	 
+		 
     public createRetailCopyKR(ApexPages.StandardController controller){
+		CurrentUsr=[SELECT Market__c,DMS_UserID__c,IsPortalEnabled ,contactid,Id FROM User WHERE Id =: UserInfo.getUserId() and Market__c = 'KR'];
         account = (Account)controller.getRecord();
         sample = [select id,Name,Customer__c,Address_Type__c,ZipCode__c,Province__c ,Province_Native__c ,City_Native__c,District__c,District_Native__c ,Block__c ,Block_Native__c ,
                   Address_Line_1__c,Address_Line_1_Native__c , Address_Line_2__c ,Address_Line_2_Native__c  ,Company_Name__c ,Company_Name_Native__c ,TitleOfHonor__c , Status__c ,
