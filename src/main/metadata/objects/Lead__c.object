@@ -10092,7 +10092,7 @@ IF(
 || 
 (ISBLANK(Expected_Registration_Date__c ) &amp;&amp; 
 NOT(ISBLANK(Order_Confirmation_Date__c)) ) 
-), 'Uncalculated',' ' 
+), $Label.Uncalculated,' ' 
 ) 
 ) 
 ) 
