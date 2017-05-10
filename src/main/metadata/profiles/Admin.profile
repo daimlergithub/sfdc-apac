@@ -20586,10 +20586,6 @@
         <layout>CaseClose-Case Close Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-S24h Layout</layout>
-        <recordType>Case.S24h_MMC</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>CaseInteraction-Case Feed Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -22438,11 +22434,6 @@
         <recordType>Case.Roadside_Assistance</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<recordTypeVisibilities>
-		<default>false</default>
-		<recordType>Case.S24h_MMC</recordType>
-		<visible>true</visible>
-	</recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Touring_Support</recordType>
