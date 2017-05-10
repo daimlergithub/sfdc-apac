@@ -43,4 +43,5 @@ TaskTriggerTH,TRUE,TRUE,TRUE,TaskTrigger,TRUE,TRUE,TRUE,TaskTriggerHandlerTH,TH
 TriggerDMRequestTH,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerTH,TH
 TriggerCampaignTH,TRUE,TRUE,TRUE,TriggerCampaign,TRUE,TRUE,TRUE,TriggerCampaignTriggerHandlerTH,TH
 TriggerCaseTH,TRUE,TRUE,TRUE,CaseTrigger,TRUE,TRUE,TRUE,CaseTriggerHandlerTH,TH
+TriggerDMRequestKR,TRUE,TRUE,TRUE,TriggerDMRequest,TRUE,TRUE,TRUE,TriggerDMRequestTriggerHandlerJP,KR
 TriggerLeadTH,TRUE,TRUE,TRUE,TriggerLead,TRUE,TRUE,TRUE,LeadTriggerHandlerTH,TH
