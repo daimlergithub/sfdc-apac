@@ -1728,7 +1728,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.All_Channel_opt_out__c</field>
+        <field>Account.All_channel_opt_out__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
