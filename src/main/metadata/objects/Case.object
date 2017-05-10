@@ -514,31 +514,6 @@
         <type>Picklist</type>
     </fields>
 	<fields>
-        <fullName>MBK_Case_Class__c</fullName>
-        <externalId>false</externalId>
-        <label>MBK Case Class</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RSA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
         <fullName>Receiver_Fax_Email_address__c</fullName>
         <externalId>false</externalId>
         <label>Receiver Fax/E-mail address</label>
@@ -18306,7 +18281,9 @@ Modify Reason:
         <length>50</length>	
         <required>false</required>	
         <trackFeedHistory>false</trackFeedHistory>	
-        <trackHistory>false</trackHistory>	
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>	
 	</fields>	
     <fields>	
