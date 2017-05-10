@@ -2156,7 +2156,7 @@
 	<fields>
 		<fullName>CAC_PERSON_UID__c</fullName>
 		<externalId>false</externalId>
-		<label>CAC PERSON UID</label>
+		<label>Compass Customer ID</label>
 		<length>100</length>
 		<required>false</required>
 		<trackFeedHistory>false</trackFeedHistory>
@@ -10240,7 +10240,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
 	<fields>
         <fullName>MBC_USERID__c</fullName>
         <externalId>false</externalId>
-        <label>MBC USERID</label>
+        <label>CPD Customer ID</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10650,6 +10650,10 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compass</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19363,6 +19367,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
+			<values>
+				<fullName>Compass</fullName>
+               <default>false</default>
+			</values>
             <values>
                 <fullName>Circle of excellence</fullName>
                 <default>false</default>
@@ -54637,9 +54645,17 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <fullName>Acquisition_Objective_Method_mandatory</fullName>
         <active>true</active>
         <description>When "Allow data sharing2" is set to "Yes" in either ACC-01-05 Person Account Layout for Dealer or ACC-06-01 Account Creation,  "Acquisition Objective &amp; Method" should be mandatory</description>
-        <errorConditionFormula>AND( ISPICKVAL( Allow_Data_Sharing2__c , "Yes"), ISPICKVAL( Acquisition_Objective_Method__c , ''), MD__c ='JP', $Profile.Name !="IntegrationAPI", RecordType.Name ='PersonAccount'  )</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL( Allow_Data_Sharing2__c , 'Yes'), ISPICKVAL( Acquisition_Objective_Method__c ,''), MD__c ='JP', $Profile.Name !="IntegrationAPI", RecordType.DeveloperName = 'PersonAccount',ISPICKVAL(Data_Source__c,'Dealer Outlet'))</errorConditionFormula>
         <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
         <errorMessage>Please select Acquisition Objective &amp; Method</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Acquisition_Object_Method_Cannot_Change</fullName>
+        <active>true</active>
+        <description>Below rules need to be applied only for person account record type If "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" is not null, "Acquisition Objective &amp;&amp; Method(Acquisition_Objdective_Method__c)" cannot be changed</description>
+        <errorConditionFormula>IF(NOT(ISPICKVAL( PRIORVALUE(Acquisition_Objective_Method__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISPICKVAL( Allow_Data_Sharing2__c , 'Yes'),true,false)</errorConditionFormula>
+        <errorDisplayField>Acquisition_Objective_Method__c</errorDisplayField>
+        <errorMessage>You cannot change the Acquistion Objective Method</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing2_Only_MBJMBF</fullName>
@@ -54880,10 +54896,10 @@ NOT(Dealer_Active__c)
         <fullName>Data_source</fullName>
         <active>true</active>
         <description>If data source field is changes throw error message</description>
-        <errorConditionFormula>AND( ISCHANGED(Data_Source__c), MD__c ='JP', $Profile.Name !="IntegrationAPI",RecordType.Name ='PersonAccount')</errorConditionFormula>
+        <errorConditionFormula>IF(NOT(ISPICKVAL(PRIORVALUE(Data_Source__c),'')) &amp;&amp; RecordType.DeveloperName = 'PersonAccount' &amp;&amp; !ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; ISCHANGED(Data_Source__c),true,false)</errorConditionFormula>
         <errorDisplayField>Data_Source__c</errorDisplayField>
-        <errorMessage>You can't Change data source value</errorMessage>
-    </validationRules>
+        <errorMessage>You can't change data source value</errorMessage>
+    </validationRules> 
     <validationRules>
         <fullName>DealerAccountName_NoOfDigits</fullName>
         <active>true</active>
@@ -56171,23 +56187,18 @@ if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-		{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-		{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}  
-
-
- sforce.connection.sessionId = &quot;{!$Api.Session_ID}&quot;;
-var userDetails = sforce.connection.query(&quot;SELECT Id, Market__c from User WHERE id =&apos;&quot; + sforce.connection.getUserInfo().userId + &quot;&apos;&quot;);
-var userMarket = userDetails.getArray(&quot;records&quot;);
-
-
-
-if(userMarket[0].Market__c == &apos;JP&apos;){
-window.open(&quot;/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);
-}else if(userMarket[0].Market__c == &apos;KR&apos;){
-window.open(&quot;/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;,&quot;width = 800, height = 600&quot;);
-}else{
-alert(&apos;Error: Your Market Is Not defined &apos;);
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} 
+sforce.connection.sessionId = "{!$Api.Session_ID}"; 
+var userDetails = sforce.connection.query("SELECT Id, Market__c from User WHERE id ='" + sforce.connection.getUserInfo().userId + "'"); 
+var userMarket = userDetails.getArray("records"); 
+if(userMarket[0].Market__c == 'JP'){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
+}
+else if(userMarket[0].Market__c == 'KR'){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/SelectSlaveAccountKR?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
+}else{ 
+alert('Error: Your Market Is Not defined '); 
 }</url>
     </webLinks>
     <webLinks>
