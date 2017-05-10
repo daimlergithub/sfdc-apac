@@ -860,14 +860,6 @@
         <apexClass>LeadLatestPhaseUpdateJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<classAccesses>
-        <apexClass>LeadReassign</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LeadReassignTest</apexClass>
-		<enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>LeadMergeController</apexClass>
         <enabled>true</enabled>
