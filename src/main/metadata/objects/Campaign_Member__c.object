@@ -89,7 +89,7 @@
     <fields>
         <fullName>Address_Flag__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Address__r.TitleOfHonor__c)</formula>
+        <formula>IF(ISPICKVAL(Address__r.TitleOfHonor__c , 'To Person'),$Label.To_Person,IF(ISPICKVAL(Address__r.TitleOfHonor__c , 'To Company'),$Label.To_Company,'') )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Address Flag</label>
         <required>false</required>
