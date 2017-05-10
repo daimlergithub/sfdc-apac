@@ -22968,7 +22968,7 @@
         <readable>true</readable>
     </fieldPermissions>
    <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Vehicle_Range__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23128,7 +23128,7 @@
         <readable>false</readable>
     </fieldPermissions>
      <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle__c.Class_and_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
