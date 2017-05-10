@@ -608,13 +608,33 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>All_Channel_opt_out__c</fullName>
+        <fullName>All_channel_opt_out__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( NOT( AND( Opt_In_Email__c , Opt_In_Home_Phone__c ,  Opt_In_SMS__c ,  Opt_In_Work_Phone__c ) ),true,false )</formula>
+        <formula>IF(NOT(AND(Opt_In_Email__c,Opt_In_Home_Phone__c,Opt_In_SMS__c,Opt_In_Work_Phone__c)),true,false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>All Channel opt-out</label>
+        <label>All channel opt-out</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>OptedOutOfEmail_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>OptedOutOfEmail Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>Fax2_Last_Modified_Date__c</fullName>
+        <description>Used by the Merge logic, added as part of Merge requirements</description>
+        <externalId>false</externalId>
+        <label>Fax2 Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Alliance_Offered_Service__c</fullName>
@@ -2643,7 +2663,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
         <description>DFE Requirement to capture the dealer segment (This is in CISM CR)</description>
         <externalId>false</externalId>
         <label>Dealer Segment</label>
-        <length>100</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
